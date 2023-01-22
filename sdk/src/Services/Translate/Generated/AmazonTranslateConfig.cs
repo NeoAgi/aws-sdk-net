@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the translate-2017-07-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Translate.Internal;
 
 namespace Amazon.Translate
 {
     /// <summary>
     /// Configuration for accessing Amazon Translate service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonTranslateConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.18");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.21");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Translate
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonTranslateDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "translate";
+            this.EndpointProvider = new AmazonTranslateEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Translate
                 return _userAgent;
             }
         }
+
     }
 }

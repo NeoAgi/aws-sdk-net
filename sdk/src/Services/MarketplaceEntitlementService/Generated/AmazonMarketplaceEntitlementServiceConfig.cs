@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the entitlement.marketplace-2017-01-11.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MarketplaceEntitlementService.Internal;
 
 namespace Amazon.MarketplaceEntitlementService
 {
     /// <summary>
     /// Configuration for accessing Amazon MarketplaceEntitlementService service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMarketplaceEntitlementServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MarketplaceEntitlementService
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMarketplaceEntitlementServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "aws-marketplace";
+            this.EndpointProvider = new AmazonMarketplaceEntitlementServiceEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MarketplaceEntitlementService
                 return _userAgent;
             }
         }
+
     }
 }

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the amplifyuibuilder-2021-08-11.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.AmplifyUIBuilder.Internal;
 
 namespace Amazon.AmplifyUIBuilder
 {
     /// <summary>
     /// Configuration for accessing Amazon AmplifyUIBuilder service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonAmplifyUIBuilderConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.48");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.AmplifyUIBuilder
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAmplifyUIBuilderDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "amplifyuibuilder";
+            this.EndpointProvider = new AmazonAmplifyUIBuilderEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.AmplifyUIBuilder
                 return _userAgent;
             }
         }
+
     }
 }

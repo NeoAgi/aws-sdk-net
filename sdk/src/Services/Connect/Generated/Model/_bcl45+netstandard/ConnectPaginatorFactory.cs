@@ -236,6 +236,14 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Paginator for ListRules operation
+        ///</summary>
+        public IListRulesPaginator ListRules(ListRulesRequest request) 
+        {
+            return new ListRulesPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListSecurityKeys operation
         ///</summary>
         public IListSecurityKeysPaginator ListSecurityKeys(ListSecurityKeysRequest request) 
@@ -268,6 +276,14 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Paginator for ListTrafficDistributionGroups operation
+        ///</summary>
+        public IListTrafficDistributionGroupsPaginator ListTrafficDistributionGroups(ListTrafficDistributionGroupsRequest request) 
+        {
+            return new ListTrafficDistributionGroupsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListUseCases operation
         ///</summary>
         public IListUseCasesPaginator ListUseCases(ListUseCasesRequest request) 
@@ -297,6 +313,22 @@ namespace Amazon.Connect.Model
         public ISearchAvailablePhoneNumbersPaginator SearchAvailablePhoneNumbers(SearchAvailablePhoneNumbersRequest request) 
         {
             return new SearchAvailablePhoneNumbersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for SearchQueues operation
+        ///</summary>
+        public ISearchQueuesPaginator SearchQueues(SearchQueuesRequest request) 
+        {
+            return new SearchQueuesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for SearchRoutingProfiles operation
+        ///</summary>
+        public ISearchRoutingProfilesPaginator SearchRoutingProfiles(SearchRoutingProfilesRequest request) 
+        {
+            return new SearchRoutingProfilesPaginator(this.client, request);
         }
 
         /// <summary>

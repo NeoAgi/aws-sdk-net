@@ -57,6 +57,17 @@ namespace Amazon.SSMIncidents.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.MetricDefinition);
             }
 
+            if(requestObject.IsSetPagerDutyIncidentDetail())
+            {
+                context.Writer.WritePropertyName("pagerDutyIncidentDetail");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = PagerDutyIncidentDetailMarshaller.Instance;
+                marshaller.Marshall(requestObject.PagerDutyIncidentDetail, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetUrl())
             {
                 context.Writer.WritePropertyName("url");

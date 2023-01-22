@@ -752,6 +752,10 @@ namespace Amazon.LocationService
         /// The request has failed to process because of an unknown server error, exception, or
         /// failure.
         /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
+        /// </exception>
         /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
         /// The request was denied because of request throttling.
         /// </exception>
@@ -799,7 +803,7 @@ namespace Amazon.LocationService
         ///  <note> 
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
-        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
         /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
         /// for more details.
         /// </para>
@@ -818,6 +822,10 @@ namespace Amazon.LocationService
         /// <exception cref="Amazon.LocationService.Model.InternalServerException">
         /// The request has failed to process because of an unknown server error, exception, or
         /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
         /// </exception>
         /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
         /// The request was denied because of request throttling.
@@ -869,7 +877,7 @@ namespace Amazon.LocationService
         ///  <note> 
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
-        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
         /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
         /// for more details.
         /// </para>
@@ -888,6 +896,10 @@ namespace Amazon.LocationService
         /// <exception cref="Amazon.LocationService.Model.InternalServerException">
         /// The request has failed to process because of an unknown server error, exception, or
         /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
         /// </exception>
         /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
         /// The request was denied because of request throttling.
@@ -941,7 +953,7 @@ namespace Amazon.LocationService
         ///  <note> 
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
-        /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+        /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
         /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
         /// for more details.
         /// </para>
@@ -960,6 +972,10 @@ namespace Amazon.LocationService
         /// <exception cref="Amazon.LocationService.Model.InternalServerException">
         /// The request has failed to process because of an unknown server error, exception, or
         /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
         /// </exception>
         /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
         /// The request was denied because of request throttling.
@@ -2154,6 +2170,83 @@ namespace Amazon.LocationService
 
         #endregion
         
+        #region  GetPlace
+
+
+        /// <summary>
+        /// Finds a place by its unique ID. A <code>PlaceId</code> is returned by other search
+        /// operations.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// A PlaceId is valid only if all of the following are the same in the original search
+        /// request and the call to <code>GetPlace</code>.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Customer AWS account
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// AWS Region
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Data provider specified in the place index resource
+        /// </para>
+        ///  </li> </ul> </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPlace service method.</param>
+        /// 
+        /// <returns>The response from the GetPlace service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/GetPlace">REST API Reference for GetPlace Operation</seealso>
+        GetPlaceResponse GetPlace(GetPlaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetPlace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetPlace operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetPlace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/GetPlace">REST API Reference for GetPlace Operation</seealso>
+        IAsyncResult BeginGetPlace(GetPlaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetPlace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetPlace.</param>
+        /// 
+        /// <returns>Returns a  GetPlaceResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/GetPlace">REST API Reference for GetPlace Operation</seealso>
+        GetPlaceResponse EndGetPlace(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ListDevicePositions
 
 
@@ -2922,15 +3015,24 @@ namespace Amazon.LocationService
         /// Assigns one or more tags (key-value pairs) to the specified Amazon Location Service
         /// resource.
         /// 
-        ///  <pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You
-        /// can also use them to scope user permissions, by granting a user permission to access
-        /// or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the
-        /// &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource
-        /// that already has tags. If you specify a new tag key for the resource, this tag is
-        /// appended to the tags already associated with the resource. If you specify a tag key
-        /// that's already associated with the resource, the new tag value that you specify replaces
-        /// the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags
-        /// with a resource.&lt;/p&gt; </code></pre>
+        ///  
+        /// <para>
+        /// Tags can help you organize and categorize your resources. You can also use them to
+        /// scope user permissions, by granting a user permission to access or change only resources
+        /// with certain tag values.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can use the <code>TagResource</code> operation with an Amazon Location Service
+        /// resource that already has tags. If you specify a new tag key for the resource, this
+        /// tag is appended to the tags already associated with the resource. If you specify a
+        /// tag key that's already associated with the resource, the new tag value that you specify
+        /// replaces the previous value for that tag. 
+        /// </para>
+        ///  
+        /// <para>
+        /// You can associate up to 50 tags with a resource.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 

@@ -238,6 +238,15 @@ namespace Amazon.IoTSiteWise
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonIoTSiteWiseEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -308,6 +317,9 @@ namespace Amazon.IoTSiteWise
         /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>IoT SiteWise User Guide</i>.
         /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ResourceAlreadyExistsException">
+        /// The resource already exists.
         /// </exception>
         /// <exception cref="Amazon.IoTSiteWise.Model.ResourceNotFoundException">
         /// The requested resource can't be found.
@@ -808,9 +820,9 @@ namespace Amazon.IoTSiteWise
 
 
         /// <summary>
-        /// Creates an access policy that grants the specified identity (Amazon Web Services SSO
-        /// user, Amazon Web Services SSO group, or IAM user) access to the specified IoT SiteWise
-        /// Monitor portal or project resource.
+        /// Creates an access policy that grants the specified identity (IAM Identity Center user,
+        /// IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor
+        /// portal or project resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAccessPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -1028,18 +1040,10 @@ namespace Amazon.IoTSiteWise
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This API operation is in preview release for IoT SiteWise and is subject to change.
-        /// We recommend that you use this operation only with test data, and not in production
-        /// environments.
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
         /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create
         /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-        /// </para>
+        /// 
         ///  <important> 
         /// <para>
         /// You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk
@@ -1253,7 +1257,7 @@ namespace Amazon.IoTSiteWise
 
         /// <summary>
         /// Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor
-        /// uses Amazon Web Services SSO or IAM to authenticate portal users and manage user permissions.
+        /// uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.
         /// 
         ///  <note> 
         /// <para>
@@ -2129,18 +2133,9 @@ namespace Amazon.IoTSiteWise
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This API operation is in preview release for IoT SiteWise and is subject to change.
-        /// We recommend that you use this operation only with test data, and not in production
-        /// environments.
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves information about a bulk import job request. For more information, see <a
         /// href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
         /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeBulkImportJob service method.</param>
         /// <param name="cancellationToken">
@@ -3154,9 +3149,9 @@ namespace Amazon.IoTSiteWise
 
 
         /// <summary>
-        /// Retrieves a paginated list of access policies for an identity (an Amazon Web Services
-        /// SSO user, an Amazon Web Services SSO group, or an IAM user) or an IoT SiteWise Monitor
-        /// resource (a portal or project).
+        /// Retrieves a paginated list of access policies for an identity (an IAM Identity Center
+        /// user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise Monitor resource
+        /// (a portal or project).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccessPolicies service method.</param>
         /// <param name="cancellationToken">
@@ -3190,6 +3185,63 @@ namespace Amazon.IoTSiteWise
             options.ResponseUnmarshaller = ListAccessPoliciesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListAccessPoliciesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListAssetModelProperties
+
+        internal virtual ListAssetModelPropertiesResponse ListAssetModelProperties(ListAssetModelPropertiesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAssetModelPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAssetModelPropertiesResponseUnmarshaller.Instance;
+
+            return Invoke<ListAssetModelPropertiesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves a paginated list of properties associated with an asset model. If you update
+        /// properties associated with the model before you finish listing all the properties,
+        /// you need to start all over again.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListAssetModelProperties service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListAssetModelProperties service method, as returned by IoTSiteWise.</returns>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InternalFailureException">
+        /// IoT SiteWise can't process your request right now. Try again later.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InvalidRequestException">
+        /// The request isn't valid. This can occur if your request contains malformed JSON or
+        /// unsupported characters. Check your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ResourceNotFoundException">
+        /// The requested resource can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ThrottlingException">
+        /// Your request exceeded a rate limit. For example, you might have exceeded the number
+        /// of IoT SiteWise assets that can be created per second, the allowed number of messages
+        /// per second, and so on.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// in the <i>IoT SiteWise User Guide</i>.
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotsitewise-2019-12-02/ListAssetModelProperties">REST API Reference for ListAssetModelProperties Operation</seealso>
+        public virtual Task<ListAssetModelPropertiesResponse> ListAssetModelPropertiesAsync(ListAssetModelPropertiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAssetModelPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAssetModelPropertiesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListAssetModelPropertiesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3242,6 +3294,63 @@ namespace Amazon.IoTSiteWise
             options.ResponseUnmarshaller = ListAssetModelsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListAssetModelsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListAssetProperties
+
+        internal virtual ListAssetPropertiesResponse ListAssetProperties(ListAssetPropertiesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAssetPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAssetPropertiesResponseUnmarshaller.Instance;
+
+            return Invoke<ListAssetPropertiesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves a paginated list of properties associated with an asset. If you update properties
+        /// associated with the model before you finish listing all the properties, you need to
+        /// start all over again.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListAssetProperties service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListAssetProperties service method, as returned by IoTSiteWise.</returns>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InternalFailureException">
+        /// IoT SiteWise can't process your request right now. Try again later.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.InvalidRequestException">
+        /// The request isn't valid. This can occur if your request contains malformed JSON or
+        /// unsupported characters. Check your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ResourceNotFoundException">
+        /// The requested resource can't be found.
+        /// </exception>
+        /// <exception cref="Amazon.IoTSiteWise.Model.ThrottlingException">
+        /// Your request exceeded a rate limit. For example, you might have exceeded the number
+        /// of IoT SiteWise assets that can be created per second, the allowed number of messages
+        /// per second, and so on.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// in the <i>IoT SiteWise User Guide</i>.
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iotsitewise-2019-12-02/ListAssetProperties">REST API Reference for ListAssetProperties Operation</seealso>
+        public virtual Task<ListAssetPropertiesResponse> ListAssetPropertiesAsync(ListAssetPropertiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAssetPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAssetPropertiesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListAssetPropertiesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3461,18 +3570,9 @@ namespace Amazon.IoTSiteWise
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// This API operation is in preview release for IoT SiteWise and is subject to change.
-        /// We recommend that you use this operation only with test data, and not in production
-        /// environments.
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Retrieves a paginated list of bulk import job requests. For more information, see
         /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List
-        /// bulk import jobs (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-        /// </para>
+        /// bulk import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBulkImportJobs service method.</param>
         /// <param name="cancellationToken">

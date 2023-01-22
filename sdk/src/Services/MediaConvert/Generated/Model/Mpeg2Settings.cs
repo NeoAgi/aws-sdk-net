@@ -46,6 +46,7 @@ namespace Amazon.MediaConvert.Model
         private int? _gopClosedCadence;
         private double? _gopSize;
         private Mpeg2GopSizeUnits _gopSizeUnits;
+        private int? _hrdBufferFinalFillPercentage;
         private int? _hrdBufferInitialFillPercentage;
         private int? _hrdBufferSize;
         private Mpeg2InterlaceMode _interlaceMode;
@@ -298,6 +299,25 @@ namespace Amazon.MediaConvert.Model
         internal bool IsSetGopSizeUnits()
         {
             return this._gopSizeUnits != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property HrdBufferFinalFillPercentage. If your downstream systems
+        /// have strict buffer requirements: Specify the minimum percentage of the HRD buffer
+        /// that's available at the end of each encoded video segment. For the best video quality:
+        /// Set to 0 or leave blank to automatically determine the final buffer fill percentage.
+        /// </summary>
+        [AWSProperty(Min=0, Max=100)]
+        public int HrdBufferFinalFillPercentage
+        {
+            get { return this._hrdBufferFinalFillPercentage.GetValueOrDefault(); }
+            set { this._hrdBufferFinalFillPercentage = value; }
+        }
+
+        // Check to see if HrdBufferFinalFillPercentage property is set
+        internal bool IsSetHrdBufferFinalFillPercentage()
+        {
+            return this._hrdBufferFinalFillPercentage.HasValue; 
         }
 
         /// <summary>
@@ -656,7 +676,7 @@ namespace Amazon.MediaConvert.Model
         /// Gets and sets the property Syntax. Specify whether this output's video uses the D10
         /// syntax. Keep the default value to  not use the syntax. Related settings: When you
         /// choose D10 (D_10) for your MXF  profile (profile), you must also set this value to
-        /// to D10 (D_10).
+        /// D10 (D_10).
         /// </summary>
         public Mpeg2Syntax Syntax
         {

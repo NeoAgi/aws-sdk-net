@@ -35,7 +35,8 @@ namespace Amazon.Connect.Model
     ///  
     /// <para>
     /// For the specified version of Amazon Lex, returns a paginated list of all the Amazon
-    /// Lex bots currently associated with the instance. 
+    /// Lex bots currently associated with the instance. Use this API to returns both Amazon
+    /// Lex V1 and V2 bots.
     /// </para>
     /// </summary>
     public partial class ListBotsRequest : AmazonConnectRequest

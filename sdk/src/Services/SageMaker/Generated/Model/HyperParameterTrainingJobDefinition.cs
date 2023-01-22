@@ -39,6 +39,7 @@ namespace Amazon.SageMaker.Model
         private bool? _enableInterContainerTrafficEncryption;
         private bool? _enableManagedSpotTraining;
         private bool? _enableNetworkIsolation;
+        private Dictionary<string, string> _environment = new Dictionary<string, string>();
         private ParameterRanges _hyperParameterRanges;
         private HyperParameterTuningResourceConfig _hyperParameterTuningResourceConfig;
         private List<Channel> _inputDataConfig = new List<Channel>();
@@ -169,6 +170,37 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Environment. 
+        /// <para>
+        /// An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+        /// API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment
+        /// variable from the training container</a> or use your own. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define
+        /// metrics and variables</a> for more information.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// The maximum number of items specified for <code>Map Entries</code> refers to the maximum
+        /// number of environment variables for each <code>TrainingJobDefinition</code> and also
+        /// the maximum for the hyperparameter tuning job itself. That is, the sum of the number
+        /// of environment variables for all the training job definitions can't exceed the maximum
+        /// number specified.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [AWSProperty(Max=48)]
+        public Dictionary<string, string> Environment
+        {
+            get { return this._environment; }
+            set { this._environment = value; }
+        }
+
+        // Check to see if Environment property is set
+        internal bool IsSetEnvironment()
+        {
+            return this._environment != null && this._environment.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property HyperParameterRanges.
         /// </summary>
         public ParameterRanges HyperParameterRanges
@@ -189,7 +221,7 @@ namespace Amazon.SageMaker.Model
         /// The configuration for the hyperparameter tuning resources, including the compute instances
         /// and storage volumes, used for training jobs launched by the tuning job. By default,
         /// storage volumes hold model artifacts and incremental states. Choose <code>File</code>
-        /// for <code>TrainingInputMode</code> in the <code>AlgorithmSpecification</code>parameter
+        /// for <code>TrainingInputMode</code> in the <code>AlgorithmSpecification</code> parameter
         /// to additionally store training data in the storage volume (optional).
         /// </para>
         /// </summary>

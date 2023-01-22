@@ -76,6 +76,12 @@ namespace Amazon.BillingConductor.Model.Internal.MarshallTransformations
                     unmarshalledObject.AssociatedPricingPlanCount = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("BillingEntity", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.BillingEntity = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CreationTime", targetDepth))
                 {
                     var unmarshaller = LongUnmarshaller.Instance;
@@ -116,6 +122,12 @@ namespace Amazon.BillingConductor.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Service = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Tiering", targetDepth))
+                {
+                    var unmarshaller = TieringUnmarshaller.Instance;
+                    unmarshalledObject.Tiering = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Type", targetDepth))

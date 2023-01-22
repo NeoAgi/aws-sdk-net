@@ -124,7 +124,7 @@ namespace Amazon.CloudTrail.Model
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The following resource types are also availble through <i>advanced</i> event selectors.
+        /// The following resource types are also available through <i>advanced</i> event selectors.
         /// Basic event selector resource types are valid in advanced event selectors, but advanced
         /// event selector resource types are not valid in basic event selectors. For more information,
         /// see <a>AdvancedFieldSelector$Field</a>.
@@ -180,7 +180,7 @@ namespace Amazon.CloudTrail.Model
         ///  <ul> <li> 
         /// <para>
         /// To log data events for all objects in all S3 buckets in your Amazon Web Services account,
-        /// specify the prefix as <code>arn:aws:s3:::</code>.
+        /// specify the prefix as <code>arn:aws:s3</code>.
         /// </para>
         ///  <note> 
         /// <para>

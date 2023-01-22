@@ -259,6 +259,15 @@ namespace Amazon.WorkSpaces
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonWorkSpacesEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -703,6 +712,55 @@ namespace Amazon.WorkSpaces
 
         #endregion
         
+        #region  CreateStandbyWorkspaces
+
+        internal virtual CreateStandbyWorkspacesResponse CreateStandbyWorkspaces(CreateStandbyWorkspacesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateStandbyWorkspacesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateStandbyWorkspacesResponseUnmarshaller.Instance;
+
+            return Invoke<CreateStandbyWorkspacesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a Standby WorkSpace in a secondary region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateStandbyWorkspaces service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateStandbyWorkspaces service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceLimitExceededException">
+        /// Your resource limits have been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/CreateStandbyWorkspaces">REST API Reference for CreateStandbyWorkspaces Operation</seealso>
+        public virtual Task<CreateStandbyWorkspacesResponse> CreateStandbyWorkspacesAsync(CreateStandbyWorkspacesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateStandbyWorkspacesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateStandbyWorkspacesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateStandbyWorkspacesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateTags
 
         internal virtual CreateTagsResponse CreateTags(CreateTagsRequest request)
@@ -955,6 +1013,13 @@ namespace Amazon.WorkSpaces
         /// <para>
         /// This operation is asynchronous and returns before the WorkSpaces are created.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+        /// Core. Contact your account team to be allow-listed to use this value. For more information,
+        /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateWorkspaces service method.</param>
         /// <param name="cancellationToken">
@@ -2336,10 +2401,10 @@ namespace Amazon.WorkSpaces
 
 
         /// <summary>
-        /// Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces.
-        /// The image must be an already licensed Amazon EC2 image that is in your Amazon Web
-        /// Services account, and you must own the image. For more information about creating
-        /// BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+        /// Imports the specified Windows 10 Bring Your Own License (BYOL) or Windows Server 2016
+        /// BYOL image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2
+        /// image that is in your Amazon Web Services account, and you must own the image. For
+        /// more information about creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
         /// Bring Your Own Windows Desktop Licenses</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ImportWorkspaceImage service method.</param>
@@ -2547,6 +2612,53 @@ namespace Amazon.WorkSpaces
             options.ResponseUnmarshaller = ModifyAccountResponseUnmarshaller.Instance;
 
             return InvokeAsync<ModifyAccountResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyCertificateBasedAuthProperties
+
+        internal virtual ModifyCertificateBasedAuthPropertiesResponse ModifyCertificateBasedAuthProperties(ModifyCertificateBasedAuthPropertiesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyCertificateBasedAuthPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyCertificateBasedAuthPropertiesResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyCertificateBasedAuthPropertiesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the properties of the certificate-based authentication you want to use with
+        /// your WorkSpaces.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyCertificateBasedAuthProperties service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyCertificateBasedAuthProperties service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.AccessDeniedException">
+        /// The user is not authorized to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
+        /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
+        /// The resource could not be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/ModifyCertificateBasedAuthProperties">REST API Reference for ModifyCertificateBasedAuthProperties Operation</seealso>
+        public virtual Task<ModifyCertificateBasedAuthPropertiesResponse> ModifyCertificateBasedAuthPropertiesAsync(ModifyCertificateBasedAuthPropertiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyCertificateBasedAuthPropertiesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyCertificateBasedAuthPropertiesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyCertificateBasedAuthPropertiesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2791,7 +2903,15 @@ namespace Amazon.WorkSpaces
         /// <summary>
         /// Modifies the specified WorkSpace properties. For important information about how to
         /// modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
-        /// Modify a WorkSpace</a>.
+        /// Modify a WorkSpace</a>. 
+        /// 
+        ///  <note> 
+        /// <para>
+        /// The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+        /// Core. Contact your account team to be allow-listed to use this value. For more information,
+        /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyWorkspaceProperties service method.</param>
         /// <param name="cancellationToken">
@@ -2870,6 +2990,9 @@ namespace Amazon.WorkSpaces
         /// <exception cref="Amazon.WorkSpaces.Model.InvalidResourceStateException">
         /// The state of the resource is not valid for this operation.
         /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
+        /// </exception>
         /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
         /// The resource could not be found.
         /// </exception>
@@ -2916,6 +3039,9 @@ namespace Amazon.WorkSpaces
         /// </param>
         /// 
         /// <returns>The response from the RebootWorkspaces service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/RebootWorkspaces">REST API Reference for RebootWorkspaces Operation</seealso>
         public virtual Task<RebootWorkspacesResponse> RebootWorkspacesAsync(RebootWorkspacesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -2967,6 +3093,9 @@ namespace Amazon.WorkSpaces
         /// </param>
         /// 
         /// <returns>The response from the RebuildWorkspaces service method, as returned by WorkSpaces.</returns>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/RebuildWorkspaces">REST API Reference for RebuildWorkspaces Operation</seealso>
         public virtual Task<RebuildWorkspacesResponse> RebuildWorkspacesAsync(RebuildWorkspacesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
@@ -3090,6 +3219,9 @@ namespace Amazon.WorkSpaces
         /// </exception>
         /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
         /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
         /// </exception>
         /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
         /// The resource could not be found.
@@ -3511,6 +3643,9 @@ namespace Amazon.WorkSpaces
         /// </exception>
         /// <exception cref="Amazon.WorkSpaces.Model.InvalidParameterValuesException">
         /// One or more parameter values are not valid.
+        /// </exception>
+        /// <exception cref="Amazon.WorkSpaces.Model.OperationNotSupportedException">
+        /// This operation is not supported.
         /// </exception>
         /// <exception cref="Amazon.WorkSpaces.Model.ResourceNotFoundException">
         /// The resource could not be found.

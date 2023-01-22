@@ -38,46 +38,42 @@ namespace Amazon.SimpleSystemsManagement
     /// <summary>
     /// Implementation for accessing SimpleSystemsManagement
     ///
-    /// Amazon Web Services Systems Manager is a collection of capabilities to help you manage
-    /// your applications and infrastructure running in the Amazon Web Services Cloud;. Systems
-    /// Manager simplifies application and resource management, shortens the time to detect
-    /// and resolve operational problems, and helps you manage your Amazon Web Services resources
-    /// securely at scale.
+    /// Amazon Web Services Systems Manager is the operations hub for your Amazon Web Services
+    /// applications and resources and a secure end-to-end management solution for hybrid
+    /// cloud environments that enables safe and secure operations at scale.
     /// 
     ///  
     /// <para>
     /// This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon
-    /// Web Services Systems Manager User Guide</a>.
-    /// </para>
-    ///  
-    /// <para>
-    /// To get started, verify prerequisites. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting
+    /// Web Services Systems Manager User Guide</a>. To get started, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Setting
     /// up Amazon Web Services Systems Manager</a>.
     /// </para>
     ///  <p class="title"> <b>Related resources</b> 
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// For information about how to use a Query API, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making
-    /// API requests</a>. 
+    /// For information about each of the capabilities that comprise Systems Manager, see
+    /// <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems
+    /// Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// For information about other API operations you can perform on EC2 instances, see the
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API Reference</a>.
+    /// For details about predefined runbooks for Automation, a capability of Amazon Web Services
+    /// Systems Manager, see the <i> <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems
+    /// Manager Automation runbook reference</a> </i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// For information about AppConfig, a capability of Systems Manager, see the <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig
-    /// User Guide</a> and the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AppConfig
-    /// API Reference</a>.
+    /// For information about AppConfig, a capability of Systems Manager, see the <i> <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig
+    /// User Guide</a> </i> and the <i> <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/">AppConfig
+    /// API Reference</a> </i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// For information about Incident Manager, a capability of Systems Manager, see the <a
-    /// href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Incident Manager
-    /// User Guide</a> and the <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">Incident
-    /// Manager API Reference</a>.
+    /// For information about Incident Manager, a capability of Systems Manager, see the <i>
+    /// <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Systems Manager
+    /// Incident Manager User Guide</a> </i> and the <i> <a href="https://docs.aws.amazon.com/incident-manager/latest/APIReference/">Systems
+    /// Manager Incident Manager API Reference</a> </i>.
     /// </para>
     ///  </li> </ul>
     /// </summary>
@@ -273,6 +269,15 @@ namespace Amazon.SimpleSystemsManagement
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonSimpleSystemsManagementEndpointResolver());
+        }
         /// <summary>
         /// Capture metadata for the service.
         /// </summary>
@@ -816,6 +821,9 @@ namespace Amazon.SimpleSystemsManagement
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTagException">
+        /// The specified tag key or value isn't valid.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTargetException">
         /// The target isn't valid or doesn't exist. It might not be configured for Systems Manager
         /// or you might not have permission to perform the operation.
@@ -906,6 +914,9 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTagException">
+        /// The specified tag key or value isn't valid.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTargetException">
         /// The target isn't valid or doesn't exist. It might not be configured for Systems Manager
@@ -1059,7 +1070,7 @@ namespace Amazon.SimpleSystemsManagement
         /// User Guide</i>.
         /// </summary>
         /// <param name="content">The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command. For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>. <ul> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (Amazon Web Services API)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document (Amazon Web Services CLI)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (API)</a>  </li> </ul></param>
-        /// <param name="name">A name for the SSM document. <important> You can't use the following strings as document name prefixes. These are reserved by Amazon Web Services for use as document name prefixes: <ul> <li>  <code>aws-</code>  </li> <li>  <code>amazon</code>  </li> <li>  <code>amzn</code>  </li> </ul> </important></param>
+        /// <param name="name">A name for the SSM document. <important> You can't use the following strings as document name prefixes. These are reserved by Amazon Web Services for use as document name prefixes: <ul> <li>  <code>aws</code>  </li> <li>  <code>amazon</code>  </li> <li>  <code>amzn</code>  </li> </ul> </important></param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -1235,6 +1246,11 @@ namespace Amazon.SimpleSystemsManagement
         /// <returns>The response from the CreateOpsItem service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAccessDeniedException">
+        /// You don't have permission to view OpsItems in the specified account. Verify that your
+        /// account is configured either as a Systems Manager delegated administrator or that
+        /// you are logged into the Organizations management account.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAlreadyExistsException">
         /// The OpsItem already exists.
@@ -2035,6 +2051,57 @@ namespace Amazon.SimpleSystemsManagement
             options.ResponseUnmarshaller = DeleteResourceDataSyncResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteResourceDataSyncResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteResourcePolicy
+
+        internal virtual DeleteResourcePolicyResponse DeleteResourcePolicy(DeleteResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteResourcePolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a Systems Manager resource policy. A resource policy helps you to define the
+        /// IAM entity (for example, an Amazon Web Services account) that can manage your Systems
+        /// Manager resources. Currently, <code>OpsItemGroup</code> is the only resource that
+        /// supports Systems Manager resource policies. The resource policy for <code>OpsItemGroup</code>
+        /// enables Amazon Web Services accounts to view and interact with OpsCenter operational
+        /// work items (OpsItems).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicy service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyConflictException">
+        /// The hash provided in the call doesn't match the stored hash. This exception is thrown
+        /// when trying to update an obsolete policy version or when multiple requests to update
+        /// a policy are sent.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyInvalidParameterException">
+        /// One or more parameters specified for the call aren't valid. Verify the parameters
+        /// and their values and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        public virtual Task<DeleteResourcePolicyResponse> DeleteResourcePolicyAsync(DeleteResourcePolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteResourcePolicyResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4881,6 +4948,11 @@ namespace Amazon.SimpleSystemsManagement
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAccessDeniedException">
+        /// You don't have permission to view OpsItems in the specified account. Verify that your
+        /// account is configured either as a Systems Manager delegated administrator or that
+        /// you are logged into the Organizations management account.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
         /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
         /// </exception>
@@ -5299,6 +5371,47 @@ namespace Amazon.SimpleSystemsManagement
             options.ResponseUnmarshaller = GetPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetPatchBaselineForPatchGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetResourcePolicies
+
+        internal virtual GetResourcePoliciesResponse GetResourcePolicies(GetResourcePoliciesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetResourcePoliciesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetResourcePoliciesResponseUnmarshaller.Instance;
+
+            return Invoke<GetResourcePoliciesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns an array of the <code>Policy</code> object.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetResourcePolicies service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetResourcePolicies service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyInvalidParameterException">
+        /// One or more parameters specified for the call aren't valid. Verify the parameters
+        /// and their values and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetResourcePolicies">REST API Reference for GetResourcePolicies Operation</seealso>
+        public virtual Task<GetResourcePoliciesResponse> GetResourcePoliciesAsync(GetResourcePoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetResourcePoliciesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetResourcePoliciesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetResourcePoliciesResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -6564,8 +6677,18 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentPermissionLimitException">
         /// The document can't be shared with more Amazon Web Services user accounts. You can
-        /// share a document with a maximum of 20 accounts. You can publicly share up to five
-        /// documents. If you need to increase this limit, contact Amazon Web Services Support.
+        /// specify a maximum of 20 accounts per API operation to share a private document.
+        /// 
+        ///  
+        /// <para>
+        /// By default, you can share a private document with a maximum of 1,000 accounts and
+        /// publicly share up to five documents.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you need to increase the quota for privately or publicly shared Systems Manager
+        /// documents, contact Amazon Web Services Support.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -6922,6 +7045,62 @@ namespace Amazon.SimpleSystemsManagement
             options.ResponseUnmarshaller = PutParameterResponseUnmarshaller.Instance;
 
             return InvokeAsync<PutParameterResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  PutResourcePolicy
+
+        internal virtual PutResourcePolicyResponse PutResourcePolicy(PutResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<PutResourcePolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates or updates a Systems Manager resource policy. A resource policy helps you
+        /// to define the IAM entity (for example, an Amazon Web Services account) that can manage
+        /// your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the only resource
+        /// that supports Systems Manager resource policies. The resource policy for <code>OpsItemGroup</code>
+        /// enables Amazon Web Services accounts to view and interact with OpsCenter operational
+        /// work items (OpsItems).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the PutResourcePolicy service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyConflictException">
+        /// The hash provided in the call doesn't match the stored hash. This exception is thrown
+        /// when trying to update an obsolete policy version or when multiple requests to update
+        /// a policy are sent.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyInvalidParameterException">
+        /// One or more parameters specified for the call aren't valid. Verify the parameters
+        /// and their values and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourcePolicyLimitExceededException">
+        /// The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be greater
+        /// than 1024 bytes in size. And only one policy can be attached to <code>OpsItemGroup</code>.
+        /// Verify these limits and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutResourcePolicy">REST API Reference for PutResourcePolicy Operation</seealso>
+        public virtual Task<PutResourcePolicyResponse> PutResourcePolicyAsync(PutResourcePolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<PutResourcePolicyResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -8621,6 +8800,11 @@ namespace Amazon.SimpleSystemsManagement
         /// <returns>The response from the UpdateOpsItem service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAccessDeniedException">
+        /// You don't have permission to view OpsItems in the specified account. Verify that your
+        /// account is configured either as a Systems Manager delegated administrator or that
+        /// you are logged into the Organizations management account.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemAlreadyExistsException">
         /// The OpsItem already exists.

@@ -49,13 +49,14 @@ namespace Amazon.Proton.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-    /// and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning
-    /// methods</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
+    /// and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning
+    /// methods</a> in the <i>Proton User Guide</i>.
     /// </para>
     /// </summary>
     public partial class CreateEnvironmentRequest : AmazonProtonRequest
     {
+        private string _codebuildRoleArn;
         private string _componentRoleArn;
         private string _description;
         private string _environmentAccountConnectionId;
@@ -67,6 +68,32 @@ namespace Amazon.Proton.Model
         private string _templateMajorVersion;
         private string _templateMinorVersion;
         private string _templateName;
+
+        /// <summary>
+        /// Gets and sets the property CodebuildRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using CodeBuild-based provisioning on your behalf.
+        /// </para>
+        ///  
+        /// <para>
+        /// To use CodeBuild-based provisioning for the environment or for any service instance
+        /// running in the environment, specify either the <code>environmentAccountConnectionId</code>
+        /// or <code>codebuildRoleArn</code> parameter.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=2048)]
+        public string CodebuildRoleArn
+        {
+            get { return this._codebuildRoleArn; }
+            set { this._codebuildRoleArn = value; }
+        }
+
+        // Check to see if CodebuildRoleArn property is set
+        internal bool IsSetCodebuildRoleArn()
+        {
+            return this._codebuildRoleArn != null;
+        }
 
         /// <summary>
         /// Gets and sets the property ComponentRoleArn. 
@@ -82,11 +109,11 @@ namespace Amazon.Proton.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton Administrator Guide</i>.
+        /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton User Guide</i>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=200)]
+        [AWSProperty(Min=1, Max=2048)]
         public string ComponentRoleArn
         {
             get { return this._componentRoleArn; }
@@ -123,8 +150,8 @@ namespace Amazon.Proton.Model
         /// <para>
         /// The ID of the environment account connection that you provide if you're provisioning
         /// your environment infrastructure resources to an environment account. For more information,
-        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>Proton Administrator guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton User guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -193,8 +220,9 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property ProvisioningRepository. 
         /// <para>
-        /// The infrastructure repository that you use to host your rendered infrastructure templates
-        /// for self-managed provisioning.
+        /// The linked repository that you use to host your rendered infrastructure templates
+        /// for self-managed provisioning. A linked repository is a repository that has been registered
+        /// with Proton. For more information, see <a>CreateRepository</a>.
         /// </para>
         ///  
         /// <para>
@@ -219,8 +247,8 @@ namespace Amazon.Proton.Model
         /// Gets and sets the property Spec. 
         /// <para>
         /// A YAML formatted string that provides inputs as defined in the environment template
-        /// bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-        /// in the <i>Proton Administrator Guide</i>.
+        /// bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
+        /// in the <i>Proton User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=51200)]
@@ -244,9 +272,8 @@ namespace Amazon.Proton.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
-        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-        /// User Guide</a>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=50)]
@@ -303,8 +330,8 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property TemplateName. 
         /// <para>
-        /// The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
-        /// Templates</a> in the <i>Proton Administrator Guide</i>.
+        /// The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment
+        /// Templates</a> in the <i>Proton User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=100)]

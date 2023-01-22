@@ -137,7 +137,7 @@ namespace Amazon.WorkSpaces.Model
         /// <summary>
         /// Gets and sets the property OwnerAccountId. 
         /// <para>
-        /// The identifier of the AWS account that owns the image.
+        /// The identifier of the Amazon Web Services account that owns the image.
         /// </para>
         /// </summary>
         public string OwnerAccountId
@@ -158,7 +158,7 @@ namespace Amazon.WorkSpaces.Model
         /// Specifies whether the image is running on dedicated hardware. When Bring Your Own
         /// License (BYOL) is enabled, this value is set to DEDICATED. For more information, see
         /// <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
-        /// Bring Your Own Windows Desktop Images.</a> 
+        /// Bring Your Own Windows Desktop Images.</a>.
         /// </para>
         /// </summary>
         public WorkspaceImageRequiredTenancy RequiredTenancy

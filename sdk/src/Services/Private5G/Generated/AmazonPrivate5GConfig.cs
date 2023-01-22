@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the privatenetworks-2021-12-03.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Private5G.Internal;
 
 namespace Amazon.Private5G
 {
     /// <summary>
     /// Configuration for accessing Amazon Private5G service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPrivate5GConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.3");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.53");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Private5G
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPrivate5GDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "private-networks";
+            this.EndpointProvider = new AmazonPrivate5GEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Private5G
                 return _userAgent;
             }
         }
+
     }
 }

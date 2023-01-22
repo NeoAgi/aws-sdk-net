@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the firehose-2015-08-04.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.KinesisFirehose.Internal;
 
 namespace Amazon.KinesisFirehose
 {
     /// <summary>
     /// Configuration for accessing Amazon KinesisFirehose service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonKinesisFirehoseConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.116");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.33");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.KinesisFirehose
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonKinesisFirehoseDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "firehose";
+            this.EndpointProvider = new AmazonKinesisFirehoseEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.KinesisFirehose
                 return _userAgent;
             }
         }
+
     }
 }

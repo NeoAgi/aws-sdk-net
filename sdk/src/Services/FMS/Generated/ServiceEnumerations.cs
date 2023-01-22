@@ -249,6 +249,72 @@ namespace Amazon.FMS
 
 
     /// <summary>
+    /// Constants used for properties of type FailedItemReason.
+    /// </summary>
+    public class FailedItemReason : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NOT_VALID_ACCOUNT_ID for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_ACCOUNT_ID = new FailedItemReason("NOT_VALID_ACCOUNT_ID");
+        /// <summary>
+        /// Constant NOT_VALID_ARN for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_ARN = new FailedItemReason("NOT_VALID_ARN");
+        /// <summary>
+        /// Constant NOT_VALID_PARTITION for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_PARTITION = new FailedItemReason("NOT_VALID_PARTITION");
+        /// <summary>
+        /// Constant NOT_VALID_REGION for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_REGION = new FailedItemReason("NOT_VALID_REGION");
+        /// <summary>
+        /// Constant NOT_VALID_RESOURCE_TYPE for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_RESOURCE_TYPE = new FailedItemReason("NOT_VALID_RESOURCE_TYPE");
+        /// <summary>
+        /// Constant NOT_VALID_SERVICE for FailedItemReason
+        /// </summary>
+        public static readonly FailedItemReason NOT_VALID_SERVICE = new FailedItemReason("NOT_VALID_SERVICE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FailedItemReason(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FailedItemReason FindValue(string value)
+        {
+            return FindValue<FailedItemReason>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FailedItemReason(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type FirewallDeploymentModel.
     /// </summary>
     public class FirewallDeploymentModel : ConstantClass
@@ -346,6 +412,52 @@ namespace Amazon.FMS
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator MarketplaceSubscriptionOnboardingStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type NetworkFirewallOverrideAction.
+    /// </summary>
+    public class NetworkFirewallOverrideAction : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DROP_TO_ALERT for NetworkFirewallOverrideAction
+        /// </summary>
+        public static readonly NetworkFirewallOverrideAction DROP_TO_ALERT = new NetworkFirewallOverrideAction("DROP_TO_ALERT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NetworkFirewallOverrideAction(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NetworkFirewallOverrideAction FindValue(string value)
+        {
+            return FindValue<NetworkFirewallOverrideAction>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NetworkFirewallOverrideAction(string value)
         {
             return FindValue(value);
         }
@@ -513,6 +625,10 @@ namespace Amazon.FMS
         /// </summary>
         public static readonly SecurityServiceType DNS_FIREWALL = new SecurityServiceType("DNS_FIREWALL");
         /// <summary>
+        /// Constant IMPORT_NETWORK_FIREWALL for SecurityServiceType
+        /// </summary>
+        public static readonly SecurityServiceType IMPORT_NETWORK_FIREWALL = new SecurityServiceType("IMPORT_NETWORK_FIREWALL");
+        /// <summary>
         /// Constant NETWORK_FIREWALL for SecurityServiceType
         /// </summary>
         public static readonly SecurityServiceType NETWORK_FIREWALL = new SecurityServiceType("NETWORK_FIREWALL");
@@ -668,6 +784,10 @@ namespace Amazon.FMS
     public class ThirdPartyFirewall : ConstantClass
     {
 
+        /// <summary>
+        /// Constant FORTIGATE_CLOUD_NATIVE_FIREWALL for ThirdPartyFirewall
+        /// </summary>
+        public static readonly ThirdPartyFirewall FORTIGATE_CLOUD_NATIVE_FIREWALL = new ThirdPartyFirewall("FORTIGATE_CLOUD_NATIVE_FIREWALL");
         /// <summary>
         /// Constant PALO_ALTO_NETWORKS_CLOUD_NGFW for ThirdPartyFirewall
         /// </summary>

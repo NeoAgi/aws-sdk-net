@@ -58,6 +58,7 @@ namespace Amazon.RDS.Model
         private int? _backupRetentionPeriod;
         private string _backupTarget;
         private string _caCertificateIdentifier;
+        private CertificateDetails _certificateDetails;
         private string _characterSetName;
         private bool? _copyTagsToSnapshot;
         private bool? _customerOwnedIpEnabled;
@@ -74,6 +75,7 @@ namespace Amazon.RDS.Model
         private List<DBParameterGroupStatus> _dbParameterGroups = new List<DBParameterGroupStatus>();
         private List<DBSecurityGroupMembership> _dbSecurityGroups = new List<DBSecurityGroupMembership>();
         private DBSubnetGroup _dbSubnetGroup;
+        private string _dbSystemId;
         private bool? _deletionProtection;
         private List<DomainMembership> _domainMemberships = new List<DomainMembership>();
         private List<string> _enabledCloudwatchLogsExports = new List<string>();
@@ -89,6 +91,7 @@ namespace Amazon.RDS.Model
         private string _licenseModel;
         private Endpoint _listenerEndpoint;
         private string _masterUsername;
+        private MasterUserSecret _masterUserSecret;
         private int? _maxAllocatedStorage;
         private int? _monitoringInterval;
         private string _monitoringRoleArn;
@@ -113,6 +116,7 @@ namespace Amazon.RDS.Model
         private string _secondaryAvailabilityZone;
         private List<DBInstanceStatusInfo> _statusInfos = new List<DBInstanceStatusInfo>();
         private bool? _storageEncrypted;
+        private int? _storageThroughput;
         private string _storageType;
         private List<Tag> _tagList = new List<Tag>();
         private string _tdeCredentialArn;
@@ -403,6 +407,14 @@ namespace Amazon.RDS.Model
         /// <para>
         /// The identifier of the CA certificate for this DB instance.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
+        /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+        /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+        /// User Guide</i>.
+        /// </para>
         /// </summary>
         public string CACertificateIdentifier
         {
@@ -414,6 +426,24 @@ namespace Amazon.RDS.Model
         internal bool IsSetCACertificateIdentifier()
         {
             return this._caCertificateIdentifier != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CertificateDetails. 
+        /// <para>
+        /// The details of the DB instance's server certificate.
+        /// </para>
+        /// </summary>
+        public CertificateDetails CertificateDetails
+        {
+            get { return this._certificateDetails; }
+            set { this._certificateDetails = value; }
+        }
+
+        // Check to see if CertificateDetails property is set
+        internal bool IsSetCertificateDetails()
+        {
+            return this._certificateDetails != null;
         }
 
         /// <summary>
@@ -483,7 +513,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned
         /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.
         /// </para>
         /// </summary>
@@ -785,6 +815,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetDBSubnetGroup()
         {
             return this._dbSubnetGroup != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DBSystemId. 
+        /// <para>
+        /// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is
+        /// also the name of the CDB. This setting is valid for RDS Custom only.
+        /// </para>
+        /// </summary>
+        public string DBSystemId
+        {
+            get { return this._dbSystemId; }
+            set { this._dbSystemId = value; }
+        }
+
+        // Check to see if DBSystemId property is set
+        internal bool IsSetDBSystemId()
+        {
+            return this._dbSystemId != null;
         }
 
         /// <summary>
@@ -1095,6 +1144,31 @@ namespace Amazon.RDS.Model
         internal bool IsSetMasterUsername()
         {
             return this._masterUsername != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MasterUserSecret. 
+        /// <para>
+        /// Contains the secret managed by RDS in Amazon Web Services Secrets Manager for the
+        /// master user password.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        public MasterUserSecret MasterUserSecret
+        {
+            get { return this._masterUserSecret; }
+            set { this._masterUserSecret = value; }
+        }
+
+        // Check to see if MasterUserSecret property is set
+        internal bool IsSetMasterUserSecret()
+        {
+            return this._masterUserSecret != null;
         }
 
         /// <summary>
@@ -1643,9 +1717,31 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StorageThroughput. 
+        /// <para>
+        /// Specifies the storage throughput for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting applies only to the <code>gp3</code> storage type.
+        /// </para>
+        /// </summary>
+        public int StorageThroughput
+        {
+            get { return this._storageThroughput.GetValueOrDefault(); }
+            set { this._storageThroughput = value; }
+        }
+
+        // Check to see if StorageThroughput property is set
+        internal bool IsSetStorageThroughput()
+        {
+            return this._storageThroughput.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
-        /// Specifies the storage type associated with DB instance.
+        /// Specifies the storage type associated with the DB instance.
         /// </para>
         /// </summary>
         public string StorageType

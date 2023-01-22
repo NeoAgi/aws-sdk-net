@@ -250,6 +250,15 @@ namespace Amazon.DevOpsGuru
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonDevOpsGuruEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -2343,9 +2352,9 @@ namespace Amazon.DevOpsGuru
 
         /// <summary>
         /// Returns a list of insights in your Amazon Web Services account. You can specify which
-        /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>,
-        /// <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>,
-        /// <code>MEDIUM</code>, and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>
+        /// or <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
+        /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
         /// 
         /// 
         ///  
@@ -2387,9 +2396,9 @@ namespace Amazon.DevOpsGuru
 
         /// <summary>
         /// Returns a list of insights in your Amazon Web Services account. You can specify which
-        /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>,
-        /// <code>CLOSED</code>, and <code>CLOSED</code>), one or more severities (<code>LOW</code>,
-        /// <code>MEDIUM</code>, and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
+        /// insights are returned by their start time, one or more statuses (<code>ONGOING</code>
+        /// or <code>CLOSED</code>), one or more severities (<code>LOW</code>, <code>MEDIUM</code>,
+        /// and <code>HIGH</code>), and type (<code>REACTIVE</code> or <code>PROACTIVE</code>).
         /// 
         /// 
         ///  

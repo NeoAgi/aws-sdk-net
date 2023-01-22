@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the chime-sdk-messaging-2021-05-15.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ChimeSDKMessaging.Internal;
 
 namespace Amazon.ChimeSDKMessaging
 {
     /// <summary>
     /// Configuration for accessing Amazon ChimeSDKMessaging service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonChimeSDKMessagingConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.2");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ChimeSDKMessaging
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonChimeSDKMessagingDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "chime";
+            this.EndpointProvider = new AmazonChimeSDKMessagingEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ChimeSDKMessaging
                 return _userAgent;
             }
         }
+
     }
 }

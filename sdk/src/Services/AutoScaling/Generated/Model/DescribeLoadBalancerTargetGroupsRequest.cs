@@ -61,6 +61,12 @@ namespace Amazon.AutoScaling.Model
     /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
     /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
     /// </para>
+    ///  <note> 
+    /// <para>
+    /// You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class DescribeLoadBalancerTargetGroupsRequest : AmazonAutoScalingRequest
     {

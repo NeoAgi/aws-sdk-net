@@ -45,6 +45,17 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(DeploymentConfiguration requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetAlarms())
+            {
+                context.Writer.WritePropertyName("alarms");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = DeploymentAlarmsMarshaller.Instance;
+                marshaller.Marshall(requestObject.Alarms, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetDeploymentCircuitBreaker())
             {
                 context.Writer.WritePropertyName("deploymentCircuitBreaker");

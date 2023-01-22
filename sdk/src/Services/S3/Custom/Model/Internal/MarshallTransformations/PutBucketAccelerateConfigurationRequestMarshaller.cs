@@ -53,7 +53,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(putBucketAccelerateRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "PutBucketAccelerateConfigurationRequest.BucketName");
 
-			request.ResourcePath = string.Concat("/", S3Transforms.ToStringValue(putBucketAccelerateRequest.BucketName));
+            request.ResourcePath = "/";
 
             request.AddSubResource("accelerate");
 
@@ -69,11 +69,12 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 var accelerateConfiguration = putBucketAccelerateRequest.AccelerateConfiguration;
                 if (accelerateConfiguration != null)
                 {
-                    xmlWriter.WriteStartElement("AccelerateConfiguration", "");
+                    xmlWriter.WriteStartElement("AccelerateConfiguration", S3Constants.S3RequestXmlNamespace);
+
                     var accelerateConfigurationStatus = accelerateConfiguration.Status;
                     if (accelerateConfiguration.IsSetBucketAccelerateStatus() && accelerateConfigurationStatus != null)
                     {
-                        xmlWriter.WriteElementString("Status", "", S3Transforms.ToXmlStringValue(accelerateConfiguration.Status));
+                        xmlWriter.WriteElementString("Status", S3Transforms.ToXmlStringValue(accelerateConfiguration.Status));
                     }
                     xmlWriter.WriteEndElement();
                 }

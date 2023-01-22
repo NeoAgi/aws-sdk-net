@@ -30,13 +30,25 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateLocalGatewayRoute operation.
-    /// Creates a static route for the specified local gateway route table.
+    /// Creates a static route for the specified local gateway route table. You must specify
+    /// one of the following targets: 
+    /// 
+    ///  <ul> <li> 
+    /// <para>
+    ///  <code>LocalGatewayVirtualInterfaceGroupId</code> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>NetworkInterfaceId</code> 
+    /// </para>
+    ///  </li> </ul>
     /// </summary>
     public partial class CreateLocalGatewayRouteRequest : AmazonEC2Request
     {
         private string _destinationCidrBlock;
         private string _localGatewayRouteTableId;
         private string _localGatewayVirtualInterfaceGroupId;
+        private string _networkInterfaceId;
 
         /// <summary>
         /// Gets and sets the property DestinationCidrBlock. 
@@ -83,7 +95,6 @@ namespace Amazon.EC2.Model
         /// The ID of the virtual interface group.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public string LocalGatewayVirtualInterfaceGroupId
         {
             get { return this._localGatewayVirtualInterfaceGroupId; }
@@ -94,6 +105,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetLocalGatewayVirtualInterfaceGroupId()
         {
             return this._localGatewayVirtualInterfaceGroupId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property NetworkInterfaceId. 
+        /// <para>
+        /// The ID of the network interface.
+        /// </para>
+        /// </summary>
+        public string NetworkInterfaceId
+        {
+            get { return this._networkInterfaceId; }
+            set { this._networkInterfaceId = value; }
+        }
+
+        // Check to see if NetworkInterfaceId property is set
+        internal bool IsSetNetworkInterfaceId()
+        {
+            return this._networkInterfaceId != null;
         }
 
     }

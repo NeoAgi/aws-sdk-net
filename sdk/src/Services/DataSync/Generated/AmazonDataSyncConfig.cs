@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the datasync-2018-11-09.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.DataSync.Internal;
 
 namespace Amazon.DataSync
 {
     /// <summary>
     /// Configuration for accessing Amazon DataSync service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonDataSyncConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.8.19");
+            InternalSDKUtils.BuildUserAgentString("3.7.102.19");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.DataSync
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonDataSyncDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "datasync";
+            this.EndpointProvider = new AmazonDataSyncEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.DataSync
                 return _userAgent;
             }
         }
+
     }
 }

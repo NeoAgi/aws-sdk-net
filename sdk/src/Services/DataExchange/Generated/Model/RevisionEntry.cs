@@ -105,7 +105,7 @@ namespace Amazon.DataExchange.Model
         /// <summary>
         /// Gets and sets the property DataSetId. 
         /// <para>
-        /// The unique identifier for the data set associated with this revision.
+        /// The unique identifier for the data set associated with the data set revision.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -127,13 +127,10 @@ namespace Amazon.DataExchange.Model
         /// To publish a revision to a data set in a product, the revision must first be finalized.
         /// Finalizing a revision tells AWS Data Exchange that your changes to the assets in the
         /// revision are complete. After it's in this read-only state, you can publish the revision
-        /// to your products.
-        /// </para>
-        ///  
-        /// <para>
-        /// Finalized revisions can be published through the AWS Data Exchange console or the
-        /// AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace Catalog API
-        /// action. When using the API, revisions are uniquely identified by their ARN.
+        /// to your products. Finalized revisions can be published through the AWS Data Exchange
+        /// console or the AWS Marketplace Catalog API, using the StartChangeSet AWS Marketplace
+        /// Catalog API action. When using the API, revisions are uniquely identified by their
+        /// ARN.
         /// </para>
         /// </summary>
         public bool Finalized

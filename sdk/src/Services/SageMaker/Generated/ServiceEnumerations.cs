@@ -1415,6 +1415,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLMetricEnum AUC = new AutoMLMetricEnum("AUC");
         /// <summary>
+        /// Constant BalancedAccuracy for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum BalancedAccuracy = new AutoMLMetricEnum("BalancedAccuracy");
+        /// <summary>
         /// Constant F1 for AutoMLMetricEnum
         /// </summary>
         public static readonly AutoMLMetricEnum F1 = new AutoMLMetricEnum("F1");
@@ -1423,9 +1427,37 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLMetricEnum F1macro = new AutoMLMetricEnum("F1macro");
         /// <summary>
+        /// Constant MAE for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum MAE = new AutoMLMetricEnum("MAE");
+        /// <summary>
         /// Constant MSE for AutoMLMetricEnum
         /// </summary>
         public static readonly AutoMLMetricEnum MSE = new AutoMLMetricEnum("MSE");
+        /// <summary>
+        /// Constant Precision for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum Precision = new AutoMLMetricEnum("Precision");
+        /// <summary>
+        /// Constant PrecisionMacro for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum PrecisionMacro = new AutoMLMetricEnum("PrecisionMacro");
+        /// <summary>
+        /// Constant R2 for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum R2 = new AutoMLMetricEnum("R2");
+        /// <summary>
+        /// Constant Recall for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum Recall = new AutoMLMetricEnum("Recall");
+        /// <summary>
+        /// Constant RecallMacro for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum RecallMacro = new AutoMLMetricEnum("RecallMacro");
+        /// <summary>
+        /// Constant RMSE for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum RMSE = new AutoMLMetricEnum("RMSE");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1488,6 +1520,10 @@ namespace Amazon.SageMaker
         /// Constant F1macro for AutoMLMetricExtendedEnum
         /// </summary>
         public static readonly AutoMLMetricExtendedEnum F1macro = new AutoMLMetricExtendedEnum("F1macro");
+        /// <summary>
+        /// Constant InferenceLatency for AutoMLMetricExtendedEnum
+        /// </summary>
+        public static readonly AutoMLMetricExtendedEnum InferenceLatency = new AutoMLMetricExtendedEnum("InferenceLatency");
         /// <summary>
         /// Constant LogLoss for AutoMLMetricExtendedEnum
         /// </summary>
@@ -1554,6 +1590,60 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator AutoMLMetricExtendedEnum(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type AutoMLMode.
+    /// </summary>
+    public class AutoMLMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AUTO for AutoMLMode
+        /// </summary>
+        public static readonly AutoMLMode AUTO = new AutoMLMode("AUTO");
+        /// <summary>
+        /// Constant ENSEMBLING for AutoMLMode
+        /// </summary>
+        public static readonly AutoMLMode ENSEMBLING = new AutoMLMode("ENSEMBLING");
+        /// <summary>
+        /// Constant HYPERPARAMETER_TUNING for AutoMLMode
+        /// </summary>
+        public static readonly AutoMLMode HYPERPARAMETER_TUNING = new AutoMLMode("HYPERPARAMETER_TUNING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutoMLMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutoMLMode FindValue(string value)
+        {
+            return FindValue<AutoMLMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutoMLMode(string value)
         {
             return FindValue(value);
         }
@@ -2178,6 +2268,396 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator CaptureStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ClarifyFeatureType.
+    /// </summary>
+    public class ClarifyFeatureType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Categorical for ClarifyFeatureType
+        /// </summary>
+        public static readonly ClarifyFeatureType Categorical = new ClarifyFeatureType("categorical");
+        /// <summary>
+        /// Constant Numerical for ClarifyFeatureType
+        /// </summary>
+        public static readonly ClarifyFeatureType Numerical = new ClarifyFeatureType("numerical");
+        /// <summary>
+        /// Constant Text for ClarifyFeatureType
+        /// </summary>
+        public static readonly ClarifyFeatureType Text = new ClarifyFeatureType("text");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ClarifyFeatureType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ClarifyFeatureType FindValue(string value)
+        {
+            return FindValue<ClarifyFeatureType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ClarifyFeatureType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ClarifyTextGranularity.
+    /// </summary>
+    public class ClarifyTextGranularity : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Paragraph for ClarifyTextGranularity
+        /// </summary>
+        public static readonly ClarifyTextGranularity Paragraph = new ClarifyTextGranularity("paragraph");
+        /// <summary>
+        /// Constant Sentence for ClarifyTextGranularity
+        /// </summary>
+        public static readonly ClarifyTextGranularity Sentence = new ClarifyTextGranularity("sentence");
+        /// <summary>
+        /// Constant Token for ClarifyTextGranularity
+        /// </summary>
+        public static readonly ClarifyTextGranularity Token = new ClarifyTextGranularity("token");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ClarifyTextGranularity(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ClarifyTextGranularity FindValue(string value)
+        {
+            return FindValue<ClarifyTextGranularity>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ClarifyTextGranularity(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ClarifyTextLanguage.
+    /// </summary>
+    public class ClarifyTextLanguage : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Af for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Af = new ClarifyTextLanguage("af");
+        /// <summary>
+        /// Constant Ar for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ar = new ClarifyTextLanguage("ar");
+        /// <summary>
+        /// Constant Bg for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Bg = new ClarifyTextLanguage("bg");
+        /// <summary>
+        /// Constant Bn for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Bn = new ClarifyTextLanguage("bn");
+        /// <summary>
+        /// Constant Ca for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ca = new ClarifyTextLanguage("ca");
+        /// <summary>
+        /// Constant Cs for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Cs = new ClarifyTextLanguage("cs");
+        /// <summary>
+        /// Constant Da for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Da = new ClarifyTextLanguage("da");
+        /// <summary>
+        /// Constant De for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage De = new ClarifyTextLanguage("de");
+        /// <summary>
+        /// Constant El for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage El = new ClarifyTextLanguage("el");
+        /// <summary>
+        /// Constant En for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage En = new ClarifyTextLanguage("en");
+        /// <summary>
+        /// Constant Es for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Es = new ClarifyTextLanguage("es");
+        /// <summary>
+        /// Constant Et for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Et = new ClarifyTextLanguage("et");
+        /// <summary>
+        /// Constant Eu for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Eu = new ClarifyTextLanguage("eu");
+        /// <summary>
+        /// Constant Fa for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Fa = new ClarifyTextLanguage("fa");
+        /// <summary>
+        /// Constant Fi for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Fi = new ClarifyTextLanguage("fi");
+        /// <summary>
+        /// Constant Fr for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Fr = new ClarifyTextLanguage("fr");
+        /// <summary>
+        /// Constant Ga for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ga = new ClarifyTextLanguage("ga");
+        /// <summary>
+        /// Constant Gu for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Gu = new ClarifyTextLanguage("gu");
+        /// <summary>
+        /// Constant He for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage He = new ClarifyTextLanguage("he");
+        /// <summary>
+        /// Constant Hi for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Hi = new ClarifyTextLanguage("hi");
+        /// <summary>
+        /// Constant Hr for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Hr = new ClarifyTextLanguage("hr");
+        /// <summary>
+        /// Constant Hu for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Hu = new ClarifyTextLanguage("hu");
+        /// <summary>
+        /// Constant Hy for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Hy = new ClarifyTextLanguage("hy");
+        /// <summary>
+        /// Constant Id for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Id = new ClarifyTextLanguage("id");
+        /// <summary>
+        /// Constant Is for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Is = new ClarifyTextLanguage("is");
+        /// <summary>
+        /// Constant It for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage It = new ClarifyTextLanguage("it");
+        /// <summary>
+        /// Constant Kn for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Kn = new ClarifyTextLanguage("kn");
+        /// <summary>
+        /// Constant Ky for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ky = new ClarifyTextLanguage("ky");
+        /// <summary>
+        /// Constant Lb for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Lb = new ClarifyTextLanguage("lb");
+        /// <summary>
+        /// Constant Lij for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Lij = new ClarifyTextLanguage("lij");
+        /// <summary>
+        /// Constant Lt for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Lt = new ClarifyTextLanguage("lt");
+        /// <summary>
+        /// Constant Lv for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Lv = new ClarifyTextLanguage("lv");
+        /// <summary>
+        /// Constant Mk for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Mk = new ClarifyTextLanguage("mk");
+        /// <summary>
+        /// Constant Ml for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ml = new ClarifyTextLanguage("ml");
+        /// <summary>
+        /// Constant Mr for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Mr = new ClarifyTextLanguage("mr");
+        /// <summary>
+        /// Constant Nb for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Nb = new ClarifyTextLanguage("nb");
+        /// <summary>
+        /// Constant Ne for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ne = new ClarifyTextLanguage("ne");
+        /// <summary>
+        /// Constant Nl for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Nl = new ClarifyTextLanguage("nl");
+        /// <summary>
+        /// Constant Pl for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Pl = new ClarifyTextLanguage("pl");
+        /// <summary>
+        /// Constant Pt for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Pt = new ClarifyTextLanguage("pt");
+        /// <summary>
+        /// Constant Ro for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ro = new ClarifyTextLanguage("ro");
+        /// <summary>
+        /// Constant Ru for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ru = new ClarifyTextLanguage("ru");
+        /// <summary>
+        /// Constant Sa for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sa = new ClarifyTextLanguage("sa");
+        /// <summary>
+        /// Constant Si for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Si = new ClarifyTextLanguage("si");
+        /// <summary>
+        /// Constant Sk for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sk = new ClarifyTextLanguage("sk");
+        /// <summary>
+        /// Constant Sl for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sl = new ClarifyTextLanguage("sl");
+        /// <summary>
+        /// Constant Sq for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sq = new ClarifyTextLanguage("sq");
+        /// <summary>
+        /// Constant Sr for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sr = new ClarifyTextLanguage("sr");
+        /// <summary>
+        /// Constant Sv for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Sv = new ClarifyTextLanguage("sv");
+        /// <summary>
+        /// Constant Ta for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ta = new ClarifyTextLanguage("ta");
+        /// <summary>
+        /// Constant Te for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Te = new ClarifyTextLanguage("te");
+        /// <summary>
+        /// Constant Tl for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Tl = new ClarifyTextLanguage("tl");
+        /// <summary>
+        /// Constant Tn for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Tn = new ClarifyTextLanguage("tn");
+        /// <summary>
+        /// Constant Tr for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Tr = new ClarifyTextLanguage("tr");
+        /// <summary>
+        /// Constant Tt for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Tt = new ClarifyTextLanguage("tt");
+        /// <summary>
+        /// Constant Uk for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Uk = new ClarifyTextLanguage("uk");
+        /// <summary>
+        /// Constant Ur for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Ur = new ClarifyTextLanguage("ur");
+        /// <summary>
+        /// Constant Xx for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Xx = new ClarifyTextLanguage("xx");
+        /// <summary>
+        /// Constant Yo for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Yo = new ClarifyTextLanguage("yo");
+        /// <summary>
+        /// Constant Zh for ClarifyTextLanguage
+        /// </summary>
+        public static readonly ClarifyTextLanguage Zh = new ClarifyTextLanguage("zh");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ClarifyTextLanguage(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ClarifyTextLanguage FindValue(string value)
+        {
+            return FindValue<ClarifyTextLanguage>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ClarifyTextLanguage(string value)
         {
             return FindValue(value);
         }
@@ -3355,6 +3835,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type ExecutionRoleIdentityConfig.
+    /// </summary>
+    public class ExecutionRoleIdentityConfig : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for ExecutionRoleIdentityConfig
+        /// </summary>
+        public static readonly ExecutionRoleIdentityConfig DISABLED = new ExecutionRoleIdentityConfig("DISABLED");
+        /// <summary>
+        /// Constant USER_PROFILE_NAME for ExecutionRoleIdentityConfig
+        /// </summary>
+        public static readonly ExecutionRoleIdentityConfig USER_PROFILE_NAME = new ExecutionRoleIdentityConfig("USER_PROFILE_NAME");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ExecutionRoleIdentityConfig(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ExecutionRoleIdentityConfig FindValue(string value)
+        {
+            return FindValue<ExecutionRoleIdentityConfig>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ExecutionRoleIdentityConfig(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ExecutionStatus.
     /// </summary>
     public class ExecutionStatus : ConstantClass
@@ -3645,6 +4175,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type FeatureStatus.
+    /// </summary>
+    public class FeatureStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for FeatureStatus
+        /// </summary>
+        public static readonly FeatureStatus DISABLED = new FeatureStatus("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for FeatureStatus
+        /// </summary>
+        public static readonly FeatureStatus ENABLED = new FeatureStatus("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FeatureStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FeatureStatus FindValue(string value)
+        {
+            return FindValue<FeatureStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FeatureStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type FeatureType.
     /// </summary>
     public class FeatureType : ConstantClass
@@ -3928,6 +4508,300 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Framework(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HubContentSortBy.
+    /// </summary>
+    public class HubContentSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for HubContentSortBy
+        /// </summary>
+        public static readonly HubContentSortBy CreationTime = new HubContentSortBy("CreationTime");
+        /// <summary>
+        /// Constant HubContentName for HubContentSortBy
+        /// </summary>
+        public static readonly HubContentSortBy HubContentName = new HubContentSortBy("HubContentName");
+        /// <summary>
+        /// Constant HubContentStatus for HubContentSortBy
+        /// </summary>
+        public static readonly HubContentSortBy HubContentStatus = new HubContentSortBy("HubContentStatus");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HubContentSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HubContentSortBy FindValue(string value)
+        {
+            return FindValue<HubContentSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HubContentSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HubContentStatus.
+    /// </summary>
+    public class HubContentStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Available for HubContentStatus
+        /// </summary>
+        public static readonly HubContentStatus Available = new HubContentStatus("Available");
+        /// <summary>
+        /// Constant DeleteFailed for HubContentStatus
+        /// </summary>
+        public static readonly HubContentStatus DeleteFailed = new HubContentStatus("DeleteFailed");
+        /// <summary>
+        /// Constant Deleting for HubContentStatus
+        /// </summary>
+        public static readonly HubContentStatus Deleting = new HubContentStatus("Deleting");
+        /// <summary>
+        /// Constant ImportFailed for HubContentStatus
+        /// </summary>
+        public static readonly HubContentStatus ImportFailed = new HubContentStatus("ImportFailed");
+        /// <summary>
+        /// Constant Importing for HubContentStatus
+        /// </summary>
+        public static readonly HubContentStatus Importing = new HubContentStatus("Importing");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HubContentStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HubContentStatus FindValue(string value)
+        {
+            return FindValue<HubContentStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HubContentStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HubContentType.
+    /// </summary>
+    public class HubContentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Model for HubContentType
+        /// </summary>
+        public static readonly HubContentType Model = new HubContentType("Model");
+        /// <summary>
+        /// Constant Notebook for HubContentType
+        /// </summary>
+        public static readonly HubContentType Notebook = new HubContentType("Notebook");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HubContentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HubContentType FindValue(string value)
+        {
+            return FindValue<HubContentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HubContentType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HubSortBy.
+    /// </summary>
+    public class HubSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AccountIdOwner for HubSortBy
+        /// </summary>
+        public static readonly HubSortBy AccountIdOwner = new HubSortBy("AccountIdOwner");
+        /// <summary>
+        /// Constant CreationTime for HubSortBy
+        /// </summary>
+        public static readonly HubSortBy CreationTime = new HubSortBy("CreationTime");
+        /// <summary>
+        /// Constant HubName for HubSortBy
+        /// </summary>
+        public static readonly HubSortBy HubName = new HubSortBy("HubName");
+        /// <summary>
+        /// Constant HubStatus for HubSortBy
+        /// </summary>
+        public static readonly HubSortBy HubStatus = new HubSortBy("HubStatus");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HubSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HubSortBy FindValue(string value)
+        {
+            return FindValue<HubSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HubSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HubStatus.
+    /// </summary>
+    public class HubStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreateFailed for HubStatus
+        /// </summary>
+        public static readonly HubStatus CreateFailed = new HubStatus("CreateFailed");
+        /// <summary>
+        /// Constant Creating for HubStatus
+        /// </summary>
+        public static readonly HubStatus Creating = new HubStatus("Creating");
+        /// <summary>
+        /// Constant DeleteFailed for HubStatus
+        /// </summary>
+        public static readonly HubStatus DeleteFailed = new HubStatus("DeleteFailed");
+        /// <summary>
+        /// Constant Deleting for HubStatus
+        /// </summary>
+        public static readonly HubStatus Deleting = new HubStatus("Deleting");
+        /// <summary>
+        /// Constant InService for HubStatus
+        /// </summary>
+        public static readonly HubStatus InService = new HubStatus("InService");
+        /// <summary>
+        /// Constant UpdateFailed for HubStatus
+        /// </summary>
+        public static readonly HubStatus UpdateFailed = new HubStatus("UpdateFailed");
+        /// <summary>
+        /// Constant Updating for HubStatus
+        /// </summary>
+        public static readonly HubStatus Updating = new HubStatus("Updating");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HubStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HubStatus FindValue(string value)
+        {
+            return FindValue<HubStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HubStatus(string value)
         {
             return FindValue(value);
         }
@@ -4264,6 +5138,14 @@ namespace Amazon.SageMaker
         /// Constant Bayesian for HyperParameterTuningJobStrategyType
         /// </summary>
         public static readonly HyperParameterTuningJobStrategyType Bayesian = new HyperParameterTuningJobStrategyType("Bayesian");
+        /// <summary>
+        /// Constant Grid for HyperParameterTuningJobStrategyType
+        /// </summary>
+        public static readonly HyperParameterTuningJobStrategyType Grid = new HyperParameterTuningJobStrategyType("Grid");
+        /// <summary>
+        /// Constant Hyperband for HyperParameterTuningJobStrategyType
+        /// </summary>
+        public static readonly HyperParameterTuningJobStrategyType Hyperband = new HyperParameterTuningJobStrategyType("Hyperband");
         /// <summary>
         /// Constant Random for HyperParameterTuningJobStrategyType
         /// </summary>
@@ -4745,6 +5627,176 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type InferenceExperimentStatus.
+    /// </summary>
+    public class InferenceExperimentStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Cancelled for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Cancelled = new InferenceExperimentStatus("Cancelled");
+        /// <summary>
+        /// Constant Completed for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Completed = new InferenceExperimentStatus("Completed");
+        /// <summary>
+        /// Constant Created for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Created = new InferenceExperimentStatus("Created");
+        /// <summary>
+        /// Constant Creating for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Creating = new InferenceExperimentStatus("Creating");
+        /// <summary>
+        /// Constant Running for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Running = new InferenceExperimentStatus("Running");
+        /// <summary>
+        /// Constant Starting for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Starting = new InferenceExperimentStatus("Starting");
+        /// <summary>
+        /// Constant Stopping for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Stopping = new InferenceExperimentStatus("Stopping");
+        /// <summary>
+        /// Constant Updating for InferenceExperimentStatus
+        /// </summary>
+        public static readonly InferenceExperimentStatus Updating = new InferenceExperimentStatus("Updating");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InferenceExperimentStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InferenceExperimentStatus FindValue(string value)
+        {
+            return FindValue<InferenceExperimentStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InferenceExperimentStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InferenceExperimentStopDesiredState.
+    /// </summary>
+    public class InferenceExperimentStopDesiredState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Cancelled for InferenceExperimentStopDesiredState
+        /// </summary>
+        public static readonly InferenceExperimentStopDesiredState Cancelled = new InferenceExperimentStopDesiredState("Cancelled");
+        /// <summary>
+        /// Constant Completed for InferenceExperimentStopDesiredState
+        /// </summary>
+        public static readonly InferenceExperimentStopDesiredState Completed = new InferenceExperimentStopDesiredState("Completed");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InferenceExperimentStopDesiredState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InferenceExperimentStopDesiredState FindValue(string value)
+        {
+            return FindValue<InferenceExperimentStopDesiredState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InferenceExperimentStopDesiredState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InferenceExperimentType.
+    /// </summary>
+    public class InferenceExperimentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ShadowMode for InferenceExperimentType
+        /// </summary>
+        public static readonly InferenceExperimentType ShadowMode = new InferenceExperimentType("ShadowMode");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InferenceExperimentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InferenceExperimentType FindValue(string value)
+        {
+            return FindValue<InferenceExperimentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InferenceExperimentType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type InputMode.
     /// </summary>
     public class InputMode : ConstantClass
@@ -5106,6 +6158,60 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator InstanceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type JobType.
+    /// </summary>
+    public class JobType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant INFERENCE for JobType
+        /// </summary>
+        public static readonly JobType INFERENCE = new JobType("INFERENCE");
+        /// <summary>
+        /// Constant NOTEBOOK_KERNEL for JobType
+        /// </summary>
+        public static readonly JobType NOTEBOOK_KERNEL = new JobType("NOTEBOOK_KERNEL");
+        /// <summary>
+        /// Constant TRAINING for JobType
+        /// </summary>
+        public static readonly JobType TRAINING = new JobType("TRAINING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public JobType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static JobType FindValue(string value)
+        {
+            return FindValue<JobType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator JobType(string value)
         {
             return FindValue(value);
         }
@@ -5927,6 +7033,480 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type ModelCardExportJobSortBy.
+    /// </summary>
+    public class ModelCardExportJobSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for ModelCardExportJobSortBy
+        /// </summary>
+        public static readonly ModelCardExportJobSortBy CreationTime = new ModelCardExportJobSortBy("CreationTime");
+        /// <summary>
+        /// Constant Name for ModelCardExportJobSortBy
+        /// </summary>
+        public static readonly ModelCardExportJobSortBy Name = new ModelCardExportJobSortBy("Name");
+        /// <summary>
+        /// Constant Status for ModelCardExportJobSortBy
+        /// </summary>
+        public static readonly ModelCardExportJobSortBy Status = new ModelCardExportJobSortBy("Status");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardExportJobSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardExportJobSortBy FindValue(string value)
+        {
+            return FindValue<ModelCardExportJobSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardExportJobSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardExportJobSortOrder.
+    /// </summary>
+    public class ModelCardExportJobSortOrder : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ascending for ModelCardExportJobSortOrder
+        /// </summary>
+        public static readonly ModelCardExportJobSortOrder Ascending = new ModelCardExportJobSortOrder("Ascending");
+        /// <summary>
+        /// Constant Descending for ModelCardExportJobSortOrder
+        /// </summary>
+        public static readonly ModelCardExportJobSortOrder Descending = new ModelCardExportJobSortOrder("Descending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardExportJobSortOrder(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardExportJobSortOrder FindValue(string value)
+        {
+            return FindValue<ModelCardExportJobSortOrder>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardExportJobSortOrder(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardExportJobStatus.
+    /// </summary>
+    public class ModelCardExportJobStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Completed for ModelCardExportJobStatus
+        /// </summary>
+        public static readonly ModelCardExportJobStatus Completed = new ModelCardExportJobStatus("Completed");
+        /// <summary>
+        /// Constant Failed for ModelCardExportJobStatus
+        /// </summary>
+        public static readonly ModelCardExportJobStatus Failed = new ModelCardExportJobStatus("Failed");
+        /// <summary>
+        /// Constant InProgress for ModelCardExportJobStatus
+        /// </summary>
+        public static readonly ModelCardExportJobStatus InProgress = new ModelCardExportJobStatus("InProgress");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardExportJobStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardExportJobStatus FindValue(string value)
+        {
+            return FindValue<ModelCardExportJobStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardExportJobStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardProcessingStatus.
+    /// </summary>
+    public class ModelCardProcessingStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ContentDeleted for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus ContentDeleted = new ModelCardProcessingStatus("ContentDeleted");
+        /// <summary>
+        /// Constant DeleteCompleted for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus DeleteCompleted = new ModelCardProcessingStatus("DeleteCompleted");
+        /// <summary>
+        /// Constant DeleteFailed for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus DeleteFailed = new ModelCardProcessingStatus("DeleteFailed");
+        /// <summary>
+        /// Constant DeleteInProgress for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus DeleteInProgress = new ModelCardProcessingStatus("DeleteInProgress");
+        /// <summary>
+        /// Constant DeletePending for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus DeletePending = new ModelCardProcessingStatus("DeletePending");
+        /// <summary>
+        /// Constant ExportJobsDeleted for ModelCardProcessingStatus
+        /// </summary>
+        public static readonly ModelCardProcessingStatus ExportJobsDeleted = new ModelCardProcessingStatus("ExportJobsDeleted");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardProcessingStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardProcessingStatus FindValue(string value)
+        {
+            return FindValue<ModelCardProcessingStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardProcessingStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardSortBy.
+    /// </summary>
+    public class ModelCardSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for ModelCardSortBy
+        /// </summary>
+        public static readonly ModelCardSortBy CreationTime = new ModelCardSortBy("CreationTime");
+        /// <summary>
+        /// Constant Name for ModelCardSortBy
+        /// </summary>
+        public static readonly ModelCardSortBy Name = new ModelCardSortBy("Name");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardSortBy FindValue(string value)
+        {
+            return FindValue<ModelCardSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardSortOrder.
+    /// </summary>
+    public class ModelCardSortOrder : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ascending for ModelCardSortOrder
+        /// </summary>
+        public static readonly ModelCardSortOrder Ascending = new ModelCardSortOrder("Ascending");
+        /// <summary>
+        /// Constant Descending for ModelCardSortOrder
+        /// </summary>
+        public static readonly ModelCardSortOrder Descending = new ModelCardSortOrder("Descending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardSortOrder(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardSortOrder FindValue(string value)
+        {
+            return FindValue<ModelCardSortOrder>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardSortOrder(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardStatus.
+    /// </summary>
+    public class ModelCardStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Approved for ModelCardStatus
+        /// </summary>
+        public static readonly ModelCardStatus Approved = new ModelCardStatus("Approved");
+        /// <summary>
+        /// Constant Archived for ModelCardStatus
+        /// </summary>
+        public static readonly ModelCardStatus Archived = new ModelCardStatus("Archived");
+        /// <summary>
+        /// Constant Draft for ModelCardStatus
+        /// </summary>
+        public static readonly ModelCardStatus Draft = new ModelCardStatus("Draft");
+        /// <summary>
+        /// Constant PendingReview for ModelCardStatus
+        /// </summary>
+        public static readonly ModelCardStatus PendingReview = new ModelCardStatus("PendingReview");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardStatus FindValue(string value)
+        {
+            return FindValue<ModelCardStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCardVersionSortBy.
+    /// </summary>
+    public class ModelCardVersionSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Version for ModelCardVersionSortBy
+        /// </summary>
+        public static readonly ModelCardVersionSortBy Version = new ModelCardVersionSortBy("Version");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCardVersionSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCardVersionSortBy FindValue(string value)
+        {
+            return FindValue<ModelCardVersionSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCardVersionSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelInfrastructureType.
+    /// </summary>
+    public class ModelInfrastructureType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant RealTimeInference for ModelInfrastructureType
+        /// </summary>
+        public static readonly ModelInfrastructureType RealTimeInference = new ModelInfrastructureType("RealTimeInference");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelInfrastructureType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelInfrastructureType FindValue(string value)
+        {
+            return FindValue<ModelInfrastructureType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelInfrastructureType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ModelMetadataFilterType.
     /// </summary>
     public class ModelMetadataFilterType : ConstantClass
@@ -6310,6 +7890,222 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ModelSortKey(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelVariantAction.
+    /// </summary>
+    public class ModelVariantAction : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Promote for ModelVariantAction
+        /// </summary>
+        public static readonly ModelVariantAction Promote = new ModelVariantAction("Promote");
+        /// <summary>
+        /// Constant Remove for ModelVariantAction
+        /// </summary>
+        public static readonly ModelVariantAction Remove = new ModelVariantAction("Remove");
+        /// <summary>
+        /// Constant Retain for ModelVariantAction
+        /// </summary>
+        public static readonly ModelVariantAction Retain = new ModelVariantAction("Retain");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelVariantAction(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelVariantAction FindValue(string value)
+        {
+            return FindValue<ModelVariantAction>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelVariantAction(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelVariantStatus.
+    /// </summary>
+    public class ModelVariantStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Creating for ModelVariantStatus
+        /// </summary>
+        public static readonly ModelVariantStatus Creating = new ModelVariantStatus("Creating");
+        /// <summary>
+        /// Constant Deleted for ModelVariantStatus
+        /// </summary>
+        public static readonly ModelVariantStatus Deleted = new ModelVariantStatus("Deleted");
+        /// <summary>
+        /// Constant Deleting for ModelVariantStatus
+        /// </summary>
+        public static readonly ModelVariantStatus Deleting = new ModelVariantStatus("Deleting");
+        /// <summary>
+        /// Constant InService for ModelVariantStatus
+        /// </summary>
+        public static readonly ModelVariantStatus InService = new ModelVariantStatus("InService");
+        /// <summary>
+        /// Constant Updating for ModelVariantStatus
+        /// </summary>
+        public static readonly ModelVariantStatus Updating = new ModelVariantStatus("Updating");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelVariantStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelVariantStatus FindValue(string value)
+        {
+            return FindValue<ModelVariantStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelVariantStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type MonitoringAlertHistorySortKey.
+    /// </summary>
+    public class MonitoringAlertHistorySortKey : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for MonitoringAlertHistorySortKey
+        /// </summary>
+        public static readonly MonitoringAlertHistorySortKey CreationTime = new MonitoringAlertHistorySortKey("CreationTime");
+        /// <summary>
+        /// Constant Status for MonitoringAlertHistorySortKey
+        /// </summary>
+        public static readonly MonitoringAlertHistorySortKey Status = new MonitoringAlertHistorySortKey("Status");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MonitoringAlertHistorySortKey(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MonitoringAlertHistorySortKey FindValue(string value)
+        {
+            return FindValue<MonitoringAlertHistorySortKey>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MonitoringAlertHistorySortKey(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type MonitoringAlertStatus.
+    /// </summary>
+    public class MonitoringAlertStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant InAlert for MonitoringAlertStatus
+        /// </summary>
+        public static readonly MonitoringAlertStatus InAlert = new MonitoringAlertStatus("InAlert");
+        /// <summary>
+        /// Constant OK for MonitoringAlertStatus
+        /// </summary>
+        public static readonly MonitoringAlertStatus OK = new MonitoringAlertStatus("OK");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MonitoringAlertStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MonitoringAlertStatus FindValue(string value)
+        {
+            return FindValue<MonitoringAlertStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MonitoringAlertStatus(string value)
         {
             return FindValue(value);
         }
@@ -7971,6 +9767,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type Processor.
+    /// </summary>
+    public class Processor : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CPU for Processor
+        /// </summary>
+        public static readonly Processor CPU = new Processor("CPU");
+        /// <summary>
+        /// Constant GPU for Processor
+        /// </summary>
+        public static readonly Processor GPU = new Processor("GPU");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public Processor(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static Processor FindValue(string value)
+        {
+            return FindValue<Processor>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator Processor(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ProductionVariantAcceleratorType.
     /// </summary>
     public class ProductionVariantAcceleratorType : ConstantClass
@@ -8111,6 +9957,90 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly ProductionVariantInstanceType MlC5Xlarge = new ProductionVariantInstanceType("ml.c5.xlarge");
         /// <summary>
+        /// Constant MlC6g12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6g12xlarge = new ProductionVariantInstanceType("ml.c6g.12xlarge");
+        /// <summary>
+        /// Constant MlC6g16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6g16xlarge = new ProductionVariantInstanceType("ml.c6g.16xlarge");
+        /// <summary>
+        /// Constant MlC6g2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6g2xlarge = new ProductionVariantInstanceType("ml.c6g.2xlarge");
+        /// <summary>
+        /// Constant MlC6g4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6g4xlarge = new ProductionVariantInstanceType("ml.c6g.4xlarge");
+        /// <summary>
+        /// Constant MlC6g8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6g8xlarge = new ProductionVariantInstanceType("ml.c6g.8xlarge");
+        /// <summary>
+        /// Constant MlC6gd12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gd12xlarge = new ProductionVariantInstanceType("ml.c6gd.12xlarge");
+        /// <summary>
+        /// Constant MlC6gd16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gd16xlarge = new ProductionVariantInstanceType("ml.c6gd.16xlarge");
+        /// <summary>
+        /// Constant MlC6gd2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gd2xlarge = new ProductionVariantInstanceType("ml.c6gd.2xlarge");
+        /// <summary>
+        /// Constant MlC6gd4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gd4xlarge = new ProductionVariantInstanceType("ml.c6gd.4xlarge");
+        /// <summary>
+        /// Constant MlC6gd8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gd8xlarge = new ProductionVariantInstanceType("ml.c6gd.8xlarge");
+        /// <summary>
+        /// Constant MlC6gdLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gdLarge = new ProductionVariantInstanceType("ml.c6gd.large");
+        /// <summary>
+        /// Constant MlC6gdXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gdXlarge = new ProductionVariantInstanceType("ml.c6gd.xlarge");
+        /// <summary>
+        /// Constant MlC6gLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gLarge = new ProductionVariantInstanceType("ml.c6g.large");
+        /// <summary>
+        /// Constant MlC6gn12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gn12xlarge = new ProductionVariantInstanceType("ml.c6gn.12xlarge");
+        /// <summary>
+        /// Constant MlC6gn16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gn16xlarge = new ProductionVariantInstanceType("ml.c6gn.16xlarge");
+        /// <summary>
+        /// Constant MlC6gn2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gn2xlarge = new ProductionVariantInstanceType("ml.c6gn.2xlarge");
+        /// <summary>
+        /// Constant MlC6gn4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gn4xlarge = new ProductionVariantInstanceType("ml.c6gn.4xlarge");
+        /// <summary>
+        /// Constant MlC6gn8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gn8xlarge = new ProductionVariantInstanceType("ml.c6gn.8xlarge");
+        /// <summary>
+        /// Constant MlC6gnLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gnLarge = new ProductionVariantInstanceType("ml.c6gn.large");
+        /// <summary>
+        /// Constant MlC6gnXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gnXlarge = new ProductionVariantInstanceType("ml.c6gn.xlarge");
+        /// <summary>
+        /// Constant MlC6gXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC6gXlarge = new ProductionVariantInstanceType("ml.c6g.xlarge");
+        /// <summary>
         /// Constant MlC6i12xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlC6i12xlarge = new ProductionVariantInstanceType("ml.c6i.12xlarge");
@@ -8146,6 +10076,34 @@ namespace Amazon.SageMaker
         /// Constant MlC6iXlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlC6iXlarge = new ProductionVariantInstanceType("ml.c6i.xlarge");
+        /// <summary>
+        /// Constant MlC7g12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7g12xlarge = new ProductionVariantInstanceType("ml.c7g.12xlarge");
+        /// <summary>
+        /// Constant MlC7g16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7g16xlarge = new ProductionVariantInstanceType("ml.c7g.16xlarge");
+        /// <summary>
+        /// Constant MlC7g2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7g2xlarge = new ProductionVariantInstanceType("ml.c7g.2xlarge");
+        /// <summary>
+        /// Constant MlC7g4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7g4xlarge = new ProductionVariantInstanceType("ml.c7g.4xlarge");
+        /// <summary>
+        /// Constant MlC7g8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7g8xlarge = new ProductionVariantInstanceType("ml.c7g.8xlarge");
+        /// <summary>
+        /// Constant MlC7gLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7gLarge = new ProductionVariantInstanceType("ml.c7g.large");
+        /// <summary>
+        /// Constant MlC7gXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlC7gXlarge = new ProductionVariantInstanceType("ml.c7g.xlarge");
         /// <summary>
         /// Constant MlG4dn12xlarge for ProductionVariantInstanceType
         /// </summary>
@@ -8287,6 +10245,62 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly ProductionVariantInstanceType MlM5Xlarge = new ProductionVariantInstanceType("ml.m5.xlarge");
         /// <summary>
+        /// Constant MlM6g12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6g12xlarge = new ProductionVariantInstanceType("ml.m6g.12xlarge");
+        /// <summary>
+        /// Constant MlM6g16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6g16xlarge = new ProductionVariantInstanceType("ml.m6g.16xlarge");
+        /// <summary>
+        /// Constant MlM6g2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6g2xlarge = new ProductionVariantInstanceType("ml.m6g.2xlarge");
+        /// <summary>
+        /// Constant MlM6g4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6g4xlarge = new ProductionVariantInstanceType("ml.m6g.4xlarge");
+        /// <summary>
+        /// Constant MlM6g8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6g8xlarge = new ProductionVariantInstanceType("ml.m6g.8xlarge");
+        /// <summary>
+        /// Constant MlM6gd12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gd12xlarge = new ProductionVariantInstanceType("ml.m6gd.12xlarge");
+        /// <summary>
+        /// Constant MlM6gd16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gd16xlarge = new ProductionVariantInstanceType("ml.m6gd.16xlarge");
+        /// <summary>
+        /// Constant MlM6gd2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gd2xlarge = new ProductionVariantInstanceType("ml.m6gd.2xlarge");
+        /// <summary>
+        /// Constant MlM6gd4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gd4xlarge = new ProductionVariantInstanceType("ml.m6gd.4xlarge");
+        /// <summary>
+        /// Constant MlM6gd8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gd8xlarge = new ProductionVariantInstanceType("ml.m6gd.8xlarge");
+        /// <summary>
+        /// Constant MlM6gdLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gdLarge = new ProductionVariantInstanceType("ml.m6gd.large");
+        /// <summary>
+        /// Constant MlM6gdXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gdXlarge = new ProductionVariantInstanceType("ml.m6gd.xlarge");
+        /// <summary>
+        /// Constant MlM6gLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gLarge = new ProductionVariantInstanceType("ml.m6g.large");
+        /// <summary>
+        /// Constant MlM6gXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlM6gXlarge = new ProductionVariantInstanceType("ml.m6g.xlarge");
+        /// <summary>
         /// Constant MlP216xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlP216xlarge = new ProductionVariantInstanceType("ml.p2.16xlarge");
@@ -8362,6 +10376,62 @@ namespace Amazon.SageMaker
         /// Constant MlR5Xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlR5Xlarge = new ProductionVariantInstanceType("ml.r5.xlarge");
+        /// <summary>
+        /// Constant MlR6g12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6g12xlarge = new ProductionVariantInstanceType("ml.r6g.12xlarge");
+        /// <summary>
+        /// Constant MlR6g16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6g16xlarge = new ProductionVariantInstanceType("ml.r6g.16xlarge");
+        /// <summary>
+        /// Constant MlR6g2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6g2xlarge = new ProductionVariantInstanceType("ml.r6g.2xlarge");
+        /// <summary>
+        /// Constant MlR6g4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6g4xlarge = new ProductionVariantInstanceType("ml.r6g.4xlarge");
+        /// <summary>
+        /// Constant MlR6g8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6g8xlarge = new ProductionVariantInstanceType("ml.r6g.8xlarge");
+        /// <summary>
+        /// Constant MlR6gd12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gd12xlarge = new ProductionVariantInstanceType("ml.r6gd.12xlarge");
+        /// <summary>
+        /// Constant MlR6gd16xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gd16xlarge = new ProductionVariantInstanceType("ml.r6gd.16xlarge");
+        /// <summary>
+        /// Constant MlR6gd2xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gd2xlarge = new ProductionVariantInstanceType("ml.r6gd.2xlarge");
+        /// <summary>
+        /// Constant MlR6gd4xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gd4xlarge = new ProductionVariantInstanceType("ml.r6gd.4xlarge");
+        /// <summary>
+        /// Constant MlR6gd8xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gd8xlarge = new ProductionVariantInstanceType("ml.r6gd.8xlarge");
+        /// <summary>
+        /// Constant MlR6gdLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gdLarge = new ProductionVariantInstanceType("ml.r6gd.large");
+        /// <summary>
+        /// Constant MlR6gdXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gdXlarge = new ProductionVariantInstanceType("ml.r6gd.xlarge");
+        /// <summary>
+        /// Constant MlR6gLarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gLarge = new ProductionVariantInstanceType("ml.r6g.large");
+        /// <summary>
+        /// Constant MlR6gXlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlR6gXlarge = new ProductionVariantInstanceType("ml.r6g.xlarge");
         /// <summary>
         /// Constant MlT22xlarge for ProductionVariantInstanceType
         /// </summary>
@@ -8763,6 +10833,52 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type RecommendationStepType.
+    /// </summary>
+    public class RecommendationStepType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant BENCHMARK for RecommendationStepType
+        /// </summary>
+        public static readonly RecommendationStepType BENCHMARK = new RecommendationStepType("BENCHMARK");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RecommendationStepType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RecommendationStepType FindValue(string value)
+        {
+            return FindValue<RecommendationStepType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RecommendationStepType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type RecordWrapper.
     /// </summary>
     public class RecordWrapper : ConstantClass
@@ -9004,6 +11120,18 @@ namespace Amazon.SageMaker
         /// Constant FeatureMetadata for ResourceType
         /// </summary>
         public static readonly ResourceType FeatureMetadata = new ResourceType("FeatureMetadata");
+        /// <summary>
+        /// Constant HyperParameterTuningJob for ResourceType
+        /// </summary>
+        public static readonly ResourceType HyperParameterTuningJob = new ResourceType("HyperParameterTuningJob");
+        /// <summary>
+        /// Constant Model for ResourceType
+        /// </summary>
+        public static readonly ResourceType Model = new ResourceType("Model");
+        /// <summary>
+        /// Constant ModelCard for ResourceType
+        /// </summary>
+        public static readonly ResourceType ModelCard = new ResourceType("ModelCard");
         /// <summary>
         /// Constant ModelPackage for ResourceType
         /// </summary>
@@ -10011,6 +12139,60 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type SortInferenceExperimentsBy.
+    /// </summary>
+    public class SortInferenceExperimentsBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for SortInferenceExperimentsBy
+        /// </summary>
+        public static readonly SortInferenceExperimentsBy CreationTime = new SortInferenceExperimentsBy("CreationTime");
+        /// <summary>
+        /// Constant Name for SortInferenceExperimentsBy
+        /// </summary>
+        public static readonly SortInferenceExperimentsBy Name = new SortInferenceExperimentsBy("Name");
+        /// <summary>
+        /// Constant Status for SortInferenceExperimentsBy
+        /// </summary>
+        public static readonly SortInferenceExperimentsBy Status = new SortInferenceExperimentsBy("Status");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SortInferenceExperimentsBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SortInferenceExperimentsBy FindValue(string value)
+        {
+            return FindValue<SortInferenceExperimentsBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SortInferenceExperimentsBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type SortLineageGroupsBy.
     /// </summary>
     public class SortLineageGroupsBy : ConstantClass
@@ -10304,6 +12486,126 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SortTrialsBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SpaceSortKey.
+    /// </summary>
+    public class SpaceSortKey : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for SpaceSortKey
+        /// </summary>
+        public static readonly SpaceSortKey CreationTime = new SpaceSortKey("CreationTime");
+        /// <summary>
+        /// Constant LastModifiedTime for SpaceSortKey
+        /// </summary>
+        public static readonly SpaceSortKey LastModifiedTime = new SpaceSortKey("LastModifiedTime");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SpaceSortKey(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SpaceSortKey FindValue(string value)
+        {
+            return FindValue<SpaceSortKey>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SpaceSortKey(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SpaceStatus.
+    /// </summary>
+    public class SpaceStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Delete_Failed for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Delete_Failed = new SpaceStatus("Delete_Failed");
+        /// <summary>
+        /// Constant Deleting for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Deleting = new SpaceStatus("Deleting");
+        /// <summary>
+        /// Constant Failed for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Failed = new SpaceStatus("Failed");
+        /// <summary>
+        /// Constant InService for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus InService = new SpaceStatus("InService");
+        /// <summary>
+        /// Constant Pending for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Pending = new SpaceStatus("Pending");
+        /// <summary>
+        /// Constant Update_Failed for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Update_Failed = new SpaceStatus("Update_Failed");
+        /// <summary>
+        /// Constant Updating for SpaceStatus
+        /// </summary>
+        public static readonly SpaceStatus Updating = new SpaceStatus("Updating");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SpaceStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SpaceStatus FindValue(string value)
+        {
+            return FindValue<SpaceStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SpaceStatus(string value)
         {
             return FindValue(value);
         }
@@ -10606,6 +12908,56 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator StudioLifecycleConfigSortKey(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TableFormat.
+    /// </summary>
+    public class TableFormat : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Glue for TableFormat
+        /// </summary>
+        public static readonly TableFormat Glue = new TableFormat("Glue");
+        /// <summary>
+        /// Constant Iceberg for TableFormat
+        /// </summary>
+        public static readonly TableFormat Iceberg = new TableFormat("Iceberg");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TableFormat(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TableFormat FindValue(string value)
+        {
+            return FindValue<TableFormat>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TableFormat(string value)
         {
             return FindValue(value);
         }
@@ -11300,6 +13652,14 @@ namespace Amazon.SageMaker
         /// Constant MlP4d24xlarge for TrainingInstanceType
         /// </summary>
         public static readonly TrainingInstanceType MlP4d24xlarge = new TrainingInstanceType("ml.p4d.24xlarge");
+        /// <summary>
+        /// Constant MlTrn12xlarge for TrainingInstanceType
+        /// </summary>
+        public static readonly TrainingInstanceType MlTrn12xlarge = new TrainingInstanceType("ml.trn1.2xlarge");
+        /// <summary>
+        /// Constant MlTrn132xlarge for TrainingInstanceType
+        /// </summary>
+        public static readonly TrainingInstanceType MlTrn132xlarge = new TrainingInstanceType("ml.trn1.32xlarge");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -12030,6 +14390,122 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator VariantStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VendorGuidance.
+    /// </summary>
+    public class VendorGuidance : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ARCHIVED for VendorGuidance
+        /// </summary>
+        public static readonly VendorGuidance ARCHIVED = new VendorGuidance("ARCHIVED");
+        /// <summary>
+        /// Constant NOT_PROVIDED for VendorGuidance
+        /// </summary>
+        public static readonly VendorGuidance NOT_PROVIDED = new VendorGuidance("NOT_PROVIDED");
+        /// <summary>
+        /// Constant STABLE for VendorGuidance
+        /// </summary>
+        public static readonly VendorGuidance STABLE = new VendorGuidance("STABLE");
+        /// <summary>
+        /// Constant TO_BE_ARCHIVED for VendorGuidance
+        /// </summary>
+        public static readonly VendorGuidance TO_BE_ARCHIVED = new VendorGuidance("TO_BE_ARCHIVED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VendorGuidance(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VendorGuidance FindValue(string value)
+        {
+            return FindValue<VendorGuidance>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VendorGuidance(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WarmPoolResourceStatus.
+    /// </summary>
+    public class WarmPoolResourceStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Available for WarmPoolResourceStatus
+        /// </summary>
+        public static readonly WarmPoolResourceStatus Available = new WarmPoolResourceStatus("Available");
+        /// <summary>
+        /// Constant InUse for WarmPoolResourceStatus
+        /// </summary>
+        public static readonly WarmPoolResourceStatus InUse = new WarmPoolResourceStatus("InUse");
+        /// <summary>
+        /// Constant Reused for WarmPoolResourceStatus
+        /// </summary>
+        public static readonly WarmPoolResourceStatus Reused = new WarmPoolResourceStatus("Reused");
+        /// <summary>
+        /// Constant Terminated for WarmPoolResourceStatus
+        /// </summary>
+        public static readonly WarmPoolResourceStatus Terminated = new WarmPoolResourceStatus("Terminated");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WarmPoolResourceStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WarmPoolResourceStatus FindValue(string value)
+        {
+            return FindValue<WarmPoolResourceStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WarmPoolResourceStatus(string value)
         {
             return FindValue(value);
         }

@@ -56,10 +56,17 @@ namespace Amazon.SageMaker.Model
     /// provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
     /// 
     /// </para>
-    ///  </li> <li> 
+    ///  <important> 
     /// <para>
-    ///  <code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
-    /// EFS, or FSx location where it is stored.
+    /// Do not include any security-sensitive information including account access IDs, secrets
+    /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
+    /// are detected, SageMaker will reject your training job request and return an exception
+    /// error.
+    /// </para>
+    ///  </important> </li> <li> 
+    /// <para>
+    ///  <code>InputDataConfig</code> - Describes the input required by the training job and
+    /// the Amazon S3, EFS, or FSx location where it is stored.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -191,7 +198,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property DebugRuleConfigurations. 
         /// <para>
-        /// Configuration information for Debugger rules for debugging output tensors.
+        /// Configuration information for Amazon SageMaker Debugger rules for debugging output
+        /// tensors.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]
@@ -328,6 +336,14 @@ namespace Amazon.SageMaker.Model
         /// pair. Each key and value is limited to 256 characters, as specified by the <code>Length
         /// Constraint</code>. 
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// Do not include any security-sensitive information including account access IDs, secrets
+        /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
+        /// are detected, SageMaker will reject your training job request and return an exception
+        /// error.
+        /// </para>
+        ///  </important>
         /// </summary>
         [AWSProperty(Min=0, Max=100)]
         public Dictionary<string, string> HyperParameters
@@ -415,7 +431,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ProfilerRuleConfigurations. 
         /// <para>
-        /// Configuration information for Debugger rules for profiling system and framework metrics.
+        /// Configuration information for Amazon SageMaker Debugger rules for profiling system
+        /// and framework metrics.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]

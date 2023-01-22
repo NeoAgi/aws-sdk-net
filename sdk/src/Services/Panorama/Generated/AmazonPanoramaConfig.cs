@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the panorama-2019-07-24.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Panorama.Internal;
 
 namespace Amazon.Panorama
 {
     /// <summary>
     /// Configuration for accessing Amazon Panorama service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPanoramaConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.50");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.1");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Panorama
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPanoramaDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "panorama";
+            this.EndpointProvider = new AmazonPanoramaEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Panorama
                 return _userAgent;
             }
         }
+
     }
 }

@@ -58,8 +58,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             //Not checking if Key is null or empty because PutAcl allows to put an ACL for both a Bucket or an Object. TODO: deprecate PutAcl and create two separate operations
 
             // if we are putting the acl onto the bucket, the keyname component will collapse to empty string
-			request.ResourcePath = string.Format(CultureInfo.InvariantCulture, "/{0}/{1}",
-                                                 S3Transforms.ToStringValue(putObjectAclRequest.BucketName),
+            request.ResourcePath = string.Format(CultureInfo.InvariantCulture, "/{0}",
                                                  S3Transforms.ToStringValue(putObjectAclRequest.Key));
 
             request.AddSubResource("acl");
@@ -79,7 +78,8 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 var accessControlPolicyAccessControlPolicy = putObjectAclRequest.AccessControlList;
                 if (accessControlPolicyAccessControlPolicy != null)
                 {
-                    xmlWriter.WriteStartElement("AccessControlPolicy", "");
+                    xmlWriter.WriteStartElement("AccessControlPolicy", S3Constants.S3RequestXmlNamespace);
+
                     var accessControlPolicyAccessControlPolicygrantsList = accessControlPolicyAccessControlPolicy.Grants;
                     if (accessControlPolicyAccessControlPolicygrantsList != null &&
                         accessControlPolicyAccessControlPolicygrantsList.Count > 0)
@@ -89,15 +89,15 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                         var ownerOwner = accessControlPolicyAccessControlPolicy.Owner;
                         if (ownerOwner != null)
                         {
-                            xmlWriter.WriteStartElement("Owner", "");
+                            xmlWriter.WriteStartElement("Owner");
                             if (ownerOwner.IsSetDisplayName())
                             {
-                                xmlWriter.WriteElementString("DisplayName", "",
+                                xmlWriter.WriteElementString("DisplayName", 
                                                              S3Transforms.ToXmlStringValue(ownerOwner.DisplayName));
                             }
                             if (ownerOwner.IsSetId())
                             {
-                                xmlWriter.WriteElementString("ID", "", S3Transforms.ToXmlStringValue(ownerOwner.Id));
+                                xmlWriter.WriteElementString("ID", S3Transforms.ToXmlStringValue(ownerOwner.Id));
                             }
                             xmlWriter.WriteEndElement();
                         }

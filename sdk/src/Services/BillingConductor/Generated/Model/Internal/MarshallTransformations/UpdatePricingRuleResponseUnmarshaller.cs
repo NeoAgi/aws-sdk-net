@@ -63,6 +63,12 @@ namespace Amazon.BillingConductor.Model.Internal.MarshallTransformations
                     response.AssociatedPricingPlanCount = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("BillingEntity", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.BillingEntity = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Description", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -87,6 +93,12 @@ namespace Amazon.BillingConductor.Model.Internal.MarshallTransformations
                     response.Name = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Operation", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.Operation = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Scope", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -99,10 +111,22 @@ namespace Amazon.BillingConductor.Model.Internal.MarshallTransformations
                     response.Service = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Tiering", targetDepth))
+                {
+                    var unmarshaller = UpdateTieringInputUnmarshaller.Instance;
+                    response.Tiering = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Type", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     response.Type = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("UsageType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.UsageType = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

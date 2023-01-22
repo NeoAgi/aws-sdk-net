@@ -25,6 +25,56 @@ namespace Amazon.NimbleStudio
 {
 
     /// <summary>
+    /// Constants used for properties of type AutomaticTerminationMode.
+    /// </summary>
+    public class AutomaticTerminationMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVATED for AutomaticTerminationMode
+        /// </summary>
+        public static readonly AutomaticTerminationMode ACTIVATED = new AutomaticTerminationMode("ACTIVATED");
+        /// <summary>
+        /// Constant DEACTIVATED for AutomaticTerminationMode
+        /// </summary>
+        public static readonly AutomaticTerminationMode DEACTIVATED = new AutomaticTerminationMode("DEACTIVATED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutomaticTerminationMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutomaticTerminationMode FindValue(string value)
+        {
+            return FindValue<AutomaticTerminationMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutomaticTerminationMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type LaunchProfilePersona.
     /// </summary>
     public class LaunchProfilePersona : ConstantClass
@@ -212,6 +262,14 @@ namespace Amazon.NimbleStudio
         /// Constant INTERNAL_ERROR for LaunchProfileStatusCode
         /// </summary>
         public static readonly LaunchProfileStatusCode INTERNAL_ERROR = new LaunchProfileStatusCode("INTERNAL_ERROR");
+        /// <summary>
+        /// Constant INVALID_INSTANCE_TYPES_PROVIDED for LaunchProfileStatusCode
+        /// </summary>
+        public static readonly LaunchProfileStatusCode INVALID_INSTANCE_TYPES_PROVIDED = new LaunchProfileStatusCode("INVALID_INSTANCE_TYPES_PROVIDED");
+        /// <summary>
+        /// Constant INVALID_SUBNETS_COMBINATION for LaunchProfileStatusCode
+        /// </summary>
+        public static readonly LaunchProfileStatusCode INVALID_SUBNETS_COMBINATION = new LaunchProfileStatusCode("INVALID_SUBNETS_COMBINATION");
         /// <summary>
         /// Constant INVALID_SUBNETS_PROVIDED for LaunchProfileStatusCode
         /// </summary>
@@ -487,6 +545,106 @@ namespace Amazon.NimbleStudio
 
 
     /// <summary>
+    /// Constants used for properties of type SessionBackupMode.
+    /// </summary>
+    public class SessionBackupMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AUTOMATIC for SessionBackupMode
+        /// </summary>
+        public static readonly SessionBackupMode AUTOMATIC = new SessionBackupMode("AUTOMATIC");
+        /// <summary>
+        /// Constant DEACTIVATED for SessionBackupMode
+        /// </summary>
+        public static readonly SessionBackupMode DEACTIVATED = new SessionBackupMode("DEACTIVATED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SessionBackupMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SessionBackupMode FindValue(string value)
+        {
+            return FindValue<SessionBackupMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SessionBackupMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SessionPersistenceMode.
+    /// </summary>
+    public class SessionPersistenceMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVATED for SessionPersistenceMode
+        /// </summary>
+        public static readonly SessionPersistenceMode ACTIVATED = new SessionPersistenceMode("ACTIVATED");
+        /// <summary>
+        /// Constant DEACTIVATED for SessionPersistenceMode
+        /// </summary>
+        public static readonly SessionPersistenceMode DEACTIVATED = new SessionPersistenceMode("DEACTIVATED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SessionPersistenceMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SessionPersistenceMode FindValue(string value)
+        {
+            return FindValue<SessionPersistenceMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SessionPersistenceMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type StreamingClipboardMode.
     /// </summary>
     public class StreamingClipboardMode : ConstantClass
@@ -733,6 +891,14 @@ namespace Amazon.NimbleStudio
     {
 
         /// <summary>
+        /// Constant G34xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G34xlarge = new StreamingInstanceType("g3.4xlarge");
+        /// <summary>
+        /// Constant G3sXlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G3sXlarge = new StreamingInstanceType("g3s.xlarge");
+        /// <summary>
         /// Constant G4dn12xlarge for StreamingInstanceType
         /// </summary>
         public static readonly StreamingInstanceType G4dn12xlarge = new StreamingInstanceType("g4dn.12xlarge");
@@ -756,6 +922,26 @@ namespace Amazon.NimbleStudio
         /// Constant G4dnXlarge for StreamingInstanceType
         /// </summary>
         public static readonly StreamingInstanceType G4dnXlarge = new StreamingInstanceType("g4dn.xlarge");
+        /// <summary>
+        /// Constant G516xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G516xlarge = new StreamingInstanceType("g5.16xlarge");
+        /// <summary>
+        /// Constant G52xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G52xlarge = new StreamingInstanceType("g5.2xlarge");
+        /// <summary>
+        /// Constant G54xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G54xlarge = new StreamingInstanceType("g5.4xlarge");
+        /// <summary>
+        /// Constant G58xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G58xlarge = new StreamingInstanceType("g5.8xlarge");
+        /// <summary>
+        /// Constant G5Xlarge for StreamingInstanceType
+        /// </summary>
+        public static readonly StreamingInstanceType G5Xlarge = new StreamingInstanceType("g5.xlarge");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1681,6 +1867,10 @@ namespace Amazon.NimbleStudio
         /// </summary>
         public static readonly StudioStatusCode AWS_SSO_NOT_ENABLED = new StudioStatusCode("AWS_SSO_NOT_ENABLED");
         /// <summary>
+        /// Constant AWS_STS_REGION_DISABLED for StudioStatusCode
+        /// </summary>
+        public static readonly StudioStatusCode AWS_STS_REGION_DISABLED = new StudioStatusCode("AWS_STS_REGION_DISABLED");
+        /// <summary>
         /// Constant ENCRYPTION_KEY_ACCESS_DENIED for StudioStatusCode
         /// </summary>
         public static readonly StudioStatusCode ENCRYPTION_KEY_ACCESS_DENIED = new StudioStatusCode("ENCRYPTION_KEY_ACCESS_DENIED");
@@ -1766,6 +1956,56 @@ namespace Amazon.NimbleStudio
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator StudioStatusCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VolumeRetentionMode.
+    /// </summary>
+    public class VolumeRetentionMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DELETE for VolumeRetentionMode
+        /// </summary>
+        public static readonly VolumeRetentionMode DELETE = new VolumeRetentionMode("DELETE");
+        /// <summary>
+        /// Constant RETAIN for VolumeRetentionMode
+        /// </summary>
+        public static readonly VolumeRetentionMode RETAIN = new VolumeRetentionMode("RETAIN");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VolumeRetentionMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VolumeRetentionMode FindValue(string value)
+        {
+            return FindValue<VolumeRetentionMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VolumeRetentionMode(string value)
         {
             return FindValue(value);
         }

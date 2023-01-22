@@ -234,6 +234,15 @@ namespace Amazon.ResilienceHub
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonResilienceHubEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -358,11 +367,14 @@ namespace Amazon.ResilienceHub
         /// application name, resources from one or more–up to five–CloudFormation stacks, and
         /// an appropriate resiliency policy.
         /// 
-        ///  <pre><code> &lt;p&gt;After you create a Resilience Hub application, you publish it
-        /// so that you can run a resiliency assessment on it. You can then use recommendations
-        /// from the assessment to improve resiliency by running another assessment, comparing
-        /// results, and then iterating the process until you achieve your goals for recovery
-        /// time objective (RTO) and recovery point objective (RPO).&lt;/p&gt; </code></pre>
+        ///  
+        /// <para>
+        /// After you create a Resilience Hub application, you publish it so that you can run
+        /// a resiliency assessment on it. You can then use recommendations from the assessment
+        /// to improve resiliency by running another assessment, comparing results, and then iterating
+        /// the process until you achieve your goals for recovery time objective (RTO) and recovery
+        /// point objective (RPO).
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApp service method.</param>
         /// 
@@ -413,11 +425,14 @@ namespace Amazon.ResilienceHub
         /// application name, resources from one or more–up to five–CloudFormation stacks, and
         /// an appropriate resiliency policy.
         /// 
-        ///  <pre><code> &lt;p&gt;After you create a Resilience Hub application, you publish it
-        /// so that you can run a resiliency assessment on it. You can then use recommendations
-        /// from the assessment to improve resiliency by running another assessment, comparing
-        /// results, and then iterating the process until you achieve your goals for recovery
-        /// time objective (RTO) and recovery point objective (RPO).&lt;/p&gt; </code></pre>
+        ///  
+        /// <para>
+        /// After you create a Resilience Hub application, you publish it so that you can run
+        /// a resiliency assessment on it. You can then use recommendations from the assessment
+        /// to improve resiliency by running another assessment, comparing results, and then iterating
+        /// the process until you achieve your goals for recovery time objective (RTO) and recovery
+        /// point objective (RPO).
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateApp service method.</param>
         /// <param name="cancellationToken">

@@ -13,6 +13,57 @@
     "uid":"models.lex.v2-2020-08-07"
   },
   "operations":{
+    "BatchCreateCustomVocabularyItem":{
+      "name":"BatchCreateCustomVocabularyItem",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchcreate",
+        "responseCode":200
+      },
+      "input":{"shape":"BatchCreateCustomVocabularyItemRequest"},
+      "output":{"shape":"BatchCreateCustomVocabularyItemResponse"},
+      "errors":[
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "BatchDeleteCustomVocabularyItem":{
+      "name":"BatchDeleteCustomVocabularyItem",
+      "http":{
+        "method":"POST",
+        "requestUri":"/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchdelete",
+        "responseCode":200
+      },
+      "input":{"shape":"BatchDeleteCustomVocabularyItemRequest"},
+      "output":{"shape":"BatchDeleteCustomVocabularyItemResponse"},
+      "errors":[
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "BatchUpdateCustomVocabularyItem":{
+      "name":"BatchUpdateCustomVocabularyItem",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/batchupdate",
+        "responseCode":200
+      },
+      "input":{"shape":"BatchUpdateCustomVocabularyItemRequest"},
+      "output":{"shape":"BatchUpdateCustomVocabularyItemResponse"},
+      "errors":[
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
     "BuildBotLocale":{
       "name":"BuildBotLocale",
       "http":{
@@ -778,6 +829,23 @@
         {"shape":"InternalServerException"}
       ]
     },
+    "ListCustomVocabularyItems":{
+      "name":"ListCustomVocabularyItems",
+      "http":{
+        "method":"POST",
+        "requestUri":"/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/list",
+        "responseCode":200
+      },
+      "input":{"shape":"ListCustomVocabularyItemsRequest"},
+      "output":{"shape":"ListCustomVocabularyItemsResponse"},
+      "errors":[
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
     "ListExports":{
       "name":"ListExports",
       "http":{
@@ -940,6 +1008,26 @@
         {"shape":"ServiceQuotaExceededException"},
         {"shape":"ValidationException"},
         {"shape":"ResourceNotFoundException"},
+        {"shape":"ConflictException"},
+        {"shape":"InternalServerException"}
+      ]
+    },
+    "StopBotRecommendation":{
+      "name":"StopBotRecommendation",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation",
+        "responseCode":202
+      },
+      "input":{"shape":"StopBotRecommendationRequest"},
+      "output":{"shape":"StopBotRecommendationResponse"},
+      "errors":[
+        {"shape":"ThrottlingException"},
+        {"shape":"ServiceQuotaExceededException"},
+        {"shape":"ValidationException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"ConflictException"},
+        {"shape":"PreconditionFailedException"},
         {"shape":"ConflictException"},
         {"shape":"InternalServerException"}
       ]
@@ -1211,6 +1299,17 @@
       "type":"list",
       "member":{"shape":"AggregatedUtterancesSummary"}
     },
+    "AllowedInputTypes":{
+      "type":"structure",
+      "required":[
+        "allowAudioInput",
+        "allowDTMFInput"
+      ],
+      "members":{
+        "allowAudioInput":{"shape":"BoxedBoolean"},
+        "allowDTMFInput":{"shape":"BoxedBoolean"}
+      }
+    },
     "AmazonResourceName":{
       "type":"string",
       "max":1011,
@@ -1260,6 +1359,15 @@
       "max":250,
       "min":1
     },
+    "AudioAndDTMFInputSpecification":{
+      "type":"structure",
+      "required":["startTimeoutMs"],
+      "members":{
+        "startTimeoutMs":{"shape":"TimeInMilliSeconds"},
+        "audioSpecification":{"shape":"AudioSpecification"},
+        "dtmfSpecification":{"shape":"DTMFSpecification"}
+      }
+    },
     "AudioLogDestination":{
       "type":"structure",
       "required":["s3Bucket"],
@@ -1287,6 +1395,128 @@
     "AudioRecognitionStrategy":{
       "type":"string",
       "enum":["UseSlotValuesAsCustomVocabulary"]
+    },
+    "AudioSpecification":{
+      "type":"structure",
+      "required":[
+        "maxLengthMs",
+        "endTimeoutMs"
+      ],
+      "members":{
+        "maxLengthMs":{"shape":"TimeInMilliSeconds"},
+        "endTimeoutMs":{"shape":"TimeInMilliSeconds"}
+      }
+    },
+    "BatchCreateCustomVocabularyItemRequest":{
+      "type":"structure",
+      "required":[
+        "botId",
+        "botVersion",
+        "localeId",
+        "customVocabularyItemList"
+      ],
+      "members":{
+        "botId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botId"
+        },
+        "botVersion":{
+          "shape":"BotVersion",
+          "location":"uri",
+          "locationName":"botVersion"
+        },
+        "localeId":{
+          "shape":"LocaleId",
+          "location":"uri",
+          "locationName":"localeId"
+        },
+        "customVocabularyItemList":{"shape":"CreateCustomVocabularyItemsList"}
+      }
+    },
+    "BatchCreateCustomVocabularyItemResponse":{
+      "type":"structure",
+      "members":{
+        "botId":{"shape":"Id"},
+        "botVersion":{"shape":"BotVersion"},
+        "localeId":{"shape":"LocaleId"},
+        "errors":{"shape":"FailedCustomVocabularyItems"},
+        "resources":{"shape":"CustomVocabularyItems"}
+      }
+    },
+    "BatchDeleteCustomVocabularyItemRequest":{
+      "type":"structure",
+      "required":[
+        "botId",
+        "botVersion",
+        "localeId",
+        "customVocabularyItemList"
+      ],
+      "members":{
+        "botId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botId"
+        },
+        "botVersion":{
+          "shape":"BotVersion",
+          "location":"uri",
+          "locationName":"botVersion"
+        },
+        "localeId":{
+          "shape":"LocaleId",
+          "location":"uri",
+          "locationName":"localeId"
+        },
+        "customVocabularyItemList":{"shape":"DeleteCustomVocabularyItemsList"}
+      }
+    },
+    "BatchDeleteCustomVocabularyItemResponse":{
+      "type":"structure",
+      "members":{
+        "botId":{"shape":"Id"},
+        "botVersion":{"shape":"BotVersion"},
+        "localeId":{"shape":"LocaleId"},
+        "errors":{"shape":"FailedCustomVocabularyItems"},
+        "resources":{"shape":"CustomVocabularyItems"}
+      }
+    },
+    "BatchUpdateCustomVocabularyItemRequest":{
+      "type":"structure",
+      "required":[
+        "botId",
+        "botVersion",
+        "localeId",
+        "customVocabularyItemList"
+      ],
+      "members":{
+        "botId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botId"
+        },
+        "botVersion":{
+          "shape":"BotVersion",
+          "location":"uri",
+          "locationName":"botVersion"
+        },
+        "localeId":{
+          "shape":"LocaleId",
+          "location":"uri",
+          "locationName":"localeId"
+        },
+        "customVocabularyItemList":{"shape":"UpdateCustomVocabularyItemsList"}
+      }
+    },
+    "BatchUpdateCustomVocabularyItemResponse":{
+      "type":"structure",
+      "members":{
+        "botId":{"shape":"Id"},
+        "botVersion":{"shape":"BotVersion"},
+        "localeId":{"shape":"LocaleId"},
+        "errors":{"shape":"FailedCustomVocabularyItems"},
+        "resources":{"shape":"CustomVocabularyItems"}
+      }
     },
     "Boolean":{"type":"boolean"},
     "BotAliasHistoryEvent":{
@@ -1545,7 +1775,9 @@
         "Downloading",
         "Updating",
         "Available",
-        "Failed"
+        "Failed",
+        "Stopping",
+        "Stopped"
       ]
     },
     "BotRecommendationSummary":{
@@ -1815,6 +2047,12 @@
         "lambdaCodeHook":{"shape":"LambdaCodeHook"}
       }
     },
+    "CompositeSlotTypeSetting":{
+      "type":"structure",
+      "members":{
+        "subSlots":{"shape":"SubSlotTypeList"}
+      }
+    },
     "Condition":{
       "type":"structure",
       "required":["expressionString"],
@@ -2055,6 +2293,12 @@
         "creationDateTime":{"shape":"Timestamp"}
       }
     },
+    "CreateCustomVocabularyItemsList":{
+      "type":"list",
+      "member":{"shape":"NewCustomVocabularyItem"},
+      "max":10,
+      "min":1
+    },
     "CreateExportRequest":{
       "type":"structure",
       "required":[
@@ -2229,7 +2473,8 @@
           "location":"uri",
           "locationName":"intentId"
         },
-        "multipleValuesSetting":{"shape":"MultipleValuesSetting"}
+        "multipleValuesSetting":{"shape":"MultipleValuesSetting"},
+        "subSlotSetting":{"shape":"SubSlotSetting"}
       }
     },
     "CreateSlotResponse":{
@@ -2246,7 +2491,8 @@
         "localeId":{"shape":"LocaleId"},
         "intentId":{"shape":"Id"},
         "creationDateTime":{"shape":"Timestamp"},
-        "multipleValuesSetting":{"shape":"MultipleValuesSetting"}
+        "multipleValuesSetting":{"shape":"MultipleValuesSetting"},
+        "subSlotSetting":{"shape":"SubSlotSetting"}
       }
     },
     "CreateSlotTypeRequest":{
@@ -2278,7 +2524,8 @@
           "location":"uri",
           "locationName":"localeId"
         },
-        "externalSourceSetting":{"shape":"ExternalSourceSetting"}
+        "externalSourceSetting":{"shape":"ExternalSourceSetting"},
+        "compositeSlotTypeSetting":{"shape":"CompositeSlotTypeSetting"}
       }
     },
     "CreateSlotTypeResponse":{
@@ -2294,7 +2541,8 @@
         "botVersion":{"shape":"DraftBotVersion"},
         "localeId":{"shape":"LocaleId"},
         "creationDateTime":{"shape":"Timestamp"},
-        "externalSourceSetting":{"shape":"ExternalSourceSetting"}
+        "externalSourceSetting":{"shape":"ExternalSourceSetting"},
+        "compositeSlotTypeSetting":{"shape":"CompositeSlotTypeSetting"}
       }
     },
     "CreateUploadUrlRequest":{
@@ -2320,6 +2568,13 @@
       "type":"string",
       "max":1000,
       "min":1
+    },
+    "CustomVocabularyEntryId":{
+      "type":"structure",
+      "required":["itemId"],
+      "members":{
+        "itemId":{"shape":"ItemId"}
+      }
     },
     "CustomVocabularyExportSpecification":{
       "type":"structure",
@@ -2347,6 +2602,23 @@
         "localeId":{"shape":"LocaleId"}
       }
     },
+    "CustomVocabularyItem":{
+      "type":"structure",
+      "required":[
+        "itemId",
+        "phrase"
+      ],
+      "members":{
+        "itemId":{"shape":"ItemId"},
+        "phrase":{"shape":"Phrase"},
+        "weight":{"shape":"Weight"},
+        "displayAs":{"shape":"Phrase"}
+      }
+    },
+    "CustomVocabularyItems":{
+      "type":"list",
+      "member":{"shape":"CustomVocabularyItem"}
+    },
     "CustomVocabularyStatus":{
       "type":"string",
       "enum":[
@@ -2356,6 +2628,25 @@
         "Importing",
         "Creating"
       ]
+    },
+    "DTMFCharacter":{
+      "type":"string",
+      "pattern":"^[A-D0-9#*]{1}$"
+    },
+    "DTMFSpecification":{
+      "type":"structure",
+      "required":[
+        "maxLength",
+        "endTimeoutMs",
+        "deletionCharacter",
+        "endCharacter"
+      ],
+      "members":{
+        "maxLength":{"shape":"MaxUtteranceDigits"},
+        "endTimeoutMs":{"shape":"TimeInMilliSeconds"},
+        "deletionCharacter":{"shape":"DTMFCharacter"},
+        "endCharacter":{"shape":"DTMFCharacter"}
+      }
     },
     "DataPrivacy":{
       "type":"structure",
@@ -2502,6 +2793,12 @@
         "botVersion":{"shape":"NumericalBotVersion"},
         "botStatus":{"shape":"BotStatus"}
       }
+    },
+    "DeleteCustomVocabularyItemsList":{
+      "type":"list",
+      "member":{"shape":"CustomVocabularyEntryId"},
+      "max":10,
+      "min":1
     },
     "DeleteCustomVocabularyRequest":{
       "type":"structure",
@@ -3156,7 +3453,8 @@
         "intentId":{"shape":"Id"},
         "creationDateTime":{"shape":"Timestamp"},
         "lastUpdatedDateTime":{"shape":"Timestamp"},
-        "multipleValuesSetting":{"shape":"MultipleValuesSetting"}
+        "multipleValuesSetting":{"shape":"MultipleValuesSetting"},
+        "subSlotSetting":{"shape":"SubSlotSetting"}
       }
     },
     "DescribeSlotTypeRequest":{
@@ -3204,7 +3502,8 @@
         "localeId":{"shape":"LocaleId"},
         "creationDateTime":{"shape":"Timestamp"},
         "lastUpdatedDateTime":{"shape":"Timestamp"},
-        "externalSourceSetting":{"shape":"ExternalSourceSetting"}
+        "externalSourceSetting":{"shape":"ExternalSourceSetting"},
+        "compositeSlotTypeSetting":{"shape":"CompositeSlotTypeSetting"}
       }
     },
     "Description":{
@@ -3293,6 +3592,16 @@
         "associatedTranscriptsPassword":{"shape":"FilePassword"}
       }
     },
+    "ErrorCode":{
+      "type":"string",
+      "enum":[
+        "DUPLICATE_INPUT",
+        "RESOURCE_DOES_NOT_EXIST",
+        "RESOURCE_ALREADY_EXISTS",
+        "INTERNAL_SERVER_FAILURE"
+      ]
+    },
+    "ErrorMessage":{"type":"string"},
     "ExceptionMessage":{"type":"string"},
     "ExportFilter":{
       "type":"structure",
@@ -3376,6 +3685,18 @@
       "members":{
         "grammarSlotTypeSetting":{"shape":"GrammarSlotTypeSetting"}
       }
+    },
+    "FailedCustomVocabularyItem":{
+      "type":"structure",
+      "members":{
+        "itemId":{"shape":"ItemId"},
+        "errorMessage":{"shape":"ErrorMessage"},
+        "errorCode":{"shape":"ErrorCode"}
+      }
+    },
+    "FailedCustomVocabularyItems":{
+      "type":"list",
+      "member":{"shape":"FailedCustomVocabularyItem"}
     },
     "FailureReason":{"type":"string"},
     "FailureReasons":{
@@ -3737,6 +4058,11 @@
       "exception":true,
       "fault":true
     },
+    "ItemId":{
+      "type":"string",
+      "max":32,
+      "min":1
+    },
     "KendraConfiguration":{
       "type":"structure",
       "required":["kendraIndex"],
@@ -3991,6 +4317,43 @@
         "localeId":{"shape":"LocaleId"}
       }
     },
+    "ListCustomVocabularyItemsRequest":{
+      "type":"structure",
+      "required":[
+        "botId",
+        "botVersion",
+        "localeId"
+      ],
+      "members":{
+        "botId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botId"
+        },
+        "botVersion":{
+          "shape":"BotVersion",
+          "location":"uri",
+          "locationName":"botVersion"
+        },
+        "localeId":{
+          "shape":"LocaleId",
+          "location":"uri",
+          "locationName":"localeId"
+        },
+        "maxResults":{"shape":"MaxResults"},
+        "nextToken":{"shape":"NextToken"}
+      }
+    },
+    "ListCustomVocabularyItemsResponse":{
+      "type":"structure",
+      "members":{
+        "botId":{"shape":"Id"},
+        "botVersion":{"shape":"BotVersion"},
+        "localeId":{"shape":"LocaleId"},
+        "customVocabularyItems":{"shape":"CustomVocabularyItems"},
+        "nextToken":{"shape":"NextToken"}
+      }
+    },
     "ListExportsRequest":{
       "type":"structure",
       "members":{
@@ -4232,6 +4595,11 @@
       "max":1000,
       "min":1
     },
+    "MaxUtteranceDigits":{
+      "type":"integer",
+      "max":1024,
+      "min":1
+    },
     "MergeStrategy":{
       "type":"string",
       "enum":[
@@ -4288,6 +4656,15 @@
       "max":100,
       "min":1,
       "pattern":"^([0-9a-zA-Z][_-]?)+$"
+    },
+    "NewCustomVocabularyItem":{
+      "type":"structure",
+      "required":["phrase"],
+      "members":{
+        "phrase":{"shape":"Phrase"},
+        "weight":{"shape":"Weight"},
+        "displayAs":{"shape":"Phrase"}
+      }
     },
     "NextIndex":{
       "type":"integer",
@@ -4365,6 +4742,11 @@
       "members":{
         "objectPrefixes":{"shape":"ObjectPrefixes"}
       }
+    },
+    "Phrase":{
+      "type":"string",
+      "max":100,
+      "min":1
     },
     "PlainTextMessage":{
       "type":"structure",
@@ -4445,6 +4827,32 @@
       "max":100,
       "min":0
     },
+    "PromptAttempt":{
+      "type":"string",
+      "enum":[
+        "Initial",
+        "Retry1",
+        "Retry2",
+        "Retry3",
+        "Retry4",
+        "Retry5"
+      ]
+    },
+    "PromptAttemptSpecification":{
+      "type":"structure",
+      "required":["allowedInputTypes"],
+      "members":{
+        "allowInterrupt":{"shape":"BoxedBoolean"},
+        "allowedInputTypes":{"shape":"AllowedInputTypes"},
+        "audioAndDTMFInputSpecification":{"shape":"AudioAndDTMFInputSpecification"},
+        "textInputSpecification":{"shape":"TextInputSpecification"}
+      }
+    },
+    "PromptAttemptsSpecificationMap":{
+      "type":"map",
+      "key":{"shape":"PromptAttempt"},
+      "value":{"shape":"PromptAttemptSpecification"}
+    },
     "PromptMaxRetries":{
       "type":"integer",
       "max":5,
@@ -4460,7 +4868,8 @@
         "messageGroups":{"shape":"MessageGroupsList"},
         "maxRetries":{"shape":"PromptMaxRetries"},
         "allowInterrupt":{"shape":"BoxedBoolean"},
-        "messageSelectionStrategy":{"shape":"MessageSelectionStrategy"}
+        "messageSelectionStrategy":{"shape":"MessageSelectionStrategy"},
+        "promptAttemptsSpecification":{"shape":"PromptAttemptsSpecificationMap"}
       }
     },
     "QueryFilterString":{
@@ -4830,7 +5239,8 @@
       "enum":[
         "Custom",
         "Extended",
-        "ExternalGrammar"
+        "ExternalGrammar",
+        "Composite"
       ]
     },
     "SlotTypeFilter":{
@@ -4961,7 +5371,8 @@
       "type":"string",
       "enum":[
         "OriginalValue",
-        "TopResolution"
+        "TopResolution",
+        "Concatenation"
       ]
     },
     "SlotValueSelectionSetting":{
@@ -4983,6 +5394,17 @@
         "Ascending",
         "Descending"
       ]
+    },
+    "Specifications":{
+      "type":"structure",
+      "required":[
+        "slotTypeId",
+        "valueElicitationSetting"
+      ],
+      "members":{
+        "slotTypeId":{"shape":"BuiltInOrCustomSlotTypeId"},
+        "valueElicitationSetting":{"shape":"SubSlotValueElicitationSetting"}
+      }
     },
     "StartBotRecommendationRequest":{
       "type":"structure",
@@ -5073,11 +5495,99 @@
       "max":900,
       "min":1
     },
+    "StopBotRecommendationRequest":{
+      "type":"structure",
+      "required":[
+        "botId",
+        "botVersion",
+        "localeId",
+        "botRecommendationId"
+      ],
+      "members":{
+        "botId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botId"
+        },
+        "botVersion":{
+          "shape":"DraftBotVersion",
+          "location":"uri",
+          "locationName":"botVersion"
+        },
+        "localeId":{
+          "shape":"LocaleId",
+          "location":"uri",
+          "locationName":"localeId"
+        },
+        "botRecommendationId":{
+          "shape":"Id",
+          "location":"uri",
+          "locationName":"botRecommendationId"
+        }
+      }
+    },
+    "StopBotRecommendationResponse":{
+      "type":"structure",
+      "members":{
+        "botId":{"shape":"Id"},
+        "botVersion":{"shape":"DraftBotVersion"},
+        "localeId":{"shape":"LocaleId"},
+        "botRecommendationStatus":{"shape":"BotRecommendationStatus"},
+        "botRecommendationId":{"shape":"Id"}
+      }
+    },
     "String":{"type":"string"},
     "StringMap":{
       "type":"map",
       "key":{"shape":"NonEmptyString"},
       "value":{"shape":"String"}
+    },
+    "SubSlotExpression":{
+      "type":"string",
+      "max":640,
+      "min":0,
+      "pattern":"[0-9A-Za-z_\\-\\s\\(\\)]+"
+    },
+    "SubSlotSetting":{
+      "type":"structure",
+      "members":{
+        "expression":{"shape":"SubSlotExpression"},
+        "slotSpecifications":{"shape":"SubSlotSpecificationMap"}
+      }
+    },
+    "SubSlotSpecificationMap":{
+      "type":"map",
+      "key":{"shape":"Name"},
+      "value":{"shape":"Specifications"},
+      "max":6,
+      "min":0
+    },
+    "SubSlotTypeComposition":{
+      "type":"structure",
+      "required":[
+        "name",
+        "slotTypeId"
+      ],
+      "members":{
+        "name":{"shape":"Name"},
+        "slotTypeId":{"shape":"BuiltInOrCustomSlotTypeId"}
+      }
+    },
+    "SubSlotTypeList":{
+      "type":"list",
+      "member":{"shape":"SubSlotTypeComposition"},
+      "max":6,
+      "min":0
+    },
+    "SubSlotValueElicitationSetting":{
+      "type":"structure",
+      "required":["promptSpecification"],
+      "members":{
+        "defaultValueSpecification":{"shape":"SlotDefaultValueSpecification"},
+        "promptSpecification":{"shape":"PromptSpecification"},
+        "sampleUtterances":{"shape":"SampleUtterancesList"},
+        "waitAndContinueSpecification":{"shape":"WaitAndContinueSpecification"}
+      }
     },
     "SynonymList":{
       "type":"list",
@@ -5128,6 +5638,13 @@
       "max":256,
       "min":0
     },
+    "TextInputSpecification":{
+      "type":"structure",
+      "required":["startTimeoutMs"],
+      "members":{
+        "startTimeoutMs":{"shape":"TimeInMilliSeconds"}
+      }
+    },
     "TextLogDestination":{
       "type":"structure",
       "required":["cloudWatch"],
@@ -5172,6 +5689,10 @@
         "Days",
         "Weeks"
       ]
+    },
+    "TimeInMilliSeconds":{
+      "type":"integer",
+      "min":1
     },
     "TimeValue":{
       "type":"integer",
@@ -5396,6 +5917,12 @@
         "lastUpdatedDateTime":{"shape":"Timestamp"}
       }
     },
+    "UpdateCustomVocabularyItemsList":{
+      "type":"list",
+      "member":{"shape":"CustomVocabularyItem"},
+      "max":10,
+      "min":1
+    },
     "UpdateExportRequest":{
       "type":"structure",
       "required":["exportId"],
@@ -5557,7 +6084,8 @@
           "location":"uri",
           "locationName":"intentId"
         },
-        "multipleValuesSetting":{"shape":"MultipleValuesSetting"}
+        "multipleValuesSetting":{"shape":"MultipleValuesSetting"},
+        "subSlotSetting":{"shape":"SubSlotSetting"}
       }
     },
     "UpdateSlotResponse":{
@@ -5575,7 +6103,8 @@
         "intentId":{"shape":"Id"},
         "creationDateTime":{"shape":"Timestamp"},
         "lastUpdatedDateTime":{"shape":"Timestamp"},
-        "multipleValuesSetting":{"shape":"MultipleValuesSetting"}
+        "multipleValuesSetting":{"shape":"MultipleValuesSetting"},
+        "subSlotSetting":{"shape":"SubSlotSetting"}
       }
     },
     "UpdateSlotTypeRequest":{
@@ -5613,7 +6142,8 @@
           "location":"uri",
           "locationName":"localeId"
         },
-        "externalSourceSetting":{"shape":"ExternalSourceSetting"}
+        "externalSourceSetting":{"shape":"ExternalSourceSetting"},
+        "compositeSlotTypeSetting":{"shape":"CompositeSlotTypeSetting"}
       }
     },
     "UpdateSlotTypeResponse":{
@@ -5630,7 +6160,8 @@
         "localeId":{"shape":"LocaleId"},
         "creationDateTime":{"shape":"Timestamp"},
         "lastUpdatedDateTime":{"shape":"Timestamp"},
-        "externalSourceSetting":{"shape":"ExternalSourceSetting"}
+        "externalSourceSetting":{"shape":"ExternalSourceSetting"},
+        "compositeSlotTypeSetting":{"shape":"CompositeSlotTypeSetting"}
       }
     },
     "Utterance":{"type":"string"},
@@ -5682,6 +6213,12 @@
         "stillWaitingResponse":{"shape":"StillWaitingResponseSpecification"},
         "active":{"shape":"BoxedBoolean"}
       }
+    },
+    "Weight":{
+      "type":"integer",
+      "box":true,
+      "max":3,
+      "min":1
     }
   }
 }

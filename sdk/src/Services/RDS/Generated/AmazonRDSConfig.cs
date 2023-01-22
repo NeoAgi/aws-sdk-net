@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the rds-2014-10-31.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.RDS.Internal;
 
 namespace Amazon.RDS
 {
     /// <summary>
     /// Configuration for accessing Amazon RDS service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonRDSConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.16.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.114.6");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.RDS
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonRDSDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "rds";
+            this.EndpointProvider = new AmazonRDSEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.RDS
                 return _userAgent;
             }
         }
+
     }
 }

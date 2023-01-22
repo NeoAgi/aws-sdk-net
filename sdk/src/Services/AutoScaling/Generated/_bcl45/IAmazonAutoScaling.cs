@@ -342,6 +342,84 @@ namespace Amazon.AutoScaling
 
         #endregion
         
+        #region  AttachTrafficSources
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </para>
+        ///  
+        /// <para>
+        /// To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a>
+        /// API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
+        /// API.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation is additive and does not detach existing traffic sources from the Auto
+        /// Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AttachTrafficSources service method.</param>
+        /// 
+        /// <returns>The response from the AttachTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ServiceLinkedRoleFailureException">
+        /// The service-linked role is not yet ready for use.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/AttachTrafficSources">REST API Reference for AttachTrafficSources Operation</seealso>
+        AttachTrafficSourcesResponse AttachTrafficSources(AttachTrafficSourcesRequest request);
+
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Attaches one or more traffic sources to the specified Auto Scaling group.
+        /// </para>
+        ///  
+        /// <para>
+        /// To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a>
+        /// API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
+        /// API.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation is additive and does not detach existing traffic sources from the Auto
+        /// Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AttachTrafficSources service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AttachTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ServiceLinkedRoleFailureException">
+        /// The service-linked role is not yet ready for use.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/AttachTrafficSources">REST API Reference for AttachTrafficSources Operation</seealso>
+        Task<AttachTrafficSourcesResponse> AttachTrafficSourcesAsync(AttachTrafficSourcesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  BatchDeleteScheduledAction
 
 
@@ -766,6 +844,16 @@ namespace Amazon.AutoScaling
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
         /// configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group
+        /// using either a launch template or a launch configuration. We strongly recommend that
+        /// you do not use launch configurations. They do not provide full functionality for Amazon
+        /// EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch
+        /// templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchConfiguration service method.</param>
         /// 
@@ -803,6 +891,16 @@ namespace Amazon.AutoScaling
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
         /// configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group
+        /// using either a launch template or a launch configuration. We strongly recommend that
+        /// you do not use launch configurations. They do not provide full functionality for Amazon
+        /// EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch
+        /// templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLaunchConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -919,12 +1017,9 @@ namespace Amazon.AutoScaling
         ///  
         /// <para>
         /// If the group has instances or scaling activities in progress, you must specify the
-        /// option to force the deletion in order for it to succeed.
-        /// </para>
-        ///  
-        /// <para>
-        /// If the group has policies, deleting the group deletes the policies, the underlying
-        /// alarm actions, and any alarm that no longer has an associated action.
+        /// option to force the deletion in order for it to succeed. The force delete operation
+        /// will also terminate the EC2 instances. If the group has a warm pool, the force delete
+        /// option also deletes the warm pool.
         /// </para>
         ///  
         /// <para>
@@ -936,6 +1031,16 @@ namespace Amazon.AutoScaling
         /// <para>
         /// To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a>
         /// API and set the minimum size and desired capacity of the Auto Scaling group to zero.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the group has scaling policies, deleting the group deletes the policies, the underlying
+        /// alarm actions, and any alarm that no longer has an associated action.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete
+        /// your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAutoScalingGroup service method.</param>
@@ -962,12 +1067,9 @@ namespace Amazon.AutoScaling
         ///  
         /// <para>
         /// If the group has instances or scaling activities in progress, you must specify the
-        /// option to force the deletion in order for it to succeed.
-        /// </para>
-        ///  
-        /// <para>
-        /// If the group has policies, deleting the group deletes the policies, the underlying
-        /// alarm actions, and any alarm that no longer has an associated action.
+        /// option to force the deletion in order for it to succeed. The force delete operation
+        /// will also terminate the EC2 instances. If the group has a warm pool, the force delete
+        /// option also deletes the warm pool.
         /// </para>
         ///  
         /// <para>
@@ -979,6 +1081,16 @@ namespace Amazon.AutoScaling
         /// <para>
         /// To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a>
         /// API and set the minimum size and desired capacity of the Auto Scaling group to zero.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the group has scaling policies, deleting the group deletes the policies, the underlying
+        /// alarm actions, and any alarm that no longer has an associated action.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete
+        /// your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAutoScalingGroup service method.</param>
@@ -2327,6 +2439,12 @@ namespace Amazon.AutoScaling
         /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
         /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+        /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.</param>
         /// 
@@ -2375,6 +2493,12 @@ namespace Amazon.AutoScaling
         /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
         /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+        /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancerTargetGroups service method.</param>
         /// <param name="cancellationToken">
@@ -3190,6 +3314,62 @@ namespace Amazon.AutoScaling
 
         #endregion
         
+        #region  DescribeTrafficSources
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Gets information about the traffic sources for the specified Auto Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTrafficSources service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> value is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeTrafficSources">REST API Reference for DescribeTrafficSources Operation</seealso>
+        DescribeTrafficSourcesResponse DescribeTrafficSources(DescribeTrafficSourcesRequest request);
+
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Gets information about the traffic sources for the specified Auto Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTrafficSources service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> value is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DescribeTrafficSources">REST API Reference for DescribeTrafficSources Operation</seealso>
+        Task<DescribeTrafficSourcesResponse> DescribeTrafficSourcesAsync(DescribeTrafficSourcesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeWarmPool
 
 
@@ -3415,6 +3595,12 @@ namespace Amazon.AutoScaling
         /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
         /// The instances remain running.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+        /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.</param>
         /// 
@@ -3438,6 +3624,12 @@ namespace Amazon.AutoScaling
         /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
         /// The instances remain running.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+        /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetachLoadBalancerTargetGroups service method.</param>
         /// <param name="cancellationToken">
@@ -3451,6 +3643,56 @@ namespace Amazon.AutoScaling
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DetachLoadBalancerTargetGroups">REST API Reference for DetachLoadBalancerTargetGroups Operation</seealso>
         Task<DetachLoadBalancerTargetGroupsResponse> DetachLoadBalancerTargetGroupsAsync(DetachLoadBalancerTargetGroupsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DetachTrafficSources
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Detaches one or more traffic sources from the specified Auto Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DetachTrafficSources service method.</param>
+        /// 
+        /// <returns>The response from the DetachTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DetachTrafficSources">REST API Reference for DetachTrafficSources Operation</seealso>
+        DetachTrafficSourcesResponse DetachTrafficSources(DetachTrafficSourcesRequest request);
+
+
+
+        /// <summary>
+        /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+        /// Do not use this API for production workloads. This API is also subject to change.</b>
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// Detaches one or more traffic sources from the specified Auto Scaling group.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DetachTrafficSources service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DetachTrafficSources service method, as returned by AutoScaling.</returns>
+        /// <exception cref="Amazon.AutoScaling.Model.ResourceContentionException">
+        /// You already have a pending update to an Amazon EC2 Auto Scaling resource (for example,
+        /// an Auto Scaling group, instance, or load balancer).
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/autoscaling-2011-01-01/DetachTrafficSources">REST API Reference for DetachTrafficSources Operation</seealso>
+        Task<DetachTrafficSourcesResponse> DetachTrafficSourcesAsync(DetachTrafficSourcesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the codeartifact-2018-09-22.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CodeArtifact.Internal;
 
 namespace Amazon.CodeArtifact
 {
     /// <summary>
     /// Configuration for accessing Amazon CodeArtifact service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCodeArtifactConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.14");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.1");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CodeArtifact
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeArtifactDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codeartifact";
+            this.EndpointProvider = new AmazonCodeArtifactEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CodeArtifact
                 return _userAgent;
             }
         }
+
     }
 }

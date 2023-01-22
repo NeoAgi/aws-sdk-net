@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the codebuild-2016-10-06.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CodeBuild.Internal;
 
 namespace Amazon.CodeBuild
 {
     /// <summary>
     /// Configuration for accessing Amazon CodeBuild service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCodeBuildConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.119");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CodeBuild
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeBuildDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codebuild";
+            this.EndpointProvider = new AmazonCodeBuildEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CodeBuild
                 return _userAgent;
             }
         }
+
     }
 }

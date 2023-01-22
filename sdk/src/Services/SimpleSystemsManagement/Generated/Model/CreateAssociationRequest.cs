@@ -44,6 +44,7 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// </summary>
     public partial class CreateAssociationRequest : AmazonSimpleSystemsManagementRequest
     {
+        private AlarmConfiguration _alarmConfiguration;
         private bool? _applyOnlyAtCronInterval;
         private string _associationName;
         private string _automationTargetParameterName;
@@ -59,6 +60,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         private string _scheduleExpression;
         private int? _scheduleOffset;
         private AssociationSyncCompliance _syncCompliance;
+        private List<Tag> _tags = new List<Tag>();
         private List<TargetLocation> _targetLocations = new List<TargetLocation>();
         private List<Dictionary<string, List<string>>> _targetMaps = new List<Dictionary<string, List<string>>>();
         private List<Target> _targets = new List<Target>();
@@ -77,6 +79,21 @@ namespace Amazon.SimpleSystemsManagement.Model
         {
             _instanceId = instanceId;
             _name = name;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AlarmConfiguration.
+        /// </summary>
+        public AlarmConfiguration AlarmConfiguration
+        {
+            get { return this._alarmConfiguration; }
+            set { this._alarmConfiguration = value; }
+        }
+
+        // Check to see if AlarmConfiguration property is set
+        internal bool IsSetAlarmConfiguration()
+        {
+            return this._alarmConfiguration != null;
         }
 
         /// <summary>
@@ -466,6 +483,29 @@ namespace Amazon.SimpleSystemsManagement.Model
         internal bool IsSetSyncCompliance()
         {
             return this._syncCompliance != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Adds or overwrites one or more tags for a State Manager association. <i>Tags</i> are
+        /// metadata that you can assign to your Amazon Web Services resources. Tags enable you
+        /// to categorize your resources in different ways, for example, by purpose, owner, or
+        /// environment. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=1000)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

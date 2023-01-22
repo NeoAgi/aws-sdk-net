@@ -57,6 +57,7 @@ namespace Amazon.RDS.Model
         private string _availabilityZone;
         private int? _backupRetentionPeriod;
         private string _backupTarget;
+        private string _caCertificateIdentifier;
         private string _characterSetName;
         private bool? _copyTagsToSnapshot;
         private string _customIamInstanceProfile;
@@ -79,8 +80,10 @@ namespace Amazon.RDS.Model
         private int? _iops;
         private string _kmsKeyId;
         private string _licenseModel;
+        private bool? _manageMasterUserPassword;
         private string _masterUsername;
         private string _masterUserPassword;
+        private string _masterUserSecretKmsKeyId;
         private int? _maxAllocatedStorage;
         private int? _monitoringInterval;
         private string _monitoringRoleArn;
@@ -97,6 +100,7 @@ namespace Amazon.RDS.Model
         private int? _promotionTier;
         private bool? _publiclyAccessible;
         private bool? _storageEncrypted;
+        private int? _storageThroughput;
         private string _storageType;
         private List<Tag> _tags = new List<Tag>();
         private string _tdeCredentialArn;
@@ -113,11 +117,11 @@ namespace Amazon.RDS.Model
         /// Instantiates CreateDBInstanceRequest with the parameterized properties
         /// </summary>
         /// <param name="dbInstanceIdentifier">The DB instance identifier. This parameter is stored as a lowercase string. Constraints: <ul> <li> Must contain from 1 to 63 letters, numbers, or hyphens. </li> <li> First character must be a letter. </li> <li> Can't end with a hyphen or contain two consecutive hyphens. </li> </ul> Example: <code>mydbinstance</code> </param>
-        /// <param name="allocatedStorage">The amount of storage in gibibytes (GiB) to allocate for the DB instance. Type: Integer  <b>Amazon Aurora</b>  Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.  <b>Amazon RDS Custom</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL Server. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL Server. </li> </ul>  <b>MySQL</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>MariaDB</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>PostgreSQL</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>Oracle</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 10 to 3072. </li> </ul>  <b>SQL Server</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2): <ul> <li> Enterprise and Standard editions: Must be an integer from 20 to 16384. </li> <li> Web and Express editions: Must be an integer from 20 to 16384. </li> </ul> </li> <li> Provisioned IOPS storage (io1): <ul> <li> Enterprise and Standard editions: Must be an integer from 100 to 16384. </li> <li> Web and Express editions: Must be an integer from 100 to 16384. </li> </ul> </li> <li> Magnetic storage (standard): <ul> <li> Enterprise and Standard editions: Must be an integer from 20 to 1024. </li> <li> Web and Express editions: Must be an integer from 20 to 1024. </li> </ul> </li> </ul></param>
+        /// <param name="allocatedStorage">The amount of storage in gibibytes (GiB) to allocate for the DB instance. Type: Integer  <b>Amazon Aurora</b>  Not applicable. Aurora cluster volumes automatically grow as the amount of data in your database increases, though you are only charged for the space that you use in an Aurora cluster volume.  <b>Amazon RDS Custom</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40 to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL Server. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom for Oracle, 16384 for RDS Custom for SQL Server. </li> </ul>  <b>MySQL</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>MariaDB</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>PostgreSQL</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 5 to 3072. </li> </ul>  <b>Oracle</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536. </li> <li> Provisioned IOPS storage (io1): Must be an integer from 100 to 65536. </li> <li> Magnetic storage (standard): Must be an integer from 10 to 3072. </li> </ul>  <b>SQL Server</b>  Constraints to the amount of storage for each storage type are the following: <ul> <li> General Purpose (SSD) storage (gp2, gp3): <ul> <li> Enterprise and Standard editions: Must be an integer from 20 to 16384. </li> <li> Web and Express editions: Must be an integer from 20 to 16384. </li> </ul> </li> <li> Provisioned IOPS storage (io1): <ul> <li> Enterprise and Standard editions: Must be an integer from 100 to 16384. </li> <li> Web and Express editions: Must be an integer from 100 to 16384. </li> </ul> </li> <li> Magnetic storage (standard): <ul> <li> Enterprise and Standard editions: Must be an integer from 20 to 1024. </li> <li> Web and Express editions: Must be an integer from 20 to 1024. </li> </ul> </li> </ul></param>
         /// <param name="dbInstanceClass">The compute and memory capacity of the DB instance, for example db.m5.large. Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance classes</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</param>
         /// <param name="engine">The name of the database engine to be used for this instance. Not every database engine is available for every Amazon Web Services Region. Valid Values: <ul> <li>  <code>aurora</code> (for MySQL 5.6-compatible Aurora) </li> <li>  <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora) </li> <li>  <code>aurora-postgresql</code>  </li> <li>  <code>custom-oracle-ee (for RDS Custom for Oracle instances)</code>  </li> <li>  <code>custom-sqlserver-ee (for RDS Custom for SQL Server instances)</code>  </li> <li>  <code>custom-sqlserver-se (for RDS Custom for SQL Server instances)</code>  </li> <li>  <code>custom-sqlserver-web (for RDS Custom for SQL Server instances)</code>  </li> <li>  <code>mariadb</code>  </li> <li>  <code>mysql</code>  </li> <li>  <code>oracle-ee</code>  </li> <li>  <code>oracle-ee-cdb</code>  </li> <li>  <code>oracle-se2</code>  </li> <li>  <code>oracle-se2-cdb</code>  </li> <li>  <code>postgres</code>  </li> <li>  <code>sqlserver-ee</code>  </li> <li>  <code>sqlserver-se</code>  </li> <li>  <code>sqlserver-ex</code>  </li> <li>  <code>sqlserver-web</code>  </li> </ul></param>
         /// <param name="masterUsername">The name for the master user.  <b>Amazon Aurora</b>  Not applicable. The name for the master user is managed by the DB cluster.  <b>Amazon RDS</b>  Constraints: <ul> <li> Required. </li> <li> Must be 1 to 16 letters, numbers, or underscores. </li> <li> First character must be a letter. </li> <li> Can't be a reserved word for the chosen database engine. </li> </ul></param>
-        /// <param name="masterUserPassword">The password for the master user. The password can include any printable ASCII character except "/", """, or "@".  <b>Amazon Aurora</b>  Not applicable. The password for the master user is managed by the DB cluster.  <b>MariaDB</b>  Constraints: Must contain from 8 to 41 characters.  <b>Microsoft SQL Server</b>  Constraints: Must contain from 8 to 128 characters.  <b>MySQL</b>  Constraints: Must contain from 8 to 41 characters.  <b>Oracle</b>  Constraints: Must contain from 8 to 30 characters.  <b>PostgreSQL</b>  Constraints: Must contain from 8 to 128 characters.</param>
+        /// <param name="masterUserPassword">The password for the master user. The password can include any printable ASCII character except "/", """, or "@".  <b>Amazon Aurora</b>  Not applicable. The password for the master user is managed by the DB cluster. Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned on.  <b>MariaDB</b>  Constraints: Must contain from 8 to 41 characters.  <b>Microsoft SQL Server</b>  Constraints: Must contain from 8 to 128 characters.  <b>MySQL</b>  Constraints: Must contain from 8 to 41 characters.  <b>Oracle</b>  Constraints: Must contain from 8 to 30 characters.  <b>PostgreSQL</b>  Constraints: Must contain from 8 to 128 characters.</param>
         public CreateDBInstanceRequest(string dbInstanceIdentifier, int allocatedStorage, string dbInstanceClass, string engine, string masterUsername, string masterUserPassword)
         {
             _dbInstanceIdentifier = dbInstanceIdentifier;
@@ -157,8 +161,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom
-        /// for Oracle, 16384 for RDS Custom for SQL Server.
+        /// General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40 to 65536 for
+        /// RDS Custom for Oracle, 16384 for RDS Custom for SQL Server.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -175,7 +179,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
+        /// General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -195,7 +199,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
+        /// General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -215,7 +219,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
+        /// General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -235,7 +239,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.
+        /// General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -255,7 +259,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// General Purpose (SSD) storage (gp2):
+        /// General Purpose (SSD) storage (gp2, gp3):
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -448,6 +452,36 @@ namespace Amazon.RDS.Model
         internal bool IsSetBackupTarget()
         {
             return this._backupTarget != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CACertificateIdentifier. 
+        /// <para>
+        /// Specifies the CA certificate identifier to use for the DB instance’s server certificate.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting doesn't apply to RDS Custom.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
+        /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+        /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+        /// User Guide</i>.
+        /// </para>
+        /// </summary>
+        public string CACertificateIdentifier
+        {
+            get { return this._caCertificateIdentifier; }
+            set { this._caCertificateIdentifier = value; }
+        }
+
+        // Check to see if CACertificateIdentifier property is set
+        internal bool IsSetCACertificateIdentifier()
+        {
+            return this._caCertificateIdentifier != null;
         }
 
         /// <summary>
@@ -829,8 +863,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// It must begin with a letter or an underscore. Subsequent characters can be letters,
-        /// underscores, or digits (0 to 9).
+        /// It must begin with a letter. Subsequent characters can be letters, underscores, or
+        /// digits (0 to 9).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -867,15 +901,15 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Must be 1 to 255 letters, numbers, or hyphens.
+        /// It must be 1 to 255 letters, numbers, or hyphens.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// First character must be a letter
+        /// The first character must be a letter.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Can't end with a hyphen or contain two consecutive hyphens
+        /// It can't end with a hyphen or contain two consecutive hyphens.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -1138,7 +1172,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned
         /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.
         /// </para>
         /// </summary>
@@ -1348,9 +1382,8 @@ namespace Amazon.RDS.Model
         ///  
         /// <para>
         /// A custom engine version (CEV) that you have previously created. This setting is required
-        /// for RDS Custom for Oracle. The CEV name has the following format: <code>19.<i>customized_string</i>
-        /// </code>. An example identifier is <code>19.my_cev1</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
+        /// for RDS Custom for Oracle. The CEV name has the following format: 19.<i>customized_string</i>.
+        /// A valid CEV name is <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
         /// Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         ///  
@@ -1424,10 +1457,8 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Iops. 
         /// <para>
         /// The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for the DB instance. For information about valid <code>Iops</code> values,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
-        /// Guide</i>.
+        /// allocated for the DB instance. For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon
+        /// RDS DB instance storage</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -1543,6 +1574,41 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ManageMasterUserPassword. 
+        /// <para>
+        /// A value that indicates whether to manage the master user password with Amazon Web
+        /// Services Secrets Manager.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Can't manage the master user password with Amazon Web Services Secrets Manager if
+        /// <code>MasterUserPassword</code> is specified.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public bool ManageMasterUserPassword
+        {
+            get { return this._manageMasterUserPassword.GetValueOrDefault(); }
+            set { this._manageMasterUserPassword = value; }
+        }
+
+        // Check to see if ManageMasterUserPassword property is set
+        internal bool IsSetManageMasterUserPassword()
+        {
+            return this._manageMasterUserPassword.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MasterUsername. 
         /// <para>
         /// The name for the master user.
@@ -1609,6 +1675,11 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
+        /// Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned
+        /// on.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>MariaDB</b> 
         /// </para>
         ///  
@@ -1658,6 +1729,48 @@ namespace Amazon.RDS.Model
         internal bool IsSetMasterUserPassword()
         {
             return this._masterUserPassword != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MasterUserSecretKmsKeyId. 
+        /// <para>
+        /// The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to
+        /// encrypt the secret, and you must use a customer managed KMS key.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.
+        /// </para>
+        /// </summary>
+        public string MasterUserSecretKmsKeyId
+        {
+            get { return this._masterUserSecretKmsKeyId; }
+            set { this._masterUserSecretKmsKeyId = value; }
+        }
+
+        // Check to see if MasterUserSecretKmsKeyId property is set
+        internal bool IsSetMasterUserSecretKmsKeyId()
+        {
+            return this._masterUserSecretKmsKeyId != null;
         }
 
         /// <summary>
@@ -2348,18 +2461,44 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StorageThroughput. 
+        /// <para>
+        /// Specifies the storage throughput value for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting applies only to the <code>gp3</code> storage type.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting doesn't apply to RDS Custom or Amazon Aurora.
+        /// </para>
+        /// </summary>
+        public int StorageThroughput
+        {
+            get { return this._storageThroughput.GetValueOrDefault(); }
+            set { this._storageThroughput = value; }
+        }
+
+        // Check to see if StorageThroughput property is set
+        internal bool IsSetStorageThroughput()
+        {
+            return this._storageThroughput.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
         /// Specifies the storage type to be associated with the DB instance.
         /// </para>
         ///  
         /// <para>
-        /// Valid values: <code>standard | gp2 | io1</code> 
+        /// Valid values: <code>gp2 | gp3 | io1 | standard</code> 
         /// </para>
         ///  
         /// <para>
-        /// If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.
+        /// If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.
         /// </para>
         ///  
         /// <para>

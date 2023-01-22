@@ -45,6 +45,17 @@ namespace Amazon.EMRContainers.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(JobDriver requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetSparkSqlJobDriver())
+            {
+                context.Writer.WritePropertyName("sparkSqlJobDriver");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = SparkSqlJobDriverMarshaller.Instance;
+                marshaller.Marshall(requestObject.SparkSqlJobDriver, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetSparkSubmitJobDriver())
             {
                 context.Writer.WritePropertyName("sparkSubmitJobDriver");

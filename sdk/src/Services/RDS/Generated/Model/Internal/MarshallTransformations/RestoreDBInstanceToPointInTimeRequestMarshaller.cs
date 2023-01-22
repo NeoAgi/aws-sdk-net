@@ -58,6 +58,10 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
 
             if(publicRequest != null)
             {
+                if(publicRequest.IsSetAllocatedStorage())
+                {
+                    request.Parameters.Add("AllocatedStorage", StringUtils.FromInt(publicRequest.AllocatedStorage));
+                }
                 if(publicRequest.IsSetAutoMinorVersionUpgrade())
                 {
                     request.Parameters.Add("AutoMinorVersionUpgrade", StringUtils.FromBool(publicRequest.AutoMinorVersionUpgrade));
@@ -190,6 +194,10 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetSourceDbiResourceId())
                 {
                     request.Parameters.Add("SourceDbiResourceId", StringUtils.FromString(publicRequest.SourceDbiResourceId));
+                }
+                if(publicRequest.IsSetStorageThroughput())
+                {
+                    request.Parameters.Add("StorageThroughput", StringUtils.FromInt(publicRequest.StorageThroughput));
                 }
                 if(publicRequest.IsSetStorageType())
                 {

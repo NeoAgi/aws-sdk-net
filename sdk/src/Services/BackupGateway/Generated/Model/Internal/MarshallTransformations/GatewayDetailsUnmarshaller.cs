@@ -94,6 +94,12 @@ namespace Amazon.BackupGateway.Model.Internal.MarshallTransformations
                     unmarshalledObject.LastSeenTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("MaintenanceStartTime", targetDepth))
+                {
+                    var unmarshaller = MaintenanceStartTimeUnmarshaller.Instance;
+                    unmarshalledObject.MaintenanceStartTime = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("NextUpdateAvailabilityTime", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;

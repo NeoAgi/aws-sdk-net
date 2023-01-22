@@ -187,6 +187,106 @@ namespace Amazon.WorkSpaces
 
 
     /// <summary>
+    /// Constants used for properties of type BundleType.
+    /// </summary>
+    public class BundleType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant REGULAR for BundleType
+        /// </summary>
+        public static readonly BundleType REGULAR = new BundleType("REGULAR");
+        /// <summary>
+        /// Constant STANDBY for BundleType
+        /// </summary>
+        public static readonly BundleType STANDBY = new BundleType("STANDBY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BundleType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BundleType FindValue(string value)
+        {
+            return FindValue<BundleType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BundleType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type CertificateBasedAuthStatusEnum.
+    /// </summary>
+    public class CertificateBasedAuthStatusEnum : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for CertificateBasedAuthStatusEnum
+        /// </summary>
+        public static readonly CertificateBasedAuthStatusEnum DISABLED = new CertificateBasedAuthStatusEnum("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for CertificateBasedAuthStatusEnum
+        /// </summary>
+        public static readonly CertificateBasedAuthStatusEnum ENABLED = new CertificateBasedAuthStatusEnum("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CertificateBasedAuthStatusEnum(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CertificateBasedAuthStatusEnum FindValue(string value)
+        {
+            return FindValue<CertificateBasedAuthStatusEnum>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CertificateBasedAuthStatusEnum(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ClientDeviceType.
     /// </summary>
     public class ClientDeviceType : ConstantClass
@@ -589,6 +689,52 @@ namespace Amazon.WorkSpaces
 
 
     /// <summary>
+    /// Constants used for properties of type DeletableCertificateBasedAuthProperty.
+    /// </summary>
+    public class DeletableCertificateBasedAuthProperty : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN for DeletableCertificateBasedAuthProperty
+        /// </summary>
+        public static readonly DeletableCertificateBasedAuthProperty CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = new DeletableCertificateBasedAuthProperty("CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DeletableCertificateBasedAuthProperty(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DeletableCertificateBasedAuthProperty FindValue(string value)
+        {
+            return FindValue<DeletableCertificateBasedAuthProperty>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DeletableCertificateBasedAuthProperty(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type DeletableSamlProperty.
     /// </summary>
     public class DeletableSamlProperty : ConstantClass
@@ -682,6 +828,56 @@ namespace Amazon.WorkSpaces
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ImageType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type LogUploadEnum.
+    /// </summary>
+    public class LogUploadEnum : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for LogUploadEnum
+        /// </summary>
+        public static readonly LogUploadEnum DISABLED = new LogUploadEnum("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for LogUploadEnum
+        /// </summary>
+        public static readonly LogUploadEnum ENABLED = new LogUploadEnum("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LogUploadEnum(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LogUploadEnum FindValue(string value)
+        {
+            return FindValue<LogUploadEnum>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LogUploadEnum(string value)
         {
             return FindValue(value);
         }
@@ -843,6 +1039,56 @@ namespace Amazon.WorkSpaces
 
 
     /// <summary>
+    /// Constants used for properties of type Protocol.
+    /// </summary>
+    public class Protocol : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PCOIP for Protocol
+        /// </summary>
+        public static readonly Protocol PCOIP = new Protocol("PCOIP");
+        /// <summary>
+        /// Constant WSP for Protocol
+        /// </summary>
+        public static readonly Protocol WSP = new Protocol("WSP");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public Protocol(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static Protocol FindValue(string value)
+        {
+            return FindValue<Protocol>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator Protocol(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ReconnectEnum.
     /// </summary>
     public class ReconnectEnum : ConstantClass
@@ -906,6 +1152,10 @@ namespace Amazon.WorkSpaces
         /// Constant AUTO_STOP for RunningMode
         /// </summary>
         public static readonly RunningMode AUTO_STOP = new RunningMode("AUTO_STOP");
+        /// <summary>
+        /// Constant MANUAL for RunningMode
+        /// </summary>
+        public static readonly RunningMode MANUAL = new RunningMode("MANUAL");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -990,6 +1240,56 @@ namespace Amazon.WorkSpaces
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SamlStatusEnum(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type StandbyWorkspaceRelationshipType.
+    /// </summary>
+    public class StandbyWorkspaceRelationshipType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PRIMARY for StandbyWorkspaceRelationshipType
+        /// </summary>
+        public static readonly StandbyWorkspaceRelationshipType PRIMARY = new StandbyWorkspaceRelationshipType("PRIMARY");
+        /// <summary>
+        /// Constant STANDBY for StandbyWorkspaceRelationshipType
+        /// </summary>
+        public static readonly StandbyWorkspaceRelationshipType STANDBY = new StandbyWorkspaceRelationshipType("STANDBY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public StandbyWorkspaceRelationshipType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static StandbyWorkspaceRelationshipType FindValue(string value)
+        {
+            return FindValue<StandbyWorkspaceRelationshipType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator StandbyWorkspaceRelationshipType(string value)
         {
             return FindValue(value);
         }
@@ -1090,6 +1390,60 @@ namespace Amazon.WorkSpaces
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Tenancy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type WorkspaceBundleState.
+    /// </summary>
+    public class WorkspaceBundleState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AVAILABLE for WorkspaceBundleState
+        /// </summary>
+        public static readonly WorkspaceBundleState AVAILABLE = new WorkspaceBundleState("AVAILABLE");
+        /// <summary>
+        /// Constant ERROR for WorkspaceBundleState
+        /// </summary>
+        public static readonly WorkspaceBundleState ERROR = new WorkspaceBundleState("ERROR");
+        /// <summary>
+        /// Constant PENDING for WorkspaceBundleState
+        /// </summary>
+        public static readonly WorkspaceBundleState PENDING = new WorkspaceBundleState("PENDING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public WorkspaceBundleState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static WorkspaceBundleState FindValue(string value)
+        {
+            return FindValue<WorkspaceBundleState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator WorkspaceBundleState(string value)
         {
             return FindValue(value);
         }
@@ -1223,6 +1577,10 @@ namespace Amazon.WorkSpaces
         /// </summary>
         public static readonly WorkspaceImageIngestionProcess BYOL_GRAPHICS_G4DN = new WorkspaceImageIngestionProcess("BYOL_GRAPHICS_G4DN");
         /// <summary>
+        /// Constant BYOL_GRAPHICS_G4DN_BYOP for WorkspaceImageIngestionProcess
+        /// </summary>
+        public static readonly WorkspaceImageIngestionProcess BYOL_GRAPHICS_G4DN_BYOP = new WorkspaceImageIngestionProcess("BYOL_GRAPHICS_G4DN_BYOP");
+        /// <summary>
         /// Constant BYOL_GRAPHICSPRO for WorkspaceImageIngestionProcess
         /// </summary>
         public static readonly WorkspaceImageIngestionProcess BYOL_GRAPHICSPRO = new WorkspaceImageIngestionProcess("BYOL_GRAPHICSPRO");
@@ -1230,6 +1588,10 @@ namespace Amazon.WorkSpaces
         /// Constant BYOL_REGULAR for WorkspaceImageIngestionProcess
         /// </summary>
         public static readonly WorkspaceImageIngestionProcess BYOL_REGULAR = new WorkspaceImageIngestionProcess("BYOL_REGULAR");
+        /// <summary>
+        /// Constant BYOL_REGULAR_BYOP for WorkspaceImageIngestionProcess
+        /// </summary>
+        public static readonly WorkspaceImageIngestionProcess BYOL_REGULAR_BYOP = new WorkspaceImageIngestionProcess("BYOL_REGULAR_BYOP");
         /// <summary>
         /// Constant BYOL_REGULAR_WSP for WorkspaceImageIngestionProcess
         /// </summary>

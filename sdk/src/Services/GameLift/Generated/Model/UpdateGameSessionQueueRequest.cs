@@ -44,19 +44,6 @@ namespace Amazon.GameLift.Model
     ///  <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
     /// Using Multi-Region Queues</a> 
     /// </para>
-    ///  
-    /// <para>
-    ///  <b>Related actions</b> 
-    /// </para>
-    ///  
-    /// <para>
-    ///  <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a> 
-    /// </para>
     /// </summary>
     public partial class UpdateGameSessionQueueRequest : AmazonGameLiftRequest
     {
@@ -72,8 +59,7 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property CustomEventData. 
         /// <para>
-        ///  Information to be added to all events that are related to this game session queue.
-        /// 
+        /// Information to be added to all events that are related to this game session queue.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=256)]
@@ -104,10 +90,32 @@ namespace Amazon.GameLift.Model
             set { this._destinations = value; }
         }
 
+        /// <summary>
+        /// This property is set to true if the property <seealso cref="Destinations"/>
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </summary>
+        /// <returns>
+        /// True if the related property was set or will be sent to a service; false otherwise.
+        /// </returns>
+        public bool IsDestinationsSet
+        {
+            get
+            {
+                return Amazon.Util.Internal.InternalSDKUtils.GetIsSet(this._destinations);
+            }
+            set
+            {
+                Amazon.Util.Internal.InternalSDKUtils.SetIsSet(value, ref this._destinations);
+            }
+        }
+
         // Check to see if Destinations property is set
         internal bool IsSetDestinations()
         {
-            return this._destinations != null && this._destinations.Count > 0; 
+            return this.IsDestinationsSet; 
         }
 
         /// <summary>
@@ -189,10 +197,32 @@ namespace Amazon.GameLift.Model
             set { this._playerLatencyPolicies = value; }
         }
 
+        /// <summary>
+        /// This property is set to true if the property <seealso cref="PlayerLatencyPolicies"/>
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </summary>
+        /// <returns>
+        /// True if the related property was set or will be sent to a service; false otherwise.
+        /// </returns>
+        public bool IsPlayerLatencyPoliciesSet
+        {
+            get
+            {
+                return Amazon.Util.Internal.InternalSDKUtils.GetIsSet(this._playerLatencyPolicies);
+            }
+            set
+            {
+                Amazon.Util.Internal.InternalSDKUtils.SetIsSet(value, ref this._playerLatencyPolicies);
+            }
+        }
+
         // Check to see if PlayerLatencyPolicies property is set
         internal bool IsSetPlayerLatencyPolicies()
         {
-            return this._playerLatencyPolicies != null && this._playerLatencyPolicies.Count > 0; 
+            return this.IsPlayerLatencyPoliciesSet; 
         }
 
         /// <summary>

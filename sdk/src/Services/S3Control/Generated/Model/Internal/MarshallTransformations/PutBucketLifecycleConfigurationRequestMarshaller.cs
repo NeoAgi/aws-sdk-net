@@ -56,13 +56,6 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
         {
             var request = new DefaultRequest(publicRequest, "Amazon.S3Control");
             request.HttpMethod = "PUT";
-            if (Arn.IsArn(publicRequest.Bucket))
-            {
-                publicRequest.AccountId = Amazon.S3Control.Internal.S3ArnUtils.GetAccountIdBasedOnArn(
-                    publicRequest.AccountId,
-                    Arn.Parse(publicRequest.Bucket).AccountId
-                );
-            }
         
             if (publicRequest.IsSetAccountId()) 
             {
@@ -121,6 +114,12 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                                 if (publicRequestLifecycleConfigurationRulesValue.Filter.And != null) 
                                 {
                                     xmlWriter.WriteStartElement("And", "http://awss3control.amazonaws.com/doc/2018-08-20/");            
+                                    if(publicRequestLifecycleConfigurationRulesValue.Filter.And.IsSetObjectSizeGreaterThan())
+                                        xmlWriter.WriteElementString("ObjectSizeGreaterThan", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromLong(publicRequestLifecycleConfigurationRulesValue.Filter.And.ObjectSizeGreaterThan));                 
+                    
+                                    if(publicRequestLifecycleConfigurationRulesValue.Filter.And.IsSetObjectSizeLessThan())
+                                        xmlWriter.WriteElementString("ObjectSizeLessThan", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromLong(publicRequestLifecycleConfigurationRulesValue.Filter.And.ObjectSizeLessThan));                 
+                    
                                     if(publicRequestLifecycleConfigurationRulesValue.Filter.And.IsSetPrefix())
                                         xmlWriter.WriteElementString("Prefix", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromString(publicRequestLifecycleConfigurationRulesValue.Filter.And.Prefix));                 
                     
@@ -147,6 +146,12 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                                     }
                                     xmlWriter.WriteEndElement();
                                 }
+                                if(publicRequestLifecycleConfigurationRulesValue.Filter.IsSetObjectSizeGreaterThan())
+                                    xmlWriter.WriteElementString("ObjectSizeGreaterThan", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromLong(publicRequestLifecycleConfigurationRulesValue.Filter.ObjectSizeGreaterThan));                 
+                
+                                if(publicRequestLifecycleConfigurationRulesValue.Filter.IsSetObjectSizeLessThan())
+                                    xmlWriter.WriteElementString("ObjectSizeLessThan", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromLong(publicRequestLifecycleConfigurationRulesValue.Filter.ObjectSizeLessThan));                 
+                
                                 if(publicRequestLifecycleConfigurationRulesValue.Filter.IsSetPrefix())
                                     xmlWriter.WriteElementString("Prefix", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromString(publicRequestLifecycleConfigurationRulesValue.Filter.Prefix));                 
                 
@@ -171,6 +176,9 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                             if (publicRequestLifecycleConfigurationRulesValue.NoncurrentVersionExpiration != null) 
                             {
                                 xmlWriter.WriteStartElement("NoncurrentVersionExpiration", "http://awss3control.amazonaws.com/doc/2018-08-20/");            
+                                if(publicRequestLifecycleConfigurationRulesValue.NoncurrentVersionExpiration.IsSetNewerNoncurrentVersions())
+                                    xmlWriter.WriteElementString("NewerNoncurrentVersions", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromInt(publicRequestLifecycleConfigurationRulesValue.NoncurrentVersionExpiration.NewerNoncurrentVersions));                 
+                
                                 if(publicRequestLifecycleConfigurationRulesValue.NoncurrentVersionExpiration.IsSetNoncurrentDays())
                                     xmlWriter.WriteElementString("NoncurrentDays", "http://awss3control.amazonaws.com/doc/2018-08-20/", StringUtils.FromInt(publicRequestLifecycleConfigurationRulesValue.NoncurrentVersionExpiration.NoncurrentDays));                 
                 
@@ -246,16 +254,6 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
                 throw new AmazonServiceException("Unable to marshall request to XML", e);
             }
 
-
-            var hostPrefixLabels = new
-            {
-                AccountId = StringUtils.FromString(publicRequest.AccountId),
-            };
-
-            if (!HostPrefixUtils.IsValidLabelValue(hostPrefixLabels.AccountId))
-                throw new AmazonS3ControlException("AccountId can only contain alphanumeric characters and dashes and must be between 1 and 63 characters long.");        
-            
-            request.HostPrefix = $"{hostPrefixLabels.AccountId}.";
             return request;
         }
         private static PutBucketLifecycleConfigurationRequestMarshaller _instance = new PutBucketLifecycleConfigurationRequestMarshaller();        

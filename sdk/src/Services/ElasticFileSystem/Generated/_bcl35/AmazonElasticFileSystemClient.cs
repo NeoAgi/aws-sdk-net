@@ -245,7 +245,9 @@ namespace Amazon.ElasticFileSystem
         protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
         {
             pipeline.AddHandlerBefore<Amazon.Runtime.Internal.Marshaller>(new Amazon.ElasticFileSystem.Internal.IdempotencyHandler());
-        }    
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonElasticFileSystemEndpointResolver());
+        }
         /// <summary>
         /// Capture metadata for the service.
         /// </summary>
@@ -284,7 +286,14 @@ namespace Amazon.ElasticFileSystem
         /// To learn more, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html">Mounting
         /// a file system using EFS access points</a>.
         /// 
-        ///  
+        ///  <note> 
+        /// <para>
+        /// If multiple requests to create access points on the same file system are sent in quick
+        /// succession, and the file system is near the limit of 1000 access points, you may experience
+        /// a throttling response for these requests. This is to ensure that the file system does
+        /// not exceed the stated access point limit.
+        /// </para>
+        ///  </note> 
         /// <para>
         /// This operation requires permissions for the <code>elasticfilesystem:CreateAccessPoint</code>
         /// action.
@@ -317,7 +326,8 @@ namespace Amazon.ElasticFileSystem
         /// </exception>
         /// <exception cref="Amazon.ElasticFileSystem.Model.ThrottlingException">
         /// Returned when the <code>CreateAccessPoint</code> API action is called too quickly
-        /// and the number of Access Points in the account is nearing the limit of 120.
+        /// and the number of Access Points on the file system is nearing the <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region">limit
+        /// of 120</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticfilesystem-2015-02-01/CreateAccessPoint">REST API Reference for CreateAccessPoint Operation</seealso>
         public virtual CreateAccessPointResponse CreateAccessPoint(CreateAccessPointRequest request)
@@ -2111,11 +2121,11 @@ namespace Amazon.ElasticFileSystem
         ///  
         /// <para>
         /// When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
-        /// parameter to limit the number of descriptions in a response. Currently, this number
-        /// is automatically set to 10. If more file system descriptions remain, Amazon EFS returns
-        /// a <code>NextMarker</code>, an opaque token, in the response. In this case, you should
-        /// send a subsequent request with the <code>Marker</code> request parameter set to the
-        /// value of <code>NextMarker</code>. 
+        /// parameter to limit the number of descriptions in a response. This number is automatically
+        /// set to 100. If more file system descriptions remain, Amazon EFS returns a <code>NextMarker</code>,
+        /// an opaque token, in the response. In this case, you should send a subsequent request
+        /// with the <code>Marker</code> request parameter set to the value of <code>NextMarker</code>.
+        /// 
         /// </para>
         ///  
         /// <para>
@@ -3156,13 +3166,14 @@ namespace Amazon.ElasticFileSystem
         #region  PutLifecycleConfiguration
 
         /// <summary>
-        /// Use this action to manage EFS lifecycle management and intelligent tiering. A <code>LifecycleConfiguration</code>
-        /// consists of one or more <code>LifecyclePolicy</code> objects that define the following:
+        /// Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
+        /// <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
+        /// objects that define the following:
         /// 
         ///  <ul> <li> 
         /// <para>
         ///  <b>EFS Lifecycle management</b> - When Amazon EFS automatically transitions files
-        /// in a file system into the lower-cost Infrequent Access (IA) storage class.
+        /// in a file system into the lower-cost EFS Infrequent Access (IA) storage class.
         /// </para>
         ///  
         /// <para>
@@ -3171,12 +3182,13 @@ namespace Amazon.ElasticFileSystem
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>EFS Intelligent tiering</b> - When Amazon EFS automatically transitions files
-        /// from IA back into the file system's primary storage class (Standard or One Zone Standard.
+        ///  <b>EFS Intelligent-Tiering</b> - When Amazon EFS automatically transitions files
+        /// from IA back into the file system's primary storage class (EFS Standard or EFS One
+        /// Zone Standard).
         /// </para>
         ///  
         /// <para>
-        /// To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
+        /// To enable EFS Intelligent-Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
         /// to <code>AFTER_1_ACCESS</code>.
         /// </para>
         ///  </li> </ul> 
@@ -3192,7 +3204,7 @@ namespace Amazon.ElasticFileSystem
         /// modifies the existing configuration. A <code>PutLifecycleConfiguration</code> call
         /// with an empty <code>LifecyclePolicies</code> array in the request body deletes any
         /// existing <code>LifecycleConfiguration</code> and turns off lifecycle management and
-        /// intelligent tiering for the file system.
+        /// EFS Intelligent-Tiering for the file system.
         /// </para>
         ///  
         /// <para>
@@ -3201,7 +3213,7 @@ namespace Amazon.ElasticFileSystem
         ///  <ul> <li> 
         /// <para>
         /// The ID for the file system for which you are enabling, disabling, or modifying lifecycle
-        /// management and intelligent tiering.
+        /// management and EFS Intelligent-Tiering.
         /// </para>
         ///  </li> <li> 
         /// <para>

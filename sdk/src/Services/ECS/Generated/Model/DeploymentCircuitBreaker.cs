@@ -72,8 +72,8 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property Rollback. 
         /// <para>
         /// Determines whether to configure Amazon ECS to roll back the service if a service deployment
-        /// fails. If rollback is enabled, when a service deployment fails, the service is rolled
-        /// back to the last deployment that completed successfully.
+        /// fails. If rollback is on, when a service deployment fails, the service is rolled back
+        /// to the last deployment that completed successfully.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

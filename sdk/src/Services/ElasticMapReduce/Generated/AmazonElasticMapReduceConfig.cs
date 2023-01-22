@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the elasticmapreduce-2009-03-31.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ElasticMapReduce.Internal;
 
 namespace Amazon.ElasticMapReduce
 {
     /// <summary>
     /// Configuration for accessing Amazon ElasticMapReduce service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonElasticMapReduceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.18");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.13");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ElasticMapReduce
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonElasticMapReduceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "elasticmapreduce";
+            this.EndpointProvider = new AmazonElasticMapReduceEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ElasticMapReduce
                 return _userAgent;
             }
         }
+
     }
 }

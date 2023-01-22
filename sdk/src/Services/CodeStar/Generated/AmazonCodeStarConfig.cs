@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the codestar-2017-04-19.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CodeStar.Internal;
 
 namespace Amazon.CodeStar
 {
     /// <summary>
     /// Configuration for accessing Amazon CodeStar service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCodeStarConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CodeStar
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeStarDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codestar";
+            this.EndpointProvider = new AmazonCodeStarEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CodeStar
                 return _userAgent;
             }
         }
+
     }
 }

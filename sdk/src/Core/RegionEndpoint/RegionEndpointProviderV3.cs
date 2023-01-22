@@ -24,6 +24,7 @@ using ThirdParty.Json.LitJson;
 
 namespace Amazon.Internal
 {
+    [Obsolete("This class is obsoleted because as of version 3.7.100 endpoint is resolved using a newer system that uses request level parameters to resolve the endpoint.")]
     public class RegionEndpointV3 : IRegionEndpoint
     {
         private ServiceMap _serviceMap = new ServiceMap();
@@ -92,7 +93,14 @@ namespace Amazon.Internal
         {
             RegionEndpoint.Endpoint endpointObject = null;
 
-            lock (_serviceMap)
+            // lock on _partitionJsonData because:
+            // a) ParseAllServices() will mutate _partitionJsonData, so it needs to be run inside a critical section.
+            // b) RegionEndpointV3 objects are exclusively built by RegionEndpointProviderV3, which will
+            //    constructor inject the _same instance_ of _servicesJsonData and _partitionJsonData into all 
+            //    RegionEndpointProviderV3.
+            // c) This provides thread-safety if multiple RegionEndpointV3 instances were to be initialized at 
+            //    the same time: https://github.com/aws/aws-sdk-net/issues/1939
+            lock (_partitionJsonData)
             {
                 if (!_servicesLoaded)
                 {
@@ -398,6 +406,7 @@ namespace Amazon.Internal
         }
     }
 
+    [Obsolete("This class is obsoleted because as of version 3.7.100 endpoint is resolved using a newer system that uses request level parameters to resolve the endpoint.")]
     public class RegionEndpointProviderV3 : IRegionEndpointProvider, IDisposable
     {
 #if NETSTANDARD

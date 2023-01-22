@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the mediastore-2017-09-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MediaStore.Internal;
 
 namespace Amazon.MediaStore
 {
     /// <summary>
     /// Configuration for accessing Amazon MediaStore service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMediaStoreConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MediaStore
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMediaStoreDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mediastore";
+            this.EndpointProvider = new AmazonMediaStoreEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MediaStore
                 return _userAgent;
             }
         }
+
     }
 }

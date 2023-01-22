@@ -67,6 +67,17 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetAlarmConfiguration())
+                {
+                    context.Writer.WritePropertyName("AlarmConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = AlarmConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.AlarmConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetApplyOnlyAtCronInterval())
                 {
                     context.Writer.WritePropertyName("ApplyOnlyAtCronInterval");
@@ -178,6 +189,22 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("SyncCompliance");
                     context.Writer.Write(publicRequest.SyncCompliance);
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("Tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
                 if(publicRequest.IsSetTargetLocations())

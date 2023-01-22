@@ -56,24 +56,23 @@ namespace Amazon.EC2
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// Amazon EC2: <a href="http://aws.amazon.com/ec2">AmazonEC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon
+    /// Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="https://docs.aws.amazon.com/ec2/index.html">Amazon
     /// EC2 documentation</a> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="http://aws.amazon.com/documentation/ebs">Amazon
+    /// Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/ebs/index.html">Amazon
     /// EBS documentation</a> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon
+    /// Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="https://docs.aws.amazon.com/vpc/index.html">Amazon
     /// VPC documentation</a> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN
-    /// product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services
-    /// VPN documentation</a> 
+    /// VPN: <a href="http://aws.amazon.com/vpn">VPN product page</a>, <a href="https://docs.aws.amazon.com/vpn/index.html">VPN
+    /// documentation</a> 
     /// </para>
     ///  </li> </ul>
     /// </summary>
@@ -290,6 +289,8 @@ namespace Amazon.EC2
             {
                 pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new Amazon.EC2.Internal.EC2AdaptiveRetryPolicy(this.Config)));
             }
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonEC2EndpointResolver());
         }
         /// <summary>
         /// Capture metadata for the service.
@@ -317,6 +318,41 @@ namespace Amazon.EC2
         #endregion
 
 
+        #region  AcceptAddressTransfer
+
+        internal virtual AcceptAddressTransferResponse AcceptAddressTransfer(AcceptAddressTransferRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AcceptAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AcceptAddressTransferResponseUnmarshaller.Instance;
+
+            return Invoke<AcceptAddressTransferResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept
+        /// a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AcceptAddressTransfer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AcceptAddressTransfer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptAddressTransfer">REST API Reference for AcceptAddressTransfer Operation</seealso>
+        public virtual Task<AcceptAddressTransferResponse> AcceptAddressTransferAsync(AcceptAddressTransferRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AcceptAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AcceptAddressTransferResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AcceptAddressTransferResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AcceptReservedInstancesExchangeQuote
 
         internal virtual AcceptReservedInstancesExchangeQuoteResponse AcceptReservedInstancesExchangeQuote(AcceptReservedInstancesExchangeQuoteRequest request)
@@ -476,8 +512,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
-        /// service.
+        /// Accepts connection requests to your VPC endpoint service.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AcceptVpcEndpointConnections service method.</param>
         /// <param name="cancellationToken">
@@ -655,8 +690,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -715,8 +750,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -1028,8 +1063,8 @@ namespace Amazon.EC2
         /// </para>
         ///  </important> <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -1168,9 +1203,9 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// When the IAM role is associated with the ACM certificate, the certificate, certificate
-        /// chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated
-        /// IAM role can access. The private key of the certificate is encrypted with an Amazon
-        /// Web Services managed key that has an attached attestation-based key policy.
+        /// chain, and encrypted private key are placed in an Amazon S3 location that only the
+        /// associated IAM role can access. The private key of the certificate is encrypted with
+        /// an Amazon Web Services managed key that has an attached attestation-based key policy.
         /// </para>
         ///  
         /// <para>
@@ -1582,8 +1617,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -1690,6 +1725,42 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = AttachNetworkInterfaceResponseUnmarshaller.Instance;
 
             return InvokeAsync<AttachNetworkInterfaceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AttachVerifiedAccessTrustProvider
+
+        internal virtual AttachVerifiedAccessTrustProviderResponse AttachVerifiedAccessTrustProvider(AttachVerifiedAccessTrustProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AttachVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AttachVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return Invoke<AttachVerifiedAccessTrustProviderResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// A trust provider is a third-party entity that creates, maintains, and manages identity
+        /// information for users and devices. One or more trust providers can be attached to
+        /// an Amazon Web Services Verified Access instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AttachVerifiedAccessTrustProvider service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVerifiedAccessTrustProvider">REST API Reference for AttachVerifiedAccessTrustProvider Operation</seealso>
+        public virtual Task<AttachVerifiedAccessTrustProviderResponse> AttachVerifiedAccessTrustProviderAsync(AttachVerifiedAccessTrustProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AttachVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AttachVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AttachVerifiedAccessTrustProviderResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1950,8 +2021,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -2228,6 +2299,43 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CancelImageLaunchPermission
+
+        internal virtual CancelImageLaunchPermissionResponse CancelImageLaunchPermission(CancelImageLaunchPermissionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelImageLaunchPermissionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelImageLaunchPermissionResponseUnmarshaller.Instance;
+
+            return Invoke<CancelImageLaunchPermissionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Removes your Amazon Web Services account from the launch permissions for the specified
+        /// AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having
+        /// an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User
+        /// Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelImageLaunchPermission service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CancelImageLaunchPermission service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelImageLaunchPermission">REST API Reference for CancelImageLaunchPermission Operation</seealso>
+        public virtual Task<CancelImageLaunchPermissionResponse> CancelImageLaunchPermissionAsync(CancelImageLaunchPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelImageLaunchPermissionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelImageLaunchPermissionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CancelImageLaunchPermissionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CancelImportTask
 
         internal virtual CancelImportTaskResponse CancelImportTask(CancelImportTaskRequest request)
@@ -2492,14 +2600,13 @@ namespace Amazon.EC2
         /// encryption key for the Region, or a different key that you specify in the request
         /// using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-        /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information about the prerequisites and limits when copying an AMI, see <a
-        /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying
-        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an
+        /// AMI</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CopyImage service method.</param>
@@ -2793,6 +2900,74 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateCoipCidr
+
+        internal virtual CreateCoipCidrResponse CreateCoipCidr(CreateCoipCidrRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCoipCidrRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCoipCidrResponseUnmarshaller.Instance;
+
+            return Invoke<CreateCoipCidrResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a range of customer-owned IP addresses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCoipCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateCoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCoipCidr">REST API Reference for CreateCoipCidr Operation</seealso>
+        public virtual Task<CreateCoipCidrResponse> CreateCoipCidrAsync(CreateCoipCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCoipCidrRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCoipCidrResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateCoipCidrResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateCoipPool
+
+        internal virtual CreateCoipPoolResponse CreateCoipPool(CreateCoipPoolRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCoipPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCoipPoolResponseUnmarshaller.Instance;
+
+            return Invoke<CreateCoipPoolResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a pool of customer-owned IP (CoIP) addresses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCoipPool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateCoipPool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCoipPool">REST API Reference for CreateCoipPool Operation</seealso>
+        public virtual Task<CreateCoipPoolResponse> CreateCoipPoolAsync(CreateCoipPoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateCoipPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateCoipPoolResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateCoipPoolResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateCustomerGateway
 
         internal virtual CreateCustomerGatewayResponse CreateCustomerGateway(CreateCustomerGatewayRequest request)
@@ -2920,8 +3095,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -3253,8 +3428,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
-        /// Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create
+        /// an Amazon EBS-backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateImage service method.</param>
@@ -3760,7 +3935,18 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a static route for the specified local gateway route table.
+        /// Creates a static route for the specified local gateway route table. You must specify
+        /// one of the following targets: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>LocalGatewayVirtualInterfaceGroupId</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>NetworkInterfaceId</code> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLocalGatewayRoute service method.</param>
         /// <param name="cancellationToken">
@@ -3776,6 +3962,74 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = CreateLocalGatewayRouteResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateLocalGatewayRouteResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateLocalGatewayRouteTable
+
+        internal virtual CreateLocalGatewayRouteTableResponse CreateLocalGatewayRouteTable(CreateLocalGatewayRouteTableRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLocalGatewayRouteTableRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLocalGatewayRouteTableResponseUnmarshaller.Instance;
+
+            return Invoke<CreateLocalGatewayRouteTableResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a local gateway route table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocalGatewayRouteTable service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateLocalGatewayRouteTable service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLocalGatewayRouteTable">REST API Reference for CreateLocalGatewayRouteTable Operation</seealso>
+        public virtual Task<CreateLocalGatewayRouteTableResponse> CreateLocalGatewayRouteTableAsync(CreateLocalGatewayRouteTableRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLocalGatewayRouteTableRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLocalGatewayRouteTableResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateLocalGatewayRouteTableResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+
+        internal virtual CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation(CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponseUnmarshaller.Instance;
+
+            return Invoke<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a local gateway route table virtual interface group association.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation">REST API Reference for CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation Operation</seealso>
+        public virtual Task<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse> CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationAsync(CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4102,8 +4356,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
+        /// The number of IP addresses you can assign to a network interface varies by instance
+        /// type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
+        /// Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User
+        /// Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic
-        /// Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInterface service method.</param>
@@ -4265,13 +4526,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a root volume replacement task for an Amazon EC2 instance. The root volume
-        /// can either be restored to its initial launch state, or it can be restored using a
-        /// specific snapshot.
+        /// Replaces the EBS-backed root volume for a <code>running</code> instance with a new
+        /// volume that is restored to the original root volume's launch state, that is restored
+        /// to a specific snapshot taken from the original root volume, or that is restored from
+        /// an AMI that has the same key characteristics as that of the instance.
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace
         /// a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -4379,14 +4641,12 @@ namespace Amazon.EC2
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
-        /// Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRestoreImageTask service method.</param>
@@ -4564,8 +4824,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -4687,9 +4947,14 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates crash-consistent snapshots of multiple EBS volumes and stores the data in
         /// S3. Volumes are chosen by specifying an instance. Any attached volumes will produce
-        /// one snapshot each that is crash-consistent across the instance. Boot volumes can be
-        /// excluded by changing the parameters. 
+        /// one snapshot each that is crash-consistent across the instance.
         /// 
+        ///  
+        /// <para>
+        /// You can include all of the volumes currently attached to the instance, or you can
+        /// exclude the root volume or specific data (non-root) volumes from the multi-volume
+        /// snapshot set.
+        /// </para>
         ///  
         /// <para>
         /// You can create multi-volume snapshots of instances in a Region and instances on an
@@ -4774,14 +5039,12 @@ namespace Amazon.EC2
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
-        /// Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateStoreImageTask service method.</param>
@@ -4816,26 +5079,30 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a subnet in a specified VPC.
+        /// Creates a subnet in the specified VPC. For an IPv4 only subnet, specify an IPv4 CIDR
+        /// block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a
+        /// dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For
+        /// a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
         /// 
         ///  
         /// <para>
-        /// You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you
-        /// can't change its CIDR block. The allowed block size is between a /16 netmask (65,536
-        /// IP addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with
-        /// the CIDR block of an existing subnet in the VPC.
+        /// A subnet CIDR block must not overlap the CIDR block of an existing subnet in the VPC.
+        /// After you create a subnet, you can't change its CIDR block.
         /// </para>
         ///  
         /// <para>
-        /// If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with
-        /// an IPv6 CIDR block that uses a /64 prefix length. 
+        /// The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
+        /// a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four
+        /// and the last IPv4 address in each subnet's CIDR block. They're not available for your
+        /// use.
         /// </para>
-        ///  <important> 
+        ///  
         /// <para>
-        /// Amazon Web Services reserves both the first four and the last IPv4 address in each
-        /// subnet's CIDR block. They're not available for use.
+        /// If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR
+        /// block with a subnet when you create it. The allowed block size for an IPv6 subnet
+        /// is a /64 netmask.
         /// </para>
-        ///  </important> 
+        ///  
         /// <para>
         /// If you add more than one subnet to a VPC, they're set up in a star topology with a
         /// logical router in the middle.
@@ -4848,8 +5115,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a>
+        /// in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSubnet service method.</param>
@@ -5594,6 +5861,152 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateVerifiedAccessEndpoint
+
+        internal virtual CreateVerifiedAccessEndpointResponse CreateVerifiedAccessEndpoint(CreateVerifiedAccessEndpointRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVerifiedAccessEndpointResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// An Amazon Web Services Verified Access endpoint is where you define your application
+        /// along with an optional endpoint-level access policy.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateVerifiedAccessEndpoint service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVerifiedAccessEndpoint">REST API Reference for CreateVerifiedAccessEndpoint Operation</seealso>
+        public virtual Task<CreateVerifiedAccessEndpointResponse> CreateVerifiedAccessEndpointAsync(CreateVerifiedAccessEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVerifiedAccessEndpointResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateVerifiedAccessGroup
+
+        internal virtual CreateVerifiedAccessGroupResponse CreateVerifiedAccessGroup(CreateVerifiedAccessGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVerifiedAccessGroupResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// An Amazon Web Services Verified Access group is a collection of Amazon Web Services
+        /// Verified Access endpoints who's associated applications have similar security requirements.
+        /// Each instance within an Amazon Web Services Verified Access group shares an Amazon
+        /// Web Services Verified Access policy. For example, you can group all Amazon Web Services
+        /// Verified Access instances associated with “sales” applications together and use one
+        /// common Amazon Web Services Verified Access policy.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateVerifiedAccessGroup service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVerifiedAccessGroup">REST API Reference for CreateVerifiedAccessGroup Operation</seealso>
+        public virtual Task<CreateVerifiedAccessGroupResponse> CreateVerifiedAccessGroupAsync(CreateVerifiedAccessGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVerifiedAccessGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateVerifiedAccessInstance
+
+        internal virtual CreateVerifiedAccessInstanceResponse CreateVerifiedAccessInstance(CreateVerifiedAccessInstanceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVerifiedAccessInstanceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// An Amazon Web Services Verified Access instance is a regional entity that evaluates
+        /// application requests and grants access only when your security requirements are met.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessInstance service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateVerifiedAccessInstance service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVerifiedAccessInstance">REST API Reference for CreateVerifiedAccessInstance Operation</seealso>
+        public virtual Task<CreateVerifiedAccessInstanceResponse> CreateVerifiedAccessInstanceAsync(CreateVerifiedAccessInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVerifiedAccessInstanceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateVerifiedAccessTrustProvider
+
+        internal virtual CreateVerifiedAccessTrustProviderResponse CreateVerifiedAccessTrustProvider(CreateVerifiedAccessTrustProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVerifiedAccessTrustProviderResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// A trust provider is a third-party entity that creates, maintains, and manages identity
+        /// information for users and devices. When an application request is made, the identity
+        /// information sent by the trust provider will be evaluated by Amazon Web Services Verified
+        /// Access, before allowing or denying the application request.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateVerifiedAccessTrustProvider service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVerifiedAccessTrustProvider">REST API Reference for CreateVerifiedAccessTrustProvider Operation</seealso>
+        public virtual Task<CreateVerifiedAccessTrustProviderResponse> CreateVerifiedAccessTrustProviderAsync(CreateVerifiedAccessTrustProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVerifiedAccessTrustProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateVolume
 
         internal virtual CreateVolumeResponse CreateVolume(CreateVolumeRequest request)
@@ -5666,10 +6079,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
-        /// uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536
-        /// IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC
+        /// CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -5679,10 +6090,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// By default, each instance you launch in the VPC has the default DHCP options, which
-        /// include only a default DNS server that we provide (AmazonProvidedDNS). For more information,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// By default, each instance that you launch in the VPC has the default DHCP options,
+        /// which include only a default DNS server that we provide (AmazonProvidedDNS). For more
+        /// information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
+        /// option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -5804,7 +6215,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
-        /// IAM users, and IAM roles) can connect.
+        /// users, and IAM roles) can connect.
         /// 
         ///  
         /// <para>
@@ -6165,6 +6576,74 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DeleteClientVpnRouteResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteClientVpnRouteResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteCoipCidr
+
+        internal virtual DeleteCoipCidrResponse DeleteCoipCidr(DeleteCoipCidrRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCoipCidrRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCoipCidrResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteCoipCidrResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a range of customer-owned IP addresses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCoipCidr service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteCoipCidr service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCoipCidr">REST API Reference for DeleteCoipCidr Operation</seealso>
+        public virtual Task<DeleteCoipCidrResponse> DeleteCoipCidrAsync(DeleteCoipCidrRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCoipCidrRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCoipCidrResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteCoipCidrResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteCoipPool
+
+        internal virtual DeleteCoipPoolResponse DeleteCoipPool(DeleteCoipPoolRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCoipPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCoipPoolResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteCoipPoolResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a pool of customer-owned IP (CoIP) addresses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCoipPool service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteCoipPool service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCoipPool">REST API Reference for DeleteCoipPool Operation</seealso>
+        public virtual Task<DeleteCoipPoolResponse> DeleteCoipPoolAsync(DeleteCoipPoolRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteCoipPoolRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteCoipPoolResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteCoipPoolResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -6753,6 +7232,74 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteLocalGatewayRouteTable
+
+        internal virtual DeleteLocalGatewayRouteTableResponse DeleteLocalGatewayRouteTable(DeleteLocalGatewayRouteTableRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLocalGatewayRouteTableRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLocalGatewayRouteTableResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteLocalGatewayRouteTableResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a local gateway route table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLocalGatewayRouteTable service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteLocalGatewayRouteTable service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLocalGatewayRouteTable">REST API Reference for DeleteLocalGatewayRouteTable Operation</seealso>
+        public virtual Task<DeleteLocalGatewayRouteTableResponse> DeleteLocalGatewayRouteTableAsync(DeleteLocalGatewayRouteTableRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLocalGatewayRouteTableRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLocalGatewayRouteTableResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteLocalGatewayRouteTableResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
+
+        internal virtual DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation(DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a local gateway route table virtual interface group association.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation">REST API Reference for DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation Operation</seealso>
+        public virtual Task<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse> DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationAsync(DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteLocalGatewayRouteTableVpcAssociation
 
         internal virtual DeleteLocalGatewayRouteTableVpcAssociationResponse DeleteLocalGatewayRouteTableVpcAssociation(DeleteLocalGatewayRouteTableVpcAssociationRequest request)
@@ -7333,8 +7880,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -8096,6 +8643,142 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteVerifiedAccessEndpoint
+
+        internal virtual DeleteVerifiedAccessEndpointResponse DeleteVerifiedAccessEndpoint(DeleteVerifiedAccessEndpointRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVerifiedAccessEndpointResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete an Amazon Web Services Verified Access endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVerifiedAccessEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteVerifiedAccessEndpoint service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVerifiedAccessEndpoint">REST API Reference for DeleteVerifiedAccessEndpoint Operation</seealso>
+        public virtual Task<DeleteVerifiedAccessEndpointResponse> DeleteVerifiedAccessEndpointAsync(DeleteVerifiedAccessEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVerifiedAccessEndpointResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteVerifiedAccessGroup
+
+        internal virtual DeleteVerifiedAccessGroupResponse DeleteVerifiedAccessGroup(DeleteVerifiedAccessGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVerifiedAccessGroupResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete an Amazon Web Services Verified Access group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVerifiedAccessGroup service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteVerifiedAccessGroup service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVerifiedAccessGroup">REST API Reference for DeleteVerifiedAccessGroup Operation</seealso>
+        public virtual Task<DeleteVerifiedAccessGroupResponse> DeleteVerifiedAccessGroupAsync(DeleteVerifiedAccessGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVerifiedAccessGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteVerifiedAccessInstance
+
+        internal virtual DeleteVerifiedAccessInstanceResponse DeleteVerifiedAccessInstance(DeleteVerifiedAccessInstanceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVerifiedAccessInstanceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete an Amazon Web Services Verified Access instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVerifiedAccessInstance service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteVerifiedAccessInstance service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVerifiedAccessInstance">REST API Reference for DeleteVerifiedAccessInstance Operation</seealso>
+        public virtual Task<DeleteVerifiedAccessInstanceResponse> DeleteVerifiedAccessInstanceAsync(DeleteVerifiedAccessInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVerifiedAccessInstanceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteVerifiedAccessTrustProvider
+
+        internal virtual DeleteVerifiedAccessTrustProviderResponse DeleteVerifiedAccessTrustProvider(DeleteVerifiedAccessTrustProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVerifiedAccessTrustProviderResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete an Amazon Web Services Verified Access trust provider.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVerifiedAccessTrustProvider service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteVerifiedAccessTrustProvider service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVerifiedAccessTrustProvider">REST API Reference for DeleteVerifiedAccessTrustProvider Operation</seealso>
+        public virtual Task<DeleteVerifiedAccessTrustProviderResponse> DeleteVerifiedAccessTrustProviderAsync(DeleteVerifiedAccessTrustProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVerifiedAccessTrustProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteVolume
 
         internal virtual DeleteVolumeResponse DeleteVolume(DeleteVolumeRequest request)
@@ -8193,7 +8876,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes one or more VPC endpoint connection notifications.
+        /// Deletes the specified VPC endpoint connection notifications.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointConnectionNotifications service method.</param>
         /// <param name="cancellationToken">
@@ -8227,45 +8910,23 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes one or more specified VPC endpoints. You can delete any of the following types
-        /// of VPC endpoints. 
+        /// Deletes the specified VPC endpoints.
         /// 
-        ///  <ul> <li> 
-        /// <para>
-        /// Gateway endpoint,
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Gateway Load Balancer endpoint,
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Interface endpoint
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// The following rules apply when you delete a VPC endpoint:
-        /// </para>
-        ///  <ul> <li> 
+        ///  
         /// <para>
         /// When you delete a gateway endpoint, we delete the endpoint routes in the route tables
-        /// that are associated with the endpoint.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// When you delete a Gateway Load Balancer endpoint, we delete the endpoint network interfaces.
-        /// 
+        /// for the endpoint.
         /// </para>
         ///  
         /// <para>
+        /// When you delete a Gateway Load Balancer endpoint, we delete its endpoint network interfaces.
         /// You can only delete Gateway Load Balancer endpoints when the routes that are associated
         /// with the endpoint are deleted.
         /// </para>
-        ///  </li> <li> 
+        ///  
         /// <para>
-        /// When you delete an interface endpoint, we delete the endpoint network interfaces.
+        /// When you delete an interface endpoint, we delete its endpoint network interfaces.
         /// </para>
-        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpoints service method.</param>
         /// <param name="cancellationToken">
@@ -8299,10 +8960,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes one or more VPC endpoint service configurations in your account. Before you
-        /// delete the endpoint service configuration, you must reject any <code>Available</code>
-        /// or <code>PendingAcceptance</code> interface endpoint connections that are attached
-        /// to the service.
+        /// Deletes the specified VPC endpoint service configurations. Before you can delete an
+        /// endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code>
+        /// interface endpoint connections that are attached to the service.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointServiceConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -8618,7 +9278,7 @@ namespace Amazon.EC2
         /// If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
         /// in the Recycle Bin for the specified retention period. For more information, see <a
         /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// Bin</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  
         /// <para>
@@ -8917,8 +9577,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -8947,8 +9607,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -9003,6 +9663,41 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DescribeAddressesAttributeResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeAddressesAttributeResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeAddressTransfers
+
+        internal virtual DescribeAddressTransfersResponse DescribeAddressTransfers(DescribeAddressTransfersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAddressTransfersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAddressTransfersResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAddressTransfersResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
+        /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAddressTransfers service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeAddressTransfers service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddressTransfers">REST API Reference for DescribeAddressTransfers Operation</seealso>
+        public virtual Task<DescribeAddressTransfersResponse> DescribeAddressTransfersAsync(DescribeAddressTransfersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAddressTransfersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAddressTransfersResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAddressTransfersResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -9129,6 +9824,40 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DescribeAvailabilityZonesResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeAvailabilityZonesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeAwsNetworkPerformanceMetricSubscriptions
+
+        internal virtual DescribeAwsNetworkPerformanceMetricSubscriptionsResponse DescribeAwsNetworkPerformanceMetricSubscriptions(DescribeAwsNetworkPerformanceMetricSubscriptionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAwsNetworkPerformanceMetricSubscriptionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAwsNetworkPerformanceMetricSubscriptionsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAwsNetworkPerformanceMetricSubscriptionsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes the current Infrastructure Performance metric subscriptions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAwsNetworkPerformanceMetricSubscriptions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeAwsNetworkPerformanceMetricSubscriptions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAwsNetworkPerformanceMetricSubscriptions">REST API Reference for DescribeAwsNetworkPerformanceMetricSubscriptions Operation</seealso>
+        public virtual Task<DescribeAwsNetworkPerformanceMetricSubscriptionsResponse> DescribeAwsNetworkPerformanceMetricSubscriptionsAsync(DescribeAwsNetworkPerformanceMetricSubscriptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeAwsNetworkPerformanceMetricSubscriptionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeAwsNetworkPerformanceMetricSubscriptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAwsNetworkPerformanceMetricSubscriptionsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -9367,8 +10096,8 @@ namespace Amazon.EC2
         /// 
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -10163,9 +10892,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more flow logs. To view the information in your flow logs (the log
-        /// streams for the network interfaces), you must use the CloudWatch Logs console or the
-        /// CloudWatch Logs API.
+        /// Describes one or more flow logs.
+        /// 
+        ///  
+        /// <para>
+        /// To view the published flow log records, you must view the log destination. For example,
+        /// the CloudWatch Logs log group, the Amazon S3 bucket, or the Kinesis Data Firehose
+        /// delivery stream.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeFlowLogs service method.</param>
         /// <param name="cancellationToken">
@@ -10950,13 +11684,6 @@ namespace Amazon.EC2
         /// do not specify any instance IDs at all, the call fails. If you describe instances
         /// and specify only instance IDs that are in an unaffected zone, the call works normally.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -11000,13 +11727,6 @@ namespace Amazon.EC2
         /// do not specify any instance IDs at all, the call fails. If you describe instances
         /// and specify only instance IDs that are in an unaffected zone, the call works normally.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeInstances service method.</param>
         /// <param name="cancellationToken">
@@ -12451,7 +13171,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace
+        /// Describes a root volume replacement task. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace
         /// a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReplaceRootVolumeTasks service method.</param>
@@ -12496,13 +13216,6 @@ namespace Amazon.EC2
         /// For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
         /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -12525,13 +13238,6 @@ namespace Amazon.EC2
         /// For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
         /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReservedInstances service method.</param>
         /// <param name="cancellationToken">
@@ -12685,13 +13391,6 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
         /// Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -12717,13 +13416,6 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
         /// Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReservedInstancesModifications service method.</param>
         /// <param name="cancellationToken">
@@ -12776,13 +13468,6 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
         /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -12814,13 +13499,6 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
         /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReservedInstancesOfferings service method.</param>
         /// <param name="cancellationToken">
@@ -12945,13 +13623,6 @@ namespace Amazon.EC2
         /// After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
         /// to purchase Scheduled Instances with that schedule.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledInstanceAvailability service method.</param>
         /// <param name="cancellationToken">
@@ -12986,14 +13657,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the specified Scheduled Instances or all your Scheduled Instances.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledInstances service method.</param>
         /// <param name="cancellationToken">
@@ -13111,8 +13774,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -13143,8 +13806,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -13557,8 +14220,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor
-        /// fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide for Linux
-        /// Instances</i>.
+        /// fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSpotFleetRequestHistory service method.</param>
@@ -13857,14 +14519,12 @@ namespace Amazon.EC2
         /// <para>
         /// To use this API, you must have the required permissions. For more information, see
         /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions
-        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.
+        /// for storing and restoring AMIs using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store
-        /// and restore an AMI using Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User
-        /// Guide</i>.
+        /// and restore an AMI using Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeStoreImageTasks service method.</param>
@@ -14505,6 +15165,177 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeVerifiedAccessEndpoints
+
+        internal virtual DescribeVerifiedAccessEndpointsResponse DescribeVerifiedAccessEndpoints(DescribeVerifiedAccessEndpointsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessEndpointsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessEndpointsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeVerifiedAccessEndpointsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describe Amazon Web Services Verified Access endpoints.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeVerifiedAccessEndpoints service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVerifiedAccessEndpoints">REST API Reference for DescribeVerifiedAccessEndpoints Operation</seealso>
+        public virtual Task<DescribeVerifiedAccessEndpointsResponse> DescribeVerifiedAccessEndpointsAsync(DescribeVerifiedAccessEndpointsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessEndpointsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessEndpointsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeVerifiedAccessEndpointsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeVerifiedAccessGroups
+
+        internal virtual DescribeVerifiedAccessGroupsResponse DescribeVerifiedAccessGroups(DescribeVerifiedAccessGroupsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessGroupsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeVerifiedAccessGroupsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describe details of existing Verified Access groups.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeVerifiedAccessGroups service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVerifiedAccessGroups">REST API Reference for DescribeVerifiedAccessGroups Operation</seealso>
+        public virtual Task<DescribeVerifiedAccessGroupsResponse> DescribeVerifiedAccessGroupsAsync(DescribeVerifiedAccessGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessGroupsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessGroupsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeVerifiedAccessGroupsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeVerifiedAccessInstanceLoggingConfigurations
+
+        internal virtual DescribeVerifiedAccessInstanceLoggingConfigurationsResponse DescribeVerifiedAccessInstanceLoggingConfigurations(DescribeVerifiedAccessInstanceLoggingConfigurationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessInstanceLoggingConfigurationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessInstanceLoggingConfigurationsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeVerifiedAccessInstanceLoggingConfigurationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes the current logging configuration for the Amazon Web Services Verified Access
+        /// instances.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeVerifiedAccessInstanceLoggingConfigurations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVerifiedAccessInstanceLoggingConfigurations">REST API Reference for DescribeVerifiedAccessInstanceLoggingConfigurations Operation</seealso>
+        public virtual Task<DescribeVerifiedAccessInstanceLoggingConfigurationsResponse> DescribeVerifiedAccessInstanceLoggingConfigurationsAsync(DescribeVerifiedAccessInstanceLoggingConfigurationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessInstanceLoggingConfigurationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessInstanceLoggingConfigurationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeVerifiedAccessInstanceLoggingConfigurationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeVerifiedAccessInstances
+
+        internal virtual DescribeVerifiedAccessInstancesResponse DescribeVerifiedAccessInstances(DescribeVerifiedAccessInstancesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessInstancesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessInstancesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeVerifiedAccessInstancesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describe Verified Access instances.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeVerifiedAccessInstances service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVerifiedAccessInstances">REST API Reference for DescribeVerifiedAccessInstances Operation</seealso>
+        public virtual Task<DescribeVerifiedAccessInstancesResponse> DescribeVerifiedAccessInstancesAsync(DescribeVerifiedAccessInstancesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessInstancesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessInstancesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeVerifiedAccessInstancesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeVerifiedAccessTrustProviders
+
+        internal virtual DescribeVerifiedAccessTrustProvidersResponse DescribeVerifiedAccessTrustProviders(DescribeVerifiedAccessTrustProvidersRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessTrustProvidersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessTrustProvidersResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeVerifiedAccessTrustProvidersResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describe details of existing Verified Access trust providers.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeVerifiedAccessTrustProviders service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVerifiedAccessTrustProviders">REST API Reference for DescribeVerifiedAccessTrustProviders Operation</seealso>
+        public virtual Task<DescribeVerifiedAccessTrustProvidersResponse> DescribeVerifiedAccessTrustProvidersAsync(DescribeVerifiedAccessTrustProvidersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeVerifiedAccessTrustProvidersRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeVerifiedAccessTrustProvidersResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeVerifiedAccessTrustProvidersResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeVolumeAttribute
 
         internal virtual DescribeVolumeAttributeResponse DescribeVolumeAttribute(DescribeVolumeAttributeRequest request)
@@ -14872,8 +15703,8 @@ namespace Amazon.EC2
         /// 
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -14912,8 +15743,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -15027,7 +15858,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your VPC endpoints.
+        /// Describes your VPC endpoints.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpoints service method.</param>
         /// <param name="cancellationToken">
@@ -15416,8 +16247,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -15515,6 +16346,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DetachVerifiedAccessTrustProvider
+
+        internal virtual DetachVerifiedAccessTrustProviderResponse DetachVerifiedAccessTrustProvider(DetachVerifiedAccessTrustProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DetachVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DetachVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return Invoke<DetachVerifiedAccessTrustProviderResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Detach a trust provider from an Amazon Web Services Verified Access instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DetachVerifiedAccessTrustProvider service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVerifiedAccessTrustProvider">REST API Reference for DetachVerifiedAccessTrustProvider Operation</seealso>
+        public virtual Task<DetachVerifiedAccessTrustProviderResponse> DetachVerifiedAccessTrustProviderAsync(DetachVerifiedAccessTrustProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DetachVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DetachVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DetachVerifiedAccessTrustProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DetachVolume
 
         internal virtual DetachVolumeResponse DetachVolume(DetachVolumeRequest request)
@@ -15605,6 +16470,75 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DetachVpnGatewayResponseUnmarshaller.Instance;
 
             return InvokeAsync<DetachVpnGatewayResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisableAddressTransfer
+
+        internal virtual DisableAddressTransferResponse DisableAddressTransfer(DisableAddressTransferRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableAddressTransferResponseUnmarshaller.Instance;
+
+            return Invoke<DisableAddressTransferResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
+        /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableAddressTransfer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableAddressTransfer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableAddressTransfer">REST API Reference for DisableAddressTransfer Operation</seealso>
+        public virtual Task<DisableAddressTransferResponse> DisableAddressTransferAsync(DisableAddressTransferRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableAddressTransferResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisableAddressTransferResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisableAwsNetworkPerformanceMetricSubscription
+
+        internal virtual DisableAwsNetworkPerformanceMetricSubscriptionResponse DisableAwsNetworkPerformanceMetricSubscription(DisableAwsNetworkPerformanceMetricSubscriptionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableAwsNetworkPerformanceMetricSubscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableAwsNetworkPerformanceMetricSubscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<DisableAwsNetworkPerformanceMetricSubscriptionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disables Infrastructure Performance metric subscriptions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisableAwsNetworkPerformanceMetricSubscription service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisableAwsNetworkPerformanceMetricSubscription service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableAwsNetworkPerformanceMetricSubscription">REST API Reference for DisableAwsNetworkPerformanceMetricSubscription Operation</seealso>
+        public virtual Task<DisableAwsNetworkPerformanceMetricSubscriptionResponse> DisableAwsNetworkPerformanceMetricSubscriptionAsync(DisableAwsNetworkPerformanceMetricSubscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisableAwsNetworkPerformanceMetricSubscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisableAwsNetworkPerformanceMetricSubscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisableAwsNetworkPerformanceMetricSubscriptionResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -15756,7 +16690,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
-        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// an AMI</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableImageDeprecation service method.</param>
@@ -15938,8 +16872,8 @@ namespace Amazon.EC2
         /// 
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -15987,8 +16921,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -16036,8 +16970,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -16499,6 +17433,75 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  EnableAddressTransfer
+
+        internal virtual EnableAddressTransferResponse EnableAddressTransfer(EnableAddressTransferRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableAddressTransferResponseUnmarshaller.Instance;
+
+            return Invoke<EnableAddressTransferResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
+        /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableAddressTransfer service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableAddressTransfer service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableAddressTransfer">REST API Reference for EnableAddressTransfer Operation</seealso>
+        public virtual Task<EnableAddressTransferResponse> EnableAddressTransferAsync(EnableAddressTransferRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableAddressTransferRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableAddressTransferResponseUnmarshaller.Instance;
+
+            return InvokeAsync<EnableAddressTransferResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  EnableAwsNetworkPerformanceMetricSubscription
+
+        internal virtual EnableAwsNetworkPerformanceMetricSubscriptionResponse EnableAwsNetworkPerformanceMetricSubscription(EnableAwsNetworkPerformanceMetricSubscriptionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableAwsNetworkPerformanceMetricSubscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableAwsNetworkPerformanceMetricSubscriptionResponseUnmarshaller.Instance;
+
+            return Invoke<EnableAwsNetworkPerformanceMetricSubscriptionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Enables Infrastructure Performance subscriptions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableAwsNetworkPerformanceMetricSubscription service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableAwsNetworkPerformanceMetricSubscription service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableAwsNetworkPerformanceMetricSubscription">REST API Reference for EnableAwsNetworkPerformanceMetricSubscription Operation</seealso>
+        public virtual Task<EnableAwsNetworkPerformanceMetricSubscriptionResponse> EnableAwsNetworkPerformanceMetricSubscriptionAsync(EnableAwsNetworkPerformanceMetricSubscriptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableAwsNetworkPerformanceMetricSubscriptionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableAwsNetworkPerformanceMetricSubscriptionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<EnableAwsNetworkPerformanceMetricSubscriptionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  EnableEbsEncryptionByDefault
 
         internal virtual EnableEbsEncryptionByDefaultResponse EnableEbsEncryptionByDefault(EnableEbsEncryptionByDefaultRequest request)
@@ -16668,7 +17671,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
-        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// an AMI</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableImageDeprecation service method.</param>
@@ -16722,6 +17725,48 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = EnableIpamOrganizationAdminAccountResponseUnmarshaller.Instance;
 
             return InvokeAsync<EnableIpamOrganizationAdminAccountResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  EnableReachabilityAnalyzerOrganizationSharing
+
+        internal virtual EnableReachabilityAnalyzerOrganizationSharingResponse EnableReachabilityAnalyzerOrganizationSharing(EnableReachabilityAnalyzerOrganizationSharingRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableReachabilityAnalyzerOrganizationSharingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableReachabilityAnalyzerOrganizationSharingResponseUnmarshaller.Instance;
+
+            return Invoke<EnableReachabilityAnalyzerOrganizationSharingResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Establishes a trust relationship between Reachability Analyzer and Organizations.
+        /// This operation must be performed by the management account for the organization.
+        /// 
+        ///  
+        /// <para>
+        /// After you establish a trust relationship, a user in the management account or a delegated
+        /// administrator account can run a cross-account analysis using resources from the member
+        /// accounts.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the EnableReachabilityAnalyzerOrganizationSharing service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the EnableReachabilityAnalyzerOrganizationSharing service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableReachabilityAnalyzerOrganizationSharing">REST API Reference for EnableReachabilityAnalyzerOrganizationSharing Operation</seealso>
+        public virtual Task<EnableReachabilityAnalyzerOrganizationSharingResponse> EnableReachabilityAnalyzerOrganizationSharingAsync(EnableReachabilityAnalyzerOrganizationSharingRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = EnableReachabilityAnalyzerOrganizationSharingRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = EnableReachabilityAnalyzerOrganizationSharingResponseUnmarshaller.Instance;
+
+            return InvokeAsync<EnableReachabilityAnalyzerOrganizationSharingResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -16884,8 +17929,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -16933,8 +17978,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -17187,6 +18232,40 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = GetAssociatedIpv6PoolCidrsResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetAssociatedIpv6PoolCidrsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetAwsNetworkPerformanceData
+
+        internal virtual GetAwsNetworkPerformanceDataResponse GetAwsNetworkPerformanceData(GetAwsNetworkPerformanceDataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetAwsNetworkPerformanceDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetAwsNetworkPerformanceDataResponseUnmarshaller.Instance;
+
+            return Invoke<GetAwsNetworkPerformanceDataResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets network performance data.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAwsNetworkPerformanceData service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetAwsNetworkPerformanceData service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetAwsNetworkPerformanceData">REST API Reference for GetAwsNetworkPerformanceData Operation</seealso>
+        public virtual Task<GetAwsNetworkPerformanceDataResponse> GetAwsNetworkPerformanceDataAsync(GetAwsNetworkPerformanceDataRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetAwsNetworkPerformanceDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetAwsNetworkPerformanceDataResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetAwsNetworkPerformanceDataResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -18491,6 +19570,74 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetVerifiedAccessEndpointPolicy
+
+        internal virtual GetVerifiedAccessEndpointPolicyResponse GetVerifiedAccessEndpointPolicy(GetVerifiedAccessEndpointPolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVerifiedAccessEndpointPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVerifiedAccessEndpointPolicyResponseUnmarshaller.Instance;
+
+            return Invoke<GetVerifiedAccessEndpointPolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get the Verified Access policy associated with the endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVerifiedAccessEndpointPolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetVerifiedAccessEndpointPolicy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVerifiedAccessEndpointPolicy">REST API Reference for GetVerifiedAccessEndpointPolicy Operation</seealso>
+        public virtual Task<GetVerifiedAccessEndpointPolicyResponse> GetVerifiedAccessEndpointPolicyAsync(GetVerifiedAccessEndpointPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVerifiedAccessEndpointPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVerifiedAccessEndpointPolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVerifiedAccessEndpointPolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetVerifiedAccessGroupPolicy
+
+        internal virtual GetVerifiedAccessGroupPolicyResponse GetVerifiedAccessGroupPolicy(GetVerifiedAccessGroupPolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVerifiedAccessGroupPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVerifiedAccessGroupPolicyResponseUnmarshaller.Instance;
+
+            return Invoke<GetVerifiedAccessGroupPolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Shows the contents of the Verified Access policy associated with the group.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVerifiedAccessGroupPolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetVerifiedAccessGroupPolicy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVerifiedAccessGroupPolicy">REST API Reference for GetVerifiedAccessGroupPolicy Operation</seealso>
+        public virtual Task<GetVerifiedAccessGroupPolicyResponse> GetVerifiedAccessGroupPolicyAsync(GetVerifiedAccessGroupPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVerifiedAccessGroupPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVerifiedAccessGroupPolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVerifiedAccessGroupPolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetVpnConnectionDeviceSampleConfiguration
 
         internal virtual GetVpnConnectionDeviceSampleConfigurationResponse GetVpnConnectionDeviceSampleConfiguration(GetVpnConnectionDeviceSampleConfigurationRequest request)
@@ -18621,7 +19768,14 @@ namespace Amazon.EC2
         /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
         /// Image (AMI).
         /// 
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Amazon Web Services VM Import/Export strongly recommends specifying a value for either
+        /// the <code>--license-type</code> or <code>--usage-operation</code> parameter when you
+        /// create a new VM Import task. This ensures your operating system is licensed appropriately
+        /// and your billing is optimized.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
         /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
@@ -18847,7 +20001,7 @@ namespace Amazon.EC2
         /// <summary>
         /// Lists one or more AMIs that are currently in the Recycle Bin. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// Bin</a> in the <i>Amazon EC2 User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListImagesInRecycleBin service method.</param>
         /// <param name="cancellationToken">
@@ -20078,6 +21232,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyLocalGatewayRoute
+
+        internal virtual ModifyLocalGatewayRouteResponse ModifyLocalGatewayRoute(ModifyLocalGatewayRouteRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyLocalGatewayRouteRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyLocalGatewayRouteResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyLocalGatewayRouteResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the specified local gateway route.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyLocalGatewayRoute service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyLocalGatewayRoute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyLocalGatewayRoute">REST API Reference for ModifyLocalGatewayRoute Operation</seealso>
+        public virtual Task<ModifyLocalGatewayRouteResponse> ModifyLocalGatewayRouteAsync(ModifyLocalGatewayRouteRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyLocalGatewayRouteRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyLocalGatewayRouteResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyLocalGatewayRouteResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyManagedPrefixList
 
         internal virtual ModifyManagedPrefixListResponse ModifyManagedPrefixList(ModifyManagedPrefixListRequest request)
@@ -20207,10 +21395,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the Availability Zone, instance count, instance type, or network platform
-        /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
-        /// modified must be identical, except for Availability Zone, network platform, and instance
-        /// type.
+        /// Modifies the configuration of your Reserved Instances, such as the Availability Zone,
+        /// instance count, or instance type. The Reserved Instances to be modified must be identical,
+        /// except for Availability Zone, network platform, and instance type.
         /// 
         ///  
         /// <para>
@@ -20219,8 +21406,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -20726,6 +21913,246 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyVerifiedAccessEndpoint
+
+        internal virtual ModifyVerifiedAccessEndpointResponse ModifyVerifiedAccessEndpoint(ModifyVerifiedAccessEndpointRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessEndpointResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the configuration of an Amazon Web Services Verified Access endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessEndpoint service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessEndpoint">REST API Reference for ModifyVerifiedAccessEndpoint Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessEndpointResponse> ModifyVerifiedAccessEndpointAsync(ModifyVerifiedAccessEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessEndpointResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessEndpointResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessEndpointPolicy
+
+        internal virtual ModifyVerifiedAccessEndpointPolicyResponse ModifyVerifiedAccessEndpointPolicy(ModifyVerifiedAccessEndpointPolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessEndpointPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessEndpointPolicyResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessEndpointPolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the specified Verified Access endpoint policy.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessEndpointPolicy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessEndpointPolicy">REST API Reference for ModifyVerifiedAccessEndpointPolicy Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessEndpointPolicyResponse> ModifyVerifiedAccessEndpointPolicyAsync(ModifyVerifiedAccessEndpointPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessEndpointPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessEndpointPolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessEndpointPolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessGroup
+
+        internal virtual ModifyVerifiedAccessGroupResponse ModifyVerifiedAccessGroup(ModifyVerifiedAccessGroupRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessGroupResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the specified Verified Access group configuration.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessGroup service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessGroup">REST API Reference for ModifyVerifiedAccessGroup Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessGroupResponse> ModifyVerifiedAccessGroupAsync(ModifyVerifiedAccessGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessGroupRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessGroupResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessGroupResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessGroupPolicy
+
+        internal virtual ModifyVerifiedAccessGroupPolicyResponse ModifyVerifiedAccessGroupPolicy(ModifyVerifiedAccessGroupPolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessGroupPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessGroupPolicyResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessGroupPolicyResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the specified Verified Access group policy.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessGroupPolicy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessGroupPolicy">REST API Reference for ModifyVerifiedAccessGroupPolicy Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessGroupPolicyResponse> ModifyVerifiedAccessGroupPolicyAsync(ModifyVerifiedAccessGroupPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessGroupPolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessGroupPolicyResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessGroupPolicyResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessInstance
+
+        internal virtual ModifyVerifiedAccessInstanceResponse ModifyVerifiedAccessInstance(ModifyVerifiedAccessInstanceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessInstanceResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the configuration of the specified Verified Access instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessInstance service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessInstance">REST API Reference for ModifyVerifiedAccessInstance Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessInstanceResponse> ModifyVerifiedAccessInstanceAsync(ModifyVerifiedAccessInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessInstanceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessInstanceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessInstanceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessInstanceLoggingConfiguration
+
+        internal virtual ModifyVerifiedAccessInstanceLoggingConfigurationResponse ModifyVerifiedAccessInstanceLoggingConfiguration(ModifyVerifiedAccessInstanceLoggingConfigurationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessInstanceLoggingConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessInstanceLoggingConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessInstanceLoggingConfigurationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the logging configuration for the specified Amazon Web Services Verified
+        /// Access instance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessInstanceLoggingConfiguration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessInstanceLoggingConfiguration service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessInstanceLoggingConfiguration">REST API Reference for ModifyVerifiedAccessInstanceLoggingConfiguration Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessInstanceLoggingConfigurationResponse> ModifyVerifiedAccessInstanceLoggingConfigurationAsync(ModifyVerifiedAccessInstanceLoggingConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessInstanceLoggingConfigurationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessInstanceLoggingConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessInstanceLoggingConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ModifyVerifiedAccessTrustProvider
+
+        internal virtual ModifyVerifiedAccessTrustProviderResponse ModifyVerifiedAccessTrustProvider(ModifyVerifiedAccessTrustProviderRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVerifiedAccessTrustProviderResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies the configuration of the specified Amazon Web Services Verified Access trust
+        /// provider.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessTrustProvider service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyVerifiedAccessTrustProvider service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVerifiedAccessTrustProvider">REST API Reference for ModifyVerifiedAccessTrustProvider Operation</seealso>
+        public virtual Task<ModifyVerifiedAccessTrustProviderResponse> ModifyVerifiedAccessTrustProviderAsync(ModifyVerifiedAccessTrustProviderRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyVerifiedAccessTrustProviderRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyVerifiedAccessTrustProviderResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyVerifiedAccessTrustProviderResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyVolume
 
         internal virtual ModifyVolumeResponse ModifyVolume(ModifyVolumeRequest request)
@@ -21040,8 +22467,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the permissions for your VPC endpoint service. You can add or remove permissions
-        /// for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to
-        /// connect to your endpoint service.
+        /// for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect
+        /// to your endpoint service.
         /// 
         ///  
         /// <para>
@@ -21084,8 +22511,8 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -21465,8 +22892,8 @@ namespace Amazon.EC2
         /// 
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -21737,6 +23164,13 @@ namespace Amazon.EC2
         /// Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
         /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PurchaseReservedInstancesOffering service method.</param>
         /// <param name="cancellationToken">
@@ -21770,8 +23204,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// You can no longer purchase Scheduled Instances.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Purchases the Scheduled Instances with the specified schedule.
-        /// 
+        /// </para>
         ///  
         /// <para>
         /// Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour
@@ -21868,8 +23308,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Registers an AMI. When you're creating an AMI, this is the final step you must complete
         /// before you can launch an instance from the AMI. For more information about creating
-        /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating
-        /// your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create
+        /// your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -21938,8 +23378,8 @@ namespace Amazon.EC2
         /// the matching billing product code. If you purchase a Reserved Instance without the
         /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
         /// Instance. For information about how to obtain the platform details and billing information
-        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-        /// AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+        /// AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterImage service method.</param>
@@ -22214,7 +23654,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
+        /// Rejects VPC endpoint connection requests to your VPC endpoint service.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RejectVpcEndpointConnections service method.</param>
         /// <param name="cancellationToken">
@@ -22296,8 +23736,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note> 
@@ -22764,14 +24204,13 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
-        /// Fleet requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+        /// Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  <important> 
         /// <para>
         /// We strongly discourage using the RequestSpotFleet API because it is a legacy API with
         /// no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
-        /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
-        /// Instances</i>.
+        /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  </important>
         /// </summary>
@@ -22823,8 +24262,8 @@ namespace Amazon.EC2
         /// </para>
         ///  </important> <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
         /// </para>
         ///  </note>
@@ -23134,8 +24573,8 @@ namespace Amazon.EC2
         /// 
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -23173,7 +24612,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-        /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+        /// Bin</a> in the <i>Amazon EC2 User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RestoreImageFromRecycleBin service method.</param>
         /// <param name="cancellationToken">
@@ -23447,8 +24886,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         ///  </note>
@@ -23566,8 +25005,8 @@ namespace Amazon.EC2
         /// </para>
         ///  <note> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
         /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         ///  </note>

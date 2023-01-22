@@ -137,7 +137,7 @@ namespace Amazon.BillingConductor.Model
         /// <summary>
         /// Gets and sets the property LastModifiedTime. 
         /// <para>
-        ///  The most recent time the custom line item was modified. 
+        ///  The most recent time when the custom line item was modified. 
         /// </para>
         /// </summary>
         public long LastModifiedTime

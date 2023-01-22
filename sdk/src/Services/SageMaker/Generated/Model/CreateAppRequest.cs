@@ -30,10 +30,10 @@ namespace Amazon.SageMaker.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateApp operation.
-    /// Creates a running app for the specified UserProfile. Supported apps are <code>JupyterServer</code>
-    /// and <code>KernelGateway</code>. This operation is automatically invoked by Amazon
-    /// SageMaker Studio upon access to the associated Domain, and when new kernel configurations
-    /// are selected by the user. A user may have multiple Apps active simultaneously.
+    /// Creates a running app for the specified UserProfile. This operation is automatically
+    /// invoked by Amazon SageMaker Studio upon access to the associated Domain, and when
+    /// new kernel configurations are selected by the user. A user may have multiple Apps
+    /// active simultaneously.
     /// </summary>
     public partial class CreateAppRequest : AmazonSageMakerRequest
     {
@@ -41,6 +41,7 @@ namespace Amazon.SageMaker.Model
         private AppType _appType;
         private string _domainId;
         private ResourceSpec _resourceSpec;
+        private string _spaceName;
         private List<Tag> _tags = new List<Tag>();
         private string _userProfileName;
 
@@ -66,8 +67,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property AppType. 
         /// <para>
-        /// The type of app. Supported apps are <code>JupyterServer</code> and <code>KernelGateway</code>.
-        /// <code>TensorBoard</code> is not supported.
+        /// The type of app.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -131,6 +131,26 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property SpaceName. 
+        /// <para>
+        /// The name of the space. If this value is not set, then <code>UserProfileName</code>
+        /// must be set.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=63)]
+        public string SpaceName
+        {
+            get { return this._spaceName; }
+            set { this._spaceName = value; }
+        }
+
+        // Check to see if SpaceName property is set
+        internal bool IsSetSpaceName()
+        {
+            return this._spaceName != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
         /// Each tag consists of a key and an optional value. Tag keys must be unique per resource.
@@ -152,10 +172,11 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property UserProfileName. 
         /// <para>
-        /// The user profile name.
+        /// The user profile name. If this value is not set, then <code>SpaceName</code> must
+        /// be set.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=63)]
+        [AWSProperty(Max=63)]
         public string UserProfileName
         {
             get { return this._userProfileName; }

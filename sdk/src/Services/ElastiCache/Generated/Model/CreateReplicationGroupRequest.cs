@@ -97,9 +97,11 @@ namespace Amazon.ElastiCache.Model
         private string _engine;
         private string _engineVersion;
         private string _globalReplicationGroupId;
+        private IpDiscovery _ipDiscovery;
         private string _kmsKeyId;
         private List<LogDeliveryConfigurationRequest> _logDeliveryConfigurations = new List<LogDeliveryConfigurationRequest>();
         private bool? _multiAZEnabled;
+        private NetworkType _networkType;
         private List<NodeGroupConfiguration> _nodeGroupConfiguration = new List<NodeGroupConfiguration>();
         private string _notificationTopicArn;
         private int? _numCacheClusters;
@@ -118,6 +120,7 @@ namespace Amazon.ElastiCache.Model
         private string _snapshotWindow;
         private List<Tag> _tags = new List<Tag>();
         private bool? _transitEncryptionEnabled;
+        private TransitEncryptionMode _transitEncryptionMode;
         private List<string> _userGroupIds = new List<string>();
 
         /// <summary>
@@ -345,24 +348,6 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
-        /// Memory optimized with data tiering:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Current generation: 
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>cache.r6gd.xlarge</code>, <code>cache.r6gd.2xlarge</code>, <code>cache.r6gd.4xlarge</code>,
-        /// <code>cache.r6gd.8xlarge</code>, <code>cache.r6gd.12xlarge</code>, <code>cache.r6gd.16xlarge</code>
-        /// 
-        /// </para>
-        ///  </li> </ul> </li> <li> 
-        /// <para>
         /// Memory optimized:
         /// </para>
         ///  <ul> <li> 
@@ -551,7 +536,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property Engine. 
         /// <para>
         /// The name of the cache engine to be used for the clusters in this replication group.
-        /// Must be Redis.
+        /// The value must be set to <code>Redis</code>.
         /// </para>
         /// </summary>
         public string Engine
@@ -613,6 +598,27 @@ namespace Amazon.ElastiCache.Model
         }
 
         /// <summary>
+        /// Gets and sets the property IpDiscovery. 
+        /// <para>
+        /// The network type you choose when creating a replication group, either <code>ipv4</code>
+        /// | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+        /// onward or Memcached engine version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.
+        /// </para>
+        /// </summary>
+        public IpDiscovery IpDiscovery
+        {
+            get { return this._ipDiscovery; }
+            set { this._ipDiscovery = value; }
+        }
+
+        // Check to see if IpDiscovery property is set
+        internal bool IsSetIpDiscovery()
+        {
+            return this._ipDiscovery != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
         /// The ID of the KMS key used to encrypt the disk in the cluster.
@@ -666,6 +672,27 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetMultiAZEnabled()
         {
             return this._multiAZEnabled.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property NetworkType. 
+        /// <para>
+        /// Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
+        /// is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+        /// version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.
+        /// </para>
+        /// </summary>
+        public NetworkType NetworkType
+        {
+            get { return this._networkType; }
+            set { this._networkType = value; }
+        }
+
+        // Check to see if NetworkType property is set
+        internal bool IsSetNetworkType()
+        {
+            return this._networkType != null;
         }
 
         /// <summary>
@@ -1149,12 +1176,6 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  
         /// <para>
-        /// You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster
-        /// is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code>
-        /// to <code>true</code> when you create a cluster.
-        /// </para>
-        ///  
-        /// <para>
         /// This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
         /// the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or
         /// later, and the cluster is being created in an Amazon VPC.
@@ -1189,6 +1210,40 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetTransitEncryptionEnabled()
         {
             return this._transitEncryptionEnabled.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property TransitEncryptionMode. 
+        /// <para>
+        /// A setting that allows you to migrate your clients to use in-transit encryption, with
+        /// no downtime.
+        /// </para>
+        ///  
+        /// <para>
+        /// When setting <code>TransitEncryptionEnabled</code> to <code>true</code>, you can set
+        /// your <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request,
+        /// to allow both encrypted and unencrypted connections at the same time. Once you migrate
+        /// all your Redis clients to use encrypted connections you can modify the value to <code>required</code>
+        /// to allow encrypted connections only.
+        /// </para>
+        ///  
+        /// <para>
+        /// Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
+        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>
+        /// first, after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
+        /// 
+        /// </para>
+        /// </summary>
+        public TransitEncryptionMode TransitEncryptionMode
+        {
+            get { return this._transitEncryptionMode; }
+            set { this._transitEncryptionMode = value; }
+        }
+
+        // Check to see if TransitEncryptionMode property is set
+        internal bool IsSetTransitEncryptionMode()
+        {
+            return this._transitEncryptionMode != null;
         }
 
         /// <summary>

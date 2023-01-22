@@ -181,7 +181,22 @@
   <property-value-rule>
     <property>Amazon.Appflow.Model.ListConnectorEntitiesRequest.EntitiesPath</property>
     <max>256</max>
-    <pattern>[\s\w/!@#+=.-]*</pattern>
+    <pattern>[\s\w/!@#+=,.-]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.ListConnectorEntitiesRequest.MaxResults</property>
+    <min>1</min>
+    <max>10000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.ListConnectorEntitiesRequest.NextToken</property>
+    <max>2048</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.ListConnectorEntitiesResponse.NextToken</property>
+    <max>2048</max>
+    <pattern>\S+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.ListConnectorsRequest.MaxResults</property>
@@ -282,6 +297,21 @@
     <property>Amazon.Appflow.Model.UpdateConnectorProfileResponse.ConnectorProfileArn</property>
     <max>512</max>
     <pattern>arn:aws:appflow:.*:[0-9]+:.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.UpdateConnectorRegistrationRequest.ConnectorLabel</property>
+    <max>256</max>
+    <pattern>[a-zA-Z0-9][\w!@#.-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.UpdateConnectorRegistrationRequest.Description</property>
+    <max>1024</max>
+    <pattern>[\s\w/!@#+=.-]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.UpdateConnectorRegistrationResponse.ConnectorArn</property>
+    <max>512</max>
+    <pattern>arn:aws:.*:.*:[0-9]+:.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.UpdateFlowRequest.Description</property>
@@ -660,6 +690,19 @@
     <pattern>[a-zA-Z0-9][\w!@#.-]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Appflow.Model.GlueDataCatalogConfig.DatabaseName</property>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.GlueDataCatalogConfig.RoleArn</property>
+    <max>512</max>
+    <pattern>arn:aws:iam:.*:[0-9]+:.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.GlueDataCatalogConfig.TablePrefix</property>
+    <max>128</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Appflow.Model.GoogleAnalyticsConnectorProfileCredentials.AccessToken</property>
     <max>4096</max>
     <pattern>\S+</pattern>
@@ -770,6 +813,11 @@
     <pattern>\S+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Appflow.Model.MetadataCatalogDetail.TableName</property>
+    <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Appflow.Model.OAuth2Credentials.AccessToken</property>
     <max>4096</max>
     <pattern>\S+</pattern>
@@ -840,6 +888,37 @@
     <pattern>^(https?)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotConnectorProfileCredentials.AccessToken</property>
+    <max>4096</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotConnectorProfileCredentials.ClientCredentialsArn</property>
+    <min>20</min>
+    <max>2048</max>
+    <pattern>arn:aws:secretsmanager:.*:[0-9]+:.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotConnectorProfileCredentials.RefreshToken</property>
+    <max>2048</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotConnectorProfileProperties.BusinessUnitId</property>
+    <max>18</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotConnectorProfileProperties.InstanceUrl</property>
+    <max>256</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.PardotSourceProperties.Object</property>
+    <max>512</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Appflow.Model.PrivateConnectionProvisioningState.FailureMessage</property>
     <max>2048</max>
     <pattern>[\s\w/!@#+=.-]*</pattern>
@@ -851,8 +930,8 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.RedshiftConnectorProfileCredentials.Username</property>
-    <max>512</max>
-    <pattern>\S+</pattern>
+    <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.BucketName</property>
@@ -866,6 +945,21 @@
     <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.ClusterIdentifier</property>
+    <max>512</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.DataApiRoleArn</property>
+    <max>512</max>
+    <pattern>arn:aws:iam:.*:[0-9]+:.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.DatabaseName</property>
+    <max>512</max>
+    <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.DatabaseUrl</property>
     <max>512</max>
     <pattern>\S+</pattern>
@@ -874,6 +968,11 @@
     <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.RoleArn</property>
     <max>512</max>
     <pattern>arn:aws:iam:.*:[0-9]+:.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.RedshiftConnectorProfileProperties.WorkgroupName</property>
+    <max>512</max>
+    <pattern>\S+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.RedshiftDestinationProperties.BucketPrefix</property>
@@ -890,6 +989,16 @@
     <property>Amazon.Appflow.Model.RedshiftDestinationProperties.Object</property>
     <max>512</max>
     <pattern>\S+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.RegistrationOutput.Message</property>
+    <max>2048</max>
+    <pattern>.*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Appflow.Model.RegistrationOutput.Result</property>
+    <max>2048</max>
+    <pattern>.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Appflow.Model.S3DestinationProperties.BucketName</property>

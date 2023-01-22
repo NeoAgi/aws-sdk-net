@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the timestream-query-2018-11-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.TimestreamQuery.Internal;
 
 namespace Amazon.TimestreamQuery
 {
     /// <summary>
     /// Configuration for accessing Amazon TimestreamQuery service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonTimestreamQueryConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.58");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.TimestreamQuery
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonTimestreamQueryDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "timestream";
+            this.EndpointProvider = new AmazonTimestreamQueryEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.TimestreamQuery
                 return _userAgent;
             }
         }
+
     }
 }

@@ -42,6 +42,7 @@ namespace Amazon.SecretsManager.Model
         private DateTime? _lastChangedDate;
         private DateTime? _lastRotatedDate;
         private string _name;
+        private DateTime? _nextRotationDate;
         private string _owningService;
         private string _primaryRegion;
         private List<ReplicationStatusType> _replicationStatus = new List<ReplicationStatusType>();
@@ -228,6 +229,26 @@ namespace Amazon.SecretsManager.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property NextRotationDate. 
+        /// <para>
+        /// The next date and time that Secrets Manager will rotate the secret, rounded to the
+        /// nearest hour. If the secret isn't configured for rotation, Secrets Manager returns
+        /// null.
+        /// </para>
+        /// </summary>
+        public DateTime NextRotationDate
+        {
+            get { return this._nextRotationDate.GetValueOrDefault(); }
+            set { this._nextRotationDate = value; }
+        }
+
+        // Check to see if NextRotationDate property is set
+        internal bool IsSetNextRotationDate()
+        {
+            return this._nextRotationDate.HasValue; 
         }
 
         /// <summary>

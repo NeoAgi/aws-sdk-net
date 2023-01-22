@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the directconnect-2012-10-25.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.DirectConnect.Internal;
 
 namespace Amazon.DirectConnect
 {
     /// <summary>
     /// Configuration for accessing Amazon DirectConnect service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonDirectConnectConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.89");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.DirectConnect
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonDirectConnectDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "directconnect";
+            this.EndpointProvider = new AmazonDirectConnectEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.DirectConnect
                 return _userAgent;
             }
         }
+
     }
 }

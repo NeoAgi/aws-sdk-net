@@ -227,6 +227,12 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                         unmarshalledObject.DBSubnetGroup = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("DBSystemId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.DBSystemId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("DeletionProtection", targetDepth))
                     {
                         var unmarshaller = BoolUnmarshaller.Instance;
@@ -335,6 +341,12 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.MasterUsername = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("MasterUserSecret", targetDepth))
+                    {
+                        var unmarshaller = MasterUserSecretUnmarshaller.Instance;
+                        unmarshalledObject.MasterUserSecret = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("MonitoringInterval", targetDepth))

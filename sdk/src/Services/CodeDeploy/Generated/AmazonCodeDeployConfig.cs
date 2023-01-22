@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the codedeploy-2014-10-06.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CodeDeploy.Internal;
 
 namespace Amazon.CodeDeploy
 {
     /// <summary>
     /// Configuration for accessing Amazon CodeDeploy service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCodeDeployConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CodeDeploy
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCodeDeployDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "codedeploy";
+            this.EndpointProvider = new AmazonCodeDeployEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CodeDeploy
                 return _userAgent;
             }
         }
+
     }
 }

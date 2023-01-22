@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the kinesis-video-signaling-2019-12-04.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.KinesisVideoSignalingChannels.Internal;
 
 namespace Amazon.KinesisVideoSignalingChannels
 {
     /// <summary>
     /// Configuration for accessing Amazon KinesisVideoSignalingChannels service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonKinesisVideoSignalingChannelsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.KinesisVideoSignalingChannels
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonKinesisVideoSignalingChannelsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "kinesisvideo";
+            this.EndpointProvider = new AmazonKinesisVideoSignalingChannelsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.KinesisVideoSignalingChannels
                 return _userAgent;
             }
         }
+
     }
 }

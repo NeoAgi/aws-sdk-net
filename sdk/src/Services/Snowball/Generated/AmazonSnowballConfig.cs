@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the snowball-2016-06-30.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Snowball.Internal;
 
 namespace Amazon.Snowball
 {
     /// <summary>
     /// Configuration for accessing Amazon Snowball service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonSnowballConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.83");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Snowball
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSnowballDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "snowball";
+            this.EndpointProvider = new AmazonSnowballEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Snowball
                 return _userAgent;
             }
         }
+
     }
 }

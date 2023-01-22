@@ -130,23 +130,9 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property AquaConfigurationStatus. 
         /// <para>
-        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator)
-        /// after the cluster is restored. Possible values include the following.
+        /// This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift
+        /// automatically determines whether to use AQUA (Advanced Query Accelerator).
         /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// enabled - Use AQUA if it is available for the current Amazon Web Services Region and
-        /// Amazon Redshift node type.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// disabled - Don't use AQUA. 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// auto - Amazon Redshift determines whether to use AQUA.
-        /// </para>
-        ///  </li> </ul>
         /// </summary>
         public AquaConfigurationStatus AquaConfigurationStatus
         {
@@ -398,8 +384,8 @@ namespace Amazon.Redshift.Model
         /// <summary>
         /// Gets and sets the property ElasticIp. 
         /// <para>
-        /// The elastic IP (EIP) address for the cluster. You don't have to specify the EIP for
-        /// a publicly accessible cluster with AvailabilityZoneRelocation turned on.
+        /// The Elastic IP (EIP) address for the cluster. Don't specify the Elastic IP address
+        /// for a publicly accessible cluster with availability zone relocation turned on.
         /// </para>
         /// </summary>
         [AWSProperty(Max=2147483647)]
@@ -776,7 +762,8 @@ namespace Amazon.Redshift.Model
         /// Gets and sets the property SnapshotArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the snapshot associated with the message to restore
-        /// from a cluster.
+        /// from a cluster. You can specify this parameter or <code>snapshotIdentifier</code>,
+        /// but not both.
         /// </para>
         /// </summary>
         [AWSProperty(Max=2147483647)]
@@ -817,7 +804,8 @@ namespace Amazon.Redshift.Model
         /// Gets and sets the property SnapshotIdentifier. 
         /// <para>
         /// The name of the snapshot from which to create the new cluster. This parameter isn't
-        /// case sensitive.
+        /// case sensitive. You can specify this parameter or <code>snapshotArn</code>, but not
+        /// both.
         /// </para>
         ///  
         /// <para>

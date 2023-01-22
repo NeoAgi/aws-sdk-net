@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the organizations-2016-11-28.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Organizations.Internal;
 
 namespace Amazon.Organizations
 {
     /// <summary>
     /// Configuration for accessing Amazon Organizations service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonOrganizationsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.43");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.35");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Organizations
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonOrganizationsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "organizations";
+            this.EndpointProvider = new AmazonOrganizationsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Organizations
                 return _userAgent;
             }
         }
+
     }
 }

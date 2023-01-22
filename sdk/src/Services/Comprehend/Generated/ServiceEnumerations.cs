@@ -75,6 +75,56 @@ namespace Amazon.Comprehend
 
 
     /// <summary>
+    /// Constants used for properties of type BlockType.
+    /// </summary>
+    public class BlockType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LINE for BlockType
+        /// </summary>
+        public static readonly BlockType LINE = new BlockType("LINE");
+        /// <summary>
+        /// Constant WORD for BlockType
+        /// </summary>
+        public static readonly BlockType WORD = new BlockType("WORD");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public BlockType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static BlockType FindValue(string value)
+        {
+            return FindValue<BlockType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator BlockType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type DocumentClassifierDataFormat.
     /// </summary>
     public class DocumentClassifierDataFormat : ConstantClass
@@ -325,6 +375,76 @@ namespace Amazon.Comprehend
 
 
     /// <summary>
+    /// Constants used for properties of type DocumentType.
+    /// </summary>
+    public class DocumentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant IMAGE for DocumentType
+        /// </summary>
+        public static readonly DocumentType IMAGE = new DocumentType("IMAGE");
+        /// <summary>
+        /// Constant MS_WORD for DocumentType
+        /// </summary>
+        public static readonly DocumentType MS_WORD = new DocumentType("MS_WORD");
+        /// <summary>
+        /// Constant NATIVE_PDF for DocumentType
+        /// </summary>
+        public static readonly DocumentType NATIVE_PDF = new DocumentType("NATIVE_PDF");
+        /// <summary>
+        /// Constant PLAIN_TEXT for DocumentType
+        /// </summary>
+        public static readonly DocumentType PLAIN_TEXT = new DocumentType("PLAIN_TEXT");
+        /// <summary>
+        /// Constant SCANNED_PDF for DocumentType
+        /// </summary>
+        public static readonly DocumentType SCANNED_PDF = new DocumentType("SCANNED_PDF");
+        /// <summary>
+        /// Constant TEXTRACT_ANALYZE_DOCUMENT_JSON for DocumentType
+        /// </summary>
+        public static readonly DocumentType TEXTRACT_ANALYZE_DOCUMENT_JSON = new DocumentType("TEXTRACT_ANALYZE_DOCUMENT_JSON");
+        /// <summary>
+        /// Constant TEXTRACT_DETECT_DOCUMENT_TEXT_JSON for DocumentType
+        /// </summary>
+        public static readonly DocumentType TEXTRACT_DETECT_DOCUMENT_TEXT_JSON = new DocumentType("TEXTRACT_DETECT_DOCUMENT_TEXT_JSON");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DocumentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DocumentType FindValue(string value)
+        {
+            return FindValue<DocumentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DocumentType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type EndpointStatus.
     /// </summary>
     public class EndpointStatus : ConstantClass
@@ -565,6 +685,110 @@ namespace Amazon.Comprehend
 
 
     /// <summary>
+    /// Constants used for properties of type InvalidRequestDetailReason.
+    /// </summary>
+    public class InvalidRequestDetailReason : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DOCUMENT_SIZE_EXCEEDED for InvalidRequestDetailReason
+        /// </summary>
+        public static readonly InvalidRequestDetailReason DOCUMENT_SIZE_EXCEEDED = new InvalidRequestDetailReason("DOCUMENT_SIZE_EXCEEDED");
+        /// <summary>
+        /// Constant PAGE_LIMIT_EXCEEDED for InvalidRequestDetailReason
+        /// </summary>
+        public static readonly InvalidRequestDetailReason PAGE_LIMIT_EXCEEDED = new InvalidRequestDetailReason("PAGE_LIMIT_EXCEEDED");
+        /// <summary>
+        /// Constant TEXTRACT_ACCESS_DENIED for InvalidRequestDetailReason
+        /// </summary>
+        public static readonly InvalidRequestDetailReason TEXTRACT_ACCESS_DENIED = new InvalidRequestDetailReason("TEXTRACT_ACCESS_DENIED");
+        /// <summary>
+        /// Constant UNSUPPORTED_DOC_TYPE for InvalidRequestDetailReason
+        /// </summary>
+        public static readonly InvalidRequestDetailReason UNSUPPORTED_DOC_TYPE = new InvalidRequestDetailReason("UNSUPPORTED_DOC_TYPE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InvalidRequestDetailReason(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InvalidRequestDetailReason FindValue(string value)
+        {
+            return FindValue<InvalidRequestDetailReason>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InvalidRequestDetailReason(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InvalidRequestReason.
+    /// </summary>
+    public class InvalidRequestReason : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant INVALID_DOCUMENT for InvalidRequestReason
+        /// </summary>
+        public static readonly InvalidRequestReason INVALID_DOCUMENT = new InvalidRequestReason("INVALID_DOCUMENT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InvalidRequestReason(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InvalidRequestReason FindValue(string value)
+        {
+            return FindValue<InvalidRequestReason>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InvalidRequestReason(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type JobStatus.
     /// </summary>
     public class JobStatus : ConstantClass
@@ -784,6 +1008,68 @@ namespace Amazon.Comprehend
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ModelStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PageBasedErrorCode.
+    /// </summary>
+    public class PageBasedErrorCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant INTERNAL_SERVER_ERROR for PageBasedErrorCode
+        /// </summary>
+        public static readonly PageBasedErrorCode INTERNAL_SERVER_ERROR = new PageBasedErrorCode("INTERNAL_SERVER_ERROR");
+        /// <summary>
+        /// Constant PAGE_CHARACTERS_EXCEEDED for PageBasedErrorCode
+        /// </summary>
+        public static readonly PageBasedErrorCode PAGE_CHARACTERS_EXCEEDED = new PageBasedErrorCode("PAGE_CHARACTERS_EXCEEDED");
+        /// <summary>
+        /// Constant PAGE_SIZE_EXCEEDED for PageBasedErrorCode
+        /// </summary>
+        public static readonly PageBasedErrorCode PAGE_SIZE_EXCEEDED = new PageBasedErrorCode("PAGE_SIZE_EXCEEDED");
+        /// <summary>
+        /// Constant TEXTRACT_BAD_PAGE for PageBasedErrorCode
+        /// </summary>
+        public static readonly PageBasedErrorCode TEXTRACT_BAD_PAGE = new PageBasedErrorCode("TEXTRACT_BAD_PAGE");
+        /// <summary>
+        /// Constant TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED for PageBasedErrorCode
+        /// </summary>
+        public static readonly PageBasedErrorCode TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED = new PageBasedErrorCode("TEXTRACT_PROVISIONED_THROUGHPUT_EXCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PageBasedErrorCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PageBasedErrorCode FindValue(string value)
+        {
+            return FindValue<PageBasedErrorCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PageBasedErrorCode(string value)
         {
             return FindValue(value);
         }
@@ -1195,6 +1481,52 @@ namespace Amazon.Comprehend
 
 
     /// <summary>
+    /// Constants used for properties of type RelationshipType.
+    /// </summary>
+    public class RelationshipType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CHILD for RelationshipType
+        /// </summary>
+        public static readonly RelationshipType CHILD = new RelationshipType("CHILD");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RelationshipType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RelationshipType FindValue(string value)
+        {
+            return FindValue<RelationshipType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RelationshipType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type SentimentType.
     /// </summary>
     public class SentimentType : ConstantClass
@@ -1362,6 +1694,116 @@ namespace Amazon.Comprehend
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator SyntaxLanguageCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TargetedSentimentEntityType.
+    /// </summary>
+    public class TargetedSentimentEntityType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ATTRIBUTE for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType ATTRIBUTE = new TargetedSentimentEntityType("ATTRIBUTE");
+        /// <summary>
+        /// Constant BOOK for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType BOOK = new TargetedSentimentEntityType("BOOK");
+        /// <summary>
+        /// Constant BRAND for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType BRAND = new TargetedSentimentEntityType("BRAND");
+        /// <summary>
+        /// Constant COMMERCIAL_ITEM for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType COMMERCIAL_ITEM = new TargetedSentimentEntityType("COMMERCIAL_ITEM");
+        /// <summary>
+        /// Constant DATE for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType DATE = new TargetedSentimentEntityType("DATE");
+        /// <summary>
+        /// Constant EVENT for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType EVENT = new TargetedSentimentEntityType("EVENT");
+        /// <summary>
+        /// Constant FACILITY for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType FACILITY = new TargetedSentimentEntityType("FACILITY");
+        /// <summary>
+        /// Constant GAME for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType GAME = new TargetedSentimentEntityType("GAME");
+        /// <summary>
+        /// Constant LOCATION for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType LOCATION = new TargetedSentimentEntityType("LOCATION");
+        /// <summary>
+        /// Constant MOVIE for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType MOVIE = new TargetedSentimentEntityType("MOVIE");
+        /// <summary>
+        /// Constant MUSIC for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType MUSIC = new TargetedSentimentEntityType("MUSIC");
+        /// <summary>
+        /// Constant ORGANIZATION for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType ORGANIZATION = new TargetedSentimentEntityType("ORGANIZATION");
+        /// <summary>
+        /// Constant OTHER for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType OTHER = new TargetedSentimentEntityType("OTHER");
+        /// <summary>
+        /// Constant PERSON for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType PERSON = new TargetedSentimentEntityType("PERSON");
+        /// <summary>
+        /// Constant PERSONAL_TITLE for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType PERSONAL_TITLE = new TargetedSentimentEntityType("PERSONAL_TITLE");
+        /// <summary>
+        /// Constant QUANTITY for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType QUANTITY = new TargetedSentimentEntityType("QUANTITY");
+        /// <summary>
+        /// Constant SOFTWARE for TargetedSentimentEntityType
+        /// </summary>
+        public static readonly TargetedSentimentEntityType SOFTWARE = new TargetedSentimentEntityType("SOFTWARE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TargetedSentimentEntityType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TargetedSentimentEntityType FindValue(string value)
+        {
+            return FindValue<TargetedSentimentEntityType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TargetedSentimentEntityType(string value)
         {
             return FindValue(value);
         }

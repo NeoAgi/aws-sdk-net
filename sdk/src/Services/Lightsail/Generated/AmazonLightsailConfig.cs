@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the lightsail-2016-11-28.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Lightsail.Internal;
 
 namespace Amazon.Lightsail
 {
     /// <summary>
     /// Configuration for accessing Amazon Lightsail service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLightsailConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.9.29");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.47");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Lightsail
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLightsailDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lightsail";
+            this.EndpointProvider = new AmazonLightsailEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Lightsail
                 return _userAgent;
             }
         }
+
     }
 }

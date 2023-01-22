@@ -88,6 +88,24 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.FeatureMetadata = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("HyperParameterTuningJob", targetDepth))
+                {
+                    var unmarshaller = HyperParameterTuningJobSearchEntityUnmarshaller.Instance;
+                    unmarshalledObject.HyperParameterTuningJob = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Model", targetDepth))
+                {
+                    var unmarshaller = ModelDashboardModelUnmarshaller.Instance;
+                    unmarshalledObject.Model = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ModelCard", targetDepth))
+                {
+                    var unmarshaller = ModelCardUnmarshaller.Instance;
+                    unmarshalledObject.ModelCard = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ModelPackage", targetDepth))
                 {
                     var unmarshaller = ModelPackageUnmarshaller.Instance;

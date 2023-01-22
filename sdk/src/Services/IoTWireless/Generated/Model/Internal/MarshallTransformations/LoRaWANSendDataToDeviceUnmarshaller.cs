@@ -70,6 +70,12 @@ namespace Amazon.IoTWireless.Model.Internal.MarshallTransformations
                     unmarshalledObject.FPort = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ParticipatingGateways", targetDepth))
+                {
+                    var unmarshaller = ParticipatingGatewaysUnmarshaller.Instance;
+                    unmarshalledObject.ParticipatingGateways = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

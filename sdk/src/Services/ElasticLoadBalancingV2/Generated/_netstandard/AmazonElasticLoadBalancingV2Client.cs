@@ -273,6 +273,15 @@ namespace Amazon.ElasticLoadBalancingV2
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonElasticLoadBalancingV2EndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -1803,12 +1812,6 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <summary>
         /// Modifies the health checks used when evaluating the health state of the targets in
         /// the specified target group.
-        /// 
-        ///  
-        /// <para>
-        /// If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify
-        /// the health check protocol, interval, timeout, or success codes.
-        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyTargetGroup service method.</param>
         /// <param name="cancellationToken">
@@ -2047,8 +2050,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Sets the type of IP addresses used by the subnets of the specified Application Load
-        /// Balancer or Network Load Balancer.
+        /// Sets the type of IP addresses used by the subnets of the specified load balancer.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetIpAddressType service method.</param>
         /// <param name="cancellationToken">

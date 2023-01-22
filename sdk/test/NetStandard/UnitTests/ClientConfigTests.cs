@@ -27,6 +27,7 @@ namespace UnitTests
             "MaxErrorRetry",
             "LogResponse",
             "ReadEntireResponse",
+            "AWSTokenProvider",
             "BufferSize",
             "ProgressUpdateInterval",
             "ResignRetries",
@@ -54,7 +55,8 @@ namespace UnitTests
             "UseAlternateUserAgentHeader",
             "IsMaxErrorRetrySet",
             "RetryMode",
-            "FastFailRequests"
+            "FastFailRequests",
+            "EndpointProvider"
         };
 
         [Fact]

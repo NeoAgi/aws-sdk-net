@@ -57,6 +57,17 @@ namespace Amazon.LexRuntimeV2.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.SlotToElicit);
             }
 
+            if(requestObject.IsSetSubSlotToElicit())
+            {
+                context.Writer.WritePropertyName("subSlotToElicit");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ElicitSubSlotMarshaller.Instance;
+                marshaller.Marshall(requestObject.SubSlotToElicit, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetType())
             {
                 context.Writer.WritePropertyName("type");

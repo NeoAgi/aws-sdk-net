@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the iot-jobs-data-2017-09-29.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.IoTJobsDataPlane.Internal;
 
 namespace Amazon.IoTJobsDataPlane
 {
     /// <summary>
     /// Configuration for accessing Amazon IoTJobsDataPlane service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonIoTJobsDataPlaneConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.IoTJobsDataPlane
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTJobsDataPlaneDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iot-jobs-data";
+            this.EndpointProvider = new AmazonIoTJobsDataPlaneEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.IoTJobsDataPlane
                 return _userAgent;
             }
         }
+
     }
 }

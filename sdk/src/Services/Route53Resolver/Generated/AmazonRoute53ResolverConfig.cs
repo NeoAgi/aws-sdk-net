@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the route53resolver-2018-04-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Route53Resolver.Internal;
 
 namespace Amazon.Route53Resolver
 {
     /// <summary>
     /// Configuration for accessing Amazon Route53Resolver service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonRoute53ResolverConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.109");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Route53Resolver
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonRoute53ResolverDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "route53resolver";
+            this.EndpointProvider = new AmazonRoute53ResolverEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Route53Resolver
                 return _userAgent;
             }
         }
+
     }
 }

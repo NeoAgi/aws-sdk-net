@@ -36,6 +36,7 @@ namespace Amazon.Ivschat.Model
         private string _arn;
         private DateTime? _createTime;
         private string _id;
+        private List<string> _loggingConfigurationIdentifiers = new List<string>();
         private int? _maximumMessageLength;
         private int? _maximumMessageRatePerSecond;
         private MessageReviewHandler _messageReviewHandler;
@@ -102,6 +103,25 @@ namespace Amazon.Ivschat.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LoggingConfigurationIdentifiers. 
+        /// <para>
+        /// Array of logging configurations attached to the room.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=3)]
+        public List<string> LoggingConfigurationIdentifiers
+        {
+            get { return this._loggingConfigurationIdentifiers; }
+            set { this._loggingConfigurationIdentifiers = value; }
+        }
+
+        // Check to see if LoggingConfigurationIdentifiers property is set
+        internal bool IsSetLoggingConfigurationIdentifiers()
+        {
+            return this._loggingConfigurationIdentifiers != null && this._loggingConfigurationIdentifiers.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MaximumMessageLength. 
         /// <para>
         /// Maximum number of characters in a single message. Messages are expected to be UTF-8
@@ -129,7 +149,7 @@ namespace Amazon.Ivschat.Model
         /// Default: 10.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=10)]
+        [AWSProperty(Min=1, Max=100)]
         public int MaximumMessageRatePerSecond
         {
             get { return this._maximumMessageRatePerSecond.GetValueOrDefault(); }

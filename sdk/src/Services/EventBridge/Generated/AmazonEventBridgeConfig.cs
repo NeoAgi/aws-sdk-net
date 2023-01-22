@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the eventbridge-2015-10-07.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.EventBridge.Internal;
 
 namespace Amazon.EventBridge
 {
     /// <summary>
     /// Configuration for accessing Amazon EventBridge service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonEventBridgeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.49");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.EventBridge
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonEventBridgeDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "events";
+            this.EndpointProvider = new AmazonEventBridgeEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.EventBridge
                 return _userAgent;
             }
         }
+
     }
 }

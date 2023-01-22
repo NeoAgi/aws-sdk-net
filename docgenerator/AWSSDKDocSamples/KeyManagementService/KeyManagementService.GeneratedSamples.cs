@@ -28,7 +28,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceConnectCustomKeyStore()
         {
-            #region to-connect-a-custom-key-store-to-its-cloudhsm-cluster-1628626947750
+            #region to-connect-a-custom-key-store-1628626947750
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.ConnectCustomKeyStore(new ConnectCustomKeyStoreRequest 
@@ -57,7 +57,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceCreateCustomKeyStore()
         {
-            #region to-create-an-aws-cloudhsm-custom-key-store-1628627769469
+            #region to-create-an-aws-cloudhsm-custom-key-store-1
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.CreateCustomKeyStore(new CreateCustomKeyStoreRequest 
@@ -66,6 +66,53 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
                 CustomKeyStoreName = "ExampleKeyStore", // A friendly name for the custom key store.
                 KeyStorePassword = "kmsPswd", // The password for the kmsuser CU account in the specified cluster.
                 TrustAnchorCertificate = "<certificate-goes-here>" // The content of the customerCA.crt file that you created when you initialized the cluster.
+            });
+
+            string customKeyStoreId = response.CustomKeyStoreId; // The ID of the new custom key store.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateCustomKeyStore()
+        {
+            #region to-create-an-external-custom-key-store-with-vpc-connectivity-2
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateCustomKeyStore(new CreateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreName = "ExampleVPCEndpointKeyStore", // A friendly name for the custom key store
+                CustomKeyStoreType = "EXTERNAL_KEY_STORE", // For external key stores, the value must be EXTERNAL_KEY_STORE
+                XksProxyAuthenticationCredential = new XksProxyAuthenticationCredentialType {
+                    AccessKeyId = "ABCDE12345670EXAMPLE",
+                    RawSecretAccessKey = "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
+                }, // The access key ID and secret access key that KMS uses to authenticate to your external key store proxy
+                XksProxyConnectivity = "VPC_ENDPOINT_SERVICE", // Indicates how AWS KMS communicates with the external key store proxy
+                XksProxyUriEndpoint = "https://myproxy-private.xks.example.com", // The URI that AWS KMS uses to connect to the external key store proxy
+                XksProxyUriPath = "/example-prefix/kms/xks/v1", // The URI path to the external key store proxy APIs
+                XksProxyVpcEndpointServiceName = "com.amazonaws.vpce.us-east-1.vpce-svc-example1" // The VPC endpoint service that KMS uses to communicate with the external key store proxy
+            });
+
+            string customKeyStoreId = response.CustomKeyStoreId; // The ID of the new custom key store.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateCustomKeyStore()
+        {
+            #region to-create-an-external-custom-key-store-with-a-public-endpoint-3
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateCustomKeyStore(new CreateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreName = "ExamplePublicEndpointKeyStore", // A friendly name for the custom key store
+                CustomKeyStoreType = "EXTERNAL_KEY_STORE", // For external key stores, the value must be EXTERNAL_KEY_STORE
+                XksProxyAuthenticationCredential = new XksProxyAuthenticationCredentialType {
+                    AccessKeyId = "ABCDE12345670EXAMPLE",
+                    RawSecretAccessKey = "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
+                }, // The access key ID and secret access key that KMS uses to authenticate to your external key store proxy
+                XksProxyConnectivity = "PUBLIC_ENDPOINT", // Indicates how AWS KMS communicates with the external key store proxy
+                XksProxyUriEndpoint = "https://myproxy.xks.example.com", // The URI that AWS KMS uses to connect to the external key store proxy
+                XksProxyUriPath = "/kms/xks/v1" // The URI path to your external key store proxy API
             });
 
             string customKeyStoreId = response.CustomKeyStoreId; // The ID of the new custom key store.
@@ -96,7 +143,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceCreateKey()
         {
-            #region to-create-a-cmk-1478028992966
+            #region to-create-a-cmk-1
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.CreateKey(new CreateKeyRequest 
@@ -110,7 +157,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceCreateKey()
         {
-            #region to-create-an-asymmetric-rsa-kms-key-for-encryption-and-decryption-1630533897833
+            #region to-create-an-asymmetric-rsa-kms-key-for-encryption-and-decryption-2
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.CreateKey(new CreateKeyRequest 
@@ -126,59 +173,13 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceCreateKey()
         {
-            #region to-create-an-asymmetric-elliptic-curve-kms-key-for-signing-and-verification-1630541089401
+            #region to-create-an-asymmetric-elliptic-curve-kms-key-for-signing-and-verification-3
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.CreateKey(new CreateKeyRequest 
             {
                 KeySpec = "ECC_NIST_P521", // Describes the type of key material in the KMS key.
                 KeyUsage = "SIGN_VERIFY" // The cryptographic operations for which you can use the KMS key.
-            });
-
-            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
-
-            #endregion
-        }
-
-        public void KeyManagementServiceCreateKey()
-        {
-            #region to-create-a-multi-region-primary-kms-key-1630599158567
-
-            var client = new AmazonKeyManagementServiceClient();
-            var response = client.CreateKey(new CreateKeyRequest 
-            {
-                MultiRegion = true // Indicates whether the KMS key is a multi-Region (True) or regional (False) key.
-            });
-
-            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
-
-            #endregion
-        }
-
-        public void KeyManagementServiceCreateKey()
-        {
-            #region to-create-a-kms-key-for-imported-key-material-1630603607560
-
-            var client = new AmazonKeyManagementServiceClient();
-            var response = client.CreateKey(new CreateKeyRequest 
-            {
-                Origin = "EXTERNAL" // The source of the key material for the KMS key.
-            });
-
-            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
-
-            #endregion
-        }
-
-        public void KeyManagementServiceCreateKey()
-        {
-            #region to-create-a-kms-key-in-a-custom-key-store-1630604382908
-
-            var client = new AmazonKeyManagementServiceClient();
-            var response = client.CreateKey(new CreateKeyRequest 
-            {
-                CustomKeyStoreId = "cks-1234567890abcdef0", // Identifies the custom key store that hosts the KMS key.
-                Origin = "AWS_CLOUDHSM" // Indicates the source of the key material for the KMS key.
             });
 
             KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
@@ -195,6 +196,69 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
             {
                 KeySpec = "HMAC_384", // Describes the type of key material in the KMS key.
                 KeyUsage = "GENERATE_VERIFY_MAC" // The cryptographic operations for which you can use the KMS key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateKey()
+        {
+            #region to-create-a-multi-region-primary-kms-key-4
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateKey(new CreateKeyRequest 
+            {
+                MultiRegion = true // Indicates whether the KMS key is a multi-Region (True) or regional (False) key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateKey()
+        {
+            #region to-create-a-kms-key-for-imported-key-material-5
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateKey(new CreateKeyRequest 
+            {
+                Origin = "EXTERNAL" // The source of the key material for the KMS key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateKey()
+        {
+            #region to-create-a-kms-key-in-an-aws-cloudhsm-custom-key-store-6
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateKey(new CreateKeyRequest 
+            {
+                CustomKeyStoreId = "cks-1234567890abcdef0", // Identifies the custom key store that hosts the KMS key.
+                Origin = "AWS_CLOUDHSM" // Indicates the source of the key material for the KMS key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceCreateKey()
+        {
+            #region to-create-a-kms-key-in-an-external-custom-key-store-7
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.CreateKey(new CreateKeyRequest 
+            {
+                CustomKeyStoreId = "cks-9876543210fedcba9", // Identifies the custom key store that hosts the KMS key.
+                Origin = "EXTERNAL_KEY_STORE", // Indicates the source of the key material for the KMS key.
+                XksKeyId = "bb8562717f809024" // Identifies the encryption key in your external key manager that is associated with the KMS key
             });
 
             KeyMetadata keyMetadata = response.KeyMetadata; // Detailed information about the KMS key that this operation creates.
@@ -263,7 +327,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceDescribeCustomKeyStores()
         {
-            #region to-get-detailed-information-about-custom-key-stores-in-the-account-and-region-1628628556811
+            #region to-get-detailed-information-about-custom-key-stores-in-the-account-and-region-1
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeCustomKeyStores(new DescribeCustomKeyStoresRequest 
@@ -277,7 +341,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceDescribeCustomKeyStores()
         {
-            #region to-get-detailed-information-about-a-custom-key-store-associated-with-a-cloudhsm-cluster-1628628885843
+            #region to-get-detailed-information-about-a-cloudhsm-custom-key-store-by-name-2
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeCustomKeyStores(new DescribeCustomKeyStoresRequest 
@@ -290,9 +354,39 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
             #endregion
         }
 
+        public void KeyManagementServiceDescribeCustomKeyStores()
+        {
+            #region to-get-detailed-information-about-an-external-key-store--3
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.DescribeCustomKeyStores(new DescribeCustomKeyStoresRequest 
+            {
+                CustomKeyStoreId = "cks-9876543210fedcba9" // The ID of the custom key store.
+            });
+
+            List<CustomKeyStoresListEntry> customKeyStores = response.CustomKeyStores; // Detailed information about the specified custom key store.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceDescribeCustomKeyStores()
+        {
+            #region to-get-detailed-information-about-an-external-custom-key-store-by-name-4
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.DescribeCustomKeyStores(new DescribeCustomKeyStoresRequest 
+            {
+                CustomKeyStoreName = "VPCExternalKeystore"
+            });
+
+            List<CustomKeyStoresListEntry> customKeyStores = response.CustomKeyStores; // Detailed information about the specified custom key store.
+
+            #endregion
+        }
+
         public void KeyManagementServiceDescribeKey()
         {
-            #region get-key-details-1478565820907
+            #region get-key-details-1
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeKey(new DescribeKeyRequest 
@@ -307,7 +401,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceDescribeKey()
         {
-            #region to-get-details-about-an-rsa-asymmetric-kms-key-1637971611761
+            #region to-get-details-about-an-rsa-asymmetric-kms-key-2
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeKey(new DescribeKeyRequest 
@@ -322,7 +416,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceDescribeKey()
         {
-            #region to-get-details-about-a-multi-region-key-1637969624239
+            #region to-get-details-about-a-multi-region-key-3
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeKey(new DescribeKeyRequest 
@@ -337,7 +431,37 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceDescribeKey()
         {
-            #region to-get-details-about-an-hmac-kms-key-1637970472619
+            #region to-get-details-about-an-hmac-kms-key-4
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.DescribeKey(new DescribeKeyRequest 
+            {
+                KeyId = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" // An identifier for the KMS key. You can use the key ID, key ARN, alias name, alias ARN of the KMS key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // An object that contains information about the specified KMS key.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceDescribeKey()
+        {
+            #region to-get-details-about-a-kms-key-in-an-AWS-CloudHSM-key-store-5
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.DescribeKey(new DescribeKeyRequest 
+            {
+                KeyId = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" // An identifier for the KMS key. You can use the key ID, key ARN, alias name, alias ARN of the KMS key.
+            });
+
+            KeyMetadata keyMetadata = response.KeyMetadata; // An object that contains information about the specified KMS key.
+
+            #endregion
+        }
+
+        public void KeyManagementServiceDescribeKey()
+        {
+            #region to-get-details-about-a-kms-key-in-an-external-key-store-6
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.DescribeKey(new DescribeKeyRequest 
@@ -973,22 +1097,7 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceUpdateCustomKeyStore()
         {
-            #region to-edit-the-properties-of-a-custom-key-store-1628629851834
-
-            var client = new AmazonKeyManagementServiceClient();
-            var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
-            {
-                CustomKeyStoreId = "cks-1234567890abcdef0", // The ID of the custom key store that you are updating.
-                KeyStorePassword = "ExamplePassword" // The password for the kmsuser crypto user in the CloudHSM cluster.
-            });
-
-
-            #endregion
-        }
-
-        public void KeyManagementServiceUpdateCustomKeyStore()
-        {
-            #region to-edit-the-friendly-name-of-a-custom-key-store-1630451340904
+            #region to-edit-the-friendly-name-of-a-custom-key-store-1
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
@@ -1003,13 +1112,78 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
 
         public void KeyManagementServiceUpdateCustomKeyStore()
         {
-            #region to-associate-the-custom-key-store-with-a-different-but-related-aws-cloudhsm-cluster-1630451842438
+            #region to-edit-the-properties-of-an-aws-cloudhsm-key-store-2
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreId = "cks-1234567890abcdef0", // The ID of the custom key store that you are updating.
+                KeyStorePassword = "ExamplePassword" // The password for the kmsuser crypto user in the CloudHSM cluster.
+            });
+
+
+            #endregion
+        }
+
+        public void KeyManagementServiceUpdateCustomKeyStore()
+        {
+            #region to-associate-the-custom-key-store-with-a-different-but-related-aws-cloudhsm-cluster-3
 
             var client = new AmazonKeyManagementServiceClient();
             var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
             {
                 CloudHsmClusterId = "cluster-1a23b4cdefg", // The ID of the AWS CloudHSM cluster that you want to associate with the custom key store. This cluster must be related to the original CloudHSM cluster for this key store.
                 CustomKeyStoreId = "cks-1234567890abcdef0" // The ID of the custom key store that you are updating.
+            });
+
+
+            #endregion
+        }
+
+        public void KeyManagementServiceUpdateCustomKeyStore()
+        {
+            #region to-update-the-proxy-authentication-credential-of-an-external-key-store-4
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreId = "cks-1234567890abcdef0", // Identifies the custom key store
+                XksProxyAuthenticationCredential = new XksProxyAuthenticationCredentialType {
+                    AccessKeyId = "ABCDE12345670EXAMPLE",
+                    RawSecretAccessKey = "DXjSUawnel2fr6SKC7G25CNxTyWKE5PF9XX6H/u9pSo="
+                } // Specifies the values in the proxy authentication credential
+            });
+
+
+            #endregion
+        }
+
+        public void KeyManagementServiceUpdateCustomKeyStore()
+        {
+            #region to-update-the-xks-proxy-api-path-of-an-external-key-store-5
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreId = "cks-1234567890abcdef0", // The ID of the custom key store that you are updating
+                XksProxyUriPath = "/new-path/kms/xks/v1" // The URI path to the external key store proxy APIs
+            });
+
+
+            #endregion
+        }
+
+        public void KeyManagementServiceUpdateCustomKeyStore()
+        {
+            #region to-update-the-proxy-connectivity-of-an-external-key-store-to-vpc_endpoint_service-6
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.UpdateCustomKeyStore(new UpdateCustomKeyStoreRequest 
+            {
+                CustomKeyStoreId = "cks-1234567890abcdef0", // Identifies the custom key store
+                XksProxyConnectivity = "VPC_ENDPOINT_SERVICE", // Specifies the connectivity option
+                XksProxyUriEndpoint = "https://myproxy-private.xks.example.com", // Specifies the URI endpoint that AWS KMS uses when communicating with the external key store proxy
+                XksProxyVpcEndpointServiceName = "com.amazonaws.vpce.us-east-1.vpce-svc-example" // Specifies the name of the VPC endpoint service that the proxy uses for communication
             });
 
 
@@ -1025,6 +1199,21 @@ namespace AWSSDKDocSamples.Amazon.KeyManagementService.Generated
             {
                 Description = "Example description that indicates the intended use of this KMS key.", // The updated description.
                 KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab" // The identifier of the KMS key whose description you are updating. You can use the key ID or the Amazon Resource Name (ARN) of the KMS key.
+            });
+
+
+            #endregion
+        }
+
+        public void KeyManagementServiceUpdatePrimaryRegion()
+        {
+            #region to-update-the-primary-region-of-a-multi-region-kms-key-1660249555577
+
+            var client = new AmazonKeyManagementServiceClient();
+            var response = client.UpdatePrimaryRegion(new UpdatePrimaryRegionRequest 
+            {
+                KeyId = "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab", // The current primary key.
+                PrimaryRegion = "eu-central-1" // The Region of the replica key that will become the primary key.
             });
 
 

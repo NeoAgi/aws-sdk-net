@@ -621,6 +621,7 @@
       "members":{
         "destinationConfiguration":{"shape":"DestinationConfiguration"},
         "name":{"shape":"RecordingConfigurationName"},
+        "recordingReconnectWindowSeconds":{"shape":"RecordingReconnectWindowSeconds"},
         "tags":{"shape":"Tags"},
         "thumbnailConfiguration":{"shape":"ThumbnailConfiguration"}
       }
@@ -940,7 +941,8 @@
     "PaginationToken":{
       "type":"string",
       "max":1024,
-      "min":0
+      "min":0,
+      "pattern":"^[a-zA-Z0-9+/=_-]*$"
     },
     "PendingVerification":{
       "type":"structure",
@@ -1011,6 +1013,7 @@
         "arn":{"shape":"RecordingConfigurationArn"},
         "destinationConfiguration":{"shape":"DestinationConfiguration"},
         "name":{"shape":"RecordingConfigurationName"},
+        "recordingReconnectWindowSeconds":{"shape":"RecordingReconnectWindowSeconds"},
         "state":{"shape":"RecordingConfigurationState"},
         "tags":{"shape":"Tags"},
         "thumbnailConfiguration":{"shape":"ThumbnailConfiguration"}
@@ -1061,6 +1064,11 @@
         "DISABLED",
         "INTERVAL"
       ]
+    },
+    "RecordingReconnectWindowSeconds":{
+      "type":"integer",
+      "max":300,
+      "min":0
     },
     "ResourceArn":{
       "type":"string",

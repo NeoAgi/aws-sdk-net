@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the athena-2017-05-18.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Athena.Internal;
 
 namespace Amazon.Athena
 {
     /// <summary>
     /// Configuration for accessing Amazon Athena service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonAthenaConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.9.11");
+            InternalSDKUtils.BuildUserAgentString("3.7.103.18");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Athena
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAthenaDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "athena";
+            this.EndpointProvider = new AmazonAthenaEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Athena
                 return _userAgent;
             }
         }
+
     }
 }

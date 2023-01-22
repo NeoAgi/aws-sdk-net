@@ -88,6 +88,12 @@ namespace Amazon.LexModelsV2.Model.Internal.MarshallTransformations
                     unmarshalledObject.MessageSelectionStrategy = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("promptAttemptsSpecification", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, PromptAttemptSpecification, StringUnmarshaller, PromptAttemptSpecificationUnmarshaller>(StringUnmarshaller.Instance, PromptAttemptSpecificationUnmarshaller.Instance);
+                    unmarshalledObject.PromptAttemptsSpecification = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the sso-2019-06-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.SSO.Internal;
 
 namespace Amazon.SSO
 {
     /// <summary>
     /// Configuration for accessing Amazon SSO service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonSSOConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.195");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.SSO
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSODefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "awsssoportal";
+            this.EndpointProvider = new AmazonSSOEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.SSO
                 return _userAgent;
             }
         }
+
     }
 }

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the AWSMigrationHub-2017-05-31.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MigrationHub.Internal;
 
 namespace Amazon.MigrationHub
 {
     /// <summary>
     /// Configuration for accessing Amazon MigrationHub service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMigrationHubConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MigrationHub
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMigrationHubDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mgh";
+            this.EndpointProvider = new AmazonMigrationHubEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MigrationHub
                 return _userAgent;
             }
         }
+
     }
 }

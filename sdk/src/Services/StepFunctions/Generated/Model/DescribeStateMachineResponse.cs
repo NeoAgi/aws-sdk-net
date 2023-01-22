@@ -35,6 +35,7 @@ namespace Amazon.StepFunctions.Model
     {
         private DateTime? _creationDate;
         private string _definition;
+        private string _label;
         private LoggingConfiguration _loggingConfiguration;
         private string _name;
         private string _roleArn;
@@ -80,6 +81,26 @@ namespace Amazon.StepFunctions.Model
         internal bool IsSetDefinition()
         {
             return this._definition != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Label. 
+        /// <para>
+        /// A user-defined or an auto-generated string that identifies a <code>Map</code> state.
+        /// This parameter is present only if the <code>stateMachineArn</code> specified in input
+        /// is a qualified state machine ARN.
+        /// </para>
+        /// </summary>
+        public string Label
+        {
+            get { return this._label; }
+            set { this._label = value; }
+        }
+
+        // Check to see if Label property is set
+        internal bool IsSetLabel()
+        {
+            return this._label != null;
         }
 
         /// <summary>
@@ -149,7 +170,8 @@ namespace Amazon.StepFunctions.Model
         /// Gets and sets the property RoleArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the IAM role used when creating this state machine.
-        /// (The IAM role maintains security by granting Step Functions access to AWS resources.)
+        /// (The IAM role maintains security by granting Step Functions access to Amazon Web Services
+        /// resources.)
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=256)]
@@ -205,7 +227,7 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property TracingConfiguration. 
         /// <para>
-        /// Selects whether AWS X-Ray tracing is enabled.
+        /// Selects whether X-Ray tracing is enabled.
         /// </para>
         /// </summary>
         public TracingConfiguration TracingConfiguration

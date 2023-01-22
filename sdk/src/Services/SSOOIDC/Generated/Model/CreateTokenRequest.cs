@@ -32,8 +32,7 @@ namespace Amazon.SSOOIDC.Model
     /// <summary>
     /// Container for the parameters to the CreateToken operation.
     /// Creates and returns an access token for the authorized client. The access token issued
-    /// will be used to fetch short-term credentials for the assigned roles in the Amazon
-    /// Web Services account.
+    /// will be used to fetch short-term credentials for the assigned roles in the AWS account.
     /// </summary>
     public partial class CreateTokenRequest : AmazonSSOOIDCRequest
     {
@@ -113,7 +112,6 @@ namespace Amazon.SSOOIDC.Model
         /// reference to the result of the <a>StartDeviceAuthorization</a> API.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public string DeviceCode
         {
             get { return this._deviceCode; }
@@ -178,10 +176,10 @@ namespace Amazon.SSOOIDC.Model
         /// Gets and sets the property RefreshToken. 
         /// <para>
         /// Currently, <code>refreshToken</code> is not yet implemented and is not supported.
-        /// For more information about the features and limitations of the current Amazon Web
-        /// Services SSO OIDC implementation, see <i>Considerations for Using this Guide</i> in
-        /// the <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">Amazon
-        /// Web Services SSO OIDC API Reference</a>.
+        /// For more information about the features and limitations of the current IAM Identity
+        /// Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the
+        /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM
+        /// Identity Center OIDC API Reference</a>.
         /// </para>
         ///  
         /// <para>

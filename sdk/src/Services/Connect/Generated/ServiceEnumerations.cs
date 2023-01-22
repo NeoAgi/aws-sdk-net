@@ -25,6 +25,64 @@ namespace Amazon.Connect
 {
 
     /// <summary>
+    /// Constants used for properties of type ActionType.
+    /// </summary>
+    public class ActionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ASSIGN_CONTACT_CATEGORY for ActionType
+        /// </summary>
+        public static readonly ActionType ASSIGN_CONTACT_CATEGORY = new ActionType("ASSIGN_CONTACT_CATEGORY");
+        /// <summary>
+        /// Constant CREATE_TASK for ActionType
+        /// </summary>
+        public static readonly ActionType CREATE_TASK = new ActionType("CREATE_TASK");
+        /// <summary>
+        /// Constant GENERATE_EVENTBRIDGE_EVENT for ActionType
+        /// </summary>
+        public static readonly ActionType GENERATE_EVENTBRIDGE_EVENT = new ActionType("GENERATE_EVENTBRIDGE_EVENT");
+        /// <summary>
+        /// Constant SEND_NOTIFICATION for ActionType
+        /// </summary>
+        public static readonly ActionType SEND_NOTIFICATION = new ActionType("SEND_NOTIFICATION");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ActionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ActionType FindValue(string value)
+        {
+            return FindValue<ActionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ActionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type AgentStatusState.
     /// </summary>
     public class AgentStatusState : ConstantClass
@@ -471,9 +529,17 @@ namespace Amazon.Connect
         /// </summary>
         public static readonly ContactInitiationMethod CALLBACK = new ContactInitiationMethod("CALLBACK");
         /// <summary>
+        /// Constant DISCONNECT for ContactInitiationMethod
+        /// </summary>
+        public static readonly ContactInitiationMethod DISCONNECT = new ContactInitiationMethod("DISCONNECT");
+        /// <summary>
         /// Constant INBOUND for ContactInitiationMethod
         /// </summary>
         public static readonly ContactInitiationMethod INBOUND = new ContactInitiationMethod("INBOUND");
+        /// <summary>
+        /// Constant MONITOR for ContactInitiationMethod
+        /// </summary>
+        public static readonly ContactInitiationMethod MONITOR = new ContactInitiationMethod("MONITOR");
         /// <summary>
         /// Constant OUTBOUND for ContactInitiationMethod
         /// </summary>
@@ -795,6 +861,72 @@ namespace Amazon.Connect
 
 
     /// <summary>
+    /// Constants used for properties of type EventSourceName.
+    /// </summary>
+    public class EventSourceName : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant OnPostCallAnalysisAvailable for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnPostCallAnalysisAvailable = new EventSourceName("OnPostCallAnalysisAvailable");
+        /// <summary>
+        /// Constant OnPostChatAnalysisAvailable for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnPostChatAnalysisAvailable = new EventSourceName("OnPostChatAnalysisAvailable");
+        /// <summary>
+        /// Constant OnRealTimeCallAnalysisAvailable for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnRealTimeCallAnalysisAvailable = new EventSourceName("OnRealTimeCallAnalysisAvailable");
+        /// <summary>
+        /// Constant OnSalesforceCaseCreate for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnSalesforceCaseCreate = new EventSourceName("OnSalesforceCaseCreate");
+        /// <summary>
+        /// Constant OnZendeskTicketCreate for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnZendeskTicketCreate = new EventSourceName("OnZendeskTicketCreate");
+        /// <summary>
+        /// Constant OnZendeskTicketStatusUpdate for EventSourceName
+        /// </summary>
+        public static readonly EventSourceName OnZendeskTicketStatusUpdate = new EventSourceName("OnZendeskTicketStatusUpdate");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EventSourceName(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EventSourceName FindValue(string value)
+        {
+            return FindValue<EventSourceName>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EventSourceName(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Grouping.
     /// </summary>
     public class Grouping : ConstantClass
@@ -808,6 +940,10 @@ namespace Amazon.Connect
         /// Constant QUEUE for Grouping
         /// </summary>
         public static readonly Grouping QUEUE = new Grouping("QUEUE");
+        /// <summary>
+        /// Constant ROUTING_PROFILE for Grouping
+        /// </summary>
+        public static readonly Grouping ROUTING_PROFILE = new Grouping("ROUTING_PROFILE");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1129,6 +1265,10 @@ namespace Amazon.Connect
         /// </summary>
         public static readonly InstanceAttributeType EARLY_MEDIA = new InstanceAttributeType("EARLY_MEDIA");
         /// <summary>
+        /// Constant ENHANCED_CONTACT_MONITORING for InstanceAttributeType
+        /// </summary>
+        public static readonly InstanceAttributeType ENHANCED_CONTACT_MONITORING = new InstanceAttributeType("ENHANCED_CONTACT_MONITORING");
+        /// <summary>
         /// Constant HIGH_VOLUME_OUTBOUND for InstanceAttributeType
         /// </summary>
         public static readonly InstanceAttributeType HIGH_VOLUME_OUTBOUND = new InstanceAttributeType("HIGH_VOLUME_OUTBOUND");
@@ -1315,6 +1455,10 @@ namespace Amazon.Connect
     {
 
         /// <summary>
+        /// Constant CASES_DOMAIN for IntegrationType
+        /// </summary>
+        public static readonly IntegrationType CASES_DOMAIN = new IntegrationType("CASES_DOMAIN");
+        /// <summary>
         /// Constant EVENT for IntegrationType
         /// </summary>
         public static readonly IntegrationType EVENT = new IntegrationType("EVENT");
@@ -1414,6 +1558,244 @@ namespace Amazon.Connect
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator LexVersion(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type MonitorCapability.
+    /// </summary>
+    public class MonitorCapability : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant BARGE for MonitorCapability
+        /// </summary>
+        public static readonly MonitorCapability BARGE = new MonitorCapability("BARGE");
+        /// <summary>
+        /// Constant SILENT_MONITOR for MonitorCapability
+        /// </summary>
+        public static readonly MonitorCapability SILENT_MONITOR = new MonitorCapability("SILENT_MONITOR");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MonitorCapability(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MonitorCapability FindValue(string value)
+        {
+            return FindValue<MonitorCapability>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MonitorCapability(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type NotificationContentType.
+    /// </summary>
+    public class NotificationContentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PLAIN_TEXT for NotificationContentType
+        /// </summary>
+        public static readonly NotificationContentType PLAIN_TEXT = new NotificationContentType("PLAIN_TEXT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NotificationContentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NotificationContentType FindValue(string value)
+        {
+            return FindValue<NotificationContentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NotificationContentType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type NotificationDeliveryType.
+    /// </summary>
+    public class NotificationDeliveryType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EMAIL for NotificationDeliveryType
+        /// </summary>
+        public static readonly NotificationDeliveryType EMAIL = new NotificationDeliveryType("EMAIL");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NotificationDeliveryType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NotificationDeliveryType FindValue(string value)
+        {
+            return FindValue<NotificationDeliveryType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NotificationDeliveryType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ParticipantTimerAction.
+    /// </summary>
+    public class ParticipantTimerAction : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Unset for ParticipantTimerAction
+        /// </summary>
+        public static readonly ParticipantTimerAction Unset = new ParticipantTimerAction("Unset");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ParticipantTimerAction(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ParticipantTimerAction FindValue(string value)
+        {
+            return FindValue<ParticipantTimerAction>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ParticipantTimerAction(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ParticipantTimerType.
+    /// </summary>
+    public class ParticipantTimerType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISCONNECT_NONCUSTOMER for ParticipantTimerType
+        /// </summary>
+        public static readonly ParticipantTimerType DISCONNECT_NONCUSTOMER = new ParticipantTimerType("DISCONNECT_NONCUSTOMER");
+        /// <summary>
+        /// Constant IDLE for ParticipantTimerType
+        /// </summary>
+        public static readonly ParticipantTimerType IDLE = new ParticipantTimerType("IDLE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ParticipantTimerType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ParticipantTimerType FindValue(string value)
+        {
+            return FindValue<ParticipantTimerType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ParticipantTimerType(string value)
         {
             return FindValue(value);
         }
@@ -2901,6 +3283,56 @@ namespace Amazon.Connect
 
 
     /// <summary>
+    /// Constants used for properties of type RehydrationType.
+    /// </summary>
+    public class RehydrationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ENTIRE_PAST_SESSION for RehydrationType
+        /// </summary>
+        public static readonly RehydrationType ENTIRE_PAST_SESSION = new RehydrationType("ENTIRE_PAST_SESSION");
+        /// <summary>
+        /// Constant FROM_SEGMENT for RehydrationType
+        /// </summary>
+        public static readonly RehydrationType FROM_SEGMENT = new RehydrationType("FROM_SEGMENT");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RehydrationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RehydrationType FindValue(string value)
+        {
+            return FindValue<RehydrationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RehydrationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ResourceType.
     /// </summary>
     public class ResourceType : ConstantClass
@@ -2964,6 +3396,152 @@ namespace Amazon.Connect
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ResourceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type RulePublishStatus.
+    /// </summary>
+    public class RulePublishStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DRAFT for RulePublishStatus
+        /// </summary>
+        public static readonly RulePublishStatus DRAFT = new RulePublishStatus("DRAFT");
+        /// <summary>
+        /// Constant PUBLISHED for RulePublishStatus
+        /// </summary>
+        public static readonly RulePublishStatus PUBLISHED = new RulePublishStatus("PUBLISHED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RulePublishStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RulePublishStatus FindValue(string value)
+        {
+            return FindValue<RulePublishStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RulePublishStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SearchableQueueType.
+    /// </summary>
+    public class SearchableQueueType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant STANDARD for SearchableQueueType
+        /// </summary>
+        public static readonly SearchableQueueType STANDARD = new SearchableQueueType("STANDARD");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SearchableQueueType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SearchableQueueType FindValue(string value)
+        {
+            return FindValue<SearchableQueueType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SearchableQueueType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type SortOrder.
+    /// </summary>
+    public class SortOrder : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ASCENDING for SortOrder
+        /// </summary>
+        public static readonly SortOrder ASCENDING = new SortOrder("ASCENDING");
+        /// <summary>
+        /// Constant DESCENDING for SortOrder
+        /// </summary>
+        public static readonly SortOrder DESCENDING = new SortOrder("DESCENDING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public SortOrder(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static SortOrder FindValue(string value)
+        {
+            return FindValue<SortOrder>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator SortOrder(string value)
         {
             return FindValue(value);
         }
@@ -3327,6 +3905,122 @@ namespace Amazon.Connect
 
 
     /// <summary>
+    /// Constants used for properties of type TimerEligibleParticipantRoles.
+    /// </summary>
+    public class TimerEligibleParticipantRoles : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AGENT for TimerEligibleParticipantRoles
+        /// </summary>
+        public static readonly TimerEligibleParticipantRoles AGENT = new TimerEligibleParticipantRoles("AGENT");
+        /// <summary>
+        /// Constant CUSTOMER for TimerEligibleParticipantRoles
+        /// </summary>
+        public static readonly TimerEligibleParticipantRoles CUSTOMER = new TimerEligibleParticipantRoles("CUSTOMER");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TimerEligibleParticipantRoles(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TimerEligibleParticipantRoles FindValue(string value)
+        {
+            return FindValue<TimerEligibleParticipantRoles>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TimerEligibleParticipantRoles(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrafficDistributionGroupStatus.
+    /// </summary>
+    public class TrafficDistributionGroupStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ACTIVE for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus ACTIVE = new TrafficDistributionGroupStatus("ACTIVE");
+        /// <summary>
+        /// Constant CREATION_FAILED for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus CREATION_FAILED = new TrafficDistributionGroupStatus("CREATION_FAILED");
+        /// <summary>
+        /// Constant CREATION_IN_PROGRESS for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus CREATION_IN_PROGRESS = new TrafficDistributionGroupStatus("CREATION_IN_PROGRESS");
+        /// <summary>
+        /// Constant DELETION_FAILED for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus DELETION_FAILED = new TrafficDistributionGroupStatus("DELETION_FAILED");
+        /// <summary>
+        /// Constant PENDING_DELETION for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus PENDING_DELETION = new TrafficDistributionGroupStatus("PENDING_DELETION");
+        /// <summary>
+        /// Constant UPDATE_IN_PROGRESS for TrafficDistributionGroupStatus
+        /// </summary>
+        public static readonly TrafficDistributionGroupStatus UPDATE_IN_PROGRESS = new TrafficDistributionGroupStatus("UPDATE_IN_PROGRESS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrafficDistributionGroupStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrafficDistributionGroupStatus FindValue(string value)
+        {
+            return FindValue<TrafficDistributionGroupStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrafficDistributionGroupStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type TrafficType.
     /// </summary>
     public class TrafficType : ConstantClass
@@ -3519,6 +4213,10 @@ namespace Amazon.Connect
         /// </summary>
         public static readonly VocabularyLanguageCode EnIN = new VocabularyLanguageCode("en-IN");
         /// <summary>
+        /// Constant EnNZ for VocabularyLanguageCode
+        /// </summary>
+        public static readonly VocabularyLanguageCode EnNZ = new VocabularyLanguageCode("en-NZ");
+        /// <summary>
         /// Constant EnUS for VocabularyLanguageCode
         /// </summary>
         public static readonly VocabularyLanguageCode EnUS = new VocabularyLanguageCode("en-US");
@@ -3526,6 +4224,10 @@ namespace Amazon.Connect
         /// Constant EnWL for VocabularyLanguageCode
         /// </summary>
         public static readonly VocabularyLanguageCode EnWL = new VocabularyLanguageCode("en-WL");
+        /// <summary>
+        /// Constant EnZA for VocabularyLanguageCode
+        /// </summary>
+        public static readonly VocabularyLanguageCode EnZA = new VocabularyLanguageCode("en-ZA");
         /// <summary>
         /// Constant EsES for VocabularyLanguageCode
         /// </summary>

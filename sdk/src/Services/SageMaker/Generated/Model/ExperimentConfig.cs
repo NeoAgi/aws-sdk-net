@@ -49,13 +49,14 @@ namespace Amazon.SageMaker.Model
     public partial class ExperimentConfig
     {
         private string _experimentName;
+        private string _runName;
         private string _trialComponentDisplayName;
         private string _trialName;
 
         /// <summary>
         /// Gets and sets the property ExperimentName. 
         /// <para>
-        /// The name of an existing experiment to associate the trial component with.
+        /// The name of an existing experiment to associate with the trial component.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=120)]
@@ -69,6 +70,25 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetExperimentName()
         {
             return this._experimentName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RunName. 
+        /// <para>
+        /// The name of the experiment run to associate with the trial component.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=120)]
+        public string RunName
+        {
+            get { return this._runName; }
+            set { this._runName = value; }
+        }
+
+        // Check to see if RunName property is set
+        internal bool IsSetRunName()
+        {
+            return this._runName != null;
         }
 
         /// <summary>

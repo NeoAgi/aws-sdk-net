@@ -54,7 +54,7 @@
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.CreateContentRequest.UploadId</property>
     <min>1</min>
-    <max>4096</max>
+    <max>1200</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.CreateKnowledgeBaseRequest.ClientToken</property>
@@ -257,22 +257,6 @@
     <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$|^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$</pattern>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.ConnectWisdomService.Model.PutFeedbackRequest.AssistantId</property>
-    <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$|^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$</pattern>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.ConnectWisdomService.Model.PutFeedbackResponse.AssistantArn</property>
-    <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$|^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$</pattern>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.ConnectWisdomService.Model.PutFeedbackResponse.AssistantId</property>
-    <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</pattern>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.ConnectWisdomService.Model.PutFeedbackResponse.TargetId</property>
-    <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</pattern>
-  </property-value-rule>
-  <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.QueryAssistantRequest.AssistantId</property>
     <pattern>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$|^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$</pattern>
   </property-value-rule>
@@ -335,7 +319,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.StartContentUploadRequest.ContentType</property>
-    <pattern>^(text/(plain|html))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
+    <pattern>^(text/(plain|html))|(application/(pdf|vnd\.openxmlformats-officedocument\.wordprocessingml\.document))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.StartContentUploadRequest.KnowledgeBaseId</property>
@@ -344,7 +328,7 @@
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.StartContentUploadResponse.UploadId</property>
     <min>1</min>
-    <max>4096</max>
+    <max>1200</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.StartContentUploadResponse.Url</property>
@@ -385,7 +369,7 @@
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.UpdateContentRequest.UploadId</property>
     <min>1</min>
-    <max>4096</max>
+    <max>1200</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.UpdateKnowledgeBaseTemplateUriRequest.KnowledgeBaseId</property>
@@ -488,7 +472,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.ContentData.ContentType</property>
-    <pattern>^(text/(plain|html))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
+    <pattern>^(text/(plain|html))|(application/(pdf|vnd\.openxmlformats-officedocument\.wordprocessingml\.document))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.ContentData.KnowledgeBaseArn</property>
@@ -550,7 +534,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.ContentSummary.ContentType</property>
-    <pattern>^(text/(plain|html))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
+    <pattern>^(text/(plain|html))|(application/(pdf|vnd\.openxmlformats-officedocument\.wordprocessingml\.document))|(application/x\.wisdom-json;source=(salesforce|servicenow|zendesk))$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.ConnectWisdomService.Model.ContentSummary.KnowledgeBaseArn</property>

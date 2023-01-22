@@ -38,7 +38,7 @@ namespace Amazon.RDSDataService.Model
     /// with different parameter sets. Bulk operations can provide a significant performance
     /// improvement over individual insert and update operations.
     /// </para>
-    ///  <important> 
+    ///  <note> 
     /// <para>
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
@@ -57,7 +57,7 @@ namespace Amazon.RDSDataService.Model
     /// The response size limit is 1 MiB. If the call returns more than 1 MiB of response
     /// data, the call is terminated.
     /// </para>
-    ///  </important>
+    ///  </note>
     /// </summary>
     public partial class BatchExecuteStatementRequest : AmazonRDSDataServiceRequest
     {
@@ -149,6 +149,11 @@ namespace Amazon.RDSDataService.Model
         /// <para>
         /// The name of the database schema.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// Currently, the <code>schema</code> parameter isn't supported.
+        /// </para>
+        ///  </note>
         /// </summary>
         [AWSProperty(Min=0, Max=64)]
         public string Schema

@@ -88,6 +88,7 @@ namespace Amazon.RDS.Model
         private string _dbClusterParameterGroup;
         private string _dbClusterResourceId;
         private string _dbSubnetGroup;
+        private string _dbSystemId;
         private bool? _deletionProtection;
         private List<DomainMembership> _domainMemberships = new List<DomainMembership>();
         private DateTime? _earliestBacktrackTime;
@@ -106,6 +107,7 @@ namespace Amazon.RDS.Model
         private string _kmsKeyId;
         private DateTime? _latestRestorableTime;
         private string _masterUsername;
+        private MasterUserSecret _masterUserSecret;
         private int? _monitoringInterval;
         private string _monitoringRoleArn;
         private bool? _multiAZ;
@@ -673,6 +675,24 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DBSystemId. 
+        /// <para>
+        /// Reserved for future use.
+        /// </para>
+        /// </summary>
+        public string DBSystemId
+        {
+            get { return this._dbSystemId; }
+            set { this._dbSystemId = value; }
+        }
+
+        // Check to see if DBSystemId property is set
+        internal bool IsSetDBSystemId()
+        {
+            return this._dbSystemId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DeletionProtection. 
         /// <para>
         /// Indicates if the DB cluster has deletion protection enabled. The database can't be
@@ -1034,6 +1054,33 @@ namespace Amazon.RDS.Model
         internal bool IsSetMasterUsername()
         {
             return this._masterUsername != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MasterUserSecret. 
+        /// <para>
+        /// Contains the secret managed by RDS in Amazon Web Services Secrets Manager for the
+        /// master user password.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
+        /// Guide.</i> 
+        /// </para>
+        /// </summary>
+        public MasterUserSecret MasterUserSecret
+        {
+            get { return this._masterUserSecret; }
+            set { this._masterUserSecret = value; }
+        }
+
+        // Check to see if MasterUserSecret property is set
+        internal bool IsSetMasterUserSecret()
+        {
+            return this._masterUserSecret != null;
         }
 
         /// <summary>

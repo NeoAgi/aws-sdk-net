@@ -93,6 +93,22 @@ namespace Amazon.MarketplaceCatalog.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ChangeSetName);
                 }
 
+                if(publicRequest.IsSetChangeSetTags())
+                {
+                    context.Writer.WritePropertyName("ChangeSetTags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestChangeSetTagsListValue in publicRequest.ChangeSetTags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestChangeSetTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
                 if(publicRequest.IsSetClientRequestToken())
                 {
                     context.Writer.WritePropertyName("ClientRequestToken");

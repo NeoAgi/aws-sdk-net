@@ -39,6 +39,12 @@ namespace Amazon.SecretsManager.Model
     /// 
     ///  
     /// <para>
+    /// For secrets that use <i>managed rotation</i>, you need to create the secret through
+    /// the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets
+    /// Manager secrets managed by other Amazon Web Services services</a>. 
+    /// </para>
+    ///  
+    /// <para>
     /// For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create
     /// a secret</a>.
     /// </para>
@@ -71,6 +77,14 @@ namespace Amazon.SecretsManager.Model
     /// If the secret is in a different Amazon Web Services account from the credentials calling
     /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
     /// and you must create and use a customer managed KMS key. 
+    /// </para>
+    ///  
+    /// <para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters except <code>SecretBinary</code>
+    /// or <code>SecretString</code> because it might be logged. For more information, see
+    /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
     /// </para>
     ///  
     /// <para>

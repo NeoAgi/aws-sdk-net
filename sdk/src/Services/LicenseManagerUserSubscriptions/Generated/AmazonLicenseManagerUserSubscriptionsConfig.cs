@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the license-manager-user-subscriptions-2018-05-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.LicenseManagerUserSubscriptions.Internal;
 
 namespace Amazon.LicenseManagerUserSubscriptions
 {
     /// <summary>
     /// Configuration for accessing Amazon LicenseManagerUserSubscriptions service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLicenseManagerUserSubscriptionsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.6");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.34");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.LicenseManagerUserSubscriptions
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLicenseManagerUserSubscriptionsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "license-manager-user-subscriptions";
+            this.EndpointProvider = new AmazonLicenseManagerUserSubscriptionsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.LicenseManagerUserSubscriptions
                 return _userAgent;
             }
         }
+
     }
 }

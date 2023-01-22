@@ -31,6 +31,8 @@ namespace ServiceClientGenerator
                     return "Amazon.S3.Internal.S3Signer";
                 case "s3v4":
                     return "S3Signer";
+                case "bearer":
+                    return "BearerTokenSigner";
                 case "":
                     return "NullSigner";
                 default:
@@ -431,6 +433,35 @@ namespace ServiceClientGenerator
             if (s.Length > 1)
                 txt += s.Substring(1);
             return txt;
+        }
+
+        public static string ToNativeType(this string type, bool useNullableTypes = false)
+        {
+            switch (type.ToLower())
+            {
+                case "string": return "string";
+                case "boolean": return "bool" + (useNullableTypes ? "?" : "");
+                default:
+                    throw new Exception("Unsupported type");
+            }
+        }
+
+        public static string ToNativeValue(this JsonData value)
+        {
+            if (value.IsBoolean) return value.ToString().ToLower();
+            if (value.IsString) return $"\"{(string)value}\"";
+            if (value.IsInt) return $"{(int)value}";
+            throw new Exception("Unsupported type");
+        }
+
+        public static string SanitizeQuotes(this string s)
+        {
+            return s.Replace("\"", "\"\"");
+        }
+
+        public static string ToVariableName(this string s)
+        {
+            return s.Replace("-", "_");
         }
     }
 }

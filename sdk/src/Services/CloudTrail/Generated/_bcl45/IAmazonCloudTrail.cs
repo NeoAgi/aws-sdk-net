@@ -138,6 +138,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -234,6 +238,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -298,6 +306,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -348,6 +360,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -394,12 +410,69 @@ namespace Amazon.CloudTrail
         /// resource lacks one or more required permissions for creating an organization resource
         /// in a required service.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventSelectorsException">
+        /// This exception is thrown when the <code>PutEventSelectors</code> operation is called
+        /// with a number of event selectors, advanced event selectors, or data resources that
+        /// is not valid. The combination of event selectors or advanced event selectors and data
+        /// resources is not valid. A trail can have up to 5 event selectors. If a trail uses
+        /// advanced event selectors, a maximum of 500 total values for all conditions in all
+        /// advanced event selectors is allowed. A trail is limited to 250 data resources. These
+        /// data resources can be distributed across event selectors, but the overall total cannot
+        /// exceed 250.
+        /// 
+        ///  
+        /// <para>
+        /// You can:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify a valid number of event selectors (1 to 5) for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid number of data resources (1 to 250) for an event selector. The limit
+        /// of number of resources on an individual event selector is configurable up to 250.
+        /// However, this upper limit is allowed only if the total number of data resources does
+        /// not exceed 250 across all event selectors for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify up to 500 values for all conditions in all advanced event selectors for a
+        /// trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+        /// parameter with a value of <code>read-only</code> is not valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidKmsKeyIdException">
+        /// This exception is thrown when the KMS key ARN is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTagParameterException">
         /// This exception is thrown when the specified tag key or values are not valid. It can
         /// also occur if there are duplicate tags or too many tags on the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsException">
+        /// This exception is thrown when there is an issue with the specified KMS key and the
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsKeyNotFoundException">
+        /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
+        /// KMS key are not in the same region, or when the KMS key associated with the Amazon
+        /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -461,12 +534,69 @@ namespace Amazon.CloudTrail
         /// resource lacks one or more required permissions for creating an organization resource
         /// in a required service.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventSelectorsException">
+        /// This exception is thrown when the <code>PutEventSelectors</code> operation is called
+        /// with a number of event selectors, advanced event selectors, or data resources that
+        /// is not valid. The combination of event selectors or advanced event selectors and data
+        /// resources is not valid. A trail can have up to 5 event selectors. If a trail uses
+        /// advanced event selectors, a maximum of 500 total values for all conditions in all
+        /// advanced event selectors is allowed. A trail is limited to 250 data resources. These
+        /// data resources can be distributed across event selectors, but the overall total cannot
+        /// exceed 250.
+        /// 
+        ///  
+        /// <para>
+        /// You can:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify a valid number of event selectors (1 to 5) for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid number of data resources (1 to 250) for an event selector. The limit
+        /// of number of resources on an individual event selector is configurable up to 250.
+        /// However, this upper limit is allowed only if the total number of data resources does
+        /// not exceed 250 across all event selectors for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify up to 500 values for all conditions in all advanced event selectors for a
+        /// trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+        /// parameter with a value of <code>read-only</code> is not valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidKmsKeyIdException">
+        /// This exception is thrown when the KMS key ARN is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTagParameterException">
         /// This exception is thrown when the specified tag key or values are not valid. It can
         /// also occur if there are duplicate tags or too many tags on the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsException">
+        /// This exception is thrown when there is an issue with the specified KMS key and the
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsKeyNotFoundException">
+        /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
+        /// KMS key are not in the same region, or when the KMS key associated with the Amazon
+        /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -532,7 +662,8 @@ namespace Amazon.CloudTrail
         /// in a required service.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -595,7 +726,7 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsKeyDisabledException">
         /// This exception is no longer in use.
@@ -607,6 +738,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.MaximumNumberOfTrailsExceededException">
         /// This exception is thrown when the maximum number of trails is reached.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -630,6 +765,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.S3BucketDoesNotExistException">
         /// This exception is thrown when the specified S3 bucket does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.TagsLimitExceededException">
+        /// The number of tags per trail has exceeded the permitted amount. Currently, the limit
+        /// is 50.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.TrailAlreadyExistsException">
         /// This exception is thrown when the specified trail already exists.
@@ -681,7 +820,8 @@ namespace Amazon.CloudTrail
         /// in a required service.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -744,7 +884,7 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsKeyDisabledException">
         /// This exception is no longer in use.
@@ -756,6 +896,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.MaximumNumberOfTrailsExceededException">
         /// This exception is thrown when the maximum number of trails is reached.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -779,6 +923,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.S3BucketDoesNotExistException">
         /// This exception is thrown when the specified S3 bucket does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.TagsLimitExceededException">
+        /// The number of tags per trail has exceeded the permitted amount. Currently, the limit
+        /// is 50.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.TrailAlreadyExistsException">
         /// This exception is thrown when the specified trail already exists.
@@ -820,12 +968,19 @@ namespace Amazon.CloudTrail
         /// The specified event data store ARN is not valid or does not map to an event data store
         /// in your account.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreHasOngoingImportException">
+        /// This exception is thrown when you try to update or delete an event data store that
+        /// currently has an import in progress.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
         /// The specified event data store was not found.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreTerminationProtectedException">
         /// The event data store cannot be deleted because termination protection is enabled for
         /// it.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
+        /// The event data store is inactive.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
@@ -834,6 +989,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -879,12 +1038,19 @@ namespace Amazon.CloudTrail
         /// The specified event data store ARN is not valid or does not map to an event data store
         /// in your account.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreHasOngoingImportException">
+        /// This exception is thrown when you try to update or delete an event data store that
+        /// currently has an import in progress.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
         /// The specified event data store was not found.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreTerminationProtectedException">
         /// The event data store cannot be deleted because termination protection is enabled for
         /// it.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
+        /// The event data store is inactive.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
@@ -893,6 +1059,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -923,6 +1093,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the DeleteTrail service method.</param>
         /// 
         /// <returns>The response from the DeleteTrail service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.ConflictException">
         /// This exception is thrown when the specified resource is not ready for an operation.
         /// This can occur when you try to run an operation on a resource before CloudTrail has
@@ -965,6 +1144,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -998,6 +1181,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the DeleteTrail service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.ConflictException">
         /// This exception is thrown when the specified resource is not ready for an operation.
         /// This can occur when you try to run an operation on a resource before CloudTrail has
@@ -1041,6 +1233,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -1059,6 +1255,120 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/DeleteTrail">REST API Reference for DeleteTrail Operation</seealso>
         Task<DeleteTrailResponse> DeleteTrailAsync(DeleteTrailRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeregisterOrganizationDelegatedAdmin
+
+
+        /// <summary>
+        /// Removes CloudTrail delegated administrator permissions from a member account in an
+        /// organization.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeregisterOrganizationDelegatedAdmin service method.</param>
+        /// 
+        /// <returns>The response from the DeregisterOrganizationDelegatedAdmin service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotFoundException">
+        /// This exception is thrown when when the specified account is not found or not part
+        /// of an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotRegisteredException">
+        /// This exception is thrown when the specified account is not registered as the CloudTrail
+        /// delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailAccessNotEnabledException">
+        /// This exception is thrown when trusted access has not been enabled between CloudTrail
+        /// and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling
+        /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
+        /// For Creating a Trail For Your Organization</a>.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
+        /// This exception is thrown when the IAM user or role that is used to create the organization
+        /// resource lacks one or more required permissions for creating an organization resource
+        /// in a required service.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationManagementAccountException">
+        /// This exception is thrown when the account making the request is not the organization's
+        /// management account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationNotInAllFeaturesModeException">
+        /// This exception is thrown when Organizations is not configured to support all features.
+        /// All features must be enabled in Organizations to support creating an organization
+        /// trail or event data store.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationsNotInUseException">
+        /// This exception is thrown when the request is made from an Amazon Web Services account
+        /// that is not a member of an organization. To make this request, sign in using the credentials
+        /// of an account that belongs to an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/DeregisterOrganizationDelegatedAdmin">REST API Reference for DeregisterOrganizationDelegatedAdmin Operation</seealso>
+        DeregisterOrganizationDelegatedAdminResponse DeregisterOrganizationDelegatedAdmin(DeregisterOrganizationDelegatedAdminRequest request);
+
+
+
+        /// <summary>
+        /// Removes CloudTrail delegated administrator permissions from a member account in an
+        /// organization.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeregisterOrganizationDelegatedAdmin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeregisterOrganizationDelegatedAdmin service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotFoundException">
+        /// This exception is thrown when when the specified account is not found or not part
+        /// of an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotRegisteredException">
+        /// This exception is thrown when the specified account is not registered as the CloudTrail
+        /// delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailAccessNotEnabledException">
+        /// This exception is thrown when trusted access has not been enabled between CloudTrail
+        /// and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling
+        /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
+        /// For Creating a Trail For Your Organization</a>.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
+        /// This exception is thrown when the IAM user or role that is used to create the organization
+        /// resource lacks one or more required permissions for creating an organization resource
+        /// in a required service.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationManagementAccountException">
+        /// This exception is thrown when the account making the request is not the organization's
+        /// management account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationNotInAllFeaturesModeException">
+        /// This exception is thrown when Organizations is not configured to support all features.
+        /// All features must be enabled in Organizations to support creating an organization
+        /// trail or event data store.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationsNotInUseException">
+        /// This exception is thrown when the request is made from an Amazon Web Services account
+        /// that is not a member of an organization. To make this request, sign in using the credentials
+        /// of an account that belongs to an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/DeregisterOrganizationDelegatedAdmin">REST API Reference for DeregisterOrganizationDelegatedAdmin Operation</seealso>
+        Task<DeregisterOrganizationDelegatedAdminResponse> DeregisterOrganizationDelegatedAdminAsync(DeregisterOrganizationDelegatedAdminRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1085,6 +1395,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1123,6 +1437,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1175,6 +1493,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -1219,6 +1541,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1266,6 +1592,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1316,6 +1646,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -1324,6 +1658,66 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/DescribeTrails">REST API Reference for DescribeTrails Operation</seealso>
         Task<DescribeTrailsResponse> DescribeTrailsAsync(DescribeTrailsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetChannel
+
+
+        /// <summary>
+        /// Returns information about a specific channel. Amazon Web Services services create
+        /// service-linked channels to get information about CloudTrail events on your behalf.
+        /// For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+        /// service-linked channels for CloudTrail by using the CLI</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetChannel service method.</param>
+        /// 
+        /// <returns>The response from the GetChannel service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ChannelARNInvalidException">
+        /// This exception is thrown when the specified value of <code>ChannelARN</code> is not
+        /// valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.ChannelNotFoundException">
+        /// The specified channel was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/GetChannel">REST API Reference for GetChannel Operation</seealso>
+        GetChannelResponse GetChannel(GetChannelRequest request);
+
+
+
+        /// <summary>
+        /// Returns information about a specific channel. Amazon Web Services services create
+        /// service-linked channels to get information about CloudTrail events on your behalf.
+        /// For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+        /// service-linked channels for CloudTrail by using the CLI</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetChannel service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetChannel service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ChannelARNInvalidException">
+        /// This exception is thrown when the specified value of <code>ChannelARN</code> is not
+        /// valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.ChannelNotFoundException">
+        /// The specified channel was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/GetChannel">REST API Reference for GetChannel Operation</seealso>
+        Task<GetChannelResponse> GetChannelAsync(GetChannelRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1346,6 +1740,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1377,6 +1775,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1412,13 +1814,33 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-        /// Data and Management Events for Trails </a> in the <i>CloudTrail User Guide</i>.
+        /// For more information about logging management and data events, see the following topics
+        /// in the <i>CloudTrail User Guide</i>:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
+        /// management events for trails </a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+        /// data events for trails </a> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEventSelectors service method.</param>
         /// 
         /// <returns>The response from the GetEventSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1446,6 +1868,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1481,9 +1907,20 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-        /// Data and Management Events for Trails </a> in the <i>CloudTrail User Guide</i>.
+        /// For more information about logging management and data events, see the following topics
+        /// in the <i>CloudTrail User Guide</i>:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
+        /// management events for trails </a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+        /// data events for trails </a> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetEventSelectors service method.</param>
         /// <param name="cancellationToken">
@@ -1491,6 +1928,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the GetEventSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1519,6 +1965,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -1530,6 +1980,58 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/GetEventSelectors">REST API Reference for GetEventSelectors Operation</seealso>
         Task<GetEventSelectorsResponse> GetEventSelectorsAsync(GetEventSelectorsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetImport
+
+
+        /// <summary>
+        /// Returns information about a specific import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetImport service method.</param>
+        /// 
+        /// <returns>The response from the GetImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/GetImport">REST API Reference for GetImport Operation</seealso>
+        GetImportResponse GetImport(GetImportRequest request);
+
+
+
+        /// <summary>
+        /// Returns information about a specific import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/GetImport">REST API Reference for GetImport Operation</seealso>
+        Task<GetImportResponse> GetImportAsync(GetImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1552,6 +2054,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the GetInsightSelectors service method.</param>
         /// 
         /// <returns>The response from the GetInsightSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsightNotEnabledException">
         /// If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
         /// events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.
@@ -1583,6 +2094,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1617,6 +2132,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the GetInsightSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsightNotEnabledException">
         /// If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
         /// events enabled, the operation throws the exception <code>InsightNotEnabledException</code>.
@@ -1648,6 +2172,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1683,6 +2211,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
         /// The event data store is inactive.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidMaxResultsException">
         /// This exception is thrown if the limit specified is not valid.
         /// </exception>
@@ -1692,6 +2224,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1727,6 +2263,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
         /// The event data store is inactive.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidMaxResultsException">
         /// This exception is thrown if the limit specified is not valid.
         /// </exception>
@@ -1736,6 +2276,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -1760,6 +2304,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the GetTrail service method.</param>
         /// 
         /// <returns>The response from the GetTrail service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1811,6 +2364,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the GetTrail service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1865,6 +2427,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the GetTrailStatus service method.</param>
         /// 
         /// <returns>The response from the GetTrailStatus service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1919,6 +2490,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the GetTrailStatus service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidTrailNameException">
         /// This exception is thrown when the provided trail name is not valid. Trail names must
         /// meet the following requirements:
@@ -1961,6 +2541,60 @@ namespace Amazon.CloudTrail
 
         #endregion
         
+        #region  ListChannels
+
+
+        /// <summary>
+        /// Lists the channels in the current account, and their source names. Amazon Web Services
+        /// services create service-linked channels get information about CloudTrail events on
+        /// your behalf. For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+        /// service-linked channels for CloudTrail by using the CLI</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListChannels service method.</param>
+        /// 
+        /// <returns>The response from the ListChannels service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListChannels">REST API Reference for ListChannels Operation</seealso>
+        ListChannelsResponse ListChannels(ListChannelsRequest request);
+
+
+
+        /// <summary>
+        /// Lists the channels in the current account, and their source names. Amazon Web Services
+        /// services create service-linked channels get information about CloudTrail events on
+        /// your behalf. For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+        /// service-linked channels for CloudTrail by using the CLI</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListChannels service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListChannels service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListChannels">REST API Reference for ListChannels Operation</seealso>
+        Task<ListChannelsResponse> ListChannelsAsync(ListChannelsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ListEventDataStores
 
 
@@ -1976,6 +2610,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
         /// A token that is not valid, or a token that was previously used in a request with different
         /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -2004,6 +2642,10 @@ namespace Amazon.CloudTrail
         /// A token that is not valid, or a token that was previously used in a request with different
         /// parameters. This exception is thrown if the token is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -2012,6 +2654,118 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListEventDataStores">REST API Reference for ListEventDataStores Operation</seealso>
         Task<ListEventDataStoresResponse> ListEventDataStoresAsync(ListEventDataStoresRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListImportFailures
+
+
+        /// <summary>
+        /// Returns a list of failures for the specified import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImportFailures service method.</param>
+        /// 
+        /// <returns>The response from the ListImportFailures service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListImportFailures">REST API Reference for ListImportFailures Operation</seealso>
+        ListImportFailuresResponse ListImportFailures(ListImportFailuresRequest request);
+
+
+
+        /// <summary>
+        /// Returns a list of failures for the specified import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImportFailures service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListImportFailures service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListImportFailures">REST API Reference for ListImportFailures Operation</seealso>
+        Task<ListImportFailuresResponse> ListImportFailuresAsync(ListImportFailuresRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListImports
+
+
+        /// <summary>
+        /// Returns information on all imports, or a select set of imports by <code>ImportStatus</code>
+        /// or <code>Destination</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
+        /// 
+        /// <returns>The response from the ListImports service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreARNInvalidException">
+        /// The specified event data store ARN is not valid or does not map to an event data store
+        /// in your account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListImports">REST API Reference for ListImports Operation</seealso>
+        ListImportsResponse ListImports(ListImportsRequest request);
+
+
+
+        /// <summary>
+        /// Returns information on all imports, or a select set of imports by <code>ImportStatus</code>
+        /// or <code>Destination</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListImports service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreARNInvalidException">
+        /// The specified event data store ARN is not valid or does not map to an event data store
+        /// in your account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidNextTokenException">
+        /// A token that is not valid, or a token that was previously used in a request with different
+        /// parameters. This exception is thrown if the token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/ListImports">REST API Reference for ListImports Operation</seealso>
+        Task<ListImportsResponse> ListImportsAsync(ListImportsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -2134,6 +2888,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidQueryStatusException">
         /// The query status is not valid for the operation.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
         /// </exception>
@@ -2187,6 +2945,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidQueryStatusException">
         /// The query status is not valid for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -2253,6 +3015,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -2325,6 +3091,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -2639,8 +3409,9 @@ namespace Amazon.CloudTrail
         ///  
         /// <para>
         /// You can configure up to five event selectors for each trail. For more information,
-        /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-        /// data and management events for trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
+        /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
+        /// management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+        /// data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
         /// in CloudTrail</a> in the <i>CloudTrail User Guide</i>.
         /// </para>
         ///  
@@ -2657,6 +3428,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the PutEventSelectors service method.</param>
         /// 
         /// <returns>The response from the PutEventSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -2730,6 +3510,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -2801,8 +3585,9 @@ namespace Amazon.CloudTrail
         ///  
         /// <para>
         /// You can configure up to five event selectors for each trail. For more information,
-        /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-        /// data and management events for trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
+        /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
+        /// management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+        /// data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
         /// in CloudTrail</a> in the <i>CloudTrail User Guide</i>.
         /// </para>
         ///  
@@ -2822,6 +3607,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the PutEventSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -2896,6 +3690,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -2930,8 +3728,18 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the PutInsightSelectors service method.</param>
         /// 
         /// <returns>The response from the PutInsightSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -2976,7 +3784,11 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3015,8 +3827,18 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the PutInsightSelectors service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -3061,7 +3883,11 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3084,6 +3910,134 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/PutInsightSelectors">REST API Reference for PutInsightSelectors Operation</seealso>
         Task<PutInsightSelectorsResponse> PutInsightSelectorsAsync(PutInsightSelectorsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  RegisterOrganizationDelegatedAdmin
+
+
+        /// <summary>
+        /// Registers an organization’s member account as the CloudTrail delegated administrator.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RegisterOrganizationDelegatedAdmin service method.</param>
+        /// 
+        /// <returns>The response from the RegisterOrganizationDelegatedAdmin service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotFoundException">
+        /// This exception is thrown when when the specified account is not found or not part
+        /// of an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountRegisteredException">
+        /// This exception is thrown when the account is already registered as the CloudTrail
+        /// delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CannotDelegateManagementAccountException">
+        /// This exception is thrown when the management account of an organization is registered
+        /// as the CloudTrail delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailAccessNotEnabledException">
+        /// This exception is thrown when trusted access has not been enabled between CloudTrail
+        /// and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling
+        /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
+        /// For Creating a Trail For Your Organization</a>.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.DelegatedAdminAccountLimitExceededException">
+        /// This exception is thrown when the maximum number of CloudTrail delegated administrators
+        /// is reached.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
+        /// This exception is thrown when the IAM user or role that is used to create the organization
+        /// resource lacks one or more required permissions for creating an organization resource
+        /// in a required service.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationManagementAccountException">
+        /// This exception is thrown when the account making the request is not the organization's
+        /// management account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationNotInAllFeaturesModeException">
+        /// This exception is thrown when Organizations is not configured to support all features.
+        /// All features must be enabled in Organizations to support creating an organization
+        /// trail or event data store.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationsNotInUseException">
+        /// This exception is thrown when the request is made from an Amazon Web Services account
+        /// that is not a member of an organization. To make this request, sign in using the credentials
+        /// of an account that belongs to an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/RegisterOrganizationDelegatedAdmin">REST API Reference for RegisterOrganizationDelegatedAdmin Operation</seealso>
+        RegisterOrganizationDelegatedAdminResponse RegisterOrganizationDelegatedAdmin(RegisterOrganizationDelegatedAdminRequest request);
+
+
+
+        /// <summary>
+        /// Registers an organization’s member account as the CloudTrail delegated administrator.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RegisterOrganizationDelegatedAdmin service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the RegisterOrganizationDelegatedAdmin service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountNotFoundException">
+        /// This exception is thrown when when the specified account is not found or not part
+        /// of an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountRegisteredException">
+        /// This exception is thrown when the account is already registered as the CloudTrail
+        /// delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CannotDelegateManagementAccountException">
+        /// This exception is thrown when the management account of an organization is registered
+        /// as the CloudTrail delegated administrator.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailAccessNotEnabledException">
+        /// This exception is thrown when trusted access has not been enabled between CloudTrail
+        /// and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling
+        /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
+        /// For Creating a Trail For Your Organization</a>.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.DelegatedAdminAccountLimitExceededException">
+        /// This exception is thrown when the maximum number of CloudTrail delegated administrators
+        /// is reached.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
+        /// This exception is thrown when the IAM user or role that is used to create the organization
+        /// resource lacks one or more required permissions for creating an organization resource
+        /// in a required service.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationManagementAccountException">
+        /// This exception is thrown when the account making the request is not the organization's
+        /// management account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationNotInAllFeaturesModeException">
+        /// This exception is thrown when Organizations is not configured to support all features.
+        /// All features must be enabled in Organizations to support creating an organization
+        /// trail or event data store.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OrganizationsNotInUseException">
+        /// This exception is thrown when the request is made from an Amazon Web Services account
+        /// that is not a member of an organization. To make this request, sign in using the credentials
+        /// of an account that belongs to an organization.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/RegisterOrganizationDelegatedAdmin">REST API Reference for RegisterOrganizationDelegatedAdmin Operation</seealso>
+        Task<RegisterOrganizationDelegatedAdminResponse> RegisterOrganizationDelegatedAdminAsync(RegisterOrganizationDelegatedAdminRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -3142,6 +4096,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3223,6 +4181,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -3285,6 +4247,10 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3353,6 +4319,10 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -3381,6 +4351,146 @@ namespace Amazon.CloudTrail
 
         #endregion
         
+        #region  StartImport
+
+
+        /// <summary>
+        /// Starts an import of logged trail events from a source S3 bucket to a destination
+        /// event data store. By default, CloudTrail only imports events contained in the S3 bucket's
+        /// <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code>
+        /// prefix, and does not check prefixes for other Amazon Web Services services. If you
+        /// want to import CloudTrail events contained in another prefix, you must include the
+        /// prefix in the <code>S3LocationUri</code>. For more considerations about importing
+        /// trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        ///  When you start a new import, the <code>Destinations</code> and <code>ImportSource</code>
+        /// parameters are required. Before starting a new import, disable any access control
+        /// lists (ACLs) attached to the source S3 bucket. For more information about disabling
+        /// ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// ownership of objects and disabling ACLs for your bucket</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  When you retry an import, the <code>ImportID</code> parameter is required. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountHasOngoingImportException">
+        /// This exception is thrown when you start a new import and a previous import is still
+        /// in progress.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreARNInvalidException">
+        /// The specified event data store ARN is not valid or does not map to an event data store
+        /// in your account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
+        /// The specified event data store was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
+        /// The event data store is inactive.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventDataStoreCategoryException">
+        /// This exception is thrown when event categories of specified event data stores are
+        /// not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventDataStoreStatusException">
+        /// The event data store is not in a status that supports the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidImportSourceException">
+        /// This exception is thrown when the provided source S3 bucket is not valid for import.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StartImport">REST API Reference for StartImport Operation</seealso>
+        StartImportResponse StartImport(StartImportRequest request);
+
+
+
+        /// <summary>
+        /// Starts an import of logged trail events from a source S3 bucket to a destination
+        /// event data store. By default, CloudTrail only imports events contained in the S3 bucket's
+        /// <code>CloudTrail</code> prefix and the prefixes inside the <code>CloudTrail</code>
+        /// prefix, and does not check prefixes for other Amazon Web Services services. If you
+        /// want to import CloudTrail events contained in another prefix, you must include the
+        /// prefix in the <code>S3LocationUri</code>. For more considerations about importing
+        /// trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        ///  When you start a new import, the <code>Destinations</code> and <code>ImportSource</code>
+        /// parameters are required. Before starting a new import, disable any access control
+        /// lists (ACLs) attached to the source S3 bucket. For more information about disabling
+        /// ACLs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling
+        /// ownership of objects and disabling ACLs for your bucket</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  When you retry an import, the <code>ImportID</code> parameter is required. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.AccountHasOngoingImportException">
+        /// This exception is thrown when you start a new import and a previous import is still
+        /// in progress.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreARNInvalidException">
+        /// The specified event data store ARN is not valid or does not map to an event data store
+        /// in your account.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
+        /// The specified event data store was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
+        /// The event data store is inactive.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventDataStoreCategoryException">
+        /// This exception is thrown when event categories of specified event data stores are
+        /// not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventDataStoreStatusException">
+        /// The event data store is not in a status that supports the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidImportSourceException">
+        /// This exception is thrown when the provided source S3 bucket is not valid for import.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StartImport">REST API Reference for StartImport Operation</seealso>
+        Task<StartImportResponse> StartImportAsync(StartImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  StartLogging
 
 
@@ -3394,6 +4504,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the StartLogging service method.</param>
         /// 
         /// <returns>The response from the StartLogging service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -3430,6 +4549,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3465,6 +4588,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the StartLogging service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -3501,6 +4633,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3528,7 +4664,8 @@ namespace Amazon.CloudTrail
 
         /// <summary>
         /// Starts a CloudTrail Lake query. The required <code>QueryStatement</code> parameter
-        /// provides your SQL query, enclosed in single quotation marks.
+        /// provides your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
+        /// parameter to deliver the query results to an S3 bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartQuery service method.</param>
         /// 
@@ -3543,6 +4680,13 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
         /// The event data store is inactive.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket is not sufficient.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
@@ -3551,12 +4695,25 @@ namespace Amazon.CloudTrail
         /// keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
         /// or edit a query</a> in the <i>CloudTrail User Guide</i>.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidS3BucketNameException">
+        /// This exception is thrown when the provided S3 bucket name is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidS3PrefixException">
+        /// This exception is thrown when the provided S3 prefix is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.MaxConcurrentQueriesException">
         /// You are already running the maximum number of concurrent queries. Wait a minute for
         /// some queries to finish, and then run the query again.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.S3BucketDoesNotExistException">
+        /// This exception is thrown when the specified S3 bucket does not exist.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
         /// This exception is thrown when the requested operation is not supported.
@@ -3568,7 +4725,8 @@ namespace Amazon.CloudTrail
 
         /// <summary>
         /// Starts a CloudTrail Lake query. The required <code>QueryStatement</code> parameter
-        /// provides your SQL query, enclosed in single quotation marks.
+        /// provides your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
+        /// parameter to deliver the query results to an S3 bucket.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartQuery service method.</param>
         /// <param name="cancellationToken">
@@ -3586,6 +4744,13 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InactiveEventDataStoreException">
         /// The event data store is inactive.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket is not sufficient.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
         /// </exception>
@@ -3594,9 +4759,48 @@ namespace Amazon.CloudTrail
         /// keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
         /// or edit a query</a> in the <i>CloudTrail User Guide</i>.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidS3BucketNameException">
+        /// This exception is thrown when the provided S3 bucket name is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidS3PrefixException">
+        /// This exception is thrown when the provided S3 prefix is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.MaxConcurrentQueriesException">
         /// You are already running the maximum number of concurrent queries. Wait a minute for
         /// some queries to finish, and then run the query again.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.S3BucketDoesNotExistException">
+        /// This exception is thrown when the specified S3 bucket does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StartQuery">REST API Reference for StartQuery Operation</seealso>
+        Task<StartQueryResponse> StartQueryAsync(StartQueryRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StopImport
+
+
+        /// <summary>
+        /// Stops a specified import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopImport service method.</param>
+        /// 
+        /// <returns>The response from the StopImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
         /// This exception is thrown when the requested operation is not permitted.
@@ -3604,8 +4808,34 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
         /// This exception is thrown when the requested operation is not supported.
         /// </exception>
-        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StartQuery">REST API Reference for StartQuery Operation</seealso>
-        Task<StartQueryResponse> StartQueryAsync(StartQueryRequest request, CancellationToken cancellationToken = default(CancellationToken));
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StopImport">REST API Reference for StopImport Operation</seealso>
+        StopImportResponse StopImport(StopImportRequest request);
+
+
+
+        /// <summary>
+        /// Stops a specified import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopImport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopImport service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.ImportNotFoundException">
+        /// The specified import was not found.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.OperationNotPermittedException">
+        /// This exception is thrown when the requested operation is not permitted.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.UnsupportedOperationException">
+        /// This exception is thrown when the requested operation is not supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudtrail-2013-11-01/StopImport">REST API Reference for StopImport Operation</seealso>
+        Task<StopImportResponse> StopImportAsync(StopImportRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -3624,6 +4854,15 @@ namespace Amazon.CloudTrail
         /// <param name="request">Container for the necessary parameters to execute the StopLogging service method.</param>
         /// 
         /// <returns>The response from the StopLogging service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -3660,6 +4899,10 @@ namespace Amazon.CloudTrail
         /// Not be in IP address format (for example, 192.168.5.4)
         /// </para>
         ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3697,6 +4940,15 @@ namespace Amazon.CloudTrail
         /// </param>
         /// 
         /// <returns>The response from the StopLogging service method, as returned by CloudTrail.</returns>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientDependencyServiceAccessPermissionException">
         /// This exception is thrown when the IAM user or role that is used to create the organization
         /// resource lacks one or more required permissions for creating an organization resource
@@ -3734,6 +4986,10 @@ namespace Amazon.CloudTrail
         /// </para>
         ///  </li> </ul>
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
         /// create or update an organization trail or event data store is not the management account
@@ -3762,7 +5018,7 @@ namespace Amazon.CloudTrail
         /// Updates an event data store. The required <code>EventDataStore</code> value is an
         /// ARN or the ID portion of the ARN. Other parameters are optional, but at least one
         /// optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code>
-        /// is in days, and valid values are integers between 90 and 2555. By default, <code>TerminationProtection</code>
+        /// is in days, and valid values are integers between 90 and 2557. By default, <code>TerminationProtection</code>
         /// is enabled. <code>AdvancedEventSelectors</code> includes or excludes management and
         /// data events in your event data store; for more information about <code>AdvancedEventSelectors</code>,
         /// see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.
@@ -3780,6 +5036,10 @@ namespace Amazon.CloudTrail
         /// The specified event data store ARN is not valid or does not map to an event data store
         /// in your account.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreHasOngoingImportException">
+        /// This exception is thrown when you try to update or delete an event data store that
+        /// currently has an import in progress.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
         /// The specified event data store was not found.
         /// </exception>
@@ -3791,8 +5051,65 @@ namespace Amazon.CloudTrail
         /// resource lacks one or more required permissions for creating an organization resource
         /// in a required service.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventSelectorsException">
+        /// This exception is thrown when the <code>PutEventSelectors</code> operation is called
+        /// with a number of event selectors, advanced event selectors, or data resources that
+        /// is not valid. The combination of event selectors or advanced event selectors and data
+        /// resources is not valid. A trail can have up to 5 event selectors. If a trail uses
+        /// advanced event selectors, a maximum of 500 total values for all conditions in all
+        /// advanced event selectors is allowed. A trail is limited to 250 data resources. These
+        /// data resources can be distributed across event selectors, but the overall total cannot
+        /// exceed 250.
+        /// 
+        ///  
+        /// <para>
+        /// You can:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify a valid number of event selectors (1 to 5) for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid number of data resources (1 to 250) for an event selector. The limit
+        /// of number of resources on an individual event selector is configurable up to 250.
+        /// However, this upper limit is allowed only if the total number of data resources does
+        /// not exceed 250 across all event selectors for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify up to 500 values for all conditions in all advanced event selectors for a
+        /// trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+        /// parameter with a value of <code>read-only</code> is not valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidKmsKeyIdException">
+        /// This exception is thrown when the KMS key ARN is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsException">
+        /// This exception is thrown when there is an issue with the specified KMS key and the
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsKeyNotFoundException">
+        /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
+        /// KMS key are not in the same region, or when the KMS key associated with the Amazon
+        /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3826,7 +5143,7 @@ namespace Amazon.CloudTrail
         /// Updates an event data store. The required <code>EventDataStore</code> value is an
         /// ARN or the ID portion of the ARN. Other parameters are optional, but at least one
         /// optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code>
-        /// is in days, and valid values are integers between 90 and 2555. By default, <code>TerminationProtection</code>
+        /// is in days, and valid values are integers between 90 and 2557. By default, <code>TerminationProtection</code>
         /// is enabled. <code>AdvancedEventSelectors</code> includes or excludes management and
         /// data events in your event data store; for more information about <code>AdvancedEventSelectors</code>,
         /// see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.
@@ -3847,6 +5164,10 @@ namespace Amazon.CloudTrail
         /// The specified event data store ARN is not valid or does not map to an event data store
         /// in your account.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreHasOngoingImportException">
+        /// This exception is thrown when you try to update or delete an event data store that
+        /// currently has an import in progress.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.EventDataStoreNotFoundException">
         /// The specified event data store was not found.
         /// </exception>
@@ -3858,8 +5179,65 @@ namespace Amazon.CloudTrail
         /// resource lacks one or more required permissions for creating an organization resource
         /// in a required service.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidEventSelectorsException">
+        /// This exception is thrown when the <code>PutEventSelectors</code> operation is called
+        /// with a number of event selectors, advanced event selectors, or data resources that
+        /// is not valid. The combination of event selectors or advanced event selectors and data
+        /// resources is not valid. A trail can have up to 5 event selectors. If a trail uses
+        /// advanced event selectors, a maximum of 500 total values for all conditions in all
+        /// advanced event selectors is allowed. A trail is limited to 250 data resources. These
+        /// data resources can be distributed across event selectors, but the overall total cannot
+        /// exceed 250.
+        /// 
+        ///  
+        /// <para>
+        /// You can:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify a valid number of event selectors (1 to 5) for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid number of data resources (1 to 250) for an event selector. The limit
+        /// of number of resources on an individual event selector is configurable up to 250.
+        /// However, this upper limit is allowed only if the total number of data resources does
+        /// not exceed 250 across all event selectors for a trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify up to 500 values for all conditions in all advanced event selectors for a
+        /// trail.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+        /// parameter with a value of <code>read-only</code> is not valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidKmsKeyIdException">
+        /// This exception is thrown when the KMS key ARN is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
         /// The request includes a parameter that is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsException">
+        /// This exception is thrown when there is an issue with the specified KMS key and the
+        /// trail or event data store can't be updated.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.KmsKeyNotFoundException">
+        /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
+        /// KMS key are not in the same region, or when the KMS key associated with the Amazon
+        /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -3909,6 +5287,15 @@ namespace Amazon.CloudTrail
         /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
         /// For Creating a Trail For Your Organization</a>.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.CloudTrailInvalidClientTokenIdException">
         /// This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
         /// error code. This can occur when you are creating or updating a trail to send notifications
@@ -3923,7 +5310,8 @@ namespace Amazon.CloudTrail
         /// in a required service.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -3984,6 +5372,9 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterCombinationException">
         /// This exception is thrown when the combination of parameters provided is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidS3BucketNameException">
         /// This exception is thrown when the provided S3 bucket name is not valid.
         /// </exception>
@@ -4023,7 +5414,7 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsKeyDisabledException">
         /// This exception is no longer in use.
@@ -4032,6 +5423,10 @@ namespace Amazon.CloudTrail
         /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
         /// KMS key are not in the same region, or when the KMS key associated with the Amazon
         /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to
@@ -4090,6 +5485,15 @@ namespace Amazon.CloudTrail
         /// Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare
         /// For Creating a Trail For Your Organization</a>.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.CloudTrailARNInvalidException">
+        /// This exception is thrown when an operation is called with a trail ARN that is not
+        /// valid. The following is the format of a trail ARN.
+        /// 
+        ///  
+        /// <para>
+        ///  <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> 
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.CloudTrailInvalidClientTokenIdException">
         /// This exception is thrown when a call results in the <code>InvalidClientTokenId</code>
         /// error code. This can occur when you are creating or updating a trail to send notifications
@@ -4104,7 +5508,8 @@ namespace Amazon.CloudTrail
         /// in a required service.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientEncryptionPolicyException">
-        /// This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.
+        /// This exception is thrown when the policy on the S3 bucket or KMS key does not have
+        /// sufficient permissions for the operation.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InsufficientS3BucketPolicyException">
         /// This exception is thrown when the policy on the S3 bucket is not sufficient.
@@ -4165,6 +5570,9 @@ namespace Amazon.CloudTrail
         /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterCombinationException">
         /// This exception is thrown when the combination of parameters provided is not valid.
         /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.InvalidParameterException">
+        /// The request includes a parameter that is not valid.
+        /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.InvalidS3BucketNameException">
         /// This exception is thrown when the provided S3 bucket name is not valid.
         /// </exception>
@@ -4204,7 +5612,7 @@ namespace Amazon.CloudTrail
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsException">
         /// This exception is thrown when there is an issue with the specified KMS key and the
-        /// trail can’t be updated.
+        /// trail or event data store can't be updated.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.KmsKeyDisabledException">
         /// This exception is no longer in use.
@@ -4213,6 +5621,10 @@ namespace Amazon.CloudTrail
         /// This exception is thrown when the KMS key does not exist, when the S3 bucket and the
         /// KMS key are not in the same region, or when the KMS key associated with the Amazon
         /// SNS topic either does not exist or is not in the same region.
+        /// </exception>
+        /// <exception cref="Amazon.CloudTrail.Model.NoManagementAccountSLRExistsException">
+        /// This exception is thrown when the management account does not have a service-linked
+        /// role.
         /// </exception>
         /// <exception cref="Amazon.CloudTrail.Model.NotOrganizationMasterAccountException">
         /// This exception is thrown when the Amazon Web Services account making the request to

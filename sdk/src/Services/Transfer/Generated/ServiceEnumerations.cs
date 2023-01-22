@@ -442,6 +442,10 @@ namespace Amazon.Transfer
         /// Constant AES256_CBC for EncryptionAlg
         /// </summary>
         public static readonly EncryptionAlg AES256_CBC = new EncryptionAlg("AES256_CBC");
+        /// <summary>
+        /// Constant NONE for EncryptionAlg
+        /// </summary>
+        public static readonly EncryptionAlg NONE = new EncryptionAlg("NONE");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -472,6 +476,52 @@ namespace Amazon.Transfer
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator EncryptionAlg(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type EncryptionType.
+    /// </summary>
+    public class EncryptionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PGP for EncryptionType
+        /// </summary>
+        public static readonly EncryptionType PGP = new EncryptionType("PGP");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EncryptionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EncryptionType FindValue(string value)
+        {
+            return FindValue<EncryptionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EncryptionType(string value)
         {
             return FindValue(value);
         }
@@ -1292,6 +1342,10 @@ namespace Amazon.Transfer
         /// Constant CUSTOM for WorkflowStepType
         /// </summary>
         public static readonly WorkflowStepType CUSTOM = new WorkflowStepType("CUSTOM");
+        /// <summary>
+        /// Constant DECRYPT for WorkflowStepType
+        /// </summary>
+        public static readonly WorkflowStepType DECRYPT = new WorkflowStepType("DECRYPT");
         /// <summary>
         /// Constant DELETE for WorkflowStepType
         /// </summary>

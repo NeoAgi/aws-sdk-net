@@ -51,6 +51,8 @@ namespace Amazon.LocationService.Model
         private string _street;
         private string _subRegion;
         private TimeZone _timeZone;
+        private string _unitNumber;
+        private string _unitType;
 
         /// <summary>
         /// Gets and sets the property AddressNumber. 
@@ -252,7 +254,7 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property SubRegion. 
         /// <para>
-        /// A country, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.
+        /// A county, or an area that's part of a larger region. For example, <code>Metro Vancouver</code>.
         /// </para>
         /// </summary>
         public string SubRegion
@@ -271,7 +273,7 @@ namespace Amazon.LocationService.Model
         /// Gets and sets the property TimeZone. 
         /// <para>
         /// The time zone in which the <code>Place</code> is located. Returned only when using
-        /// Here as the selected partner.
+        /// HERE as the selected partner.
         /// </para>
         /// </summary>
         public TimeZone TimeZone
@@ -284,6 +286,49 @@ namespace Amazon.LocationService.Model
         internal bool IsSetTimeZone()
         {
             return this._timeZone != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property UnitNumber. 
+        /// <para>
+        /// For addresses with multiple units, the unit identifier. Can include numbers and letters,
+        /// for example <code>3B</code> or <code>Unit 123</code>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Returned only for a place index that uses Esri as a data provider. Is not returned
+        /// for <code>SearchPlaceIndexForPosition</code>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public string UnitNumber
+        {
+            get { return this._unitNumber; }
+            set { this._unitNumber = value; }
+        }
+
+        // Check to see if UnitNumber property is set
+        internal bool IsSetUnitNumber()
+        {
+            return this._unitNumber != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property UnitType. 
+        /// <para>
+        /// For addresses with a <code>UnitNumber</code>, the type of unit. For example, <code>Apartment</code>.
+        /// </para>
+        /// </summary>
+        public string UnitType
+        {
+            get { return this._unitType; }
+            set { this._unitType = value; }
+        }
+
+        // Check to see if UnitType property is set
+        internal bool IsSetUnitType()
+        {
+            return this._unitType != null;
         }
 
     }

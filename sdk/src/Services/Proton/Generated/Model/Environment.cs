@@ -35,6 +35,7 @@ namespace Amazon.Proton.Model
     public partial class Environment
     {
         private string _arn;
+        private string _codebuildRoleArn;
         private string _componentRoleArn;
         private DateTime? _createdAt;
         private DeploymentStatus _deploymentStatus;
@@ -73,6 +74,26 @@ namespace Amazon.Proton.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CodebuildRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using CodeBuild-based provisioning on your behalf.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=2048)]
+        public string CodebuildRoleArn
+        {
+            get { return this._codebuildRoleArn; }
+            set { this._codebuildRoleArn = value; }
+        }
+
+        // Check to see if CodebuildRoleArn property is set
+        internal bool IsSetCodebuildRoleArn()
+        {
+            return this._codebuildRoleArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property ComponentRoleArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
@@ -86,11 +107,11 @@ namespace Amazon.Proton.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton Administrator Guide</i>.
+        /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton User Guide</i>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=200)]
+        [AWSProperty(Min=1, Max=2048)]
         public string ComponentRoleArn
         {
             get { return this._componentRoleArn; }
@@ -315,8 +336,9 @@ namespace Amazon.Proton.Model
         /// <summary>
         /// Gets and sets the property ProvisioningRepository. 
         /// <para>
-        /// The infrastructure repository that you use to host your rendered infrastructure templates
-        /// for self-managed provisioning.
+        /// The linked repository that you use to host your rendered infrastructure templates
+        /// for self-managed provisioning. A linked repository is a repository that has been registered
+        /// with Proton. For more information, see <a>CreateRepository</a>.
         /// </para>
         /// </summary>
         public RepositoryBranch ProvisioningRepository

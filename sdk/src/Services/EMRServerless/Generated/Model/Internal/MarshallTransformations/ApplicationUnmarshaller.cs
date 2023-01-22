@@ -70,6 +70,12 @@ namespace Amazon.EMRServerless.Model.Internal.MarshallTransformations
                     unmarshalledObject.ApplicationId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("architecture", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Architecture = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("arn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -92,6 +98,12 @@ namespace Amazon.EMRServerless.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;
                     unmarshalledObject.CreatedAt = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("imageConfiguration", targetDepth))
+                {
+                    var unmarshaller = ImageConfigurationUnmarshaller.Instance;
+                    unmarshalledObject.ImageConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("initialCapacity", targetDepth))
@@ -152,6 +164,12 @@ namespace Amazon.EMRServerless.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;
                     unmarshalledObject.UpdatedAt = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("workerTypeSpecifications", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, WorkerTypeSpecification, StringUnmarshaller, WorkerTypeSpecificationUnmarshaller>(StringUnmarshaller.Instance, WorkerTypeSpecificationUnmarshaller.Instance);
+                    unmarshalledObject.WorkerTypeSpecifications = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the lambda-2015-03-31.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Lambda.Internal;
 
 namespace Amazon.Lambda
 {
     /// <summary>
     /// Configuration for accessing Amazon Lambda service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLambdaConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.14.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.103.5");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Lambda
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLambdaDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lambda";
+            this.EndpointProvider = new AmazonLambdaEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Lambda
                 return _userAgent;
             }
         }
+
     }
 }

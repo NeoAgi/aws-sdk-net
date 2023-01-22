@@ -699,6 +699,14 @@ namespace Amazon.AppRunner
         /// </summary>
         public static readonly Runtime CORRETTO_8 = new Runtime("CORRETTO_8");
         /// <summary>
+        /// Constant DOTNET_6 for Runtime
+        /// </summary>
+        public static readonly Runtime DOTNET_6 = new Runtime("DOTNET_6");
+        /// <summary>
+        /// Constant GO_1 for Runtime
+        /// </summary>
+        public static readonly Runtime GO_1 = new Runtime("GO_1");
+        /// <summary>
         /// Constant NODEJS_12 for Runtime
         /// </summary>
         public static readonly Runtime NODEJS_12 = new Runtime("NODEJS_12");
@@ -707,9 +715,21 @@ namespace Amazon.AppRunner
         /// </summary>
         public static readonly Runtime NODEJS_14 = new Runtime("NODEJS_14");
         /// <summary>
+        /// Constant NODEJS_16 for Runtime
+        /// </summary>
+        public static readonly Runtime NODEJS_16 = new Runtime("NODEJS_16");
+        /// <summary>
+        /// Constant PHP_81 for Runtime
+        /// </summary>
+        public static readonly Runtime PHP_81 = new Runtime("PHP_81");
+        /// <summary>
         /// Constant PYTHON_3 for Runtime
         /// </summary>
         public static readonly Runtime PYTHON_3 = new Runtime("PYTHON_3");
+        /// <summary>
+        /// Constant RUBY_31 for Runtime
+        /// </summary>
+        public static readonly Runtime RUBY_31 = new Runtime("RUBY_31");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -948,6 +968,80 @@ namespace Amazon.AppRunner
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator VpcConnectorStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VpcIngressConnectionStatus.
+    /// </summary>
+    public class VpcIngressConnectionStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AVAILABLE for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus AVAILABLE = new VpcIngressConnectionStatus("AVAILABLE");
+        /// <summary>
+        /// Constant DELETED for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus DELETED = new VpcIngressConnectionStatus("DELETED");
+        /// <summary>
+        /// Constant FAILED_CREATION for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus FAILED_CREATION = new VpcIngressConnectionStatus("FAILED_CREATION");
+        /// <summary>
+        /// Constant FAILED_DELETION for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus FAILED_DELETION = new VpcIngressConnectionStatus("FAILED_DELETION");
+        /// <summary>
+        /// Constant FAILED_UPDATE for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus FAILED_UPDATE = new VpcIngressConnectionStatus("FAILED_UPDATE");
+        /// <summary>
+        /// Constant PENDING_CREATION for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus PENDING_CREATION = new VpcIngressConnectionStatus("PENDING_CREATION");
+        /// <summary>
+        /// Constant PENDING_DELETION for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus PENDING_DELETION = new VpcIngressConnectionStatus("PENDING_DELETION");
+        /// <summary>
+        /// Constant PENDING_UPDATE for VpcIngressConnectionStatus
+        /// </summary>
+        public static readonly VpcIngressConnectionStatus PENDING_UPDATE = new VpcIngressConnectionStatus("PENDING_UPDATE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VpcIngressConnectionStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VpcIngressConnectionStatus FindValue(string value)
+        {
+            return FindValue<VpcIngressConnectionStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VpcIngressConnectionStatus(string value)
         {
             return FindValue(value);
         }

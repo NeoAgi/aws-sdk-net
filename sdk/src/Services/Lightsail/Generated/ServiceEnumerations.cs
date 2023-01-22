@@ -549,6 +549,60 @@ namespace Amazon.Lightsail
 
 
     /// <summary>
+    /// Constants used for properties of type CertificateDomainValidationStatus.
+    /// </summary>
+    public class CertificateDomainValidationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for CertificateDomainValidationStatus
+        /// </summary>
+        public static readonly CertificateDomainValidationStatus FAILED = new CertificateDomainValidationStatus("FAILED");
+        /// <summary>
+        /// Constant PENDING_VALIDATION for CertificateDomainValidationStatus
+        /// </summary>
+        public static readonly CertificateDomainValidationStatus PENDING_VALIDATION = new CertificateDomainValidationStatus("PENDING_VALIDATION");
+        /// <summary>
+        /// Constant SUCCESS for CertificateDomainValidationStatus
+        /// </summary>
+        public static readonly CertificateDomainValidationStatus SUCCESS = new CertificateDomainValidationStatus("SUCCESS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CertificateDomainValidationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CertificateDomainValidationStatus FindValue(string value)
+        {
+            return FindValue<CertificateDomainValidationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CertificateDomainValidationStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type CertificateStatus.
     /// </summary>
     public class CertificateStatus : ConstantClass
@@ -1439,6 +1493,60 @@ namespace Amazon.Lightsail
 
 
     /// <summary>
+    /// Constants used for properties of type DnsRecordCreationStateCode.
+    /// </summary>
+    public class DnsRecordCreationStateCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for DnsRecordCreationStateCode
+        /// </summary>
+        public static readonly DnsRecordCreationStateCode FAILED = new DnsRecordCreationStateCode("FAILED");
+        /// <summary>
+        /// Constant STARTED for DnsRecordCreationStateCode
+        /// </summary>
+        public static readonly DnsRecordCreationStateCode STARTED = new DnsRecordCreationStateCode("STARTED");
+        /// <summary>
+        /// Constant SUCCEEDED for DnsRecordCreationStateCode
+        /// </summary>
+        public static readonly DnsRecordCreationStateCode SUCCEEDED = new DnsRecordCreationStateCode("SUCCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DnsRecordCreationStateCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DnsRecordCreationStateCode FindValue(string value)
+        {
+            return FindValue<DnsRecordCreationStateCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DnsRecordCreationStateCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ExportSnapshotRecordSourceType.
     /// </summary>
     public class ExportSnapshotRecordSourceType : ConstantClass
@@ -1638,6 +1746,156 @@ namespace Amazon.Lightsail
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator HeaderEnum(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HttpEndpoint.
+    /// </summary>
+    public class HttpEndpoint : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Disabled for HttpEndpoint
+        /// </summary>
+        public static readonly HttpEndpoint Disabled = new HttpEndpoint("disabled");
+        /// <summary>
+        /// Constant Enabled for HttpEndpoint
+        /// </summary>
+        public static readonly HttpEndpoint Enabled = new HttpEndpoint("enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HttpEndpoint(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HttpEndpoint FindValue(string value)
+        {
+            return FindValue<HttpEndpoint>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HttpEndpoint(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HttpProtocolIpv6.
+    /// </summary>
+    public class HttpProtocolIpv6 : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Disabled for HttpProtocolIpv6
+        /// </summary>
+        public static readonly HttpProtocolIpv6 Disabled = new HttpProtocolIpv6("disabled");
+        /// <summary>
+        /// Constant Enabled for HttpProtocolIpv6
+        /// </summary>
+        public static readonly HttpProtocolIpv6 Enabled = new HttpProtocolIpv6("enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HttpProtocolIpv6(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HttpProtocolIpv6 FindValue(string value)
+        {
+            return FindValue<HttpProtocolIpv6>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HttpProtocolIpv6(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type HttpTokens.
+    /// </summary>
+    public class HttpTokens : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Optional for HttpTokens
+        /// </summary>
+        public static readonly HttpTokens Optional = new HttpTokens("optional");
+        /// <summary>
+        /// Constant Required for HttpTokens
+        /// </summary>
+        public static readonly HttpTokens Required = new HttpTokens("required");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public HttpTokens(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static HttpTokens FindValue(string value)
+        {
+            return FindValue<HttpTokens>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator HttpTokens(string value)
         {
             return FindValue(value);
         }
@@ -1847,6 +2105,56 @@ namespace Amazon.Lightsail
 
 
     /// <summary>
+    /// Constants used for properties of type InstanceMetadataState.
+    /// </summary>
+    public class InstanceMetadataState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Applied for InstanceMetadataState
+        /// </summary>
+        public static readonly InstanceMetadataState Applied = new InstanceMetadataState("applied");
+        /// <summary>
+        /// Constant Pending for InstanceMetadataState
+        /// </summary>
+        public static readonly InstanceMetadataState Pending = new InstanceMetadataState("pending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InstanceMetadataState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InstanceMetadataState FindValue(string value)
+        {
+            return FindValue<InstanceMetadataState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InstanceMetadataState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type InstanceMetricName.
     /// </summary>
     public class InstanceMetricName : ConstantClass
@@ -1864,6 +2172,10 @@ namespace Amazon.Lightsail
         /// Constant CPUUtilization for InstanceMetricName
         /// </summary>
         public static readonly InstanceMetricName CPUUtilization = new InstanceMetricName("CPUUtilization");
+        /// <summary>
+        /// Constant MetadataNoToken for InstanceMetricName
+        /// </summary>
+        public static readonly InstanceMetricName MetadataNoToken = new InstanceMetricName("MetadataNoToken");
         /// <summary>
         /// Constant NetworkIn for InstanceMetricName
         /// </summary>
@@ -2332,6 +2644,60 @@ namespace Amazon.Lightsail
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator LoadBalancerState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type LoadBalancerTlsCertificateDnsRecordCreationStateCode.
+    /// </summary>
+    public class LoadBalancerTlsCertificateDnsRecordCreationStateCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for LoadBalancerTlsCertificateDnsRecordCreationStateCode
+        /// </summary>
+        public static readonly LoadBalancerTlsCertificateDnsRecordCreationStateCode FAILED = new LoadBalancerTlsCertificateDnsRecordCreationStateCode("FAILED");
+        /// <summary>
+        /// Constant STARTED for LoadBalancerTlsCertificateDnsRecordCreationStateCode
+        /// </summary>
+        public static readonly LoadBalancerTlsCertificateDnsRecordCreationStateCode STARTED = new LoadBalancerTlsCertificateDnsRecordCreationStateCode("STARTED");
+        /// <summary>
+        /// Constant SUCCEEDED for LoadBalancerTlsCertificateDnsRecordCreationStateCode
+        /// </summary>
+        public static readonly LoadBalancerTlsCertificateDnsRecordCreationStateCode SUCCEEDED = new LoadBalancerTlsCertificateDnsRecordCreationStateCode("SUCCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LoadBalancerTlsCertificateDnsRecordCreationStateCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LoadBalancerTlsCertificateDnsRecordCreationStateCode FindValue(string value)
+        {
+            return FindValue<LoadBalancerTlsCertificateDnsRecordCreationStateCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LoadBalancerTlsCertificateDnsRecordCreationStateCode(string value)
         {
             return FindValue(value);
         }
@@ -3023,6 +3389,64 @@ namespace Amazon.Lightsail
 
 
     /// <summary>
+    /// Constants used for properties of type NameServersUpdateStateCode.
+    /// </summary>
+    public class NameServersUpdateStateCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for NameServersUpdateStateCode
+        /// </summary>
+        public static readonly NameServersUpdateStateCode FAILED = new NameServersUpdateStateCode("FAILED");
+        /// <summary>
+        /// Constant PENDING for NameServersUpdateStateCode
+        /// </summary>
+        public static readonly NameServersUpdateStateCode PENDING = new NameServersUpdateStateCode("PENDING");
+        /// <summary>
+        /// Constant STARTED for NameServersUpdateStateCode
+        /// </summary>
+        public static readonly NameServersUpdateStateCode STARTED = new NameServersUpdateStateCode("STARTED");
+        /// <summary>
+        /// Constant SUCCEEDED for NameServersUpdateStateCode
+        /// </summary>
+        public static readonly NameServersUpdateStateCode SUCCEEDED = new NameServersUpdateStateCode("SUCCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NameServersUpdateStateCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NameServersUpdateStateCode FindValue(string value)
+        {
+            return FindValue<NameServersUpdateStateCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NameServersUpdateStateCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type NetworkProtocol.
     /// </summary>
     public class NetworkProtocol : ConstantClass
@@ -3453,6 +3877,10 @@ namespace Amazon.Lightsail
         /// </summary>
         public static readonly OperationType UpdateDomainEntry = new OperationType("UpdateDomainEntry");
         /// <summary>
+        /// Constant UpdateInstanceMetadataOptions for OperationType
+        /// </summary>
+        public static readonly OperationType UpdateInstanceMetadataOptions = new OperationType("UpdateInstanceMetadataOptions");
+        /// <summary>
         /// Constant UpdateLoadBalancerAttribute for OperationType
         /// </summary>
         public static readonly OperationType UpdateLoadBalancerAttribute = new OperationType("UpdateLoadBalancerAttribute");
@@ -3702,6 +4130,64 @@ namespace Amazon.Lightsail
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PortState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type R53HostedZoneDeletionStateCode.
+    /// </summary>
+    public class R53HostedZoneDeletionStateCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for R53HostedZoneDeletionStateCode
+        /// </summary>
+        public static readonly R53HostedZoneDeletionStateCode FAILED = new R53HostedZoneDeletionStateCode("FAILED");
+        /// <summary>
+        /// Constant PENDING for R53HostedZoneDeletionStateCode
+        /// </summary>
+        public static readonly R53HostedZoneDeletionStateCode PENDING = new R53HostedZoneDeletionStateCode("PENDING");
+        /// <summary>
+        /// Constant STARTED for R53HostedZoneDeletionStateCode
+        /// </summary>
+        public static readonly R53HostedZoneDeletionStateCode STARTED = new R53HostedZoneDeletionStateCode("STARTED");
+        /// <summary>
+        /// Constant SUCCEEDED for R53HostedZoneDeletionStateCode
+        /// </summary>
+        public static readonly R53HostedZoneDeletionStateCode SUCCEEDED = new R53HostedZoneDeletionStateCode("SUCCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public R53HostedZoneDeletionStateCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static R53HostedZoneDeletionStateCode FindValue(string value)
+        {
+            return FindValue<R53HostedZoneDeletionStateCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator R53HostedZoneDeletionStateCode(string value)
         {
             return FindValue(value);
         }

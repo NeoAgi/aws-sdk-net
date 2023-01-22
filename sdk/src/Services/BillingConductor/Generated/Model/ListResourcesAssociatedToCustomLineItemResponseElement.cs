@@ -34,6 +34,7 @@ namespace Amazon.BillingConductor.Model
     public partial class ListResourcesAssociatedToCustomLineItemResponseElement
     {
         private string _arn;
+        private string _endBillingPeriod;
         private CustomLineItemRelationship _relationship;
 
         /// <summary>
@@ -52,6 +53,24 @@ namespace Amazon.BillingConductor.Model
         internal bool IsSetArn()
         {
             return this._arn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property EndBillingPeriod. 
+        /// <para>
+        /// The end billing period of the associated resource.
+        /// </para>
+        /// </summary>
+        public string EndBillingPeriod
+        {
+            get { return this._endBillingPeriod; }
+            set { this._endBillingPeriod = value; }
+        }
+
+        // Check to see if EndBillingPeriod property is set
+        internal bool IsSetEndBillingPeriod()
+        {
+            return this._endBillingPeriod != null;
         }
 
         /// <summary>

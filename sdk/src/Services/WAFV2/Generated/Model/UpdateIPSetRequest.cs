@@ -35,11 +35,25 @@ namespace Amazon.WAFV2.Model
     ///  <note> 
     /// <para>
     /// This operation completely replaces the mutable specifications that you already have
-    /// for the IP set with the ones that you provide to this call. To modify the IP set,
-    /// retrieve it by calling <a>GetIPSet</a>, update the settings as needed, and then provide
-    /// the complete IP set specification to this call.
+    /// for the IP set with the ones that you provide to this call. 
     /// </para>
-    ///  </note> 
+    ///  
+    /// <para>
+    /// To modify an IP set, do the following: 
+    /// </para>
+    ///  <ol> <li> 
+    /// <para>
+    /// Retrieve it by calling <a>GetIPSet</a> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Update its settings as needed
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Provide the complete IP set specification to this call
+    /// </para>
+    ///  </li> </ol> </note> 
     /// <para>
     /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
     /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -67,8 +81,9 @@ namespace Amazon.WAFV2.Model
         /// Gets and sets the property Addresses. 
         /// <para>
         /// Contains an array of strings that specifies zero or more IP addresses or blocks of
-        /// IP addresses in Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4
-        /// and IPv6 CIDR ranges except for /0. 
+        /// IP addresses. All addresses must be specified using Classless Inter-Domain Routing
+        /// (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for <code>/0</code>.
+        /// 
         /// </para>
         ///  
         /// <para>

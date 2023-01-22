@@ -233,6 +233,15 @@ namespace Amazon.LexModelsV2
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonLexModelsV2EndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -258,6 +267,159 @@ namespace Amazon.LexModelsV2
         #endregion
 
 
+        #region  BatchCreateCustomVocabularyItem
+
+        internal virtual BatchCreateCustomVocabularyItemResponse BatchCreateCustomVocabularyItem(BatchCreateCustomVocabularyItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchCreateCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchCreateCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return Invoke<BatchCreateCustomVocabularyItemResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Batch create custom vocabulary item for the specified locale in the specified bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchCreateCustomVocabularyItem service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchCreateCustomVocabularyItem service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/BatchCreateCustomVocabularyItem">REST API Reference for BatchCreateCustomVocabularyItem Operation</seealso>
+        public virtual Task<BatchCreateCustomVocabularyItemResponse> BatchCreateCustomVocabularyItemAsync(BatchCreateCustomVocabularyItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchCreateCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchCreateCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchCreateCustomVocabularyItemResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchDeleteCustomVocabularyItem
+
+        internal virtual BatchDeleteCustomVocabularyItemResponse BatchDeleteCustomVocabularyItem(BatchDeleteCustomVocabularyItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchDeleteCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchDeleteCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return Invoke<BatchDeleteCustomVocabularyItemResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Batch delete custom vocabulary item for the specified locale in the specified bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchDeleteCustomVocabularyItem service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchDeleteCustomVocabularyItem service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/BatchDeleteCustomVocabularyItem">REST API Reference for BatchDeleteCustomVocabularyItem Operation</seealso>
+        public virtual Task<BatchDeleteCustomVocabularyItemResponse> BatchDeleteCustomVocabularyItemAsync(BatchDeleteCustomVocabularyItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchDeleteCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchDeleteCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchDeleteCustomVocabularyItemResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchUpdateCustomVocabularyItem
+
+        internal virtual BatchUpdateCustomVocabularyItemResponse BatchUpdateCustomVocabularyItem(BatchUpdateCustomVocabularyItemRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return Invoke<BatchUpdateCustomVocabularyItemResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Batch update custom vocabulary item for the specified locale in the specified bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdateCustomVocabularyItem service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchUpdateCustomVocabularyItem service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/BatchUpdateCustomVocabularyItem">REST API Reference for BatchUpdateCustomVocabularyItem Operation</seealso>
+        public virtual Task<BatchUpdateCustomVocabularyItemResponse> BatchUpdateCustomVocabularyItemAsync(BatchUpdateCustomVocabularyItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateCustomVocabularyItemRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateCustomVocabularyItemResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchUpdateCustomVocabularyItemResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  BuildBotLocale
 
         internal virtual BuildBotLocaleResponse BuildBotLocale(BuildBotLocaleRequest request)
@@ -2800,6 +2962,57 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  ListCustomVocabularyItems
+
+        internal virtual ListCustomVocabularyItemsResponse ListCustomVocabularyItems(ListCustomVocabularyItemsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListCustomVocabularyItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListCustomVocabularyItemsResponseUnmarshaller.Instance;
+
+            return Invoke<ListCustomVocabularyItemsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// List custom vocabulary items for the specified locale in the specified bot.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomVocabularyItems service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListCustomVocabularyItems service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListCustomVocabularyItems">REST API Reference for ListCustomVocabularyItems Operation</seealso>
+        public virtual Task<ListCustomVocabularyItemsResponse> ListCustomVocabularyItemsAsync(ListCustomVocabularyItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListCustomVocabularyItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListCustomVocabularyItemsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListCustomVocabularyItemsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListExports
 
         internal virtual ListExportsResponse ListExports(ListExportsRequest request)
@@ -2952,7 +3165,7 @@ namespace Amazon.LexModelsV2
 
         /// <summary>
         /// Gets a list of recommended intents provided by the bot recommendation that you can
-        /// use in your bot.
+        /// use in your bot. Intents in the response are ordered by relevance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRecommendedIntents service method.</param>
         /// <param name="cancellationToken">
@@ -3296,6 +3509,66 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = StartImportResponseUnmarshaller.Instance;
 
             return InvokeAsync<StartImportResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StopBotRecommendation
+
+        internal virtual StopBotRecommendationResponse StopBotRecommendation(StopBotRecommendationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopBotRecommendationResponseUnmarshaller.Instance;
+
+            return Invoke<StopBotRecommendationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Stop an already running Bot Recommendation request.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopBotRecommendation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopBotRecommendation service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StopBotRecommendation">REST API Reference for StopBotRecommendation Operation</seealso>
+        public virtual Task<StopBotRecommendationResponse> StopBotRecommendationAsync(StopBotRecommendationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopBotRecommendationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopBotRecommendationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StopBotRecommendationResponse>(request, options, cancellationToken);
         }
 
         #endregion

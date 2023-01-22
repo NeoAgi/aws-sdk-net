@@ -36,7 +36,7 @@ namespace Amazon.LocationService.Model
     ///  <note> 
     /// <para>
     /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
     /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
     /// for more details.
     /// </para>
@@ -53,7 +53,9 @@ namespace Amazon.LocationService.Model
         /// <summary>
         /// Gets and sets the property Configuration. 
         /// <para>
-        /// Specifies the map style selected from an available data provider.
+        /// Specifies the <code>MapConfiguration</code>, including the map style, for the map
+        /// resource that you create. The map style defines the look of maps and the data provider
+        /// for your map resource.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

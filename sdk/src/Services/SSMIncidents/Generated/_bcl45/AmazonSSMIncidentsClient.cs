@@ -241,6 +241,15 @@ namespace Amazon.SSMIncidents
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonSSMIncidentsEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -1611,8 +1620,8 @@ namespace Amazon.SSMIncidents
         /// <summary>
         /// Adds a resource policy to the specified response plan. The resource policy is used
         /// to share the response plan using Resource Access Manager (RAM). For more information
-        /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting
-        /// up cross-account functionality</a>.
+        /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region
+        /// and cross-account incident management</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy service method.</param>
         /// 
@@ -1646,8 +1655,8 @@ namespace Amazon.SSMIncidents
         /// <summary>
         /// Adds a resource policy to the specified response plan. The resource policy is used
         /// to share the response plan using Resource Access Manager (RAM). For more information
-        /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting
-        /// up cross-account functionality</a>.
+        /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region
+        /// and cross-account incident management</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy service method.</param>
         /// <param name="cancellationToken">

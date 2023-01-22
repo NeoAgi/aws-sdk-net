@@ -152,7 +152,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// Indicates whether to enable the instance for stop protection. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-        /// Protection</a>.
+        /// protection</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         public bool DisableApiStop
@@ -313,7 +313,34 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ImageId. 
         /// <para>
-        /// The ID of the AMI.
+        /// The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which
+        /// will resolve to an AMI ID on launch.
+        /// </para>
+        ///  
+        /// <para>
+        /// Valid formats:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>ami-17characters00000</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>resolve:ssm:parameter-name</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>resolve:ssm:parameter-name:version-number</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>resolve:ssm:parameter-name:label</code> 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
+        /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.
         /// </para>
         /// </summary>
         public string ImageId
@@ -377,7 +404,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  
         /// <para>
-        /// If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.
+        /// If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.
         /// </para>
         /// </summary>
         public InstanceRequirementsRequest InstanceRequirements
@@ -400,7 +427,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  
         /// <para>
-        /// If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.
+        /// If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.
         /// </para>
         /// </summary>
         public InstanceType InstanceType

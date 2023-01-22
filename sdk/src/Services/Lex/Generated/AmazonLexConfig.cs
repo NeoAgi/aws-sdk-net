@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the runtime.lex-2016-11-28.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Lex.Internal;
 
 namespace Amazon.Lex
 {
     /// <summary>
     /// Configuration for accessing Amazon Lex service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLexConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.189");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Lex
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLexDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lex";
+            this.EndpointProvider = new AmazonLexEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Lex
                 return _userAgent;
             }
         }
+
     }
 }

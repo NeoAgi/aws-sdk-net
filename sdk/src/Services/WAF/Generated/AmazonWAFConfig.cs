@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the waf-2015-08-24.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.WAF.Internal;
 
 namespace Amazon.WAF
 {
     /// <summary>
     /// Configuration for accessing Amazon WAF service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonWAFConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.WAF
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonWAFDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "waf";
+            this.EndpointProvider = new AmazonWAFEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.WAF
                 return _userAgent;
             }
         }
+
     }
 }

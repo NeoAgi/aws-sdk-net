@@ -220,6 +220,27 @@ namespace Amazon.SecurityToken
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            if(this.Config.RetryMode == RequestRetryMode.Legacy)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new SecurityTokenServiceRetryPolicy(this.Config)));
+            }
+            if(this.Config.RetryMode == RequestRetryMode.Standard)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new SecurityTokenServiceStandardRetryPolicy(this.Config)));
+            }
+            if(this.Config.RetryMode == RequestRetryMode.Adaptive)
+            {
+                pipeline.ReplaceHandler<Amazon.Runtime.Internal.RetryHandler>(new Amazon.Runtime.Internal.RetryHandler(new SecurityTokenServiceAdaptiveRetryPolicy(this.Config)));
+            }
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonSecurityTokenServiceEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -273,15 +294,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -449,15 +470,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -669,15 +690,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -715,11 +736,11 @@ namespace Amazon.SecurityToken
         /// </para>
         ///  <note> 
         /// <para>
-        /// An Amazon Web Services conversion compresses the passed session policies and session
-        /// tags into a packed binary format that has a separate limit. Your request can fail
-        /// for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-        /// response element indicates by percentage how close the policies and tags for your
-        /// request are to the upper size limit. 
+        /// An Amazon Web Services conversion compresses the passed inline session policy, managed
+        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
+        /// Your request can fail for this limit even if your plaintext meets the other requirements.
+        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
+        /// the policies and tags for your request are to the upper size limit.
         /// </para>
         ///  </note> 
         /// <para>
@@ -898,15 +919,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -944,11 +965,11 @@ namespace Amazon.SecurityToken
         /// </para>
         ///  <note> 
         /// <para>
-        /// An Amazon Web Services conversion compresses the passed session policies and session
-        /// tags into a packed binary format that has a separate limit. Your request can fail
-        /// for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-        /// response element indicates by percentage how close the policies and tags for your
-        /// request are to the upper size limit. 
+        /// An Amazon Web Services conversion compresses the passed inline session policy, managed
+        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
+        /// Your request can fail for this limit even if your plaintext meets the other requirements.
+        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
+        /// the policies and tags for your request are to the upper size limit.
         /// </para>
         ///  </note> 
         /// <para>
@@ -1148,15 +1169,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -1179,11 +1200,11 @@ namespace Amazon.SecurityToken
         /// </para>
         ///  <note> 
         /// <para>
-        /// An Amazon Web Services conversion compresses the passed session policies and session
-        /// tags into a packed binary format that has a separate limit. Your request can fail
-        /// for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-        /// response element indicates by percentage how close the policies and tags for your
-        /// request are to the upper size limit. 
+        /// An Amazon Web Services conversion compresses the passed inline session policy, managed
+        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
+        /// Your request can fail for this limit even if your plaintext meets the other requirements.
+        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
+        /// the policies and tags for your request are to the upper size limit.
         /// </para>
         ///  </note> 
         /// <para>
@@ -1400,15 +1421,15 @@ namespace Amazon.SecurityToken
         /// <para>
         /// (Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policies</a> to this operation. You can pass a single JSON policy document to use
-        /// as an inline session policy. You can also specify up to 10 managed policies to use
-        /// as managed session policies. The plaintext that you use for both inline and managed
-        /// session policies can't exceed 2,048 characters. Passing policies to this operation
-        /// returns new temporary credentials. The resulting session's permissions are the intersection
-        /// of the role's identity-based policy and the session policies. You can use the role's
-        /// temporary credentials in subsequent Amazon Web Services API calls to access resources
-        /// in the account that owns the role. You cannot use session policies to grant more permissions
-        /// than those allowed by the identity-based policy of the role that is being assumed.
-        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+        /// as an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters. Passing policies
+        /// to this operation returns new temporary credentials. The resulting session's permissions
+        /// are the intersection of the role's identity-based policy and the session policies.
+        /// You can use the role's temporary credentials in subsequent Amazon Web Services API
+        /// calls to access resources in the account that owns the role. You cannot use session
+        /// policies to grant more permissions than those allowed by the identity-based policy
+        /// of the role that is being assumed. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
         /// Policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -1431,11 +1452,11 @@ namespace Amazon.SecurityToken
         /// </para>
         ///  <note> 
         /// <para>
-        /// An Amazon Web Services conversion compresses the passed session policies and session
-        /// tags into a packed binary format that has a separate limit. Your request can fail
-        /// for this limit even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-        /// response element indicates by percentage how close the policies and tags for your
-        /// request are to the upper size limit. 
+        /// An Amazon Web Services conversion compresses the passed inline session policy, managed
+        /// policy ARNs, and session tags into a packed binary format that has a separate limit.
+        /// Your request can fail for this limit even if your plaintext meets the other requirements.
+        /// The <code>PackedPolicySize</code> response element indicates by percentage how close
+        /// the policies and tags for your request are to the upper size limit.
         /// </para>
         ///  </note> 
         /// <para>
@@ -1957,9 +1978,9 @@ namespace Amazon.SecurityToken
         /// <para>
         /// You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policy</a> to this operation. You can pass a single JSON policy document to use as
-        /// an inline session policy. You can also specify up to 10 managed policies to use as
-        /// managed session policies. The plaintext that you use for both inline and managed session
-        /// policies can't exceed 2,048 characters.
+        /// an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters.
         /// </para>
         ///  
         /// <para>
@@ -2120,9 +2141,9 @@ namespace Amazon.SecurityToken
         /// <para>
         /// You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
         /// policy</a> to this operation. You can pass a single JSON policy document to use as
-        /// an inline session policy. You can also specify up to 10 managed policies to use as
-        /// managed session policies. The plaintext that you use for both inline and managed session
-        /// policies can't exceed 2,048 characters.
+        /// an inline session policy. You can also specify up to 10 managed policy Amazon Resource
+        /// Names (ARNs) to use as managed session policies. The plaintext that you use for both
+        /// inline and managed session policies can't exceed 2,048 characters.
         /// </para>
         ///  
         /// <para>

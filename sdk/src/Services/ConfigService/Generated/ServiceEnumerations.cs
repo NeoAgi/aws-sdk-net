@@ -627,6 +627,56 @@ namespace Amazon.ConfigService
 
 
     /// <summary>
+    /// Constants used for properties of type EvaluationMode.
+    /// </summary>
+    public class EvaluationMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DETECTIVE for EvaluationMode
+        /// </summary>
+        public static readonly EvaluationMode DETECTIVE = new EvaluationMode("DETECTIVE");
+        /// <summary>
+        /// Constant PROACTIVE for EvaluationMode
+        /// </summary>
+        public static readonly EvaluationMode PROACTIVE = new EvaluationMode("PROACTIVE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EvaluationMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EvaluationMode FindValue(string value)
+        {
+            return FindValue<EvaluationMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EvaluationMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type EventSource.
     /// </summary>
     public class EventSource : ConstantClass
@@ -1475,6 +1525,52 @@ namespace Amazon.ConfigService
 
 
     /// <summary>
+    /// Constants used for properties of type ResourceConfigurationSchemaType.
+    /// </summary>
+    public class ResourceConfigurationSchemaType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CFN_RESOURCE_SCHEMA for ResourceConfigurationSchemaType
+        /// </summary>
+        public static readonly ResourceConfigurationSchemaType CFN_RESOURCE_SCHEMA = new ResourceConfigurationSchemaType("CFN_RESOURCE_SCHEMA");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ResourceConfigurationSchemaType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ResourceConfigurationSchemaType FindValue(string value)
+        {
+            return FindValue<ResourceConfigurationSchemaType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ResourceConfigurationSchemaType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ResourceCountGroupKey.
     /// </summary>
     public class ResourceCountGroupKey : ConstantClass
@@ -1529,6 +1625,60 @@ namespace Amazon.ConfigService
 
 
     /// <summary>
+    /// Constants used for properties of type ResourceEvaluationStatus.
+    /// </summary>
+    public class ResourceEvaluationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FAILED for ResourceEvaluationStatus
+        /// </summary>
+        public static readonly ResourceEvaluationStatus FAILED = new ResourceEvaluationStatus("FAILED");
+        /// <summary>
+        /// Constant IN_PROGRESS for ResourceEvaluationStatus
+        /// </summary>
+        public static readonly ResourceEvaluationStatus IN_PROGRESS = new ResourceEvaluationStatus("IN_PROGRESS");
+        /// <summary>
+        /// Constant SUCCEEDED for ResourceEvaluationStatus
+        /// </summary>
+        public static readonly ResourceEvaluationStatus SUCCEEDED = new ResourceEvaluationStatus("SUCCEEDED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ResourceEvaluationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ResourceEvaluationStatus FindValue(string value)
+        {
+            return FindValue<ResourceEvaluationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ResourceEvaluationStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ResourceType.
     /// </summary>
     public class ResourceType : ConstantClass
@@ -1558,6 +1708,14 @@ namespace Amazon.ConfigService
         /// Constant AWSApiGatewayV2Stage for ResourceType
         /// </summary>
         public static readonly ResourceType AWSApiGatewayV2Stage = new ResourceType("AWS::ApiGatewayV2::Stage");
+        /// <summary>
+        /// Constant AWSAppConfigApplication for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSAppConfigApplication = new ResourceType("AWS::AppConfig::Application");
+        /// <summary>
+        /// Constant AWSAppSyncGraphQLApi for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSAppSyncGraphQLApi = new ResourceType("AWS::AppSync::GraphQLApi");
         /// <summary>
         /// Constant AWSAthenaDataCatalog for ResourceType
         /// </summary>
@@ -1655,6 +1813,30 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSConfigResourceCompliance = new ResourceType("AWS::Config::ResourceCompliance");
         /// <summary>
+        /// Constant AWSDataSyncLocationEFS for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncLocationEFS = new ResourceType("AWS::DataSync::LocationEFS");
+        /// <summary>
+        /// Constant AWSDataSyncLocationFSxLustre for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncLocationFSxLustre = new ResourceType("AWS::DataSync::LocationFSxLustre");
+        /// <summary>
+        /// Constant AWSDataSyncLocationNFS for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncLocationNFS = new ResourceType("AWS::DataSync::LocationNFS");
+        /// <summary>
+        /// Constant AWSDataSyncLocationS3 for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncLocationS3 = new ResourceType("AWS::DataSync::LocationS3");
+        /// <summary>
+        /// Constant AWSDataSyncLocationSMB for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncLocationSMB = new ResourceType("AWS::DataSync::LocationSMB");
+        /// <summary>
+        /// Constant AWSDataSyncTask for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSDataSyncTask = new ResourceType("AWS::DataSync::Task");
+        /// <summary>
         /// Constant AWSDetectiveGraph for ResourceType
         /// </summary>
         public static readonly ResourceType AWSDetectiveGraph = new ResourceType("AWS::Detective::Graph");
@@ -1714,6 +1896,10 @@ namespace Amazon.ConfigService
         /// Constant AWSEC2NetworkAcl for ResourceType
         /// </summary>
         public static readonly ResourceType AWSEC2NetworkAcl = new ResourceType("AWS::EC2::NetworkAcl");
+        /// <summary>
+        /// Constant AWSEC2NetworkInsightsAccessScopeAnalysis for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSEC2NetworkInsightsAccessScopeAnalysis = new ResourceType("AWS::EC2::NetworkInsightsAccessScopeAnalysis");
         /// <summary>
         /// Constant AWSEC2NetworkInterface for ResourceType
         /// </summary>
@@ -1807,6 +1993,10 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSEKSCluster = new ResourceType("AWS::EKS::Cluster");
         /// <summary>
+        /// Constant AWSEKSFargateProfile for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSEKSFargateProfile = new ResourceType("AWS::EKS::FargateProfile");
+        /// <summary>
         /// Constant AWSElasticBeanstalkApplication for ResourceType
         /// </summary>
         public static readonly ResourceType AWSElasticBeanstalkApplication = new ResourceType("AWS::ElasticBeanstalk::Application");
@@ -1851,9 +2041,21 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSGlobalAcceleratorListener = new ResourceType("AWS::GlobalAccelerator::Listener");
         /// <summary>
+        /// Constant AWSGlueJob for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSGlueJob = new ResourceType("AWS::Glue::Job");
+        /// <summary>
         /// Constant AWSGuardDutyDetector for ResourceType
         /// </summary>
         public static readonly ResourceType AWSGuardDutyDetector = new ResourceType("AWS::GuardDuty::Detector");
+        /// <summary>
+        /// Constant AWSGuardDutyIPSet for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSGuardDutyIPSet = new ResourceType("AWS::GuardDuty::IPSet");
+        /// <summary>
+        /// Constant AWSGuardDutyThreatIntelSet for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSGuardDutyThreatIntelSet = new ResourceType("AWS::GuardDuty::ThreatIntelSet");
         /// <summary>
         /// Constant AWSIAMGroup for ResourceType
         /// </summary>
@@ -1963,6 +2165,10 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSRedshiftEventSubscription = new ResourceType("AWS::Redshift::EventSubscription");
         /// <summary>
+        /// Constant AWSRoute53HostedZone for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSRoute53HostedZone = new ResourceType("AWS::Route53::HostedZone");
+        /// <summary>
         /// Constant AWSRoute53ResolverResolverEndpoint for ResourceType
         /// </summary>
         public static readonly ResourceType AWSRoute53ResolverResolverEndpoint = new ResourceType("AWS::Route53Resolver::ResolverEndpoint");
@@ -1991,6 +2197,14 @@ namespace Amazon.ConfigService
         /// </summary>
         public static readonly ResourceType AWSSageMakerModel = new ResourceType("AWS::SageMaker::Model");
         /// <summary>
+        /// Constant AWSSageMakerNotebookInstanceLifecycleConfig for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSSageMakerNotebookInstanceLifecycleConfig = new ResourceType("AWS::SageMaker::NotebookInstanceLifecycleConfig");
+        /// <summary>
+        /// Constant AWSSageMakerWorkteam for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSSageMakerWorkteam = new ResourceType("AWS::SageMaker::Workteam");
+        /// <summary>
         /// Constant AWSSecretsManagerSecret for ResourceType
         /// </summary>
         public static readonly ResourceType AWSSecretsManagerSecret = new ResourceType("AWS::SecretsManager::Secret");
@@ -2006,6 +2220,22 @@ namespace Amazon.ConfigService
         /// Constant AWSServiceCatalogPortfolio for ResourceType
         /// </summary>
         public static readonly ResourceType AWSServiceCatalogPortfolio = new ResourceType("AWS::ServiceCatalog::Portfolio");
+        /// <summary>
+        /// Constant AWSServiceDiscoveryPublicDnsNamespace for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSServiceDiscoveryPublicDnsNamespace = new ResourceType("AWS::ServiceDiscovery::PublicDnsNamespace");
+        /// <summary>
+        /// Constant AWSServiceDiscoveryService for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSServiceDiscoveryService = new ResourceType("AWS::ServiceDiscovery::Service");
+        /// <summary>
+        /// Constant AWSSESConfigurationSet for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSSESConfigurationSet = new ResourceType("AWS::SES::ConfigurationSet");
+        /// <summary>
+        /// Constant AWSSESContactList for ResourceType
+        /// </summary>
+        public static readonly ResourceType AWSSESContactList = new ResourceType("AWS::SES::ContactList");
         /// <summary>
         /// Constant AWSShieldProtection for ResourceType
         /// </summary>

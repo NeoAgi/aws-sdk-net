@@ -39,6 +39,12 @@ namespace Amazon.AutoScaling.Model
     /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
     /// The instances remain running.
     /// </para>
+    ///  <note> 
+    /// <para>
+    /// You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class DetachLoadBalancerTargetGroupsRequest : AmazonAutoScalingRequest
     {

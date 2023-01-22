@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the backupstorage-2018-04-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.BackupStorage.Internal;
 
 namespace Amazon.BackupStorage
 {
     /// <summary>
     /// Configuration for accessing Amazon BackupStorage service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonBackupStorageConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.3");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.BackupStorage
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonBackupStorageDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "backup-storage";
+            this.EndpointProvider = new AmazonBackupStorageEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.BackupStorage
                 return _userAgent;
             }
         }
+
     }
 }

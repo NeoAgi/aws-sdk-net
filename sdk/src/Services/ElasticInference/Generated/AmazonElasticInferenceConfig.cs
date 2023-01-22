@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the elastic-inference-2017-07-25.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ElasticInference.Internal;
 
 namespace Amazon.ElasticInference
 {
     /// <summary>
     /// Configuration for accessing Amazon ElasticInference service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonElasticInferenceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ElasticInference
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonElasticInferenceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "elastic-inference";
+            this.EndpointProvider = new AmazonElasticInferenceEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ElasticInference
                 return _userAgent;
             }
         }
+
     }
 }

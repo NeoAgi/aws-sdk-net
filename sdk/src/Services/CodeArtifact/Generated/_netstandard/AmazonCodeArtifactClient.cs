@@ -517,6 +517,15 @@ namespace Amazon.CodeArtifact
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonCodeArtifactEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -923,7 +932,7 @@ namespace Amazon.CodeArtifact
         /// in your repository. If you want to remove a package version from your repository and
         /// be able to restore it later, set its status to <code>Archived</code>. Archived packages
         /// cannot be downloaded from a repository and don't show up with list package APIs (for
-        /// example, <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>),
+        /// example, <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>),
         /// but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePackageVersions service method.</param>
@@ -1627,10 +1636,7 @@ namespace Amazon.CodeArtifact
 
 
         /// <summary>
-        /// Gets the readme file or descriptive text for a package version. For packages that
-        /// do not contain a readme file, CodeArtifact extracts a description from a metadata
-        /// file. For example, from the <code>&lt;description&gt;</code> element in the <code>pom.xml</code>
-        /// file of a Maven package. 
+        /// Gets the readme file or descriptive text for a package version. 
         /// 
         ///  
         /// <para>

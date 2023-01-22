@@ -64,8 +64,10 @@ namespace Amazon.RDS.Model
         private int? _iops;
         private string _kmsKeyId;
         private string _licenseModel;
+        private bool? _manageMasterUserPassword;
         private string _masterUsername;
         private string _masterUserPassword;
+        private string _masterUserSecretKmsKeyId;
         private int? _maxAllocatedStorage;
         private int? _monitoringInterval;
         private string _monitoringRoleArn;
@@ -85,6 +87,7 @@ namespace Amazon.RDS.Model
         private string _sourceEngine;
         private string _sourceEngineVersion;
         private bool? _storageEncrypted;
+        private int? _storageThroughput;
         private string _storageType;
         private List<Tag> _tags = new List<Tag>();
         private bool? _useDefaultProcessorFeatures;
@@ -93,7 +96,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AllocatedStorage. 
         /// <para>
-        /// The amount of storage (in gigabytes) to allocate initially for the DB instance. Follow
+        /// The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
         /// the allocation rules specified in <code>CreateDBInstance</code>.
         /// </para>
         ///  <note> 
@@ -501,9 +504,8 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Iops. 
         /// <para>
         /// The amount of Provisioned IOPS (input/output operations per second) to allocate initially
-        /// for the DB instance. For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
-        /// Guide.</i> 
+        /// for the DB instance. For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide.</i> 
         /// </para>
         /// </summary>
         public int Iops
@@ -569,6 +571,41 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ManageMasterUserPassword. 
+        /// <para>
+        /// A value that indicates whether to manage the master user password with Amazon Web
+        /// Services Secrets Manager.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Can't manage the master user password with Amazon Web Services Secrets Manager if
+        /// <code>MasterUserPassword</code> is specified.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        public bool ManageMasterUserPassword
+        {
+            get { return this._manageMasterUserPassword.GetValueOrDefault(); }
+            set { this._manageMasterUserPassword = value; }
+        }
+
+        // Check to see if ManageMasterUserPassword property is set
+        internal bool IsSetManageMasterUserPassword()
+        {
+            return this._manageMasterUserPassword.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property MasterUsername. 
         /// <para>
         /// The name for the master user.
@@ -611,7 +648,48 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
+        /// Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned
+        /// on.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>MariaDB</b> 
+        /// </para>
+        ///  
+        /// <para>
         /// Constraints: Must contain from 8 to 41 characters.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Microsoft SQL Server</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: Must contain from 8 to 128 characters.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>MySQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: Must contain from 8 to 41 characters.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Oracle</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: Must contain from 8 to 30 characters.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>PostgreSQL</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: Must contain from 8 to 128 characters.
         /// </para>
         /// </summary>
         public string MasterUserPassword
@@ -624,6 +702,48 @@ namespace Amazon.RDS.Model
         internal bool IsSetMasterUserPassword()
         {
             return this._masterUserPassword != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property MasterUserSecretKmsKeyId. 
+        /// <para>
+        /// The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to
+        /// encrypt the secret, and you must use a customer managed KMS key.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.
+        /// </para>
+        /// </summary>
+        public string MasterUserSecretKmsKeyId
+        {
+            get { return this._masterUserSecretKmsKeyId; }
+            set { this._masterUserSecretKmsKeyId = value; }
+        }
+
+        // Check to see if MasterUserSecretKmsKeyId property is set
+        internal bool IsSetMasterUserSecretKmsKeyId()
+        {
+            return this._masterUserSecretKmsKeyId != null;
         }
 
         /// <summary>
@@ -1174,18 +1294,40 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StorageThroughput. 
+        /// <para>
+        /// Specifies the storage throughput value for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting doesn't apply to RDS Custom or Amazon Aurora.
+        /// </para>
+        /// </summary>
+        public int StorageThroughput
+        {
+            get { return this._storageThroughput.GetValueOrDefault(); }
+            set { this._storageThroughput = value; }
+        }
+
+        // Check to see if StorageThroughput property is set
+        internal bool IsSetStorageThroughput()
+        {
+            return this._storageThroughput.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
         /// Specifies the storage type to be associated with the DB instance.
         /// </para>
         ///  
         /// <para>
-        /// Valid values: <code>standard</code> | <code>gp2</code> | <code>io1</code> 
+        /// Valid values: <code>gp2 | gp3 | io1 | standard</code> 
         /// </para>
         ///  
         /// <para>
-        /// If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.
+        /// If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.
         /// </para>
         ///  
         /// <para>

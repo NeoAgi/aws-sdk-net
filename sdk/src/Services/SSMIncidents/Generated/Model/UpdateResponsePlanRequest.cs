@@ -46,6 +46,7 @@ namespace Amazon.SSMIncidents.Model
         private string _incidentTemplateSummary;
         private Dictionary<string, string> _incidentTemplateTags = new Dictionary<string, string>();
         private string _incidentTemplateTitle;
+        private List<Integration> _integrations = new List<Integration>();
 
         /// <summary>
         /// Gets and sets the property Actions. 
@@ -148,8 +149,8 @@ namespace Amazon.SSMIncidents.Model
         /// <summary>
         /// Gets and sets the property Engagements. 
         /// <para>
-        /// The contacts and escalation plans that Incident Manager engages at the start of the
-        /// incident.
+        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+        /// plan engages during an incident.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=5)]
@@ -270,7 +271,8 @@ namespace Amazon.SSMIncidents.Model
         /// <summary>
         /// Gets and sets the property IncidentTemplateTags. 
         /// <para>
-        /// Tags to apply to an incident when calling the <code>StartIncident</code> API action.
+        /// Tags to assign to the template. When the <code>StartIncident</code> API action is
+        /// called, Incident Manager assigns the tags specified in the template to the incident.
         /// To call this action, you must also have permission to call the <code>TagResource</code>
         /// API action for the incident record resource.
         /// </para>
@@ -305,6 +307,25 @@ namespace Amazon.SSMIncidents.Model
         internal bool IsSetIncidentTemplateTitle()
         {
             return this._incidentTemplateTitle != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Integrations. 
+        /// <para>
+        /// Information about third-party services integrated into the response plan.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=1)]
+        public List<Integration> Integrations
+        {
+            get { return this._integrations; }
+            set { this._integrations = value; }
+        }
+
+        // Check to see if Integrations property is set
+        internal bool IsSetIntegrations()
+        {
+            return this._integrations != null && this._integrations.Count > 0; 
         }
 
     }

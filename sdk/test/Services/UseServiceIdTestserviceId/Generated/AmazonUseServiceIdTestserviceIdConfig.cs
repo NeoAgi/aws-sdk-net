@@ -17,18 +17,18 @@
  * Do not modify this file. This file is generated from the use-service-id-2022-07-12.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.UseServiceIdTestserviceId.Internal;
 
 namespace Amazon.UseServiceIdTestserviceId
 {
     /// <summary>
     /// Configuration for accessing Amazon UseServiceIdTestserviceId service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonUseServiceIdTestserviceIdConfig : ClientConfig
     {
         private static readonly string UserAgentString =
@@ -77,5 +77,6 @@ namespace Amazon.UseServiceIdTestserviceId
                 return _userAgent;
             }
         }
+
     }
 }

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the timestream-write-2018-11-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.TimestreamWrite.Internal;
 
 namespace Amazon.TimestreamWrite
 {
     /// <summary>
     /// Configuration for accessing Amazon TimestreamWrite service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonTimestreamWriteConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.91");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.TimestreamWrite
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonTimestreamWriteDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "timestream";
+            this.EndpointProvider = new AmazonTimestreamWriteEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.TimestreamWrite
                 return _userAgent;
             }
         }
+
     }
 }

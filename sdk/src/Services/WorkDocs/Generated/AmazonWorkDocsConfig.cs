@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the workdocs-2016-05-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.WorkDocs.Internal;
 
 namespace Amazon.WorkDocs
 {
     /// <summary>
     /// Configuration for accessing Amazon WorkDocs service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonWorkDocsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.42");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.WorkDocs
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonWorkDocsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "workdocs";
+            this.EndpointProvider = new AmazonWorkDocsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.WorkDocs
                 return _userAgent;
             }
         }
+
     }
 }

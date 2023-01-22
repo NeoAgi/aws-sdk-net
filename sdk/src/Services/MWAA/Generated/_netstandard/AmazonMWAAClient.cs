@@ -108,7 +108,7 @@ namespace Amazon.MWAA
     ///  <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
     /// 
     /// </para>
-    ///  </li> </ul><br /> </li> <li> 
+    ///  </li> </ul> </li> <li> 
     /// <para>
     ///  <code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment
     /// metrics that track environment health.
@@ -322,6 +322,15 @@ namespace Amazon.MWAA
             return new AWS4Signer();
         } 
 
+        /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonMWAAEndpointResolver());
+        }
         /// <summary>
         /// Capture metadata for the service.
         /// </summary>

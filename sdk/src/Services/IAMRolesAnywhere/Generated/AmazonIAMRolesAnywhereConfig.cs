@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the rolesanywhere-2018-05-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.IAMRolesAnywhere.Internal;
 
 namespace Amazon.IAMRolesAnywhere
 {
     /// <summary>
     /// Configuration for accessing Amazon IAMRolesAnywhere service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonIAMRolesAnywhereConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.17");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.IAMRolesAnywhere
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIAMRolesAnywhereDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "rolesanywhere";
+            this.EndpointProvider = new AmazonIAMRolesAnywhereEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.IAMRolesAnywhere
                 return _userAgent;
             }
         }
+
     }
 }

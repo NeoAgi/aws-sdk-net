@@ -45,6 +45,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(RecommendationJobInputConfig requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetContainerConfig())
+            {
+                context.Writer.WritePropertyName("ContainerConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RecommendationJobContainerConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.ContainerConfig, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetEndpointConfigurations())
             {
                 context.Writer.WritePropertyName("EndpointConfigurations");
@@ -55,6 +66,22 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
                     var marshaller = EndpointInputConfigurationMarshaller.Instance;
                     marshaller.Marshall(requestObjectEndpointConfigurationsListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetEndpoints())
+            {
+                context.Writer.WritePropertyName("Endpoints");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectEndpointsListValue in requestObject.Endpoints)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = EndpointInfoMarshaller.Instance;
+                    marshaller.Marshall(requestObjectEndpointsListValue, context);
 
                     context.Writer.WriteObjectEnd();
                 }
@@ -99,6 +126,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("VolumeKmsKeyId");
                 context.Writer.Write(requestObject.VolumeKmsKeyId);
+            }
+
+            if(requestObject.IsSetVpcConfig())
+            {
+                context.Writer.WritePropertyName("VpcConfig");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RecommendationJobVpcConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.VpcConfig, context);
+
+                context.Writer.WriteObjectEnd();
             }
 
         }

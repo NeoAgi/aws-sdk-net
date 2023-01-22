@@ -82,6 +82,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.AthenaConnectorSource = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("CatalogHudiSource", targetDepth))
+                {
+                    var unmarshaller = CatalogHudiSourceUnmarshaller.Instance;
+                    unmarshalledObject.CatalogHudiSource = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CatalogKafkaSource", targetDepth))
                 {
                     var unmarshaller = CatalogKafkaSourceUnmarshaller.Instance;
@@ -142,10 +148,22 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.DropNullFields = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DynamicTransform", targetDepth))
+                {
+                    var unmarshaller = DynamicTransformUnmarshaller.Instance;
+                    unmarshalledObject.DynamicTransform = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DynamoDBCatalogSource", targetDepth))
                 {
                     var unmarshaller = DynamoDBCatalogSourceUnmarshaller.Instance;
                     unmarshalledObject.DynamoDBCatalogSource = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("EvaluateDataQuality", targetDepth))
+                {
+                    var unmarshaller = EvaluateDataQualityUnmarshaller.Instance;
+                    unmarshalledObject.EvaluateDataQuality = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("FillMissingValues", targetDepth))
@@ -274,6 +292,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.RenameField = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("S3CatalogHudiSource", targetDepth))
+                {
+                    var unmarshaller = S3CatalogHudiSourceUnmarshaller.Instance;
+                    unmarshalledObject.S3CatalogHudiSource = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("S3CatalogSource", targetDepth))
                 {
                     var unmarshaller = S3CatalogSourceUnmarshaller.Instance;
@@ -302,6 +326,24 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = S3GlueParquetTargetUnmarshaller.Instance;
                     unmarshalledObject.S3GlueParquetTarget = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("S3HudiCatalogTarget", targetDepth))
+                {
+                    var unmarshaller = S3HudiCatalogTargetUnmarshaller.Instance;
+                    unmarshalledObject.S3HudiCatalogTarget = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("S3HudiDirectTarget", targetDepth))
+                {
+                    var unmarshaller = S3HudiDirectTargetUnmarshaller.Instance;
+                    unmarshalledObject.S3HudiDirectTarget = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("S3HudiSource", targetDepth))
+                {
+                    var unmarshaller = S3HudiSourceUnmarshaller.Instance;
+                    unmarshalledObject.S3HudiSource = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("S3JsonSource", targetDepth))

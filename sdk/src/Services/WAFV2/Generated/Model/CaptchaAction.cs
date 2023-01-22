@@ -33,15 +33,15 @@ namespace Amazon.WAFV2.Model
     /// 
     ///  <ul> <li> 
     /// <para>
-    /// If the request includes a valid, unexpired <code>CAPTCHA</code> token, WAF allows
-    /// the web request inspection to proceed to the next rule, similar to a <code>CountAction</code>.
+    /// If the request includes a valid, unexpired <code>CAPTCHA</code> token, WAF applies
+    /// any custom request handling and labels that you've configured and then allows the
+    /// web request inspection to proceed to the next rule, similar to a <code>CountAction</code>.
     /// 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// If the request doesn't include a valid, unexpired <code>CAPTCHA</code> token, WAF
-    /// discontinues the web ACL evaluation of the request and blocks it from going to its
-    /// intended destination.
+    /// If the request doesn't include a valid, unexpired token, WAF discontinues the web
+    /// ACL evaluation of the request and blocks it from going to its intended destination.
     /// </para>
     ///  
     /// <para>
@@ -59,7 +59,7 @@ namespace Amazon.WAFV2.Model
     ///  </li> <li> 
     /// <para>
     /// If the request contains an <code>Accept</code> header with a value of <code>text/html</code>,
-    /// the response includes a <code>CAPTCHA</code> challenge. 
+    /// the response includes a <code>CAPTCHA</code> JavaScript page interstitial. 
     /// </para>
     ///  </li> </ul> </li> </ul> 
     /// <para>
@@ -80,7 +80,8 @@ namespace Amazon.WAFV2.Model
         /// <summary>
         /// Gets and sets the property CustomRequestHandling. 
         /// <para>
-        /// Defines custom handling for the web request.
+        /// Defines custom handling for the web request, used when the <code>CAPTCHA</code> inspection
+        /// determines that the request's token is valid and unexpired.
         /// </para>
         ///  
         /// <para>

@@ -102,12 +102,26 @@ namespace Amazon.Extensions.CrtIntegration
                                               ImmutableCredentials credentials)
         {
             var signedAt = AWS4Signer.InitializeHeaders(request.Headers, request.Endpoint);
+            
             var serviceSigningName = !string.IsNullOrEmpty(request.OverrideSigningServiceName) ? request.OverrideSigningServiceName : AWS4Signer.DetermineService(clientConfig);
+            if (serviceSigningName == "s3")
+            {
+                // Older versions of the S3 package can be used with newer versions of Core, this guarantees no double encoding will be used.
+                // The new behavior uses endpoint resolution rules, which are not present prior to 3.7.100
+                request.UseDoubleEncoding = false;
+            }
+
             var regionSet = AWS4Signer.DetermineSigningRegion(clientConfig, clientConfig.RegionEndpointServiceName, request.AlternateEndpoint, request);
             request.DeterminedSigningRegion = regionSet;
             AWS4Signer.SetXAmzTrailerHeader(request.Headers, request.TrailingHeaders);
 
-            var signingConfig = PrepareCRTSigningConfig(AwsSignatureType.HTTP_REQUEST_VIA_HEADERS, regionSet, serviceSigningName, signedAt, credentials);
+            var signingConfig = PrepareCRTSigningConfig(
+                AwsSignatureType.HTTP_REQUEST_VIA_HEADERS, 
+                regionSet, 
+                serviceSigningName, 
+                signedAt, 
+                credentials,
+                request.UseDoubleEncoding);
 
             // If the request should use a fixed x-amz-content-sha256 header value, determine the appropriate one
             var fixedBodyHash = request.TrailingHeaders?.Count > 0
@@ -165,10 +179,24 @@ namespace Amazon.Extensions.CrtIntegration
                                             string serviceSigningName,
                                             string overrideSigningRegion)
         {
+            if (serviceSigningName == "s3")
+            {
+                // Older versions of the S3 package can be used with newer versions of Core, this guarantees no double encoding will be used.
+                // The new behavior uses endpoint resolution rules, which are not present prior to 3.7.100
+                request.UseDoubleEncoding = false;
+            }
+
             var signedAt = AWS4Signer.InitializeHeaders(request.Headers, request.Endpoint);
             var regionSet = overrideSigningRegion ?? AWS4Signer.DetermineSigningRegion(clientConfig, clientConfig.RegionEndpointServiceName, request.AlternateEndpoint, request);
 
-            var signingConfig = PrepareCRTSigningConfig(AwsSignatureType.HTTP_REQUEST_VIA_QUERY_PARAMS, regionSet, serviceSigningName, signedAt, credentials);
+            var signingConfig = PrepareCRTSigningConfig(
+                AwsSignatureType.HTTP_REQUEST_VIA_QUERY_PARAMS, 
+                regionSet, 
+                serviceSigningName, 
+                signedAt, 
+                credentials,
+                request.UseDoubleEncoding);
+
             if (AWS4PreSignedUrlSigner.ServicesUsingUnsignedPayload.Contains(serviceSigningName))
             {
                 signingConfig.SignedBodyValue = AWS4Signer.UnsignedPayload;
@@ -259,7 +287,8 @@ namespace Amazon.Extensions.CrtIntegration
                 headerSigningResult.RegionSet,
                 headerSigningResult.Service,
                 headerSigningResult.DateTime,
-                headerSigningResult.Credentials);
+                headerSigningResult.Credentials,
+                useDoubleEncoding: true);
         }
 
         /// <summary>
@@ -270,8 +299,9 @@ namespace Amazon.Extensions.CrtIntegration
         /// <param name="service">Service to sign the request for</param>
         /// <param name="signedAt">Timestamp to sign at</param>
         /// <param name="credentials">The AWS credentials for the account making the service call</param>
+        /// <param name="useDoubleEncoding">Use double uri encoding when required</param>
         /// <returns>Prepared CRT signing configuration</returns>
-        public AwsSigningConfig PrepareCRTSigningConfig(AwsSignatureType signatureType, string region, string service, DateTime signedAt, ImmutableCredentials credentials)
+        public AwsSigningConfig PrepareCRTSigningConfig(AwsSignatureType signatureType, string region, string service, DateTime signedAt, ImmutableCredentials credentials, bool useDoubleEncoding)
         {
             var signingConfig = new AwsSigningConfig
             {
@@ -284,16 +314,8 @@ namespace Amazon.Extensions.CrtIntegration
                 Credentials = new Credentials(credentials.AccessKey, credentials.SecretKey, credentials.Token)
             };
             
-            if (service == "s3")
-            {
-                signingConfig.UseDoubleUriEncode = false;
-                signingConfig.ShouldNormalizeUriPath = false;
-            }
-            else
-            {
-                signingConfig.UseDoubleUriEncode = true;
-                signingConfig.ShouldNormalizeUriPath = true;
-            }
+            signingConfig.UseDoubleUriEncode = useDoubleEncoding;
+            signingConfig.ShouldNormalizeUriPath = useDoubleEncoding;
 
             return signingConfig;
         }

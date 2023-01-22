@@ -237,6 +237,15 @@ namespace Amazon.ChimeSDKMessaging
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonChimeSDKMessagingEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -2782,9 +2791,9 @@ namespace Amazon.ChimeSDKMessaging
 
 
         /// <summary>
-        /// Allows an <code>AppInstanceUser</code> to search the channels that they belong to.
-        /// The <code>AppInstanceUser</code> can search by membership or external ID. An <code>AppInstanceAdmin</code>
-        /// can search across all channels within the <code>AppInstance</code>.
+        /// Allows <code>ChimeBearer</code> to search channels by channel members. AppInstanceUsers
+        /// can search across the channels that they belong to. AppInstanceAdmins can search across
+        /// all channels.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SearchChannels service method.</param>
         /// <param name="cancellationToken">

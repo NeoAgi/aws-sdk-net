@@ -55,6 +55,13 @@ namespace Amazon.SecretsManager.Model
     /// </para>
     ///  
     /// <para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters because it might be logged. For
+    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
+    /// </para>
+    ///  
+    /// <para>
     ///  <b>Required permissions: </b> <code>secretsmanager:ListSecrets</code>. For more information,
     /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -64,6 +71,7 @@ namespace Amazon.SecretsManager.Model
     public partial class ListSecretsRequest : AmazonSecretsManagerRequest
     {
         private List<Filter> _filters = new List<Filter>();
+        private bool? _includePlannedDeletion;
         private int? _maxResults;
         private string _nextToken;
         private SortOrderType _sortOrder;
@@ -85,6 +93,24 @@ namespace Amazon.SecretsManager.Model
         internal bool IsSetFilters()
         {
             return this._filters != null && this._filters.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property IncludePlannedDeletion. 
+        /// <para>
+        /// Specifies whether to include secrets scheduled for deletion.
+        /// </para>
+        /// </summary>
+        public bool IncludePlannedDeletion
+        {
+            get { return this._includePlannedDeletion.GetValueOrDefault(); }
+            set { this._includePlannedDeletion = value; }
+        }
+
+        // Check to see if IncludePlannedDeletion property is set
+        internal bool IsSetIncludePlannedDeletion()
+        {
+            return this._includePlannedDeletion.HasValue; 
         }
 
         /// <summary>
@@ -135,7 +161,7 @@ namespace Amazon.SecretsManager.Model
         /// <summary>
         /// Gets and sets the property SortOrder. 
         /// <para>
-        /// Lists secrets in the requested order. 
+        /// Secrets are listed by <code>CreatedDate</code>. 
         /// </para>
         /// </summary>
         public SortOrderType SortOrder

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the personalize-2018-05-22.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Personalize.Internal;
 
 namespace Amazon.Personalize
 {
     /// <summary>
     /// Configuration for accessing Amazon Personalize service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPersonalizeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.11.6");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.38");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Personalize
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPersonalizeDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "personalize";
+            this.EndpointProvider = new AmazonPersonalizeEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Personalize
                 return _userAgent;
             }
         }
+
     }
 }

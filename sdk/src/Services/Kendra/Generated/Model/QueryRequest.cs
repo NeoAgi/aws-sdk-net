@@ -57,7 +57,7 @@ namespace Amazon.Kendra.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// You can specify that the query return only one type of result using the <code>QueryResultTypeConfig</code>
+    /// You can specify that the query return only one type of result using the <code>QueryResultTypeFilter</code>
     /// parameter.
     /// </para>
     ///  
@@ -166,7 +166,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property IndexId. 
         /// <para>
-        /// The unique identifier of the index to search. The identifier is returned in the response
+        /// The identifier of the index to search. The identifier is returned in the response
         /// from the <code>CreateIndex</code> API.
         /// </para>
         /// </summary>
@@ -244,7 +244,9 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property QueryText. 
         /// <para>
-        /// The text to search for.
+        /// The input query text for the search. Amazon Kendra truncates queries at 30 token words,
+        /// which excludes punctuation and stop words. Truncation still applies if you use Boolean
+        /// or more advanced, complex queries. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=1000)]

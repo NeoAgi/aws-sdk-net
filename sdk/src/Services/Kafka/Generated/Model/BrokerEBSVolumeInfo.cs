@@ -58,8 +58,10 @@ namespace Amazon.Kafka.Model
         }
 
         /// <summary>
-        /// Gets and sets the property ProvisionedThroughput. EBS volume provisioned throughput
-        /// information.
+        /// Gets and sets the property ProvisionedThroughput.             
+        /// <para>
+        /// EBS volume provisioned throughput information.
+        /// </para>
         /// </summary>
         public ProvisionedThroughput ProvisionedThroughput
         {

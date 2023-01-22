@@ -336,12 +336,7 @@ namespace Amazon.Route53.Model
         /// Amazon Web Services resource, such as an EC2 instance or an ELB load balancer, and
         /// is referred to by an IP address or a DNS domain name, depending on the record type.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// Although creating latency and latency alias resource record sets in a private hosted
-        /// zone is allowed, it's not supported.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         /// When Amazon Route 53 receives a DNS query for a domain name and type for which you
         /// have created latency resource record sets, Route 53 selects the latency resource record
@@ -671,11 +666,6 @@ namespace Amazon.Route53.Model
         /// <para>
         /// You can't create an alias resource record set in a private hosted zone to route traffic
         /// to a CloudFront distribution.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Creating geolocation alias resource record sets or latency alias resource record sets
-        /// in a private hosted zone is unsupported.
         /// </para>
         ///  </li> <li> 
         /// <para>

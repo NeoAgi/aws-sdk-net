@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the lookoutequipment-2020-12-15.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.LookoutEquipment.Internal;
 
 namespace Amazon.LookoutEquipment
 {
     /// <summary>
     /// Configuration for accessing Amazon LookoutEquipment service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLookoutEquipmentConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.20");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.17");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.LookoutEquipment
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLookoutEquipmentDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lookoutequipment";
+            this.EndpointProvider = new AmazonLookoutEquipmentEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.LookoutEquipment
                 return _userAgent;
             }
         }
+
     }
 }

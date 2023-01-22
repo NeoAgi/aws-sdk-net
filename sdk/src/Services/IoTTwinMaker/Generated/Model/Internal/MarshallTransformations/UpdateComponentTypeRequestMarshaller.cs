@@ -71,6 +71,12 @@ namespace Amazon.IoTTwinMaker.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetComponentTypeName())
+                {
+                    context.Writer.WritePropertyName("componentTypeName");
+                    context.Writer.Write(publicRequest.ComponentTypeName);
+                }
+
                 if(publicRequest.IsSetDescription())
                 {
                     context.Writer.WritePropertyName("description");
@@ -126,6 +132,25 @@ namespace Amazon.IoTTwinMaker.Model.Internal.MarshallTransformations
 
                         var marshaller = PropertyDefinitionRequestMarshaller.Instance;
                         marshaller.Marshall(publicRequestPropertyDefinitionsValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetPropertyGroups())
+                {
+                    context.Writer.WritePropertyName("propertyGroups");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestPropertyGroupsKvp in publicRequest.PropertyGroups)
+                    {
+                        context.Writer.WritePropertyName(publicRequestPropertyGroupsKvp.Key);
+                        var publicRequestPropertyGroupsValue = publicRequestPropertyGroupsKvp.Value;
+
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = PropertyGroupRequestMarshaller.Instance;
+                        marshaller.Marshall(publicRequestPropertyGroupsValue, context);
 
                         context.Writer.WriteObjectEnd();
                     }

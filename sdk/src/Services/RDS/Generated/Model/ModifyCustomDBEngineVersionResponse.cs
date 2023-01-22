@@ -34,9 +34,11 @@ namespace Amazon.RDS.Model
     public partial class ModifyCustomDBEngineVersionResponse : AmazonWebServiceResponse
     {
         private DateTime? _createTime;
+        private string _customDBEngineVersionManifest;
         private string _databaseInstallationFilesS3BucketName;
         private string _databaseInstallationFilesS3Prefix;
         private string _dbEngineDescription;
+        private string _dbEngineMediaType;
         private string _dbEngineVersionArn;
         private string _dbEngineVersionDescription;
         private string _dbParameterGroupFamily;
@@ -44,15 +46,18 @@ namespace Amazon.RDS.Model
         private string _engine;
         private string _engineVersion;
         private List<string> _exportableLogTypes = new List<string>();
+        private CustomDBEngineVersionAMI _image;
         private string _kmsKeyId;
         private string _majorEngineVersion;
         private string _status;
+        private List<string> _supportedCACertificateIdentifiers = new List<string>();
         private List<CharacterSet> _supportedCharacterSets = new List<CharacterSet>();
         private List<string> _supportedEngineModes = new List<string>();
         private List<string> _supportedFeatureNames = new List<string>();
         private List<CharacterSet> _supportedNcharCharacterSets = new List<CharacterSet>();
         private List<Timezone> _supportedTimezones = new List<Timezone>();
         private bool? _supportsBabelfish;
+        private bool? _supportsCertificateRotationWithoutRestart;
         private bool? _supportsGlobalDatabases;
         private bool? _supportsLogExportsToCloudwatchLogs;
         private bool? _supportsParallelQuery;
@@ -76,6 +81,30 @@ namespace Amazon.RDS.Model
         internal bool IsSetCreateTime()
         {
             return this._createTime.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property CustomDBEngineVersionManifest. 
+        /// <para>
+        /// JSON string that lists the installation files and parameters that RDS Custom uses
+        /// to create a custom engine version (CEV). RDS Custom applies the patches in the order
+        /// in which they're listed in the manifest. You can set the Oracle home, Oracle base,
+        /// and UNIX/Linux user and group using the installation parameters. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html#custom-cev.preparing.manifest.fields">JSON
+        /// fields in the CEV manifest</a> in the <i>Amazon RDS User Guide</i>. 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=51000)]
+        public string CustomDBEngineVersionManifest
+        {
+            get { return this._customDBEngineVersionManifest; }
+            set { this._customDBEngineVersionManifest = value; }
+        }
+
+        // Check to see if CustomDBEngineVersionManifest property is set
+        internal bool IsSetCustomDBEngineVersionManifest()
+        {
+            return this._customDBEngineVersionManifest != null;
         }
 
         /// <summary>
@@ -131,6 +160,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetDBEngineDescription()
         {
             return this._dbEngineDescription != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DBEngineMediaType. 
+        /// <para>
+        /// A value that indicates the source media provider of the AMI based on the usage operation.
+        /// Applicable for RDS Custom for SQL Server.
+        /// </para>
+        /// </summary>
+        public string DBEngineMediaType
+        {
+            get { return this._dbEngineMediaType; }
+            set { this._dbEngineMediaType = value; }
+        }
+
+        // Check to see if DBEngineMediaType property is set
+        internal bool IsSetDBEngineMediaType()
+        {
+            return this._dbEngineMediaType != null;
         }
 
         /// <summary>
@@ -262,6 +310,24 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Image. 
+        /// <para>
+        /// The EC2 image
+        /// </para>
+        /// </summary>
+        public CustomDBEngineVersionAMI Image
+        {
+            get { return this._image; }
+            set { this._image = value; }
+        }
+
+        // Check to see if Image property is set
+        internal bool IsSetImage()
+        {
+            return this._image != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property KMSKeyId. 
         /// <para>
         /// The Amazon Web Services KMS key identifier for an encrypted CEV. This parameter is
@@ -314,6 +380,32 @@ namespace Amazon.RDS.Model
         internal bool IsSetStatus()
         {
             return this._status != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SupportedCACertificateIdentifiers. 
+        /// <para>
+        /// A list of the supported CA certificate identifiers.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
+        /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+        /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+        /// User Guide</i>.
+        /// </para>
+        /// </summary>
+        public List<string> SupportedCACertificateIdentifiers
+        {
+            get { return this._supportedCACertificateIdentifiers; }
+            set { this._supportedCACertificateIdentifiers = value; }
+        }
+
+        // Check to see if SupportedCACertificateIdentifiers property is set
+        internal bool IsSetSupportedCACertificateIdentifiers()
+        {
+            return this._supportedCACertificateIdentifiers != null && this._supportedCACertificateIdentifiers.Count > 0; 
         }
 
         /// <summary>
@@ -454,6 +546,25 @@ namespace Amazon.RDS.Model
         internal bool IsSetSupportsBabelfish()
         {
             return this._supportsBabelfish.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SupportsCertificateRotationWithoutRestart. 
+        /// <para>
+        /// A value that indicates whether the engine version supports rotating the server certificate
+        /// without rebooting the DB instance.
+        /// </para>
+        /// </summary>
+        public bool SupportsCertificateRotationWithoutRestart
+        {
+            get { return this._supportsCertificateRotationWithoutRestart.GetValueOrDefault(); }
+            set { this._supportsCertificateRotationWithoutRestart = value; }
+        }
+
+        // Check to see if SupportsCertificateRotationWithoutRestart property is set
+        internal bool IsSetSupportsCertificateRotationWithoutRestart()
+        {
+            return this._supportsCertificateRotationWithoutRestart.HasValue; 
         }
 
         /// <summary>

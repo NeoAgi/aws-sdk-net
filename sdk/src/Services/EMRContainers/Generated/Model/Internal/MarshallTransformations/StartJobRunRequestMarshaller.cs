@@ -107,6 +107,26 @@ namespace Amazon.EMRContainers.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetJobTemplateId())
+                {
+                    context.Writer.WritePropertyName("jobTemplateId");
+                    context.Writer.Write(publicRequest.JobTemplateId);
+                }
+
+                if(publicRequest.IsSetJobTemplateParameters())
+                {
+                    context.Writer.WritePropertyName("jobTemplateParameters");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestJobTemplateParametersKvp in publicRequest.JobTemplateParameters)
+                    {
+                        context.Writer.WritePropertyName(publicRequestJobTemplateParametersKvp.Key);
+                        var publicRequestJobTemplateParametersValue = publicRequestJobTemplateParametersKvp.Value;
+
+                            context.Writer.Write(publicRequestJobTemplateParametersValue);
+                    }
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("name");

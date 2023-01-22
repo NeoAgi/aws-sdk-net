@@ -188,7 +188,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBClusterInstanceClass. 
         /// <para>
         /// The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster,
-        /// for example db.m6g.xlarge. Not all DB instance classes are available in all Amazon
+        /// for example db.m6gd.xlarge. Not all DB instance classes are available in all Amazon
         /// Web Services Regions, or for all database engines.
         /// </para>
         ///  
@@ -492,9 +492,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// For information about valid <code>Iops</code> values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
-        /// Guide</i>.
+        /// For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide</i>.
         /// </para>
         ///  
         /// <para>

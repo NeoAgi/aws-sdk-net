@@ -2621,9 +2621,8 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Deletes the password for the specified IAM user, which terminates the user's ability
-        /// to access Amazon Web Services services through the Amazon Web Services Management
-        /// Console.
+        /// Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
+        /// passwords for IAM users</a>.
         /// 
         ///  
         /// <para>
@@ -2634,11 +2633,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  <important> 
         /// <para>
-        ///  Deleting a user's password does not prevent a user from accessing Amazon Web Services
+        /// Deleting a user's password does not prevent a user from accessing Amazon Web Services
         /// through the command line interface or the API. To prevent all user access, you must
         /// also either make any access keys inactive or delete them. For more information about
         /// making keys inactive or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>.
-        /// 
         /// </para>
         ///  </important>
         /// </summary>
@@ -2668,9 +2666,8 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Deletes the password for the specified IAM user, which terminates the user's ability
-        /// to access Amazon Web Services services through the Amazon Web Services Management
-        /// Console.
+        /// Deletes the password for the specified IAM user, For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.html">Managing
+        /// passwords for IAM users</a>.
         /// 
         ///  
         /// <para>
@@ -2681,11 +2678,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  <important> 
         /// <para>
-        ///  Deleting a user's password does not prevent a user from accessing Amazon Web Services
+        /// Deleting a user's password does not prevent a user from accessing Amazon Web Services
         /// through the command line interface or the API. To prevent all user access, you must
         /// also either make any access keys inactive or delete them. For more information about
         /// making keys inactive or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>.
-        /// 
         /// </para>
         ///  </important>
         /// </summary>
@@ -7169,11 +7165,13 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// If the <code>UserName</code> is not specified, the user name is determined implicitly
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  <note> 
         /// <para>
@@ -7206,11 +7204,13 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// If the <code>UserName</code> is not specified, the user name is determined implicitly
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  <note> 
         /// <para>
@@ -7244,11 +7244,13 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// If the <code>UserName</code> is not specified, the user name is determined implicitly
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  <note> 
         /// <para>
@@ -7285,11 +7287,13 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// If the <code>UserName</code> is not specified, the user name is determined implicitly
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  <note> 
         /// <para>
@@ -13041,10 +13045,12 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// If the <code>UserName</code> is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  
         /// <para>
@@ -13078,10 +13084,12 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// If the <code>UserName</code> is not specified, the user name is determined implicitly
-        /// based on the Amazon Web Services access key ID used to sign the request. This operation
-        /// works for access keys under the Amazon Web Services account. Consequently, you can
-        /// use this operation to manage Amazon Web Services account root user credentials even
-        /// if the Amazon Web Services account has no associated users.
+        /// based on the Amazon Web Services access key ID used to sign the request. If a temporary
+        /// access key is used, then <code>UserName</code> is required. If a long-term key is
+        /// assigned to the user, then <code>UserName</code> is not required. This operation works
+        /// for access keys under the Amazon Web Services account. Consequently, you can use this
+        /// operation to manage Amazon Web Services account root user credentials even if the
+        /// Amazon Web Services account has no associated users.
         /// </para>
         ///  
         /// <para>

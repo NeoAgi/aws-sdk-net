@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the frauddetector-2019-11-15.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.FraudDetector.Internal;
 
 namespace Amazon.FraudDetector
 {
     /// <summary>
     /// Configuration for accessing Amazon FraudDetector service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonFraudDetectorConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.11");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.FraudDetector
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonFraudDetectorDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "frauddetector";
+            this.EndpointProvider = new AmazonFraudDetectorEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.FraudDetector
                 return _userAgent;
             }
         }
+
     }
 }

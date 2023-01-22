@@ -31,9 +31,9 @@ namespace Amazon.StepFunctions
     /// <summary>
     /// Interface for accessing StepFunctions
     ///
-    /// AWS Step Functions 
+    /// Step Functions 
     /// <para>
-    /// AWS Step Functions is a service that lets you coordinate the components of distributed
+    /// Step Functions is a service that lets you coordinate the components of distributed
     /// applications and microservices using visual workflows.
     /// </para>
     ///  
@@ -49,10 +49,10 @@ namespace Amazon.StepFunctions
     ///  
     /// <para>
     /// Step Functions manages operations and underlying infrastructure to ensure your application
-    /// is available at any scale. You can run tasks on AWS, your own servers, or any system
-    /// that has access to AWS. You can access and use Step Functions using the console, the
-    /// AWS SDKs, or an HTTP API. For more information about Step Functions, see the <i> <a
-    /// href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step
+    /// is available at any scale. You can run tasks on Amazon Web Services, your own servers,
+    /// or any system that has access to Amazon Web Services. You can access and use Step
+    /// Functions using the console, the Amazon Web Services SDKs, or an HTTP API. For more
+    /// information about Step Functions, see the <i> <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step
     /// Functions Developer Guide</a> </i>.
     /// </para>
     /// </summary>
@@ -71,11 +71,10 @@ namespace Amazon.StepFunctions
 
         /// <summary>
         /// Creates an activity. An activity is a task that you write in any programming language
-        /// and host on any machine that has access to AWS Step Functions. Activities must poll
-        /// Step Functions using the <code>GetActivityTask</code> API action and respond using
-        /// <code>SendTask*</code> API actions. This function lets Step Functions know the existence
-        /// of your activity and returns an identifier for use in a state machine and when polling
-        /// from the activity.
+        /// and host on any machine that has access to Step Functions. Activities must poll Step
+        /// Functions using the <code>GetActivityTask</code> API action and respond using <code>SendTask*</code>
+        /// API actions. This function lets Step Functions know the existence of your activity
+        /// and returns an identifier for use in a state machine and when polling from the activity.
         /// 
         ///  <note> 
         /// <para>
@@ -104,11 +103,11 @@ namespace Amazon.StepFunctions
         /// before a new activity can be created.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidNameException">
-        /// The provided name is invalid.
+        /// The provided name is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TooManyTagsException">
         /// You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html">
-        /// Limits Topic</a> in the AWS Step Functions Developer Guide.
+        /// Limits Topic</a> in the Step Functions Developer Guide.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/CreateActivity">REST API Reference for CreateActivity Operation</seealso>
         Task<CreateActivityResponse> CreateActivityAsync(CreateActivityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -125,7 +124,7 @@ namespace Amazon.StepFunctions
         /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
         /// machines are specified using a JSON-based, structured language. For more information,
         /// see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-        /// States Language</a> in the AWS Step Functions User Guide.
+        /// States Language</a> in the Step Functions User Guide.
         /// 
         ///  <note> 
         /// <para>
@@ -152,16 +151,16 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the CreateStateMachine service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidDefinitionException">
-        /// The provided Amazon States Language definition is invalid.
+        /// The provided Amazon States Language definition is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidLoggingConfigurationException">
         /// 
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidNameException">
-        /// The provided name is invalid.
+        /// The provided name is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTracingConfigurationException">
         /// Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code>
@@ -183,7 +182,7 @@ namespace Amazon.StepFunctions
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TooManyTagsException">
         /// You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html">
-        /// Limits Topic</a> in the AWS Step Functions Developer Guide.
+        /// Limits Topic</a> in the Step Functions Developer Guide.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/CreateStateMachine">REST API Reference for CreateStateMachine Operation</seealso>
         Task<CreateStateMachineResponse> CreateStateMachineAsync(CreateStateMachineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -204,7 +203,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the DeleteActivity service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DeleteActivity">REST API Reference for DeleteActivity Operation</seealso>
         Task<DeleteActivityResponse> DeleteActivityAsync(DeleteActivityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -219,9 +218,21 @@ namespace Amazon.StepFunctions
         /// Deletes a state machine. This is an asynchronous operation: It sets the state machine's
         /// status to <code>DELETING</code> and begins the deletion process. 
         /// 
+        ///  
+        /// <para>
+        /// If the given state machine Amazon Resource Name (ARN) is a qualified state machine
+        /// ARN, it will fail with ValidationException.
+        /// </para>
+        ///  
+        /// <para>
+        /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+        /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+        /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+        /// the state machine named <code>stateMachineName</code>.
+        /// </para>
         ///  <note> 
         /// <para>
-        /// For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+        /// For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually
         /// less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
         /// API is called.
         /// </para>
@@ -234,7 +245,10 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the DeleteStateMachine service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DeleteStateMachine">REST API Reference for DeleteStateMachine Operation</seealso>
         Task<DeleteStateMachineResponse> DeleteStateMachineAsync(DeleteStateMachineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -265,7 +279,7 @@ namespace Amazon.StepFunctions
         /// The specified activity does not exist.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeActivity">REST API Reference for DescribeActivity Operation</seealso>
         Task<DescribeActivityResponse> DescribeActivityAsync(DescribeActivityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -277,7 +291,10 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Describes an execution.
+        /// Provides all information about a state machine execution, such as the state machine
+        /// associated with the execution, the execution input and output, and relevant execution
+        /// metadata. Use this API action to return the Map Run ARN if the execution was dispatched
+        /// by a Map Run.
         /// 
         ///  <note> 
         /// <para>
@@ -286,7 +303,8 @@ namespace Amazon.StepFunctions
         /// </para>
         ///  </note> 
         /// <para>
-        /// This API action is not supported by <code>EXPRESS</code> state machines.
+        /// This API action is not supported by <code>EXPRESS</code> state machine executions
+        /// unless they were dispatched by a Map Run.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeExecution service method.</param>
@@ -299,10 +317,36 @@ namespace Amazon.StepFunctions
         /// The specified execution does not exist.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeExecution">REST API Reference for DescribeExecution Operation</seealso>
         Task<DescribeExecutionResponse> DescribeExecutionAsync(DescribeExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeMapRun
+
+
+
+        /// <summary>
+        /// Provides information about a Map Run's configuration, progress, and results. For more
+        /// information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
+        /// Map Run</a> in the <i>Step Functions Developer Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeMapRun service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeMapRun service method, as returned by StepFunctions.</returns>
+        /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
+        /// The provided Amazon Resource Name (ARN) is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
+        /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeMapRun">REST API Reference for DescribeMapRun Operation</seealso>
+        Task<DescribeMapRunResponse> DescribeMapRunAsync(DescribeMapRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -311,8 +355,17 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Describes a state machine.
+        /// Provides information about a state machine's definition, its IAM role Amazon Resource
+        /// Name (ARN), and configuration. If the state machine ARN is a qualified state machine
+        /// ARN, the response returned includes the <code>Map</code> state's label.
         /// 
+        ///  
+        /// <para>
+        /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+        /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+        /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+        /// the state machine named <code>stateMachineName</code>.
+        /// </para>
         ///  <note> 
         /// <para>
         /// This operation is eventually consistent. The results are best effort and may not reflect
@@ -327,7 +380,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the DescribeStateMachine service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDoesNotExistException">
         /// The specified state machine does not exist.
@@ -342,7 +395,10 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Describes the state machine associated with a specific execution.
+        /// Provides information about a state machine's definition, its execution role ARN, and
+        /// configuration. If an execution was dispatched by a Map Run, the Map Run is returned
+        /// in the response. Additionally, the state machine returned will be the state machine
+        /// associated with the Map Run.
         /// 
         ///  <note> 
         /// <para>
@@ -364,7 +420,7 @@ namespace Amazon.StepFunctions
         /// The specified execution does not exist.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeStateMachineForExecution">REST API Reference for DescribeStateMachineForExecution Operation</seealso>
         Task<DescribeStateMachineForExecutionResponse> DescribeStateMachineForExecutionAsync(DescribeStateMachineForExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -383,7 +439,11 @@ namespace Amazon.StepFunctions
         /// service holds on to the request before responding is 60 seconds. If no task is available
         /// within 60 seconds, the poll returns a <code>taskToken</code> with a null string.
         /// 
-        ///  <important> 
+        ///  <note> 
+        /// <para>
+        /// This API action isn't logged in CloudTrail.
+        /// </para>
+        ///  </note> <important> 
         /// <para>
         /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
         /// higher than the maximum time the service may hold the poll request).
@@ -409,7 +469,7 @@ namespace Amazon.StepFunctions
         /// The maximum number of workers concurrently polling for activity tasks has been reached.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/GetActivityTask">REST API Reference for GetActivityTask Operation</seealso>
         Task<GetActivityTaskResponse> GetActivityTaskAsync(GetActivityTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -448,10 +508,10 @@ namespace Amazon.StepFunctions
         /// The specified execution does not exist.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/GetExecutionHistory">REST API Reference for GetExecutionHistory Operation</seealso>
         Task<GetExecutionHistoryResponse> GetExecutionHistoryAsync(GetExecutionHistoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -487,7 +547,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the ListActivities service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/ListActivities">REST API Reference for ListActivities Operation</seealso>
         Task<ListActivitiesResponse> ListActivitiesAsync(ListActivitiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -499,9 +559,14 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Lists the executions of a state machine that meet the filtering criteria. Results
-        /// are sorted by time, with the most recent execution first.
+        /// Lists all executions of a state machine or a Map Run. You can list all executions
+        /// related to a state machine by specifying a state machine Amazon Resource Name (ARN),
+        /// or those related to a Map Run by specifying a Map Run ARN.
         /// 
+        ///  
+        /// <para>
+        /// Results are sorted by time, with the most recent execution first.
+        /// </para>
         ///  
         /// <para>
         /// If <code>nextToken</code> is returned, there are more results available. The value
@@ -527,10 +592,13 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the ListExecutions service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
+        /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDoesNotExistException">
         /// The specified state machine does not exist.
@@ -538,8 +606,40 @@ namespace Amazon.StepFunctions
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineTypeNotSupportedException">
         /// 
         /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/ListExecutions">REST API Reference for ListExecutions Operation</seealso>
         Task<ListExecutionsResponse> ListExecutionsAsync(ListExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListMapRuns
+
+
+
+        /// <summary>
+        /// Lists all Map Runs that were started by a given state machine execution. Use this
+        /// API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain
+        /// more information, if needed.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListMapRuns service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListMapRuns service method, as returned by StepFunctions.</returns>
+        /// <exception cref="Amazon.StepFunctions.Model.ExecutionDoesNotExistException">
+        /// The specified execution does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
+        /// The provided Amazon Resource Name (ARN) is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
+        /// The provided token is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/ListMapRuns">REST API Reference for ListMapRuns Operation</seealso>
+        Task<ListMapRunsResponse> ListMapRunsAsync(ListMapRunsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -572,7 +672,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the ListStateMachines service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/ListStateMachines">REST API Reference for ListStateMachines Operation</seealso>
         Task<ListStateMachinesResponse> ListStateMachinesAsync(ListStateMachinesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -599,7 +699,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
         /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
@@ -624,7 +724,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the SendTaskFailure service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TaskDoesNotExistException">
         /// 
@@ -669,7 +769,7 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the SendTaskHeartbeat service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TaskDoesNotExistException">
         /// 
@@ -698,10 +798,10 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the SendTaskSuccess service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidOutputException">
-        /// The provided JSON output data is invalid.
+        /// The provided JSON output data is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidTokenException">
-        /// The provided token is invalid.
+        /// The provided token is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TaskDoesNotExistException">
         /// 
@@ -719,15 +819,29 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Starts a state machine execution.
+        /// Starts a state machine execution. If the given state machine Amazon Resource Name
+        /// (ARN) is a qualified state machine ARN, it will fail with ValidationException.
         /// 
+        ///  
+        /// <para>
+        /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+        /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+        /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+        /// the state machine named <code>stateMachineName</code>.
+        /// </para>
         ///  <note> 
         /// <para>
-        ///  <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called
-        /// with the same name and input as a running execution, the call will succeed and return
-        /// the same response as the original request. If the execution is closed or if the input
-        /// is different, it will return a 400 <code>ExecutionAlreadyExists</code> error. Names
-        /// can be reused after 90 days. 
+        ///  <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For
+        /// a <code>STANDARD</code> workflow, if <code>StartExecution</code> is called with the
+        /// same name and input as a running execution, the call will succeed and return the same
+        /// response as the original request. If the execution is closed or if the input is different,
+        /// it will return a <code>400 ExecutionAlreadyExists</code> error. Names can be reused
+        /// after 90 days. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>StartExecution</code> is not idempotent for <code>EXPRESS</code> workflows.
+        /// 
         /// </para>
         ///  </note>
         /// </summary>
@@ -752,19 +866,22 @@ namespace Amazon.StepFunctions
         /// end or be stopped before a new execution can be started.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidExecutionInputException">
-        /// The provided JSON input data is invalid.
+        /// The provided JSON input data is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidNameException">
-        /// The provided name is invalid.
+        /// The provided name is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDeletingException">
         /// The specified state machine is being deleted.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDoesNotExistException">
         /// The specified state machine does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/StartExecution">REST API Reference for StartExecution Operation</seealso>
         Task<StartExecutionResponse> StartExecutionAsync(StartExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -776,7 +893,22 @@ namespace Amazon.StepFunctions
 
 
         /// <summary>
-        /// Starts a Synchronous Express state machine execution.
+        /// Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
+        /// is not available for <code>STANDARD</code> workflows.
+        /// 
+        ///  <note> 
+        /// <para>
+        ///  <code>StartSyncExecution</code> will return a <code>200 OK</code> response, even
+        /// if your execution fails, because the status code in the API response doesn't reflect
+        /// function errors. Error codes are reserved for errors that prevent your execution from
+        /// running, such as permissions errors, limit errors, or issues with your state machine
+        /// code and configuration. 
+        /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// This API action isn't logged in CloudTrail.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartSyncExecution service method.</param>
         /// <param name="cancellationToken">
@@ -785,13 +917,13 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the StartSyncExecution service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidExecutionInputException">
-        /// The provided JSON input data is invalid.
+        /// The provided JSON input data is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidNameException">
-        /// The provided name is invalid.
+        /// The provided name is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDeletingException">
         /// The specified state machine is being deleted.
@@ -829,7 +961,10 @@ namespace Amazon.StepFunctions
         /// The specified execution does not exist.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/StopExecution">REST API Reference for StopExecution Operation</seealso>
         Task<StopExecutionResponse> StopExecutionAsync(StopExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -846,8 +981,8 @@ namespace Amazon.StepFunctions
         ///  
         /// <para>
         /// An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>,
-        /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
         /// Access Using IAM Tags</a>.
         /// </para>
         ///  
@@ -863,14 +998,14 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the TagResource service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
         /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.TooManyTagsException">
         /// You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html">
-        /// Limits Topic</a> in the AWS Step Functions Developer Guide.
+        /// Limits Topic</a> in the Step Functions Developer Guide.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/TagResource">REST API Reference for TagResource Operation</seealso>
         Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -891,13 +1026,41 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the UntagResource service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
         /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/UntagResource">REST API Reference for UntagResource Operation</seealso>
         Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  UpdateMapRun
+
+
+
+        /// <summary>
+        /// Updates an in-progress Map Run's configuration to include changes to the settings
+        /// that control maximum concurrency and Map Run failure.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateMapRun service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateMapRun service method, as returned by StepFunctions.</returns>
+        /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
+        /// The provided Amazon Resource Name (ARN) is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ResourceNotFoundException">
+        /// Could not find the referenced resource. Only state machine and activity ARNs are supported.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/UpdateMapRun">REST API Reference for UpdateMapRun Operation</seealso>
+        Task<UpdateMapRunResponse> UpdateMapRunAsync(UpdateMapRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -912,6 +1075,18 @@ namespace Amazon.StepFunctions
         /// one of <code>definition</code> or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
         /// error.
         /// 
+        ///  
+        /// <para>
+        /// If the given state machine Amazon Resource Name (ARN) is a qualified state machine
+        /// ARN, it will fail with ValidationException.
+        /// </para>
+        ///  
+        /// <para>
+        /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+        /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+        /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+        /// the state machine named <code>stateMachineName</code>.
+        /// </para>
         ///  <note> 
         /// <para>
         /// All <code>StartExecution</code> calls within a few seconds will use the updated <code>definition</code>
@@ -928,10 +1103,10 @@ namespace Amazon.StepFunctions
         /// 
         /// <returns>The response from the UpdateStateMachine service method, as returned by StepFunctions.</returns>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidArnException">
-        /// The provided Amazon Resource Name (ARN) is invalid.
+        /// The provided Amazon Resource Name (ARN) is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidDefinitionException">
-        /// The provided Amazon States Language definition is invalid.
+        /// The provided Amazon States Language definition is not valid.
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.InvalidLoggingConfigurationException">
         /// 
@@ -949,6 +1124,9 @@ namespace Amazon.StepFunctions
         /// </exception>
         /// <exception cref="Amazon.StepFunctions.Model.StateMachineDoesNotExistException">
         /// The specified state machine does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.StepFunctions.Model.ValidationException">
+        /// The input does not satisfy the constraints specified by an Amazon Web Services service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/UpdateStateMachine">REST API Reference for UpdateStateMachine Operation</seealso>
         Task<UpdateStateMachineResponse> UpdateStateMachineAsync(UpdateStateMachineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));

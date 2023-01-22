@@ -233,6 +233,15 @@ namespace Amazon.Glue
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonGlueEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -800,6 +809,69 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  BatchGetDataQualityResult
+
+        /// <summary>
+        /// Retrieves a list of data quality results for the specified result IDs.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetDataQualityResult service method.</param>
+        /// 
+        /// <returns>The response from the BatchGetDataQualityResult service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetDataQualityResult">REST API Reference for BatchGetDataQualityResult Operation</seealso>
+        public virtual BatchGetDataQualityResultResponse BatchGetDataQualityResult(BatchGetDataQualityResultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetDataQualityResultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetDataQualityResultResponseUnmarshaller.Instance;
+
+            return Invoke<BatchGetDataQualityResultResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchGetDataQualityResult operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetDataQualityResult operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBatchGetDataQualityResult
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetDataQualityResult">REST API Reference for BatchGetDataQualityResult Operation</seealso>
+        public virtual IAsyncResult BeginBatchGetDataQualityResult(BatchGetDataQualityResultRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetDataQualityResultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetDataQualityResultResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  BatchGetDataQualityResult operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginBatchGetDataQualityResult.</param>
+        /// 
+        /// <returns>Returns a  BatchGetDataQualityResultResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchGetDataQualityResult">REST API Reference for BatchGetDataQualityResult Operation</seealso>
+        public virtual BatchGetDataQualityResultResponse EndBatchGetDataQualityResult(IAsyncResult asyncResult)
+        {
+            return EndInvoke<BatchGetDataQualityResultResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  BatchGetDevEndpoints
 
         /// <summary>
@@ -1267,6 +1339,138 @@ namespace Amazon.Glue
         public virtual BatchUpdatePartitionResponse EndBatchUpdatePartition(IAsyncResult asyncResult)
         {
             return EndInvoke<BatchUpdatePartitionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  CancelDataQualityRuleRecommendationRun
+
+        /// <summary>
+        /// Cancels the specified recommendation run that was being used to generate rules.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelDataQualityRuleRecommendationRun service method.</param>
+        /// 
+        /// <returns>The response from the CancelDataQualityRuleRecommendationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRuleRecommendationRun">REST API Reference for CancelDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual CancelDataQualityRuleRecommendationRunResponse CancelDataQualityRuleRecommendationRun(CancelDataQualityRuleRecommendationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return Invoke<CancelDataQualityRuleRecommendationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelDataQualityRuleRecommendationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelDataQualityRuleRecommendationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRuleRecommendationRun">REST API Reference for CancelDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual IAsyncResult BeginCancelDataQualityRuleRecommendationRun(CancelDataQualityRuleRecommendationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CancelDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCancelDataQualityRuleRecommendationRun.</param>
+        /// 
+        /// <returns>Returns a  CancelDataQualityRuleRecommendationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRuleRecommendationRun">REST API Reference for CancelDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual CancelDataQualityRuleRecommendationRunResponse EndCancelDataQualityRuleRecommendationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CancelDataQualityRuleRecommendationRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  CancelDataQualityRulesetEvaluationRun
+
+        /// <summary>
+        /// Cancels a run where a ruleset is being evaluated against a data source.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelDataQualityRulesetEvaluationRun service method.</param>
+        /// 
+        /// <returns>The response from the CancelDataQualityRulesetEvaluationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRulesetEvaluationRun">REST API Reference for CancelDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual CancelDataQualityRulesetEvaluationRunResponse CancelDataQualityRulesetEvaluationRun(CancelDataQualityRulesetEvaluationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return Invoke<CancelDataQualityRulesetEvaluationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelDataQualityRulesetEvaluationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelDataQualityRulesetEvaluationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRulesetEvaluationRun">REST API Reference for CancelDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual IAsyncResult BeginCancelDataQualityRulesetEvaluationRun(CancelDataQualityRulesetEvaluationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CancelDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CancelDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CancelDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCancelDataQualityRulesetEvaluationRun.</param>
+        /// 
+        /// <returns>Returns a  CancelDataQualityRulesetEvaluationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CancelDataQualityRulesetEvaluationRun">REST API Reference for CancelDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual CancelDataQualityRulesetEvaluationRunResponse EndCancelDataQualityRulesetEvaluationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CancelDataQualityRulesetEvaluationRunResponse>(asyncResult);
         }
 
         #endregion
@@ -1901,6 +2105,81 @@ namespace Amazon.Glue
         public virtual CreateDatabaseResponse EndCreateDatabase(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateDatabaseResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  CreateDataQualityRuleset
+
+        /// <summary>
+        /// Creates a data quality ruleset with DQDL rules applied to a specified Glue table.
+        /// 
+        ///  
+        /// <para>
+        /// You create the ruleset using the Data Quality Definition Language (DQDL). For more
+        /// information, see the Glue developer guide.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateDataQualityRuleset service method.</param>
+        /// 
+        /// <returns>The response from the CreateDataQualityRuleset service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateDataQualityRuleset">REST API Reference for CreateDataQualityRuleset Operation</seealso>
+        public virtual CreateDataQualityRulesetResponse CreateDataQualityRuleset(CreateDataQualityRulesetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return Invoke<CreateDataQualityRulesetResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateDataQualityRuleset operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateDataQualityRuleset
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateDataQualityRuleset">REST API Reference for CreateDataQualityRuleset Operation</seealso>
+        public virtual IAsyncResult BeginCreateDataQualityRuleset(CreateDataQualityRulesetRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateDataQualityRuleset.</param>
+        /// 
+        /// <returns>Returns a  CreateDataQualityRulesetResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateDataQualityRuleset">REST API Reference for CreateDataQualityRuleset Operation</seealso>
+        public virtual CreateDataQualityRulesetResponse EndCreateDataQualityRuleset(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateDataQualityRulesetResponse>(asyncResult);
         }
 
         #endregion
@@ -3532,6 +3811,72 @@ namespace Amazon.Glue
         public virtual DeleteDatabaseResponse EndDeleteDatabase(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteDatabaseResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteDataQualityRuleset
+
+        /// <summary>
+        /// Deletes a data quality ruleset.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteDataQualityRuleset service method.</param>
+        /// 
+        /// <returns>The response from the DeleteDataQualityRuleset service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteDataQualityRuleset">REST API Reference for DeleteDataQualityRuleset Operation</seealso>
+        public virtual DeleteDataQualityRulesetResponse DeleteDataQualityRuleset(DeleteDataQualityRulesetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteDataQualityRulesetResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteDataQualityRuleset operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteDataQualityRuleset
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteDataQualityRuleset">REST API Reference for DeleteDataQualityRuleset Operation</seealso>
+        public virtual IAsyncResult BeginDeleteDataQualityRuleset(DeleteDataQualityRulesetRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteDataQualityRuleset.</param>
+        /// 
+        /// <returns>Returns a  DeleteDataQualityRulesetResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteDataQualityRuleset">REST API Reference for DeleteDataQualityRuleset Operation</seealso>
+        public virtual DeleteDataQualityRulesetResponse EndDeleteDataQualityRuleset(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteDataQualityRulesetResponse>(asyncResult);
         }
 
         #endregion
@@ -5818,6 +6163,270 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  GetDataQualityResult
+
+        /// <summary>
+        /// Retrieves the result of a data quality rule evaluation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityResult service method.</param>
+        /// 
+        /// <returns>The response from the GetDataQualityResult service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityResult">REST API Reference for GetDataQualityResult Operation</seealso>
+        public virtual GetDataQualityResultResponse GetDataQualityResult(GetDataQualityResultRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityResultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityResultResponseUnmarshaller.Instance;
+
+            return Invoke<GetDataQualityResultResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetDataQualityResult operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityResult operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetDataQualityResult
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityResult">REST API Reference for GetDataQualityResult Operation</seealso>
+        public virtual IAsyncResult BeginGetDataQualityResult(GetDataQualityResultRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityResultRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityResultResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetDataQualityResult operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetDataQualityResult.</param>
+        /// 
+        /// <returns>Returns a  GetDataQualityResultResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityResult">REST API Reference for GetDataQualityResult Operation</seealso>
+        public virtual GetDataQualityResultResponse EndGetDataQualityResult(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetDataQualityResultResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetDataQualityRuleRecommendationRun
+
+        /// <summary>
+        /// Gets the specified recommendation run that was used to generate rules.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRuleRecommendationRun service method.</param>
+        /// 
+        /// <returns>The response from the GetDataQualityRuleRecommendationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleRecommendationRun">REST API Reference for GetDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual GetDataQualityRuleRecommendationRunResponse GetDataQualityRuleRecommendationRun(GetDataQualityRuleRecommendationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return Invoke<GetDataQualityRuleRecommendationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRuleRecommendationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetDataQualityRuleRecommendationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleRecommendationRun">REST API Reference for GetDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual IAsyncResult BeginGetDataQualityRuleRecommendationRun(GetDataQualityRuleRecommendationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetDataQualityRuleRecommendationRun.</param>
+        /// 
+        /// <returns>Returns a  GetDataQualityRuleRecommendationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleRecommendationRun">REST API Reference for GetDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual GetDataQualityRuleRecommendationRunResponse EndGetDataQualityRuleRecommendationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetDataQualityRuleRecommendationRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetDataQualityRuleset
+
+        /// <summary>
+        /// Returns an existing ruleset by identifier or name.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRuleset service method.</param>
+        /// 
+        /// <returns>The response from the GetDataQualityRuleset service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleset">REST API Reference for GetDataQualityRuleset Operation</seealso>
+        public virtual GetDataQualityRulesetResponse GetDataQualityRuleset(GetDataQualityRulesetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return Invoke<GetDataQualityRulesetResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRuleset operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetDataQualityRuleset
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleset">REST API Reference for GetDataQualityRuleset Operation</seealso>
+        public virtual IAsyncResult BeginGetDataQualityRuleset(GetDataQualityRulesetRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetDataQualityRuleset.</param>
+        /// 
+        /// <returns>Returns a  GetDataQualityRulesetResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRuleset">REST API Reference for GetDataQualityRuleset Operation</seealso>
+        public virtual GetDataQualityRulesetResponse EndGetDataQualityRuleset(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetDataQualityRulesetResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetDataQualityRulesetEvaluationRun
+
+        /// <summary>
+        /// Retrieves a specific run where a ruleset is evaluated against a data source.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRulesetEvaluationRun service method.</param>
+        /// 
+        /// <returns>The response from the GetDataQualityRulesetEvaluationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRulesetEvaluationRun">REST API Reference for GetDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual GetDataQualityRulesetEvaluationRunResponse GetDataQualityRulesetEvaluationRun(GetDataQualityRulesetEvaluationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return Invoke<GetDataQualityRulesetEvaluationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetDataQualityRulesetEvaluationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetDataQualityRulesetEvaluationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRulesetEvaluationRun">REST API Reference for GetDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual IAsyncResult BeginGetDataQualityRulesetEvaluationRun(GetDataQualityRulesetEvaluationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetDataQualityRulesetEvaluationRun.</param>
+        /// 
+        /// <returns>Returns a  GetDataQualityRulesetEvaluationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetDataQualityRulesetEvaluationRun">REST API Reference for GetDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual GetDataQualityRulesetEvaluationRunResponse EndGetDataQualityRulesetEvaluationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetDataQualityRulesetEvaluationRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetDevEndpoint
 
         /// <summary>
@@ -5895,7 +6504,7 @@ namespace Amazon.Glue
         #region  GetDevEndpoints
 
         /// <summary>
-        /// Retrieves all the development endpoints in this AWS account.
+        /// Retrieves all the development endpoints in this Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -6036,6 +6645,27 @@ namespace Amazon.Glue
 
         /// <summary>
         /// Returns information on a job bookmark entry.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about enabling and using job bookmarks, see:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking
+        /// processed data using job bookmarks</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job
+        /// parameters used by Glue</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job
+        /// structure</a> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetJobBookmark service method.</param>
         /// 
@@ -9116,6 +9746,262 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  ListDataQualityResults
+
+        /// <summary>
+        /// Returns all data quality execution results for your account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityResults service method.</param>
+        /// 
+        /// <returns>The response from the ListDataQualityResults service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityResults">REST API Reference for ListDataQualityResults Operation</seealso>
+        public virtual ListDataQualityResultsResponse ListDataQualityResults(ListDataQualityResultsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityResultsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityResultsResponseUnmarshaller.Instance;
+
+            return Invoke<ListDataQualityResultsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDataQualityResults operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityResults operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListDataQualityResults
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityResults">REST API Reference for ListDataQualityResults Operation</seealso>
+        public virtual IAsyncResult BeginListDataQualityResults(ListDataQualityResultsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityResultsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityResultsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListDataQualityResults operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListDataQualityResults.</param>
+        /// 
+        /// <returns>Returns a  ListDataQualityResultsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityResults">REST API Reference for ListDataQualityResults Operation</seealso>
+        public virtual ListDataQualityResultsResponse EndListDataQualityResults(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListDataQualityResultsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListDataQualityRuleRecommendationRuns
+
+        /// <summary>
+        /// Lists the recommendation runs meeting the filter criteria.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRuleRecommendationRuns service method.</param>
+        /// 
+        /// <returns>The response from the ListDataQualityRuleRecommendationRuns service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRuleRecommendationRuns">REST API Reference for ListDataQualityRuleRecommendationRuns Operation</seealso>
+        public virtual ListDataQualityRuleRecommendationRunsResponse ListDataQualityRuleRecommendationRuns(ListDataQualityRuleRecommendationRunsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRuleRecommendationRunsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRuleRecommendationRunsResponseUnmarshaller.Instance;
+
+            return Invoke<ListDataQualityRuleRecommendationRunsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDataQualityRuleRecommendationRuns operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRuleRecommendationRuns operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListDataQualityRuleRecommendationRuns
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRuleRecommendationRuns">REST API Reference for ListDataQualityRuleRecommendationRuns Operation</seealso>
+        public virtual IAsyncResult BeginListDataQualityRuleRecommendationRuns(ListDataQualityRuleRecommendationRunsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRuleRecommendationRunsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRuleRecommendationRunsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListDataQualityRuleRecommendationRuns operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListDataQualityRuleRecommendationRuns.</param>
+        /// 
+        /// <returns>Returns a  ListDataQualityRuleRecommendationRunsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRuleRecommendationRuns">REST API Reference for ListDataQualityRuleRecommendationRuns Operation</seealso>
+        public virtual ListDataQualityRuleRecommendationRunsResponse EndListDataQualityRuleRecommendationRuns(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListDataQualityRuleRecommendationRunsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListDataQualityRulesetEvaluationRuns
+
+        /// <summary>
+        /// Lists all the runs meeting the filter criteria, where a ruleset is evaluated against
+        /// a data source.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRulesetEvaluationRuns service method.</param>
+        /// 
+        /// <returns>The response from the ListDataQualityRulesetEvaluationRuns service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesetEvaluationRuns">REST API Reference for ListDataQualityRulesetEvaluationRuns Operation</seealso>
+        public virtual ListDataQualityRulesetEvaluationRunsResponse ListDataQualityRulesetEvaluationRuns(ListDataQualityRulesetEvaluationRunsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRulesetEvaluationRunsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRulesetEvaluationRunsResponseUnmarshaller.Instance;
+
+            return Invoke<ListDataQualityRulesetEvaluationRunsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDataQualityRulesetEvaluationRuns operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRulesetEvaluationRuns operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListDataQualityRulesetEvaluationRuns
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesetEvaluationRuns">REST API Reference for ListDataQualityRulesetEvaluationRuns Operation</seealso>
+        public virtual IAsyncResult BeginListDataQualityRulesetEvaluationRuns(ListDataQualityRulesetEvaluationRunsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRulesetEvaluationRunsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRulesetEvaluationRunsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListDataQualityRulesetEvaluationRuns operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListDataQualityRulesetEvaluationRuns.</param>
+        /// 
+        /// <returns>Returns a  ListDataQualityRulesetEvaluationRunsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesetEvaluationRuns">REST API Reference for ListDataQualityRulesetEvaluationRuns Operation</seealso>
+        public virtual ListDataQualityRulesetEvaluationRunsResponse EndListDataQualityRulesetEvaluationRuns(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListDataQualityRulesetEvaluationRunsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListDataQualityRulesets
+
+        /// <summary>
+        /// Returns a paginated list of rulesets for the specified list of Glue tables.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRulesets service method.</param>
+        /// 
+        /// <returns>The response from the ListDataQualityRulesets service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesets">REST API Reference for ListDataQualityRulesets Operation</seealso>
+        public virtual ListDataQualityRulesetsResponse ListDataQualityRulesets(ListDataQualityRulesetsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRulesetsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRulesetsResponseUnmarshaller.Instance;
+
+            return Invoke<ListDataQualityRulesetsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDataQualityRulesets operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDataQualityRulesets operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListDataQualityRulesets
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesets">REST API Reference for ListDataQualityRulesets Operation</seealso>
+        public virtual IAsyncResult BeginListDataQualityRulesets(ListDataQualityRulesetsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListDataQualityRulesetsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListDataQualityRulesetsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListDataQualityRulesets operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListDataQualityRulesets.</param>
+        /// 
+        /// <returns>Returns a  ListDataQualityRulesetsResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/ListDataQualityRulesets">REST API Reference for ListDataQualityRulesets Operation</seealso>
+        public virtual ListDataQualityRulesetsResponse EndListDataQualityRulesets(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListDataQualityRulesetsResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListDevEndpoints
 
         /// <summary>
@@ -10320,6 +11206,27 @@ namespace Amazon.Glue
 
         /// <summary>
         /// Resets a bookmark entry.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about enabling and using job bookmarks, see:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking
+        /// processed data using job bookmarks</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job
+        /// parameters used by Glue</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job
+        /// structure</a> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ResetJobBookmark service method.</param>
         /// 
@@ -10810,6 +11717,147 @@ namespace Amazon.Glue
         public virtual StartCrawlerScheduleResponse EndStartCrawlerSchedule(IAsyncResult asyncResult)
         {
             return EndInvoke<StartCrawlerScheduleResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  StartDataQualityRuleRecommendationRun
+
+        /// <summary>
+        /// Starts a recommendation run that is used to generate rules when you don't know what
+        /// rules to write. Glue Data Quality analyzes the data and comes up with recommendations
+        /// for a potential ruleset. You can then triage the ruleset and modify the generated
+        /// ruleset to your liking.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartDataQualityRuleRecommendationRun service method.</param>
+        /// 
+        /// <returns>The response from the StartDataQualityRuleRecommendationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConflictException">
+        /// The <code>CreatePartitions</code> API was called on a table that has indexes enabled.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRuleRecommendationRun">REST API Reference for StartDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual StartDataQualityRuleRecommendationRunResponse StartDataQualityRuleRecommendationRun(StartDataQualityRuleRecommendationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return Invoke<StartDataQualityRuleRecommendationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartDataQualityRuleRecommendationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartDataQualityRuleRecommendationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRuleRecommendationRun">REST API Reference for StartDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual IAsyncResult BeginStartDataQualityRuleRecommendationRun(StartDataQualityRuleRecommendationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDataQualityRuleRecommendationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDataQualityRuleRecommendationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartDataQualityRuleRecommendationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartDataQualityRuleRecommendationRun.</param>
+        /// 
+        /// <returns>Returns a  StartDataQualityRuleRecommendationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRuleRecommendationRun">REST API Reference for StartDataQualityRuleRecommendationRun Operation</seealso>
+        public virtual StartDataQualityRuleRecommendationRunResponse EndStartDataQualityRuleRecommendationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<StartDataQualityRuleRecommendationRunResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  StartDataQualityRulesetEvaluationRun
+
+        /// <summary>
+        /// Once you have a ruleset definition (either recommended or your own), you call this
+        /// operation to evaluate the ruleset against a data source (Glue table). The evaluation
+        /// computes results which you can retrieve with the <code>GetDataQualityResult</code>
+        /// API.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartDataQualityRulesetEvaluationRun service method.</param>
+        /// 
+        /// <returns>The response from the StartDataQualityRulesetEvaluationRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConflictException">
+        /// The <code>CreatePartitions</code> API was called on a table that has indexes enabled.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRulesetEvaluationRun">REST API Reference for StartDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual StartDataQualityRulesetEvaluationRunResponse StartDataQualityRulesetEvaluationRun(StartDataQualityRulesetEvaluationRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return Invoke<StartDataQualityRulesetEvaluationRunResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartDataQualityRulesetEvaluationRun operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartDataQualityRulesetEvaluationRun
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRulesetEvaluationRun">REST API Reference for StartDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual IAsyncResult BeginStartDataQualityRulesetEvaluationRun(StartDataQualityRulesetEvaluationRunRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartDataQualityRulesetEvaluationRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartDataQualityRulesetEvaluationRunResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartDataQualityRulesetEvaluationRun operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartDataQualityRulesetEvaluationRun.</param>
+        /// 
+        /// <returns>Returns a  StartDataQualityRulesetEvaluationRunResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/StartDataQualityRulesetEvaluationRun">REST API Reference for StartDataQualityRulesetEvaluationRun Operation</seealso>
+        public virtual StartDataQualityRulesetEvaluationRunResponse EndStartDataQualityRulesetEvaluationRun(IAsyncResult asyncResult)
+        {
+            return EndInvoke<StartDataQualityRulesetEvaluationRunResponse>(asyncResult);
         }
 
         #endregion
@@ -12424,6 +13472,81 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  UpdateDataQualityRuleset
+
+        /// <summary>
+        /// Updates the specified data quality ruleset.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateDataQualityRuleset service method.</param>
+        /// 
+        /// <returns>The response from the UpdateDataQualityRuleset service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IdempotentParameterMismatchException">
+        /// The same unique identifier was associated with two different records.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateDataQualityRuleset">REST API Reference for UpdateDataQualityRuleset Operation</seealso>
+        public virtual UpdateDataQualityRulesetResponse UpdateDataQualityRuleset(UpdateDataQualityRulesetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateDataQualityRulesetResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateDataQualityRuleset operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateDataQualityRuleset
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateDataQualityRuleset">REST API Reference for UpdateDataQualityRuleset Operation</seealso>
+        public virtual IAsyncResult BeginUpdateDataQualityRuleset(UpdateDataQualityRulesetRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateDataQualityRulesetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateDataQualityRulesetResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateDataQualityRuleset operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateDataQualityRuleset.</param>
+        /// 
+        /// <returns>Returns a  UpdateDataQualityRulesetResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateDataQualityRuleset">REST API Reference for UpdateDataQualityRuleset Operation</seealso>
+        public virtual UpdateDataQualityRulesetResponse EndUpdateDataQualityRuleset(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateDataQualityRulesetResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  UpdateDevEndpoint
 
         /// <summary>
@@ -12559,6 +13682,88 @@ namespace Amazon.Glue
         public virtual UpdateJobResponse EndUpdateJob(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateJobResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateJobFromSourceControl
+
+        /// <summary>
+        /// Synchronizes a job from the source control repository. This operation takes the job
+        /// artifacts that are located in the remote repository and updates the Glue internal
+        /// stores with these artifacts.
+        /// 
+        ///  
+        /// <para>
+        /// This API supports optional parameters which take in the repository information.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateJobFromSourceControl service method.</param>
+        /// 
+        /// <returns>The response from the UpdateJobFromSourceControl service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ValidationException">
+        /// A value could not be validated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateJobFromSourceControl">REST API Reference for UpdateJobFromSourceControl Operation</seealso>
+        public virtual UpdateJobFromSourceControlResponse UpdateJobFromSourceControl(UpdateJobFromSourceControlRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateJobFromSourceControlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateJobFromSourceControlResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateJobFromSourceControlResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateJobFromSourceControl operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateJobFromSourceControl operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateJobFromSourceControl
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateJobFromSourceControl">REST API Reference for UpdateJobFromSourceControl Operation</seealso>
+        public virtual IAsyncResult BeginUpdateJobFromSourceControl(UpdateJobFromSourceControlRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateJobFromSourceControlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateJobFromSourceControlResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateJobFromSourceControl operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateJobFromSourceControl.</param>
+        /// 
+        /// <returns>Returns a  UpdateJobFromSourceControlResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateJobFromSourceControl">REST API Reference for UpdateJobFromSourceControl Operation</seealso>
+        public virtual UpdateJobFromSourceControlResponse EndUpdateJobFromSourceControl(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateJobFromSourceControlResponse>(asyncResult);
         }
 
         #endregion
@@ -12863,6 +14068,88 @@ namespace Amazon.Glue
         public virtual UpdateSchemaResponse EndUpdateSchema(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateSchemaResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateSourceControlFromJob
+
+        /// <summary>
+        /// Synchronizes a job to the source control repository. This operation takes the job
+        /// artifacts from the Glue internal stores and makes a commit to the remote repository
+        /// that is configured on the job.
+        /// 
+        ///  
+        /// <para>
+        /// This API supports optional parameters which take in the repository information.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSourceControlFromJob service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSourceControlFromJob service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.AccessDeniedException">
+        /// Access to a resource was denied.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
+        /// A resource to be created or added already exists.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ValidationException">
+        /// A value could not be validated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateSourceControlFromJob">REST API Reference for UpdateSourceControlFromJob Operation</seealso>
+        public virtual UpdateSourceControlFromJobResponse UpdateSourceControlFromJob(UpdateSourceControlFromJobRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateSourceControlFromJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateSourceControlFromJobResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateSourceControlFromJobResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSourceControlFromJob operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSourceControlFromJob operation on AmazonGlueClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateSourceControlFromJob
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateSourceControlFromJob">REST API Reference for UpdateSourceControlFromJob Operation</seealso>
+        public virtual IAsyncResult BeginUpdateSourceControlFromJob(UpdateSourceControlFromJobRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateSourceControlFromJobRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateSourceControlFromJobResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateSourceControlFromJob operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateSourceControlFromJob.</param>
+        /// 
+        /// <returns>Returns a  UpdateSourceControlFromJobResult from Glue.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateSourceControlFromJob">REST API Reference for UpdateSourceControlFromJob Operation</seealso>
+        public virtual UpdateSourceControlFromJobResponse EndUpdateSourceControlFromJob(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateSourceControlFromJobResponse>(asyncResult);
         }
 
         #endregion

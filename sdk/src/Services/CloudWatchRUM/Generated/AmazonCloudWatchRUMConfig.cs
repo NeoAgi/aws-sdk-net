@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the rum-2018-05-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CloudWatchRUM.Internal;
 
 namespace Amazon.CloudWatchRUM
 {
     /// <summary>
     /// Configuration for accessing Amazon CloudWatchRUM service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCloudWatchRUMConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.91");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.38");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CloudWatchRUM
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudWatchRUMDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "rum";
+            this.EndpointProvider = new AmazonCloudWatchRUMEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CloudWatchRUM
                 return _userAgent;
             }
         }
+
     }
 }

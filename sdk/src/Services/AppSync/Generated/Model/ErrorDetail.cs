@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.AppSync.Model
 {
     /// <summary>
-    /// Contains the list of errors generated when attempting to evaluate a mapping template.
+    /// Contains the list of errors generated. When using JavaScript, this will apply to the
+    /// request or response function evaluation.
     /// </summary>
     public partial class ErrorDetail
     {

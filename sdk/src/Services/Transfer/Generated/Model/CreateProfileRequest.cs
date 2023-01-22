@@ -30,8 +30,7 @@ namespace Amazon.Transfer.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateProfile operation.
-    /// Creates the profile for the AS2 process. The agreement is between the partner and
-    /// the AS2 process.
+    /// Creates the local or partner profile to use for AS2 transfers.
     /// </summary>
     public partial class CreateProfileRequest : AmazonTransferRequest
     {
@@ -43,12 +42,11 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property As2Id. 
         /// <para>
-        /// The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the defined in the <a
-        /// href="https://datatracker.ietf.org/doc/html/rfc4130">RFC 4130</a>. For inbound transfers,
-        /// this is the <code>AS2-From</code> header for the AS2 messages sent from the partner.
-        /// For outbound connectors, this is the <code>AS2-To</code> header for the AS2 messages
-        /// sent to the partner using the <code>StartFileTransfer</code> API operation. This ID
-        /// cannot include spaces.
+        /// The <code>As2Id</code> is the <i>AS2-name</i>, as defined in the <a href="https://datatracker.ietf.org/doc/html/rfc4130">RFC
+        /// 4130</a>. For inbound transfers, this is the <code>AS2-From</code> header for the
+        /// AS2 messages sent from the partner. For outbound connectors, this is the <code>AS2-To</code>
+        /// header for the AS2 messages sent to the partner using the <code>StartFileTransfer</code>
+        /// API operation. This ID cannot include spaces.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=128)]
@@ -86,9 +84,19 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property ProfileType. 
         /// <para>
-        /// Indicates whether to list only <code>LOCAL</code> type profiles or only <code>PARTNER</code>
-        /// type profiles. If not supplied in the request, the command lists all types of profiles.
+        /// Determines the type of profile to create:
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Specify <code>LOCAL</code> to create a local profile. A local profile represents the
+        /// AS2-enabled Transfer Family server organization or party.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Specify <code>PARTNER</code> to create a partner profile. A partner profile represents
+        /// a remote organization, external to Transfer Family.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         [AWSProperty(Required=true)]
         public ProfileType ProfileType

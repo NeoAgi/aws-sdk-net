@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the sagemaker-featurestore-runtime-2020-07-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.SageMakerFeatureStoreRuntime.Internal;
 
 namespace Amazon.SageMakerFeatureStoreRuntime
 {
     /// <summary>
     /// Configuration for accessing Amazon SageMakerFeatureStoreRuntime service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonSageMakerFeatureStoreRuntimeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.165");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.28");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.SageMakerFeatureStoreRuntime
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSageMakerFeatureStoreRuntimeDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sagemaker";
+            this.EndpointProvider = new AmazonSageMakerFeatureStoreRuntimeEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.SageMakerFeatureStoreRuntime
                 return _userAgent;
             }
         }
+
     }
 }

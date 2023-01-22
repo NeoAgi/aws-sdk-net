@@ -17,18 +17,18 @@
  * Do not modify this file. This file is generated from the rest-json-test-2016-04-12.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.RestJsonTest.Internal;
 
 namespace Amazon.RestJsonTest
 {
     /// <summary>
     /// Configuration for accessing Amazon RestJsonTest service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonRestJsonTestConfig : ClientConfig
     {
         private static readonly string UserAgentString =
@@ -77,5 +77,6 @@ namespace Amazon.RestJsonTest
                 return _userAgent;
             }
         }
+
     }
 }

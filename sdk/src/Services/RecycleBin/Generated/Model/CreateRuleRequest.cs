@@ -37,6 +37,7 @@ namespace Amazon.RecycleBin.Model
     public partial class CreateRuleRequest : AmazonRecycleBinRequest
     {
         private string _description;
+        private LockConfiguration _lockConfiguration;
         private List<ResourceTag> _resourceTags = new List<ResourceTag>();
         private ResourceType _resourceType;
         private RetentionPeriod _retentionPeriod;
@@ -58,6 +59,24 @@ namespace Amazon.RecycleBin.Model
         internal bool IsSetDescription()
         {
             return this._description != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LockConfiguration. 
+        /// <para>
+        /// Information about the retention rule lock configuration.
+        /// </para>
+        /// </summary>
+        public LockConfiguration LockConfiguration
+        {
+            get { return this._lockConfiguration; }
+            set { this._lockConfiguration = value; }
+        }
+
+        // Check to see if LockConfiguration property is set
+        internal bool IsSetLockConfiguration()
+        {
+            return this._lockConfiguration != null;
         }
 
         /// <summary>

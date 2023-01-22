@@ -252,6 +252,15 @@ namespace Amazon.CostExplorer
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonCostExplorerEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -337,9 +346,9 @@ namespace Amazon.CostExplorer
         #region  CreateAnomalySubscription
 
         /// <summary>
-        /// Adds a subscription to a cost anomaly detection monitor. You can use each subscription
-        /// to define subscribers with email or SNS notifications. Email subscribers can set a
-        /// dollar threshold and a time frequency for receiving notifications.
+        /// Adds an alert subscription to a cost anomaly detection monitor. You can use each subscription
+        /// to define subscribers with email or SNS notifications. Email subscribers can set an
+        /// absolute or percentage threshold and a time frequency for receiving notifications.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAnomalySubscription service method.</param>
         /// 
@@ -711,7 +720,8 @@ namespace Amazon.CostExplorer
 
         /// <summary>
         /// Retrieves all of the cost anomalies detected on your account during the time period
-        /// that's specified by the <code>DateInterval</code> object.
+        /// that's specified by the <code>DateInterval</code> object. Anomalies are available
+        /// for up to 90 days.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAnomalies service method.</param>
         /// 
@@ -1708,7 +1718,9 @@ namespace Amazon.CostExplorer
         #region  GetSavingsPlansPurchaseRecommendation
 
         /// <summary>
-        /// Retrieves your request parameters, Savings Plan Recommendations Summary and Details.
+        /// Retrieves the Savings Plans recommendations for your account. First use <code>StartSavingsPlansPurchaseRecommendationGeneration</code>
+        /// to generate a new set of recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code>
+        /// to retrieve them.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSavingsPlansPurchaseRecommendation service method.</param>
         /// 
@@ -2168,6 +2180,67 @@ namespace Amazon.CostExplorer
 
         #endregion
         
+        #region  ListSavingsPlansPurchaseRecommendationGeneration
+
+        /// <summary>
+        /// Retrieves a list of your historical recommendation generations within the past 30
+        /// days.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSavingsPlansPurchaseRecommendationGeneration service method.</param>
+        /// 
+        /// <returns>The response from the ListSavingsPlansPurchaseRecommendationGeneration service method, as returned by CostExplorer.</returns>
+        /// <exception cref="Amazon.CostExplorer.Model.InvalidNextTokenException">
+        /// The pagination token is invalid. Try again without a pagination token.
+        /// </exception>
+        /// <exception cref="Amazon.CostExplorer.Model.LimitExceededException">
+        /// You made too many calls in a short period of time. Try again later.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListSavingsPlansPurchaseRecommendationGeneration">REST API Reference for ListSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual ListSavingsPlansPurchaseRecommendationGenerationResponse ListSavingsPlansPurchaseRecommendationGeneration(ListSavingsPlansPurchaseRecommendationGenerationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSavingsPlansPurchaseRecommendationGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSavingsPlansPurchaseRecommendationGenerationResponseUnmarshaller.Instance;
+
+            return Invoke<ListSavingsPlansPurchaseRecommendationGenerationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListSavingsPlansPurchaseRecommendationGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListSavingsPlansPurchaseRecommendationGeneration operation on AmazonCostExplorerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListSavingsPlansPurchaseRecommendationGeneration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListSavingsPlansPurchaseRecommendationGeneration">REST API Reference for ListSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual IAsyncResult BeginListSavingsPlansPurchaseRecommendationGeneration(ListSavingsPlansPurchaseRecommendationGenerationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSavingsPlansPurchaseRecommendationGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSavingsPlansPurchaseRecommendationGenerationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListSavingsPlansPurchaseRecommendationGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListSavingsPlansPurchaseRecommendationGeneration.</param>
+        /// 
+        /// <returns>Returns a  ListSavingsPlansPurchaseRecommendationGenerationResult from CostExplorer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/ListSavingsPlansPurchaseRecommendationGeneration">REST API Reference for ListSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual ListSavingsPlansPurchaseRecommendationGenerationResponse EndListSavingsPlansPurchaseRecommendationGeneration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListSavingsPlansPurchaseRecommendationGenerationResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListTagsForResource
 
         /// <summary>
@@ -2282,6 +2355,80 @@ namespace Amazon.CostExplorer
         public virtual ProvideAnomalyFeedbackResponse EndProvideAnomalyFeedback(IAsyncResult asyncResult)
         {
             return EndInvoke<ProvideAnomalyFeedbackResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  StartSavingsPlansPurchaseRecommendationGeneration
+
+        /// <summary>
+        /// Requests a Savings Plans recommendation generation. This enables you to calculate
+        /// a fresh set of Savings Plans recommendations that takes your latest usage data and
+        /// current Savings Plans inventory into account. You can refresh Savings Plans recommendations
+        /// up to three times daily for a consolidated billing family.
+        /// 
+        ///  <note> 
+        /// <para>
+        ///  <code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
+        /// because no input parameters are needed to support this operation.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartSavingsPlansPurchaseRecommendationGeneration service method.</param>
+        /// 
+        /// <returns>The response from the StartSavingsPlansPurchaseRecommendationGeneration service method, as returned by CostExplorer.</returns>
+        /// <exception cref="Amazon.CostExplorer.Model.GenerationExistsException">
+        /// A request to generate a recommendation is already in progress.
+        /// </exception>
+        /// <exception cref="Amazon.CostExplorer.Model.LimitExceededException">
+        /// You made too many calls in a short period of time. Try again later.
+        /// </exception>
+        /// <exception cref="Amazon.CostExplorer.Model.ServiceQuotaExceededException">
+        /// You've reached the limit on the number of resources you can create, or exceeded the
+        /// size of an individual resource.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartSavingsPlansPurchaseRecommendationGeneration">REST API Reference for StartSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual StartSavingsPlansPurchaseRecommendationGenerationResponse StartSavingsPlansPurchaseRecommendationGeneration(StartSavingsPlansPurchaseRecommendationGenerationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSavingsPlansPurchaseRecommendationGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSavingsPlansPurchaseRecommendationGenerationResponseUnmarshaller.Instance;
+
+            return Invoke<StartSavingsPlansPurchaseRecommendationGenerationResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartSavingsPlansPurchaseRecommendationGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartSavingsPlansPurchaseRecommendationGeneration operation on AmazonCostExplorerClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartSavingsPlansPurchaseRecommendationGeneration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartSavingsPlansPurchaseRecommendationGeneration">REST API Reference for StartSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual IAsyncResult BeginStartSavingsPlansPurchaseRecommendationGeneration(StartSavingsPlansPurchaseRecommendationGenerationRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSavingsPlansPurchaseRecommendationGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSavingsPlansPurchaseRecommendationGenerationResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartSavingsPlansPurchaseRecommendationGeneration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartSavingsPlansPurchaseRecommendationGeneration.</param>
+        /// 
+        /// <returns>Returns a  StartSavingsPlansPurchaseRecommendationGenerationResult from CostExplorer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ce-2017-10-25/StartSavingsPlansPurchaseRecommendationGeneration">REST API Reference for StartSavingsPlansPurchaseRecommendationGeneration Operation</seealso>
+        public virtual StartSavingsPlansPurchaseRecommendationGenerationResponse EndStartSavingsPlansPurchaseRecommendationGeneration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<StartSavingsPlansPurchaseRecommendationGenerationResponse>(asyncResult);
         }
 
         #endregion

@@ -61,7 +61,11 @@ namespace Amazon.IoTSiteWise.Model.Internal.MarshallTransformations
             if (!publicRequest.IsSetAssetModelId())
                 throw new AmazonIoTSiteWiseException("Request object does not have required field AssetModelId set");
             request.AddPathResource("{assetModelId}", StringUtils.FromString(publicRequest.AssetModelId));
+            
+            if (publicRequest.IsSetExcludeProperties())
+                request.Parameters.Add("excludeProperties", StringUtils.FromBool(publicRequest.ExcludeProperties));
             request.ResourcePath = "/asset-models/{assetModelId}";
+            request.UseQueryString = true;
             
             request.HostPrefix = $"api.";
 

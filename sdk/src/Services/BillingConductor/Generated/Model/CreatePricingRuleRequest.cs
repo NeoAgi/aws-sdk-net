@@ -34,19 +34,42 @@ namespace Amazon.BillingConductor.Model
     /// </summary>
     public partial class CreatePricingRuleRequest : AmazonBillingConductorRequest
     {
+        private string _billingEntity;
         private string _clientToken;
         private string _description;
         private double? _modifierPercentage;
         private string _name;
+        private string _operation;
         private PricingRuleScope _scope;
         private string _service;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
+        private CreateTieringInput _tiering;
         private PricingRuleType _type;
+        private string _usageType;
+
+        /// <summary>
+        /// Gets and sets the property BillingEntity. 
+        /// <para>
+        ///  The seller of services provided by Amazon Web Services, their affiliates, or third-party
+        /// providers selling services via Amazon Web Services Marketplace. 
+        /// </para>
+        /// </summary>
+        public string BillingEntity
+        {
+            get { return this._billingEntity; }
+            set { this._billingEntity = value; }
+        }
+
+        // Check to see if BillingEntity property is set
+        internal bool IsSetBillingEntity()
+        {
+            return this._billingEntity != null;
+        }
 
         /// <summary>
         /// Gets and sets the property ClientToken. 
         /// <para>
-        ///  The token that is needed to support idempotency. Idempotency isn't currently supported,
+        ///  The token that's needed to support idempotency. Idempotency isn't currently supported,
         /// but will be implemented in a future update. 
         /// </para>
         /// </summary>
@@ -85,10 +108,10 @@ namespace Amazon.BillingConductor.Model
         /// <summary>
         /// Gets and sets the property ModifierPercentage. 
         /// <para>
-        ///  A percentage modifier applied on the public pricing rates. 
+        ///  A percentage modifier that's applied on the public pricing rates. 
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=0)]
+        [AWSProperty(Min=0)]
         public double ModifierPercentage
         {
             get { return this._modifierPercentage.GetValueOrDefault(); }
@@ -121,9 +144,35 @@ namespace Amazon.BillingConductor.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Operation. 
+        /// <para>
+        ///  Operation is the specific Amazon Web Services action covered by this line item. This
+        /// describes the specific usage of the line item.
+        /// </para>
+        ///  
+        /// <para>
+        ///  If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates
+        /// which operation the <code>PricingRule</code> is modifying. For example, a value of
+        /// <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string Operation
+        {
+            get { return this._operation; }
+            set { this._operation = value; }
+        }
+
+        // Check to see if Operation property is set
+        internal bool IsSetOperation()
+        {
+            return this._operation != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Scope. 
         /// <para>
-        ///  The scope of pricing rule that indicates if it is globally applicable, or is service-specific.
+        ///  The scope of pricing rule that indicates if it's globally applicable, or it's service-specific.
         /// 
         /// </para>
         /// </summary>
@@ -143,8 +192,9 @@ namespace Amazon.BillingConductor.Model
         /// <summary>
         /// Gets and sets the property Service. 
         /// <para>
-        ///  If the <code>Scope</code> attribute is set to <code>SERVICE</code>, the attribute
-        /// indicates which service the <code>PricingRule</code> is applicable for. 
+        ///  If the <code>Scope</code> attribute is set to <code>SERVICE</code> or <code>SKU</code>,
+        /// the attribute indicates which service the <code>PricingRule</code> is applicable for.
+        /// 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=128)]
@@ -181,6 +231,24 @@ namespace Amazon.BillingConductor.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Tiering. 
+        /// <para>
+        ///  The set of tiering configurations for the pricing rule. 
+        /// </para>
+        /// </summary>
+        public CreateTieringInput Tiering
+        {
+            get { return this._tiering; }
+            set { this._tiering = value; }
+        }
+
+        // Check to see if Tiering property is set
+        internal bool IsSetTiering()
+        {
+            return this._tiering != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
         ///  The type of pricing rule. 
@@ -197,6 +265,32 @@ namespace Amazon.BillingConductor.Model
         internal bool IsSetType()
         {
             return this._type != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property UsageType. 
+        /// <para>
+        ///  Usage type is the unit that each service uses to measure the usage of a specific
+        /// type of resource.
+        /// </para>
+        ///  
+        /// <para>
+        /// If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates
+        /// which usage type the <code>PricingRule</code> is modifying. For example, <code>USW2-BoxUsage:m2.2xlarge</code>
+        /// describes an<code> M2 High Memory Double Extra Large</code> instance in the US West
+        /// (Oregon) Region. <pre><code>&lt;/p&gt; </code></pre>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string UsageType
+        {
+            get { return this._usageType; }
+            set { this._usageType = value; }
+        }
+
+        // Check to see if UsageType property is set
+        internal bool IsSetUsageType()
+        {
+            return this._usageType != null;
         }
 
     }

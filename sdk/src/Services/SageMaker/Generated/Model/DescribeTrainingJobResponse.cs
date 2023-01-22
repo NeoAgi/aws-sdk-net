@@ -73,6 +73,7 @@ namespace Amazon.SageMaker.Model
         private int? _trainingTimeInSeconds;
         private string _tuningJobArn;
         private VpcConfig _vpcConfig;
+        private WarmPoolStatus _warmPoolStatus;
 
         /// <summary>
         /// Gets and sets the property AlgorithmSpecification. 
@@ -196,7 +197,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property DebugRuleConfigurations. 
         /// <para>
-        /// Configuration information for Debugger rules for debugging output tensors.
+        /// Configuration information for Amazon SageMaker Debugger rules for debugging output
+        /// tensors.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]
@@ -215,7 +217,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property DebugRuleEvaluationStatuses. 
         /// <para>
-        /// Evaluation status of Debugger rules for debugging on a training job.
+        /// Evaluation status of Amazon SageMaker Debugger rules for debugging on a training job.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]
@@ -500,7 +502,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ProfilerRuleConfigurations. 
         /// <para>
-        /// Configuration information for Debugger rules for profiling system and framework metrics.
+        /// Configuration information for Amazon SageMaker Debugger rules for profiling system
+        /// and framework metrics.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]
@@ -519,7 +522,7 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ProfilerRuleEvaluationStatuses. 
         /// <para>
-        /// Evaluation status of Debugger rules for profiling on a training job.
+        /// Evaluation status of Amazon SageMaker Debugger rules for profiling on a training job.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=20)]
@@ -956,6 +959,24 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetVpcConfig()
         {
             return this._vpcConfig != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property WarmPoolStatus. 
+        /// <para>
+        /// The status of the warm pool associated with the training job.
+        /// </para>
+        /// </summary>
+        public WarmPoolStatus WarmPoolStatus
+        {
+            get { return this._warmPoolStatus; }
+            set { this._warmPoolStatus = value; }
+        }
+
+        // Check to see if WarmPoolStatus property is set
+        internal bool IsSetWarmPoolStatus()
+        {
+            return this._warmPoolStatus != null;
         }
 
     }

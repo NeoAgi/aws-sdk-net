@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the pinpoint-2016-12-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Pinpoint.Internal;
 
 namespace Amazon.Pinpoint
 {
     /// <summary>
     /// Configuration for accessing Amazon Pinpoint service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPinpointConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.4");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Pinpoint
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPinpointDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mobiletargeting";
+            this.EndpointProvider = new AmazonPinpointEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Pinpoint
                 return _userAgent;
             }
         }
+
     }
 }

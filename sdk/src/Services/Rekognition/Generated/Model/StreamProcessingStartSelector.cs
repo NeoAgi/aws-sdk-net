@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Rekognition.Model
 {
     /// <summary>
-    /// 
+    /// This is a required parameter for label detection stream processors and should not
+    /// be used to start a face search stream processor.
     /// </summary>
     public partial class StreamProcessingStartSelector
     {
@@ -39,7 +40,7 @@ namespace Amazon.Rekognition.Model
         /// Gets and sets the property KVSStreamStartSelector. 
         /// <para>
         ///  Specifies the starting point in the stream to start processing. This can be done
-        /// with a timestamp or a fragment number in a Kinesis stream. 
+        /// with a producer timestamp or a fragment number in a Kinesis stream. 
         /// </para>
         /// </summary>
         public KinesisVideoStreamStartSelector KVSStreamStartSelector

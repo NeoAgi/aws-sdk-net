@@ -190,6 +190,7 @@
         {"shape":"ConflictException"},
         {"shape":"AccessDeniedException"},
         {"shape":"ValidationException"},
+        {"shape":"ServiceQuotaExceededException"},
         {"shape":"ThrottlingException"}
       ],
       "endpoint":{"hostPrefix":"geofencing."},
@@ -209,6 +210,7 @@
         {"shape":"ConflictException"},
         {"shape":"AccessDeniedException"},
         {"shape":"ValidationException"},
+        {"shape":"ServiceQuotaExceededException"},
         {"shape":"ThrottlingException"}
       ],
       "endpoint":{"hostPrefix":"maps."},
@@ -228,6 +230,7 @@
         {"shape":"ConflictException"},
         {"shape":"AccessDeniedException"},
         {"shape":"ValidationException"},
+        {"shape":"ServiceQuotaExceededException"},
         {"shape":"ThrottlingException"}
       ],
       "endpoint":{"hostPrefix":"places."},
@@ -247,6 +250,7 @@
         {"shape":"ConflictException"},
         {"shape":"AccessDeniedException"},
         {"shape":"ValidationException"},
+        {"shape":"ServiceQuotaExceededException"},
         {"shape":"ThrottlingException"}
       ],
       "endpoint":{"hostPrefix":"routes."},
@@ -599,6 +603,24 @@
         {"shape":"ThrottlingException"}
       ],
       "endpoint":{"hostPrefix":"maps."}
+    },
+    "GetPlace":{
+      "name":"GetPlace",
+      "http":{
+        "method":"GET",
+        "requestUri":"/places/v0/indexes/{IndexName}/places/{PlaceId}",
+        "responseCode":200
+      },
+      "input":{"shape":"GetPlaceRequest"},
+      "output":{"shape":"GetPlaceResponse"},
+      "errors":[
+        {"shape":"InternalServerException"},
+        {"shape":"ResourceNotFoundException"},
+        {"shape":"AccessDeniedException"},
+        {"shape":"ValidationException"},
+        {"shape":"ThrottlingException"}
+      ],
+      "endpoint":{"hostPrefix":"places."}
     },
     "ListDevicePositions":{
       "name":"ListDevicePositions",
@@ -1610,7 +1632,7 @@
       ],
       "members":{
         "CreateTime":{"shape":"Timestamp"},
-        "MapArn":{"shape":"Arn"},
+        "MapArn":{"shape":"GeoArn"},
         "MapName":{"shape":"ResourceName"}
       }
     },
@@ -1864,7 +1886,7 @@
         "CreateTime":{"shape":"Timestamp"},
         "DataSource":{"shape":"String"},
         "Description":{"shape":"ResourceDescription"},
-        "MapArn":{"shape":"Arn"},
+        "MapArn":{"shape":"GeoArn"},
         "MapName":{"shape":"ResourceName"},
         "PricingPlan":{
           "shape":"PricingPlan",
@@ -2066,6 +2088,12 @@
     "Double":{
       "type":"double",
       "box":true
+    },
+    "GeoArn":{
+      "type":"string",
+      "max":1600,
+      "min":0,
+      "pattern":"^arn(:[a-z0-9]+([.-][a-z0-9]+)*):geo(:([a-z0-9]+([.-][a-z0-9]+)*))(:[0-9]+):((\\*)|([-a-z]+[/][*-._\\w]+))$"
     },
     "GeofenceGeometry":{
       "type":"structure",
@@ -2335,6 +2363,37 @@
         }
       },
       "payload":"Blob"
+    },
+    "GetPlaceRequest":{
+      "type":"structure",
+      "required":[
+        "IndexName",
+        "PlaceId"
+      ],
+      "members":{
+        "IndexName":{
+          "shape":"ResourceName",
+          "location":"uri",
+          "locationName":"IndexName"
+        },
+        "Language":{
+          "shape":"LanguageTag",
+          "location":"querystring",
+          "locationName":"language"
+        },
+        "PlaceId":{
+          "shape":"PlaceId",
+          "location":"uri",
+          "locationName":"PlaceId"
+        }
+      }
+    },
+    "GetPlaceResponse":{
+      "type":"structure",
+      "required":["Place"],
+      "members":{
+        "Place":{"shape":"Place"}
+      }
     },
     "Id":{
       "type":"string",
@@ -2837,7 +2896,9 @@
         "Region":{"shape":"String"},
         "Street":{"shape":"String"},
         "SubRegion":{"shape":"String"},
-        "TimeZone":{"shape":"TimeZone"}
+        "TimeZone":{"shape":"TimeZone"},
+        "UnitNumber":{"shape":"String"},
+        "UnitType":{"shape":"String"}
       }
     },
     "PlaceGeometry":{
@@ -2846,6 +2907,7 @@
         "Point":{"shape":"Position"}
       }
     },
+    "PlaceId":{"type":"string"},
     "PlaceIndexSearchResultLimit":{
       "type":"integer",
       "max":50,
@@ -3018,7 +3080,8 @@
       ],
       "members":{
         "Distance":{"shape":"SearchForPositionResultDistanceDouble"},
-        "Place":{"shape":"Place"}
+        "Place":{"shape":"Place"},
+        "PlaceId":{"shape":"PlaceId"}
       }
     },
     "SearchForPositionResultDistanceDouble":{
@@ -3034,6 +3097,7 @@
       "type":"structure",
       "required":["Text"],
       "members":{
+        "PlaceId":{"shape":"PlaceId"},
         "Text":{"shape":"String"}
       }
     },
@@ -3047,6 +3111,7 @@
       "members":{
         "Distance":{"shape":"SearchForTextResultDistanceDouble"},
         "Place":{"shape":"Place"},
+        "PlaceId":{"shape":"PlaceId"},
         "Relevance":{"shape":"SearchForTextResultRelevanceDouble"}
       }
     },
@@ -3357,7 +3422,9 @@
       "enum":[
         "Car",
         "Truck",
-        "Walking"
+        "Walking",
+        "Bicycle",
+        "Motorcycle"
       ]
     },
     "TruckDimensions":{
@@ -3480,7 +3547,7 @@
         "UpdateTime"
       ],
       "members":{
-        "MapArn":{"shape":"Arn"},
+        "MapArn":{"shape":"GeoArn"},
         "MapName":{"shape":"ResourceName"},
         "UpdateTime":{"shape":"Timestamp"}
       }

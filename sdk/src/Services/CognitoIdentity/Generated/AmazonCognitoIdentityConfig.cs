@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the cognito-identity-2014-06-30.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CognitoIdentity.Internal;
 
 namespace Amazon.CognitoIdentity
 {
     /// <summary>
     /// Configuration for accessing Amazon CognitoIdentity service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCognitoIdentityConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CognitoIdentity
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCognitoIdentityDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cognito-identity";
+            this.EndpointProvider = new AmazonCognitoIdentityEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CognitoIdentity
                 return _userAgent;
             }
         }
+
     }
 }

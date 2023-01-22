@@ -43,9 +43,9 @@ namespace Amazon.SSOOIDC.Model
         /// <summary>
         /// Gets and sets the property ClientId. 
         /// <para>
-        /// The unique identifier string for the client that is registered with Amazon Web Services
-        /// SSO. This value should come from the persisted result of the <a>RegisterClient</a>
-        /// API operation.
+        /// The unique identifier string for the client that is registered with IAM Identity Center.
+        /// This value should come from the persisted result of the <a>RegisterClient</a> API
+        /// operation.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -85,7 +85,7 @@ namespace Amazon.SSOOIDC.Model
         /// Gets and sets the property StartUrl. 
         /// <para>
         /// The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-        /// the AWS access portal</a> in the <i>Amazon Web Services SSO User Guide</i>.
+        /// the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

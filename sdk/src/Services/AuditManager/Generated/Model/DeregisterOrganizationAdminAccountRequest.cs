@@ -33,15 +33,37 @@ namespace Amazon.AuditManager.Model
     /// Removes the specified Amazon Web Services account as a delegated administrator for
     /// Audit Manager. 
     /// 
-    ///  <important> 
+    ///  
     /// <para>
     /// When you remove a delegated administrator from your Audit Manager settings, you continue
     /// to have access to the evidence that you previously collected under that account. This
     /// is also the case when you deregister a delegated administrator from Organizations.
-    /// However, Audit Manager will stop collecting and attaching evidence to that delegated
-    /// administrator account moving forward.
+    /// However, Audit Manager stops collecting and attaching evidence to that delegated administrator
+    /// account moving forward.
     /// </para>
-    ///  </important> <note> 
+    ///  <important> 
+    /// <para>
+    /// Keep in mind the following cleanup task if you use evidence finder:
+    /// </para>
+    ///  
+    /// <para>
+    /// Before you use your management account to remove a delegated administrator, make sure
+    /// that the current delegated administrator account signs in to Audit Manager and disables
+    /// evidence finder first. Disabling evidence finder automatically deletes the event data
+    /// store that was created in their account when they enabled evidence finder. If this
+    /// task isn’t completed, the event data store remains in their account. In this case,
+    /// we recommend that the original delegated administrator goes to CloudTrail Lake and
+    /// manually <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-eds-disable-termination.html">deletes
+    /// the event data store</a>.
+    /// </para>
+    ///  
+    /// <para>
+    /// This cleanup task is necessary to ensure that you don't end up with multiple event
+    /// data stores. Audit Manager ignores an unused event data store after you remove or
+    /// change a delegated administrator account. However, the unused event data store continues
+    /// to incur storage costs from CloudTrail Lake if you don't delete it.
+    /// </para>
+    ///  </important> 
     /// <para>
     /// When you deregister a delegated administrator account for Audit Manager, the data
     /// for that account isn’t deleted. If you want to delete resource data for a delegated
@@ -85,10 +107,11 @@ namespace Amazon.AuditManager.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// At this time, Audit Manager doesn't provide an option to delete evidence. All available
-    /// delete operations are listed above.
+    /// At this time, Audit Manager doesn't provide an option to delete evidence for a specific
+    /// delegated administrator. Instead, when your management account deregisters Audit Manager,
+    /// we perform a cleanup for the current delegated administrator account at the time of
+    /// deregistration.
     /// </para>
-    ///  </note>
     /// </summary>
     public partial class DeregisterOrganizationAdminAccountRequest : AmazonAuditManagerRequest
     {

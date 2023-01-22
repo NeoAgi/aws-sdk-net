@@ -40,6 +40,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         private List<string> _autoVerifiedAttributes = new List<string>();
         private DateTime? _creationDate;
         private string _customDomain;
+        private DeletionProtectionType _deletionProtection;
         private DeviceConfigurationType _deviceConfiguration;
         private string _domain;
         private EmailConfigurationType _emailConfiguration;
@@ -207,6 +208,33 @@ namespace Amazon.CognitoIdentityProvider.Model
         }
 
         /// <summary>
+        /// Gets and sets the property DeletionProtection. 
+        /// <para>
+        /// When active, <code>DeletionProtection</code> prevents accidental deletion of your
+        /// user pool. Before you can delete a user pool that you have protected against deletion,
+        /// you must deactivate this feature.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you try to delete a protected user pool in a <code>DeleteUserPool</code> API
+        /// request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To
+        /// delete a protected user pool, send a new <code>DeleteUserPool</code> request after
+        /// you deactivate deletion protection in an <code>UpdateUserPool</code> API request.
+        /// </para>
+        /// </summary>
+        public DeletionProtectionType DeletionProtection
+        {
+            get { return this._deletionProtection; }
+            set { this._deletionProtection = value; }
+        }
+
+        // Check to see if DeletionProtection property is set
+        internal bool IsSetDeletionProtection()
+        {
+            return this._deletionProtection != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DeviceConfiguration. 
         /// <para>
         /// The device-remembering configuration for a user pool. A null value indicates that
@@ -292,7 +320,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property EmailVerificationMessage. 
         /// <para>
-        /// The contents of the email verification message.
+        /// This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=6, Max=20000)]
@@ -311,7 +339,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property EmailVerificationSubject. 
         /// <para>
-        /// The subject of the email verification message.
+        /// This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=140)]
@@ -570,7 +598,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property SmsVerificationMessage. 
         /// <para>
-        /// The contents of the SMS verification message.
+        /// This parameter is no longer used. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html">VerificationMessageTemplateType</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=6, Max=140)]

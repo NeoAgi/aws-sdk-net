@@ -17,18 +17,18 @@
  * Do not modify this file. This file is generated from the rest-xml-test-2014-01-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.RestXMLTest.Internal;
 
 namespace Amazon.RestXMLTest
 {
     /// <summary>
     /// Configuration for accessing Amazon RestXMLTest service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonRestXMLTestConfig : ClientConfig
     {
         private static readonly string UserAgentString =
@@ -77,5 +77,6 @@ namespace Amazon.RestXMLTest
                 return _userAgent;
             }
         }
+
     }
 }

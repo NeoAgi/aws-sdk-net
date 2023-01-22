@@ -95,6 +95,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.EndpointConfigName);
                 }
 
+                if(publicRequest.IsSetExplainerConfig())
+                {
+                    context.Writer.WritePropertyName("ExplainerConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ExplainerConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.ExplainerConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetKmsKeyId())
                 {
                     context.Writer.WritePropertyName("KmsKeyId");
@@ -111,6 +122,22 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
                         var marshaller = ProductionVariantMarshaller.Instance;
                         marshaller.Marshall(publicRequestProductionVariantsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetShadowProductionVariants())
+                {
+                    context.Writer.WritePropertyName("ShadowProductionVariants");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestShadowProductionVariantsListValue in publicRequest.ShadowProductionVariants)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = ProductionVariantMarshaller.Instance;
+                        marshaller.Marshall(publicRequestShadowProductionVariantsListValue, context);
 
                         context.Writer.WriteObjectEnd();
                     }

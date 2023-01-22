@@ -240,6 +240,11 @@
     <max>30000</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.MediaLive.Model.Eac3AtmosSettings.Dialnorm</property>
+    <min>1</min>
+    <max>31</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.MediaLive.Model.Eac3Settings.Dialnorm</property>
     <min>1</min>
     <max>31</max>
@@ -257,6 +262,23 @@
     <property>Amazon.MediaLive.Model.EmbeddedSourceSettings.Source608TrackNumber</property>
     <min>1</min>
     <max>5</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.Esam.AcquisitionPointId</property>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.Esam.AdAvailOffset</property>
+    <min>-1000</min>
+    <max>1000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.Esam.PoisEndpoint</property>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.Esam.ZoneIdentity</property>
+    <max>256</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MediaLive.Model.FecOutputSettings.ColumnDepth</property>
@@ -958,6 +980,10 @@
     <property>Amazon.MediaLive.Model.StaticKeySettings.StaticKeyValue</property>
     <min>32</min>
     <max>32</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MediaLive.Model.TimecodeBurninSettings.Prefix</property>
+    <max>255</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MediaLive.Model.TimecodeConfig.SyncThreshold</property>

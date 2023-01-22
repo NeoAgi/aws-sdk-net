@@ -63,20 +63,10 @@ namespace Amazon.S3Control.Model.Internal.MarshallTransformations
             }
             if (!publicRequest.IsSetName())
                 throw new AmazonS3ControlException("Request object does not have required field Name set");
-            request.AddPathResource("{name}", StringUtils.FromString(publicRequest.Name));
-            request.ResourcePath = "/v20180820/mrap/instances/{name}/policystatus";
+            request.AddPathResource("{name+}", StringUtils.FromString(publicRequest.Name.TrimStart('/')));
+            request.ResourcePath = "/v20180820/mrap/instances/{name+}/policystatus";
 
 
-
-            var hostPrefixLabels = new
-            {
-                AccountId = StringUtils.FromString(publicRequest.AccountId),
-            };
-
-            if (!HostPrefixUtils.IsValidLabelValue(hostPrefixLabels.AccountId))
-                throw new AmazonS3ControlException("AccountId can only contain alphanumeric characters and dashes and must be between 1 and 63 characters long.");        
-            
-            request.HostPrefix = $"{hostPrefixLabels.AccountId}.";
             return request;
         }
         private static GetMultiRegionAccessPointPolicyStatusRequestMarshaller _instance = new GetMultiRegionAccessPointPolicyStatusRequestMarshaller();        

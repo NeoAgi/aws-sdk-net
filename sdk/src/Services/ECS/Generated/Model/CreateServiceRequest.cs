@@ -133,35 +133,10 @@ namespace Amazon.ECS.Model
     /// </para>
     ///  
     /// <para>
-    /// When the service scheduler launches new tasks, it determines task placement in your
-    /// cluster using the following logic:
+    /// When the service scheduler launches new tasks, it determines task placement. For information
+    /// about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon
+    /// ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
-    ///  <ul> <li> 
-    /// <para>
-    /// Determine which of the container instances in your cluster can support the task definition
-    /// of your service. For example, they have the required CPU, memory, ports, and container
-    /// instance attributes.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// By default, the service scheduler attempts to balance tasks across Availability Zones
-    /// in this manner. This is the case even if you can choose a different placement strategy
-    /// with the <code>placementStrategy</code> parameter.
-    /// </para>
-    ///  <ul> <li> 
-    /// <para>
-    /// Sort the valid container instances, giving priority to instances that have the fewest
-    /// number of running tasks for this service in their respective Availability Zone. For
-    /// example, if zone A has one running service task and zones B and C each have zero,
-    /// valid container instances in either zone B or C are considered optimal for placement.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// Place the new service task on a valid container instance in an optimal Availability
-    /// Zone based on the previous steps, favoring container instances with the fewest number
-    /// of running tasks for this service.
-    /// </para>
-    ///  </li> </ul> </li> </ul>
     /// </summary>
     public partial class CreateServiceRequest : AmazonECSRequest
     {
@@ -183,6 +158,7 @@ namespace Amazon.ECS.Model
         private PropagateTags _propagateTags;
         private string _role;
         private SchedulingStrategy _schedulingStrategy;
+        private ServiceConnectConfiguration _serviceConnectConfiguration;
         private string _serviceName;
         private List<ServiceRegistry> _serviceRegistries = new List<ServiceRegistry>();
         private List<Tag> _tags = new List<Tag>();
@@ -370,8 +346,8 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  
         /// <para>
-        /// If you do not use an Elastic Load Balancing, we recomend that you use the <code>startPeriod</code>
-        /// in the task definition healtch check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
+        /// If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code>
+        /// in the task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
         /// check</a>.
         /// </para>
         ///  
@@ -700,6 +676,34 @@ namespace Amazon.ECS.Model
         internal bool IsSetSchedulingStrategy()
         {
             return this._schedulingStrategy != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ServiceConnectConfiguration. 
+        /// <para>
+        /// The configuration for this service to discover and connect to services, and be discovered
+        /// by, and connected from, other services within a namespace.
+        /// </para>
+        ///  
+        /// <para>
+        /// Tasks that run in a namespace can use short names to connect to services in the namespace.
+        /// Tasks can connect to services across all of the clusters in the namespace. Tasks connect
+        /// through a managed proxy container that collects logs and metrics for increased visibility.
+        /// Only the tasks that Amazon ECS services create are supported with Service Connect.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service
+        /// Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public ServiceConnectConfiguration ServiceConnectConfiguration
+        {
+            get { return this._serviceConnectConfiguration; }
+            set { this._serviceConnectConfiguration = value; }
+        }
+
+        // Check to see if ServiceConnectConfiguration property is set
+        internal bool IsSetServiceConnectConfiguration()
+        {
+            return this._serviceConnectConfiguration != null;
         }
 
         /// <summary>

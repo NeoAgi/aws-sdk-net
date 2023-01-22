@@ -25,6 +25,52 @@ namespace Amazon.IoTWireless
 {
 
     /// <summary>
+    /// Constants used for properties of type ApplicationConfigType.
+    /// </summary>
+    public class ApplicationConfigType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant SemtechGeolocation for ApplicationConfigType
+        /// </summary>
+        public static readonly ApplicationConfigType SemtechGeolocation = new ApplicationConfigType("SemtechGeolocation");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ApplicationConfigType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ApplicationConfigType FindValue(string value)
+        {
+            return FindValue<ApplicationConfigType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ApplicationConfigType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type BatteryLevel.
     /// </summary>
     public class BatteryLevel : ConstantClass
@@ -230,6 +276,60 @@ namespace Amazon.IoTWireless
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator DlClass(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type DownlinkMode.
+    /// </summary>
+    public class DownlinkMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CONCURRENT for DownlinkMode
+        /// </summary>
+        public static readonly DownlinkMode CONCURRENT = new DownlinkMode("CONCURRENT");
+        /// <summary>
+        /// Constant SEQUENTIAL for DownlinkMode
+        /// </summary>
+        public static readonly DownlinkMode SEQUENTIAL = new DownlinkMode("SEQUENTIAL");
+        /// <summary>
+        /// Constant USING_UPLINK_GATEWAY for DownlinkMode
+        /// </summary>
+        public static readonly DownlinkMode USING_UPLINK_GATEWAY = new DownlinkMode("USING_UPLINK_GATEWAY");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DownlinkMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DownlinkMode FindValue(string value)
+        {
+            return FindValue<DownlinkMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DownlinkMode(string value)
         {
             return FindValue(value);
         }
@@ -960,6 +1060,56 @@ namespace Amazon.IoTWireless
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PositionConfigurationStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PositioningConfigStatus.
+    /// </summary>
+    public class PositioningConfigStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Disabled for PositioningConfigStatus
+        /// </summary>
+        public static readonly PositioningConfigStatus Disabled = new PositioningConfigStatus("Disabled");
+        /// <summary>
+        /// Constant Enabled for PositioningConfigStatus
+        /// </summary>
+        public static readonly PositioningConfigStatus Enabled = new PositioningConfigStatus("Enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PositioningConfigStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PositioningConfigStatus FindValue(string value)
+        {
+            return FindValue<PositioningConfigStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PositioningConfigStatus(string value)
         {
             return FindValue(value);
         }

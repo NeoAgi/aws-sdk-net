@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using Json.LitJson;
 using System.Globalization;
+using ServiceClientGenerator.Endpoints;
 
 namespace ServiceClientGenerator
 {
@@ -32,6 +33,7 @@ namespace ServiceClientGenerator
         public const string ServiceAbbreviationKey = "serviceAbbreviation";
         public const string SigningNameKey = "signingName";
         public const string ServiceIdKey = "serviceId";
+        public const string AWSQueryCompatibleKey = "awsQueryCompatible";
 
         // operations
         public const string OperationsKey = "operations";
@@ -79,7 +81,9 @@ namespace ServiceClientGenerator
         // documentation
         public const string DocumentationKey = "documentation";
 
-        
+        // client context params
+        public const string ClientContextParams = "clientContextParams";
+
         /// <summary>
         /// This model contains information about customizations needed during the generation process
         /// </summary>
@@ -161,6 +165,18 @@ namespace ServiceClientGenerator
         private void InitializePaginators(TextReader reader)
         {
             this.PaginatorsRoot = JsonMapper.ToObject(reader);
+        }
+
+        /// <summary>
+        /// Indicates that this service was converted from query to json 1.0
+        /// and may be sending AWSQuery compatible error code data in header.
+        /// </summary>
+        public bool IsAwsQueryCompatible
+        {
+            get
+            {
+                return this._metadata.PropertyNames.Contains(AWSQueryCompatibleKey);
+            }
         }
 
         /// <summary>
@@ -510,13 +526,51 @@ namespace ServiceClientGenerator
         }
 
         /// <summary>
+        /// Gets list of client context parameters, 
+        /// used to extend client config with new properties and drive endpoint resolution
+        /// </summary>
+        public List<ClientContextParameter> ClientContextParameters
+        {
+            get
+            {
+                var result = new List<ClientContextParameter>();
+                var parameters = DocumentRoot.SafeGet(ClientContextParams);
+                if (parameters == null)
+                {
+                    return result;
+                }
+
+                foreach(var param in parameters.GetMap())
+                {
+                    // Skip S3/S3 Control-specific parameters as we already
+                    // have custom definitions for them in client config.
+                    if ((ServiceId == "S3" || ServiceId == "S3 Control") && (
+                        param.Key == "UseArnRegion" ||
+                        param.Key == "DisableMultiRegionAccessPoints" ||
+                        param.Key == "Accelerate" ||
+                        param.Key == "ForcePathStyle"))
+                    {
+                        continue;
+                    }
+
+                    result.Add(new ClientContextParameter 
+                    { 
+                        name = param.Key, 
+                        documentation = param.Value.SafeGetString("documentation"), 
+                        type = param.Value.SafeGetString("type") 
+                    });
+                }
+                return result;
+            }
+        }
+
+        /// <summary>
         /// A value retrieved from the json model that is included in service requests
         /// </summary>
         public string APIVersion
         {
             get { return this.DocumentRoot[MetadataKey][ApiVersionKey].ToString(); }
         }
-
 
         /// <summary>
         /// The service model represented as a string

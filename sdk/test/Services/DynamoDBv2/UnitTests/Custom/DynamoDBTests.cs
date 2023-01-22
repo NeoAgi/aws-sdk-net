@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,6 +12,8 @@ using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.Model;
 using ThirdParty.Json.LitJson;
+
+using Moq;
 
 namespace AWSSDK_DotNet35.UnitTests
 {
@@ -87,6 +90,73 @@ namespace AWSSDK_DotNet35.UnitTests
             var dynamoDocument = Document.FromAttributeMap(initialAttributeMap);
 
             Assert.AreEqual("testvalue", dynamoDocument["testmap"].AsDocument()["test"].AsString());
+        }
+
+        [TestMethod]
+        [TestCategory("DynamoDBv2")]
+        public void TestConvertingEmptyListToJson()
+        {
+            var initialAttributeMap = new Dictionary<string, AttributeValue>
+            {
+                { "Lists", new AttributeValue
+                    {
+                        L = new List<AttributeValue>
+                        {
+                            new AttributeValue
+                            {
+                                M = new Dictionary<string, AttributeValue>(),
+                            }
+                        }
+                    }
+                }
+            };
+
+            var document = Document.FromAttributeMap(initialAttributeMap);
+            Assert.AreEqual(document["Lists"].AsListOfDocument().Count, 0);
+
+            var jsonString = document.ToJson();
+            Assert.IsNotNull(jsonString);
+        }
+
+        [TestMethod]
+        [TestCategory("DynamoDBv2")]
+        [DataRow(@"{
+            ""Lists"": {
+                ""L"": [
+                    {
+                        ""M"": {
+                            ""SubLists"": {
+                                ""L"": [
+                                    {
+                                        ""M"": {}
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
+        }")]
+        [DataRow(@"{
+            ""Lists"": {
+                ""L"": [
+                    {
+                        ""M"": {}
+                    }
+                ]
+            }
+        }")]
+        public void TestJsonContainsEmptyMapToDocumentAndBackToJson(string json)
+        {
+            var initialDocument = Document.FromJson(json);
+            Assert.IsNotNull(initialDocument);
+
+            var initialAttributeMap = initialDocument.ToAttributeMap();
+            var convertedDocument = Document.FromAttributeMap(initialAttributeMap);
+            Assert.IsNotNull(convertedDocument);
+
+            var jsonString = convertedDocument.ToJson();
+            Assert.IsNotNull(jsonString);
         }
 
         private static List<Type> GetSubTypes(Type baseType)
@@ -173,5 +243,39 @@ namespace AWSSDK_DotNet35.UnitTests
             Assert.IsNull(doc["Name"].AsPrimitive().Value);
         }
 
+#if ASYNC_AWAIT
+        [TestMethod]
+        [TestCategory("DynamoDBv2")]
+        public async Task TestMockingAsyncSeach()
+        {
+            var mockDBContext = new Mock<IDynamoDBContext>();
+            mockDBContext
+                .Setup(x => x.ScanAsync<DataItem>(
+                   It.IsAny<IEnumerable<ScanCondition>>(),
+                   It.IsAny<DynamoDBOperationConfig>()))
+                .Returns(
+                   new MockAsyncSearch<DataItem>() // Return mock version of AsyncSearch
+                );
+
+            var search = mockDBContext.Object.ScanAsync<DataItem>(new List<ScanCondition>());
+            Assert.IsInstanceOfType(search, typeof(MockAsyncSearch<DataItem>));
+
+            var items = await search.GetNextSetAsync();
+            Assert.AreEqual(0, items.Count());
+        }
+
+        public class DataItem
+        {
+            public string Id { get; set; }
+        }
+
+        public class MockAsyncSearch<T> : AsyncSearch<T>
+        {
+            public override Task<List<T>> GetNextSetAsync(CancellationToken cancellationToken = default(CancellationToken))
+            {
+                return Task.FromResult(new List<T>());
+            }
+        }
+#endif
     }
 }

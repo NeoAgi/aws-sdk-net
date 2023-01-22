@@ -58,7 +58,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
         {
             var request = new DefaultRequest(publicRequest, "AmazonS3");
             request.HttpMethod = "PUT";
-            string uriResourcePath = "/{Bucket}/{Key+}";
+            string uriResourcePath = "/{Key+}";
             request.AddSubResource("legal-hold");
 
             if (publicRequest.IsSetChecksumAlgorithm())
@@ -71,7 +71,6 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 request.Headers.Add(S3Constants.AmzHeaderExpectedBucketOwner, S3Transforms.ToStringValue(publicRequest.ExpectedBucketOwner));
             if (!publicRequest.IsSetBucketName())
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "publicRequest.BucketName");
-            uriResourcePath = uriResourcePath.Replace("{Bucket}", StringUtils.FromString(publicRequest.BucketName));
             if (!publicRequest.IsSetKey())
                 throw new System.ArgumentException("Key is a required property and must be set before making this call.", "publicRequest.Key");
             uriResourcePath = uriResourcePath.Replace("{Key+}", StringUtils.FromString(publicRequest.Key));
@@ -85,10 +84,9 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             {   
                 if (publicRequest.IsSetLegalHold())
                 {
-                    xmlWriter.WriteStartElement("LegalHold", "http://s3.amazonaws.com/doc/2006-03-01/");
+                    xmlWriter.WriteStartElement("LegalHold", S3Constants.S3RequestXmlNamespace);
                     if(publicRequest.LegalHold.IsSetStatus())
-                        xmlWriter.WriteElementString("Status", "http://s3.amazonaws.com/doc/2006-03-01/", StringUtils.FromString(publicRequest.LegalHold.Status));
-    
+                        xmlWriter.WriteElementString("Status", StringUtils.FromString(publicRequest.LegalHold.Status));
     
                     xmlWriter.WriteEndElement();
                 }

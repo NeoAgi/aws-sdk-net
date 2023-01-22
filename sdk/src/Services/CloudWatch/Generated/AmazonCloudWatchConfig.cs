@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the monitoring-2010-08-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CloudWatch.Internal;
 
 namespace Amazon.CloudWatch
 {
     /// <summary>
     /// Configuration for accessing Amazon CloudWatch service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCloudWatchConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.103.2");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CloudWatch
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudWatchDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "monitoring";
+            this.EndpointProvider = new AmazonCloudWatchEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CloudWatch
                 return _userAgent;
             }
         }
+
     }
 }

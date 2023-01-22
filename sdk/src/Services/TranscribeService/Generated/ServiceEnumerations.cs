@@ -139,6 +139,10 @@ namespace Amazon.TranscribeService
     {
 
         /// <summary>
+        /// Constant DeDE for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode DeDE = new CLMLanguageCode("de-DE");
+        /// <summary>
         /// Constant EnAU for CLMLanguageCode
         /// </summary>
         public static readonly CLMLanguageCode EnAU = new CLMLanguageCode("en-AU");
@@ -158,6 +162,10 @@ namespace Amazon.TranscribeService
         /// Constant HiIN for CLMLanguageCode
         /// </summary>
         public static readonly CLMLanguageCode HiIN = new CLMLanguageCode("hi-IN");
+        /// <summary>
+        /// Constant JaJP for CLMLanguageCode
+        /// </summary>
+        public static readonly CLMLanguageCode JaJP = new CLMLanguageCode("ja-JP");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -188,6 +196,56 @@ namespace Amazon.TranscribeService
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator CLMLanguageCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type InputType.
+    /// </summary>
+    public class InputType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant POST_CALL for InputType
+        /// </summary>
+        public static readonly InputType POST_CALL = new InputType("POST_CALL");
+        /// <summary>
+        /// Constant REAL_TIME for InputType
+        /// </summary>
+        public static readonly InputType REAL_TIME = new InputType("REAL_TIME");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public InputType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static InputType FindValue(string value)
+        {
+            return FindValue<InputType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator InputType(string value)
         {
             return FindValue(value);
         }
@@ -325,6 +383,10 @@ namespace Amazon.TranscribeService
         /// </summary>
         public static readonly LanguageCode RuRU = new LanguageCode("ru-RU");
         /// <summary>
+        /// Constant SvSE for LanguageCode
+        /// </summary>
+        public static readonly LanguageCode SvSE = new LanguageCode("sv-SE");
+        /// <summary>
         /// Constant TaIN for LanguageCode
         /// </summary>
         public static readonly LanguageCode TaIN = new LanguageCode("ta-IN");
@@ -340,6 +402,10 @@ namespace Amazon.TranscribeService
         /// Constant TrTR for LanguageCode
         /// </summary>
         public static readonly LanguageCode TrTR = new LanguageCode("tr-TR");
+        /// <summary>
+        /// Constant ViVN for LanguageCode
+        /// </summary>
+        public static readonly LanguageCode ViVN = new LanguageCode("vi-VN");
         /// <summary>
         /// Constant ZhCN for LanguageCode
         /// </summary>

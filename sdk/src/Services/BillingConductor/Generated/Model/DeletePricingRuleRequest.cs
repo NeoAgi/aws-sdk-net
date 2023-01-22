@@ -30,7 +30,7 @@ namespace Amazon.BillingConductor.Model
 {
     /// <summary>
     /// Container for the parameters to the DeletePricingRule operation.
-    /// Deletes the pricing rule identified by the input Amazon Resource Name (ARN).
+    /// Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN).
     /// </summary>
     public partial class DeletePricingRuleRequest : AmazonBillingConductorRequest
     {
@@ -39,7 +39,7 @@ namespace Amazon.BillingConductor.Model
         /// <summary>
         /// Gets and sets the property Arn. 
         /// <para>
-        ///  The Amazon Resource Name (ARN) of the pricing rule you are deleting. 
+        ///  The Amazon Resource Name (ARN) of the pricing rule that you are deleting. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

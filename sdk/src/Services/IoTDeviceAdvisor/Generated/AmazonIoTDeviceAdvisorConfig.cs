@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the iotdeviceadvisor-2020-09-18.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.IoTDeviceAdvisor.Internal;
 
 namespace Amazon.IoTDeviceAdvisor
 {
     /// <summary>
     /// Configuration for accessing Amazon IoTDeviceAdvisor service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonIoTDeviceAdvisorConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.10");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.15");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.IoTDeviceAdvisor
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTDeviceAdvisorDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iotdeviceadvisor";
+            this.EndpointProvider = new AmazonIoTDeviceAdvisorEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.IoTDeviceAdvisor
                 return _userAgent;
             }
         }
+
     }
 }

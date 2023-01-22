@@ -552,6 +552,9 @@
         {"shape":"EFSMountFailureException"},
         {"shape":"EFSMountTimeoutException"},
         {"shape":"EFSIOException"},
+        {"shape":"SnapStartException"},
+        {"shape":"SnapStartTimeoutException"},
+        {"shape":"SnapStartNotReadyException"},
         {"shape":"EC2ThrottledException"},
         {"shape":"EC2AccessDeniedException"},
         {"shape":"InvalidSubnetIDException"},
@@ -1415,7 +1418,8 @@
         "SelfManagedEventSource":{"shape":"SelfManagedEventSource"},
         "FunctionResponseTypes":{"shape":"FunctionResponseTypeList"},
         "AmazonManagedKafkaEventSourceConfig":{"shape":"AmazonManagedKafkaEventSourceConfig"},
-        "SelfManagedKafkaEventSourceConfig":{"shape":"SelfManagedKafkaEventSourceConfig"}
+        "SelfManagedKafkaEventSourceConfig":{"shape":"SelfManagedKafkaEventSourceConfig"},
+        "ScalingConfig":{"shape":"ScalingConfig"}
       }
     },
     "CreateFunctionRequest":{
@@ -1447,7 +1451,8 @@
         "ImageConfig":{"shape":"ImageConfig"},
         "CodeSigningConfigArn":{"shape":"CodeSigningConfigArn"},
         "Architectures":{"shape":"ArchitecturesList"},
-        "EphemeralStorage":{"shape":"EphemeralStorage"}
+        "EphemeralStorage":{"shape":"EphemeralStorage"},
+        "SnapStart":{"shape":"SnapStart"}
       }
     },
     "CreateFunctionUrlConfigRequest":{
@@ -1837,7 +1842,8 @@
         "TumblingWindowInSeconds":{"shape":"TumblingWindowInSeconds"},
         "FunctionResponseTypes":{"shape":"FunctionResponseTypeList"},
         "AmazonManagedKafkaEventSourceConfig":{"shape":"AmazonManagedKafkaEventSourceConfig"},
-        "SelfManagedKafkaEventSourceConfig":{"shape":"SelfManagedKafkaEventSourceConfig"}
+        "SelfManagedKafkaEventSourceConfig":{"shape":"SelfManagedKafkaEventSourceConfig"},
+        "ScalingConfig":{"shape":"ScalingConfig"}
       }
     },
     "EventSourceMappingsList":{
@@ -1957,7 +1963,8 @@
         "SigningProfileVersionArn":{"shape":"Arn"},
         "SigningJobArn":{"shape":"Arn"},
         "Architectures":{"shape":"ArchitecturesList"},
-        "EphemeralStorage":{"shape":"EphemeralStorage"}
+        "EphemeralStorage":{"shape":"EphemeralStorage"},
+        "SnapStart":{"shape":"SnapStartResponse"}
       }
     },
     "FunctionEventInvokeConfig":{
@@ -2608,7 +2615,18 @@
         "InvalidSecurityGroup",
         "ImageDeleted",
         "ImageAccessDenied",
-        "InvalidImage"
+        "InvalidImage",
+        "KMSKeyAccessDenied",
+        "KMSKeyNotFound",
+        "InvalidStateKMSKey",
+        "DisabledKMSKey",
+        "EFSIOError",
+        "EFSMountConnectivityError",
+        "EFSMountFailure",
+        "EFSMountTimeout",
+        "InvalidRuntime",
+        "InvalidZipFileException",
+        "FunctionError"
       ]
     },
     "Layer":{
@@ -3106,6 +3124,11 @@
       "max":300,
       "min":0
     },
+    "MaximumConcurrency":{
+      "type":"integer",
+      "max":1000,
+      "min":2
+    },
     "MaximumEventAgeInSeconds":{
       "type":"integer",
       "max":21600,
@@ -3564,7 +3587,8 @@
         "ruby2.5",
         "ruby2.7",
         "provided",
-        "provided.al2"
+        "provided.al2",
+        "nodejs18.x"
       ]
     },
     "S3Bucket":{
@@ -3582,6 +3606,12 @@
       "type":"string",
       "max":1024,
       "min":1
+    },
+    "ScalingConfig":{
+      "type":"structure",
+      "members":{
+        "MaximumConcurrency":{"shape":"MaximumConcurrency"}
+      }
     },
     "SecurityGroupId":{"type":"string"},
     "SecurityGroupIds":{
@@ -3619,6 +3649,60 @@
       "member":{"shape":"Arn"},
       "max":20,
       "min":1
+    },
+    "SnapStart":{
+      "type":"structure",
+      "members":{
+        "ApplyOn":{"shape":"SnapStartApplyOn"}
+      }
+    },
+    "SnapStartApplyOn":{
+      "type":"string",
+      "enum":[
+        "PublishedVersions",
+        "None"
+      ]
+    },
+    "SnapStartException":{
+      "type":"structure",
+      "members":{
+        "Type":{"shape":"String"},
+        "Message":{"shape":"String"}
+      },
+      "error":{"httpStatusCode":400},
+      "exception":true
+    },
+    "SnapStartNotReadyException":{
+      "type":"structure",
+      "members":{
+        "Type":{"shape":"String"},
+        "Message":{"shape":"String"}
+      },
+      "error":{"httpStatusCode":409},
+      "exception":true
+    },
+    "SnapStartOptimizationStatus":{
+      "type":"string",
+      "enum":[
+        "On",
+        "Off"
+      ]
+    },
+    "SnapStartResponse":{
+      "type":"structure",
+      "members":{
+        "ApplyOn":{"shape":"SnapStartApplyOn"},
+        "OptimizationStatus":{"shape":"SnapStartOptimizationStatus"}
+      }
+    },
+    "SnapStartTimeoutException":{
+      "type":"structure",
+      "members":{
+        "Type":{"shape":"String"},
+        "Message":{"shape":"String"}
+      },
+      "error":{"httpStatusCode":408},
+      "exception":true
     },
     "SourceAccessConfiguration":{
       "type":"structure",
@@ -3676,7 +3760,18 @@
         "InvalidSecurityGroup",
         "ImageDeleted",
         "ImageAccessDenied",
-        "InvalidImage"
+        "InvalidImage",
+        "KMSKeyAccessDenied",
+        "KMSKeyNotFound",
+        "InvalidStateKMSKey",
+        "DisabledKMSKey",
+        "EFSIOError",
+        "EFSMountConnectivityError",
+        "EFSMountFailure",
+        "EFSMountTimeout",
+        "InvalidRuntime",
+        "InvalidZipFileException",
+        "FunctionError"
       ]
     },
     "StatementId":{
@@ -3739,7 +3834,8 @@
         "FunctionInvocationRateLimitExceeded",
         "ReservedFunctionConcurrentInvocationLimitExceeded",
         "ReservedFunctionInvocationRateLimitExceeded",
-        "CallerRateLimitExceeded"
+        "CallerRateLimitExceeded",
+        "ConcurrentSnapshotCreateLimitExceeded"
       ]
     },
     "Timeout":{
@@ -3901,7 +3997,8 @@
         "ParallelizationFactor":{"shape":"ParallelizationFactor"},
         "SourceAccessConfigurations":{"shape":"SourceAccessConfigurations"},
         "TumblingWindowInSeconds":{"shape":"TumblingWindowInSeconds"},
-        "FunctionResponseTypes":{"shape":"FunctionResponseTypeList"}
+        "FunctionResponseTypes":{"shape":"FunctionResponseTypeList"},
+        "ScalingConfig":{"shape":"ScalingConfig"}
       }
     },
     "UpdateFunctionCodeRequest":{
@@ -3948,7 +4045,8 @@
         "Layers":{"shape":"LayerList"},
         "FileSystemConfigs":{"shape":"FileSystemConfigList"},
         "ImageConfig":{"shape":"ImageConfig"},
-        "EphemeralStorage":{"shape":"EphemeralStorage"}
+        "EphemeralStorage":{"shape":"EphemeralStorage"},
+        "SnapStart":{"shape":"SnapStart"}
       }
     },
     "UpdateFunctionEventInvokeConfigRequest":{

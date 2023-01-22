@@ -34,6 +34,7 @@ namespace Amazon.EC2.Model
     public partial class FleetLaunchTemplateOverrides
     {
         private string _availabilityZone;
+        private string _imageId;
         private InstanceRequirements _instanceRequirements;
         private InstanceType _instanceType;
         private string _maxPrice;
@@ -61,6 +62,25 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ImageId. 
+        /// <para>
+        /// The ID of the AMI. An AMI is required to launch an instance. The AMI ID must be specified
+        /// here or in the launch template.
+        /// </para>
+        /// </summary>
+        public string ImageId
+        {
+            get { return this._imageId; }
+            set { this._imageId = value; }
+        }
+
+        // Check to see if ImageId property is set
+        internal bool IsSetImageId()
+        {
+            return this._imageId != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property InstanceRequirements. 
         /// <para>
         /// The attributes for the instance types. When you specify instance attributes, Amazon
@@ -68,7 +88,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceTypes</code>.
+        /// If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -91,7 +111,7 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirements</code>.
+        /// If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.
         /// </para>
         ///  </note>
         /// </summary>

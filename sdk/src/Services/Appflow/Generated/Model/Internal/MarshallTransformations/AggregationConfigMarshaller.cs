@@ -51,6 +51,12 @@ namespace Amazon.Appflow.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.AggregationType);
             }
 
+            if(requestObject.IsSetTargetFileSize())
+            {
+                context.Writer.WritePropertyName("targetFileSize");
+                context.Writer.Write(requestObject.TargetFileSize);
+            }
+
         }
 
         /// <summary>

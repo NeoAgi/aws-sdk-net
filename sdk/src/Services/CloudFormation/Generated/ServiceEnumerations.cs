@@ -948,6 +948,10 @@ namespace Amazon.CloudFormation
         /// Constant Unknown for HandlerErrorCode
         /// </summary>
         public static readonly HandlerErrorCode Unknown = new HandlerErrorCode("Unknown");
+        /// <summary>
+        /// Constant UnsupportedTarget for HandlerErrorCode
+        /// </summary>
+        public static readonly HandlerErrorCode UnsupportedTarget = new HandlerErrorCode("UnsupportedTarget");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1286,6 +1290,52 @@ namespace Amazon.CloudFormation
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator OnFailure(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type OperationResultFilterName.
+    /// </summary>
+    public class OperationResultFilterName : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant OPERATION_RESULT_STATUS for OperationResultFilterName
+        /// </summary>
+        public static readonly OperationResultFilterName OPERATION_RESULT_STATUS = new OperationResultFilterName("OPERATION_RESULT_STATUS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OperationResultFilterName(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OperationResultFilterName FindValue(string value)
+        {
+            return FindValue<OperationResultFilterName>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OperationResultFilterName(string value)
         {
             return FindValue(value);
         }
@@ -2204,6 +2254,10 @@ namespace Amazon.CloudFormation
         /// Constant DETAILED_STATUS for StackInstanceFilterName
         /// </summary>
         public static readonly StackInstanceFilterName DETAILED_STATUS = new StackInstanceFilterName("DETAILED_STATUS");
+        /// <summary>
+        /// Constant LAST_OPERATION_ID for StackInstanceFilterName
+        /// </summary>
+        public static readonly StackInstanceFilterName LAST_OPERATION_ID = new StackInstanceFilterName("LAST_OPERATION_ID");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

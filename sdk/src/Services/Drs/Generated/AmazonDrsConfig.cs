@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the drs-2020-02-26.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Drs.Internal;
 
 namespace Amazon.Drs
 {
     /// <summary>
     /// Configuration for accessing Amazon Drs service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonDrsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.13");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.35");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Drs
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonDrsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "drs";
+            this.EndpointProvider = new AmazonDrsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Drs
                 return _userAgent;
             }
         }
+
     }
 }

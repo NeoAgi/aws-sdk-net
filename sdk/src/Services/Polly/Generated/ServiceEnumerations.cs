@@ -131,6 +131,10 @@ namespace Amazon.Polly
     {
 
         /// <summary>
+        /// Constant ArAE for LanguageCode
+        /// </summary>
+        public static readonly LanguageCode ArAE = new LanguageCode("ar-AE");
+        /// <summary>
         /// Constant Arb for LanguageCode
         /// </summary>
         public static readonly LanguageCode Arb = new LanguageCode("arb");
@@ -199,6 +203,10 @@ namespace Amazon.Polly
         /// </summary>
         public static readonly LanguageCode EsUS = new LanguageCode("es-US");
         /// <summary>
+        /// Constant FiFI for LanguageCode
+        /// </summary>
+        public static readonly LanguageCode FiFI = new LanguageCode("fi-FI");
+        /// <summary>
         /// Constant FrCA for LanguageCode
         /// </summary>
         public static readonly LanguageCode FrCA = new LanguageCode("fr-CA");
@@ -262,6 +270,10 @@ namespace Amazon.Polly
         /// Constant TrTR for LanguageCode
         /// </summary>
         public static readonly LanguageCode TrTR = new LanguageCode("tr-TR");
+        /// <summary>
+        /// Constant YueCN for LanguageCode
+        /// </summary>
+        public static readonly LanguageCode YueCN = new LanguageCode("yue-CN");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -601,6 +613,10 @@ namespace Amazon.Polly
         /// </summary>
         public static readonly VoiceId Dora = new VoiceId("Dora");
         /// <summary>
+        /// Constant Elin for VoiceId
+        /// </summary>
+        public static readonly VoiceId Elin = new VoiceId("Elin");
+        /// <summary>
         /// Constant Emma for VoiceId
         /// </summary>
         public static readonly VoiceId Emma = new VoiceId("Emma");
@@ -633,6 +649,10 @@ namespace Amazon.Polly
         /// </summary>
         public static readonly VoiceId Gwyneth = new VoiceId("Gwyneth");
         /// <summary>
+        /// Constant Hala for VoiceId
+        /// </summary>
+        public static readonly VoiceId Hala = new VoiceId("Hala");
+        /// <summary>
         /// Constant Hannah for VoiceId
         /// </summary>
         public static readonly VoiceId Hannah = new VoiceId("Hannah");
@@ -640,6 +660,14 @@ namespace Amazon.Polly
         /// Constant Hans for VoiceId
         /// </summary>
         public static readonly VoiceId Hans = new VoiceId("Hans");
+        /// <summary>
+        /// Constant Hiujin for VoiceId
+        /// </summary>
+        public static readonly VoiceId Hiujin = new VoiceId("Hiujin");
+        /// <summary>
+        /// Constant Ida for VoiceId
+        /// </summary>
+        public static readonly VoiceId Ida = new VoiceId("Ida");
         /// <summary>
         /// Constant Ines for VoiceId
         /// </summary>
@@ -688,6 +716,10 @@ namespace Amazon.Polly
         /// Constant Kimberly for VoiceId
         /// </summary>
         public static readonly VoiceId Kimberly = new VoiceId("Kimberly");
+        /// <summary>
+        /// Constant Laura for VoiceId
+        /// </summary>
+        public static readonly VoiceId Laura = new VoiceId("Laura");
         /// <summary>
         /// Constant Lea for VoiceId
         /// </summary>
@@ -757,6 +789,10 @@ namespace Amazon.Polly
         /// </summary>
         public static readonly VoiceId Nicole = new VoiceId("Nicole");
         /// <summary>
+        /// Constant Ola for VoiceId
+        /// </summary>
+        public static readonly VoiceId Ola = new VoiceId("Ola");
+        /// <summary>
         /// Constant Olivia for VoiceId
         /// </summary>
         public static readonly VoiceId Olivia = new VoiceId("Olivia");
@@ -792,6 +828,10 @@ namespace Amazon.Polly
         /// Constant Seoyeon for VoiceId
         /// </summary>
         public static readonly VoiceId Seoyeon = new VoiceId("Seoyeon");
+        /// <summary>
+        /// Constant Suvi for VoiceId
+        /// </summary>
+        public static readonly VoiceId Suvi = new VoiceId("Suvi");
         /// <summary>
         /// Constant Takumi for VoiceId
         /// </summary>

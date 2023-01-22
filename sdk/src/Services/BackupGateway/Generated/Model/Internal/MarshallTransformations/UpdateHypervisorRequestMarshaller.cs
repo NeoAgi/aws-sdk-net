@@ -79,6 +79,12 @@ namespace Amazon.BackupGateway.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.HypervisorArn);
                 }
 
+                if(publicRequest.IsSetLogGroupArn())
+                {
+                    context.Writer.WritePropertyName("LogGroupArn");
+                    context.Writer.Write(publicRequest.LogGroupArn);
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("Name");

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the ce-2017-10-25.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CostExplorer.Internal;
 
 namespace Amazon.CostExplorer
 {
     /// <summary>
     /// Configuration for accessing Amazon CostExplorer service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCostExplorerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.6.25");
+            InternalSDKUtils.BuildUserAgentString("3.7.103.22");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CostExplorer
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCostExplorerDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ce";
+            this.EndpointProvider = new AmazonCostExplorerEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CostExplorer
                 return _userAgent;
             }
         }
+
     }
 }

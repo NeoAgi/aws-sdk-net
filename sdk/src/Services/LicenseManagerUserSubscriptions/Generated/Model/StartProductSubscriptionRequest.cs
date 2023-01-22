@@ -31,6 +31,15 @@ namespace Amazon.LicenseManagerUserSubscriptions.Model
     /// <summary>
     /// Container for the parameters to the StartProductSubscription operation.
     /// Starts a product subscription for a user with the specified identity provider.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// Your estimated bill for charges on the number of users and related costs will take
+    /// 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b>
+    /// billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing
+    /// your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class StartProductSubscriptionRequest : AmazonLicenseManagerUserSubscriptionsRequest
     {

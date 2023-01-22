@@ -71,6 +71,17 @@ namespace Amazon.RecycleBin.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Description);
                 }
 
+                if(publicRequest.IsSetLockConfiguration())
+                {
+                    context.Writer.WritePropertyName("LockConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = LockConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.LockConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetResourceTags())
                 {
                     context.Writer.WritePropertyName("ResourceTags");

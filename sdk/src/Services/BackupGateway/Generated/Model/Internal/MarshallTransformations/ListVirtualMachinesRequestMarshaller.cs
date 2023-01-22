@@ -67,6 +67,12 @@ namespace Amazon.BackupGateway.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetHypervisorArn())
+                {
+                    context.Writer.WritePropertyName("HypervisorArn");
+                    context.Writer.Write(publicRequest.HypervisorArn);
+                }
+
                 if(publicRequest.IsSetMaxResults())
                 {
                     context.Writer.WritePropertyName("MaxResults");

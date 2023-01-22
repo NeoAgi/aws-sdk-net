@@ -29,7 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.LexModelsV2.Model
 {
     /// <summary>
-    /// Settings that you can use for eliciting a slot value.
+    /// Specifies the elicitation setting details for constituent sub slots of a composite
+    /// slot.
     /// </summary>
     public partial class SlotValueElicitationSetting
     {

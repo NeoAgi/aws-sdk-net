@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the applicationcostprofiler-2020-09-10.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ApplicationCostProfiler.Internal;
 
 namespace Amazon.ApplicationCostProfiler
 {
     /// <summary>
     /// Configuration for accessing Amazon ApplicationCostProfiler service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonApplicationCostProfilerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.173");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ApplicationCostProfiler
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonApplicationCostProfilerDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "application-cost-profiler";
+            this.EndpointProvider = new AmazonApplicationCostProfilerEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ApplicationCostProfiler
                 return _userAgent;
             }
         }
+
     }
 }

@@ -35,8 +35,8 @@ namespace Amazon.Proton.Model
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
-    /// provisioning</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
+    /// provisioning</a> in the <i>Proton User Guide</i>.
     /// </para>
     /// </summary>
     public partial class NotifyResourceDeploymentStatusChangeRequest : AmazonProtonRequest
@@ -109,7 +109,6 @@ namespace Amazon.Proton.Model
         /// The status of your provisioned resource.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
         public ResourceDeploymentStatus Status
         {
             get { return this._status; }

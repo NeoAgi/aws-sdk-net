@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the chime-2018-05-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Chime.Internal;
 
 namespace Amazon.Chime
 {
     /// <summary>
     /// Configuration for accessing Amazon Chime service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonChimeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.16.9");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Chime
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonChimeDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "chime";
+            this.EndpointProvider = new AmazonChimeEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Chime
                 return _userAgent;
             }
         }
+
     }
 }

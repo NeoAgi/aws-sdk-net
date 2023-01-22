@@ -190,11 +190,17 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/AssociateWebACL">REST API Reference for AssociateWebACL Operation</seealso>
         AssociateWebACLResponse AssociateWebACL(AssociateWebACLRequest request);
@@ -267,11 +273,17 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/AssociateWebACL">REST API Reference for AssociateWebACL Operation</seealso>
         Task<AssociateWebACLResponse> AssociateWebACLAsync(AssociateWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -347,15 +359,21 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
         /// You tried to use a managed rule group that's available by subscription, but you aren't
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CheckCapacity">REST API Reference for CheckCapacity Operation</seealso>
         CheckCapacityResponse CheckCapacity(CheckCapacityRequest request);
@@ -431,15 +449,21 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFSubscriptionNotFoundException">
         /// You tried to use a managed rule group that's available by subscription, but you aren't
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CheckCapacity">REST API Reference for CheckCapacity Operation</seealso>
         Task<CheckCapacityResponse> CheckCapacityAsync(CheckCapacityRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -787,7 +811,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -806,8 +833,11 @@ namespace Amazon.WAFV2
         /// request.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CreateRuleGroup">REST API Reference for CreateRuleGroup Operation</seealso>
         CreateRuleGroupResponse CreateRuleGroup(CreateRuleGroupRequest request);
@@ -875,7 +905,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -894,8 +927,11 @@ namespace Amazon.WAFV2
         /// request.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CreateRuleGroup">REST API Reference for CreateRuleGroup Operation</seealso>
         Task<CreateRuleGroupResponse> CreateRuleGroupAsync(CreateRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -947,6 +983,11 @@ namespace Amazon.WAFV2
         /// WAF couldn’t perform the operation because the resource that you tried to save is
         /// a duplicate of an existing one.
         /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFExpiredManagedRuleGroupVersionException">
+        /// The operation failed because the specified version for the managed rule group has
+        /// expired. You can retrieve the available versions for the managed rule group by calling
+        /// <a>ListAvailableManagedRuleGroupVersions</a>.
+        /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFInternalErrorException">
         /// Your request is valid, but WAF couldn’t perform the operation because of a system
         /// problem. Retry your request.
@@ -990,7 +1031,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1009,8 +1053,11 @@ namespace Amazon.WAFV2
         /// request.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CreateWebACL">REST API Reference for CreateWebACL Operation</seealso>
         CreateWebACLResponse CreateWebACL(CreateWebACLRequest request);
@@ -1062,6 +1109,11 @@ namespace Amazon.WAFV2
         /// WAF couldn’t perform the operation because the resource that you tried to save is
         /// a duplicate of an existing one.
         /// </exception>
+        /// <exception cref="Amazon.WAFV2.Model.WAFExpiredManagedRuleGroupVersionException">
+        /// The operation failed because the specified version for the managed rule group has
+        /// expired. You can retrieve the available versions for the managed rule group by calling
+        /// <a>ListAvailableManagedRuleGroupVersions</a>.
+        /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFInternalErrorException">
         /// Your request is valid, but WAF couldn’t perform the operation because of a system
         /// problem. Retry your request.
@@ -1105,7 +1157,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1124,8 +1179,11 @@ namespace Amazon.WAFV2
         /// request.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/CreateWebACL">REST API Reference for CreateWebACL Operation</seealso>
         Task<CreateWebACLResponse> CreateWebACLAsync(CreateWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -1181,7 +1239,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1242,7 +1303,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1300,7 +1364,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1365,7 +1432,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1426,7 +1496,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1480,7 +1553,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1536,7 +1612,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DeletePermissionPolicy">REST API Reference for DeletePermissionPolicy Operation</seealso>
         DeletePermissionPolicyResponse DeletePermissionPolicy(DeletePermissionPolicyRequest request);
@@ -1587,7 +1666,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DeletePermissionPolicy">REST API Reference for DeletePermissionPolicy Operation</seealso>
         Task<DeletePermissionPolicyResponse> DeletePermissionPolicyAsync(DeletePermissionPolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -1640,7 +1722,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1705,7 +1790,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1770,7 +1858,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1835,7 +1926,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -1938,7 +2032,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -2041,7 +2138,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -2112,7 +2212,10 @@ namespace Amazon.WAFV2
         /// Check the resource, and try again.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DescribeManagedRuleGroup">REST API Reference for DescribeManagedRuleGroup Operation</seealso>
         DescribeManagedRuleGroupResponse DescribeManagedRuleGroup(DescribeManagedRuleGroupRequest request);
@@ -2171,7 +2274,10 @@ namespace Amazon.WAFV2
         /// Check the resource, and try again.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DescribeManagedRuleGroup">REST API Reference for DescribeManagedRuleGroup Operation</seealso>
         Task<DescribeManagedRuleGroupResponse> DescribeManagedRuleGroupAsync(DescribeManagedRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2230,7 +2336,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DisassociateWebACL">REST API Reference for DisassociateWebACL Operation</seealso>
         DisassociateWebACLResponse DisassociateWebACL(DisassociateWebACLRequest request);
@@ -2289,7 +2398,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/DisassociateWebACL">REST API Reference for DisassociateWebACL Operation</seealso>
         Task<DisassociateWebACLResponse> DisassociateWebACLAsync(DisassociateWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2305,9 +2417,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -2347,7 +2458,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GenerateMobileSdkReleaseUrl">REST API Reference for GenerateMobileSdkReleaseUrl Operation</seealso>
         GenerateMobileSdkReleaseUrlResponse GenerateMobileSdkReleaseUrl(GenerateMobileSdkReleaseUrlRequest request);
@@ -2360,9 +2474,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -2405,7 +2518,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GenerateMobileSdkReleaseUrl">REST API Reference for GenerateMobileSdkReleaseUrl Operation</seealso>
         Task<GenerateMobileSdkReleaseUrlResponse> GenerateMobileSdkReleaseUrlAsync(GenerateMobileSdkReleaseUrlRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2454,7 +2570,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
         GetIPSetResponse GetIPSet(GetIPSetRequest request);
@@ -2503,7 +2622,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
         Task<GetIPSetResponse> GetIPSetAsync(GetIPSetRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2552,7 +2674,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetLoggingConfiguration">REST API Reference for GetLoggingConfiguration Operation</seealso>
         GetLoggingConfigurationResponse GetLoggingConfiguration(GetLoggingConfigurationRequest request);
@@ -2601,7 +2726,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetLoggingConfiguration">REST API Reference for GetLoggingConfiguration Operation</seealso>
         Task<GetLoggingConfigurationResponse> GetLoggingConfigurationAsync(GetLoggingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2663,7 +2791,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetManagedRuleSet">REST API Reference for GetManagedRuleSet Operation</seealso>
         GetManagedRuleSetResponse GetManagedRuleSet(GetManagedRuleSetRequest request);
@@ -2725,7 +2856,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetManagedRuleSet">REST API Reference for GetManagedRuleSet Operation</seealso>
         Task<GetManagedRuleSetResponse> GetManagedRuleSetAsync(GetManagedRuleSetRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2742,9 +2876,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -2784,7 +2917,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetMobileSdkRelease">REST API Reference for GetMobileSdkRelease Operation</seealso>
         GetMobileSdkReleaseResponse GetMobileSdkRelease(GetMobileSdkReleaseRequest request);
@@ -2798,9 +2934,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -2843,7 +2978,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetMobileSdkRelease">REST API Reference for GetMobileSdkRelease Operation</seealso>
         Task<GetMobileSdkReleaseResponse> GetMobileSdkReleaseAsync(GetMobileSdkReleaseRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2894,7 +3032,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetPermissionPolicy">REST API Reference for GetPermissionPolicy Operation</seealso>
         GetPermissionPolicyResponse GetPermissionPolicy(GetPermissionPolicyRequest request);
@@ -2945,7 +3086,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetPermissionPolicy">REST API Reference for GetPermissionPolicy Operation</seealso>
         Task<GetPermissionPolicyResponse> GetPermissionPolicyAsync(GetPermissionPolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3014,7 +3158,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRateBasedStatementManagedKeys">REST API Reference for GetRateBasedStatementManagedKeys Operation</seealso>
         GetRateBasedStatementManagedKeysResponse GetRateBasedStatementManagedKeys(GetRateBasedStatementManagedKeysRequest request);
@@ -3083,7 +3230,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRateBasedStatementManagedKeys">REST API Reference for GetRateBasedStatementManagedKeys Operation</seealso>
         Task<GetRateBasedStatementManagedKeysResponse> GetRateBasedStatementManagedKeysAsync(GetRateBasedStatementManagedKeysRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3132,7 +3282,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRegexPatternSet">REST API Reference for GetRegexPatternSet Operation</seealso>
         GetRegexPatternSetResponse GetRegexPatternSet(GetRegexPatternSetRequest request);
@@ -3181,7 +3334,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRegexPatternSet">REST API Reference for GetRegexPatternSet Operation</seealso>
         Task<GetRegexPatternSetResponse> GetRegexPatternSetAsync(GetRegexPatternSetRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3230,7 +3386,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRuleGroup">REST API Reference for GetRuleGroup Operation</seealso>
         GetRuleGroupResponse GetRuleGroup(GetRuleGroupRequest request);
@@ -3279,7 +3438,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetRuleGroup">REST API Reference for GetRuleGroup Operation</seealso>
         Task<GetRuleGroupResponse> GetRuleGroupAsync(GetRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3337,7 +3499,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetSampledRequests">REST API Reference for GetSampledRequests Operation</seealso>
         GetSampledRequestsResponse GetSampledRequests(GetSampledRequestsRequest request);
@@ -3395,7 +3560,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetSampledRequests">REST API Reference for GetSampledRequests Operation</seealso>
         Task<GetSampledRequestsResponse> GetSampledRequestsAsync(GetSampledRequestsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3444,7 +3612,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
         GetWebACLResponse GetWebACL(GetWebACLRequest request);
@@ -3493,7 +3664,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
         Task<GetWebACLResponse> GetWebACLAsync(GetWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3542,11 +3716,17 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetWebACLForResource">REST API Reference for GetWebACLForResource Operation</seealso>
         GetWebACLForResourceResponse GetWebACLForResource(GetWebACLForResourceRequest request);
@@ -3595,11 +3775,17 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/GetWebACLForResource">REST API Reference for GetWebACLForResource Operation</seealso>
         Task<GetWebACLForResourceResponse> GetWebACLForResourceAsync(GetWebACLForResourceRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3744,7 +3930,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListAvailableManagedRuleGroupVersions">REST API Reference for ListAvailableManagedRuleGroupVersions Operation</seealso>
         ListAvailableManagedRuleGroupVersionsResponse ListAvailableManagedRuleGroupVersions(ListAvailableManagedRuleGroupVersionsRequest request);
@@ -3793,7 +3982,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListAvailableManagedRuleGroupVersions">REST API Reference for ListAvailableManagedRuleGroupVersions Operation</seealso>
         Task<ListAvailableManagedRuleGroupVersionsResponse> ListAvailableManagedRuleGroupVersionsAsync(ListAvailableManagedRuleGroupVersionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4112,9 +4304,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -4165,9 +4356,8 @@ namespace Amazon.WAFV2
         ///  
         /// <para>
         /// The mobile SDK is not generally available. Customers who have access to the mobile
-        /// SDK can use it to establish and manage Security Token Service (STS) security tokens
-        /// for use in HTTP(S) requests from a mobile device to WAF. For more information, see
-        /// <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+        /// SDK can use it to establish and manage WAF tokens for use in HTTP(S) requests from
+        /// a mobile device to WAF. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
         /// client application integration</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -4352,7 +4542,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListResourcesForWebACL">REST API Reference for ListResourcesForWebACL Operation</seealso>
         ListResourcesForWebACLResponse ListResourcesForWebACL(ListResourcesForWebACLRequest request);
@@ -4403,7 +4596,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/ListResourcesForWebACL">REST API Reference for ListResourcesForWebACL Operation</seealso>
         Task<ListResourcesForWebACLResponse> ListResourcesForWebACLAsync(ListResourcesForWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4557,7 +4753,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -4624,7 +4823,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -4739,6 +4941,27 @@ namespace Amazon.WAFV2
         /// 
         ///  <note> 
         /// <para>
+        /// This operation completely replaces any mutable specifications that you already have
+        /// for a logging configuration with the ones that you provide to this call. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To modify an existing logging configuration, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetLoggingConfiguration</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete logging configuration specification to this call
+        /// </para>
+        ///  </li> </ol> </note> <note> 
+        /// <para>
         /// You can define one logging destination per web ACL.
         /// </para>
         ///  </note> 
@@ -4750,9 +4973,19 @@ namespace Amazon.WAFV2
         /// <para>
         /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
         /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
-        /// For information about configuring logging destinations and the permissions that are
-        /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-        /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// The name that you give the destination must start with <code>aws-waf-logs-</code>.
+        /// Depending on the type of destination, you might need to configure additional settings
+        /// or permissions. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For configuration requirements and pricing information for each destination type,
+        /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+        /// web ACL traffic</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4772,15 +5005,6 @@ namespace Amazon.WAFV2
         /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
         /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This operation completely replaces the mutable specifications that you already have
-        /// for the logging configuration with the ones that you provide to this call. To modify
-        /// the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>,
-        /// update the settings as needed, and then provide the complete logging configuration
-        /// specification to this call.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutLoggingConfiguration service method.</param>
         /// 
@@ -4829,7 +5053,10 @@ namespace Amazon.WAFV2
         /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -4856,6 +5083,27 @@ namespace Amazon.WAFV2
         /// 
         ///  <note> 
         /// <para>
+        /// This operation completely replaces any mutable specifications that you already have
+        /// for a logging configuration with the ones that you provide to this call. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To modify an existing logging configuration, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetLoggingConfiguration</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete logging configuration specification to this call
+        /// </para>
+        ///  </li> </ol> </note> <note> 
+        /// <para>
         /// You can define one logging destination per web ACL.
         /// </para>
         ///  </note> 
@@ -4867,9 +5115,19 @@ namespace Amazon.WAFV2
         /// <para>
         /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
         /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
-        /// For information about configuring logging destinations and the permissions that are
-        /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-        /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// The name that you give the destination must start with <code>aws-waf-logs-</code>.
+        /// Depending on the type of destination, you might need to configure additional settings
+        /// or permissions. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For configuration requirements and pricing information for each destination type,
+        /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+        /// web ACL traffic</a> in the <i>WAF Developer Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4889,15 +5147,6 @@ namespace Amazon.WAFV2
         /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
         /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This operation completely replaces the mutable specifications that you already have
-        /// for the logging configuration with the ones that you provide to this call. To modify
-        /// the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>,
-        /// update the settings as needed, and then provide the complete logging configuration
-        /// specification to this call.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -4949,7 +5198,10 @@ namespace Amazon.WAFV2
         /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5038,7 +5290,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5118,7 +5373,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5229,7 +5487,10 @@ namespace Amazon.WAFV2
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/PutPermissionPolicy">REST API Reference for PutPermissionPolicy Operation</seealso>
         PutPermissionPolicyResponse PutPermissionPolicy(PutPermissionPolicyRequest request);
@@ -5335,7 +5596,10 @@ namespace Amazon.WAFV2
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/PutPermissionPolicy">REST API Reference for PutPermissionPolicy Operation</seealso>
         Task<PutPermissionPolicyResponse> PutPermissionPolicyAsync(PutPermissionPolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -5401,7 +5665,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -5474,7 +5741,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -5534,7 +5804,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -5594,7 +5867,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFTagOperationException">
         /// An error occurred during the tagging operation. Retry your request.
@@ -5617,11 +5893,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the IP set with the ones that you provide to this call. To modify the IP set,
-        /// retrieve it by calling <a>GetIPSet</a>, update the settings as needed, and then provide
-        /// the complete IP set specification to this call.
+        /// for the IP set with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify an IP set, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetIPSet</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete IP set specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -5682,7 +5972,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5700,11 +5993,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the IP set with the ones that you provide to this call. To modify the IP set,
-        /// retrieve it by calling <a>GetIPSet</a>, update the settings as needed, and then provide
-        /// the complete IP set specification to this call.
+        /// for the IP set with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify an IP set, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetIPSet</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete IP set specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -5768,7 +6075,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5838,7 +6148,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5908,7 +6221,10 @@ namespace Amazon.WAFV2
         ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -5929,11 +6245,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the regex pattern set with the ones that you provide to this call. To modify the
-        /// regex pattern set, retrieve it by calling <a>GetRegexPatternSet</a>, update the settings
-        /// as needed, and then provide the complete regex pattern set specification to this call.
+        /// for the regex pattern set with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify a regex pattern set, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetRegexPatternSet</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete regex pattern set specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -5994,7 +6324,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6012,11 +6345,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the regex pattern set with the ones that you provide to this call. To modify the
-        /// regex pattern set, retrieve it by calling <a>GetRegexPatternSet</a>, update the settings
-        /// as needed, and then provide the complete regex pattern set specification to this call.
+        /// for the regex pattern set with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify a regex pattern set, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetRegexPatternSet</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete regex pattern set specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -6080,7 +6427,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6101,11 +6451,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the rule group with the ones that you provide to this call. To modify the rule
-        /// group, retrieve it by calling <a>GetRuleGroup</a>, update the settings as needed,
-        /// and then provide the complete rule group specification to this call.
+        /// for the rule group with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify a rule group, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetRuleGroup</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete rule group specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -6193,7 +6557,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6205,8 +6572,11 @@ namespace Amazon.WAFV2
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/UpdateRuleGroup">REST API Reference for UpdateRuleGroup Operation</seealso>
         UpdateRuleGroupResponse UpdateRuleGroup(UpdateRuleGroupRequest request);
@@ -6219,11 +6589,25 @@ namespace Amazon.WAFV2
         ///  <note> 
         /// <para>
         /// This operation completely replaces the mutable specifications that you already have
-        /// for the rule group with the ones that you provide to this call. To modify the rule
-        /// group, retrieve it by calling <a>GetRuleGroup</a>, update the settings as needed,
-        /// and then provide the complete rule group specification to this call.
+        /// for the rule group with the ones that you provide to this call. 
         /// </para>
-        ///  </note> 
+        ///  
+        /// <para>
+        /// To modify a rule group, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetRuleGroup</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete rule group specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -6314,7 +6698,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6326,8 +6713,11 @@ namespace Amazon.WAFV2
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/UpdateRuleGroup">REST API Reference for UpdateRuleGroup Operation</seealso>
         Task<UpdateRuleGroupResponse> UpdateRuleGroupAsync(UpdateRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -6341,7 +6731,28 @@ namespace Amazon.WAFV2
         /// Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides continuous
         /// coverage to the resources that you have associated with the web ACL. 
         /// 
+        ///  <note> 
+        /// <para>
+        /// This operation completely replaces the mutable specifications that you already have
+        /// for the web ACL with the ones that you provide to this call. 
+        /// </para>
         ///  
+        /// <para>
+        /// To modify a web ACL, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetWebACL</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete web ACL specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -6355,14 +6766,7 @@ namespace Amazon.WAFV2
         /// ACL that is already associated with a resource. Generally, any inconsistencies of
         /// this type last only a few seconds.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This operation completely replaces the mutable specifications that you already have
-        /// for the web ACL with the ones that you provide to this call. To modify the web ACL,
-        /// retrieve it by calling <a>GetWebACL</a>, update the settings as needed, and then provide
-        /// the complete web ACL specification to this call.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         ///  A web ACL defines a collection of rules to use to inspect and control web requests.
         /// Each rule has an action defined (allow, block, or count) for requests that match the
@@ -6449,7 +6853,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6461,8 +6868,11 @@ namespace Amazon.WAFV2
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/UpdateWebACL">REST API Reference for UpdateWebACL Operation</seealso>
         UpdateWebACLResponse UpdateWebACL(UpdateWebACLRequest request);
@@ -6473,7 +6883,28 @@ namespace Amazon.WAFV2
         /// Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides continuous
         /// coverage to the resources that you have associated with the web ACL. 
         /// 
+        ///  <note> 
+        /// <para>
+        /// This operation completely replaces the mutable specifications that you already have
+        /// for the web ACL with the ones that you provide to this call. 
+        /// </para>
         ///  
+        /// <para>
+        /// To modify a web ACL, do the following: 
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Retrieve it by calling <a>GetWebACL</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update its settings as needed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Provide the complete web ACL specification to this call
+        /// </para>
+        ///  </li> </ol> </note> 
         /// <para>
         /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
         /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -6487,14 +6918,7 @@ namespace Amazon.WAFV2
         /// ACL that is already associated with a resource. Generally, any inconsistencies of
         /// this type last only a few seconds.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This operation completely replaces the mutable specifications that you already have
-        /// for the web ACL with the ones that you provide to this call. To modify the web ACL,
-        /// retrieve it by calling <a>GetWebACL</a>, update the settings as needed, and then provide
-        /// the complete web ACL specification to this call.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         ///  A web ACL defines a collection of rules to use to inspect and control web requests.
         /// Each rule has an action defined (allow, block, or count) for requests that match the
@@ -6584,7 +7008,10 @@ namespace Amazon.WAFV2
         /// quotas</a> in the <i>WAF Developer Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFNonexistentItemException">
-        /// WAF couldn’t perform the operation because your resource doesn’t exist.
+        /// WAF couldn’t perform the operation because your resource doesn't exist. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFOptimisticLockException">
         /// WAF couldn’t save your changes because you tried to update or delete a resource that
@@ -6596,8 +7023,11 @@ namespace Amazon.WAFV2
         /// subscribed to it yet.
         /// </exception>
         /// <exception cref="Amazon.WAFV2.Model.WAFUnavailableEntityException">
-        /// WAF couldn’t retrieve a resource that you specified for this operation. Verify the
-        /// resources that you are specifying in your request parameters and then retry the operation.
+        /// WAF couldn’t retrieve a resource that you specified for this operation. If you've
+        /// just created a resource that you're using in this operation, you might just need to
+        /// wait a few minutes. It can take from a few seconds to a number of minutes for changes
+        /// to propagate. Verify the resources that you are specifying in your request parameters
+        /// and then retry the operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wafv2-2019-07-29/UpdateWebACL">REST API Reference for UpdateWebACL Operation</seealso>
         Task<UpdateWebACLResponse> UpdateWebACLAsync(UpdateWebACLRequest request, CancellationToken cancellationToken = default(CancellationToken));

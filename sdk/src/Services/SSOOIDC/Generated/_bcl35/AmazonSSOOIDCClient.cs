@@ -35,17 +35,17 @@ namespace Amazon.SSOOIDC
     /// <summary>
     /// Implementation for accessing SSOOIDC
     ///
-    /// Amazon Web Services Single Sign On OpenID Connect (OIDC) is a web service that enables
-    /// a client (such as Amazon Web Services CLI or a native application) to register with
-    /// Amazon Web Services SSO. The service also enables the client to fetch the user’s access
-    /// token upon successful authentication and authorization with Amazon Web Services SSO.
+    /// AWS IAM Identity Center (successor to AWS Single Sign-On) OpenID Connect (OIDC) is
+    /// a web service that enables a client (such as AWS CLI or a native application) to register
+    /// with IAM Identity Center. The service also enables the client to fetch the user’s
+    /// access token upon successful authentication and authorization with IAM Identity Center.
     /// 
     ///  <note> 
     /// <para>
-    /// Although Amazon Web Services Single Sign-On was renamed, the <code>sso</code> and
-    /// <code>identitystore</code> API namespaces will continue to retain their original name
-    /// for backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">Amazon
-    /// Web Services SSO rename</a>.
+    /// Although AWS Single Sign-On was renamed, the <code>sso</code> and <code>identitystore</code>
+    /// API namespaces will continue to retain their original name for backward compatibility
+    /// purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM
+    /// Identity Center rename</a>.
     /// </para>
     ///  </note> 
     /// <para>
@@ -54,12 +54,12 @@ namespace Amazon.SSOOIDC
     ///  
     /// <para>
     /// Before you begin using this guide, we recommend that you first review the following
-    /// important information about how the Amazon Web Services SSO OIDC service works.
+    /// important information about how the IAM Identity Center OIDC service works.
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// The Amazon Web Services SSO OIDC service currently implements only the portions of
-    /// the OAuth 2.0 Device Authorization Grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>)
+    /// The IAM Identity Center OIDC service currently implements only the portions of the
+    /// OAuth 2.0 Device Authorization Grant standard (<a href="https://tools.ietf.org/html/rfc8628">https://tools.ietf.org/html/rfc8628</a>)
     /// that are necessary to enable single sign-on authentication with the AWS CLI. Support
     /// for other OIDC flows frequently needed for native applications, such as Authorization
     /// Code Flow (+ PKCE), will be addressed in future releases.
@@ -72,19 +72,19 @@ namespace Amazon.SSOOIDC
     ///  </li> <li> 
     /// <para>
     /// The access tokens provided by this service grant access to all AWS account entitlements
-    /// assigned to an Amazon Web Services SSO user, not just a particular application.
+    /// assigned to an IAM Identity Center user, not just a particular application.
     /// </para>
     ///  </li> <li> 
     /// <para>
     /// The documentation in this guide does not describe the mechanism to convert the access
     /// token into AWS Auth (“sigv4”) credentials for use with IAM-protected AWS service endpoints.
     /// For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.html">GetRoleCredentials</a>
-    /// in the <i>Amazon Web Services SSO Portal API Reference Guide</i>.
+    /// in the <i>IAM Identity Center Portal API Reference Guide</i>.
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// For general information about Amazon Web Services SSO, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What
-    /// is Amazon Web Services SSO?</a> in the <i>Amazon Web Services SSO User Guide</i>.
+    /// For general information about IAM Identity Center, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What
+    /// is IAM Identity Center?</a> in the <i>IAM Identity Center User Guide</i>.
     /// </para>
     /// </summary>
     public partial class AmazonSSOOIDCClient : AmazonServiceClient, IAmazonSSOOIDC
@@ -262,6 +262,15 @@ namespace Amazon.SSOOIDC
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonSSOOIDCEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -291,8 +300,7 @@ namespace Amazon.SSOOIDC
 
         /// <summary>
         /// Creates and returns an access token for the authorized client. The access token issued
-        /// will be used to fetch short-term credentials for the assigned roles in the Amazon
-        /// Web Services account.
+        /// will be used to fetch short-term credentials for the assigned roles in the AWS account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateToken service method.</param>
         /// 
@@ -386,7 +394,7 @@ namespace Amazon.SSOOIDC
         #region  RegisterClient
 
         /// <summary>
-        /// Registers a client with Amazon Web Services SSO. This allows clients to initiate device
+        /// Registers a client with IAM Identity Center. This allows clients to initiate device
         /// authorization. The output should be persisted for reuse through many authentication
         /// requests.
         /// </summary>

@@ -82,6 +82,17 @@ namespace Amazon.LicenseManagerUserSubscriptions.Model.Internal.MarshallTransfor
                     context.Writer.Write(publicRequest.Product);
                 }
 
+                if(publicRequest.IsSetSettings())
+                {
+                    context.Writer.WritePropertyName("Settings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = SettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Settings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

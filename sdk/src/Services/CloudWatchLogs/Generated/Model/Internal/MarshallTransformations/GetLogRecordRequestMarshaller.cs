@@ -73,6 +73,12 @@ namespace Amazon.CloudWatchLogs.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.LogRecordPointer);
                 }
 
+                if(publicRequest.IsSetUnmask())
+                {
+                    context.Writer.WritePropertyName("unmask");
+                    context.Writer.Write(publicRequest.Unmask);
+                }
+
                 writer.WriteObjectEnd();
                 string snippet = stringWriter.ToString();
                 request.Content = System.Text.Encoding.UTF8.GetBytes(snippet);

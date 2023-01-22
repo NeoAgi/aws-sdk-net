@@ -256,6 +256,15 @@ namespace Amazon.EMRServerless
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonEMRServerlessEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -356,6 +365,9 @@ namespace Amazon.EMRServerless
         /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
         /// Request processing failed because of an error or failure with the service.
         /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
         /// The input fails to satisfy the constraints specified by an AWS service.
         /// </exception>
@@ -385,6 +397,9 @@ namespace Amazon.EMRServerless
         /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
         /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
         /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
         /// The input fails to satisfy the constraints specified by an AWS service.
@@ -517,6 +532,65 @@ namespace Amazon.EMRServerless
             options.ResponseUnmarshaller = GetApplicationResponseUnmarshaller.Instance;
             
             return InvokeAsync<GetApplicationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetDashboardForJobRun
+
+
+        /// <summary>
+        /// Returns a URL to access the job run dashboard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDashboardForJobRun service method.</param>
+        /// 
+        /// <returns>The response from the GetDashboardForJobRun service method, as returned by EMRServerless.</returns>
+        /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by an AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/emr-serverless-2021-07-13/GetDashboardForJobRun">REST API Reference for GetDashboardForJobRun Operation</seealso>
+        public virtual GetDashboardForJobRunResponse GetDashboardForJobRun(GetDashboardForJobRunRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDashboardForJobRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDashboardForJobRunResponseUnmarshaller.Instance;
+
+            return Invoke<GetDashboardForJobRunResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Returns a URL to access the job run dashboard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDashboardForJobRun service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetDashboardForJobRun service method, as returned by EMRServerless.</returns>
+        /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by an AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/emr-serverless-2021-07-13/GetDashboardForJobRun">REST API Reference for GetDashboardForJobRun Operation</seealso>
+        public virtual Task<GetDashboardForJobRunResponse> GetDashboardForJobRunAsync(GetDashboardForJobRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetDashboardForJobRunRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetDashboardForJobRunResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetDashboardForJobRunResponse>(request, options, cancellationToken);
         }
 
         #endregion

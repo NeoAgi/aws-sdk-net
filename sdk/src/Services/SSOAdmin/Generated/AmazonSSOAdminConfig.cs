@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the sso-admin-2020-07-20.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.SSOAdmin.Internal;
 
 namespace Amazon.SSOAdmin
 {
     /// <summary>
     /// Configuration for accessing Amazon SSOAdmin service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonSSOAdminConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.12");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.SSOAdmin
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSOAdminDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sso";
+            this.EndpointProvider = new AmazonSSOAdminEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.SSOAdmin
                 return _userAgent;
             }
         }
+
     }
 }

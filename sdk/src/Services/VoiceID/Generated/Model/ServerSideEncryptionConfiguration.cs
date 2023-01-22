@@ -39,7 +39,8 @@ namespace Amazon.VoiceID.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The identifier of the KMS key you want Voice ID to use to encrypt your data.
+        /// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID
+        /// doesn't support asymmetric customer managed keys. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=2048)]

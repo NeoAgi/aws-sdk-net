@@ -32,13 +32,14 @@ namespace Amazon.Transfer
     /// Transfer Family is a fully managed service that enables the transfer of files over
     /// the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure
     /// Shell (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage
-    /// Service (Amazon S3). Amazon Web Services helps you seamlessly migrate your file transfer
-    /// workflows to Transfer Family by integrating with existing authentication systems,
-    /// and providing DNS routing with Amazon Route 53 so nothing changes for your customers
-    /// and partners, or their applications. With your data in Amazon S3, you can use it with
-    /// Amazon Web Services for processing, analytics, machine learning, and archiving. Getting
-    /// started with Transfer Family is easy since there is no infrastructure to buy and set
-    /// up.
+    /// Service (Amazon S3) or Amazon EFS. Additionally, you can use Applicability Statement
+    /// 2 (AS2) to transfer files into and out of Amazon S3. Amazon Web Services helps you
+    /// seamlessly migrate your file transfer workflows to Transfer Family by integrating
+    /// with existing authentication systems, and providing DNS routing with Amazon Route
+    /// 53 so nothing changes for your customers and partners, or their applications. With
+    /// your data in Amazon S3, you can use it with Amazon Web Services for processing, analytics,
+    /// machine learning, and archiving. Getting started with Transfer Family is easy since
+    /// there is no infrastructure to buy and set up.
     /// </summary>
     public partial interface IAmazonTransfer : IAmazonService, IDisposable
     {
@@ -153,6 +154,9 @@ namespace Amazon.Transfer
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
         /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/CreateAgreement">REST API Reference for CreateAgreement Operation</seealso>
         CreateAgreementResponse CreateAgreement(CreateAgreementRequest request);
 
@@ -189,8 +193,9 @@ namespace Amazon.Transfer
 
         /// <summary>
         /// Creates the connector, which captures the parameters for an outbound connection for
-        /// the AS2 protocol. The connector is required for sending files from a customer's non
-        /// Amazon Web Services server.
+        /// the AS2 protocol. The connector is required for sending files to an externally hosted
+        /// AS2 server. For more details about connectors, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-b2b-server.html#configure-as2-connector">Create
+        /// AS2 connectors</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateConnector service method.</param>
         /// 
@@ -212,6 +217,9 @@ namespace Amazon.Transfer
         /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/CreateConnector">REST API Reference for CreateConnector Operation</seealso>
         CreateConnectorResponse CreateConnector(CreateConnectorRequest request);
@@ -248,8 +256,7 @@ namespace Amazon.Transfer
 
 
         /// <summary>
-        /// Creates the profile for the AS2 process. The agreement is between the partner and
-        /// the AS2 process.
+        /// Creates the local or partner profile to use for AS2 transfers.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProfile service method.</param>
         /// 
@@ -268,6 +275,9 @@ namespace Amazon.Transfer
         /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/CreateProfile">REST API Reference for CreateProfile Operation</seealso>
         CreateProfileResponse CreateProfile(CreateProfileRequest request);
@@ -712,6 +722,64 @@ namespace Amazon.Transfer
         /// <returns>Returns a  DeleteConnectorResult from Transfer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DeleteConnector">REST API Reference for DeleteConnector Operation</seealso>
         DeleteConnectorResponse EndDeleteConnector(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteHostKey
+
+
+        /// <summary>
+        /// Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteHostKey service method.</param>
+        /// 
+        /// <returns>The response from the DeleteHostKey service method, as returned by Transfer.</returns>
+        /// <exception cref="Amazon.Transfer.Model.InternalServiceErrorException">
+        /// This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family
+        /// service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceNotFoundException">
+        /// This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer
+        /// Family service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
+        /// The request has failed because the Amazon Web ServicesTransfer Family service is not
+        /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DeleteHostKey">REST API Reference for DeleteHostKey Operation</seealso>
+        DeleteHostKeyResponse DeleteHostKey(DeleteHostKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteHostKey operation on AmazonTransferClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteHostKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DeleteHostKey">REST API Reference for DeleteHostKey Operation</seealso>
+        IAsyncResult BeginDeleteHostKey(DeleteHostKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteHostKey.</param>
+        /// 
+        /// <returns>Returns a  DeleteHostKeyResult from Transfer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DeleteHostKey">REST API Reference for DeleteHostKey Operation</seealso>
+        DeleteHostKeyResponse EndDeleteHostKey(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1297,6 +1365,62 @@ namespace Amazon.Transfer
 
         #endregion
         
+        #region  DescribeHostKey
+
+
+        /// <summary>
+        /// Returns the details of the host key that's specified by the <code>HostKeyId</code>
+        /// and <code>ServerId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeHostKey service method.</param>
+        /// 
+        /// <returns>The response from the DescribeHostKey service method, as returned by Transfer.</returns>
+        /// <exception cref="Amazon.Transfer.Model.InternalServiceErrorException">
+        /// This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family
+        /// service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceNotFoundException">
+        /// This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer
+        /// Family service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
+        /// The request has failed because the Amazon Web ServicesTransfer Family service is not
+        /// available.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DescribeHostKey">REST API Reference for DescribeHostKey Operation</seealso>
+        DescribeHostKeyResponse DescribeHostKey(DescribeHostKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeHostKey operation on AmazonTransferClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHostKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DescribeHostKey">REST API Reference for DescribeHostKey Operation</seealso>
+        IAsyncResult BeginDescribeHostKey(DescribeHostKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeHostKey.</param>
+        /// 
+        /// <returns>Returns a  DescribeHostKeyResult from Transfer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/DescribeHostKey">REST API Reference for DescribeHostKey Operation</seealso>
+        DescribeHostKeyResponse EndDescribeHostKey(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DescribeProfile
 
 
@@ -1642,6 +1766,67 @@ namespace Amazon.Transfer
         /// <returns>Returns a  ImportCertificateResult from Transfer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ImportCertificate">REST API Reference for ImportCertificate Operation</seealso>
         ImportCertificateResponse EndImportCertificate(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ImportHostKey
+
+
+        /// <summary>
+        /// Adds a host key to the server that's specified by the <code>ServerId</code> parameter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ImportHostKey service method.</param>
+        /// 
+        /// <returns>The response from the ImportHostKey service method, as returned by Transfer.</returns>
+        /// <exception cref="Amazon.Transfer.Model.InternalServiceErrorException">
+        /// This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family
+        /// service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceExistsException">
+        /// The requested resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceNotFoundException">
+        /// This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer
+        /// Family service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
+        /// The request has failed because the Amazon Web ServicesTransfer Family service is not
+        /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ImportHostKey">REST API Reference for ImportHostKey Operation</seealso>
+        ImportHostKeyResponse ImportHostKey(ImportHostKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ImportHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ImportHostKey operation on AmazonTransferClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportHostKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ImportHostKey">REST API Reference for ImportHostKey Operation</seealso>
+        IAsyncResult BeginImportHostKey(ImportHostKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ImportHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginImportHostKey.</param>
+        /// 
+        /// <returns>Returns a  ImportHostKeyResult from Transfer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ImportHostKey">REST API Reference for ImportHostKey Operation</seealso>
+        ImportHostKeyResponse EndImportHostKey(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2009,6 +2194,65 @@ namespace Amazon.Transfer
         /// <returns>Returns a  ListExecutionsResult from Transfer.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ListExecutions">REST API Reference for ListExecutions Operation</seealso>
         ListExecutionsResponse EndListExecutions(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListHostKeys
+
+
+        /// <summary>
+        /// Returns a list of host keys for the server that's specified by the <code>ServerId</code>
+        /// parameter.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListHostKeys service method.</param>
+        /// 
+        /// <returns>The response from the ListHostKeys service method, as returned by Transfer.</returns>
+        /// <exception cref="Amazon.Transfer.Model.InternalServiceErrorException">
+        /// This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family
+        /// service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> parameter that was passed is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceNotFoundException">
+        /// This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer
+        /// Family service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
+        /// The request has failed because the Amazon Web ServicesTransfer Family service is not
+        /// available.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ListHostKeys">REST API Reference for ListHostKeys Operation</seealso>
+        ListHostKeysResponse ListHostKeys(ListHostKeysRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListHostKeys operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListHostKeys operation on AmazonTransferClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListHostKeys
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ListHostKeys">REST API Reference for ListHostKeys Operation</seealso>
+        IAsyncResult BeginListHostKeys(ListHostKeysRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListHostKeys operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListHostKeys.</param>
+        /// 
+        /// <returns>Returns a  ListHostKeysResult from Transfer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/ListHostKeys">REST API Reference for ListHostKeys Operation</seealso>
+        ListHostKeysResponse EndListHostKeys(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2423,8 +2667,8 @@ namespace Amazon.Transfer
 
 
         /// <summary>
-        /// Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the
-        /// file paths for where to send the files.
+        /// Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code>
+        /// and the file paths for where to send the files.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartFileTransfer service method.</param>
         /// 
@@ -2874,6 +3118,9 @@ namespace Amazon.Transfer
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
         /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateAccess">REST API Reference for UpdateAccess Operation</seealso>
         UpdateAccessResponse UpdateAccess(UpdateAccessRequest request);
 
@@ -2934,6 +3181,9 @@ namespace Amazon.Transfer
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
         /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateAgreement">REST API Reference for UpdateAgreement Operation</seealso>
         UpdateAgreementResponse UpdateAgreement(UpdateAgreementRequest request);
 
@@ -2988,6 +3238,9 @@ namespace Amazon.Transfer
         /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateCertificate">REST API Reference for UpdateCertificate Operation</seealso>
         UpdateCertificateResponse UpdateCertificate(UpdateCertificateRequest request);
@@ -3049,6 +3302,9 @@ namespace Amazon.Transfer
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
         /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateConnector">REST API Reference for UpdateConnector Operation</seealso>
         UpdateConnectorResponse UpdateConnector(UpdateConnectorRequest request);
 
@@ -3080,6 +3336,65 @@ namespace Amazon.Transfer
 
         #endregion
         
+        #region  UpdateHostKey
+
+
+        /// <summary>
+        /// Updates the description for the host key that's specified by the <code>ServerId</code>
+        /// and <code>HostKeyId</code> parameters.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateHostKey service method.</param>
+        /// 
+        /// <returns>The response from the UpdateHostKey service method, as returned by Transfer.</returns>
+        /// <exception cref="Amazon.Transfer.Model.InternalServiceErrorException">
+        /// This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family
+        /// service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.InvalidRequestException">
+        /// This exception is thrown when the client submits a malformed request.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ResourceNotFoundException">
+        /// This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer
+        /// Family service.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
+        /// The request has failed because the Amazon Web ServicesTransfer Family service is not
+        /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateHostKey">REST API Reference for UpdateHostKey Operation</seealso>
+        UpdateHostKeyResponse UpdateHostKey(UpdateHostKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateHostKey operation on AmazonTransferClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateHostKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateHostKey">REST API Reference for UpdateHostKey Operation</seealso>
+        IAsyncResult BeginUpdateHostKey(UpdateHostKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateHostKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateHostKey.</param>
+        /// 
+        /// <returns>Returns a  UpdateHostKeyResult from Transfer.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateHostKey">REST API Reference for UpdateHostKey Operation</seealso>
+        UpdateHostKeyResponse EndUpdateHostKey(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateProfile
 
 
@@ -3105,6 +3420,9 @@ namespace Amazon.Transfer
         /// <exception cref="Amazon.Transfer.Model.ServiceUnavailableException">
         /// The request has failed because the Amazon Web ServicesTransfer Family service is not
         /// available.
+        /// </exception>
+        /// <exception cref="Amazon.Transfer.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/transfer-2018-11-05/UpdateProfile">REST API Reference for UpdateProfile Operation</seealso>
         UpdateProfileResponse UpdateProfile(UpdateProfileRequest request);

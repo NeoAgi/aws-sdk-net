@@ -44,6 +44,22 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeAddressTransfers operation
+        ///</summary>
+        public IDescribeAddressTransfersPaginator DescribeAddressTransfers(DescribeAddressTransfersRequest request) 
+        {
+            return new DescribeAddressTransfersPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeAwsNetworkPerformanceMetricSubscriptions operation
+        ///</summary>
+        public IDescribeAwsNetworkPerformanceMetricSubscriptionsPaginator DescribeAwsNetworkPerformanceMetricSubscriptions(DescribeAwsNetworkPerformanceMetricSubscriptionsRequest request) 
+        {
+            return new DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeByoipCidrs operation
         ///</summary>
         public IDescribeByoipCidrsPaginator DescribeByoipCidrs(DescribeByoipCidrsRequest request) 
@@ -225,6 +241,14 @@ namespace Amazon.EC2.Model
         public IDescribeIamInstanceProfileAssociationsPaginator DescribeIamInstanceProfileAssociations(DescribeIamInstanceProfileAssociationsRequest request) 
         {
             return new DescribeIamInstanceProfileAssociationsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeImages operation
+        ///</summary>
+        public IDescribeImagesPaginator DescribeImages(DescribeImagesRequest request) 
+        {
+            return new DescribeImagesPaginator(this.client, request);
         }
 
         /// <summary>
@@ -748,6 +772,46 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeVerifiedAccessEndpoints operation
+        ///</summary>
+        public IDescribeVerifiedAccessEndpointsPaginator DescribeVerifiedAccessEndpoints(DescribeVerifiedAccessEndpointsRequest request) 
+        {
+            return new DescribeVerifiedAccessEndpointsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeVerifiedAccessGroups operation
+        ///</summary>
+        public IDescribeVerifiedAccessGroupsPaginator DescribeVerifiedAccessGroups(DescribeVerifiedAccessGroupsRequest request) 
+        {
+            return new DescribeVerifiedAccessGroupsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeVerifiedAccessInstanceLoggingConfigurations operation
+        ///</summary>
+        public IDescribeVerifiedAccessInstanceLoggingConfigurationsPaginator DescribeVerifiedAccessInstanceLoggingConfigurations(DescribeVerifiedAccessInstanceLoggingConfigurationsRequest request) 
+        {
+            return new DescribeVerifiedAccessInstanceLoggingConfigurationsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeVerifiedAccessInstances operation
+        ///</summary>
+        public IDescribeVerifiedAccessInstancesPaginator DescribeVerifiedAccessInstances(DescribeVerifiedAccessInstancesRequest request) 
+        {
+            return new DescribeVerifiedAccessInstancesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeVerifiedAccessTrustProviders operation
+        ///</summary>
+        public IDescribeVerifiedAccessTrustProvidersPaginator DescribeVerifiedAccessTrustProviders(DescribeVerifiedAccessTrustProvidersRequest request) 
+        {
+            return new DescribeVerifiedAccessTrustProvidersPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeVolumes operation
         ///</summary>
         public IDescribeVolumesPaginator DescribeVolumes(DescribeVolumesRequest request) 
@@ -841,6 +905,14 @@ namespace Amazon.EC2.Model
         public IGetAssociatedIpv6PoolCidrsPaginator GetAssociatedIpv6PoolCidrs(GetAssociatedIpv6PoolCidrsRequest request) 
         {
             return new GetAssociatedIpv6PoolCidrsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for GetAwsNetworkPerformanceData operation
+        ///</summary>
+        public IGetAwsNetworkPerformanceDataPaginator GetAwsNetworkPerformanceData(GetAwsNetworkPerformanceDataRequest request) 
+        {
+            return new GetAwsNetworkPerformanceDataPaginator(this.client, request);
         }
 
         /// <summary>

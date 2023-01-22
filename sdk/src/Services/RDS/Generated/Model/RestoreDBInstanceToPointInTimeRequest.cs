@@ -52,6 +52,7 @@ namespace Amazon.RDS.Model
     /// </summary>
     public partial class RestoreDBInstanceToPointInTimeRequest : AmazonRDSRequest
     {
+        private int? _allocatedStorage;
         private bool? _autoMinorVersionUpgrade;
         private string _availabilityZone;
         private string _backupTarget;
@@ -81,6 +82,7 @@ namespace Amazon.RDS.Model
         private string _sourceDBInstanceAutomatedBackupsArn;
         private string _sourceDBInstanceIdentifier;
         private string _sourceDbiResourceId;
+        private int? _storageThroughput;
         private string _storageType;
         private List<Tag> _tags = new List<Tag>();
         private string _targetDBInstanceIdentifier;
@@ -104,6 +106,31 @@ namespace Amazon.RDS.Model
         {
             _sourceDBInstanceIdentifier = sourceDBInstanceIdentifier;
             _targetDBInstanceIdentifier = targetDBInstanceIdentifier;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AllocatedStorage. 
+        /// <para>
+        /// The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
+        /// the allocation rules specified in <code>CreateDBInstance</code>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Be sure to allocate enough memory for your new DB instance so that the restore operation
+        /// can succeed. You can also allocate additional memory for future growth.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public int AllocatedStorage
+        {
+            get { return this._allocatedStorage.GetValueOrDefault(); }
+            set { this._allocatedStorage = value; }
+        }
+
+        // Check to see if AllocatedStorage property is set
+        internal bool IsSetAllocatedStorage()
+        {
+            return this._allocatedStorage.HasValue; 
         }
 
         /// <summary>
@@ -495,7 +522,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned
         /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.
         /// </para>
         /// </summary>
@@ -999,18 +1026,40 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StorageThroughput. 
+        /// <para>
+        /// Specifies the storage throughput value for the DB instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// This setting doesn't apply to RDS Custom or Amazon Aurora.
+        /// </para>
+        /// </summary>
+        public int StorageThroughput
+        {
+            get { return this._storageThroughput.GetValueOrDefault(); }
+            set { this._storageThroughput = value; }
+        }
+
+        // Check to see if StorageThroughput property is set
+        internal bool IsSetStorageThroughput()
+        {
+            return this._storageThroughput.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
         /// Specifies the storage type to be associated with the DB instance.
         /// </para>
         ///  
         /// <para>
-        /// Valid values: <code>standard | gp2 | io1</code> 
+        /// Valid values: <code>gp2 | gp3 | io1 | standard</code> 
         /// </para>
         ///  
         /// <para>
-        /// If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.
+        /// If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.
         /// </para>
         ///  
         /// <para>

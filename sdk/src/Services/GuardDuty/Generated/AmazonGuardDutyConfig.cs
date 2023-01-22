@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the guardduty-2017-11-28.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.GuardDuty.Internal;
 
 namespace Amazon.GuardDuty
 {
     /// <summary>
     /// Configuration for accessing Amazon GuardDuty service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonGuardDutyConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.4.10");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.GuardDuty
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonGuardDutyDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "guardduty";
+            this.EndpointProvider = new AmazonGuardDutyEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.GuardDuty
                 return _userAgent;
             }
         }
+
     }
 }

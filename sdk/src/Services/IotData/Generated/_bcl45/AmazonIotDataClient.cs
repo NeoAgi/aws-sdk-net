@@ -92,6 +92,15 @@ namespace Amazon.IotData
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonIotDataEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -704,6 +713,9 @@ namespace Amazon.IotData
         /// <exception cref="Amazon.IotData.Model.MethodNotAllowedException">
         /// The specified combination of HTTP verb and URI is not supported.
         /// </exception>
+        /// <exception cref="Amazon.IotData.Model.ThrottlingException">
+        /// The rate exceeds the limit.
+        /// </exception>
         /// <exception cref="Amazon.IotData.Model.UnauthorizedException">
         /// You are not authorized to perform this operation.
         /// </exception>
@@ -751,6 +763,9 @@ namespace Amazon.IotData
         /// </exception>
         /// <exception cref="Amazon.IotData.Model.MethodNotAllowedException">
         /// The specified combination of HTTP verb and URI is not supported.
+        /// </exception>
+        /// <exception cref="Amazon.IotData.Model.ThrottlingException">
+        /// The rate exceeds the limit.
         /// </exception>
         /// <exception cref="Amazon.IotData.Model.UnauthorizedException">
         /// You are not authorized to perform this operation.

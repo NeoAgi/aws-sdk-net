@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the resource-groups-2017-11-27.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ResourceGroups.Internal;
 
 namespace Amazon.ResourceGroups
 {
     /// <summary>
     /// Configuration for accessing Amazon ResourceGroups service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonResourceGroupsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.4");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ResourceGroups
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonResourceGroupsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "resource-groups";
+            this.EndpointProvider = new AmazonResourceGroupsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ResourceGroups
                 return _userAgent;
             }
         }
+
     }
 }

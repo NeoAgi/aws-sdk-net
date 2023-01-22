@@ -44,6 +44,8 @@ namespace Amazon.EC2.Model
         private List<string> _cidrs = new List<string>();
         private AnalysisLoadBalancerListener _classicLoadBalancerListener;
         private AnalysisComponent _component;
+        private string _componentAccount;
+        private string _componentRegion;
         private AnalysisComponent _customerGateway;
         private AnalysisComponent _destination;
         private AnalysisComponent _destinationVpc;
@@ -249,6 +251,42 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ComponentAccount. 
+        /// <para>
+        /// The Amazon Web Services account for the component.
+        /// </para>
+        /// </summary>
+        public string ComponentAccount
+        {
+            get { return this._componentAccount; }
+            set { this._componentAccount = value; }
+        }
+
+        // Check to see if ComponentAccount property is set
+        internal bool IsSetComponentAccount()
+        {
+            return this._componentAccount != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ComponentRegion. 
+        /// <para>
+        /// The Region for the component.
+        /// </para>
+        /// </summary>
+        public string ComponentRegion
+        {
+            get { return this._componentRegion; }
+            set { this._componentRegion = value; }
+        }
+
+        // Check to see if ComponentRegion property is set
+        internal bool IsSetComponentRegion()
+        {
+            return this._componentRegion != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CustomerGateway. 
         /// <para>
         /// The customer gateway.
@@ -426,7 +464,7 @@ namespace Amazon.EC2.Model
         /// The listener port of the load balancer.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=65535)]
+        [AWSProperty(Min=0, Max=65535)]
         public int LoadBalancerListenerPort
         {
             get { return this._loadBalancerListenerPort.GetValueOrDefault(); }
@@ -499,7 +537,7 @@ namespace Amazon.EC2.Model
         /// The target port.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=65535)]
+        [AWSProperty(Min=0, Max=65535)]
         public int LoadBalancerTargetPort
         {
             get { return this._loadBalancerTargetPort.GetValueOrDefault(); }
@@ -590,7 +628,7 @@ namespace Amazon.EC2.Model
         /// The port.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=65535)]
+        [AWSProperty(Min=0, Max=65535)]
         public int Port
         {
             get { return this._port.GetValueOrDefault(); }

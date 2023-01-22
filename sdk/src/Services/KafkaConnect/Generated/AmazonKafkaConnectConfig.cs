@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the kafkaconnect-2021-09-14.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.KafkaConnect.Internal;
 
 namespace Amazon.KafkaConnect
 {
     /// <summary>
     /// Configuration for accessing Amazon KafkaConnect service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonKafkaConnectConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.63");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.KafkaConnect
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonKafkaConnectDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "kafkaconnect";
+            this.EndpointProvider = new AmazonKafkaConnectEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.KafkaConnect
                 return _userAgent;
             }
         }
+
     }
 }

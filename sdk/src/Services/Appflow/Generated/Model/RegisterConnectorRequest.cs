@@ -30,8 +30,9 @@ namespace Amazon.Appflow.Model
 {
     /// <summary>
     /// Container for the parameters to the RegisterConnector operation.
-    /// Registers a new connector with your Amazon Web Services account. Before you can register
-    /// the connector, you must deploy lambda in your account.
+    /// Registers a new custom connector with your Amazon Web Services account. Before you
+    /// can register the connector, you must deploy the associated AWS lambda function in
+    /// your account.
     /// </summary>
     public partial class RegisterConnectorRequest : AmazonAppflowRequest
     {

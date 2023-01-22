@@ -1241,6 +1241,36 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Rest_Xml")]
         [TestCategory("S3Control")]
+        public void GetBucketVersioningMarshallTest()
+        {
+            var operation = service_model.FindOperation("GetBucketVersioning");
+
+            var request = InstantiateClassGenerator.Execute<GetBucketVersioningRequest>();
+            var marshaller = new GetBucketVersioningRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            TestTools.RequestValidator.Validate("GetBucketVersioning", request, internalRequest, service_model);
+
+            var webResponse = new WebResponseData
+            {
+                Headers = {
+                    {"x-amzn-RequestId", Guid.NewGuid().ToString()},
+                    {"x-amz-crc32","0"}
+                }
+            };
+            
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            webResponse.ContentLength = payloadResponse.Length;
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, webResponse);
+            ResponseUnmarshaller unmarshaller = GetBucketVersioningResponseUnmarshaller.Instance;
+            var response = unmarshaller.Unmarshall(context) as GetBucketVersioningResponse;
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Rest_Xml")]
+        [TestCategory("S3Control")]
         public void GetJobTaggingMarshallTest()
         {
             var operation = service_model.FindOperation("GetJobTagging");
@@ -1447,6 +1477,36 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, webResponse);
             ResponseUnmarshaller unmarshaller = GetMultiRegionAccessPointPolicyStatusResponseUnmarshaller.Instance;
             var response = unmarshaller.Unmarshall(context) as GetMultiRegionAccessPointPolicyStatusResponse;
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Rest_Xml")]
+        [TestCategory("S3Control")]
+        public void GetMultiRegionAccessPointRoutesMarshallTest()
+        {
+            var operation = service_model.FindOperation("GetMultiRegionAccessPointRoutes");
+
+            var request = InstantiateClassGenerator.Execute<GetMultiRegionAccessPointRoutesRequest>();
+            var marshaller = new GetMultiRegionAccessPointRoutesRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            TestTools.RequestValidator.Validate("GetMultiRegionAccessPointRoutes", request, internalRequest, service_model);
+
+            var webResponse = new WebResponseData
+            {
+                Headers = {
+                    {"x-amzn-RequestId", Guid.NewGuid().ToString()},
+                    {"x-amz-crc32","0"}
+                }
+            };
+            
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            webResponse.ContentLength = payloadResponse.Length;
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, webResponse);
+            ResponseUnmarshaller unmarshaller = GetMultiRegionAccessPointRoutesResponseUnmarshaller.Instance;
+            var response = unmarshaller.Unmarshall(context) as GetMultiRegionAccessPointRoutesResponse;
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
         }
 
@@ -1944,6 +2004,22 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Rest_Xml")]
         [TestCategory("S3Control")]
+        public void PutBucketVersioningMarshallTest()
+        {
+            var operation = service_model.FindOperation("PutBucketVersioning");
+
+            var request = InstantiateClassGenerator.Execute<PutBucketVersioningRequest>();
+            var marshaller = new PutBucketVersioningRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            TestTools.RequestValidator.Validate("PutBucketVersioning", request, internalRequest, service_model);
+
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Rest_Xml")]
+        [TestCategory("S3Control")]
         public void PutJobTaggingMarshallTest()
         {
             var operation = service_model.FindOperation("PutJobTagging");
@@ -2183,6 +2259,36 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, webResponse);
             ResponseUnmarshaller unmarshaller = PutStorageLensConfigurationTaggingResponseUnmarshaller.Instance;
             var response = unmarshaller.Unmarshall(context) as PutStorageLensConfigurationTaggingResponse;
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Rest_Xml")]
+        [TestCategory("S3Control")]
+        public void SubmitMultiRegionAccessPointRoutesMarshallTest()
+        {
+            var operation = service_model.FindOperation("SubmitMultiRegionAccessPointRoutes");
+
+            var request = InstantiateClassGenerator.Execute<SubmitMultiRegionAccessPointRoutesRequest>();
+            var marshaller = new SubmitMultiRegionAccessPointRoutesRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            TestTools.RequestValidator.Validate("SubmitMultiRegionAccessPointRoutes", request, internalRequest, service_model);
+
+            var webResponse = new WebResponseData
+            {
+                Headers = {
+                    {"x-amzn-RequestId", Guid.NewGuid().ToString()},
+                    {"x-amz-crc32","0"}
+                }
+            };
+            
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            webResponse.ContentLength = payloadResponse.Length;
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, webResponse);
+            ResponseUnmarshaller unmarshaller = SubmitMultiRegionAccessPointRoutesResponseUnmarshaller.Instance;
+            var response = unmarshaller.Unmarshall(context) as SubmitMultiRegionAccessPointRoutesResponse;
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
         }
 

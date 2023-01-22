@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the mq-2017-11-27.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MQ.Internal;
 
 namespace Amazon.MQ
 {
     /// <summary>
     /// Configuration for accessing Amazon MQ service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMQConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.44");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MQ
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMQDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mq";
+            this.EndpointProvider = new AmazonMQEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MQ
                 return _userAgent;
             }
         }
+
     }
 }

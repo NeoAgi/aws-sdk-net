@@ -52,19 +52,19 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(putBucketTaggingRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "PutBucketTaggingRequest.BucketName");
 
-			request.ResourcePath = string.Concat("/", S3Transforms.ToStringValue(putBucketTaggingRequest.BucketName));
+            request.ResourcePath = "/";
 
             request.AddSubResource("tagging");
 
             var stringWriter = new XMLEncodedStringWriter(System.Globalization.CultureInfo.InvariantCulture);
             using (var xmlWriter = XmlWriter.Create(stringWriter, new XmlWriterSettings() { Encoding = Encoding.UTF8, OmitXmlDeclaration = true, NewLineHandling = NewLineHandling.Entitize }))
             {
-                xmlWriter.WriteStartElement("Tagging", "");
+                xmlWriter.WriteStartElement("Tagging", S3Constants.S3RequestXmlNamespace);
 
                 var taggingTaggingtagSetList = putBucketTaggingRequest.TagSet;
                 if (taggingTaggingtagSetList != null && taggingTaggingtagSetList.Count > 0)
                 {
-                    xmlWriter.WriteStartElement("TagSet", "");
+                    xmlWriter.WriteStartElement("TagSet");
                     foreach (var taggingTaggingtagSetListValue in taggingTaggingtagSetList)
                     {
                         taggingTaggingtagSetListValue.Marshall("Tag", xmlWriter);

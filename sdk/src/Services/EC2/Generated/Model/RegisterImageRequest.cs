@@ -32,8 +32,8 @@ namespace Amazon.EC2.Model
     /// Container for the parameters to the RegisterImage operation.
     /// Registers an AMI. When you're creating an AMI, this is the final step you must complete
     /// before you can launch an instance from the AMI. For more information about creating
-    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating
-    /// your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create
+    /// your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  <note> 
     /// <para>
@@ -102,8 +102,8 @@ namespace Amazon.EC2.Model
     /// the matching billing product code. If you purchase a Reserved Instance without the
     /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
     /// Instance. For information about how to obtain the platform details and billing information
-    /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-    /// AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+    /// AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     public partial class RegisterImageRequest : AmazonEC2Request
@@ -115,6 +115,7 @@ namespace Amazon.EC2.Model
         private string _description;
         private bool? _enaSupport;
         private string _imageLocation;
+        private ImdsSupportValues _imdsSupport;
         private string _kernelId;
         private string _name;
         private string _ramdiskId;
@@ -165,8 +166,16 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property BillingProducts. 
         /// <para>
         /// The billing product codes. Your account must be authorized to specify billing product
-        /// codes. Otherwise, you can use the Amazon Web Services Marketplace to bill for the
-        /// use of an AMI.
+        /// codes.
+        /// </para>
+        ///  
+        /// <para>
+        /// If your account is not authorized to specify billing product codes, you can publish
+        /// AMIs that include billable software and list them on the Amazon Web Services Marketplace.
+        /// You must first register as a seller on the Amazon Web Services Marketplace. For more
+        /// information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting
+        /// started as a seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
+        /// products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.
         /// </para>
         /// </summary>
         public List<string> BillingProducts
@@ -196,9 +205,8 @@ namespace Amazon.EC2.Model
         /// If you create an AMI on an Outpost, then all backing snapshots must be on the same
         /// Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots
         /// can be used to launch instances on the same Outpost only. For more information, <a
-        /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-        /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.
+        /// href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">Amazon
+        /// EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         public List<BlockDeviceMapping> BlockDeviceMappings
@@ -217,7 +225,7 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property BootMode. 
         /// <para>
         /// The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
-        /// modes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// modes</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         public BootModeValues BootMode
@@ -293,6 +301,35 @@ namespace Amazon.EC2.Model
         internal bool IsSetImageLocation()
         {
             return this._imageLocation != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ImdsSupport. 
+        /// <para>
+        /// Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
+        /// launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code>
+        /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
+        /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+        /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If you set the value to <code>v2.0</code>, make sure that your AMI software can support
+        /// IMDSv2.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public ImdsSupportValues ImdsSupport
+        {
+            get { return this._imdsSupport; }
+            set { this._imdsSupport = value; }
+        }
+
+        // Check to see if ImdsSupport property is set
+        internal bool IsSetImdsSupport()
+        {
+            return this._imdsSupport != null;
         }
 
         /// <summary>
@@ -407,7 +444,7 @@ namespace Amazon.EC2.Model
         /// <para>
         /// Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         public TpmSupportValues TpmSupport
@@ -429,7 +466,7 @@ namespace Amazon.EC2.Model
         /// data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a>
         /// command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars
         /// tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI
-        /// Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=64000)]

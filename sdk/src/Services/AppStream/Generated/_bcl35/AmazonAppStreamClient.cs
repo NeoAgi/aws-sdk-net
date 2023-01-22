@@ -260,6 +260,15 @@ namespace Amazon.AppStream
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonAppStreamEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -998,8 +1007,8 @@ namespace Amazon.AppStream
         #region  CreateFleet
 
         /// <summary>
-        /// Creates a fleet. A fleet consists of streaming instances that run a specified image
-        /// when using Always-On or On-Demand.
+        /// Creates a fleet. A fleet consists of streaming instances that your users access for
+        /// their applications and desktops.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateFleet service method.</param>
         /// 

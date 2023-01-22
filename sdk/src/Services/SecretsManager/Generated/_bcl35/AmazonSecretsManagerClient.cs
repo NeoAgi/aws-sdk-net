@@ -57,6 +57,11 @@ namespace Amazon.SecretsManager
     /// </para>
     ///  
     /// <para>
+    /// For a list of endpoints, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/asm_access.html#endpoints">Amazon
+    /// Web Services Secrets Manager endpoints</a>.
+    /// </para>
+    ///  
+    /// <para>
     ///  <b>Support and Feedback for Amazon Web Services Secrets Manager</b> 
     /// </para>
     ///  
@@ -279,6 +284,15 @@ namespace Amazon.SecretsManager
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonSecretsManagerEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -324,6 +338,13 @@ namespace Amazon.SecretsManager
         ///  
         /// <para>
         /// To turn on automatic rotation again, call <a>RotateSecret</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -427,6 +448,12 @@ namespace Amazon.SecretsManager
         /// 
         ///  
         /// <para>
+        /// For secrets that use <i>managed rotation</i>, you need to create the secret through
+        /// the managing service. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets
+        /// Manager secrets managed by other Amazon Web Services services</a>. 
+        /// </para>
+        ///  
+        /// <para>
         /// For information about creating a secret in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html">Create
         /// a secret</a>.
         /// </para>
@@ -459,6 +486,14 @@ namespace Amazon.SecretsManager
         /// If the secret is in a different Amazon Web Services account from the credentials calling
         /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
         /// and you must create and use a customer managed KMS key. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters except <code>SecretBinary</code>
+        /// or <code>SecretString</code> because it might be logged. For more information, see
+        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -584,6 +619,13 @@ namespace Amazon.SecretsManager
         /// Deletes the resource-based permission policy attached to the secret. To attach a policy
         /// to a secret, use <a>PutResourcePolicy</a>.
         /// 
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
         ///  
         /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:DeleteResourcePolicy</code>. For
@@ -721,6 +763,13 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:DeleteSecret</code>. For more
         /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -817,6 +866,13 @@ namespace Amazon.SecretsManager
         /// 
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:DescribeSecret</code>. For more
         /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -888,6 +944,13 @@ namespace Amazon.SecretsManager
         /// include every character type that the system you are generating a password for can
         /// support.
         /// 
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
         ///  
         /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:GetRandomPassword</code>. For
@@ -982,6 +1045,13 @@ namespace Amazon.SecretsManager
         /// For more information about permissions policies attached to a secret, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
         /// policies attached to a secret</a>.
         /// 
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
         ///  
         /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:GetResourcePolicy</code>. For
@@ -1088,6 +1158,13 @@ namespace Amazon.SecretsManager
         /// <para>
         /// To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
         /// AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -1212,6 +1289,13 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:ListSecrets</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -1286,6 +1370,13 @@ namespace Amazon.SecretsManager
         ///  
         /// <para>
         /// To list the secrets in the account, use <a>ListSecrets</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -1367,6 +1458,13 @@ namespace Amazon.SecretsManager
         /// <para>
         /// For information about attaching a policy in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Attach
         /// a permissions policy to a secret</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -1488,13 +1586,10 @@ namespace Amazon.SecretsManager
         /// If you don't include <code>VersionStages</code>, then Secrets Manager automatically
         /// moves the staging label <code>AWSCURRENT</code> to this version. If this operation
         /// creates the first version for the secret, then Secrets Manager automatically attaches
-        /// the staging label <code>AWSCURRENT</code> to it .
-        /// </para>
-        ///  
-        /// <para>
-        /// If this operation moves the staging label <code>AWSCURRENT</code> from another version
-        /// to this version, then Secrets Manager also automatically moves the staging label <code>AWSPREVIOUS</code>
-        /// to the version that <code>AWSCURRENT</code> was removed from.
+        /// the staging label <code>AWSCURRENT</code> to it. If this operation moves the staging
+        /// label <code>AWSCURRENT</code> from another version to this version, then Secrets Manager
+        /// also automatically moves the staging label <code>AWSPREVIOUS</code> to the version
+        /// that <code>AWSCURRENT</code> was removed from.
         /// </para>
         ///  
         /// <para>
@@ -1503,6 +1598,14 @@ namespace Amazon.SecretsManager
         /// the operation succeeds but does nothing. However, if the secret data is different,
         /// then the operation fails because you can't modify an existing version; you can only
         /// create new ones.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters except <code>SecretBinary</code>
+        /// or <code>SecretString</code> because it might be logged. For more information, see
+        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -1617,6 +1720,13 @@ namespace Amazon.SecretsManager
         /// 
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:RemoveRegionsFromReplication</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -1711,6 +1821,13 @@ namespace Amazon.SecretsManager
         /// Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region
         /// secrets</a>.
         /// 
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
         ///  
         /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:ReplicateSecretToRegions</code>.
@@ -1809,6 +1926,13 @@ namespace Amazon.SecretsManager
         /// 
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:RestoreSecret</code>. For more
         /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -1900,42 +2024,13 @@ namespace Amazon.SecretsManager
         #region  RotateSecret
 
         /// <summary>
-        /// Configures and starts the asynchronous process of rotating the secret. For more information
+        /// Configures and starts the asynchronous process of rotating the secret. For information
         /// about rotation, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate
-        /// secrets</a>.
+        /// secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration
+        /// parameters, the operation sets the values for the secret and then immediately starts
+        /// a rotation. If you don't include the configuration parameters, the operation starts
+        /// a rotation with the values already stored in the secret. 
         /// 
-        ///  
-        /// <para>
-        /// If you include the configuration parameters, the operation sets the values for the
-        /// secret and then immediately starts a rotation. If you don't include the configuration
-        /// parameters, the operation starts a rotation with the values already stored in the
-        /// secret. 
-        /// </para>
-        ///  
-        /// <para>
-        /// For database credentials you want to rotate, for Secrets Manager to be able to rotate
-        /// the secret, you must make sure the secret value is in the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">
-        /// JSON structure of a database secret</a>. In particular, if you want to use the <a
-        /// href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users">
-        /// alternating users strategy</a>, your secret must contain the ARN of a superuser secret.
-        /// </para>
-        ///  
-        /// <para>
-        /// To configure rotation, you also need the ARN of an Amazon Web Services Lambda function
-        /// and the schedule for the rotation. The Lambda rotation function creates a new version
-        /// of the secret and creates or updates the credentials on the database or service to
-        /// match. After testing the new credentials, the function marks the new secret version
-        /// with the staging label <code>AWSCURRENT</code>. Then anyone who retrieves the secret
-        /// gets the new version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How
-        /// rotation works</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// You can create the Lambda rotation function based on the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html">rotation
-        /// function templates</a> that Secrets Manager provides. Choose a template that matches
-        /// your <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html">Rotation
-        /// strategy</a>.
-        /// </para>
         ///  
         /// <para>
         /// When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
@@ -1943,6 +2038,16 @@ namespace Amazon.SecretsManager
         /// to any version. If the <code>AWSPENDING</code> staging label is present but not attached
         /// to the same version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
         /// assumes that a previous rotation request is still in progress and returns an error.
+        /// When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be
+        /// attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot
+        /// rotation</a> in the <i>Secrets Manager User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -2046,6 +2151,13 @@ namespace Amazon.SecretsManager
         /// <para>
         /// You must call this operation from the Region in which you want to promote the replica
         /// to a primary secret.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -2187,6 +2299,13 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  </important> 
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:TagResource</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -2294,6 +2413,13 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  </important> 
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:UntagResource</code>. For more
         /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -2394,6 +2520,12 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  
         /// <para>
+        /// To change a secret so that it is managed by another service, you need to recreate
+        /// the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets
+        /// Manager secrets managed by other Amazon Web Services services</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
         /// than once every 10 minutes. When you call <code>UpdateSecret</code> to update the
         /// secret value, Secrets Manager creates a new version of the secret. Secrets Manager
@@ -2405,8 +2537,9 @@ namespace Amazon.SecretsManager
         ///  
         /// <para>
         /// If you include <code>SecretString</code> or <code>SecretBinary</code> to create a
-        /// new secret version, Secrets Manager automatically attaches the staging label <code>AWSCURRENT</code>
-        /// to the new version. 
+        /// new secret version, Secrets Manager automatically moves the staging label <code>AWSCURRENT</code>
+        /// to the new version. Then it attaches the label <code>AWSPREVIOUS</code> to the version
+        /// that <code>AWSCURRENT</code> was removed from.
         /// </para>
         ///  
         /// <para>
@@ -2414,6 +2547,14 @@ namespace Amazon.SecretsManager
         /// existing version's <code>VersionId</code>, the operation results in an error. You
         /// can't modify an existing version, you can only create a new version. To remove a version,
         /// remove all staging labels from it. See <a>UpdateSecretVersionStage</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters except <code>SecretBinary</code>
+        /// or <code>SecretString</code> because it might be logged. For more information, see
+        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
         /// </para>
         ///  
         /// <para>
@@ -2563,6 +2704,13 @@ namespace Amazon.SecretsManager
         /// </para>
         ///  
         /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
+        /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:UpdateSecretVersionStage</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
         /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -2679,6 +2827,13 @@ namespace Amazon.SecretsManager
         /// Verifies the policy does not lock out a caller.
         /// </para>
         ///  </li> </ul> 
+        /// <para>
+        /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+        /// include sensitive information in request parameters because it might be logged. For
+        /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+        /// Secrets Manager events with CloudTrail</a>.
+        /// </para>
+        ///  
         /// <para>
         ///  <b>Required permissions: </b> <code>secretsmanager:ValidateResourcePolicy</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">

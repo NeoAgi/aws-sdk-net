@@ -76,6 +76,7 @@ namespace Amazon.Connect.Model
         private ChatMessage _initialMessage;
         private string _instanceId;
         private ParticipantDetails _participantDetails;
+        private PersistentChat _persistentChat;
         private List<string> _supportedMessagingContentTypes = new List<string>();
 
         /// <summary>
@@ -128,7 +129,9 @@ namespace Amazon.Connect.Model
         /// Gets and sets the property ClientToken. 
         /// <para>
         /// A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Max=500)]
@@ -230,10 +233,33 @@ namespace Amazon.Connect.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PersistentChat. 
+        /// <para>
+        /// Enable persistent chats. For more information about enabling persistent chat, and
+        /// for example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
+        /// persistent chat</a>.
+        /// </para>
+        /// </summary>
+        public PersistentChat PersistentChat
+        {
+            get { return this._persistentChat; }
+            set { this._persistentChat = value; }
+        }
+
+        // Check to see if PersistentChat property is set
+        internal bool IsSetPersistentChat()
+        {
+            return this._persistentChat != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SupportedMessagingContentTypes. 
         /// <para>
-        /// The supported chat message content types. Content types can be text/plain or both
-        /// text/plain and text/markdown.
+        /// The supported chat message content types. Content types must always contain <code>text/plain</code>.
+        /// You can then put any other supported type in the list. For example, all the following
+        /// lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown,
+        /// application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain,
+        /// application/json]</code>.
         /// </para>
         /// </summary>
         public List<string> SupportedMessagingContentTypes

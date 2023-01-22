@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the redshift-serverless-2021-04-21.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.RedshiftServerless.Internal;
 
 namespace Amazon.RedshiftServerless
 {
     /// <summary>
     /// Configuration for accessing Amazon RedshiftServerless service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonRedshiftServerlessConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.18");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.30");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.RedshiftServerless
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonRedshiftServerlessDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "redshift-serverless";
+            this.EndpointProvider = new AmazonRedshiftServerlessEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.RedshiftServerless
                 return _userAgent;
             }
         }
+
     }
 }

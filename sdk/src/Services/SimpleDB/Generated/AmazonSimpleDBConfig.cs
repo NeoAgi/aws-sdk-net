@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the sdb-2009-04-15.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.SimpleDB.Internal;
 
 namespace Amazon.SimpleDB
 {
     /// <summary>
     /// Configuration for accessing Amazon SimpleDB service
     /// </summary>
+    [AWSSignerType("v2")]
     public partial class AmazonSimpleDBConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.SimpleDB
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSimpleDBDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "sdb";
+            this.EndpointProvider = new AmazonSimpleDBEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.SimpleDB
                 return _userAgent;
             }
         }
+
     }
 }

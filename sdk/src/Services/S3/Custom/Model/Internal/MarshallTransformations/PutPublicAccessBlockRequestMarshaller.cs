@@ -53,7 +53,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(putPutPublicAccessBlockRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "putPutPublicAccessBlockRequest.BucketName");
 
-			request.ResourcePath = string.Concat("/", S3Transforms.ToStringValue(putPutPublicAccessBlockRequest.BucketName));
+            request.ResourcePath = "/";
 
             request.AddSubResource("publicAccessBlock");
 
@@ -63,22 +63,22 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 var publicAccessBlockConfiguration = putPutPublicAccessBlockRequest.PublicAccessBlockConfiguration;
                 if (publicAccessBlockConfiguration != null)
                 {
-                    xmlWriter.WriteStartElement("PublicAccessBlockConfiguration", "http://s3.amazonaws.com/doc/2006-03-01/");                    
+                    xmlWriter.WriteStartElement("PublicAccessBlockConfiguration", S3Constants.S3RequestXmlNamespace);                    
                     if (publicAccessBlockConfiguration.IsSetBlockPublicAcls())
                     {
-                        xmlWriter.WriteElementString("BlockPublicAcls", "http://s3.amazonaws.com/doc/2006-03-01/", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.BlockPublicAcls));
+                        xmlWriter.WriteElementString("BlockPublicAcls", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.BlockPublicAcls));
                     }
                     if (publicAccessBlockConfiguration.IsSetIgnorePublicAcls())
                     {
-                        xmlWriter.WriteElementString("IgnorePublicAcls", "http://s3.amazonaws.com/doc/2006-03-01/", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.IgnorePublicAcls));
+                        xmlWriter.WriteElementString("IgnorePublicAcls", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.IgnorePublicAcls));
                     }
                     if (publicAccessBlockConfiguration.IsSetBlockPublicPolicy())
                     {
-                        xmlWriter.WriteElementString("BlockPublicPolicy", "http://s3.amazonaws.com/doc/2006-03-01/", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.BlockPublicPolicy));
+                        xmlWriter.WriteElementString("BlockPublicPolicy", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.BlockPublicPolicy));
                     }
                     if (publicAccessBlockConfiguration.IsSetRestrictPublicBuckets())
                     {
-                        xmlWriter.WriteElementString("RestrictPublicBuckets", "http://s3.amazonaws.com/doc/2006-03-01/", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.RestrictPublicBuckets));
+                        xmlWriter.WriteElementString("RestrictPublicBuckets", S3Transforms.ToXmlStringValue(publicAccessBlockConfiguration.RestrictPublicBuckets));
                     }
                     xmlWriter.WriteEndElement();
                 }

@@ -93,6 +93,14 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly AcceleratorName A100 = new AcceleratorName("a100");
         /// <summary>
+        /// Constant Inferentia for AcceleratorName
+        /// </summary>
+        public static readonly AcceleratorName Inferentia = new AcceleratorName("inferentia");
+        /// <summary>
+        /// Constant K520 for AcceleratorName
+        /// </summary>
+        public static readonly AcceleratorName K520 = new AcceleratorName("k520");
+        /// <summary>
         /// Constant K80 for AcceleratorName
         /// </summary>
         public static readonly AcceleratorName K80 = new AcceleratorName("k80");
@@ -411,6 +419,60 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type AddressTransferStatus.
+    /// </summary>
+    public class AddressTransferStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Accepted for AddressTransferStatus
+        /// </summary>
+        public static readonly AddressTransferStatus Accepted = new AddressTransferStatus("accepted");
+        /// <summary>
+        /// Constant Disabled for AddressTransferStatus
+        /// </summary>
+        public static readonly AddressTransferStatus Disabled = new AddressTransferStatus("disabled");
+        /// <summary>
+        /// Constant Pending for AddressTransferStatus
+        /// </summary>
+        public static readonly AddressTransferStatus Pending = new AddressTransferStatus("pending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AddressTransferStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AddressTransferStatus FindValue(string value)
+        {
+            return FindValue<AddressTransferStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AddressTransferStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Affinity.
     /// </summary>
     public class Affinity : ConstantClass
@@ -548,6 +610,10 @@ namespace Amazon.EC2
         /// Constant LowestPrice for AllocationStrategy
         /// </summary>
         public static readonly AllocationStrategy LowestPrice = new AllocationStrategy("lowestPrice");
+        /// <summary>
+        /// Constant PriceCapacityOptimized for AllocationStrategy
+        /// </summary>
+        public static readonly AllocationStrategy PriceCapacityOptimized = new AllocationStrategy("priceCapacityOptimized");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -578,6 +644,52 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator AllocationStrategy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type AllocationType.
+    /// </summary>
+    public class AllocationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Used for AllocationType
+        /// </summary>
+        public static readonly AllocationType Used = new AllocationType("used");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AllocationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AllocationType FindValue(string value)
+        {
+            return FindValue<AllocationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AllocationType(string value)
         {
             return FindValue(value);
         }
@@ -749,6 +861,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ArchitectureType Arm64 = new ArchitectureType("arm64");
         /// <summary>
+        /// Constant Arm64_mac for ArchitectureType
+        /// </summary>
+        public static readonly ArchitectureType Arm64_mac = new ArchitectureType("arm64_mac");
+        /// <summary>
         /// Constant I386 for ArchitectureType
         /// </summary>
         public static readonly ArchitectureType I386 = new ArchitectureType("i386");
@@ -806,6 +922,10 @@ namespace Amazon.EC2
         /// Constant Arm64 for ArchitectureValues
         /// </summary>
         public static readonly ArchitectureValues Arm64 = new ArchitectureValues("arm64");
+        /// <summary>
+        /// Constant Arm64_mac for ArchitectureValues
+        /// </summary>
+        public static readonly ArchitectureValues Arm64_mac = new ArchitectureValues("arm64_mac");
         /// <summary>
         /// Constant I386 for ArchitectureValues
         /// </summary>
@@ -3427,6 +3547,56 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type DeviceTrustProviderType.
+    /// </summary>
+    public class DeviceTrustProviderType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Crowdstrike for DeviceTrustProviderType
+        /// </summary>
+        public static readonly DeviceTrustProviderType Crowdstrike = new DeviceTrustProviderType("crowdstrike");
+        /// <summary>
+        /// Constant Jamf for DeviceTrustProviderType
+        /// </summary>
+        public static readonly DeviceTrustProviderType Jamf = new DeviceTrustProviderType("jamf");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DeviceTrustProviderType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DeviceTrustProviderType FindValue(string value)
+        {
+            return FindValue<DeviceTrustProviderType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DeviceTrustProviderType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type DeviceType.
     /// </summary>
     public class DeviceType : ConstantClass
@@ -5947,6 +6117,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ImageAttributeName Description = new ImageAttributeName("description");
         /// <summary>
+        /// Constant ImdsSupport for ImageAttributeName
+        /// </summary>
+        public static readonly ImageAttributeName ImdsSupport = new ImageAttributeName("imdsSupport");
+        /// <summary>
         /// Constant Kernel for ImageAttributeName
         /// </summary>
         public static readonly ImageAttributeName Kernel = new ImageAttributeName("kernel");
@@ -6132,6 +6306,52 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ImageTypeValues(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ImdsSupportValues.
+    /// </summary>
+    public class ImdsSupportValues : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant V20 for ImdsSupportValues
+        /// </summary>
+        public static readonly ImdsSupportValues V20 = new ImdsSupportValues("v2.0");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ImdsSupportValues(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ImdsSupportValues FindValue(string value)
+        {
+            return FindValue<ImdsSupportValues>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ImdsSupportValues(string value)
         {
             return FindValue(value);
         }
@@ -7391,6 +7611,46 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType C6i8xlarge = new InstanceType("c6i.8xlarge");
         /// <summary>
+        /// Constant C6id12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id12xlarge = new InstanceType("c6id.12xlarge");
+        /// <summary>
+        /// Constant C6id16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id16xlarge = new InstanceType("c6id.16xlarge");
+        /// <summary>
+        /// Constant C6id24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id24xlarge = new InstanceType("c6id.24xlarge");
+        /// <summary>
+        /// Constant C6id2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id2xlarge = new InstanceType("c6id.2xlarge");
+        /// <summary>
+        /// Constant C6id32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id32xlarge = new InstanceType("c6id.32xlarge");
+        /// <summary>
+        /// Constant C6id4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id4xlarge = new InstanceType("c6id.4xlarge");
+        /// <summary>
+        /// Constant C6id8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6id8xlarge = new InstanceType("c6id.8xlarge");
+        /// <summary>
+        /// Constant C6idLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6idLarge = new InstanceType("c6id.large");
+        /// <summary>
+        /// Constant C6idMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6idMetal = new InstanceType("c6id.metal");
+        /// <summary>
+        /// Constant C6idXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6idXlarge = new InstanceType("c6id.xlarge");
+        /// <summary>
         /// Constant C6iLarge for InstanceType
         /// </summary>
         public static readonly InstanceType C6iLarge = new InstanceType("c6i.large");
@@ -7398,6 +7658,42 @@ namespace Amazon.EC2
         /// Constant C6iMetal for InstanceType
         /// </summary>
         public static readonly InstanceType C6iMetal = new InstanceType("c6i.metal");
+        /// <summary>
+        /// Constant C6in12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in12xlarge = new InstanceType("c6in.12xlarge");
+        /// <summary>
+        /// Constant C6in16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in16xlarge = new InstanceType("c6in.16xlarge");
+        /// <summary>
+        /// Constant C6in24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in24xlarge = new InstanceType("c6in.24xlarge");
+        /// <summary>
+        /// Constant C6in2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in2xlarge = new InstanceType("c6in.2xlarge");
+        /// <summary>
+        /// Constant C6in32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in32xlarge = new InstanceType("c6in.32xlarge");
+        /// <summary>
+        /// Constant C6in4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in4xlarge = new InstanceType("c6in.4xlarge");
+        /// <summary>
+        /// Constant C6in8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6in8xlarge = new InstanceType("c6in.8xlarge");
+        /// <summary>
+        /// Constant C6inLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6inLarge = new InstanceType("c6in.large");
+        /// <summary>
+        /// Constant C6inXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType C6inXlarge = new InstanceType("c6in.xlarge");
         /// <summary>
         /// Constant C6iXlarge for InstanceType
         /// </summary>
@@ -7674,6 +7970,10 @@ namespace Amazon.EC2
         /// Constant Hpc6a48xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType Hpc6a48xlarge = new InstanceType("hpc6a.48xlarge");
+        /// <summary>
+        /// Constant Hpc6id32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType Hpc6id32xlarge = new InstanceType("hpc6id.32xlarge");
         /// <summary>
         /// Constant Hs18xlarge for InstanceType
         /// </summary>
@@ -8299,6 +8599,82 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType M6i8xlarge = new InstanceType("m6i.8xlarge");
         /// <summary>
+        /// Constant M6id12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id12xlarge = new InstanceType("m6id.12xlarge");
+        /// <summary>
+        /// Constant M6id16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id16xlarge = new InstanceType("m6id.16xlarge");
+        /// <summary>
+        /// Constant M6id24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id24xlarge = new InstanceType("m6id.24xlarge");
+        /// <summary>
+        /// Constant M6id2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id2xlarge = new InstanceType("m6id.2xlarge");
+        /// <summary>
+        /// Constant M6id32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id32xlarge = new InstanceType("m6id.32xlarge");
+        /// <summary>
+        /// Constant M6id4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id4xlarge = new InstanceType("m6id.4xlarge");
+        /// <summary>
+        /// Constant M6id8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6id8xlarge = new InstanceType("m6id.8xlarge");
+        /// <summary>
+        /// Constant M6idLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idLarge = new InstanceType("m6id.large");
+        /// <summary>
+        /// Constant M6idMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idMetal = new InstanceType("m6id.metal");
+        /// <summary>
+        /// Constant M6idn12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn12xlarge = new InstanceType("m6idn.12xlarge");
+        /// <summary>
+        /// Constant M6idn16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn16xlarge = new InstanceType("m6idn.16xlarge");
+        /// <summary>
+        /// Constant M6idn24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn24xlarge = new InstanceType("m6idn.24xlarge");
+        /// <summary>
+        /// Constant M6idn2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn2xlarge = new InstanceType("m6idn.2xlarge");
+        /// <summary>
+        /// Constant M6idn32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn32xlarge = new InstanceType("m6idn.32xlarge");
+        /// <summary>
+        /// Constant M6idn4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn4xlarge = new InstanceType("m6idn.4xlarge");
+        /// <summary>
+        /// Constant M6idn8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idn8xlarge = new InstanceType("m6idn.8xlarge");
+        /// <summary>
+        /// Constant M6idnLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idnLarge = new InstanceType("m6idn.large");
+        /// <summary>
+        /// Constant M6idnXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idnXlarge = new InstanceType("m6idn.xlarge");
+        /// <summary>
+        /// Constant M6idXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6idXlarge = new InstanceType("m6id.xlarge");
+        /// <summary>
         /// Constant M6iLarge for InstanceType
         /// </summary>
         public static readonly InstanceType M6iLarge = new InstanceType("m6i.large");
@@ -8306,6 +8682,42 @@ namespace Amazon.EC2
         /// Constant M6iMetal for InstanceType
         /// </summary>
         public static readonly InstanceType M6iMetal = new InstanceType("m6i.metal");
+        /// <summary>
+        /// Constant M6in12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in12xlarge = new InstanceType("m6in.12xlarge");
+        /// <summary>
+        /// Constant M6in16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in16xlarge = new InstanceType("m6in.16xlarge");
+        /// <summary>
+        /// Constant M6in24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in24xlarge = new InstanceType("m6in.24xlarge");
+        /// <summary>
+        /// Constant M6in2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in2xlarge = new InstanceType("m6in.2xlarge");
+        /// <summary>
+        /// Constant M6in32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in32xlarge = new InstanceType("m6in.32xlarge");
+        /// <summary>
+        /// Constant M6in4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in4xlarge = new InstanceType("m6in.4xlarge");
+        /// <summary>
+        /// Constant M6in8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6in8xlarge = new InstanceType("m6in.8xlarge");
+        /// <summary>
+        /// Constant M6inLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6inLarge = new InstanceType("m6in.large");
+        /// <summary>
+        /// Constant M6inXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType M6inXlarge = new InstanceType("m6in.xlarge");
         /// <summary>
         /// Constant M6iXlarge for InstanceType
         /// </summary>
@@ -8350,6 +8762,10 @@ namespace Amazon.EC2
         /// Constant P4d24xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType P4d24xlarge = new InstanceType("p4d.24xlarge");
+        /// <summary>
+        /// Constant P4de24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType P4de24xlarge = new InstanceType("p4de.24xlarge");
         /// <summary>
         /// Constant R32xlarge for InstanceType
         /// </summary>
@@ -8639,6 +9055,50 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType R5Xlarge = new InstanceType("r5.xlarge");
         /// <summary>
+        /// Constant R6a12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a12xlarge = new InstanceType("r6a.12xlarge");
+        /// <summary>
+        /// Constant R6a16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a16xlarge = new InstanceType("r6a.16xlarge");
+        /// <summary>
+        /// Constant R6a24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a24xlarge = new InstanceType("r6a.24xlarge");
+        /// <summary>
+        /// Constant R6a2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a2xlarge = new InstanceType("r6a.2xlarge");
+        /// <summary>
+        /// Constant R6a32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a32xlarge = new InstanceType("r6a.32xlarge");
+        /// <summary>
+        /// Constant R6a48xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a48xlarge = new InstanceType("r6a.48xlarge");
+        /// <summary>
+        /// Constant R6a4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a4xlarge = new InstanceType("r6a.4xlarge");
+        /// <summary>
+        /// Constant R6a8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6a8xlarge = new InstanceType("r6a.8xlarge");
+        /// <summary>
+        /// Constant R6aLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6aLarge = new InstanceType("r6a.large");
+        /// <summary>
+        /// Constant R6aMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6aMetal = new InstanceType("r6a.metal");
+        /// <summary>
+        /// Constant R6aXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6aXlarge = new InstanceType("r6a.xlarge");
+        /// <summary>
         /// Constant R6g12xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType R6g12xlarge = new InstanceType("r6g.12xlarge");
@@ -8739,6 +9199,82 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType R6i8xlarge = new InstanceType("r6i.8xlarge");
         /// <summary>
+        /// Constant R6id12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id12xlarge = new InstanceType("r6id.12xlarge");
+        /// <summary>
+        /// Constant R6id16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id16xlarge = new InstanceType("r6id.16xlarge");
+        /// <summary>
+        /// Constant R6id24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id24xlarge = new InstanceType("r6id.24xlarge");
+        /// <summary>
+        /// Constant R6id2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id2xlarge = new InstanceType("r6id.2xlarge");
+        /// <summary>
+        /// Constant R6id32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id32xlarge = new InstanceType("r6id.32xlarge");
+        /// <summary>
+        /// Constant R6id4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id4xlarge = new InstanceType("r6id.4xlarge");
+        /// <summary>
+        /// Constant R6id8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6id8xlarge = new InstanceType("r6id.8xlarge");
+        /// <summary>
+        /// Constant R6idLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idLarge = new InstanceType("r6id.large");
+        /// <summary>
+        /// Constant R6idMetal for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idMetal = new InstanceType("r6id.metal");
+        /// <summary>
+        /// Constant R6idn12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn12xlarge = new InstanceType("r6idn.12xlarge");
+        /// <summary>
+        /// Constant R6idn16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn16xlarge = new InstanceType("r6idn.16xlarge");
+        /// <summary>
+        /// Constant R6idn24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn24xlarge = new InstanceType("r6idn.24xlarge");
+        /// <summary>
+        /// Constant R6idn2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn2xlarge = new InstanceType("r6idn.2xlarge");
+        /// <summary>
+        /// Constant R6idn32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn32xlarge = new InstanceType("r6idn.32xlarge");
+        /// <summary>
+        /// Constant R6idn4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn4xlarge = new InstanceType("r6idn.4xlarge");
+        /// <summary>
+        /// Constant R6idn8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idn8xlarge = new InstanceType("r6idn.8xlarge");
+        /// <summary>
+        /// Constant R6idnLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idnLarge = new InstanceType("r6idn.large");
+        /// <summary>
+        /// Constant R6idnXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idnXlarge = new InstanceType("r6idn.xlarge");
+        /// <summary>
+        /// Constant R6idXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6idXlarge = new InstanceType("r6id.xlarge");
+        /// <summary>
         /// Constant R6iLarge for InstanceType
         /// </summary>
         public static readonly InstanceType R6iLarge = new InstanceType("r6i.large");
@@ -8746,6 +9282,42 @@ namespace Amazon.EC2
         /// Constant R6iMetal for InstanceType
         /// </summary>
         public static readonly InstanceType R6iMetal = new InstanceType("r6i.metal");
+        /// <summary>
+        /// Constant R6in12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in12xlarge = new InstanceType("r6in.12xlarge");
+        /// <summary>
+        /// Constant R6in16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in16xlarge = new InstanceType("r6in.16xlarge");
+        /// <summary>
+        /// Constant R6in24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in24xlarge = new InstanceType("r6in.24xlarge");
+        /// <summary>
+        /// Constant R6in2xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in2xlarge = new InstanceType("r6in.2xlarge");
+        /// <summary>
+        /// Constant R6in32xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in32xlarge = new InstanceType("r6in.32xlarge");
+        /// <summary>
+        /// Constant R6in4xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in4xlarge = new InstanceType("r6in.4xlarge");
+        /// <summary>
+        /// Constant R6in8xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6in8xlarge = new InstanceType("r6in.8xlarge");
+        /// <summary>
+        /// Constant R6inLarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6inLarge = new InstanceType("r6in.large");
+        /// <summary>
+        /// Constant R6inXlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType R6inXlarge = new InstanceType("r6in.xlarge");
         /// <summary>
         /// Constant R6iXlarge for InstanceType
         /// </summary>
@@ -8867,6 +9439,14 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType T4gXlarge = new InstanceType("t4g.xlarge");
         /// <summary>
+        /// Constant Trn12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType Trn12xlarge = new InstanceType("trn1.2xlarge");
+        /// <summary>
+        /// Constant Trn132xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType Trn132xlarge = new InstanceType("trn1.32xlarge");
+        /// <summary>
         /// Constant U12tb1112xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType U12tb1112xlarge = new InstanceType("u-12tb1.112xlarge");
@@ -8875,13 +9455,25 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly InstanceType U12tb1Metal = new InstanceType("u-12tb1.metal");
         /// <summary>
+        /// Constant U18tb1112xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType U18tb1112xlarge = new InstanceType("u-18tb1.112xlarge");
+        /// <summary>
         /// Constant U18tb1Metal for InstanceType
         /// </summary>
         public static readonly InstanceType U18tb1Metal = new InstanceType("u-18tb1.metal");
         /// <summary>
+        /// Constant U24tb1112xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType U24tb1112xlarge = new InstanceType("u-24tb1.112xlarge");
+        /// <summary>
         /// Constant U24tb1Metal for InstanceType
         /// </summary>
         public static readonly InstanceType U24tb1Metal = new InstanceType("u-24tb1.metal");
+        /// <summary>
+        /// Constant U3tb156xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType U3tb156xlarge = new InstanceType("u-3tb1.56xlarge");
         /// <summary>
         /// Constant U6tb1112xlarge for InstanceType
         /// </summary>
@@ -10851,6 +11443,56 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type LocalGatewayRouteTableMode.
+    /// </summary>
+    public class LocalGatewayRouteTableMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Coip for LocalGatewayRouteTableMode
+        /// </summary>
+        public static readonly LocalGatewayRouteTableMode Coip = new LocalGatewayRouteTableMode("coip");
+        /// <summary>
+        /// Constant DirectVpcRouting for LocalGatewayRouteTableMode
+        /// </summary>
+        public static readonly LocalGatewayRouteTableMode DirectVpcRouting = new LocalGatewayRouteTableMode("direct-vpc-routing");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LocalGatewayRouteTableMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LocalGatewayRouteTableMode FindValue(string value)
+        {
+            return FindValue<LocalGatewayRouteTableMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LocalGatewayRouteTableMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type LocalGatewayRouteType.
     /// </summary>
     public class LocalGatewayRouteType : ConstantClass
@@ -11069,6 +11711,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly LogDestinationType CloudWatchLogs = new LogDestinationType("cloud-watch-logs");
         /// <summary>
+        /// Constant KinesisDataFirehose for LogDestinationType
+        /// </summary>
+        public static readonly LogDestinationType KinesisDataFirehose = new LogDestinationType("kinesis-data-firehose");
+        /// <summary>
         /// Constant S3 for LogDestinationType
         /// </summary>
         public static readonly LogDestinationType S3 = new LogDestinationType("s3");
@@ -11198,6 +11844,52 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator MembershipType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type MetricType.
+    /// </summary>
+    public class MetricType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AggregateLatency for MetricType
+        /// </summary>
+        public static readonly MetricType AggregateLatency = new MetricType("aggregate-latency");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MetricType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MetricType FindValue(string value)
+        {
+            return FindValue<MetricType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MetricType(string value)
         {
             return FindValue(value);
         }
@@ -12184,6 +12876,72 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PaymentOption(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type PeriodType.
+    /// </summary>
+    public class PeriodType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FifteenMinutes for PeriodType
+        /// </summary>
+        public static readonly PeriodType FifteenMinutes = new PeriodType("fifteen-minutes");
+        /// <summary>
+        /// Constant FiveMinutes for PeriodType
+        /// </summary>
+        public static readonly PeriodType FiveMinutes = new PeriodType("five-minutes");
+        /// <summary>
+        /// Constant OneDay for PeriodType
+        /// </summary>
+        public static readonly PeriodType OneDay = new PeriodType("one-day");
+        /// <summary>
+        /// Constant OneHour for PeriodType
+        /// </summary>
+        public static readonly PeriodType OneHour = new PeriodType("one-hour");
+        /// <summary>
+        /// Constant OneWeek for PeriodType
+        /// </summary>
+        public static readonly PeriodType OneWeek = new PeriodType("one-week");
+        /// <summary>
+        /// Constant ThreeHours for PeriodType
+        /// </summary>
+        public static readonly PeriodType ThreeHours = new PeriodType("three-hours");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PeriodType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PeriodType FindValue(string value)
+        {
+            return FindValue<PeriodType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PeriodType(string value)
         {
             return FindValue(value);
         }
@@ -13279,6 +14037,10 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType ClientVpnEndpoint = new ResourceType("client-vpn-endpoint");
         /// <summary>
+        /// Constant CoipPool for ResourceType
+        /// </summary>
+        public static readonly ResourceType CoipPool = new ResourceType("coip-pool");
+        /// <summary>
         /// Constant CustomerGateway for ResourceType
         /// </summary>
         public static readonly ResourceType CustomerGateway = new ResourceType("customer-gateway");
@@ -13519,6 +14281,26 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType TransitGatewayRouteTableAnnouncement = new ResourceType("transit-gateway-route-table-announcement");
         /// <summary>
+        /// Constant VerifiedAccessEndpoint for ResourceType
+        /// </summary>
+        public static readonly ResourceType VerifiedAccessEndpoint = new ResourceType("verified-access-endpoint");
+        /// <summary>
+        /// Constant VerifiedAccessGroup for ResourceType
+        /// </summary>
+        public static readonly ResourceType VerifiedAccessGroup = new ResourceType("verified-access-group");
+        /// <summary>
+        /// Constant VerifiedAccessInstance for ResourceType
+        /// </summary>
+        public static readonly ResourceType VerifiedAccessInstance = new ResourceType("verified-access-instance");
+        /// <summary>
+        /// Constant VerifiedAccessPolicy for ResourceType
+        /// </summary>
+        public static readonly ResourceType VerifiedAccessPolicy = new ResourceType("verified-access-policy");
+        /// <summary>
+        /// Constant VerifiedAccessTrustProvider for ResourceType
+        /// </summary>
+        public static readonly ResourceType VerifiedAccessTrustProvider = new ResourceType("verified-access-trust-provider");
+        /// <summary>
         /// Constant Volume for ResourceType
         /// </summary>
         public static readonly ResourceType Volume = new ResourceType("volume");
@@ -13527,9 +14309,17 @@ namespace Amazon.EC2
         /// </summary>
         public static readonly ResourceType Vpc = new ResourceType("vpc");
         /// <summary>
+        /// Constant VpcBlockPublicAccessExclusion for ResourceType
+        /// </summary>
+        public static readonly ResourceType VpcBlockPublicAccessExclusion = new ResourceType("vpc-block-public-access-exclusion");
+        /// <summary>
         /// Constant VpcEndpoint for ResourceType
         /// </summary>
         public static readonly ResourceType VpcEndpoint = new ResourceType("vpc-endpoint");
+        /// <summary>
+        /// Constant VpcEndpointConnection for ResourceType
+        /// </summary>
+        public static readonly ResourceType VpcEndpointConnection = new ResourceType("vpc-endpoint-connection");
         /// <summary>
         /// Constant VpcEndpointConnectionDeviceType for ResourceType
         /// </summary>
@@ -13538,6 +14328,10 @@ namespace Amazon.EC2
         /// Constant VpcEndpointService for ResourceType
         /// </summary>
         public static readonly ResourceType VpcEndpointService = new ResourceType("vpc-endpoint-service");
+        /// <summary>
+        /// Constant VpcEndpointServicePermission for ResourceType
+        /// </summary>
+        public static readonly ResourceType VpcEndpointServicePermission = new ResourceType("vpc-endpoint-service-permission");
         /// <summary>
         /// Constant VpcFlowLog for ResourceType
         /// </summary>
@@ -13550,6 +14344,10 @@ namespace Amazon.EC2
         /// Constant VpnConnection for ResourceType
         /// </summary>
         public static readonly ResourceType VpnConnection = new ResourceType("vpn-connection");
+        /// <summary>
+        /// Constant VpnConnectionDeviceType for ResourceType
+        /// </summary>
+        public static readonly ResourceType VpnConnectionDeviceType = new ResourceType("vpn-connection-device-type");
         /// <summary>
         /// Constant VpnGateway for ResourceType
         /// </summary>
@@ -14364,6 +15162,10 @@ namespace Amazon.EC2
         /// Constant LowestPrice for SpotAllocationStrategy
         /// </summary>
         public static readonly SpotAllocationStrategy LowestPrice = new SpotAllocationStrategy("lowest-price");
+        /// <summary>
+        /// Constant PriceCapacityOptimized for SpotAllocationStrategy
+        /// </summary>
+        public static readonly SpotAllocationStrategy PriceCapacityOptimized = new SpotAllocationStrategy("price-capacity-optimized");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -14734,6 +15536,52 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator StaticSourcesSupportValue(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type StatisticType.
+    /// </summary>
+    public class StatisticType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant P50 for StatisticType
+        /// </summary>
+        public static readonly StatisticType P50 = new StatisticType("p50");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public StatisticType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static StatisticType FindValue(string value)
+        {
+            return FindValue<StatisticType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator StatisticType(string value)
         {
             return FindValue(value);
         }
@@ -16847,6 +17695,56 @@ namespace Amazon.EC2
 
 
     /// <summary>
+    /// Constants used for properties of type TrustProviderType.
+    /// </summary>
+    public class TrustProviderType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Device for TrustProviderType
+        /// </summary>
+        public static readonly TrustProviderType Device = new TrustProviderType("device");
+        /// <summary>
+        /// Constant User for TrustProviderType
+        /// </summary>
+        public static readonly TrustProviderType User = new TrustProviderType("user");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrustProviderType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrustProviderType FindValue(string value)
+        {
+            return FindValue<TrustProviderType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrustProviderType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type TunnelInsideIpVersion.
     /// </summary>
     public class TunnelInsideIpVersion : ConstantClass
@@ -17056,6 +17954,314 @@ namespace Amazon.EC2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator UsageClassType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type UserTrustProviderType.
+    /// </summary>
+    public class UserTrustProviderType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant IamIdentityCenter for UserTrustProviderType
+        /// </summary>
+        public static readonly UserTrustProviderType IamIdentityCenter = new UserTrustProviderType("iam-identity-center");
+        /// <summary>
+        /// Constant Oidc for UserTrustProviderType
+        /// </summary>
+        public static readonly UserTrustProviderType Oidc = new UserTrustProviderType("oidc");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public UserTrustProviderType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static UserTrustProviderType FindValue(string value)
+        {
+            return FindValue<UserTrustProviderType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator UserTrustProviderType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VerifiedAccessEndpointAttachmentType.
+    /// </summary>
+    public class VerifiedAccessEndpointAttachmentType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Vpc for VerifiedAccessEndpointAttachmentType
+        /// </summary>
+        public static readonly VerifiedAccessEndpointAttachmentType Vpc = new VerifiedAccessEndpointAttachmentType("vpc");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VerifiedAccessEndpointAttachmentType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VerifiedAccessEndpointAttachmentType FindValue(string value)
+        {
+            return FindValue<VerifiedAccessEndpointAttachmentType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VerifiedAccessEndpointAttachmentType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VerifiedAccessEndpointProtocol.
+    /// </summary>
+    public class VerifiedAccessEndpointProtocol : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Http for VerifiedAccessEndpointProtocol
+        /// </summary>
+        public static readonly VerifiedAccessEndpointProtocol Http = new VerifiedAccessEndpointProtocol("http");
+        /// <summary>
+        /// Constant Https for VerifiedAccessEndpointProtocol
+        /// </summary>
+        public static readonly VerifiedAccessEndpointProtocol Https = new VerifiedAccessEndpointProtocol("https");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VerifiedAccessEndpointProtocol(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VerifiedAccessEndpointProtocol FindValue(string value)
+        {
+            return FindValue<VerifiedAccessEndpointProtocol>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VerifiedAccessEndpointProtocol(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VerifiedAccessEndpointStatusCode.
+    /// </summary>
+    public class VerifiedAccessEndpointStatusCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Active for VerifiedAccessEndpointStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessEndpointStatusCode Active = new VerifiedAccessEndpointStatusCode("active");
+        /// <summary>
+        /// Constant Deleted for VerifiedAccessEndpointStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessEndpointStatusCode Deleted = new VerifiedAccessEndpointStatusCode("deleted");
+        /// <summary>
+        /// Constant Deleting for VerifiedAccessEndpointStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessEndpointStatusCode Deleting = new VerifiedAccessEndpointStatusCode("deleting");
+        /// <summary>
+        /// Constant Pending for VerifiedAccessEndpointStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessEndpointStatusCode Pending = new VerifiedAccessEndpointStatusCode("pending");
+        /// <summary>
+        /// Constant Updating for VerifiedAccessEndpointStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessEndpointStatusCode Updating = new VerifiedAccessEndpointStatusCode("updating");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VerifiedAccessEndpointStatusCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VerifiedAccessEndpointStatusCode FindValue(string value)
+        {
+            return FindValue<VerifiedAccessEndpointStatusCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VerifiedAccessEndpointStatusCode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VerifiedAccessEndpointType.
+    /// </summary>
+    public class VerifiedAccessEndpointType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant LoadBalancer for VerifiedAccessEndpointType
+        /// </summary>
+        public static readonly VerifiedAccessEndpointType LoadBalancer = new VerifiedAccessEndpointType("load-balancer");
+        /// <summary>
+        /// Constant NetworkInterface for VerifiedAccessEndpointType
+        /// </summary>
+        public static readonly VerifiedAccessEndpointType NetworkInterface = new VerifiedAccessEndpointType("network-interface");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VerifiedAccessEndpointType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VerifiedAccessEndpointType FindValue(string value)
+        {
+            return FindValue<VerifiedAccessEndpointType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VerifiedAccessEndpointType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VerifiedAccessLogDeliveryStatusCode.
+    /// </summary>
+    public class VerifiedAccessLogDeliveryStatusCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Failed for VerifiedAccessLogDeliveryStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessLogDeliveryStatusCode Failed = new VerifiedAccessLogDeliveryStatusCode("failed");
+        /// <summary>
+        /// Constant Success for VerifiedAccessLogDeliveryStatusCode
+        /// </summary>
+        public static readonly VerifiedAccessLogDeliveryStatusCode Success = new VerifiedAccessLogDeliveryStatusCode("success");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VerifiedAccessLogDeliveryStatusCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VerifiedAccessLogDeliveryStatusCode FindValue(string value)
+        {
+            return FindValue<VerifiedAccessLogDeliveryStatusCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VerifiedAccessLogDeliveryStatusCode(string value)
         {
             return FindValue(value);
         }
@@ -17536,6 +18742,10 @@ namespace Amazon.EC2
         /// Constant EnableDnsSupport for VpcAttributeName
         /// </summary>
         public static readonly VpcAttributeName EnableDnsSupport = new VpcAttributeName("enableDnsSupport");
+        /// <summary>
+        /// Constant EnableNetworkAddressUsageMetrics for VpcAttributeName
+        /// </summary>
+        public static readonly VpcAttributeName EnableNetworkAddressUsageMetrics = new VpcAttributeName("enableNetworkAddressUsageMetrics");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

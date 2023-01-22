@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the mediatailor-2018-04-23.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MediaTailor.Internal;
 
 namespace Amazon.MediaTailor
 {
     /// <summary>
     /// Configuration for accessing Amazon MediaTailor service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMediaTailorConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.9.44");
+            InternalSDKUtils.BuildUserAgentString("3.7.102.53");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MediaTailor
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMediaTailorDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mediatailor";
+            this.EndpointProvider = new AmazonMediaTailorEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MediaTailor
                 return _userAgent;
             }
         }
+
     }
 }

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the apigatewayv2-2018-11-29.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ApiGatewayV2.Internal;
 
 namespace Amazon.ApiGatewayV2
 {
     /// <summary>
     /// Configuration for accessing Amazon ApiGatewayV2 service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonApiGatewayV2Config : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.143");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ApiGatewayV2
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonApiGatewayV2DefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "apigateway";
+            this.EndpointProvider = new AmazonApiGatewayV2EndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ApiGatewayV2
                 return _userAgent;
             }
         }
+
     }
 }

@@ -189,7 +189,9 @@ namespace Amazon.Transfer.Model
         /// <summary>
         /// Gets and sets the property HostKey. 
         /// <para>
-        /// The RSA, ECDSA, or ED25519 private key to use for your server.
+        /// The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can
+        /// add multiple host keys, in case you want to rotate keys, or have a set of active keys
+        /// that use different algorithms.
         /// </para>
         ///  
         /// <para>
@@ -237,8 +239,8 @@ namespace Amazon.Transfer.Model
         /// </para>
         ///  </important> 
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update
+        /// host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.
         /// </para>
         /// </summary>
         [AWSProperty(Max=4096)]
@@ -400,40 +402,51 @@ namespace Amazon.Transfer.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Secure Shell (SSH) File Transfer Protocol (SFTP): File transfer over SSH
+        ///  <code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
+        /// SSH
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// File Transfer Protocol Secure (FTPS): File transfer with TLS encryption
+        ///  <code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// File Transfer Protocol (FTP): Unencrypted file transfer
+        ///  <code>FTP</code> (File Transfer Protocol): Unencrypted file transfer
         /// </para>
-        ///  </li> </ul> <note> 
+        ///  </li> <li> 
         /// <para>
-        /// If you select <code>FTPS</code>, you must choose a certificate stored in Amazon Web
-        /// ServicesCertificate Manager (ACM) which will be used to identify your server when
-        /// clients connect to it over FTPS.
+        ///  <code>AS2</code> (Applicability Statement 2): used for transporting structured business-to-business
+        /// data
         /// </para>
-        ///  
+        ///  </li> </ul> <note> <ul> <li> 
+        /// <para>
+        /// If you select <code>FTPS</code>, you must choose a certificate stored in Certificate
+        /// Manager (ACM) which is used to identify your server when clients connect to it over
+        /// FTPS.
+        /// </para>
+        ///  </li> <li> 
         /// <para>
         /// If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
         /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
         /// If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
         /// If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
         /// set to <code>SERVICE_MANAGED</code>.
         /// </para>
-        ///  </note>
+        ///  </li> <li> 
+        /// <para>
+        /// If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
+        /// must be <code>VPC</code>, and domain must be Amazon S3.
+        /// </para>
+        ///  </li> </ul> </note>
         /// </summary>
         [AWSProperty(Min=1, Max=4)]
         public List<string> Protocols
@@ -492,6 +505,12 @@ namespace Amazon.Transfer.Model
         /// <para>
         /// Specifies the workflow ID for the workflow to assign and the execution role that's
         /// used for executing the workflow.
+        /// </para>
+        ///  
+        /// <para>
+        /// In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code>
+        /// can also contain a workflow ID (and execution role) for a workflow to execute on partial
+        /// upload. A partial upload occurs when a file is open when the session disconnects.
         /// </para>
         ///  
         /// <para>

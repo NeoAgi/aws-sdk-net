@@ -234,6 +234,15 @@ namespace Amazon.Outposts
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonOutpostsEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -263,7 +272,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Cancels an order for an Outpost.
+        /// Cancels the specified order for an Outpost.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelOrder service method.</param>
         /// 
@@ -295,7 +304,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Cancels an order for an Outpost.
+        /// Cancels the specified order for an Outpost.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelOrder service method.</param>
         /// <param name="cancellationToken">
@@ -415,7 +424,7 @@ namespace Amazon.Outposts
         /// 
         ///  
         /// <para>
-        /// You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.
+        /// You can specify either an Availability one or an AZ ID.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateOutpost service method.</param>
@@ -455,7 +464,7 @@ namespace Amazon.Outposts
         /// 
         ///  
         /// <para>
-        /// You can specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.
+        /// You can specify either an Availability one or an AZ ID.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateOutpost service method.</param>
@@ -569,7 +578,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Deletes the Outpost.
+        /// Deletes the specified Outpost.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteOutpost service method.</param>
         /// 
@@ -601,7 +610,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Deletes the Outpost.
+        /// Deletes the specified Outpost.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteOutpost service method.</param>
         /// <param name="cancellationToken">
@@ -640,7 +649,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Deletes the site.
+        /// Deletes the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSite service method.</param>
         /// 
@@ -672,7 +681,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Deletes the site.
+        /// Deletes the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSite service method.</param>
         /// <param name="cancellationToken">
@@ -711,7 +720,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets information about a catalog item.
+        /// Gets information about the specified catalog item.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCatalogItem service method.</param>
         /// 
@@ -737,7 +746,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets information about a catalog item.
+        /// Gets information about the specified catalog item.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCatalogItem service method.</param>
         /// <param name="cancellationToken">
@@ -776,7 +785,7 @@ namespace Amazon.Outposts
         /// </para>
         ///  </note> 
         /// <para>
-        ///  Gets information about a specified connection. 
+        ///  Gets information about the specified connection. 
         /// </para>
         ///  
         /// <para>
@@ -820,7 +829,7 @@ namespace Amazon.Outposts
         /// </para>
         ///  </note> 
         /// <para>
-        ///  Gets information about a specified connection. 
+        ///  Gets information about the specified connection. 
         /// </para>
         ///  
         /// <para>
@@ -865,7 +874,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets an order.
+        /// Gets information about the specified order.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetOrder service method.</param>
         /// 
@@ -891,7 +900,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets an order.
+        /// Gets information about the specified order.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetOrder service method.</param>
         /// <param name="cancellationToken">
@@ -1119,7 +1128,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets the site address.
+        /// Gets the site address of the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSiteAddress service method.</param>
         /// 
@@ -1148,7 +1157,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Gets the site address.
+        /// Gets the site address of the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSiteAddress service method.</param>
         /// <param name="cancellationToken">
@@ -1184,9 +1193,15 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on Amazon
-        /// Web Services Outposts, you can filter your request by host ID to return a list of
-        /// hardware assets that allocate resources for Dedicated Hosts.
+        /// Lists the hardware assets for the specified Outpost.
+        /// 
+        ///  
+        /// <para>
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAssets service method.</param>
         /// 
@@ -1215,9 +1230,15 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on Amazon
-        /// Web Services Outposts, you can filter your request by host ID to return a list of
-        /// hardware assets that allocate resources for Dedicated Hosts.
+        /// Lists the hardware assets for the specified Outpost.
+        /// 
+        ///  
+        /// <para>
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAssets service method.</param>
         /// <param name="cancellationToken">
@@ -1253,14 +1274,14 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the items in the catalog. Add filters to your request to return a more specific
-        /// list of results. Use filters to match an item class, storage option, or EC2 family.
-        /// 
+        /// Lists the items in the catalog.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCatalogItems service method.</param>
@@ -1287,14 +1308,14 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the items in the catalog. Add filters to your request to return a more specific
-        /// list of results. Use filters to match an item class, storage option, or EC2 family.
-        /// 
+        /// Lists the items in the catalog.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCatalogItems service method.</param>
@@ -1328,8 +1349,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outpost orders for your Amazon Web Services account. You can filter your
-        /// request by Outpost to return a more specific list of results.
+        /// Lists the Outpost orders for your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOrders service method.</param>
         /// 
@@ -1358,8 +1378,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outpost orders for your Amazon Web Services account. You can filter your
-        /// request by Outpost to return a more specific list of results.
+        /// Lists the Outpost orders for your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOrders service method.</param>
         /// <param name="cancellationToken">
@@ -1395,15 +1414,14 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outposts for your Amazon Web Services account. Add filters to your request
-        /// to return a more specific list of results. Use filters to match an Outpost lifecycle
-        /// status, Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>).
-        /// 
+        /// Lists the Outposts for your Amazon Web Services account.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOutposts service method.</param>
@@ -1430,15 +1448,14 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outposts for your Amazon Web Services account. Add filters to your request
-        /// to return a more specific list of results. Use filters to match an Outpost lifecycle
-        /// status, Availability Zone (<code>us-east-1a</code>), and AZ ID (<code>use1-az1</code>).
-        /// 
+        /// Lists the Outposts for your Amazon Web Services account.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListOutposts service method.</param>
@@ -1472,14 +1489,15 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outpost sites for your Amazon Web Services account. Add operating address
-        /// filters to your request to return a more specific list of results. Use filters to
-        /// match site city, country code, or state/region of the operating address. 
+        /// Lists the Outpost sites for your Amazon Web Services account. Use filters to return
+        /// specific results.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSites service method.</param>
@@ -1506,14 +1524,15 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Lists the Outpost sites for your Amazon Web Services account. Add operating address
-        /// filters to your request to return a more specific list of results. Use filters to
-        /// match site city, country code, or state/region of the operating address. 
+        /// Lists the Outpost sites for your Amazon Web Services account. Use filters to return
+        /// specific results.
         /// 
         ///  
         /// <para>
-        /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-        /// and the request returns only results that match all of the specified filters.
+        /// Use filters to return specific results. If you specify multiple filters, the results
+        /// include only the resources that match all of the specified filters. For a filter where
+        /// you can specify multiple values, the results include items that match any of the values
+        /// that you specify for the filter.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSites service method.</param>
@@ -1890,7 +1909,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Updates the site.
+        /// Updates the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSite service method.</param>
         /// 
@@ -1922,7 +1941,7 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Updates the site.
+        /// Updates the specified site.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSite service method.</param>
         /// <param name="cancellationToken">
@@ -1961,17 +1980,17 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Updates the site address. 
+        /// Updates the address of the specified site.
         /// 
         ///  
         /// <para>
-        ///  To update a site address with an order <code>IN_PROGRESS</code>, you must wait for
-        /// the order to complete or cancel the order. 
+        /// You can't update a site address if there is an order in progress. You must wait for
+        /// the order to complete or cancel the order.
         /// </para>
         ///  
         /// <para>
         /// You can update the operating address before you place an order at the site, or after
-        /// all Outposts that belong to the site have been deactivated. 
+        /// all Outposts that belong to the site have been deactivated.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSiteAddress service method.</param>
@@ -2004,17 +2023,17 @@ namespace Amazon.Outposts
 
 
         /// <summary>
-        /// Updates the site address. 
+        /// Updates the address of the specified site.
         /// 
         ///  
         /// <para>
-        ///  To update a site address with an order <code>IN_PROGRESS</code>, you must wait for
-        /// the order to complete or cancel the order. 
+        /// You can't update a site address if there is an order in progress. You must wait for
+        /// the order to complete or cancel the order.
         /// </para>
         ///  
         /// <para>
         /// You can update the operating address before you place an order at the site, or after
-        /// all Outposts that belong to the site have been deactivated. 
+        /// all Outposts that belong to the site have been deactivated.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSiteAddress service method.</param>

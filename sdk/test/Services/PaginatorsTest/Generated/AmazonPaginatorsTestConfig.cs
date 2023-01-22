@@ -17,18 +17,18 @@
  * Do not modify this file. This file is generated from the paginators-test-2022-03-14.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.PaginatorsTest.Internal;
 
 namespace Amazon.PaginatorsTest
 {
     /// <summary>
     /// Configuration for accessing Amazon PaginatorsTest service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPaginatorsTestConfig : ClientConfig
     {
         private static readonly string UserAgentString =
@@ -77,5 +77,6 @@ namespace Amazon.PaginatorsTest
                 return _userAgent;
             }
         }
+
     }
 }

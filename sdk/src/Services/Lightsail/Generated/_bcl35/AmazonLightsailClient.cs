@@ -46,8 +46,8 @@ namespace Amazon.Lightsail
     ///  
     /// <para>
     /// You can manage your Lightsail resources using the Lightsail console, Lightsail API,
-    /// AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail
-    /// concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon
+    /// Command Line Interface (CLI), or SDKs. For more information about Lightsail concepts
+    /// and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon
     /// Lightsail Developer Guide</a>.
     /// </para>
     ///  
@@ -233,6 +233,15 @@ namespace Amazon.Lightsail
             return new AWS4Signer();
         }
 
+        /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonLightsailEndpointResolver());
+        }
         /// <summary>
         /// Capture metadata for the service.
         /// </summary>
@@ -7146,7 +7155,7 @@ namespace Amazon.Lightsail
         /// <para>
         /// Container logs are retained for a certain amount of time. For more information, see
         /// <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
-        /// endpoints and quotas</a> in the <i>AWS General Reference</i>.
+        /// endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -7243,7 +7252,7 @@ namespace Amazon.Lightsail
         /// <para>
         /// A set number of deployments are kept before the oldest one is replaced with the newest
         /// one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon
-        /// Lightsail endpoints and quotas</a> in the <i>AWS General Reference</i>.
+        /// Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -13594,8 +13603,9 @@ namespace Amazon.Lightsail
         ///  
         /// <para>
         /// A bucket bundle specifies the monthly cost, storage space, and data transfer quota
-        /// for a bucket. You can update a bucket's bundle only one time within a monthly AWS
-        /// billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a>
+        /// for a bucket. You can update a bucket's bundle only one time within a monthly Amazon
+        /// Web Services billing cycle. To determine if you can update a bucket's bundle, use
+        /// the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a>
         /// action. The <code>ableToUpdateBundle</code> parameter in the response will indicate
         /// whether you can currently update a bucket's bundle.
         /// </para>
@@ -13868,10 +13878,11 @@ namespace Amazon.Lightsail
         /// </para>
         ///  
         /// <para>
-        /// You can update your distribution's bundle only one time within your monthly AWS billing
-        /// cycle. To determine if you can update your distribution's bundle, use the <code>GetDistributions</code>
-        /// action. The <code>ableToUpdateBundle</code> parameter in the result will indicate
-        /// whether you can currently update your distribution's bundle.
+        /// You can update your distribution's bundle only one time within your monthly Amazon
+        /// Web Services billing cycle. To determine if you can update your distribution's bundle,
+        /// use the <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code>
+        /// parameter in the result will indicate whether you can currently update your distribution's
+        /// bundle.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDistributionBundle service method.</param>
@@ -14041,6 +14052,99 @@ namespace Amazon.Lightsail
         public virtual UpdateDomainEntryResponse EndUpdateDomainEntry(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateDomainEntryResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateInstanceMetadataOptions
+
+        /// <summary>
+        /// Modifies the Amazon Lightsail instance metadata parameters on a running or stopped
+        /// instance. When you modify the parameters on a running instance, the <code>GetInstance</code>
+        /// or <code>GetInstances</code> API operation initially responds with a state of <code>pending</code>.
+        /// After the parameter modifications are successfully applied, the state changes to <code>applied</code>
+        /// in subsequent <code>GetInstance</code> or <code>GetInstances</code> API calls. For
+        /// more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-instance-metadata-service">Use
+        /// IMDSv2 with an Amazon Lightsail instance</a> in the <i>Amazon Lightsail Developer
+        /// Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInstanceMetadataOptions service method.</param>
+        /// 
+        /// <returns>The response from the UpdateInstanceMetadataOptions service method, as returned by Lightsail.</returns>
+        /// <exception cref="Amazon.Lightsail.Model.AccessDeniedException">
+        /// Lightsail throws this exception when the user cannot be authenticated or uses invalid
+        /// credentials to access a resource.
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.AccountSetupInProgressException">
+        /// Lightsail throws this exception when an account is still in the setup in progress
+        /// state.
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.InvalidInputException">
+        /// Lightsail throws this exception when user input does not conform to the validation
+        /// rules of an input field.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Domain and distribution APIs are only available in the N. Virginia (<code>us-east-1</code>)
+        /// Amazon Web Services Region. Please set your Amazon Web Services Region configuration
+        /// to <code>us-east-1</code> to create, view, or edit these resources.
+        /// </para>
+        ///  </note>
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.NotFoundException">
+        /// Lightsail throws this exception when it cannot find a resource.
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.OperationFailureException">
+        /// Lightsail throws this exception when an operation fails to execute.
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.ServiceException">
+        /// A general service exception.
+        /// </exception>
+        /// <exception cref="Amazon.Lightsail.Model.UnauthenticatedException">
+        /// Lightsail throws this exception when the user has not been authenticated.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lightsail-2016-11-28/UpdateInstanceMetadataOptions">REST API Reference for UpdateInstanceMetadataOptions Operation</seealso>
+        public virtual UpdateInstanceMetadataOptionsResponse UpdateInstanceMetadataOptions(UpdateInstanceMetadataOptionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateInstanceMetadataOptionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateInstanceMetadataOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateInstanceMetadataOptionsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateInstanceMetadataOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInstanceMetadataOptions operation on AmazonLightsailClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateInstanceMetadataOptions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lightsail-2016-11-28/UpdateInstanceMetadataOptions">REST API Reference for UpdateInstanceMetadataOptions Operation</seealso>
+        public virtual IAsyncResult BeginUpdateInstanceMetadataOptions(UpdateInstanceMetadataOptionsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateInstanceMetadataOptionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateInstanceMetadataOptionsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateInstanceMetadataOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateInstanceMetadataOptions.</param>
+        /// 
+        /// <returns>Returns a  UpdateInstanceMetadataOptionsResult from Lightsail.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lightsail-2016-11-28/UpdateInstanceMetadataOptions">REST API Reference for UpdateInstanceMetadataOptions Operation</seealso>
+        public virtual UpdateInstanceMetadataOptionsResponse EndUpdateInstanceMetadataOptions(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateInstanceMetadataOptionsResponse>(asyncResult);
         }
 
         #endregion

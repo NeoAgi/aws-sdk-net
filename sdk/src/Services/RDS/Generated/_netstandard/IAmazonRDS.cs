@@ -228,6 +228,10 @@ namespace Amazon.RDS
         /// </param>
         /// 
         /// <returns>The response from the AddTagsToResource service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
@@ -624,62 +628,90 @@ namespace Amazon.RDS
 
         #endregion
                 
+        #region  CreateBlueGreenDeployment
+
+
+
+        /// <summary>
+        /// Creates a blue/green deployment.
+        /// 
+        ///  
+        /// <para>
+        /// A blue/green deployment creates a staging environment that copies the production environment.
+        /// In a blue/green deployment, the blue environment is the current production environment.
+        /// The green environment is the staging environment. The staging environment stays in
+        /// sync with the current production environment using logical replication.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can make changes to the databases in the green environment without affecting production
+        /// workloads. For example, you can upgrade the major or minor DB engine version, change
+        /// database parameters, or make schema changes in the staging environment. You can thoroughly
+        /// test changes in the green environment. When ready, you can switch over the environments
+        /// to promote the green environment to be the new production environment. The switchover
+        /// typically takes under a minute.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
+        /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+        /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
+        /// Aurora User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateBlueGreenDeployment service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateBlueGreenDeployment service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentAlreadyExistsException">
+        /// A blue/green deployment with the specified name already exists.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
+        /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBClusterParameterGroupNotFoundException">
+        /// <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB cluster
+        /// parameter group.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBClusterQuotaExceededException">
+        /// The user attempted to create a new DB cluster and the user has already reached the
+        /// maximum allowed DB cluster quota.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBParameterGroupNotFoundException">
+        /// <code>DBParameterGroupName</code> doesn't refer to an existing DB parameter group.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InstanceQuotaExceededException">
+        /// The request would result in the user exceeding the allowed number of DB instances.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBClusterStateException">
+        /// The requested operation can't be performed while the cluster is in this state.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.SourceClusterNotSupportedException">
+        /// The source DB cluster isn't supported for a blue/green deployment.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.SourceDatabaseNotSupportedException">
+        /// The source DB instance isn't supported for a blue/green deployment.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateBlueGreenDeployment">REST API Reference for CreateBlueGreenDeployment Operation</seealso>
+        Task<CreateBlueGreenDeploymentResponse> CreateBlueGreenDeploymentAsync(CreateBlueGreenDeploymentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  CreateCustomDBEngineVersion
 
 
 
         /// <summary>
-        /// Creates a custom DB engine version (CEV). A CEV is a binary volume snapshot of a database
-        /// engine and specific AMI. The supported engines are the following:
-        /// 
-        ///  <ul> <li> 
-        /// <para>
-        /// Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR
-        /// </para>
-        ///  </li> </ul> 
-        /// <para>
-        /// Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI)
-        /// and database software. The Amazon RDS database software is preinstalled, so you need
-        /// only select a DB engine and version, and create your database. With Amazon RDS Custom
-        /// for Oracle, you upload your database installation files in Amazon S3.
-        /// </para>
-        ///  
-        /// <para>
-        /// When you create a custom engine version, you specify the files in a JSON document
-        /// called a CEV manifest. This document describes installation .zip files stored in Amazon
-        /// S3. RDS Custom creates your CEV from the installation files that you provided. This
-        /// service model is called Bring Your Own Media (BYOM).
-        /// </para>
-        ///  
-        /// <para>
-        /// Creation takes approximately two hours. If creation fails, RDS Custom issues <code>RDS-EVENT-0196</code>
-        /// with the message <code>Creation failed for custom engine version</code>, and includes
-        /// details about the failure. For example, the event prints missing files.
-        /// </para>
-        ///  
-        /// <para>
-        /// After you create the CEV, it is available for use. You can create multiple CEVs, and
-        /// create multiple RDS Custom instances from any CEV. You can also change the status
-        /// of a CEV to make it available or inactive.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated
-        /// with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in
-        /// CloudTrail, calls to the <code>CreateCustomDbEngineVersion</code> event aren't logged.
-        /// However, you might see calls from the API gateway that accesses your Amazon S3 bucket.
-        /// These calls originate from the MediaImport service for the <code>CreateCustomDbEngineVersion</code>
-        /// event.
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create">
-        /// Creating a CEV</a> in the <i>Amazon RDS User Guide</i>.
-        /// </para>
+        /// Creates a custom DB engine version (CEV).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCustomDBEngineVersion service method.</param>
         /// <param name="cancellationToken">
@@ -692,6 +724,9 @@ namespace Amazon.RDS
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.CustomDBEngineVersionQuotaExceededException">
         /// You have exceeded your CEV quota.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.Ec2ImagePropertiesNotSupportedException">
+        /// The AMI configuration prerequisite has not been met.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.KMSKeyNotAccessibleException">
         /// An error occurred accessing an Amazon Web Services KMS key.
@@ -1003,6 +1038,9 @@ namespace Amazon.RDS
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.BackupPolicyNotFoundException">
         /// 
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.CertificateNotFoundException">
+        /// <code>CertificateIdentifier</code> doesn't refer to an existing certificate.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
@@ -1554,6 +1592,41 @@ namespace Amazon.RDS
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateOptionGroup">REST API Reference for CreateOptionGroup Operation</seealso>
         Task<CreateOptionGroupResponse> CreateOptionGroupAsync(CreateOptionGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteBlueGreenDeployment
+
+
+
+        /// <summary>
+        /// Deletes a blue/green deployment.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
+        /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+        /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
+        /// Aurora User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteBlueGreenDeployment service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteBlueGreenDeployment service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidBlueGreenDeploymentStateException">
+        /// The blue/green deployment can't be switched over or deleted because there is an invalid
+        /// configuration in the green environment.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteBlueGreenDeployment">REST API Reference for DeleteBlueGreenDeployment Operation</seealso>
+        Task<DeleteBlueGreenDeploymentResponse> DeleteBlueGreenDeploymentAsync(DeleteBlueGreenDeploymentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -2217,6 +2290,37 @@ namespace Amazon.RDS
 
         #endregion
                 
+        #region  DescribeBlueGreenDeployments
+
+
+
+        /// <summary>
+        /// Returns information about blue/green deployments.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
+        /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+        /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
+        /// Aurora User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeBlueGreenDeployments service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeBlueGreenDeployments service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeBlueGreenDeployments">REST API Reference for DescribeBlueGreenDeployments Operation</seealso>
+        Task<DescribeBlueGreenDeploymentsResponse> DescribeBlueGreenDeploymentsAsync(DescribeBlueGreenDeploymentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DescribeCertificates
 
 
@@ -2224,6 +2328,15 @@ namespace Amazon.RDS
         /// <summary>
         /// Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services
         /// account.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
+        /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+        /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+        /// User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCertificates service method.</param>
         /// <param name="cancellationToken">
@@ -3397,7 +3510,20 @@ namespace Amazon.RDS
         /// <summary>
         /// Returns a list of the source Amazon Web Services Regions where the current Amazon
         /// Web Services Region can create a read replica, copy a DB snapshot from, or replicate
-        /// automated backups from. This API action supports pagination.
+        /// automated backups from.
+        /// 
+        ///  
+        /// <para>
+        /// Use this operation to determine whether cross-Region features are supported between
+        /// other Regions and your current Region. This operation supports pagination.
+        /// </para>
+        ///  
+        /// <para>
+        /// To return information about the Regions that are enabled for your account, or all
+        /// Regions, use the EC2 operation <code>DescribeRegions</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRegions.html">
+        /// DescribeRegions</a> in the <i>Amazon EC2 API Reference</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSourceRegions service method.</param>
         /// <param name="cancellationToken">
@@ -3606,6 +3732,10 @@ namespace Amazon.RDS
         /// </param>
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
@@ -4886,6 +5016,10 @@ namespace Amazon.RDS
         /// </param>
         /// 
         /// <returns>The response from the RemoveTagsFromResource service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
         /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
         /// </exception>
@@ -5155,6 +5289,9 @@ namespace Amazon.RDS
         /// <exception cref="Amazon.RDS.Model.InvalidDBClusterSnapshotStateException">
         /// The supplied value isn't a valid DB cluster snapshot state.
         /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.InvalidDBSnapshotStateException">
         /// The state of the DB snapshot doesn't allow deletion.
         /// </exception>
@@ -5340,6 +5477,10 @@ namespace Amazon.RDS
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.BackupPolicyNotFoundException">
         /// 
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.DBClusterSnapshotNotFoundException">
+        /// <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster
+        /// snapshot.
         /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBInstanceAlreadyExistsException">
         /// The user already has a DB instance with the given identifier.
@@ -5675,8 +5816,11 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Starts a database activity stream to monitor activity on the database. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
-        /// Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+        /// Monitoring Amazon Aurora with Database Activity Streams</a> in the <i>Amazon Aurora
+        /// User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+        /// Monitoring Amazon RDS with Database Activity Streams</a> in the <i>Amazon RDS User
+        /// Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartActivityStream service method.</param>
         /// <param name="cancellationToken">
@@ -5886,6 +6030,9 @@ namespace Amazon.RDS
         /// </param>
         /// 
         /// <returns>The response from the StartExportTask service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBClusterNotFoundException">
+        /// <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.
+        /// </exception>
         /// <exception cref="Amazon.RDS.Model.DBClusterSnapshotNotFoundException">
         /// <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster
         /// snapshot.
@@ -5932,8 +6079,11 @@ namespace Amazon.RDS
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database
-        /// Activity Streams</a> in the <i>Amazon Aurora User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">
+        /// Monitoring Amazon Aurora with Database Activity Streams</a> in the <i>Amazon Aurora
+        /// User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/DBActivityStreams.html">
+        /// Monitoring Amazon RDS with Database Activity Streams</a> in the <i>Amazon RDS User
+        /// Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopActivityStream service method.</param>
@@ -6083,6 +6233,73 @@ namespace Amazon.RDS
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StopDBInstanceAutomatedBackupsReplication">REST API Reference for StopDBInstanceAutomatedBackupsReplication Operation</seealso>
         Task<StopDBInstanceAutomatedBackupsReplicationResponse> StopDBInstanceAutomatedBackupsReplicationAsync(StopDBInstanceAutomatedBackupsReplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  SwitchoverBlueGreenDeployment
+
+
+
+        /// <summary>
+        /// Switches over a blue/green deployment.
+        /// 
+        ///  
+        /// <para>
+        /// Before you switch over, production traffic is routed to the databases in the blue
+        /// environment. After you switch over, production traffic is routed to the databases
+        /// in the green environment.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
+        /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+        /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
+        /// Aurora User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SwitchoverBlueGreenDeployment service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the SwitchoverBlueGreenDeployment service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.BlueGreenDeploymentNotFoundException">
+        /// <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green
+        /// deployment.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidBlueGreenDeploymentStateException">
+        /// The blue/green deployment can't be switched over or deleted because there is an invalid
+        /// configuration in the green environment.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/SwitchoverBlueGreenDeployment">REST API Reference for SwitchoverBlueGreenDeployment Operation</seealso>
+        Task<SwitchoverBlueGreenDeploymentResponse> SwitchoverBlueGreenDeploymentAsync(SwitchoverBlueGreenDeploymentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  SwitchoverReadReplica
+
+
+
+        /// <summary>
+        /// Switches over an Oracle standby database in an Oracle Data Guard environment, making
+        /// it the new primary database. Issue this command in the Region that hosts the current
+        /// standby database.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SwitchoverReadReplica service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the SwitchoverReadReplica service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The DB instance isn't in a valid state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/SwitchoverReadReplica">REST API Reference for SwitchoverReadReplica Operation</seealso>
+        Task<SwitchoverReadReplicaResponse> SwitchoverReadReplicaAsync(SwitchoverReadReplicaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

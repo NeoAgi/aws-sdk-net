@@ -671,6 +671,14 @@ namespace Amazon.LexModelsV2
         /// </summary>
         public static readonly BotRecommendationStatus Processing = new BotRecommendationStatus("Processing");
         /// <summary>
+        /// Constant Stopped for BotRecommendationStatus
+        /// </summary>
+        public static readonly BotRecommendationStatus Stopped = new BotRecommendationStatus("Stopped");
+        /// <summary>
+        /// Constant Stopping for BotRecommendationStatus
+        /// </summary>
+        public static readonly BotRecommendationStatus Stopping = new BotRecommendationStatus("Stopping");
+        /// <summary>
         /// Constant Updating for BotRecommendationStatus
         /// </summary>
         public static readonly BotRecommendationStatus Updating = new BotRecommendationStatus("Updating");
@@ -1148,6 +1156,64 @@ namespace Amazon.LexModelsV2
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator Effect(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ErrorCode.
+    /// </summary>
+    public class ErrorCode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DUPLICATE_INPUT for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode DUPLICATE_INPUT = new ErrorCode("DUPLICATE_INPUT");
+        /// <summary>
+        /// Constant INTERNAL_SERVER_FAILURE for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode INTERNAL_SERVER_FAILURE = new ErrorCode("INTERNAL_SERVER_FAILURE");
+        /// <summary>
+        /// Constant RESOURCE_ALREADY_EXISTS for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode RESOURCE_ALREADY_EXISTS = new ErrorCode("RESOURCE_ALREADY_EXISTS");
+        /// <summary>
+        /// Constant RESOURCE_DOES_NOT_EXIST for ErrorCode
+        /// </summary>
+        public static readonly ErrorCode RESOURCE_DOES_NOT_EXIST = new ErrorCode("RESOURCE_DOES_NOT_EXIST");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ErrorCode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ErrorCode FindValue(string value)
+        {
+            return FindValue<ErrorCode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ErrorCode(string value)
         {
             return FindValue(value);
         }
@@ -1959,6 +2025,72 @@ namespace Amazon.LexModelsV2
 
 
     /// <summary>
+    /// Constants used for properties of type PromptAttempt.
+    /// </summary>
+    public class PromptAttempt : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Initial for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Initial = new PromptAttempt("Initial");
+        /// <summary>
+        /// Constant Retry1 for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Retry1 = new PromptAttempt("Retry1");
+        /// <summary>
+        /// Constant Retry2 for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Retry2 = new PromptAttempt("Retry2");
+        /// <summary>
+        /// Constant Retry3 for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Retry3 = new PromptAttempt("Retry3");
+        /// <summary>
+        /// Constant Retry4 for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Retry4 = new PromptAttempt("Retry4");
+        /// <summary>
+        /// Constant Retry5 for PromptAttempt
+        /// </summary>
+        public static readonly PromptAttempt Retry5 = new PromptAttempt("Retry5");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public PromptAttempt(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static PromptAttempt FindValue(string value)
+        {
+            return FindValue<PromptAttempt>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator PromptAttempt(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type SearchOrder.
     /// </summary>
     public class SearchOrder : ConstantClass
@@ -2261,6 +2393,10 @@ namespace Amazon.LexModelsV2
     {
 
         /// <summary>
+        /// Constant Composite for SlotTypeCategory
+        /// </summary>
+        public static readonly SlotTypeCategory Composite = new SlotTypeCategory("Composite");
+        /// <summary>
         /// Constant Custom for SlotTypeCategory
         /// </summary>
         public static readonly SlotTypeCategory Custom = new SlotTypeCategory("Custom");
@@ -2464,6 +2600,10 @@ namespace Amazon.LexModelsV2
     public class SlotValueResolutionStrategy : ConstantClass
     {
 
+        /// <summary>
+        /// Constant Concatenation for SlotValueResolutionStrategy
+        /// </summary>
+        public static readonly SlotValueResolutionStrategy Concatenation = new SlotValueResolutionStrategy("Concatenation");
         /// <summary>
         /// Constant OriginalValue for SlotValueResolutionStrategy
         /// </summary>

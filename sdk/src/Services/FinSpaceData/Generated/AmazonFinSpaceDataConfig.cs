@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the finspace-data-2020-07-13.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.FinSpaceData.Internal;
 
 namespace Amazon.FinSpaceData
 {
     /// <summary>
     /// Configuration for accessing Amazon FinSpaceData service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonFinSpaceDataConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.19");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.FinSpaceData
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonFinSpaceDataDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "finspace-api";
+            this.EndpointProvider = new AmazonFinSpaceDataEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.FinSpaceData
                 return _userAgent;
             }
         }
+
     }
 }

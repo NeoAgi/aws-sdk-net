@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the appconfig-2019-10-09.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.AppConfig.Internal;
 
 namespace Amazon.AppConfig
 {
     /// <summary>
     /// Configuration for accessing Amazon AppConfig service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonAppConfigConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.15");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.AppConfig
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAppConfigDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "appconfig";
+            this.EndpointProvider = new AmazonAppConfigEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.AppConfig
                 return _userAgent;
             }
         }
+
     }
 }

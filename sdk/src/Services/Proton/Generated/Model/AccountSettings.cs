@@ -29,20 +29,41 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Proton.Model
 {
     /// <summary>
-    /// The Proton pipeline service role and repository data shared across the Amazon Web
-    /// Services account.
+    /// Proton settings that are used for multiple services in the Amazon Web Services account.
     /// </summary>
     public partial class AccountSettings
     {
+        private string _pipelineCodebuildRoleArn;
         private RepositoryBranch _pipelineProvisioningRepository;
         private string _pipelineServiceRoleArn;
 
         /// <summary>
+        /// Gets and sets the property PipelineCodebuildRoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning
+        /// pipelines. Proton assumes this role for CodeBuild-based provisioning.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=2048)]
+        public string PipelineCodebuildRoleArn
+        {
+            get { return this._pipelineCodebuildRoleArn; }
+            set { this._pipelineCodebuildRoleArn = value; }
+        }
+
+        // Check to see if PipelineCodebuildRoleArn property is set
+        internal bool IsSetPipelineCodebuildRoleArn()
+        {
+            return this._pipelineCodebuildRoleArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property PipelineProvisioningRepository. 
         /// <para>
-        /// The repository configured in the Amazon Web Services account for pipeline provisioning.
-        /// Required it if you have environments configured for self-managed provisioning with
-        /// services that include pipelines.
+        /// The linked repository for pipeline provisioning. Required if you have environments
+        /// configured for self-managed provisioning with services that include pipelines. A linked
+        /// repository is a repository that has been registered with Proton. For more information,
+        /// see <a>CreateRepository</a>.
         /// </para>
         /// </summary>
         public RepositoryBranch PipelineProvisioningRepository

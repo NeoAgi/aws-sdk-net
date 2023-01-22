@@ -35,7 +35,7 @@ namespace Amazon.Translate
     /// <summary>
     /// Implementation for accessing Translate
     ///
-    /// Provides translation between one source language and another of the same set of languages.
+    /// Provides translation of the input content from the source language to the target language.
     /// </summary>
     public partial class AmazonTranslateClient : AmazonServiceClient, IAmazonTranslate
     {
@@ -230,6 +230,15 @@ namespace Amazon.Translate
         }
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonTranslateEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -266,6 +275,10 @@ namespace Amazon.Translate
         /// <param name="request">Container for the necessary parameters to execute the CreateParallelData service method.</param>
         /// 
         /// <returns>The response from the CreateParallelData service method, as returned by Translate.</returns>
+        /// <exception cref="Amazon.Translate.Model.ConcurrentModificationException">
+        /// Another modification is being made. That modification must complete before you can
+        /// make your change.
+        /// </exception>
         /// <exception cref="Amazon.Translate.Model.ConflictException">
         /// There was a conflict processing the request. Try your request again.
         /// </exception>
@@ -287,6 +300,9 @@ namespace Amazon.Translate
         /// <exception cref="Amazon.Translate.Model.TooManyRequestsException">
         /// You have made too many requests within a short period of time. Wait for a short time
         /// and then try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.TooManyTagsException">
+        /// You have added too many tags to this resource. The maximum is 50 tags.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/CreateParallelData">REST API Reference for CreateParallelData Operation</seealso>
         public virtual CreateParallelDataResponse CreateParallelData(CreateParallelDataRequest request)
@@ -700,6 +716,10 @@ namespace Amazon.Translate
         /// <param name="request">Container for the necessary parameters to execute the ImportTerminology service method.</param>
         /// 
         /// <returns>The response from the ImportTerminology service method, as returned by Translate.</returns>
+        /// <exception cref="Amazon.Translate.Model.ConcurrentModificationException">
+        /// Another modification is being made. That modification must complete before you can
+        /// make your change.
+        /// </exception>
         /// <exception cref="Amazon.Translate.Model.InternalServerException">
         /// An internal server error occurred. Retry your request.
         /// </exception>
@@ -714,6 +734,9 @@ namespace Amazon.Translate
         /// <exception cref="Amazon.Translate.Model.TooManyRequestsException">
         /// You have made too many requests within a short period of time. Wait for a short time
         /// and then try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.TooManyTagsException">
+        /// You have added too many tags to this resource. The maximum is 50 tags.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ImportTerminology">REST API Reference for ImportTerminology Operation</seealso>
         public virtual ImportTerminologyResponse ImportTerminology(ImportTerminologyRequest request)
@@ -894,6 +917,74 @@ namespace Amazon.Translate
 
         #endregion
         
+        #region  ListTagsForResource
+
+        /// <summary>
+        /// Lists all tags associated with a given Amazon Translate resource. For more information,
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging
+        /// your resources</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
+        /// 
+        /// <returns>The response from the ListTagsForResource service method, as returned by Translate.</returns>
+        /// <exception cref="Amazon.Translate.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InvalidParameterValueException">
+        /// The value of the parameter is not valid. Review the value of the parameter you are
+        /// using to correct it, and then retry your operation.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.ResourceNotFoundException">
+        /// The resource you are looking for has not been found. Review the resource you're looking
+        /// for and see if a different resource will accomplish your needs before retrying the
+        /// revised request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return Invoke<ListTagsForResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource operation on AmazonTranslateClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTagsForResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual IAsyncResult BeginListTagsForResource(ListTagsForResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTagsForResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListTagsForResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListTagsForResource.</param>
+        /// 
+        /// <returns>Returns a  ListTagsForResourceResult from Translate.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        public virtual ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListTagsForResourceResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListTerminologies
 
         /// <summary>
@@ -1030,9 +1121,13 @@ namespace Amazon.Translate
         #region  StartTextTranslationJob
 
         /// <summary>
-        /// Starts an asynchronous batch translation job. Batch translation jobs can be used to
-        /// translate large volumes of text across multiple documents at once. For more information,
-        /// see <a>async</a>.
+        /// Starts an asynchronous batch translation job. Use batch translation jobs to translate
+        /// large volumes of text across multiple documents at once. For batch translation, you
+        /// can input documents with different source languages (specify <code>auto</code> as
+        /// the source language). You can specify one or more target languages. Batch translation
+        /// translates each input document into each of the target languages. For more information,
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous
+        /// batch processing</a>.
         /// 
         ///  
         /// <para>
@@ -1040,12 +1135,6 @@ namespace Amazon.Translate
         /// operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with
         /// the <a>StopTextTranslationJob</a> operation.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// Amazon Translate does not support batch translation of multiple source languages at
-        /// once.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTextTranslationJob service method.</param>
         /// 
@@ -1072,7 +1161,8 @@ namespace Amazon.Translate
         /// </exception>
         /// <exception cref="Amazon.Translate.Model.UnsupportedLanguagePairException">
         /// Amazon Translate does not support translation from the language of the source text
-        /// into the requested target language. For more information, see <a>how-to-error-msg</a>.
+        /// into the requested target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error
+        /// messages</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/StartTextTranslationJob">REST API Reference for StartTextTranslationJob Operation</seealso>
         public virtual StartTextTranslationJobResponse StartTextTranslationJob(StartTextTranslationJobRequest request)
@@ -1200,11 +1290,87 @@ namespace Amazon.Translate
 
         #endregion
         
+        #region  TagResource
+
+        /// <summary>
+        /// Associates a specific tag with a resource. A tag is a key-value pair that adds as
+        /// a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+        /// Tagging your resources</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by Translate.</returns>
+        /// <exception cref="Amazon.Translate.Model.ConcurrentModificationException">
+        /// Another modification is being made. That modification must complete before you can
+        /// make your change.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InvalidParameterValueException">
+        /// The value of the parameter is not valid. Review the value of the parameter you are
+        /// using to correct it, and then retry your operation.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.ResourceNotFoundException">
+        /// The resource you are looking for has not been found. Review the resource you're looking
+        /// for and see if a different resource will accomplish your needs before retrying the
+        /// revised request.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.TooManyTagsException">
+        /// You have added too many tags to this resource. The maximum is 50 tags.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation on AmazonTranslateClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual IAsyncResult BeginTagResource(TagResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = TagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginTagResource.</param>
+        /// 
+        /// <returns>Returns a  TagResourceResult from Translate.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TagResource">REST API Reference for TagResource Operation</seealso>
+        public virtual TagResourceResponse EndTagResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<TagResourceResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  TranslateText
 
         /// <summary>
         /// Translates input text from the source language to the target language. For a list
-        /// of available languages and language codes, see <a>what-is-languages</a>.
+        /// of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TranslateText service method.</param>
         /// 
@@ -1242,7 +1408,8 @@ namespace Amazon.Translate
         /// </exception>
         /// <exception cref="Amazon.Translate.Model.UnsupportedLanguagePairException">
         /// Amazon Translate does not support translation from the language of the source text
-        /// into the requested target language. For more information, see <a>how-to-error-msg</a>.
+        /// into the requested target language. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-to-error-msg.html">Error
+        /// messages</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/TranslateText">REST API Reference for TranslateText Operation</seealso>
         public virtual TranslateTextResponse TranslateText(TranslateTextRequest request)
@@ -1286,6 +1453,78 @@ namespace Amazon.Translate
         public virtual TranslateTextResponse EndTranslateText(IAsyncResult asyncResult)
         {
             return EndInvoke<TranslateTextResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+        /// <summary>
+        /// Removes a specific tag associated with an Amazon Translate resource. For more information,
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging
+        /// your resources</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by Translate.</returns>
+        /// <exception cref="Amazon.Translate.Model.ConcurrentModificationException">
+        /// Another modification is being made. That modification must complete before you can
+        /// make your change.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InternalServerException">
+        /// An internal server error occurred. Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.InvalidParameterValueException">
+        /// The value of the parameter is not valid. Review the value of the parameter you are
+        /// using to correct it, and then retry your operation.
+        /// </exception>
+        /// <exception cref="Amazon.Translate.Model.ResourceNotFoundException">
+        /// The resource you are looking for has not been found. Review the resource you're looking
+        /// for and see if a different resource will accomplish your needs before retrying the
+        /// revised request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation on AmazonTranslateClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUntagResource
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual IAsyncResult BeginUntagResource(UntagResourceRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UntagResourceRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUntagResource.</param>
+        /// 
+        /// <returns>Returns a  UntagResourceResult from Translate.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/translate-2017-07-01/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        public virtual UntagResourceResponse EndUntagResource(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UntagResourceResponse>(asyncResult);
         }
 
         #endregion

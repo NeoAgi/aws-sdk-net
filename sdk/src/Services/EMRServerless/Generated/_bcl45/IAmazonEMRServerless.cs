@@ -131,6 +131,9 @@ namespace Amazon.EMRServerless
         /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
         /// Request processing failed because of an error or failure with the service.
         /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
         /// The input fails to satisfy the constraints specified by an AWS service.
         /// </exception>
@@ -154,6 +157,9 @@ namespace Amazon.EMRServerless
         /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
         /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
         /// </exception>
         /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
         /// The input fails to satisfy the constraints specified by an AWS service.
@@ -254,6 +260,52 @@ namespace Amazon.EMRServerless
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/emr-serverless-2021-07-13/GetApplication">REST API Reference for GetApplication Operation</seealso>
         Task<GetApplicationResponse> GetApplicationAsync(GetApplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetDashboardForJobRun
+
+
+        /// <summary>
+        /// Returns a URL to access the job run dashboard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDashboardForJobRun service method.</param>
+        /// 
+        /// <returns>The response from the GetDashboardForJobRun service method, as returned by EMRServerless.</returns>
+        /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by an AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/emr-serverless-2021-07-13/GetDashboardForJobRun">REST API Reference for GetDashboardForJobRun Operation</seealso>
+        GetDashboardForJobRunResponse GetDashboardForJobRun(GetDashboardForJobRunRequest request);
+
+
+
+        /// <summary>
+        /// Returns a URL to access the job run dashboard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetDashboardForJobRun service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetDashboardForJobRun service method, as returned by EMRServerless.</returns>
+        /// <exception cref="Amazon.EMRServerless.Model.InternalServerException">
+        /// Request processing failed because of an error or failure with the service.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ResourceNotFoundException">
+        /// The specified resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.EMRServerless.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by an AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/emr-serverless-2021-07-13/GetDashboardForJobRun">REST API Reference for GetDashboardForJobRun Operation</seealso>
+        Task<GetDashboardForJobRunResponse> GetDashboardForJobRunAsync(GetDashboardForJobRunRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

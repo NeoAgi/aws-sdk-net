@@ -111,6 +111,10 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("GlobalReplicationGroupId", StringUtils.FromString(publicRequest.GlobalReplicationGroupId));
                 }
+                if(publicRequest.IsSetIpDiscovery())
+                {
+                    request.Parameters.Add("IpDiscovery", StringUtils.FromString(publicRequest.IpDiscovery));
+                }
                 if(publicRequest.IsSetKmsKeyId())
                 {
                     request.Parameters.Add("KmsKeyId", StringUtils.FromString(publicRequest.KmsKeyId));
@@ -159,6 +163,10 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetMultiAZEnabled())
                 {
                     request.Parameters.Add("MultiAZEnabled", StringUtils.FromBool(publicRequest.MultiAZEnabled));
+                }
+                if(publicRequest.IsSetNetworkType())
+                {
+                    request.Parameters.Add("NetworkType", StringUtils.FromString(publicRequest.NetworkType));
                 }
                 if(publicRequest.IsSetNodeGroupConfiguration())
                 {
@@ -300,6 +308,10 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                 if(publicRequest.IsSetTransitEncryptionEnabled())
                 {
                     request.Parameters.Add("TransitEncryptionEnabled", StringUtils.FromBool(publicRequest.TransitEncryptionEnabled));
+                }
+                if(publicRequest.IsSetTransitEncryptionMode())
+                {
+                    request.Parameters.Add("TransitEncryptionMode", StringUtils.FromString(publicRequest.TransitEncryptionMode));
                 }
                 if(publicRequest.IsSetUserGroupIds())
                 {

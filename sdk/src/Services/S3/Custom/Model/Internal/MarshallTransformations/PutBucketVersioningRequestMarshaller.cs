@@ -55,7 +55,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(putBucketVersioningRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "PutBucketVersioningRequest.BucketName");
 
-			request.ResourcePath = string.Concat("/", S3Transforms.ToStringValue(putBucketVersioningRequest.BucketName));
+            request.ResourcePath = "/";
 
             request.AddSubResource("versioning");
 
@@ -65,14 +65,15 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 var versioningConfigurationVersioningConfiguration = putBucketVersioningRequest.VersioningConfig;
                 if (versioningConfigurationVersioningConfiguration != null)
                 {
-                    xmlWriter.WriteStartElement("VersioningConfiguration", "");
+                    xmlWriter.WriteStartElement("VersioningConfiguration", S3Constants.S3RequestXmlNamespace);
+
                     if (versioningConfigurationVersioningConfiguration.IsSetEnableMfaDelete())
                     {
-                        xmlWriter.WriteElementString("MfaDelete", "", versioningConfigurationVersioningConfiguration.EnableMfaDelete ? "Enabled" : "Disabled");
+                        xmlWriter.WriteElementString("MfaDelete", versioningConfigurationVersioningConfiguration.EnableMfaDelete ? "Enabled" : "Disabled");
                     }
                     if (versioningConfigurationVersioningConfiguration.IsSetStatus())
                     {
-                        xmlWriter.WriteElementString("Status", "", S3Transforms.ToXmlStringValue(versioningConfigurationVersioningConfiguration.Status));
+                        xmlWriter.WriteElementString("Status", S3Transforms.ToXmlStringValue(versioningConfigurationVersioningConfiguration.Status));
                     }
                     xmlWriter.WriteEndElement();
                 }

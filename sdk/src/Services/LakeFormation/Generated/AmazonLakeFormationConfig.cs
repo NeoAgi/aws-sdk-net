@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the lakeformation-2017-03-31.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.LakeFormation.Internal;
 
 namespace Amazon.LakeFormation
 {
     /// <summary>
     /// Configuration for accessing Amazon LakeFormation service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLakeFormationConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.6.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.42");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.LakeFormation
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLakeFormationDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "lakeformation";
+            this.EndpointProvider = new AmazonLakeFormationEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.LakeFormation
                 return _userAgent;
             }
         }
+
     }
 }

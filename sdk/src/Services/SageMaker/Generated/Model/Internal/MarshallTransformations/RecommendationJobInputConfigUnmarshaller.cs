@@ -64,10 +64,22 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("ContainerConfig", targetDepth))
+                {
+                    var unmarshaller = RecommendationJobContainerConfigUnmarshaller.Instance;
+                    unmarshalledObject.ContainerConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EndpointConfigurations", targetDepth))
                 {
                     var unmarshaller = new ListUnmarshaller<EndpointInputConfiguration, EndpointInputConfigurationUnmarshaller>(EndpointInputConfigurationUnmarshaller.Instance);
                     unmarshalledObject.EndpointConfigurations = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("Endpoints", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<EndpointInfo, EndpointInfoUnmarshaller>(EndpointInfoUnmarshaller.Instance);
+                    unmarshalledObject.Endpoints = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("JobDurationInSeconds", targetDepth))
@@ -98,6 +110,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.VolumeKmsKeyId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("VpcConfig", targetDepth))
+                {
+                    var unmarshaller = RecommendationJobVpcConfigUnmarshaller.Instance;
+                    unmarshalledObject.VpcConfig = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

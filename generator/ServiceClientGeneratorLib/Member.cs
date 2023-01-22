@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using ServiceClientGenerator.Endpoints;
 
 namespace ServiceClientGenerator
 {
@@ -590,6 +591,11 @@ namespace ServiceClientGenerator
                 throw new Exception("Missing extends for member " + this._name);
 
             var memberShape = this.model.DocumentRoot[ServiceModel.ShapesKey][extendsNode.ToString()];
+
+            var document = memberShape[Shape.DocumentKey];
+            if (document?.IsBoolean == true && (bool)document)
+                return "Amazon.Runtime.Documents.Internal.Transform.DocumentUnmarshaller";
+
             var typeNode = memberShape[Shape.TypeKey];
             if (typeNode == null)
                 throw new Exception("Type is missing for shape " + extendsNode.ToString());
@@ -1081,6 +1087,18 @@ namespace ServiceClientGenerator
                         throw new InvalidOperationException(
                             "Encountered unknown model type (protocol): " + serviceType);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets request member context parameter, used to drive endpoint resolution
+        /// </summary>
+        public ContextParameter ContextParameter
+        {
+            get
+            {
+                var parameter = data.SafeGet("contextParam");
+                return parameter == null ? null : new ContextParameter { name = parameter.SafeGetString("name") };
             }
         }
     }

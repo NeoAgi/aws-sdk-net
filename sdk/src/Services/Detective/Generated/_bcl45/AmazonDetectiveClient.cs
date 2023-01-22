@@ -342,6 +342,15 @@ namespace Amazon.Detective
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonDetectiveEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -386,6 +395,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the AcceptInvitation service method.</param>
         /// 
         /// <returns>The response from the AcceptInvitation service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -428,6 +441,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the AcceptInvitation service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -461,6 +478,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the BatchGetGraphMemberDatasources service method.</param>
         /// 
         /// <returns>The response from the BatchGetGraphMemberDatasources service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -490,6 +511,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the BatchGetGraphMemberDatasources service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -520,6 +545,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the BatchGetMembershipDatasources service method.</param>
         /// 
         /// <returns>The response from the BatchGetMembershipDatasources service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -549,6 +578,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the BatchGetMembershipDatasources service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -605,6 +638,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the CreateGraph service method.</param>
         /// 
         /// <returns>The response from the CreateGraph service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -677,6 +714,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the CreateGraph service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -768,6 +809,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the CreateMembers service method.</param>
         /// 
         /// <returns>The response from the CreateMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -861,6 +906,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the CreateMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -918,6 +967,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the DeleteGraph service method.</param>
         /// 
         /// <returns>The response from the DeleteGraph service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -954,6 +1007,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the DeleteGraph service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1006,6 +1063,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the DeleteMembers service method.</param>
         /// 
         /// <returns>The response from the DeleteMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -1060,6 +1121,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the DeleteMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -1099,6 +1164,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationConfiguration service method.</param>
         /// 
         /// <returns>The response from the DescribeOrganizationConfiguration service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1135,6 +1204,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the DescribeOrganizationConfiguration service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1184,6 +1257,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the DisableOrganizationAdminAccount service method.</param>
         /// 
         /// <returns>The response from the DisableOrganizationAdminAccount service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1232,6 +1309,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the DisableOrganizationAdminAccount service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1272,6 +1353,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the DisassociateMembership service method.</param>
         /// 
         /// <returns>The response from the DisassociateMembership service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -1313,6 +1398,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the DisassociateMembership service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -1371,6 +1460,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the EnableOrganizationAdminAccount service method.</param>
         /// 
         /// <returns>The response from the EnableOrganizationAdminAccount service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1426,6 +1519,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the EnableOrganizationAdminAccount service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1457,6 +1554,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the GetMembers service method.</param>
         /// 
         /// <returns>The response from the GetMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1486,6 +1587,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the GetMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1516,6 +1621,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListDatasourcePackages service method.</param>
         /// 
         /// <returns>The response from the ListDatasourcePackages service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1545,6 +1654,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListDatasourcePackages service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1582,6 +1695,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListGraphs service method.</param>
         /// 
         /// <returns>The response from the ListGraphs service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1615,6 +1732,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListGraphs service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1654,6 +1775,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListInvitations service method.</param>
         /// 
         /// <returns>The response from the ListInvitations service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1692,6 +1817,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListInvitations service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1730,6 +1859,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListMembers service method.</param>
         /// 
         /// <returns>The response from the ListMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1770,6 +1903,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListMembers service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1801,6 +1938,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListOrganizationAdminAccounts service method.</param>
         /// 
         /// <returns>The response from the ListOrganizationAdminAccounts service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1832,6 +1973,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListOrganizationAdminAccounts service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1863,6 +2008,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1892,6 +2041,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -1930,6 +2083,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the RejectInvitation service method.</param>
         /// 
         /// <returns>The response from the RejectInvitation service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -1970,6 +2127,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the RejectInvitation service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -2018,6 +2179,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the StartMonitoringMember service method.</param>
         /// 
         /// <returns>The response from the StartMonitoringMember service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -2085,6 +2250,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the StartMonitoringMember service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.ConflictException">
         /// The request attempted an invalid action.
         /// </exception>
@@ -2138,6 +2307,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 
         /// <returns>The response from the TagResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2167,6 +2340,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the TagResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2197,6 +2374,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// 
         /// <returns>The response from the UntagResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2226,6 +2407,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the UntagResource service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2256,6 +2441,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the UpdateDatasourcePackages service method.</param>
         /// 
         /// <returns>The response from the UpdateDatasourcePackages service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2305,6 +2494,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the UpdateDatasourcePackages service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2356,6 +2549,10 @@ namespace Amazon.Detective
         /// <param name="request">Container for the necessary parameters to execute the UpdateOrganizationConfiguration service method.</param>
         /// 
         /// <returns>The response from the UpdateOrganizationConfiguration service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>
@@ -2387,6 +2584,10 @@ namespace Amazon.Detective
         /// </param>
         /// 
         /// <returns>The response from the UpdateOrganizationConfiguration service method, as returned by Detective.</returns>
+        /// <exception cref="Amazon.Detective.Model.AccessDeniedException">
+        /// The request issuer does not have permission to access this resource or perform this
+        /// operation.
+        /// </exception>
         /// <exception cref="Amazon.Detective.Model.InternalServerException">
         /// The request was valid but failed because of a problem with the service.
         /// </exception>

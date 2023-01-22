@@ -45,6 +45,17 @@ namespace Amazon.DevOpsGuru.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(NotificationChannelConfig requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetFilters())
+            {
+                context.Writer.WritePropertyName("Filters");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = NotificationFilterConfigMarshaller.Instance;
+                marshaller.Marshall(requestObject.Filters, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetSns())
             {
                 context.Writer.WritePropertyName("Sns");

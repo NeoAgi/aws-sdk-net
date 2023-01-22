@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the networkmanager-2019-07-05.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.NetworkManager.Internal;
 
 namespace Amazon.NetworkManager
 {
     /// <summary>
     /// Configuration for accessing Amazon NetworkManager service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonNetworkManagerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.22");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.NetworkManager
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonNetworkManagerDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "networkmanager";
+            this.EndpointProvider = new AmazonNetworkManagerEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.NetworkManager
                 return _userAgent;
             }
         }
+
     }
 }

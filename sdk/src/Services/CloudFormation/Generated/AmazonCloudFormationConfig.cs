@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the cloudformation-2010-05-15.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CloudFormation.Internal;
 
 namespace Amazon.CloudFormation
 {
     /// <summary>
     /// Configuration for accessing Amazon CloudFormation service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCloudFormationConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.11.17");
+            InternalSDKUtils.BuildUserAgentString("3.7.102.39");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CloudFormation
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudFormationDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cloudformation";
+            this.EndpointProvider = new AmazonCloudFormationEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CloudFormation
                 return _userAgent;
             }
         }
+
     }
 }

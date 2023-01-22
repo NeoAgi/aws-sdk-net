@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the location-2020-11-19.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.LocationService.Internal;
 
 namespace Amazon.LocationService
 {
     /// <summary>
     /// Configuration for accessing Amazon LocationService service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonLocationServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.11.4");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.6");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.LocationService
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonLocationServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "geo";
+            this.EndpointProvider = new AmazonLocationServiceEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.LocationService
                 return _userAgent;
             }
         }
+
     }
 }

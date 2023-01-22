@@ -37,6 +37,7 @@ namespace Amazon.CloudFront.Model
         private CacheBehaviors _cacheBehaviors;
         private string _callerReference;
         private string _comment;
+        private string _continuousDeploymentPolicyId;
         private CustomErrorResponses _customErrorResponses;
         private DefaultCacheBehavior _defaultCacheBehavior;
         private string _defaultRootObject;
@@ -48,6 +49,7 @@ namespace Amazon.CloudFront.Model
         private Origins _origins;
         private PriceClass _priceClass;
         private Restrictions _restrictions;
+        private bool? _staging;
         private ViewerCertificate _viewerCertificate;
         private string _webACLId;
 
@@ -89,7 +91,7 @@ namespace Amazon.CloudFront.Model
         /// <summary>
         /// Gets and sets the property CacheBehaviors. 
         /// <para>
-        /// A complex type that contains zero or more <code>CacheBehavior</code> elements. 
+        /// A complex type that contains zero or more <code>CacheBehavior</code> elements.
         /// </para>
         /// </summary>
         public CacheBehaviors CacheBehaviors
@@ -138,8 +140,7 @@ namespace Amazon.CloudFront.Model
         /// <summary>
         /// Gets and sets the property Comment. 
         /// <para>
-        /// An optional comment to describe the distribution. The comment cannot be longer than
-        /// 128 characters.
+        /// A comment to describe the distribution. The comment cannot be longer than 128 characters.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -153,6 +154,24 @@ namespace Amazon.CloudFront.Model
         internal bool IsSetComment()
         {
             return this._comment != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ContinuousDeploymentPolicyId. 
+        /// <para>
+        /// The identifier of a continuous deployment policy. For more information, see <code>CreateContinuousDeploymentPolicy</code>.
+        /// </para>
+        /// </summary>
+        public string ContinuousDeploymentPolicyId
+        {
+            get { return this._continuousDeploymentPolicyId; }
+            set { this._continuousDeploymentPolicyId = value; }
+        }
+
+        // Check to see if ContinuousDeploymentPolicyId property is set
+        internal bool IsSetContinuousDeploymentPolicyId()
+        {
+            return this._continuousDeploymentPolicyId != null;
         }
 
         /// <summary>
@@ -212,8 +231,8 @@ namespace Amazon.CloudFront.Model
         /// Gets and sets the property DefaultRootObject. 
         /// <para>
         /// The object that you want CloudFront to request from your origin (for example, <code>index.html</code>)
-        /// when a viewer requests the root URL for your distribution (<code>http://www.example.com</code>)
-        /// instead of an object in your distribution (<code>http://www.example.com/product-description.html</code>).
+        /// when a viewer requests the root URL for your distribution (<code>https://www.example.com</code>)
+        /// instead of an object in your distribution (<code>https://www.example.com/product-description.html</code>).
         /// Specifying a default root object avoids exposing the contents of your distribution.
         /// </para>
         ///  
@@ -315,7 +334,7 @@ namespace Amazon.CloudFront.Model
         /// distribution, specify <code>true</code>. If you specify <code>false</code>, CloudFront
         /// responds to IPv6 DNS requests with the DNS response code <code>NOERROR</code> and
         /// with no IP addresses. This allows viewers to submit a second request, for an IPv4
-        /// address for your distribution. 
+        /// address for your distribution.
         /// </para>
         ///  
         /// <para>
@@ -394,7 +413,7 @@ namespace Amazon.CloudFront.Model
         /// <summary>
         /// Gets and sets the property OriginGroups. 
         /// <para>
-        ///  A complex type that contains information about origin groups for this distribution.
+        /// A complex type that contains information about origin groups for this distribution.
         /// </para>
         /// </summary>
         public OriginGroups OriginGroups
@@ -412,7 +431,7 @@ namespace Amazon.CloudFront.Model
         /// <summary>
         /// Gets and sets the property Origins. 
         /// <para>
-        /// A complex type that contains information about origins for this distribution. 
+        /// A complex type that contains information about origins for this distribution.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -483,9 +502,29 @@ namespace Amazon.CloudFront.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Staging. 
+        /// <para>
+        /// A Boolean that indicates whether this is a staging distribution. When this value is
+        /// <code>true</code>, this is a staging distribution. When this value is <code>false</code>,
+        /// this is not a staging distribution.
+        /// </para>
+        /// </summary>
+        public bool Staging
+        {
+            get { return this._staging.GetValueOrDefault(); }
+            set { this._staging = value; }
+        }
+
+        // Check to see if Staging property is set
+        internal bool IsSetStaging()
+        {
+            return this._staging.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property ViewerCertificate. 
         /// <para>
-        /// A complex type that determines the distribution’s SSL/TLS configuration for communicating
+        /// A complex type that determines the distribution's SSL/TLS configuration for communicating
         /// with viewers.
         /// </para>
         /// </summary>
@@ -518,7 +557,7 @@ namespace Amazon.CloudFront.Model
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
         /// WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
-        /// Developer Guide</a>. 
+        /// Developer Guide</a>.
         /// </para>
         /// </summary>
         public string WebACLId

@@ -30,8 +30,8 @@ namespace Amazon.Batch.Model
 {
     /// <summary>
     /// Specifies the infrastructure update policy for the compute environment. For more information
-    /// about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.html">Infrastructure
-    /// updates</a> in the <i>Batch User Guide</i>.
+    /// about infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+    /// compute environments</a> in the <i>Batch User Guide</i>.
     /// </summary>
     public partial class UpdatePolicy
     {
@@ -41,7 +41,7 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property JobExecutionTimeoutMinutes. 
         /// <para>
-        /// Specifies the job timeout, in minutes, when the compute environment infrastructure
+        /// Specifies the job timeout (in minutes) when the compute environment infrastructure
         /// is updated. The default value is 30.
         /// </para>
         /// </summary>

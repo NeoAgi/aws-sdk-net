@@ -239,6 +239,15 @@ namespace Amazon.LookoutforVision
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonLookoutforVisionEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -2164,6 +2173,10 @@ namespace Amazon.LookoutforVision
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <code>kms:GenerateDataKey</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>greengrass:CreateComponentVersion</code> 
         /// </para>
         ///  </li> <li> 
@@ -2250,6 +2263,10 @@ namespace Amazon.LookoutforVision
         ///  </li> <li> 
         /// <para>
         ///  <code>s3:GetBucketLocation</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>kms:GenerateDataKey</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the iottwinmaker-2021-11-29.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.IoTTwinMaker.Internal;
 
 namespace Amazon.IoTTwinMaker
 {
     /// <summary>
     /// Configuration for accessing Amazon IoTTwinMaker service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonIoTTwinMakerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.44");
+            InternalSDKUtils.BuildUserAgentString("3.7.102.25");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.IoTTwinMaker
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTTwinMakerDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "iottwinmaker";
+            this.EndpointProvider = new AmazonIoTTwinMakerEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.IoTTwinMaker
                 return _userAgent;
             }
         }
+
     }
 }

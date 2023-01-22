@@ -34,13 +34,15 @@ namespace Amazon.DataSync
     /// DataSync 
     /// <para>
     /// DataSync is a managed data transfer service that makes it simpler for you to automate
-    /// moving data between on-premises storage and Amazon Simple Storage Service (Amazon
-    /// S3) or Amazon Elastic File System (Amazon EFS). 
+    /// moving data between on-premises storage and Amazon Web Services storage services.
+    /// You also can use DataSync to transfer data between other cloud providers and Amazon
+    /// Web Services storage services.
     /// </para>
     ///  
     /// <para>
-    /// This API interface reference for DataSync contains documentation for a programming
-    /// interface that you can use to manage DataSync.
+    /// This API interface reference includes documentation for using DataSync programmatically.
+    /// For complete information, see the <i> <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync
+    /// User Guide</a> </i>.
     /// </para>
     /// </summary>
     public partial interface IAmazonDataSync : IAmazonService, IDisposable
@@ -56,17 +58,16 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Cancels execution of a task. 
+        /// Stops an DataSync task execution that's in progress. The transfer of some files are
+        /// abruptly interrupted. File contents that're transferred to the destination might be
+        /// incomplete or inconsistent with the source files.
         /// 
         ///  
         /// <para>
-        /// When you cancel a task execution, the transfer of some files is abruptly interrupted.
-        /// The contents of files that are transferred to the destination might be incomplete
-        /// or inconsistent with the source files. However, if you start a new task execution
-        /// on the same task and you allow the task execution to complete, file content on the
-        /// destination is complete and consistent. This applies to other unexpected failures
-        /// that interrupt a task execution. In all of these cases, DataSync successfully complete
-        /// the transfer when you start the next task execution.
+        /// However, if you start a new task execution using the same task and allow it to finish,
+        /// file content on the destination will be complete and consistent. This applies to other
+        /// unexpected failures that interrupt a task execution. In all of these cases, DataSync
+        /// successfully completes the transfer when you start the next task execution.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelTaskExecution service method.</param>
@@ -84,17 +85,16 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Cancels execution of a task. 
+        /// Stops an DataSync task execution that's in progress. The transfer of some files are
+        /// abruptly interrupted. File contents that're transferred to the destination might be
+        /// incomplete or inconsistent with the source files.
         /// 
         ///  
         /// <para>
-        /// When you cancel a task execution, the transfer of some files is abruptly interrupted.
-        /// The contents of files that are transferred to the destination might be incomplete
-        /// or inconsistent with the source files. However, if you start a new task execution
-        /// on the same task and you allow the task execution to complete, file content on the
-        /// destination is complete and consistent. This applies to other unexpected failures
-        /// that interrupt a task execution. In all of these cases, DataSync successfully complete
-        /// the transfer when you start the next task execution.
+        /// However, if you start a new task execution using the same task and allow it to finish,
+        /// file content on the destination will be complete and consistent. This applies to other
+        /// unexpected failures that interrupt a task execution. In all of these cases, DataSync
+        /// successfully completes the transfer when you start the next task execution.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelTaskExecution service method.</param>
@@ -118,12 +118,12 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Activates an DataSync agent that you have deployed on your host. The activation process
-        /// associates your agent with your account. In the activation process, you specify information
-        /// such as the Amazon Web Services Region that you want to activate the agent in. You
-        /// activate the agent in the Amazon Web Services Region where your target locations (in
-        /// Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services
-        /// Region.
+        /// Activates an DataSync agent that you have deployed in your storage environment. The
+        /// activation process associates your agent with your account. In the activation process,
+        /// you specify information such as the Amazon Web Services Region that you want to activate
+        /// the agent in. You activate the agent in the Amazon Web Services Region where your
+        /// target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this
+        /// Amazon Web Services Region.
         /// 
         ///  
         /// <para>
@@ -158,12 +158,12 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Activates an DataSync agent that you have deployed on your host. The activation process
-        /// associates your agent with your account. In the activation process, you specify information
-        /// such as the Amazon Web Services Region that you want to activate the agent in. You
-        /// activate the agent in the Amazon Web Services Region where your target locations (in
-        /// Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services
-        /// Region.
+        /// Activates an DataSync agent that you have deployed in your storage environment. The
+        /// activation process associates your agent with your account. In the activation process,
+        /// you specify information such as the Amazon Web Services Region that you want to activate
+        /// the agent in. You activate the agent in the Amazon Web Services Region where your
+        /// target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this
+        /// Amazon Web Services Region.
         /// 
         ///  
         /// <para>
@@ -332,7 +332,16 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+        /// Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync can access
+        /// for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating
+        /// a location for FSx for OpenZFS</a>.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code>
+        /// operation.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxOpenZfs service method.</param>
         /// 
@@ -349,7 +358,16 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+        /// Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync can access
+        /// for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating
+        /// a location for FSx for OpenZFS</a>.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code>
+        /// operation.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLocationFsxOpenZfs service method.</param>
         /// <param name="cancellationToken">
@@ -538,7 +556,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Creates an endpoint for an Amazon S3 bucket.
+        /// Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.
         /// 
         ///  
         /// <para>
@@ -561,7 +579,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Creates an endpoint for an Amazon S3 bucket.
+        /// Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.
         /// 
         ///  
         /// <para>
@@ -640,27 +658,6 @@ namespace Amazon.DataSync
         /// how and when you want to transfer your data (such as bandwidth limits, scheduling,
         /// among other options).
         /// </para>
-        ///  
-        /// <para>
-        /// When you create a task that transfers data between Amazon Web Services services in
-        /// different Amazon Web Services Regions, one of your locations must reside in the Region
-        /// where you're using DataSync.
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see the following topics:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working
-        /// with DataSync locations</a> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure
-        /// DataSync task settings</a> 
-        /// </para>
-        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTask service method.</param>
         /// 
@@ -685,27 +682,6 @@ namespace Amazon.DataSync
         /// how and when you want to transfer your data (such as bandwidth limits, scheduling,
         /// among other options).
         /// </para>
-        ///  
-        /// <para>
-        /// When you create a task that transfers data between Amazon Web Services services in
-        /// different Amazon Web Services Regions, one of your locations must reside in the Region
-        /// where you're using DataSync.
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see the following topics:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        ///  <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working
-        /// with DataSync locations</a> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure
-        /// DataSync task settings</a> 
-        /// </para>
-        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTask service method.</param>
         /// <param name="cancellationToken">
@@ -814,7 +790,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Deletes a task.
+        /// Deletes an DataSync task.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteTask service method.</param>
         /// 
@@ -831,7 +807,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Deletes a task.
+        /// Deletes an DataSync task.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteTask service method.</param>
         /// <param name="cancellationToken">
@@ -938,8 +914,8 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata about an Amazon FSx for Lustre location, such as information about
-        /// its path.
+        /// Provides details about how an DataSync location for an Amazon FSx for Lustre file
+        /// system is configured.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxLustre service method.</param>
         /// 
@@ -956,8 +932,8 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata about an Amazon FSx for Lustre location, such as information about
-        /// its path.
+        /// Provides details about how an DataSync location for an Amazon FSx for Lustre file
+        /// system is configured.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxLustre service method.</param>
         /// <param name="cancellationToken">
@@ -982,6 +958,13 @@ namespace Amazon.DataSync
         /// <summary>
         /// Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP
         /// file system is configured.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+        /// actually return a <code>Password</code>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOntap service method.</param>
         /// 
@@ -1000,6 +983,13 @@ namespace Amazon.DataSync
         /// <summary>
         /// Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP
         /// file system is configured.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+        /// actually return a <code>Password</code>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOntap service method.</param>
         /// <param name="cancellationToken">
@@ -1022,8 +1012,15 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
-        /// its path.
+        /// Provides details about how an DataSync location for an Amazon FSx for OpenZFS file
+        /// system is configured.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Response elements related to <code>SMB</code> aren't supported with the <code>DescribeLocationFsxOpenZfs</code>
+        /// operation.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOpenZfs service method.</param>
         /// 
@@ -1040,8 +1037,15 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
-        /// its path.
+        /// Provides details about how an DataSync location for an Amazon FSx for OpenZFS file
+        /// system is configured.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// Response elements related to <code>SMB</code> aren't supported with the <code>DescribeLocationFsxOpenZfs</code>
+        /// operation.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLocationFsxOpenZfs service method.</param>
         /// <param name="cancellationToken">
@@ -1512,7 +1516,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns all the tags associated with a specified resource.
+        /// Returns all the tags associated with an Amazon Web Services resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// 
@@ -1529,7 +1533,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Returns all the tags associated with a specified resource.
+        /// Returns all the tags associated with an Amazon Web Services resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// <param name="cancellationToken">
@@ -1632,19 +1636,12 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
-        /// an individual run of a task. Each task can have at most one <code>TaskExecution</code>
-        /// at a time.
+        /// Starts an DataSync task. For each task, you can only run one task execution at a time.
         /// 
         ///  
         /// <para>
-        ///  <code>TaskExecution</code> has the following transition phases: INITIALIZING | PREPARING
-        /// | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. 
-        /// </para>
-        ///  
-        /// <para>
-        /// For detailed information, see the Task Execution section in the Components and Terminology
-        /// topic in the <i>DataSync User Guide</i>.
+        /// There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task
+        /// execution statuses</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTaskExecution service method.</param>
@@ -1662,19 +1659,12 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
-        /// an individual run of a task. Each task can have at most one <code>TaskExecution</code>
-        /// at a time.
+        /// Starts an DataSync task. For each task, you can only run one task execution at a time.
         /// 
         ///  
         /// <para>
-        ///  <code>TaskExecution</code> has the following transition phases: INITIALIZING | PREPARING
-        /// | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. 
-        /// </para>
-        ///  
-        /// <para>
-        /// For detailed information, see the Task Execution section in the Components and Terminology
-        /// topic in the <i>DataSync User Guide</i>.
+        /// There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task
+        /// execution statuses</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTaskExecution service method.</param>
@@ -1698,7 +1688,13 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Applies a key-value pair to an Amazon Web Services resource.
+        /// Applies a <i>tag</i> to an Amazon Web Services resource. Tags are key-value pairs
+        /// that can help you manage, filter, and search for your resources.
+        /// 
+        ///  
+        /// <para>
+        /// These include DataSync resources, such as locations, tasks, and task executions.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 
@@ -1715,7 +1711,13 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Applies a key-value pair to an Amazon Web Services resource.
+        /// Applies a <i>tag</i> to an Amazon Web Services resource. Tags are key-value pairs
+        /// that can help you manage, filter, and search for your resources.
+        /// 
+        ///  
+        /// <para>
+        /// These include DataSync resources, such as locations, tasks, and task executions.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// <param name="cancellationToken">
@@ -1738,7 +1740,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Removes a tag from an Amazon Web Services resource.
+        /// Removes tags from an Amazon Web Services resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// 
@@ -1755,7 +1757,7 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Removes a tag from an Amazon Web Services resource.
+        /// Removes tags from an Amazon Web Services resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// <param name="cancellationToken">
@@ -1904,9 +1906,9 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Updates some of the parameters of a previously created location for self-managed object
-        /// storage server access. For information about creating a self-managed object storage
-        /// location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
+        /// Updates some parameters of an existing object storage location that DataSync accesses
+        /// for a transfer. For information about creating a self-managed object storage location,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
         /// a location for object storage</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLocationObjectStorage service method.</param>
@@ -1924,9 +1926,9 @@ namespace Amazon.DataSync
 
 
         /// <summary>
-        /// Updates some of the parameters of a previously created location for self-managed object
-        /// storage server access. For information about creating a self-managed object storage
-        /// location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
+        /// Updates some parameters of an existing object storage location that DataSync accesses
+        /// for a transfer. For information about creating a self-managed object storage location,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
         /// a location for object storage</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLocationObjectStorage service method.</param>

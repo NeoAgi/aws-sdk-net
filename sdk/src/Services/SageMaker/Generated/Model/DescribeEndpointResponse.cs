@@ -40,11 +40,13 @@ namespace Amazon.SageMaker.Model
         private string _endpointConfigName;
         private string _endpointName;
         private EndpointStatus _endpointStatus;
+        private ExplainerConfig _explainerConfig;
         private string _failureReason;
         private DeploymentConfig _lastDeploymentConfig;
         private DateTime? _lastModifiedTime;
         private PendingDeploymentSummary _pendingDeploymentSummary;
         private List<ProductionVariantSummary> _productionVariants = new List<ProductionVariantSummary>();
+        private List<ProductionVariantSummary> _shadowProductionVariants = new List<ProductionVariantSummary>();
 
         /// <summary>
         /// Gets and sets the property AsyncInferenceConfig. 
@@ -220,6 +222,24 @@ namespace Amazon.SageMaker.Model
         }
 
         /// <summary>
+        /// Gets and sets the property ExplainerConfig. 
+        /// <para>
+        /// The configuration parameters for an explainer.
+        /// </para>
+        /// </summary>
+        public ExplainerConfig ExplainerConfig
+        {
+            get { return this._explainerConfig; }
+            set { this._explainerConfig = value; }
+        }
+
+        // Check to see if ExplainerConfig property is set
+        internal bool IsSetExplainerConfig()
+        {
+            return this._explainerConfig != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property FailureReason. 
         /// <para>
         /// If the status of the endpoint is <code>Failed</code>, the reason why it failed. 
@@ -297,8 +317,8 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property ProductionVariants. 
         /// <para>
-        ///  An array of <a>ProductionVariantSummary</a> objects, one for each model hosted behind
-        /// this endpoint. 
+        /// An array of <a>ProductionVariantSummary</a> objects, one for each model hosted behind
+        /// this endpoint.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1)]
@@ -312,6 +332,27 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetProductionVariants()
         {
             return this._productionVariants != null && this._productionVariants.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ShadowProductionVariants. 
+        /// <para>
+        /// An array of <a>ProductionVariantSummary</a> objects, one for each model that you want
+        /// to host at this endpoint in shadow mode with production traffic replicated from the
+        /// model specified on <code>ProductionVariants</code>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1)]
+        public List<ProductionVariantSummary> ShadowProductionVariants
+        {
+            get { return this._shadowProductionVariants; }
+            set { this._shadowProductionVariants = value; }
+        }
+
+        // Check to see if ShadowProductionVariants property is set
+        internal bool IsSetShadowProductionVariants()
+        {
+            return this._shadowProductionVariants != null && this._shadowProductionVariants.Count > 0; 
         }
 
     }

@@ -111,6 +111,39 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetAwsBackupBackupPlan())
+            {
+                context.Writer.WritePropertyName("AwsBackupBackupPlan");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsBackupBackupPlanDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsBackupBackupPlan, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsBackupBackupVault())
+            {
+                context.Writer.WritePropertyName("AwsBackupBackupVault");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsBackupBackupVaultDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsBackupBackupVault, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsBackupRecoveryPoint())
+            {
+                context.Writer.WritePropertyName("AwsBackupRecoveryPoint");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsBackupRecoveryPointDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsBackupRecoveryPoint, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetAwsCertificateManagerCertificate())
             {
                 context.Writer.WritePropertyName("AwsCertificateManagerCertificate");
@@ -206,6 +239,17 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
                 var marshaller = AwsEc2InstanceDetailsMarshaller.Instance;
                 marshaller.Marshall(requestObject.AwsEc2Instance, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsEc2LaunchTemplate())
+            {
+                context.Writer.WritePropertyName("AwsEc2LaunchTemplate");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsEc2LaunchTemplateDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsEc2LaunchTemplate, context);
 
                 context.Writer.WriteObjectEnd();
             }
@@ -716,6 +760,17 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetAwsSageMakerNotebookInstance())
+            {
+                context.Writer.WritePropertyName("AwsSageMakerNotebookInstance");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsSageMakerNotebookInstanceDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsSageMakerNotebookInstance, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetAwsSecretsManagerSecret())
             {
                 context.Writer.WritePropertyName("AwsSecretsManagerSecret");
@@ -833,6 +888,28 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
 
                 var marshaller = AwsWafRuleGroupDetailsMarshaller.Instance;
                 marshaller.Marshall(requestObject.AwsWafRuleGroup, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsWafv2RuleGroup())
+            {
+                context.Writer.WritePropertyName("AwsWafv2RuleGroup");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsWafv2RuleGroupDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsWafv2RuleGroup, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetAwsWafv2WebAcl())
+            {
+                context.Writer.WritePropertyName("AwsWafv2WebAcl");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = AwsWafv2WebAclDetailsMarshaller.Instance;
+                marshaller.Marshall(requestObject.AwsWafv2WebAcl, context);
 
                 context.Writer.WriteObjectEnd();
             }

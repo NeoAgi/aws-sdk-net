@@ -45,6 +45,17 @@ namespace Amazon.MediaPackageVod.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(SpekeKeyProvider requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetEncryptionContractConfiguration())
+            {
+                context.Writer.WritePropertyName("encryptionContractConfiguration");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = EncryptionContractConfigurationMarshaller.Instance;
+                marshaller.Marshall(requestObject.EncryptionContractConfiguration, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetRoleArn())
             {
                 context.Writer.WritePropertyName("roleArn");

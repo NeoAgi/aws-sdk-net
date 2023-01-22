@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the cognito-sync-2014-06-30.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.CognitoSync.Internal;
 
 namespace Amazon.CognitoSync
 {
     /// <summary>
     /// Configuration for accessing Amazon CognitoSync service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonCognitoSyncConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.190");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.CognitoSync
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCognitoSyncDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "cognito-sync";
+            this.EndpointProvider = new AmazonCognitoSyncEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.CognitoSync
                 return _userAgent;
             }
         }
+
     }
 }

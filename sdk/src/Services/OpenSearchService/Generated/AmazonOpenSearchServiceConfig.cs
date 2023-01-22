@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the opensearch-2021-01-01.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.OpenSearchService.Internal;
 
 namespace Amazon.OpenSearchService
 {
     /// <summary>
     /// Configuration for accessing Amazon OpenSearchService service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonOpenSearchServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.8");
+            InternalSDKUtils.BuildUserAgentString("3.7.102.1");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.OpenSearchService
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonOpenSearchServiceDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "es";
+            this.EndpointProvider = new AmazonOpenSearchServiceEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.OpenSearchService
                 return _userAgent;
             }
         }
+
     }
 }

@@ -35,6 +35,27 @@ namespace Amazon.WAFV2.Model
     /// 
     ///  <note> 
     /// <para>
+    /// This operation completely replaces any mutable specifications that you already have
+    /// for a logging configuration with the ones that you provide to this call. 
+    /// </para>
+    ///  
+    /// <para>
+    /// To modify an existing logging configuration, do the following: 
+    /// </para>
+    ///  <ol> <li> 
+    /// <para>
+    /// Retrieve it by calling <a>GetLoggingConfiguration</a> 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Update its settings as needed
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Provide the complete logging configuration specification to this call
+    /// </para>
+    ///  </li> </ol> </note> <note> 
+    /// <para>
     /// You can define one logging destination per web ACL.
     /// </para>
     ///  </note> 
@@ -46,9 +67,19 @@ namespace Amazon.WAFV2.Model
     /// <para>
     /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
     /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
-    /// For information about configuring logging destinations and the permissions that are
-    /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-    /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
+    /// 
+    /// </para>
+    ///  
+    /// <para>
+    /// The name that you give the destination must start with <code>aws-waf-logs-</code>.
+    /// Depending on the type of destination, you might need to configure additional settings
+    /// or permissions. 
+    /// </para>
+    ///  
+    /// <para>
+    /// For configuration requirements and pricing information for each destination type,
+    /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// web ACL traffic</a> in the <i>WAF Developer Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -68,15 +99,6 @@ namespace Amazon.WAFV2.Model
     /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
     /// </para>
-    ///  <note> 
-    /// <para>
-    /// This operation completely replaces the mutable specifications that you already have
-    /// for the logging configuration with the ones that you provide to this call. To modify
-    /// the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>,
-    /// update the settings as needed, and then provide the complete logging configuration
-    /// specification to this call.
-    /// </para>
-    ///  </note>
     /// </summary>
     public partial class PutLoggingConfigurationRequest : AmazonWAFV2Request
     {

@@ -33,12 +33,34 @@ namespace Amazon.SageMaker.Model
     /// </summary>
     public partial class RecommendationJobInputConfig
     {
+        private RecommendationJobContainerConfig _containerConfig;
         private List<EndpointInputConfiguration> _endpointConfigurations = new List<EndpointInputConfiguration>();
+        private List<EndpointInfo> _endpoints = new List<EndpointInfo>();
         private int? _jobDurationInSeconds;
         private string _modelPackageVersionArn;
         private RecommendationJobResourceLimit _resourceLimit;
         private TrafficPattern _trafficPattern;
         private string _volumeKmsKeyId;
+        private RecommendationJobVpcConfig _vpcConfig;
+
+        /// <summary>
+        /// Gets and sets the property ContainerConfig. 
+        /// <para>
+        /// Specifies mandatory fields for running an Inference Recommender job. The fields specified
+        /// in <code>ContainerConfig</code> override the corresponding fields in the model package.
+        /// </para>
+        /// </summary>
+        public RecommendationJobContainerConfig ContainerConfig
+        {
+            get { return this._containerConfig; }
+            set { this._containerConfig = value; }
+        }
+
+        // Check to see if ContainerConfig property is set
+        internal bool IsSetContainerConfig()
+        {
+            return this._containerConfig != null;
+        }
 
         /// <summary>
         /// Gets and sets the property EndpointConfigurations. 
@@ -57,6 +79,25 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetEndpointConfigurations()
         {
             return this._endpointConfigurations != null && this._endpointConfigurations.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Endpoints. 
+        /// <para>
+        /// Existing customer endpoints on which to run an Inference Recommender job.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=1)]
+        public List<EndpointInfo> Endpoints
+        {
+            get { return this._endpoints; }
+            set { this._endpoints = value; }
+        }
+
+        // Check to see if Endpoints property is set
+        internal bool IsSetEndpoints()
+        {
+            return this._endpoints != null && this._endpoints.Count > 0; 
         }
 
         /// <summary>
@@ -205,6 +246,25 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetVolumeKmsKeyId()
         {
             return this._volumeKmsKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VpcConfig. 
+        /// <para>
+        /// Inference Recommender provisions SageMaker endpoints with access to VPC in the inference
+        /// recommendation job.
+        /// </para>
+        /// </summary>
+        public RecommendationJobVpcConfig VpcConfig
+        {
+            get { return this._vpcConfig; }
+            set { this._vpcConfig = value; }
+        }
+
+        // Check to see if VpcConfig property is set
+        internal bool IsSetVpcConfig()
+        {
+            return this._vpcConfig != null;
         }
 
     }

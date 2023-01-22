@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the pinpoint-email-2018-07-26.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.PinpointEmail.Internal;
 
 namespace Amazon.PinpointEmail
 {
     /// <summary>
     /// Configuration for accessing Amazon PinpointEmail service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPinpointEmailConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.0.194");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.PinpointEmail
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPinpointEmailDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "ses";
+            this.EndpointProvider = new AmazonPinpointEmailEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.PinpointEmail
                 return _userAgent;
             }
         }
+
     }
 }

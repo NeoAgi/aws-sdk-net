@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the marketplace-catalog-2018-09-17.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.MarketplaceCatalog.Internal;
 
 namespace Amazon.MarketplaceCatalog
 {
     /// <summary>
     /// Configuration for accessing Amazon MarketplaceCatalog service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMarketplaceCatalogConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.2.9");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.42");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.MarketplaceCatalog
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMarketplaceCatalogDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "aws-marketplace";
+            this.EndpointProvider = new AmazonMarketplaceCatalogEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.MarketplaceCatalog
                 return _userAgent;
             }
         }
+
     }
 }

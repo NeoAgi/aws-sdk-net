@@ -30,8 +30,8 @@ namespace Amazon.DLM.Model
 {
     /// <summary>
     /// <b>[Snapshot policies only]</b> Specifies a rule for enabling fast snapshot restore
-    /// for snapshots created by snaspshot policies. You can enable fast snapshot restore
-    /// based on either a count or a time interval.
+    /// for snapshots created by snapshot policies. You can enable fast snapshot restore based
+    /// on either a count or a time interval.
     /// </summary>
     public partial class FastRestoreRule
     {

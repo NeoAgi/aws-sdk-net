@@ -175,8 +175,8 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property DependsOn. 
         /// <para>
         /// The dependencies defined for container startup and shutdown. A container can contain
-        /// multiple dependencies. When a dependency is defined for container startup, for container
-        /// shutdown it is reversed.
+        /// multiple dependencies on other containers in a task definition. When a dependency
+        /// is defined for container startup, for container shutdown it is reversed.
         /// </para>
         ///  
         /// <para>
@@ -875,8 +875,13 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  
         /// <para>
-        /// The Docker daemon reserves a minimum of 4 MiB of memory for a container. Therefore,
-        /// we recommend that you specify fewer than 4 MiB of memory for your containers. 
+        /// The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory for a container.
+        /// So, don't specify less than 6 MiB of memory for your containers. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of memory for
+        /// a container. So, don't specify less than 4 MiB of memory for your containers.
         /// </para>
         /// </summary>
         public int MemoryReservation
@@ -1277,9 +1282,9 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property Ulimits. 
         /// <para>
-        /// A list of <code>ulimits</code> to set in the container. If a ulimit value is specified
-        /// in a task definition, it overrides the default values set by Docker. This parameter
-        /// maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
+        /// A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value
+        /// is specified in a task definition, it overrides the default values set by Docker.
+        /// This parameter maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
         /// Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
         /// run</a>. Valid naming values are displayed in the <a>Ulimit</a> data type.

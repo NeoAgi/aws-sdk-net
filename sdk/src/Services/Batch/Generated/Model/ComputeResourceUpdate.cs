@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Batch.Model
 {
     /// <summary>
-    /// An object representing the attributes of a compute environment that can be updated.
+    /// An object that represents the attributes of a compute environment that can be updated.
     /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
     /// compute environments</a> in the <i>Batch User Guide</i>.
     /// </summary>
@@ -56,9 +56,9 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property AllocationStrategy. 
         /// <para>
-        /// The allocation strategy to use for the compute resource if not enough instances of
-        /// the best fitting instance type can be allocated. This might be because of availability
-        /// of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+        /// The allocation strategy to use for the compute resource if there's not enough instances
+        /// of the best fitting instance type that can be allocated. This might be because of
+        /// availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
         /// EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation
         /// strategies</a> in the <i>Batch User Guide</i>.
         /// </para>
@@ -71,29 +71,30 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note> <dl> <dt>BEST_FIT_PROGRESSIVE</dt> <dd> 
         /// <para>
-        /// Batch will select additional instance types that are large enough to meet the requirements
-        /// of the jobs in the queue, with a preference for instance types with a lower cost per
-        /// unit vCPU. If additional instances of the previously selected instance types aren't
-        /// available, Batch will select new instance types.
+        /// Batch selects additional instance types that are large enough to meet the requirements
+        /// of the jobs in the queue. Its preference is for instance types with lower cost vCPUs.
+        /// If additional instances of the previously selected instance types aren't available,
+        /// Batch selects new instance types.
         /// </para>
         ///  </dd> <dt>SPOT_CAPACITY_OPTIMIZED</dt> <dd> 
         /// <para>
-        /// Batch will select one or more instance types that are large enough to meet the requirements
-        /// of the jobs in the queue, with a preference for instance types that are less likely
+        /// Batch selects one or more instance types that are large enough to meet the requirements
+        /// of the jobs in the queue. Its preference is for instance types that are less likely
         /// to be interrupted. This allocation strategy is only available for Spot Instance compute
         /// resources.
         /// </para>
         ///  </dd> </dl> 
         /// <para>
         /// With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
-        /// strategies, Batch might need to go above <code>maxvCpus</code> to meet your capacity
-        /// requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than
-        /// a single instance.
+        /// strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
+        /// using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your
+        /// capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by
+        /// more than a single instance.
         /// </para>
         /// </summary>
         public CRUpdateAllocationStrategy AllocationStrategy
@@ -113,9 +114,10 @@ namespace Amazon.Batch.Model
         /// <para>
         /// The maximum percentage that a Spot Instance price can be when compared with the On-Demand
         /// price for that instance type before instances are launched. For example, if your maximum
-        /// percentage is 20%, then the Spot price must be less than 20% of the current On-Demand
-        /// price for that Amazon EC2 instance. You always pay the lowest (market) price and never
-        /// more than your maximum percentage.
+        /// percentage is 20%, the Spot price must be less than 20% of the current On-Demand price
+        /// for that Amazon EC2 instance. You always pay the lowest (market) price and never more
+        /// than your maximum percentage. For most use cases, we recommend leaving this field
+        /// empty.
         /// </para>
         ///  
         /// <para>
@@ -125,8 +127,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -150,8 +152,14 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
+        /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// Batch doesn't support changing the desired number of vCPUs of an existing compute
+        /// environment. Don't specify this parameter for compute environments using Amazon EKS
+        /// clusters.
         /// </para>
         ///  </note>
         /// </summary>
@@ -188,8 +196,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -220,8 +228,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -253,8 +261,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -297,8 +305,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -331,8 +339,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -344,7 +352,7 @@ namespace Amazon.Batch.Model
         /// <para>
         /// Currently, <code>optimal</code> uses instance types from the C4, M4, and R4 instance
         /// families. In Regions that don't have instance types from those instance families,
-        /// instance types from the C5, M5. and R5 instance families are used.
+        /// instance types from the C5, M5, and R5 instance families are used.
         /// </para>
         ///  </note>
         /// </summary>
@@ -381,8 +389,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -406,10 +414,11 @@ namespace Amazon.Batch.Model
         ///  <note> 
         /// <para>
         /// With both <code>BEST_FIT_PROGRESSIVE</code> and <code>SPOT_CAPACITY_OPTIMIZED</code>
-        /// allocation strategies, Batch might need to exceed <code>maxvCpus</code> to meet your
-        /// capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by
-        /// more than a single instance. That is, no more than a single instance from among those
-        /// specified in your compute environment.
+        /// allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code>
+        /// strategy using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to
+        /// meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code>
+        /// by more than a single instance. That is, no more than a single instance from among
+        /// those specified in your compute environment.
         /// </para>
         ///  </note>
         /// </summary>
@@ -433,8 +442,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -468,8 +477,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -488,11 +497,12 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property SecurityGroupIds. 
         /// <para>
-        /// The Amazon EC2 security groups associated with instances launched in the compute environment.
-        /// This parameter is required for Fargate compute resources, where it can contain up
-        /// to 5 security groups. For Fargate compute resources, providing an empty list is handled
-        /// as if this parameter wasn't specified and no change is made. For EC2 compute resources,
-        /// providing an empty list removes the security groups from the compute resource.
+        /// The Amazon EC2 security groups that are associated with instances launched in the
+        /// compute environment. This parameter is required for Fargate compute resources, where
+        /// it can contain up to 5 security groups. For Fargate compute resources, providing an
+        /// empty list is handled as if this parameter wasn't specified and no change is made.
+        /// For EC2 compute resources, providing an empty list removes the security groups from
+        /// the compute resource.
         /// </para>
         ///  
         /// <para>
@@ -529,6 +539,21 @@ namespace Amazon.Batch.Model
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones">
+        /// Local Zones</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html">Amazon
+        /// EKS and Amazon Web Services Local Zones</a> in the <i>Amazon EKS User Guide</i> and
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones">
+        /// Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a>
+        /// in the <i>Amazon ECS Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Batch on Fargate doesn't currently support Local Zones.
+        /// </para>
+        ///  </note>
         /// </summary>
         public List<string> Subnets
         {
@@ -546,11 +571,11 @@ namespace Amazon.Batch.Model
         /// Gets and sets the property Tags. 
         /// <para>
         /// Key-value pair tags to be applied to EC2 resources that are launched in the compute
-        /// environment. For Batch, these take the form of "String1": "String2", where String1
-        /// is the tag key and String2 is the tag value−for example, <code>{ "Name": "Batch Instance
-        /// - C4OnDemand" }</code>. This is helpful for recognizing your Batch instances in the
-        /// Amazon EC2 console. These tags aren't seen when using the Batch <code>ListTagsForResource</code>
-        /// API operation.
+        /// environment. For Batch, these take the form of <code>"String1": "String2"</code>,
+        /// where <code>String1</code> is the tag key and <code>String2</code> is the tag value-for
+        /// example, <code>{ "Name": "Batch Instance - C4OnDemand" }</code>. This is helpful for
+        /// recognizing your Batch instances in the Amazon EC2 console. These tags aren't seen
+        /// when using the Batch <code>ListTagsForResource</code> API operation.
         /// </para>
         ///  
         /// <para>
@@ -560,8 +585,8 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// This parameter isn't applicable to jobs that are running on Fargate resources, and
-        /// shouldn't be specified.
+        /// This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// specify it.
         /// </para>
         ///  </note>
         /// </summary>
@@ -618,10 +643,11 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// If an AMI ID is specified in the <code>imageId</code> or <code>imageIdOverride</code>
-        /// parameters or by the launch template specified in the <code>launchTemplate</code>
-        /// parameter, this parameter is ignored. For more information on updating AMI IDs during
-        /// an infrastructure update, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami">Updating
+        /// An AMI ID can either be specified in the <code>imageId</code> or <code>imageIdOverride</code>
+        /// parameters or be determined by the launch template that's specified in the <code>launchTemplate</code>
+        /// parameter. If an AMI ID is specified any of these ways, this parameter is ignored.
+        /// For more information about to update AMI IDs during an infrastructure update, see
+        /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html#updating-compute-environments-ami">Updating
         /// the AMI ID</a> in the <i>Batch User Guide</i>.
         /// </para>
         ///  </note> 

@@ -34,11 +34,31 @@ namespace Amazon.Ivschat.Model
     /// </summary>
     public partial class CreateRoomRequest : AmazonIvschatRequest
     {
+        private List<string> _loggingConfigurationIdentifiers = new List<string>();
         private int? _maximumMessageLength;
         private int? _maximumMessageRatePerSecond;
         private MessageReviewHandler _messageReviewHandler;
         private string _name;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Gets and sets the property LoggingConfigurationIdentifiers. 
+        /// <para>
+        /// Array of logging-configuration identifiers attached to the room.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=3)]
+        public List<string> LoggingConfigurationIdentifiers
+        {
+            get { return this._loggingConfigurationIdentifiers; }
+            set { this._loggingConfigurationIdentifiers = value; }
+        }
+
+        // Check to see if LoggingConfigurationIdentifiers property is set
+        internal bool IsSetLoggingConfigurationIdentifiers()
+        {
+            return this._loggingConfigurationIdentifiers != null && this._loggingConfigurationIdentifiers.Count > 0; 
+        }
 
         /// <summary>
         /// Gets and sets the property MaximumMessageLength. 
@@ -68,7 +88,7 @@ namespace Amazon.Ivschat.Model
         /// Default: 10. 
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=10)]
+        [AWSProperty(Min=1, Max=100)]
         public int MaximumMessageRatePerSecond
         {
             get { return this._maximumMessageRatePerSecond.GetValueOrDefault(); }

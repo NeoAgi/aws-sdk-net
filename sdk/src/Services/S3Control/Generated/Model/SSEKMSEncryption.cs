@@ -39,7 +39,8 @@ namespace Amazon.S3Control.Model
         /// Gets and sets the property KeyId. 
         /// <para>
         /// Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services
-        /// KMS) symmetric customer managed key to use for encrypting generated manifest objects.
+        /// KMS) symmetric encryption customer managed key to use for encrypting generated manifest
+        /// objects.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=2000)]

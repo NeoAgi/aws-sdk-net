@@ -234,6 +234,15 @@ namespace Amazon.VoiceID
         } 
 
         /// <summary>
+        /// Customizes the runtime pipeline.
+        /// </summary>
+        /// <param name="pipeline">Runtime pipeline for the current client.</param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonVoiceIDEndpointResolver());
+        }
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -1121,6 +1130,10 @@ namespace Amazon.VoiceID
         /// <exception cref="Amazon.VoiceID.Model.ResourceNotFoundException">
         /// The specified resource cannot be found. Check the <code>ResourceType</code> and error
         /// message for more details.
+        /// </exception>
+        /// <exception cref="Amazon.VoiceID.Model.ServiceQuotaExceededException">
+        /// The request exceeded the service quota. Refer to <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#voiceid-quotas">Voice
+        /// ID Service Quotas</a> and try your request again.
         /// </exception>
         /// <exception cref="Amazon.VoiceID.Model.ThrottlingException">
         /// The request was denied due to request throttling. Please slow down your request rate.

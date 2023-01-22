@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the mgn-2020-02-26.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Mgn.Internal;
 
 namespace Amazon.Mgn
 {
     /// <summary>
     /// Configuration for accessing Amazon Mgn service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonMgnConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.5.20");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.35");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Mgn
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMgnDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "mgn";
+            this.EndpointProvider = new AmazonMgnEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Mgn
                 return _userAgent;
             }
         }
+
     }
 }

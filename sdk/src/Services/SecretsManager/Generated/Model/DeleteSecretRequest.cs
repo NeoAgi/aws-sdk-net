@@ -74,6 +74,13 @@ namespace Amazon.SecretsManager.Model
     /// </para>
     ///  
     /// <para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters because it might be logged. For
+    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
+    /// </para>
+    ///  
+    /// <para>
     ///  <b>Required permissions: </b> <code>secretsmanager:DeleteSecret</code>. For more
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
@@ -105,7 +112,7 @@ namespace Amazon.SecretsManager.Model
         /// Use this parameter with caution. This parameter causes the operation to skip the normal
         /// recovery window before the permanent deletion that Secrets Manager would normally
         /// impose with the <code>RecoveryWindowInDays</code> parameter. If you delete a secret
-        /// with the <code>ForceDeleteWithouRecovery</code> parameter, then you have no opportunity
+        /// with the <code>ForceDeleteWithoutRecovery</code> parameter, then you have no opportunity
         /// to recover the secret. You lose the secret permanently.
         /// </para>
         ///  </important>

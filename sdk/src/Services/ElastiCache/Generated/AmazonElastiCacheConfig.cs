@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the elasticache-2015-02-02.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.ElastiCache.Internal;
 
 namespace Amazon.ElastiCache
 {
     /// <summary>
     /// Configuration for accessing Amazon ElastiCache service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonElastiCacheConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.12");
+            InternalSDKUtils.BuildUserAgentString("3.7.103.14");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.ElastiCache
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonElastiCacheDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "elasticache";
+            this.EndpointProvider = new AmazonElastiCacheEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.ElastiCache
                 return _userAgent;
             }
         }
+
     }
 }

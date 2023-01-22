@@ -263,7 +263,9 @@ namespace Amazon.CloudFormation
         protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
         {
             pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new Amazon.CloudFormation.Internal.ProcessRequestHandler());
-        }    
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonCloudFormationEndpointResolver());
+        }
         /// <summary>
         /// Capture metadata for the service.
         /// </summary>
@@ -4486,7 +4488,7 @@ namespace Amazon.CloudFormation
         ///  
         /// <para>
         /// Once you've initiated testing on an extension using <code>TestType</code>, you can
-        /// use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
+        /// pass the returned <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
         /// to monitor the current test status and test status description for the extension.
         /// </para>
         ///  

@@ -45,6 +45,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(DomainSettingsForUpdate requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetExecutionRoleIdentityConfig())
+            {
+                context.Writer.WritePropertyName("ExecutionRoleIdentityConfig");
+                context.Writer.Write(requestObject.ExecutionRoleIdentityConfig);
+            }
+
             if(requestObject.IsSetRStudioServerProDomainSettingsForUpdate())
             {
                 context.Writer.WritePropertyName("RStudioServerProDomainSettingsForUpdate");
@@ -54,6 +60,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 marshaller.Marshall(requestObject.RStudioServerProDomainSettingsForUpdate, context);
 
                 context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetSecurityGroupIds())
+            {
+                context.Writer.WritePropertyName("SecurityGroupIds");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectSecurityGroupIdsListValue in requestObject.SecurityGroupIds)
+                {
+                        context.Writer.Write(requestObjectSecurityGroupIdsListValue);
+                }
+                context.Writer.WriteArrayEnd();
             }
 
         }

@@ -36,6 +36,18 @@ namespace Amazon.StepFunctions.Model
     /// one of <code>definition</code> or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
     /// error.
     /// 
+    ///  
+    /// <para>
+    /// If the given state machine Amazon Resource Name (ARN) is a qualified state machine
+    /// ARN, it will fail with ValidationException.
+    /// </para>
+    ///  
+    /// <para>
+    /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+    /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+    /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+    /// the state machine named <code>stateMachineName</code>.
+    /// </para>
     ///  <note> 
     /// <para>
     /// All <code>StartExecution</code> calls within a few seconds will use the updated <code>definition</code>
@@ -132,7 +144,7 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property TracingConfiguration. 
         /// <para>
-        /// Selects whether AWS X-Ray tracing is enabled.
+        /// Selects whether X-Ray tracing is enabled.
         /// </para>
         /// </summary>
         public TracingConfiguration TracingConfiguration

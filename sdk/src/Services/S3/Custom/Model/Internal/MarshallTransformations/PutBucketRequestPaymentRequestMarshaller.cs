@@ -52,7 +52,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             if (string.IsNullOrEmpty(putBucketRequestPaymentRequest.BucketName))
                 throw new System.ArgumentException("BucketName is a required property and must be set before making this call.", "PutBucketRequestPaymentRequest.BucketName");
 
-			request.ResourcePath = string.Concat("/", S3Transforms.ToStringValue(putBucketRequestPaymentRequest.BucketName));
+            request.ResourcePath = "/";
 
             request.AddSubResource("requestPayment");
 
@@ -62,10 +62,11 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                 var requestPaymentConfigurationRequestPaymentConfiguration = putBucketRequestPaymentRequest.RequestPaymentConfiguration;
                 if (requestPaymentConfigurationRequestPaymentConfiguration != null)
                 {
-                    xmlWriter.WriteStartElement("RequestPaymentConfiguration", "");
+                    xmlWriter.WriteStartElement("RequestPaymentConfiguration", S3Constants.S3RequestXmlNamespace);
+
                     if (requestPaymentConfigurationRequestPaymentConfiguration.IsSetPayer())
                     {
-                        xmlWriter.WriteElementString("Payer", "", S3Transforms.ToXmlStringValue(requestPaymentConfigurationRequestPaymentConfiguration.Payer));
+                        xmlWriter.WriteElementString("Payer", S3Transforms.ToXmlStringValue(requestPaymentConfigurationRequestPaymentConfiguration.Payer));
                     }
                     xmlWriter.WriteEndElement();
                 }

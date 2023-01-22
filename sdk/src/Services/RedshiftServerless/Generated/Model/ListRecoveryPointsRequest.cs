@@ -36,6 +36,7 @@ namespace Amazon.RedshiftServerless.Model
     {
         private DateTime? _endTime;
         private int? _maxResults;
+        private string _namespaceArn;
         private string _namespaceName;
         private string _nextToken;
         private DateTime? _startTime;
@@ -62,7 +63,7 @@ namespace Amazon.RedshiftServerless.Model
         /// Gets and sets the property MaxResults. 
         /// <para>
         /// An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results.
+        /// can use <code>nextToken</code> to display the next page of results.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -76,6 +77,24 @@ namespace Amazon.RedshiftServerless.Model
         internal bool IsSetMaxResults()
         {
             return this._maxResults.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property NamespaceArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the namespace from which to list recovery points.
+        /// </para>
+        /// </summary>
+        public string NamespaceArn
+        {
+            get { return this._namespaceArn; }
+            set { this._namespaceArn = value; }
+        }
+
+        // Check to see if NamespaceArn property is set
+        internal bool IsSetNamespaceArn()
+        {
+            return this._namespaceArn != null;
         }
 
         /// <summary>
@@ -101,7 +120,7 @@ namespace Amazon.RedshiftServerless.Model
         /// Gets and sets the property NextToken. 
         /// <para>
         /// If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListRecoveryPoints</code>
+        /// you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code>
         /// operations, which returns results in the next page.
         /// </para>
         /// </summary>

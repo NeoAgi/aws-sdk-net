@@ -35,6 +35,7 @@ namespace Amazon.BillingConductor.Model
     {
         private string _arn;
         private long? _associatedPricingPlanCount;
+        private string _billingEntity;
         private long? _creationTime;
         private string _description;
         private long? _lastModifiedTime;
@@ -42,6 +43,7 @@ namespace Amazon.BillingConductor.Model
         private string _name;
         private PricingRuleScope _scope;
         private string _service;
+        private Tiering _tiering;
         private PricingRuleType _type;
 
         /// <summary>
@@ -82,9 +84,28 @@ namespace Amazon.BillingConductor.Model
         }
 
         /// <summary>
+        /// Gets and sets the property BillingEntity. 
+        /// <para>
+        ///  The seller of services provided by Amazon Web Services, their affiliates, or third-party
+        /// providers selling services via Amazon Web Services Marketplace. 
+        /// </para>
+        /// </summary>
+        public string BillingEntity
+        {
+            get { return this._billingEntity; }
+            set { this._billingEntity = value; }
+        }
+
+        // Check to see if BillingEntity property is set
+        internal bool IsSetBillingEntity()
+        {
+            return this._billingEntity != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CreationTime. 
         /// <para>
-        ///  The time the pricing rule was created. 
+        ///  The time when the pricing rule was created. 
         /// </para>
         /// </summary>
         public long CreationTime
@@ -121,7 +142,7 @@ namespace Amazon.BillingConductor.Model
         /// <summary>
         /// Gets and sets the property LastModifiedTime. 
         /// <para>
-        ///  The most recent time the pricing rule was modified. 
+        ///  The most recent time when the pricing rule was modified. 
         /// </para>
         /// </summary>
         public long LastModifiedTime
@@ -211,6 +232,24 @@ namespace Amazon.BillingConductor.Model
         internal bool IsSetService()
         {
             return this._service != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tiering. 
+        /// <para>
+        ///  The set of tiering configurations for the pricing rule. 
+        /// </para>
+        /// </summary>
+        public Tiering Tiering
+        {
+            get { return this._tiering; }
+            set { this._tiering = value; }
+        }
+
+        // Check to see if Tiering property is set
+        internal bool IsSetTiering()
+        {
+            return this._tiering != null;
         }
 
         /// <summary>

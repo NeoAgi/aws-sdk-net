@@ -63,6 +63,12 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.FilePath);
             }
 
+            if(requestObject.IsSetFixedInVersion())
+            {
+                context.Writer.WritePropertyName("FixedInVersion");
+                context.Writer.Write(requestObject.FixedInVersion);
+            }
+
             if(requestObject.IsSetName())
             {
                 context.Writer.WritePropertyName("Name");
@@ -79,6 +85,24 @@ namespace Amazon.SecurityHub.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("Release");
                 context.Writer.Write(requestObject.Release);
+            }
+
+            if(requestObject.IsSetRemediation())
+            {
+                context.Writer.WritePropertyName("Remediation");
+                context.Writer.Write(requestObject.Remediation);
+            }
+
+            if(requestObject.IsSetSourceLayerArn())
+            {
+                context.Writer.WritePropertyName("SourceLayerArn");
+                context.Writer.Write(requestObject.SourceLayerArn);
+            }
+
+            if(requestObject.IsSetSourceLayerHash())
+            {
+                context.Writer.WritePropertyName("SourceLayerHash");
+                context.Writer.Write(requestObject.SourceLayerHash);
             }
 
             if(requestObject.IsSetVersion())

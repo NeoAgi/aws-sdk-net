@@ -34,9 +34,11 @@ namespace Amazon.EMRServerless.Model
     /// </summary>
     public partial class CreateApplicationRequest : AmazonEMRServerlessRequest
     {
+        private Architecture _architecture;
         private AutoStartConfig _autoStartConfiguration;
         private AutoStopConfig _autoStopConfiguration;
         private string _clientToken;
+        private ImageConfigurationInput _imageConfiguration;
         private Dictionary<string, InitialCapacityConfig> _initialCapacity = new Dictionary<string, InitialCapacityConfig>();
         private MaximumAllowedResources _maximumCapacity;
         private string _name;
@@ -44,6 +46,25 @@ namespace Amazon.EMRServerless.Model
         private string _releaseLabel;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private string _type;
+        private Dictionary<string, WorkerTypeSpecificationInput> _workerTypeSpecifications = new Dictionary<string, WorkerTypeSpecificationInput>();
+
+        /// <summary>
+        /// Gets and sets the property Architecture. 
+        /// <para>
+        /// The CPU architecture of an application.
+        /// </para>
+        /// </summary>
+        public Architecture Architecture
+        {
+            get { return this._architecture; }
+            set { this._architecture = value; }
+        }
+
+        // Check to see if Architecture property is set
+        internal bool IsSetArchitecture()
+        {
+            return this._architecture != null;
+        }
 
         /// <summary>
         /// Gets and sets the property AutoStartConfiguration. 
@@ -100,6 +121,25 @@ namespace Amazon.EMRServerless.Model
         internal bool IsSetClientToken()
         {
             return this._clientToken != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ImageConfiguration. 
+        /// <para>
+        /// The image configuration for all worker types. You can either set this parameter or
+        /// <code>imageConfiguration</code> for each worker type in <code>workerTypeSpecifications</code>.
+        /// </para>
+        /// </summary>
+        public ImageConfigurationInput ImageConfiguration
+        {
+            get { return this._imageConfiguration; }
+            set { this._imageConfiguration = value; }
+        }
+
+        // Check to see if ImageConfiguration property is set
+        internal bool IsSetImageConfiguration()
+        {
+            return this._imageConfiguration != null;
         }
 
         /// <summary>
@@ -181,7 +221,7 @@ namespace Amazon.EMRServerless.Model
         /// <summary>
         /// Gets and sets the property ReleaseLabel. 
         /// <para>
-        /// The EMR release version associated with the application.
+        /// The EMR release associated with the application.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=64)]
@@ -233,6 +273,29 @@ namespace Amazon.EMRServerless.Model
         internal bool IsSetType()
         {
             return this._type != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property WorkerTypeSpecifications. 
+        /// <para>
+        /// The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>.
+        /// This parameter must contain all valid worker types for a Spark or Hive application.
+        /// Valid worker types include <code>Driver</code> and <code>Executor</code> for Spark
+        /// applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications.
+        /// You can either set image details in this parameter for each worker type, or in <code>imageConfiguration</code>
+        /// for all worker types.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, WorkerTypeSpecificationInput> WorkerTypeSpecifications
+        {
+            get { return this._workerTypeSpecifications; }
+            set { this._workerTypeSpecifications = value; }
+        }
+
+        // Check to see if WorkerTypeSpecifications property is set
+        internal bool IsSetWorkerTypeSpecifications()
+        {
+            return this._workerTypeSpecifications != null && this._workerTypeSpecifications.Count > 0; 
         }
 
     }

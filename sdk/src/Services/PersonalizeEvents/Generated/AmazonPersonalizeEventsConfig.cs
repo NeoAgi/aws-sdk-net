@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the personalize-events-2018-03-22.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.PersonalizeEvents.Internal;
 
 namespace Amazon.PersonalizeEvents
 {
     /// <summary>
     /// Configuration for accessing Amazon PersonalizeEvents service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonPersonalizeEventsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.1.165");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.39");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.PersonalizeEvents
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonPersonalizeEventsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "personalize";
+            this.EndpointProvider = new AmazonPersonalizeEventsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.PersonalizeEvents
                 return _userAgent;
             }
         }
+
     }
 }

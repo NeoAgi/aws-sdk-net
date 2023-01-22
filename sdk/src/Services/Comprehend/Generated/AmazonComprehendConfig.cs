@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the comprehend-2017-11-27.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Comprehend.Internal;
 
 namespace Amazon.Comprehend
 {
     /// <summary>
     /// Configuration for accessing Amazon Comprehend service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonComprehendConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.7.34");
+            InternalSDKUtils.BuildUserAgentString("3.7.101.31");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Comprehend
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonComprehendDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "comprehend";
+            this.EndpointProvider = new AmazonComprehendEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Comprehend
                 return _userAgent;
             }
         }
+
     }
 }

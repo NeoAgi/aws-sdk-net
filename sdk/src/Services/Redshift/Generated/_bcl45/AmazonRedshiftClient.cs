@@ -263,6 +263,15 @@ namespace Amazon.Redshift
         }    
 
         /// <summary>
+        /// Customize the pipeline
+        /// </summary>
+        /// <param name="pipeline"></param>
+        protected override void CustomizeRuntimePipeline(RuntimePipeline pipeline)
+        {
+            pipeline.RemoveHandler<Amazon.Runtime.Internal.EndpointResolver>();
+            pipeline.AddHandlerAfter<Amazon.Runtime.Internal.Marshaller>(new AmazonRedshiftEndpointResolver());
+        }    
+        /// <summary>
         /// Capture metadata for the service.
         /// </summary>
         protected override IServiceMetadata ServiceMetadata
@@ -7849,7 +7858,8 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+        /// This operation is retired. Calling this operation does not change AQUA configuration.
+        /// Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyAquaConfiguration service method.</param>
         /// 
@@ -7875,7 +7885,8 @@ namespace Amazon.Redshift
 
 
         /// <summary>
-        /// Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+        /// This operation is retired. Calling this operation does not change AQUA configuration.
+        /// Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyAquaConfiguration service method.</param>
         /// <param name="cancellationToken">

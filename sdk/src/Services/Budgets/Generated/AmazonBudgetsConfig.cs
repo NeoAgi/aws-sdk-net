@@ -17,22 +17,22 @@
  * Do not modify this file. This file is generated from the budgets-2016-10-20.normal.json service model.
  */
 
-
 using System;
-
 using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Amazon.Util.Internal;
-
+using Amazon.Budgets.Internal;
 
 namespace Amazon.Budgets
 {
     /// <summary>
     /// Configuration for accessing Amazon Budgets service
     /// </summary>
+    [AWSSignerType("v4")]
     public partial class AmazonBudgetsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.3.22");
+            InternalSDKUtils.BuildUserAgentString("3.7.100.58");
 
         private string _userAgent = UserAgentString;
 
@@ -43,6 +43,7 @@ namespace Amazon.Budgets
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonBudgetsDefaultConfiguration.GetAllConfigurations()))
         {
             this.AuthenticationServiceName = "budgets";
+            this.EndpointProvider = new AmazonBudgetsEndpointProvider();
         }
 
         /// <summary>
@@ -77,5 +78,6 @@ namespace Amazon.Budgets
                 return _userAgent;
             }
         }
+
     }
 }
