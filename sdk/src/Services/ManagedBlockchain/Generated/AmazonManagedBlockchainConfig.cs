@@ -32,16 +32,26 @@ namespace Amazon.ManagedBlockchain
     public partial class AmazonManagedBlockchainConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.100.59");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "ManagedBlockchain";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonManagedBlockchainConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonManagedBlockchainDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "ManagedBlockchain";
             this.AuthenticationServiceName = "managedblockchain";
             this.EndpointProvider = new AmazonManagedBlockchainEndpointProvider();
         }

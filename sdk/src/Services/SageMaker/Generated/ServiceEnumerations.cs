@@ -91,6 +91,68 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type AggregationTransformationValue.
+    /// </summary>
+    public class AggregationTransformationValue : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Avg for AggregationTransformationValue
+        /// </summary>
+        public static readonly AggregationTransformationValue Avg = new AggregationTransformationValue("avg");
+        /// <summary>
+        /// Constant First for AggregationTransformationValue
+        /// </summary>
+        public static readonly AggregationTransformationValue First = new AggregationTransformationValue("first");
+        /// <summary>
+        /// Constant Max for AggregationTransformationValue
+        /// </summary>
+        public static readonly AggregationTransformationValue Max = new AggregationTransformationValue("max");
+        /// <summary>
+        /// Constant Min for AggregationTransformationValue
+        /// </summary>
+        public static readonly AggregationTransformationValue Min = new AggregationTransformationValue("min");
+        /// <summary>
+        /// Constant Sum for AggregationTransformationValue
+        /// </summary>
+        public static readonly AggregationTransformationValue Sum = new AggregationTransformationValue("sum");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AggregationTransformationValue(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AggregationTransformationValue FindValue(string value)
+        {
+            return FindValue<AggregationTransformationValue>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AggregationTransformationValue(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type AlgorithmSortBy.
     /// </summary>
     public class AlgorithmSortBy : ConstantClass
@@ -351,6 +413,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AppInstanceType MlG5Xlarge = new AppInstanceType("ml.g5.xlarge");
         /// <summary>
+        /// Constant MlGeospatialInteractive for AppInstanceType
+        /// </summary>
+        public static readonly AppInstanceType MlGeospatialInteractive = new AppInstanceType("ml.geospatial.interactive");
+        /// <summary>
         /// Constant MlM512xlarge for AppInstanceType
         /// </summary>
         public static readonly AppInstanceType MlM512xlarge = new AppInstanceType("ml.m5.12xlarge");
@@ -430,6 +496,14 @@ namespace Amazon.SageMaker
         /// Constant MlP3dn24xlarge for AppInstanceType
         /// </summary>
         public static readonly AppInstanceType MlP3dn24xlarge = new AppInstanceType("ml.p3dn.24xlarge");
+        /// <summary>
+        /// Constant MlP4d24xlarge for AppInstanceType
+        /// </summary>
+        public static readonly AppInstanceType MlP4d24xlarge = new AppInstanceType("ml.p4d.24xlarge");
+        /// <summary>
+        /// Constant MlP4de24xlarge for AppInstanceType
+        /// </summary>
+        public static readonly AppInstanceType MlP4de24xlarge = new AppInstanceType("ml.p4de.24xlarge");
         /// <summary>
         /// Constant MlR512xlarge for AppInstanceType
         /// </summary>
@@ -963,6 +1037,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type AsyncNotificationTopicTypes.
+    /// </summary>
+    public class AsyncNotificationTopicTypes : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ERROR_NOTIFICATION_TOPIC for AsyncNotificationTopicTypes
+        /// </summary>
+        public static readonly AsyncNotificationTopicTypes ERROR_NOTIFICATION_TOPIC = new AsyncNotificationTopicTypes("ERROR_NOTIFICATION_TOPIC");
+        /// <summary>
+        /// Constant SUCCESS_NOTIFICATION_TOPIC for AsyncNotificationTopicTypes
+        /// </summary>
+        public static readonly AsyncNotificationTopicTypes SUCCESS_NOTIFICATION_TOPIC = new AsyncNotificationTopicTypes("SUCCESS_NOTIFICATION_TOPIC");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AsyncNotificationTopicTypes(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AsyncNotificationTopicTypes FindValue(string value)
+        {
+            return FindValue<AsyncNotificationTopicTypes>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AsyncNotificationTopicTypes(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type AthenaResultCompressionType.
     /// </summary>
     public class AthenaResultCompressionType : ConstantClass
@@ -1122,6 +1246,84 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator AuthMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type AutoMLAlgorithm.
+    /// </summary>
+    public class AutoMLAlgorithm : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Catboost for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Catboost = new AutoMLAlgorithm("catboost");
+        /// <summary>
+        /// Constant ExtraTrees for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm ExtraTrees = new AutoMLAlgorithm("extra-trees");
+        /// <summary>
+        /// Constant Fastai for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Fastai = new AutoMLAlgorithm("fastai");
+        /// <summary>
+        /// Constant Lightgbm for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Lightgbm = new AutoMLAlgorithm("lightgbm");
+        /// <summary>
+        /// Constant LinearLearner for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm LinearLearner = new AutoMLAlgorithm("linear-learner");
+        /// <summary>
+        /// Constant Mlp for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Mlp = new AutoMLAlgorithm("mlp");
+        /// <summary>
+        /// Constant NnTorch for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm NnTorch = new AutoMLAlgorithm("nn-torch");
+        /// <summary>
+        /// Constant Randomforest for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Randomforest = new AutoMLAlgorithm("randomforest");
+        /// <summary>
+        /// Constant Xgboost for AutoMLAlgorithm
+        /// </summary>
+        public static readonly AutoMLAlgorithm Xgboost = new AutoMLAlgorithm("xgboost");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutoMLAlgorithm(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutoMLAlgorithm FindValue(string value)
+        {
+            return FindValue<AutoMLAlgorithm>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutoMLAlgorithm(string value)
         {
             return FindValue(value);
         }
@@ -1291,6 +1493,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus ModelTuning = new AutoMLJobSecondaryStatus("ModelTuning");
         /// <summary>
+        /// Constant PreTraining for AutoMLJobSecondaryStatus
+        /// </summary>
+        public static readonly AutoMLJobSecondaryStatus PreTraining = new AutoMLJobSecondaryStatus("PreTraining");
+        /// <summary>
         /// Constant Starting for AutoMLJobSecondaryStatus
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus Starting = new AutoMLJobSecondaryStatus("Starting");
@@ -1302,6 +1508,10 @@ namespace Amazon.SageMaker
         /// Constant Stopping for AutoMLJobSecondaryStatus
         /// </summary>
         public static readonly AutoMLJobSecondaryStatus Stopping = new AutoMLJobSecondaryStatus("Stopping");
+        /// <summary>
+        /// Constant TrainingModels for AutoMLJobSecondaryStatus
+        /// </summary>
+        public static readonly AutoMLJobSecondaryStatus TrainingModels = new AutoMLJobSecondaryStatus("TrainingModels");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1415,6 +1625,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLMetricEnum AUC = new AutoMLMetricEnum("AUC");
         /// <summary>
+        /// Constant AverageWeightedQuantileLoss for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum AverageWeightedQuantileLoss = new AutoMLMetricEnum("AverageWeightedQuantileLoss");
+        /// <summary>
         /// Constant BalancedAccuracy for AutoMLMetricEnum
         /// </summary>
         public static readonly AutoMLMetricEnum BalancedAccuracy = new AutoMLMetricEnum("BalancedAccuracy");
@@ -1430,6 +1644,14 @@ namespace Amazon.SageMaker
         /// Constant MAE for AutoMLMetricEnum
         /// </summary>
         public static readonly AutoMLMetricEnum MAE = new AutoMLMetricEnum("MAE");
+        /// <summary>
+        /// Constant MAPE for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum MAPE = new AutoMLMetricEnum("MAPE");
+        /// <summary>
+        /// Constant MASE for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum MASE = new AutoMLMetricEnum("MASE");
         /// <summary>
         /// Constant MSE for AutoMLMetricEnum
         /// </summary>
@@ -1458,6 +1680,10 @@ namespace Amazon.SageMaker
         /// Constant RMSE for AutoMLMetricEnum
         /// </summary>
         public static readonly AutoMLMetricEnum RMSE = new AutoMLMetricEnum("RMSE");
+        /// <summary>
+        /// Constant WAPE for AutoMLMetricEnum
+        /// </summary>
+        public static readonly AutoMLMetricEnum WAPE = new AutoMLMetricEnum("WAPE");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1509,6 +1735,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly AutoMLMetricExtendedEnum AUC = new AutoMLMetricExtendedEnum("AUC");
         /// <summary>
+        /// Constant AverageWeightedQuantileLoss for AutoMLMetricExtendedEnum
+        /// </summary>
+        public static readonly AutoMLMetricExtendedEnum AverageWeightedQuantileLoss = new AutoMLMetricExtendedEnum("AverageWeightedQuantileLoss");
+        /// <summary>
         /// Constant BalancedAccuracy for AutoMLMetricExtendedEnum
         /// </summary>
         public static readonly AutoMLMetricExtendedEnum BalancedAccuracy = new AutoMLMetricExtendedEnum("BalancedAccuracy");
@@ -1532,6 +1762,14 @@ namespace Amazon.SageMaker
         /// Constant MAE for AutoMLMetricExtendedEnum
         /// </summary>
         public static readonly AutoMLMetricExtendedEnum MAE = new AutoMLMetricExtendedEnum("MAE");
+        /// <summary>
+        /// Constant MAPE for AutoMLMetricExtendedEnum
+        /// </summary>
+        public static readonly AutoMLMetricExtendedEnum MAPE = new AutoMLMetricExtendedEnum("MAPE");
+        /// <summary>
+        /// Constant MASE for AutoMLMetricExtendedEnum
+        /// </summary>
+        public static readonly AutoMLMetricExtendedEnum MASE = new AutoMLMetricExtendedEnum("MASE");
         /// <summary>
         /// Constant MSE for AutoMLMetricExtendedEnum
         /// </summary>
@@ -1560,6 +1798,10 @@ namespace Amazon.SageMaker
         /// Constant RMSE for AutoMLMetricExtendedEnum
         /// </summary>
         public static readonly AutoMLMetricExtendedEnum RMSE = new AutoMLMetricExtendedEnum("RMSE");
+        /// <summary>
+        /// Constant WAPE for AutoMLMetricExtendedEnum
+        /// </summary>
+        public static readonly AutoMLMetricExtendedEnum WAPE = new AutoMLMetricExtendedEnum("WAPE");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -1651,11 +1893,123 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type AutoMLProblemTypeConfigName.
+    /// </summary>
+    public class AutoMLProblemTypeConfigName : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant ImageClassification for AutoMLProblemTypeConfigName
+        /// </summary>
+        public static readonly AutoMLProblemTypeConfigName ImageClassification = new AutoMLProblemTypeConfigName("ImageClassification");
+        /// <summary>
+        /// Constant Tabular for AutoMLProblemTypeConfigName
+        /// </summary>
+        public static readonly AutoMLProblemTypeConfigName Tabular = new AutoMLProblemTypeConfigName("Tabular");
+        /// <summary>
+        /// Constant TextClassification for AutoMLProblemTypeConfigName
+        /// </summary>
+        public static readonly AutoMLProblemTypeConfigName TextClassification = new AutoMLProblemTypeConfigName("TextClassification");
+        /// <summary>
+        /// Constant TimeSeriesForecasting for AutoMLProblemTypeConfigName
+        /// </summary>
+        public static readonly AutoMLProblemTypeConfigName TimeSeriesForecasting = new AutoMLProblemTypeConfigName("TimeSeriesForecasting");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutoMLProblemTypeConfigName(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutoMLProblemTypeConfigName FindValue(string value)
+        {
+            return FindValue<AutoMLProblemTypeConfigName>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutoMLProblemTypeConfigName(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type AutoMLProcessingUnit.
+    /// </summary>
+    public class AutoMLProcessingUnit : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CPU for AutoMLProcessingUnit
+        /// </summary>
+        public static readonly AutoMLProcessingUnit CPU = new AutoMLProcessingUnit("CPU");
+        /// <summary>
+        /// Constant GPU for AutoMLProcessingUnit
+        /// </summary>
+        public static readonly AutoMLProcessingUnit GPU = new AutoMLProcessingUnit("GPU");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutoMLProcessingUnit(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutoMLProcessingUnit FindValue(string value)
+        {
+            return FindValue<AutoMLProcessingUnit>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutoMLProcessingUnit(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type AutoMLS3DataType.
     /// </summary>
     public class AutoMLS3DataType : ConstantClass
     {
 
+        /// <summary>
+        /// Constant AugmentedManifestFile for AutoMLS3DataType
+        /// </summary>
+        public static readonly AutoMLS3DataType AugmentedManifestFile = new AutoMLS3DataType("AugmentedManifestFile");
         /// <summary>
         /// Constant ManifestFile for AutoMLS3DataType
         /// </summary>
@@ -1798,6 +2152,52 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator AutoMLSortOrder(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type AutotuneMode.
+    /// </summary>
+    public class AutotuneMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Enabled for AutotuneMode
+        /// </summary>
+        public static readonly AutotuneMode Enabled = new AutotuneMode("Enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public AutotuneMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static AutotuneMode FindValue(string value)
+        {
+            return FindValue<AutotuneMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator AutotuneMode(string value)
         {
             return FindValue(value);
         }
@@ -2835,6 +3235,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type CompleteOnConvergence.
+    /// </summary>
+    public class CompleteOnConvergence : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Disabled for CompleteOnConvergence
+        /// </summary>
+        public static readonly CompleteOnConvergence Disabled = new CompleteOnConvergence("Disabled");
+        /// <summary>
+        /// Constant Enabled for CompleteOnConvergence
+        /// </summary>
+        public static readonly CompleteOnConvergence Enabled = new CompleteOnConvergence("Enabled");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CompleteOnConvergence(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CompleteOnConvergence FindValue(string value)
+        {
+            return FindValue<CompleteOnConvergence>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CompleteOnConvergence(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type CompressionType.
     /// </summary>
     public class CompressionType : ConstantClass
@@ -3028,6 +3478,56 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ContentClassifier(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type CrossAccountFilterOption.
+    /// </summary>
+    public class CrossAccountFilterOption : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CrossAccount for CrossAccountFilterOption
+        /// </summary>
+        public static readonly CrossAccountFilterOption CrossAccount = new CrossAccountFilterOption("CrossAccount");
+        /// <summary>
+        /// Constant SameAccount for CrossAccountFilterOption
+        /// </summary>
+        public static readonly CrossAccountFilterOption SameAccount = new CrossAccountFilterOption("SameAccount");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public CrossAccountFilterOption(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static CrossAccountFilterOption FindValue(string value)
+        {
+            return FindValue<CrossAccountFilterOption>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator CrossAccountFilterOption(string value)
         {
             return FindValue(value);
         }
@@ -3795,6 +4295,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly EndpointStatus SystemUpdating = new EndpointStatus("SystemUpdating");
         /// <summary>
+        /// Constant UpdateRollbackFailed for EndpointStatus
+        /// </summary>
+        public static readonly EndpointStatus UpdateRollbackFailed = new EndpointStatus("UpdateRollbackFailed");
+        /// <summary>
         /// Constant Updating for EndpointStatus
         /// </summary>
         public static readonly EndpointStatus Updating = new EndpointStatus("Updating");
@@ -4372,6 +4876,80 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator FileSystemType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type FillingType.
+    /// </summary>
+    public class FillingType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Backfill for FillingType
+        /// </summary>
+        public static readonly FillingType Backfill = new FillingType("backfill");
+        /// <summary>
+        /// Constant Backfill_value for FillingType
+        /// </summary>
+        public static readonly FillingType Backfill_value = new FillingType("backfill_value");
+        /// <summary>
+        /// Constant Frontfill for FillingType
+        /// </summary>
+        public static readonly FillingType Frontfill = new FillingType("frontfill");
+        /// <summary>
+        /// Constant Frontfill_value for FillingType
+        /// </summary>
+        public static readonly FillingType Frontfill_value = new FillingType("frontfill_value");
+        /// <summary>
+        /// Constant Futurefill for FillingType
+        /// </summary>
+        public static readonly FillingType Futurefill = new FillingType("futurefill");
+        /// <summary>
+        /// Constant Futurefill_value for FillingType
+        /// </summary>
+        public static readonly FillingType Futurefill_value = new FillingType("futurefill_value");
+        /// <summary>
+        /// Constant Middlefill for FillingType
+        /// </summary>
+        public static readonly FillingType Middlefill = new FillingType("middlefill");
+        /// <summary>
+        /// Constant Middlefill_value for FillingType
+        /// </summary>
+        public static readonly FillingType Middlefill_value = new FillingType("middlefill_value");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public FillingType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static FillingType FindValue(string value)
+        {
+            return FindValue<FillingType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator FillingType(string value)
         {
             return FindValue(value);
         }
@@ -5965,6 +6543,22 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly InstanceType MlG5Xlarge = new InstanceType("ml.g5.xlarge");
         /// <summary>
+        /// Constant MlInf124xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlInf124xlarge = new InstanceType("ml.inf1.24xlarge");
+        /// <summary>
+        /// Constant MlInf12xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlInf12xlarge = new InstanceType("ml.inf1.2xlarge");
+        /// <summary>
+        /// Constant MlInf16xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlInf16xlarge = new InstanceType("ml.inf1.6xlarge");
+        /// <summary>
+        /// Constant MlInf1Xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlInf1Xlarge = new InstanceType("ml.inf1.xlarge");
+        /// <summary>
         /// Constant MlM410xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType MlM410xlarge = new InstanceType("ml.m4.10xlarge");
@@ -6064,6 +6658,14 @@ namespace Amazon.SageMaker
         /// Constant MlP3dn24xlarge for InstanceType
         /// </summary>
         public static readonly InstanceType MlP3dn24xlarge = new InstanceType("ml.p3dn.24xlarge");
+        /// <summary>
+        /// Constant MlP4d24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlP4d24xlarge = new InstanceType("ml.p4d.24xlarge");
+        /// <summary>
+        /// Constant MlP4de24xlarge for InstanceType
+        /// </summary>
+        public static readonly InstanceType MlP4de24xlarge = new InstanceType("ml.p4de.24xlarge");
         /// <summary>
         /// Constant MlR512xlarge for InstanceType
         /// </summary>
@@ -7454,6 +8056,56 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ModelCardVersionSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ModelCompressionType.
+    /// </summary>
+    public class ModelCompressionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Gzip for ModelCompressionType
+        /// </summary>
+        public static readonly ModelCompressionType Gzip = new ModelCompressionType("Gzip");
+        /// <summary>
+        /// Constant None for ModelCompressionType
+        /// </summary>
+        public static readonly ModelCompressionType None = new ModelCompressionType("None");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ModelCompressionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ModelCompressionType FindValue(string value)
+        {
+            return FindValue<ModelCompressionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ModelCompressionType(string value)
         {
             return FindValue(value);
         }
@@ -9017,6 +9669,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type OutputCompressionType.
+    /// </summary>
+    public class OutputCompressionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant GZIP for OutputCompressionType
+        /// </summary>
+        public static readonly OutputCompressionType GZIP = new OutputCompressionType("GZIP");
+        /// <summary>
+        /// Constant NONE for OutputCompressionType
+        /// </summary>
+        public static readonly OutputCompressionType NONE = new OutputCompressionType("NONE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OutputCompressionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OutputCompressionType FindValue(string value)
+        {
+            return FindValue<OutputCompressionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OutputCompressionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ParameterType.
     /// </summary>
     public class ParameterType : ConstantClass
@@ -10177,6 +10879,22 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly ProductionVariantInstanceType MlInf1Xlarge = new ProductionVariantInstanceType("ml.inf1.xlarge");
         /// <summary>
+        /// Constant MlInf224xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlInf224xlarge = new ProductionVariantInstanceType("ml.inf2.24xlarge");
+        /// <summary>
+        /// Constant MlInf248xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlInf248xlarge = new ProductionVariantInstanceType("ml.inf2.48xlarge");
+        /// <summary>
+        /// Constant MlInf28xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlInf28xlarge = new ProductionVariantInstanceType("ml.inf2.8xlarge");
+        /// <summary>
+        /// Constant MlInf2Xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlInf2Xlarge = new ProductionVariantInstanceType("ml.inf2.xlarge");
+        /// <summary>
         /// Constant MlM410xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlM410xlarge = new ProductionVariantInstanceType("ml.m4.10xlarge");
@@ -10329,6 +11047,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly ProductionVariantInstanceType MlP4d24xlarge = new ProductionVariantInstanceType("ml.p4d.24xlarge");
         /// <summary>
+        /// Constant MlP4de24xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlP4de24xlarge = new ProductionVariantInstanceType("ml.p4de.24xlarge");
+        /// <summary>
         /// Constant MlR512xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlR512xlarge = new ProductionVariantInstanceType("ml.r5.12xlarge");
@@ -10448,6 +11170,14 @@ namespace Amazon.SageMaker
         /// Constant MlT2Xlarge for ProductionVariantInstanceType
         /// </summary>
         public static readonly ProductionVariantInstanceType MlT2Xlarge = new ProductionVariantInstanceType("ml.t2.xlarge");
+        /// <summary>
+        /// Constant MlTrn12xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlTrn12xlarge = new ProductionVariantInstanceType("ml.trn1.2xlarge");
+        /// <summary>
+        /// Constant MlTrn132xlarge for ProductionVariantInstanceType
+        /// </summary>
+        public static readonly ProductionVariantInstanceType MlTrn132xlarge = new ProductionVariantInstanceType("ml.trn1.32xlarge");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -10783,6 +11513,56 @@ namespace Amazon.SageMaker
 
 
     /// <summary>
+    /// Constants used for properties of type RecommendationJobSupportedEndpointType.
+    /// </summary>
+    public class RecommendationJobSupportedEndpointType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant RealTime for RecommendationJobSupportedEndpointType
+        /// </summary>
+        public static readonly RecommendationJobSupportedEndpointType RealTime = new RecommendationJobSupportedEndpointType("RealTime");
+        /// <summary>
+        /// Constant Serverless for RecommendationJobSupportedEndpointType
+        /// </summary>
+        public static readonly RecommendationJobSupportedEndpointType Serverless = new RecommendationJobSupportedEndpointType("Serverless");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RecommendationJobSupportedEndpointType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RecommendationJobSupportedEndpointType FindValue(string value)
+        {
+            return FindValue<RecommendationJobSupportedEndpointType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RecommendationJobSupportedEndpointType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type RecommendationJobType.
     /// </summary>
     public class RecommendationJobType : ConstantClass
@@ -10826,6 +11606,64 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator RecommendationJobType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type RecommendationStatus.
+    /// </summary>
+    public class RecommendationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant COMPLETED for RecommendationStatus
+        /// </summary>
+        public static readonly RecommendationStatus COMPLETED = new RecommendationStatus("COMPLETED");
+        /// <summary>
+        /// Constant FAILED for RecommendationStatus
+        /// </summary>
+        public static readonly RecommendationStatus FAILED = new RecommendationStatus("FAILED");
+        /// <summary>
+        /// Constant IN_PROGRESS for RecommendationStatus
+        /// </summary>
+        public static readonly RecommendationStatus IN_PROGRESS = new RecommendationStatus("IN_PROGRESS");
+        /// <summary>
+        /// Constant NOT_APPLICABLE for RecommendationStatus
+        /// </summary>
+        public static readonly RecommendationStatus NOT_APPLICABLE = new RecommendationStatus("NOT_APPLICABLE");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public RecommendationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static RecommendationStatus FindValue(string value)
+        {
+            return FindValue<RecommendationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator RecommendationStatus(string value)
         {
             return FindValue(value);
         }
@@ -11084,6 +11922,102 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator RepositoryAccessMode(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ResourceCatalogSortBy.
+    /// </summary>
+    public class ResourceCatalogSortBy : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CreationTime for ResourceCatalogSortBy
+        /// </summary>
+        public static readonly ResourceCatalogSortBy CreationTime = new ResourceCatalogSortBy("CreationTime");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ResourceCatalogSortBy(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ResourceCatalogSortBy FindValue(string value)
+        {
+            return FindValue<ResourceCatalogSortBy>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ResourceCatalogSortBy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ResourceCatalogSortOrder.
+    /// </summary>
+    public class ResourceCatalogSortOrder : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Ascending for ResourceCatalogSortOrder
+        /// </summary>
+        public static readonly ResourceCatalogSortOrder Ascending = new ResourceCatalogSortOrder("Ascending");
+        /// <summary>
+        /// Constant Descending for ResourceCatalogSortOrder
+        /// </summary>
+        public static readonly ResourceCatalogSortOrder Descending = new ResourceCatalogSortOrder("Descending");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ResourceCatalogSortOrder(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ResourceCatalogSortOrder FindValue(string value)
+        {
+            return FindValue<ResourceCatalogSortOrder>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ResourceCatalogSortOrder(string value)
         {
             return FindValue(value);
         }
@@ -11556,6 +12490,56 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator S3DataType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type S3ModelDataType.
+    /// </summary>
+    public class S3ModelDataType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant S3Object for S3ModelDataType
+        /// </summary>
+        public static readonly S3ModelDataType S3Object = new S3ModelDataType("S3Object");
+        /// <summary>
+        /// Constant S3Prefix for S3ModelDataType
+        /// </summary>
+        public static readonly S3ModelDataType S3Prefix = new S3ModelDataType("S3Prefix");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public S3ModelDataType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static S3ModelDataType FindValue(string value)
+        {
+            return FindValue<S3ModelDataType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator S3ModelDataType(string value)
         {
             return FindValue(value);
         }
@@ -13047,6 +14031,10 @@ namespace Amazon.SageMaker
         /// </summary>
         public static readonly TargetDevice Ml_inf1 = new TargetDevice("ml_inf1");
         /// <summary>
+        /// Constant Ml_inf2 for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Ml_inf2 = new TargetDevice("ml_inf2");
+        /// <summary>
         /// Constant Ml_m4 for TargetDevice
         /// </summary>
         public static readonly TargetDevice Ml_m4 = new TargetDevice("ml_m4");
@@ -13062,6 +14050,10 @@ namespace Amazon.SageMaker
         /// Constant Ml_p3 for TargetDevice
         /// </summary>
         public static readonly TargetDevice Ml_p3 = new TargetDevice("ml_p3");
+        /// <summary>
+        /// Constant Ml_trn1 for TargetDevice
+        /// </summary>
+        public static readonly TargetDevice Ml_trn1 = new TargetDevice("ml_trn1");
         /// <summary>
         /// Constant Qcs603 for TargetDevice
         /// </summary>
@@ -13660,6 +14652,10 @@ namespace Amazon.SageMaker
         /// Constant MlTrn132xlarge for TrainingInstanceType
         /// </summary>
         public static readonly TrainingInstanceType MlTrn132xlarge = new TrainingInstanceType("ml.trn1.32xlarge");
+        /// <summary>
+        /// Constant MlTrn1n32xlarge for TrainingInstanceType
+        /// </summary>
+        public static readonly TrainingInstanceType MlTrn1n32xlarge = new TrainingInstanceType("ml.trn1n.32xlarge");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -13860,6 +14856,56 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TrainingJobStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TrainingRepositoryAccessMode.
+    /// </summary>
+    public class TrainingRepositoryAccessMode : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Platform for TrainingRepositoryAccessMode
+        /// </summary>
+        public static readonly TrainingRepositoryAccessMode Platform = new TrainingRepositoryAccessMode("Platform");
+        /// <summary>
+        /// Constant Vpc for TrainingRepositoryAccessMode
+        /// </summary>
+        public static readonly TrainingRepositoryAccessMode Vpc = new TrainingRepositoryAccessMode("Vpc");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TrainingRepositoryAccessMode(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TrainingRepositoryAccessMode FindValue(string value)
+        {
+            return FindValue<TrainingRepositoryAccessMode>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TrainingRepositoryAccessMode(string value)
         {
             return FindValue(value);
         }
@@ -14154,6 +15200,68 @@ namespace Amazon.SageMaker
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TrialComponentPrimaryStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type TtlDurationUnit.
+    /// </summary>
+    public class TtlDurationUnit : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant Days for TtlDurationUnit
+        /// </summary>
+        public static readonly TtlDurationUnit Days = new TtlDurationUnit("Days");
+        /// <summary>
+        /// Constant Hours for TtlDurationUnit
+        /// </summary>
+        public static readonly TtlDurationUnit Hours = new TtlDurationUnit("Hours");
+        /// <summary>
+        /// Constant Minutes for TtlDurationUnit
+        /// </summary>
+        public static readonly TtlDurationUnit Minutes = new TtlDurationUnit("Minutes");
+        /// <summary>
+        /// Constant Seconds for TtlDurationUnit
+        /// </summary>
+        public static readonly TtlDurationUnit Seconds = new TtlDurationUnit("Seconds");
+        /// <summary>
+        /// Constant Weeks for TtlDurationUnit
+        /// </summary>
+        public static readonly TtlDurationUnit Weeks = new TtlDurationUnit("Weeks");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public TtlDurationUnit(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static TtlDurationUnit FindValue(string value)
+        {
+            return FindValue<TtlDurationUnit>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator TtlDurationUnit(string value)
         {
             return FindValue(value);
         }

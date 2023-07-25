@@ -105,6 +105,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.PartitionIncludeSchemaTable);
             }
 
+            if(requestObject.IsSetSaslMechanism())
+            {
+                context.Writer.WritePropertyName("SaslMechanism");
+                context.Writer.Write(requestObject.SaslMechanism);
+            }
+
             if(requestObject.IsSetSaslPassword())
             {
                 context.Writer.WritePropertyName("SaslPassword");
@@ -145,6 +151,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("SslClientKeyPassword");
                 context.Writer.Write(requestObject.SslClientKeyPassword);
+            }
+
+            if(requestObject.IsSetSslEndpointIdentificationAlgorithm())
+            {
+                context.Writer.WritePropertyName("SslEndpointIdentificationAlgorithm");
+                context.Writer.Write(requestObject.SslEndpointIdentificationAlgorithm);
             }
 
             if(requestObject.IsSetTopic())

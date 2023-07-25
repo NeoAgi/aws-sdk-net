@@ -154,6 +154,13 @@ namespace Amazon.S3Control.Internal
                 result.Bucket = request.Bucket;
                 return result;
             }
+            if (requestContext.RequestName == "DeleteBucketReplicationRequest") {
+                result.RequiresAccountId = true;
+                var request = (DeleteBucketReplicationRequest)requestContext.OriginalRequest;
+                result.AccountId = request.AccountId;
+                result.Bucket = request.Bucket;
+                return result;
+            }
             if (requestContext.RequestName == "DeleteBucketTaggingRequest") {
                 result.RequiresAccountId = true;
                 var request = (DeleteBucketTaggingRequest)requestContext.OriginalRequest;
@@ -269,9 +276,23 @@ namespace Amazon.S3Control.Internal
                 result.Bucket = request.Bucket;
                 return result;
             }
+            if (requestContext.RequestName == "GetBucketReplicationRequest") {
+                result.RequiresAccountId = true;
+                var request = (GetBucketReplicationRequest)requestContext.OriginalRequest;
+                result.AccountId = request.AccountId;
+                result.Bucket = request.Bucket;
+                return result;
+            }
             if (requestContext.RequestName == "GetBucketTaggingRequest") {
                 result.RequiresAccountId = true;
                 var request = (GetBucketTaggingRequest)requestContext.OriginalRequest;
+                result.AccountId = request.AccountId;
+                result.Bucket = request.Bucket;
+                return result;
+            }
+            if (requestContext.RequestName == "GetBucketVersioningRequest") {
+                result.RequiresAccountId = true;
+                var request = (GetBucketVersioningRequest)requestContext.OriginalRequest;
                 result.AccountId = request.AccountId;
                 result.Bucket = request.Bucket;
                 return result;
@@ -395,9 +416,23 @@ namespace Amazon.S3Control.Internal
                 result.Bucket = request.Bucket;
                 return result;
             }
+            if (requestContext.RequestName == "PutBucketReplicationRequest") {
+                result.RequiresAccountId = true;
+                var request = (PutBucketReplicationRequest)requestContext.OriginalRequest;
+                result.AccountId = request.AccountId;
+                result.Bucket = request.Bucket;
+                return result;
+            }
             if (requestContext.RequestName == "PutBucketTaggingRequest") {
                 result.RequiresAccountId = true;
                 var request = (PutBucketTaggingRequest)requestContext.OriginalRequest;
+                result.AccountId = request.AccountId;
+                result.Bucket = request.Bucket;
+                return result;
+            }
+            if (requestContext.RequestName == "PutBucketVersioningRequest") {
+                result.RequiresAccountId = true;
+                var request = (PutBucketVersioningRequest)requestContext.OriginalRequest;
                 result.AccountId = request.AccountId;
                 result.Bucket = request.Bucket;
                 return result;

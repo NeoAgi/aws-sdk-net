@@ -30,9 +30,8 @@ namespace Amazon.Route53Domains.Model
 {
     /// <summary>
     /// Container for the parameters to the RegisterDomain operation.
-    /// This operation registers a domain. Domains are registered either by Amazon Registrar
-    /// (for .com, .net, and .org domains) or by our registrar associate, Gandi (for all other
-    /// domains). For some top-level domains (TLDs), this operation requires extra parameters.
+    /// This operation registers a domain. For some top-level domains (TLDs), this operation
+    /// requires extra parameters.
     /// 
     ///  
     /// <para>
@@ -52,16 +51,15 @@ namespace Amazon.Route53Domains.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Optionally enables privacy protection, so WHOIS queries return contact information
-    /// either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar
-    /// associate, Gandi (for all other TLDs). If you don't enable privacy protection, WHOIS
-    /// queries return the information that you entered for the administrative, registrant,
-    /// and technical contacts.
+    /// Optionally enables privacy protection, so WHOIS queries return contact for the registrar
+    /// or the phrase "REDACTED FOR PRIVACY", or "On behalf of &lt;domain name&gt; owner."
+    /// If you don't enable privacy protection, WHOIS queries return the information that
+    /// you entered for the administrative, registrant, and technical contacts.
     /// </para>
     ///  <note> 
     /// <para>
-    /// You must specify the same privacy setting for the administrative, registrant, and
-    /// technical contacts.
+    /// While some domains may allow different privacy settings per contact, we recommend
+    /// specifying the same privacy setting for all contacts.
     /// </para>
     ///  </note> </li> <li> 
     /// <para>
@@ -97,7 +95,7 @@ namespace Amazon.Route53Domains.Model
         /// for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public ContactDetail AdminContact
         {
             get { return this._adminContact; }
@@ -329,7 +327,7 @@ namespace Amazon.Route53Domains.Model
         /// for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public ContactDetail RegistrantContact
         {
             get { return this._registrantContact; }
@@ -349,7 +347,7 @@ namespace Amazon.Route53Domains.Model
         /// for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public ContactDetail TechContact
         {
             get { return this._techContact; }

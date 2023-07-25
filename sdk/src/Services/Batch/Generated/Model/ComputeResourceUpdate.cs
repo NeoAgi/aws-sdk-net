@@ -147,8 +147,8 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property DesiredvCpus. 
         /// <para>
-        /// The desired number of Amazon EC2 vCPUS in the compute environment. Batch modifies
-        /// this value between the minimum and maximum values based on job queue demand.
+        /// The desired number of vCPUS in the compute environment. Batch modifies this value
+        /// between the minimum and maximum values based on job queue demand.
         /// </para>
         ///  <note> 
         /// <para>
@@ -160,6 +160,18 @@ namespace Amazon.Batch.Model
         /// Batch doesn't support changing the desired number of vCPUs of an existing compute
         /// environment. Don't specify this parameter for compute environments using Amazon EKS
         /// clusters.
+        /// </para>
+        ///  </note> <note> 
+        /// <para>
+        /// When you update the <code>desiredvCpus</code> setting, the value must be between the
+        /// <code>minvCpus</code> and <code>maxvCpus</code> values. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Additionally, the updated <code>desiredvCpus</code> value must be greater than or
+        /// equal to the current <code>desiredvCpus</code> value. For more information, see <a
+        /// href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update">Troubleshooting
+        /// Batch</a> in the <i>Batch User Guide</i>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -437,8 +449,8 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property MinvCpus. 
         /// <para>
-        /// The minimum number of Amazon EC2 vCPUs that an environment should maintain (even if
-        /// the compute environment is <code>DISABLED</code>).
+        /// The minimum number of vCPUs that an environment should maintain (even if the compute
+        /// environment is <code>DISABLED</code>).
         /// </para>
         ///  <note> 
         /// <para>

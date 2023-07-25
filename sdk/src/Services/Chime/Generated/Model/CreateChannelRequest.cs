@@ -41,7 +41,19 @@ namespace Amazon.Chime.Model
     /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
     /// of the user that makes the API call as the value in the header.
     /// </para>
-    ///  </note>
+    ///  </note> <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html">CreateChannel</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateChannelRequest : AmazonChimeRequest
     {
@@ -98,7 +110,7 @@ namespace Amazon.Chime.Model
         /// The client token for the request. An <code>Idempotency</code> token.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -117,7 +129,7 @@ namespace Amazon.Chime.Model
         /// The metadata of the creation request. Limited to 1KB and UTF-8.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=0, Max=1024)]
         public string Metadata
         {
             get { return this._metadata; }
@@ -156,7 +168,7 @@ namespace Amazon.Chime.Model
         /// The name of the channel.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=256)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=256)]
         public string Name
         {
             get { return this._name; }

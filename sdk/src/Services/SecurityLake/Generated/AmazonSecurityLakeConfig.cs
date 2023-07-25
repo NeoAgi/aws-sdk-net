@@ -32,16 +32,26 @@ namespace Amazon.SecurityLake
     public partial class AmazonSecurityLakeConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.11");
+            InternalSDKUtils.BuildUserAgentString("3.7.201.2");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "SecurityLake";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonSecurityLakeConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSecurityLakeDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "SecurityLake";
             this.AuthenticationServiceName = "securitylake";
             this.EndpointProvider = new AmazonSecurityLakeEndpointProvider();
         }

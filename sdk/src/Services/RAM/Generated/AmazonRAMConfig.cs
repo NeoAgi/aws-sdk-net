@@ -32,16 +32,26 @@ namespace Amazon.RAM
     public partial class AmazonRAMConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.7");
+            InternalSDKUtils.BuildUserAgentString("3.7.201.3");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "RAM";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonRAMConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonRAMDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "RAM";
             this.AuthenticationServiceName = "ram";
             this.EndpointProvider = new AmazonRAMEndpointProvider();
         }

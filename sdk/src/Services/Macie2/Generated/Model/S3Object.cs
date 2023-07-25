@@ -106,7 +106,7 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property Key. 
         /// <para>
-        /// The full key (name) that's assigned to the object.
+        /// The full name (<i>key</i>) of the object, including the object's prefix if applicable.
         /// </para>
         /// </summary>
         public string Key
@@ -142,7 +142,8 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property Path. 
         /// <para>
-        /// The path to the object, including the full key (name).
+        /// The full path to the affected object, including the name of the affected bucket and
+        /// the object's name (key).
         /// </para>
         /// </summary>
         public string Path
@@ -179,7 +180,7 @@ namespace Amazon.Macie2.Model
         /// <summary>
         /// Gets and sets the property ServerSideEncryption. 
         /// <para>
-        /// The type of server-side encryption that's used to encrypt the object.
+        /// The type of server-side encryption that was used to encrypt the object.
         /// </para>
         /// </summary>
         public ServerSideEncryption ServerSideEncryption

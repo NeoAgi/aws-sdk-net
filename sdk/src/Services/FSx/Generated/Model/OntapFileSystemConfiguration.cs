@@ -39,6 +39,7 @@ namespace Amazon.FSx.Model
         private DiskIopsConfiguration _diskIopsConfiguration;
         private string _endpointIpAddressRange;
         private FileSystemEndpoints _endpoints;
+        private string _fsxAdminPassword;
         private string _preferredSubnetId;
         private List<string> _routeTableIds = new List<string>();
         private int? _throughputCapacity;
@@ -132,16 +133,13 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property EndpointIpAddressRange. 
         /// <para>
-        /// (Multi-AZ only) The IP address range in which the endpoints to access your file system
-        /// are created.
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your
+        /// file system will be created. By default in the Amazon FSx API, Amazon FSx selects
+        /// an unused IP address range for you from the 198.19.* range. By default in the Amazon
+        /// FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR
+        /// range to use as the endpoint IP address range for the file system. You can have overlapping
+        /// endpoint IP addresses for file systems deployed in the same VPC/route tables.
         /// </para>
-        ///  <important> 
-        /// <para>
-        /// The Endpoint IP address range you select for your file system must exist outside the
-        /// VPC's CIDR range and must be at least /30 or larger. If you do not specify this optional
-        /// parameter, Amazon FSx will automatically select a CIDR block for you.
-        /// </para>
-        ///  </important>
         /// </summary>
         [AWSProperty(Min=9, Max=17)]
         public string EndpointIpAddressRange
@@ -174,6 +172,26 @@ namespace Amazon.FSx.Model
         internal bool IsSetEndpoints()
         {
             return this._endpoints != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property FsxAdminPassword. 
+        /// <para>
+        /// You can use the <code>fsxadmin</code> user account to access the NetApp ONTAP CLI
+        /// and REST API. The password value is always redacted in the response.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Sensitive=true, Min=8, Max=50)]
+        public string FsxAdminPassword
+        {
+            get { return this._fsxAdminPassword; }
+            set { this._fsxAdminPassword = value; }
+        }
+
+        // Check to see if FsxAdminPassword property is set
+        internal bool IsSetFsxAdminPassword()
+        {
+            return this._fsxAdminPassword != null;
         }
 
         /// <summary>

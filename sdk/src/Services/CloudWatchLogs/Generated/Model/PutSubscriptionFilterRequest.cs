@@ -47,7 +47,9 @@ namespace Amazon.CloudWatchLogs.Model
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// A logical destination that belongs to a different account, for cross-account delivery.
+    /// A logical destination created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>
+    /// that belongs to a different account, for cross-account delivery. We currently support
+    /// Kinesis Data Streams and Kinesis Data Firehose as logical destinations.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -67,8 +69,8 @@ namespace Amazon.CloudWatchLogs.Model
     /// </para>
     ///  
     /// <para>
-    /// To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
-    /// <code>iam:PassRole</code> permission.
+    /// To perform a <code>PutSubscriptionFilter</code> operation for any destination except
+    /// a Lambda function, you must also have the <code>iam:PassRole</code> permission.
     /// </para>
     /// </summary>
     public partial class PutSubscriptionFilterRequest : AmazonCloudWatchLogsRequest

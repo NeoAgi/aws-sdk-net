@@ -31,11 +31,10 @@ namespace Amazon.SecurityToken.Model
     /// <summary>
     /// Container for the parameters to the AssumeRole operation.
     /// Returns a set of temporary security credentials that you can use to access Amazon
-    /// Web Services resources that you might not normally have access to. These temporary
-    /// credentials consist of an access key ID, a secret access key, and a security token.
-    /// Typically, you use <code>AssumeRole</code> within your account or for cross-account
-    /// access. For a comparison of <code>AssumeRole</code> with other API operations that
-    /// produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// Web Services resources. These temporary credentials consist of an access key ID, a
+    /// secret access key, and a security token. Typically, you use <code>AssumeRole</code>
+    /// within your account or for cross-account access. For a comparison of <code>AssumeRole</code>
+    /// with other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
     /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
     /// 
@@ -67,9 +66,9 @@ namespace Amazon.SecurityToken.Model
     /// </para>
     ///  
     /// <para>
-    /// When you create a role, you create two policies: A role trust policy that specifies
-    /// <i>who</i> can assume the role and a permissions policy that specifies <i>what</i>
-    /// can be done with the role. You specify the trusted principal who is allowed to assume
+    /// When you create a role, you create two policies: a role trust policy that specifies
+    /// <i>who</i> can assume the role, and a permissions policy that specifies <i>what</i>
+    /// can be done with the role. You specify the trusted principal that is allowed to assume
     /// the role in the role trust policy.
     /// </para>
     ///  
@@ -82,8 +81,8 @@ namespace Amazon.SecurityToken.Model
     ///  
     /// <para>
     /// A user who wants to access a role in a different account must also have permissions
-    /// that are delegated from the user account administrator. The administrator must attach
-    /// a policy that allows the user to call <code>AssumeRole</code> for the ARN of the role
+    /// that are delegated from the account administrator. The administrator must attach a
+    /// policy that allows the user to call <code>AssumeRole</code> for the ARN of the role
     /// in the other account.
     /// </para>
     ///  

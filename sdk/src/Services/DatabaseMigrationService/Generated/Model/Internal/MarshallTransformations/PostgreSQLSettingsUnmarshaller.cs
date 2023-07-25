@@ -70,10 +70,22 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     unmarshalledObject.AfterConnectScript = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("BabelfishDatabaseName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.BabelfishDatabaseName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("CaptureDdls", targetDepth))
                 {
                     var unmarshaller = BoolUnmarshaller.Instance;
                     unmarshalledObject.CaptureDdls = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("DatabaseMode", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DatabaseMode = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("DatabaseName", targetDepth))
@@ -116,6 +128,24 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.HeartbeatSchema = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("MapBooleanAsBoolean", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.MapBooleanAsBoolean = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("MapJsonbAsClob", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.MapJsonbAsClob = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("MapLongVarcharAs", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.MapLongVarcharAs = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("MaxFileSize", targetDepth))

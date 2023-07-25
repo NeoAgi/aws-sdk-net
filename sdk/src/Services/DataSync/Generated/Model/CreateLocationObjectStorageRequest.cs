@@ -54,7 +54,7 @@ namespace Amazon.DataSync.Model
         /// authenticate with the object storage server.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=8, Max=200)]
+        [AWSProperty(Min=1, Max=200)]
         public string AccessKey
         {
             get { return this._accessKey; }
@@ -113,7 +113,7 @@ namespace Amazon.DataSync.Model
         /// authenticate with the object storage server.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=8, Max=200)]
+        [AWSProperty(Sensitive=true, Min=1, Max=200)]
         public string SecretKey
         {
             get { return this._secretKey; }
@@ -129,10 +129,29 @@ namespace Amazon.DataSync.Model
         /// <summary>
         /// Gets and sets the property ServerCertificate. 
         /// <para>
-        /// Specifies a certificate to authenticate with an object storage system that uses a
-        /// private or self-signed certificate authority (CA). You must specify a Base64-encoded
-        /// <code>.pem</code> file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
-        /// The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a file with the certificates that are used to sign the object storage server's
+        /// certificate (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
+        /// The file you specify must include the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The certificate of the signing certificate authority (CA)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Any intermediate certificates
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// base64 encoding
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// A <code>.pem</code> extension
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// The file can be up to 32768 bytes (before base64 encoding).
         /// </para>
         ///  
         /// <para>

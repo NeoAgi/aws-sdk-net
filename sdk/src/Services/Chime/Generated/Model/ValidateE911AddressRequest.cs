@@ -34,6 +34,20 @@ namespace Amazon.Chime.Model
     /// You can use validated addresses in a Presence Information Data Format Location Object
     /// file that you include in SIP requests. That helps ensure that addresses are routed
     /// to the appropriate Public Safety Answering Point.
+    /// 
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html">ValidateE911Address</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class ValidateE911AddressRequest : AmazonChimeRequest
     {
@@ -70,7 +84,7 @@ namespace Amazon.Chime.Model
         /// The address city, such as <code>Portland</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string City
         {
             get { return this._city; }
@@ -89,7 +103,7 @@ namespace Amazon.Chime.Model
         /// The address country, such as <code>US</code>. 
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string Country
         {
             get { return this._country; }
@@ -108,7 +122,7 @@ namespace Amazon.Chime.Model
         /// The address postal code, such as <code>04352</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string PostalCode
         {
             get { return this._postalCode; }
@@ -127,7 +141,7 @@ namespace Amazon.Chime.Model
         /// The address state, such as <code>ME</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string State
         {
             get { return this._state; }
@@ -146,7 +160,7 @@ namespace Amazon.Chime.Model
         /// The address street information, such as <code>8th Avenue</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string StreetInfo
         {
             get { return this._streetInfo; }
@@ -165,7 +179,7 @@ namespace Amazon.Chime.Model
         /// The address street number, such as <code>200</code> or <code>2121</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string StreetNumber
         {
             get { return this._streetNumber; }

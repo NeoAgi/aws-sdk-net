@@ -31,21 +31,21 @@ namespace Amazon.GameLift.Model
     /// <summary>
     /// Container for the parameters to the CreateMatchmakingConfiguration operation.
     /// Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
-    /// FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
-    /// configuration sets out rules for matching players and forming teams. If you're also
-    /// using GameLift hosting, it defines how to start game sessions for each match. Your
-    /// matchmaking system can use multiple configurations to handle different game scenarios.
-    /// All matchmaking requests identify the matchmaking configuration to use and provide
-    /// player attributes consistent with that configuration. 
+    /// FlexMatch with Amazon GameLift hosting or as a standalone matchmaking service, the
+    /// matchmaking configuration sets out rules for matching players and forming teams. If
+    /// you're also using Amazon GameLift hosting, it defines how to start game sessions for
+    /// each match. Your matchmaking system can use multiple configurations to handle different
+    /// game scenarios. All matchmaking requests identify the matchmaking configuration to
+    /// use and provide player attributes consistent with that configuration. 
     /// 
     ///  
     /// <para>
     /// To create a matchmaking configuration, you must provide the following: configuration
-    /// name and FlexMatch mode (with or without GameLift hosting); a rule set that specifies
-    /// how to evaluate players and find acceptable matches; whether player acceptance is
-    /// required; and the maximum time allowed for a matchmaking attempt. When using FlexMatch
-    /// with GameLift hosting, you also need to identify the game session queue to use when
-    /// starting a game session for the match.
+    /// name and FlexMatch mode (with or without Amazon GameLift hosting); a rule set that
+    /// specifies how to evaluate players and find acceptable matches; whether player acceptance
+    /// is required; and the maximum time allowed for a matchmaking attempt. When using FlexMatch
+    /// with Amazon GameLift hosting, you also need to identify the game session queue to
+    /// use when starting a game session for the match.
     /// </para>
     ///  
     /// <para>
@@ -131,9 +131,10 @@ namespace Amazon.GameLift.Model
         /// Gets and sets the property AdditionalPlayerCount. 
         /// <para>
         /// The number of player slots in a match to keep open for future players. For example,
-        /// if the configuration's rule set specifies a match for a single 12-person team, and
-        /// the additional player count is set to 2, only 10 players are selected for the match.
-        /// This parameter is not used if <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.
+        /// if the configuration's rule set specifies a match for a single 10-person team, and
+        /// the additional player count is set to 2, 10 players will be selected for the match
+        /// and 2 more player slots will be open for future players. This parameter is not used
+        /// if <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=0)]
@@ -154,9 +155,9 @@ namespace Amazon.GameLift.Model
         /// <para>
         /// The method used to backfill game sessions that are created with this matchmaking configuration.
         /// Specify <code>MANUAL</code> when your game manages backfill requests manually or does
-        /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have GameLift
-        /// create a backfill request whenever a game session has one or more open slots. Learn
-        /// more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
+        /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have Amazon
+        /// GameLift create a backfill request whenever a game session has one or more open slots.
+        /// Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
         /// Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when
         /// <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.
         /// </para>
@@ -214,8 +215,8 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property FlexMatchMode. 
         /// <para>
-        /// Indicates whether this matchmaking configuration is being used with GameLift hosting
-        /// or as a standalone matchmaking solution. 
+        /// Indicates whether this matchmaking configuration is being used with Amazon GameLift
+        /// hosting or as a standalone matchmaking solution. 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -225,8 +226,8 @@ namespace Amazon.GameLift.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue
-        /// to start a game session for the match. 
+        ///  <b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified Amazon GameLift
+        /// queue to start a game session for the match. 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -294,12 +295,12 @@ namespace Amazon.GameLift.Model
         /// Gets and sets the property GameSessionQueueArns. 
         /// <para>
         /// The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// that is assigned to a GameLift game session queue resource and uniquely identifies
+        /// that is assigned to a Amazon GameLift game session queue resource and uniquely identifies
         /// it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
         /// name&gt;</code>. Queues can be located in any Region. Queues are used to start new
-        /// GameLift-hosted game sessions for matches that are created with this matchmaking configuration.
-        /// If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not set this parameter.
-        /// 
+        /// Amazon GameLift-hosted game sessions for matches that are created with this matchmaking
+        /// configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do
+        /// not set this parameter. 
         /// </para>
         /// </summary>
         public List<string> GameSessionQueueArns

@@ -67,6 +67,12 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDryRun())
+                {
+                    context.Writer.WritePropertyName("DryRun");
+                    context.Writer.Write(publicRequest.DryRun);
+                }
+
                 if(publicRequest.IsSetEncryptionContext())
                 {
                     context.Writer.WritePropertyName("EncryptionContext");
@@ -108,6 +114,17 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("NumberOfBytes");
                     context.Writer.Write(publicRequest.NumberOfBytes);
+                }
+
+                if(publicRequest.IsSetRecipient())
+                {
+                    context.Writer.WritePropertyName("Recipient");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RecipientInfoMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Recipient, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 writer.WriteObjectEnd();

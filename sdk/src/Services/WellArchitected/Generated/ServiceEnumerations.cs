@@ -419,6 +419,56 @@ namespace Amazon.WellArchitected
 
 
     /// <summary>
+    /// Constants used for properties of type DefinitionType.
+    /// </summary>
+    public class DefinitionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant APP_REGISTRY for DefinitionType
+        /// </summary>
+        public static readonly DefinitionType APP_REGISTRY = new DefinitionType("APP_REGISTRY");
+        /// <summary>
+        /// Constant WORKLOAD_METADATA for DefinitionType
+        /// </summary>
+        public static readonly DefinitionType WORKLOAD_METADATA = new DefinitionType("WORKLOAD_METADATA");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DefinitionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DefinitionType FindValue(string value)
+        {
+            return FindValue<DefinitionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DefinitionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type DifferenceStatus.
     /// </summary>
     public class DifferenceStatus : ConstantClass
@@ -466,6 +516,56 @@ namespace Amazon.WellArchitected
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator DifferenceStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type DiscoveryIntegrationStatus.
+    /// </summary>
+    public class DiscoveryIntegrationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for DiscoveryIntegrationStatus
+        /// </summary>
+        public static readonly DiscoveryIntegrationStatus DISABLED = new DiscoveryIntegrationStatus("DISABLED");
+        /// <summary>
+        /// Constant ENABLED for DiscoveryIntegrationStatus
+        /// </summary>
+        public static readonly DiscoveryIntegrationStatus ENABLED = new DiscoveryIntegrationStatus("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public DiscoveryIntegrationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static DiscoveryIntegrationStatus FindValue(string value)
+        {
+            return FindValue<DiscoveryIntegrationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator DiscoveryIntegrationStatus(string value)
         {
             return FindValue(value);
         }
@@ -697,6 +797,52 @@ namespace Amazon.WellArchitected
 
 
     /// <summary>
+    /// Constants used for properties of type MetricType.
+    /// </summary>
+    public class MetricType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant WORKLOAD for MetricType
+        /// </summary>
+        public static readonly MetricType WORKLOAD = new MetricType("WORKLOAD");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public MetricType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static MetricType FindValue(string value)
+        {
+            return FindValue<MetricType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator MetricType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type NotificationType.
     /// </summary>
     public class NotificationType : ConstantClass
@@ -847,6 +993,256 @@ namespace Amazon.WellArchitected
 
 
     /// <summary>
+    /// Constants used for properties of type ProfileNotificationType.
+    /// </summary>
+    public class ProfileNotificationType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant PROFILE_ANSWERS_UPDATED for ProfileNotificationType
+        /// </summary>
+        public static readonly ProfileNotificationType PROFILE_ANSWERS_UPDATED = new ProfileNotificationType("PROFILE_ANSWERS_UPDATED");
+        /// <summary>
+        /// Constant PROFILE_DELETED for ProfileNotificationType
+        /// </summary>
+        public static readonly ProfileNotificationType PROFILE_DELETED = new ProfileNotificationType("PROFILE_DELETED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ProfileNotificationType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ProfileNotificationType FindValue(string value)
+        {
+            return FindValue<ProfileNotificationType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ProfileNotificationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ProfileOwnerType.
+    /// </summary>
+    public class ProfileOwnerType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant SELF for ProfileOwnerType
+        /// </summary>
+        public static readonly ProfileOwnerType SELF = new ProfileOwnerType("SELF");
+        /// <summary>
+        /// Constant SHARED for ProfileOwnerType
+        /// </summary>
+        public static readonly ProfileOwnerType SHARED = new ProfileOwnerType("SHARED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ProfileOwnerType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ProfileOwnerType FindValue(string value)
+        {
+            return FindValue<ProfileOwnerType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ProfileOwnerType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QuestionPriority.
+    /// </summary>
+    public class QuestionPriority : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NONE for QuestionPriority
+        /// </summary>
+        public static readonly QuestionPriority NONE = new QuestionPriority("NONE");
+        /// <summary>
+        /// Constant PRIORITIZED for QuestionPriority
+        /// </summary>
+        public static readonly QuestionPriority PRIORITIZED = new QuestionPriority("PRIORITIZED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QuestionPriority(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QuestionPriority FindValue(string value)
+        {
+            return FindValue<QuestionPriority>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QuestionPriority(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type QuestionType.
+    /// </summary>
+    public class QuestionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant NON_PRIORITIZED for QuestionType
+        /// </summary>
+        public static readonly QuestionType NON_PRIORITIZED = new QuestionType("NON_PRIORITIZED");
+        /// <summary>
+        /// Constant PRIORITIZED for QuestionType
+        /// </summary>
+        public static readonly QuestionType PRIORITIZED = new QuestionType("PRIORITIZED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public QuestionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static QuestionType FindValue(string value)
+        {
+            return FindValue<QuestionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator QuestionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ReportFormat.
+    /// </summary>
+    public class ReportFormat : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant JSON for ReportFormat
+        /// </summary>
+        public static readonly ReportFormat JSON = new ReportFormat("JSON");
+        /// <summary>
+        /// Constant PDF for ReportFormat
+        /// </summary>
+        public static readonly ReportFormat PDF = new ReportFormat("PDF");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ReportFormat(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ReportFormat FindValue(string value)
+        {
+            return FindValue<ReportFormat>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ReportFormat(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type Risk.
     /// </summary>
     public class Risk : ConstantClass
@@ -968,6 +1364,10 @@ namespace Amazon.WellArchitected
         /// Constant LENS for ShareResourceType
         /// </summary>
         public static readonly ShareResourceType LENS = new ShareResourceType("LENS");
+        /// <summary>
+        /// Constant PROFILE for ShareResourceType
+        /// </summary>
+        public static readonly ShareResourceType PROFILE = new ShareResourceType("PROFILE");
         /// <summary>
         /// Constant WORKLOAD for ShareResourceType
         /// </summary>

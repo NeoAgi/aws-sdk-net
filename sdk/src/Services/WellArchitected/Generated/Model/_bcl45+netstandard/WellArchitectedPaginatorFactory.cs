@@ -36,6 +36,14 @@ namespace Amazon.WellArchitected.Model
         }
 
         /// <summary>
+        /// Paginator for GetConsolidatedReport operation
+        ///</summary>
+        public IGetConsolidatedReportPaginator GetConsolidatedReport(GetConsolidatedReportRequest request) 
+        {
+            return new GetConsolidatedReportPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListAnswers operation
         ///</summary>
         public IListAnswersPaginator ListAnswers(ListAnswersRequest request) 
@@ -105,6 +113,30 @@ namespace Amazon.WellArchitected.Model
         public IListNotificationsPaginator ListNotifications(ListNotificationsRequest request) 
         {
             return new ListNotificationsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListProfileNotifications operation
+        ///</summary>
+        public IListProfileNotificationsPaginator ListProfileNotifications(ListProfileNotificationsRequest request) 
+        {
+            return new ListProfileNotificationsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListProfiles operation
+        ///</summary>
+        public IListProfilesPaginator ListProfiles(ListProfilesRequest request) 
+        {
+            return new ListProfilesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListProfileShares operation
+        ///</summary>
+        public IListProfileSharesPaginator ListProfileShares(ListProfileSharesRequest request) 
+        {
+            return new ListProfileSharesPaginator(this.client, request);
         }
 
         /// <summary>

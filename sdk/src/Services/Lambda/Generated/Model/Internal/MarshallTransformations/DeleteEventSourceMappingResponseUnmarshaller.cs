@@ -75,6 +75,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     response.DestinationConfig = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DocumentDBEventSourceConfig", targetDepth))
+                {
+                    var unmarshaller = DocumentDBEventSourceConfigUnmarshaller.Instance;
+                    response.DocumentDBEventSourceConfig = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EventSourceArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -233,6 +239,10 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                 if (errorResponse.Code != null && errorResponse.Code.Equals("InvalidParameterValueException"))
                 {
                     return InvalidParameterValueExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
+                }
+                if (errorResponse.Code != null && errorResponse.Code.Equals("ResourceConflictException"))
+                {
+                    return ResourceConflictExceptionUnmarshaller.Instance.Unmarshall(contextCopy, errorResponse);
                 }
                 if (errorResponse.Code != null && errorResponse.Code.Equals("ResourceInUseException"))
                 {

@@ -124,6 +124,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                     unmarshalledObject.PartitionIncludeSchemaTable = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("SaslMechanism", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SaslMechanism = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("SaslPassword", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -164,6 +170,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.SslClientKeyPassword = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SslEndpointIdentificationAlgorithm", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.SslEndpointIdentificationAlgorithm = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("Topic", targetDepth))

@@ -57,7 +57,7 @@ namespace Amazon.S3.Internal
             // Current operations that may set this header: CopyObject, CopyPart, InitiateMultipart, PutObject
             string sseHeaderValue;
             if (executionContext.RequestContext.Request.Headers.TryGetValue(HeaderKeys.XAmzServerSideEncryptionHeader, out sseHeaderValue) &&
-                string.Equals(sseHeaderValue, ServerSideEncryptionMethod.AWSKMS.Value, StringComparison.Ordinal))
+                (string.Equals(sseHeaderValue, ServerSideEncryptionMethod.AWSKMS.Value, StringComparison.Ordinal) || string.Equals(sseHeaderValue, ServerSideEncryptionMethod.AWSKMSDSSE.Value, StringComparison.Ordinal)))
             {
                 executionContext.RequestContext.Request.SignatureVersion = SignatureVersion.SigV4;
             }
@@ -121,6 +121,11 @@ namespace Amazon.S3.Internal
             }
             if (requestContext.RequestName == "CopyObjectRequest") {
                 var request = (CopyObjectRequest)requestContext.OriginalRequest;
+                result.Bucket = request.DestinationBucket;
+                return result;
+            }
+            if (requestContext.RequestName == "CopyPartRequest") {
+                var request = (CopyPartRequest)requestContext.OriginalRequest;
                 result.Bucket = request.DestinationBucket;
                 return result;
             }

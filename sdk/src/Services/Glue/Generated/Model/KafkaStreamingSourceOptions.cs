@@ -33,12 +33,15 @@ namespace Amazon.Glue.Model
     /// </summary>
     public partial class KafkaStreamingSourceOptions
     {
+        private string _addRecordTimestamp;
         private string _assign;
         private string _bootstrapServers;
         private string _classification;
         private string _connectionName;
         private string _delimiter;
+        private string _emitConsumerLagMetrics;
         private string _endingOffsets;
+        private bool? _includeHeaders;
         private long? _maxOffsetsPerTrigger;
         private int? _minPartitions;
         private int? _numRetries;
@@ -46,8 +49,30 @@ namespace Amazon.Glue.Model
         private long? _retryIntervalMs;
         private string _securityProtocol;
         private string _startingOffsets;
+        private DateTime? _startingTimestamp;
         private string _subscribePattern;
         private string _topicName;
+
+        /// <summary>
+        /// Gets and sets the property AddRecordTimestamp. 
+        /// <para>
+        /// When this option is set to 'true', the data output will contain an additional column
+        /// named "__src_timestamp" that indicates the time when the corresponding record received
+        /// by the topic. The default value is 'false'. This option is supported in Glue version
+        /// 4.0 or later.
+        /// </para>
+        /// </summary>
+        public string AddRecordTimestamp
+        {
+            get { return this._addRecordTimestamp; }
+            set { this._addRecordTimestamp = value; }
+        }
+
+        // Check to see if AddRecordTimestamp property is set
+        internal bool IsSetAddRecordTimestamp()
+        {
+            return this._addRecordTimestamp != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Assign. 
@@ -143,6 +168,27 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EmitConsumerLagMetrics. 
+        /// <para>
+        /// When this option is set to 'true', for each batch, it will emit the metrics for the
+        /// duration between the oldest record received by the topic and the time it arrives in
+        /// Glue to CloudWatch. The metric's name is "glue.driver.streaming.maxConsumerLagInMs".
+        /// The default value is 'false'. This option is supported in Glue version 4.0 or later.
+        /// </para>
+        /// </summary>
+        public string EmitConsumerLagMetrics
+        {
+            get { return this._emitConsumerLagMetrics; }
+            set { this._emitConsumerLagMetrics = value; }
+        }
+
+        // Check to see if EmitConsumerLagMetrics property is set
+        internal bool IsSetEmitConsumerLagMetrics()
+        {
+            return this._emitConsumerLagMetrics != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property EndingOffsets. 
         /// <para>
         /// The end point when a batch query is ended. Possible values are either <code>"latest"</code>
@@ -159,6 +205,27 @@ namespace Amazon.Glue.Model
         internal bool IsSetEndingOffsets()
         {
             return this._endingOffsets != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property IncludeHeaders. 
+        /// <para>
+        /// Whether to include the Kafka headers. When the option is set to "true", the data output
+        /// will contain an additional column named "glue_streaming_kafka_headers" with type <code>Array[Struct(key:
+        /// String, value: String)]</code>. The default value is "false". This option is available
+        /// in Glue version 3.0 or later only.
+        /// </para>
+        /// </summary>
+        public bool IncludeHeaders
+        {
+            get { return this._includeHeaders.GetValueOrDefault(); }
+            set { this._includeHeaders = value; }
+        }
+
+        // Check to see if IncludeHeaders property is set
+        internal bool IsSetIncludeHeaders()
+        {
+            return this._includeHeaders.HasValue; 
         }
 
         /// <summary>
@@ -300,6 +367,32 @@ namespace Amazon.Glue.Model
         internal bool IsSetStartingOffsets()
         {
             return this._startingOffsets != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property StartingTimestamp. 
+        /// <para>
+        /// The timestamp of the record in the Kafka topic to start reading data from. The possible
+        /// values are a timestamp string in UTC format of the pattern <code>yyyy-mm-ddTHH:MM:SSZ</code>
+        /// (where Z represents a UTC timezone offset with a +/-. For example: "2023-04-04T08:00:00+08:00").
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// Only one of <code>StartingTimestamp</code> or <code>StartingOffsets</code> must be
+        /// set.
+        /// </para>
+        /// </summary>
+        public DateTime StartingTimestamp
+        {
+            get { return this._startingTimestamp.GetValueOrDefault(); }
+            set { this._startingTimestamp = value; }
+        }
+
+        // Check to see if StartingTimestamp property is set
+        internal bool IsSetStartingTimestamp()
+        {
+            return this._startingTimestamp.HasValue; 
         }
 
         /// <summary>

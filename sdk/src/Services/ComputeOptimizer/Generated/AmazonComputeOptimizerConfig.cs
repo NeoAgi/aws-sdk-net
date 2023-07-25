@@ -32,16 +32,26 @@ namespace Amazon.ComputeOptimizer
     public partial class AmazonComputeOptimizerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.102.15");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Compute Optimizer";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonComputeOptimizerConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonComputeOptimizerDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Compute Optimizer";
             this.AuthenticationServiceName = "compute-optimizer";
             this.EndpointProvider = new AmazonComputeOptimizerEndpointProvider();
         }

@@ -21,6 +21,10 @@
     <pattern>[\w\d]{1,50}</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SsmSap.Model.GetApplicationRequest.AppRegistryArn</property>
+    <pattern>arn:aws:servicecatalog:[a-z0-9:\/-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SsmSap.Model.GetComponentRequest.ApplicationId</property>
     <pattern>[\w\d]{1,50}</pattern>
   </property-value-rule>
@@ -104,6 +108,23 @@
     <pattern>.{16,1024}</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SsmSap.Model.ListOperationsRequest.ApplicationId</property>
+    <pattern>[\w\d]{1,50}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.ListOperationsRequest.MaxResults</property>
+    <min>1</min>
+    <max>50</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.ListOperationsRequest.NextToken</property>
+    <pattern>.{16,1024}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.ListOperationsResponse.NextToken</property>
+    <pattern>.{16,1024}</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SsmSap.Model.ListTagsForResourceRequest.ResourceArn</property>
     <pattern>arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+</pattern>
   </property-value-rule>
@@ -129,6 +150,14 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SsmSap.Model.RegisterApplicationResponse.OperationId</property>
+    <pattern>[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.StartApplicationRefreshRequest.ApplicationId</property>
+    <pattern>[\w\d]{1,50}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.StartApplicationRefreshResponse.OperationId</property>
     <pattern>[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?</pattern>
   </property-value-rule>
   <property-value-rule>
@@ -178,12 +207,24 @@
     <pattern>[\w\d]{1,50}</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.SsmSap.Model.Component.Arn</property>
+    <pattern>arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.SsmSap.Model.Component.ComponentId</property>
+    <pattern>[\w\d-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.Component.ParentComponent</property>
     <pattern>[\w\d-]+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SsmSap.Model.ComponentSummary.ApplicationId</property>
     <pattern>[\w\d]{1,50}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.ComponentSummary.Arn</property>
+    <pattern>arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SsmSap.Model.ComponentSummary.ComponentId</property>
@@ -220,6 +261,16 @@
   <property-value-rule>
     <property>Amazon.SsmSap.Model.DatabaseSummary.DatabaseId</property>
     <pattern>.*[\w\d]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.Filter.Name</property>
+    <min>1</min>
+    <max>32</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.SsmSap.Model.Filter.Value</property>
+    <min>1</min>
+    <max>64</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.SsmSap.Model.Operation.Id</property>

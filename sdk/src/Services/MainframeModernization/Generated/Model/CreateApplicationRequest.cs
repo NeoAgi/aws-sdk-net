@@ -41,6 +41,7 @@ namespace Amazon.MainframeModernization.Model
         private EngineType _engineType;
         private string _kmsKeyId;
         private string _name;
+        private string _roleArn;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
 
         /// <summary>
@@ -158,6 +159,26 @@ namespace Amazon.MainframeModernization.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RoleArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) that identifies a role that the application uses to
+        /// access Amazon Web Services resources that are not part of the application or are in
+        /// a different Amazon Web Services account.
+        /// </para>
+        /// </summary>
+        public string RoleArn
+        {
+            get { return this._roleArn; }
+            set { this._roleArn = value; }
+        }
+
+        // Check to see if RoleArn property is set
+        internal bool IsSetRoleArn()
+        {
+            return this._roleArn != null;
         }
 
         /// <summary>

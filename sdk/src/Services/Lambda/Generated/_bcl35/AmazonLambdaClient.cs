@@ -212,8 +212,7 @@ namespace Amazon.Lambda
         /// </summary>
         /// <param name="config">The AmazonLambdaClient Configuration Object</param>
         public AmazonLambdaClient(AmazonLambdaConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonLambdaClient with AWS Credentials
         /// </summary>
@@ -556,7 +555,7 @@ namespace Amazon.Lambda
         #region  CreateAlias
 
         /// <summary>
-        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>
+        /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>
         /// for a Lambda function version. Use aliases to provide clients with a function identifier
         /// that you can update to invoke a different version.
         /// 
@@ -736,6 +735,11 @@ namespace Amazon.Lambda
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html"> Amazon
+        /// DocumentDB</a> 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The following error handling options are available only for stream sources (DynamoDB
@@ -801,6 +805,11 @@ namespace Amazon.Lambda
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
         /// Apache Kafka</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+        /// Amazon DocumentDB</a> 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -1103,7 +1112,7 @@ namespace Amazon.Lambda
         #region  DeleteAlias
 
         /// <summary>
-        /// Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+        /// Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAlias service method.</param>
         /// 
@@ -1252,6 +1261,9 @@ namespace Amazon.Lambda
         /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
         /// One of the parameters in the request is not valid.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you tried to
         /// update an event source mapping in the CREATING state, or you tried to delete an event
@@ -1317,7 +1329,8 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
-        /// parameter. Otherwise, all versions and aliases are deleted.
+        /// parameter. Otherwise, all versions and aliases are deleted. This doesn't require the
+        /// user to have explicit permissions for <a>DeleteAlias</a>.
         /// 
         ///  
         /// <para>
@@ -1356,7 +1369,8 @@ namespace Amazon.Lambda
 
         /// <summary>
         /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
-        /// parameter. Otherwise, all versions and aliases are deleted.
+        /// parameter. Otherwise, all versions and aliases are deleted. This doesn't require the
+        /// user to have explicit permissions for <a>DeleteAlias</a>.
         /// 
         ///  
         /// <para>
@@ -1916,7 +1930,7 @@ namespace Amazon.Lambda
         #region  GetAlias
 
         /// <summary>
-        /// Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+        /// Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAlias service method.</param>
         /// 
@@ -2936,6 +2950,78 @@ namespace Amazon.Lambda
 
         #endregion
         
+        #region  GetRuntimeManagementConfig
+
+        /// <summary>
+        /// Retrieves the runtime management configuration for a function's version. If the runtime
+        /// update mode is <b>Manual</b>, this includes the ARN of the runtime version and the
+        /// runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
+        /// this includes the runtime update mode and <code>null</code> is returned for the ARN.
+        /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime
+        /// updates</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetRuntimeManagementConfig service method.</param>
+        /// 
+        /// <returns>The response from the GetRuntimeManagementConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda
+        /// quotas</a>.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetRuntimeManagementConfig">REST API Reference for GetRuntimeManagementConfig Operation</seealso>
+        public virtual GetRuntimeManagementConfigResponse GetRuntimeManagementConfig(GetRuntimeManagementConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetRuntimeManagementConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetRuntimeManagementConfigResponseUnmarshaller.Instance;
+
+            return Invoke<GetRuntimeManagementConfigResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetRuntimeManagementConfig operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetRuntimeManagementConfig operation on AmazonLambdaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetRuntimeManagementConfig
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetRuntimeManagementConfig">REST API Reference for GetRuntimeManagementConfig Operation</seealso>
+        public virtual IAsyncResult BeginGetRuntimeManagementConfig(GetRuntimeManagementConfigRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetRuntimeManagementConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetRuntimeManagementConfigResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetRuntimeManagementConfig operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetRuntimeManagementConfig.</param>
+        /// 
+        /// <returns>Returns a  GetRuntimeManagementConfigResult from Lambda.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/GetRuntimeManagementConfig">REST API Reference for GetRuntimeManagementConfig Operation</seealso>
+        public virtual GetRuntimeManagementConfigResponse EndGetRuntimeManagementConfig(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetRuntimeManagementConfigResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  Invoke
 
         /// <summary>
@@ -3062,6 +3148,10 @@ namespace Amazon.Lambda
         /// Lambda couldn't decrypt the environment variables because the KMS key was not found.
         /// Check the function's KMS key settings.
         /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.RecursiveInvocationException">
+        /// Lambda has detected your function being invoked in a recursive loop with other Amazon
+        /// Web Services resources and stopped your function's invocation.
+        /// </exception>
         /// <exception cref="Amazon.Lambda.Model.RequestTooLargeException">
         /// The request payload exceeded the <code>Invoke</code> request body JSON input quota.
         /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
@@ -3081,15 +3171,15 @@ namespace Amazon.Lambda
         /// The Lambda service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SnapStartException">
-        /// The runtime restore hook encountered an error. For more information, check the Amazon
-        /// CloudWatch logs.
+        /// The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime
+        /// hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SnapStartNotReadyException">
         /// Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function
         /// state</a> becomes <code>Active</code>.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SnapStartTimeoutException">
-        /// The runtime restore hook failed to complete within the timeout limit (2 seconds).
+        /// Lambda couldn't restore the snapshot within the timeout limit.
         /// </exception>
         /// <exception cref="Amazon.Lambda.Model.SubnetIPAddressLimitReachedException">
         /// Lambda couldn't set up VPC access for the Lambda function because one or more configured
@@ -3227,10 +3317,183 @@ namespace Amazon.Lambda
 
         #endregion
         
+        #region  InvokeWithResponseStream
+
+        /// <summary>
+        /// Configure your Lambda functions to stream response payloads back to clients. For more
+        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring
+        /// a Lambda function to stream responses</a>.
+        /// 
+        ///  
+        /// <para>
+        /// This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a>
+        /// action. For details on how to set up permissions for cross-account invocations, see
+        /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting
+        /// function access to other accounts</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the InvokeWithResponseStream service method.</param>
+        /// 
+        /// <returns>The response from the InvokeWithResponseStream service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.EC2AccessDeniedException">
+        /// Need additional permissions to configure VPC settings.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EC2ThrottledException">
+        /// Amazon EC2 throttled Lambda during Lambda function initialization using the execution
+        /// role provided for the function.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EC2UnexpectedException">
+        /// Lambda received an unexpected Amazon EC2 client exception while setting up for the
+        /// Lambda function.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EFSIOException">
+        /// An error occurred when reading from or writing to a connected file system.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EFSMountConnectivityException">
+        /// The Lambda function couldn't make a network connection to the configured file system.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EFSMountFailureException">
+        /// The Lambda function couldn't mount the configured file system due to a permission
+        /// or configuration issue.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.EFSMountTimeoutException">
+        /// The Lambda function made a network connection to the configured file system, but the
+        /// mount operation timed out.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ENILimitReachedException">
+        /// Lambda couldn't create an elastic network interface in the VPC, specified as part
+        /// of Lambda function configuration, because the limit for network interfaces has been
+        /// reached. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+        /// quotas</a>.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidRequestContentException">
+        /// The request body could not be parsed as JSON.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidRuntimeException">
+        /// The runtime or runtime version specified is not supported.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidSecurityGroupIDException">
+        /// The security group ID provided in the Lambda function VPC configuration is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidSubnetIDException">
+        /// The subnet ID provided in the Lambda function VPC configuration is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.InvalidZipFileException">
+        /// Lambda could not unzip the deployment package.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.KMSAccessDeniedException">
+        /// Lambda couldn't decrypt the environment variables because KMS access was denied. Check
+        /// the Lambda function's KMS permissions.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.KMSDisabledException">
+        /// Lambda couldn't decrypt the environment variables because the KMS key used is disabled.
+        /// Check the Lambda function's KMS key settings.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.KMSInvalidStateException">
+        /// Lambda couldn't decrypt the environment variables because the state of the KMS key
+        /// used is not valid for Decrypt. Check the function's KMS key settings.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.KMSNotFoundException">
+        /// Lambda couldn't decrypt the environment variables because the KMS key was not found.
+        /// Check the function's KMS key settings.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.RecursiveInvocationException">
+        /// Lambda has detected your function being invoked in a recursive loop with other Amazon
+        /// Web Services resources and stopped your function's invocation.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.RequestTooLargeException">
+        /// The request payload exceeded the <code>Invoke</code> request body JSON input quota.
+        /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda
+        /// quotas</a>.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotReadyException">
+        /// The function is inactive and its VPC connection is no longer available. Wait for the
+        /// VPC connection to reestablish and try again.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.SnapStartException">
+        /// The <code>afterRestore()</code> <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-runtime-hooks.html">runtime
+        /// hook</a> encountered an error. For more information, check the Amazon CloudWatch logs.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.SnapStartNotReadyException">
+        /// Lambda is initializing your function. You can invoke the function when the <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">function
+        /// state</a> becomes <code>Active</code>.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.SnapStartTimeoutException">
+        /// Lambda couldn't restore the snapshot within the timeout limit.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.SubnetIPAddressLimitReachedException">
+        /// Lambda couldn't set up VPC access for the Lambda function because one or more configured
+        /// subnets has no available IP addresses.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda
+        /// quotas</a>.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.UnsupportedMediaTypeException">
+        /// The content type of the <code>Invoke</code> request body is not JSON.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeWithResponseStream">REST API Reference for InvokeWithResponseStream Operation</seealso>
+        public virtual InvokeWithResponseStreamResponse InvokeWithResponseStream(InvokeWithResponseStreamRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = InvokeWithResponseStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = InvokeWithResponseStreamResponseUnmarshaller.Instance;
+
+            return Invoke<InvokeWithResponseStreamResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the InvokeWithResponseStream operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the InvokeWithResponseStream operation on AmazonLambdaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndInvokeWithResponseStream
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeWithResponseStream">REST API Reference for InvokeWithResponseStream Operation</seealso>
+        public virtual IAsyncResult BeginInvokeWithResponseStream(InvokeWithResponseStreamRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = InvokeWithResponseStreamRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = InvokeWithResponseStreamResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  InvokeWithResponseStream operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginInvokeWithResponseStream.</param>
+        /// 
+        /// <returns>Returns a  InvokeWithResponseStreamResult from Lambda.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/InvokeWithResponseStream">REST API Reference for InvokeWithResponseStream Operation</seealso>
+        public virtual InvokeWithResponseStreamResponse EndInvokeWithResponseStream(IAsyncResult asyncResult)
+        {
+            return EndInvoke<InvokeWithResponseStreamResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListAliases
 
         /// <summary>
-        /// Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+        /// Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">aliases</a>
         /// for a Lambda function.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAliases service method.</param>
@@ -3513,8 +3776,8 @@ namespace Amazon.Lambda
         /// <para>
         /// The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a>
         /// fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus,
-        /// LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use
-        /// <a>GetFunction</a>.
+        /// LastUpdateStatusReason, LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function
+        /// or version, use <a>GetFunction</a>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -3551,8 +3814,8 @@ namespace Amazon.Lambda
         /// <para>
         /// The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a>
         /// fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus,
-        /// LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use
-        /// <a>GetFunction</a>.
+        /// LastUpdateStatusReason, LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function
+        /// or version, use <a>GetFunction</a>.
         /// </para>
         ///  </note>
         /// </summary>
@@ -4586,6 +4849,78 @@ namespace Amazon.Lambda
 
         #endregion
         
+        #region  PutRuntimeManagementConfig
+
+        /// <summary>
+        /// Sets the runtime management configuration for a function's version. For more information,
+        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime
+        /// updates</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutRuntimeManagementConfig service method.</param>
+        /// 
+        /// <returns>The response from the PutRuntimeManagementConfig service method, as returned by Lambda.</returns>
+        /// <exception cref="Amazon.Lambda.Model.InvalidParameterValueException">
+        /// One of the parameters in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceConflictException">
+        /// The resource already exists, or another operation is in progress.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ResourceNotFoundException">
+        /// The resource specified in the request does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.ServiceException">
+        /// The Lambda service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Lambda.Model.TooManyRequestsException">
+        /// The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda
+        /// quotas</a>.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PutRuntimeManagementConfig">REST API Reference for PutRuntimeManagementConfig Operation</seealso>
+        public virtual PutRuntimeManagementConfigResponse PutRuntimeManagementConfig(PutRuntimeManagementConfigRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRuntimeManagementConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRuntimeManagementConfigResponseUnmarshaller.Instance;
+
+            return Invoke<PutRuntimeManagementConfigResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutRuntimeManagementConfig operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutRuntimeManagementConfig operation on AmazonLambdaClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutRuntimeManagementConfig
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PutRuntimeManagementConfig">REST API Reference for PutRuntimeManagementConfig Operation</seealso>
+        public virtual IAsyncResult BeginPutRuntimeManagementConfig(PutRuntimeManagementConfigRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutRuntimeManagementConfigRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutRuntimeManagementConfigResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutRuntimeManagementConfig operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutRuntimeManagementConfig.</param>
+        /// 
+        /// <returns>Returns a  PutRuntimeManagementConfigResult from Lambda.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lambda-2015-03-31/PutRuntimeManagementConfig">REST API Reference for PutRuntimeManagementConfig Operation</seealso>
+        public virtual PutRuntimeManagementConfigResponse EndPutRuntimeManagementConfig(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutRuntimeManagementConfigResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  RemoveLayerVersionPermission
 
         /// <summary>
@@ -4877,7 +5212,7 @@ namespace Amazon.Lambda
         #region  UpdateAlias
 
         /// <summary>
-        /// Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+        /// Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAlias service method.</param>
         /// 
@@ -5054,6 +5389,11 @@ namespace Amazon.Lambda
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a>
         /// 
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html"> Amazon
+        /// DocumentDB</a> 
+        /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The following error handling options are available only for stream sources (DynamoDB
@@ -5119,6 +5459,11 @@ namespace Amazon.Lambda
         /// <para>
         ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
         /// Apache Kafka</a> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html#docdb-configuration">
+        /// Amazon DocumentDB</a> 
         /// </para>
         ///  </li> </ul>
         /// </summary>

@@ -34,12 +34,14 @@ namespace Amazon.MainframeModernization.Model
     public partial class GetBatchJobExecutionResponse : AmazonWebServiceResponse
     {
         private string _applicationId;
+        private BatchJobIdentifier _batchJobIdentifier;
         private DateTime? _endTime;
         private string _executionId;
         private string _jobId;
         private string _jobName;
         private BatchJobType _jobType;
         private string _jobUser;
+        private string _returnCode;
         private DateTime? _startTime;
         private BatchJobExecutionStatus _status;
         private string _statusReason;
@@ -61,6 +63,24 @@ namespace Amazon.MainframeModernization.Model
         internal bool IsSetApplicationId()
         {
             return this._applicationId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property BatchJobIdentifier. 
+        /// <para>
+        /// The unique identifier of this batch job.
+        /// </para>
+        /// </summary>
+        public BatchJobIdentifier BatchJobIdentifier
+        {
+            get { return this._batchJobIdentifier; }
+            set { this._batchJobIdentifier = value; }
+        }
+
+        // Check to see if BatchJobIdentifier property is set
+        internal bool IsSetBatchJobIdentifier()
+        {
+            return this._batchJobIdentifier != null;
         }
 
         /// <summary>
@@ -170,6 +190,26 @@ namespace Amazon.MainframeModernization.Model
         internal bool IsSetJobUser()
         {
             return this._jobUser != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReturnCode. 
+        /// <para>
+        /// The batch job return code from either the Blu Age or Micro Focus runtime engines.
+        /// For more information, see <a href="https://www.ibm.com/docs/en/was/8.5.5?topic=model-batch-return-codes">Batch
+        /// return codes</a> in the <i>IBM WebSphere Application Server</i> documentation.
+        /// </para>
+        /// </summary>
+        public string ReturnCode
+        {
+            get { return this._returnCode; }
+            set { this._returnCode = value; }
+        }
+
+        // Check to see if ReturnCode property is set
+        internal bool IsSetReturnCode()
+        {
+            return this._returnCode != null;
         }
 
         /// <summary>

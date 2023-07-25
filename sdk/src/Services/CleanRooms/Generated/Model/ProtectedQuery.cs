@@ -29,7 +29,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CleanRooms.Model
 {
     /// <summary>
-    /// The parameters for an AWS Clean Rooms protected query.
+    /// The parameters for an Clean Rooms protected query.
     /// </summary>
     public partial class ProtectedQuery
     {
@@ -181,7 +181,7 @@ namespace Amazon.CleanRooms.Model
         /// The protected query SQL parameters.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public ProtectedQuerySQLParameters SqlParameters
         {
             get { return this._sqlParameters; }

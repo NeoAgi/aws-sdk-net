@@ -32,16 +32,26 @@ namespace Amazon.AppRegistry
     public partial class AmazonAppRegistryConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.38");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Service Catalog AppRegistry";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonAppRegistryConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAppRegistryDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Service Catalog AppRegistry";
             this.AuthenticationServiceName = "servicecatalog";
             this.EndpointProvider = new AmazonAppRegistryEndpointProvider();
         }

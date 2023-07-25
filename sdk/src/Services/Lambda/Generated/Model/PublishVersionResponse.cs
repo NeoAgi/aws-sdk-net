@@ -57,6 +57,7 @@ namespace Amazon.Lambda.Model
         private string _revisionId;
         private string _role;
         private Runtime _runtime;
+        private RuntimeVersionConfig _runtimeVersionConfig;
         private string _signingJobArn;
         private string _signingProfileVersionArn;
         private SnapStartResponse _snapStart;
@@ -296,8 +297,10 @@ namespace Amazon.Lambda.Model
         /// <summary>
         /// Gets and sets the property KMSKeyArn. 
         /// <para>
-        /// The KMS key that's used to encrypt the function's environment variables. This key
-        /// is returned only if you've configured a customer managed key.
+        /// The KMS key that's used to encrypt the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
+        /// variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
+        /// SnapStart</a> is activated, this key is also used to encrypt the function's snapshot.
+        /// This key is returned only if you've configured a customer managed key.
         /// </para>
         /// </summary>
         public string KMSKeyArn
@@ -499,7 +502,13 @@ namespace Amazon.Lambda.Model
         /// <summary>
         /// Gets and sets the property Runtime. 
         /// <para>
-        /// The runtime environment for the Lambda function.
+        /// The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.
+        /// Runtime is required if the deployment package is a .zip file archive.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
+        /// deprecation policy</a>.
         /// </para>
         /// </summary>
         public Runtime Runtime
@@ -512,6 +521,24 @@ namespace Amazon.Lambda.Model
         internal bool IsSetRuntime()
         {
             return this._runtime != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property RuntimeVersionConfig. 
+        /// <para>
+        /// The ARN of the runtime and any errors that occured.
+        /// </para>
+        /// </summary>
+        public RuntimeVersionConfig RuntimeVersionConfig
+        {
+            get { return this._runtimeVersionConfig; }
+            set { this._runtimeVersionConfig = value; }
+        }
+
+        // Check to see if RuntimeVersionConfig property is set
+        internal bool IsSetRuntimeVersionConfig()
+        {
+            return this._runtimeVersionConfig != null;
         }
 
         /// <summary>

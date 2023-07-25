@@ -54,6 +54,7 @@ namespace Amazon.Route53Domains.Model
         /// Provides detailed contact information.
         /// </para>
         /// </summary>
+        [AWSProperty(Sensitive=true)]
         public ContactDetail AdminContact
         {
             get { return this._adminContact; }
@@ -69,7 +70,8 @@ namespace Amazon.Route53Domains.Model
         /// <summary>
         /// Gets and sets the property Consent. 
         /// <para>
-        ///  Customer's consent for the owner change request. 
+        ///  Customer's consent for the owner change request. Required if the domain is not free
+        /// (consent price is more than $0.00).
         /// </para>
         /// </summary>
         public Consent Consent
@@ -109,6 +111,7 @@ namespace Amazon.Route53Domains.Model
         /// Provides detailed contact information.
         /// </para>
         /// </summary>
+        [AWSProperty(Sensitive=true)]
         public ContactDetail RegistrantContact
         {
             get { return this._registrantContact; }
@@ -127,6 +130,7 @@ namespace Amazon.Route53Domains.Model
         /// Provides detailed contact information.
         /// </para>
         /// </summary>
+        [AWSProperty(Sensitive=true)]
         public ContactDetail TechContact
         {
             get { return this._techContact; }

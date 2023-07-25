@@ -35,14 +35,25 @@ namespace Amazon.WellArchitected.Model
     ///  
     /// <para>
     /// The owner of a workload can share the workload with other Amazon Web Services accounts,
-    /// IAM users, an organization, and organizational units (OUs) in the same Amazon Web
-    /// Services Region. Only the owner of a workload can delete it.
+    /// users, an organization, and organizational units (OUs) in the same Amazon Web Services
+    /// Region. Only the owner of a workload can delete it.
     /// </para>
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining
     /// a Workload</a> in the <i>Well-Architected Tool User Guide</i>.
     /// </para>
+    ///  <important> 
+    /// <para>
+    /// Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified
+    /// when creating a workload.
+    /// </para>
+    ///  
+    /// <para>
+    /// You also must specify <code>ReviewOwner</code>, even though the parameter is listed
+    /// as not being required in the following section. 
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateWorkloadRequest : AmazonWellArchitectedRequest
     {
@@ -60,6 +71,7 @@ namespace Amazon.WellArchitected.Model
         private List<string> _nonAwsRegions = new List<string>();
         private string _notes;
         private List<string> _pillarPriorities = new List<string>();
+        private List<string> _profileArns = new List<string>();
         private string _reviewOwner;
         private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private string _workloadName;
@@ -134,6 +146,7 @@ namespace Amazon.WellArchitected.Model
         /// <summary>
         /// Gets and sets the property ClientRequestToken.
         /// </summary>
+        [AWSProperty(Min=1, Max=2048)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -289,6 +302,25 @@ namespace Amazon.WellArchitected.Model
         internal bool IsSetPillarPriorities()
         {
             return this._pillarPriorities != null && this._pillarPriorities.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ProfileArns. 
+        /// <para>
+        /// The list of profile ARNs associated with the workload.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Max=1)]
+        public List<string> ProfileArns
+        {
+            get { return this._profileArns; }
+            set { this._profileArns = value; }
+        }
+
+        // Check to see if ProfileArns property is set
+        internal bool IsSetProfileArns()
+        {
+            return this._profileArns != null && this._profileArns.Count > 0; 
         }
 
         /// <summary>

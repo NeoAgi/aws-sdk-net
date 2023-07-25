@@ -16,12 +16,14 @@ using Amazon;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.Runtime.Internal;
+using AWSSDK.UnitTests.TestTools;
 using AWSSDK_DotNet.CommonTest.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 
 namespace AWSSDK.UnitTests
 {
@@ -37,7 +39,7 @@ namespace AWSSDK.UnitTests
         public SharedCredentialsFile CredentialsFile { get; private set; }
 
         public SharedCredentialsFileTestFixture(string credentialsFileContents, string configFileContents = null,
-            bool createEmptyFile = false, bool isSharedCredentialsVarProvided = false)
+            bool createEmptyFile = false, bool isSharedCredentialsVarProvided = false, bool isSharedConfigVarProvided = false)
         {
             PrepareTempFilePaths();
 
@@ -57,15 +59,22 @@ namespace AWSSDK.UnitTests
             {
                 File.WriteAllText(ConfigFilePath, configFileContents);
             }
-            if (isSharedCredentialsVarProvided)
+            // In order to test the shared creds environment variable we must guarantee the static constructor gets called again
+            // This is because the logic for checking the shared creds env variable is in the static constructor.
+            if (isSharedCredentialsVarProvided || isSharedConfigVarProvided)
             {
-                // In order to test the shared creds environment variable we must guarantee the static constructor gets called again
-                // This is because the logic for checking the shared creds env variable is in the static constructor.
-                Environment.SetEnvironmentVariable("AWS_SHARED_CREDENTIALS_FILE", CredentialsFilePath);
+                if (isSharedCredentialsVarProvided)
+                {
+                    Environment.SetEnvironmentVariable("AWS_SHARED_CREDENTIALS_FILE", CredentialsFilePath);
+                }
+                if (isSharedConfigVarProvided)
+                {
+                    Environment.SetEnvironmentVariable("AWS_CONFIG_FILE", ConfigFilePath);
+                }
                 Type sharedCredentialsFile = typeof(SharedCredentialsFile);
                 sharedCredentialsFile.TypeInitializer.Invoke(null,null);
             }
-            
+
             CredentialsFile = new SharedCredentialsFile(CredentialsFilePath);
         }
 
@@ -90,6 +99,10 @@ namespace AWSSDK.UnitTests
         {
             return ReadAndAssertProfile(profileName, expectedProfileOptions, null, null);
         }
+        public CredentialProfile ReadAndAssertProfile(string profileName,CredentialProfileOptions expectedProfileOptions, Dictionary<string,Dictionary<string,string>> expectedNestedProperties)
+        {
+            return ReadAndAssertProfile(profileName, expectedProfileOptions, null, null, null, expectedNestedProperties);
+        }
 
         public CredentialProfile ReadAndAssertProfile(
             string profileName, 
@@ -108,13 +121,43 @@ namespace AWSSDK.UnitTests
                     region: expectedRegion,
                     endpointDiscoveryEnabled: null,
                     retryMode: null,
-                    maxAttempts: null);
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null,
+                    nestedProperties: null);
 
             var actualProfile = TestTryGetProfile(profileName, true, expectedProfile.CanCreateAWSCredentials);
             Assert.AreEqual(expectedProfile, actualProfile);
             return actualProfile;
         }
-
+        public CredentialProfile ReadAndAssertProfile(
+            string profileName,
+            CredentialProfileOptions expectedProfileOptions,
+            Dictionary<string, string> expectedProperties,
+            RegionEndpoint expectedRegion,
+            Guid? expectedUniqueKey,
+            Dictionary<string, Dictionary<string, string>> expectedNestedProperties
+            )
+        {
+            var expectedProfile = CredentialProfileTestHelper.GetCredentialProfile(
+                    uniqueKey: expectedUniqueKey,
+                    profileName: profileName,
+                    options: expectedProfileOptions,
+                    properties: expectedProperties,
+                    defaultConfigurationModeName: null,
+                    region: expectedRegion,
+                    endpointDiscoveryEnabled: null,
+                    retryMode: null,
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null,
+                    nestedProperties: expectedNestedProperties
+                );
+                var actualProfile = TestTryGetProfile(profileName, true, expectedProfile.CanCreateAWSCredentials);
+                Assert.AreEqual (expectedProfile, actualProfile);
+                Assert.IsTrue(ComparisonUtils.CompareDictionariesOfDictionaries(expectedProfile.NestedProperties, actualProfile.NestedProperties));
+                return actualProfile;
+        }
         public CredentialProfile TestTryGetProfile(string profileName, bool expectProfile, bool expectValidProfile)
         {
             CredentialProfile profile = null;
@@ -166,7 +209,10 @@ namespace AWSSDK.UnitTests
                     region: region,
                     endpointDiscoveryEnabled: null,
                     retryMode: null,
-                    maxAttempts: null));
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl:null,
+                    nestedProperties: null));
 
             AssertWriteProfile(profileName, profileOptions, properties, null, null, expectedFileContents);
         }
@@ -189,7 +235,9 @@ namespace AWSSDK.UnitTests
                     region: region,
                     endpointDiscoveryEnabled: null,
                     retryMode: null,
-                    maxAttempts: null));
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null, nestedProperties: null));
 
             AssertCredentialsFileContents(expectedFileContents);
         }
@@ -215,7 +263,10 @@ namespace AWSSDK.UnitTests
                     region: region,
                     endpointDiscoveryEnabled: endpointDiscoveryEnabled,
                     retryMode: retryMode,
-                    maxAttempts: maxAttempts));
+                    maxAttempts: maxAttempts,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null,
+                    nestedProperties: null));
 
             AssertCredentialsFileContents(expectedFileContents);
         }
@@ -232,7 +283,10 @@ namespace AWSSDK.UnitTests
                     region: null,
                     endpointDiscoveryEnabled: null,
                     retryMode: retryMode,
-                    maxAttempts: null));
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null,
+                    nestedProperties:null));
 
             AssertCredentialsFileContents(expectedFileContents);
         }
@@ -249,14 +303,43 @@ namespace AWSSDK.UnitTests
                     region: null,
                     endpointDiscoveryEnabled: null,
                     retryMode: null,
-                    maxAttempts: maxAttempts));
+                    maxAttempts: maxAttempts,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null,
+                    nestedProperties:null));
 
             AssertCredentialsFileContents(expectedFileContents);
         }
 
+        public void AssertSsoSplitProfileWithCredentials(string profileName, CredentialProfileOptions profileOptions, string expectedCredentialsContents, string expectedConfigContents)
+        {
+            CredentialsFile.RegisterProfile(
+                CredentialProfileTestHelper.GetCredentialProfile(
+                    uniqueKey: null,
+                    profileName: profileName,
+                    options: profileOptions,
+                    properties: null,
+                    defaultConfigurationModeName: null,
+                    region: null,
+                    endpointDiscoveryEnabled: null,
+                    retryMode: null,
+                    maxAttempts: null,
+                    ignoreConfiguredEndpointUrls: null,
+                    endpointUrl: null, 
+                    nestedProperties: null));
+
+            AssertCredentialsFileContents(expectedCredentialsContents);
+            AssertConfigsFileContents(expectedConfigContents);
+        }
+
         public void AssertCredentialsFileContents(string expectedContents)
         {
-            Assert.AreEqual(expectedContents, File.ReadAllText(CredentialsFilePath));
+            Assert.AreEqual(expectedContents.Trim(), File.ReadAllText(CredentialsFilePath).Trim());
+        }
+
+        public void AssertConfigsFileContents(string expectedContents)
+        {
+            Assert.AreEqual(expectedContents.Trim(), File.ReadAllText(ConfigFilePath).Trim());
         }
 
         public void Dispose()

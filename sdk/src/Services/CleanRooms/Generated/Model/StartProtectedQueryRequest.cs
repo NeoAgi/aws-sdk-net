@@ -30,7 +30,7 @@ namespace Amazon.CleanRooms.Model
 {
     /// <summary>
     /// Container for the parameters to the StartProtectedQuery operation.
-    /// Creates a protected query that is started by AWS Clean Rooms.
+    /// Creates a protected query that is started by Clean Rooms .
     /// </summary>
     public partial class StartProtectedQueryRequest : AmazonCleanRoomsRequest
     {
@@ -84,7 +84,7 @@ namespace Amazon.CleanRooms.Model
         /// The protected SQL query parameters.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public ProtectedQuerySQLParameters SqlParameters
         {
             get { return this._sqlParameters; }

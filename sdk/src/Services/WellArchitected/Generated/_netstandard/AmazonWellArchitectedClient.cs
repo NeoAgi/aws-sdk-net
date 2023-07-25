@@ -108,7 +108,7 @@ namespace Amazon.WellArchitected
         /// </summary>
         /// <param name="config">The AmazonWellArchitectedClient Configuration Object</param>
         public AmazonWellArchitectedClient(AmazonWellArchitectedConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>
@@ -319,7 +319,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -345,6 +345,58 @@ namespace Amazon.WellArchitected
 
         #endregion
         
+        #region  AssociateProfiles
+
+        internal virtual AssociateProfilesResponse AssociateProfiles(AssociateProfilesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateProfilesResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateProfilesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associate a profile with a workload.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateProfiles service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateProfiles service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/AssociateProfiles">REST API Reference for AssociateProfiles Operation</seealso>
+        public virtual Task<AssociateProfilesResponse> AssociateProfilesAsync(AssociateProfilesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateProfilesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateProfilesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateLensShare
 
         internal virtual CreateLensShareResponse CreateLensShare(CreateLensShareRequest request)
@@ -363,9 +415,24 @@ namespace Amazon.WellArchitected
         /// 
         ///  
         /// <para>
-        /// The owner of a lens can share it with other Amazon Web Services accounts, IAM users,
-        /// an organization, and organizational units (OUs) in the same Amazon Web Services Region.
-        /// Shared access to a lens is not removed until the lens invitation is deleted.
+        /// The owner of a lens can share it with other Amazon Web Services accounts, users, an
+        /// organization, and organizational units (OUs) in the same Amazon Web Services Region.
+        /// Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot
+        /// be shared.
+        /// </para>
+        ///  
+        /// <para>
+        ///  Shared access to a lens is not removed until the lens invitation is deleted.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you share a lens with an organization or OU, all accounts in the organization or
+        /// OU are granted access to the lens.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-sharing.html">Sharing
+        /// a custom lens</a> in the <i>Well-Architected Tool User Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -391,7 +458,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -442,9 +509,10 @@ namespace Amazon.WellArchitected
         /// </para>
         ///  
         /// <para>
-        /// After a lens has been imported, create a new lens version to publish it. The owner
-        /// of a lens can share the lens with other Amazon Web Services accounts and IAM users
-        /// in the same Amazon Web Services Region. Only the owner of a lens can delete it. 
+        /// Use this operation to publish a new lens version after you have imported a lens. The
+        /// <code>LensAlias</code> is used to identify the lens to be published. The owner of
+        /// a lens can share the lens with other Amazon Web Services accounts and users in the
+        /// same Amazon Web Services Region. Only the owner of a lens can delete it. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLensVersion service method.</param>
@@ -457,7 +525,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -512,7 +580,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -541,6 +609,113 @@ namespace Amazon.WellArchitected
 
         #endregion
         
+        #region  CreateProfile
+
+        internal virtual CreateProfileResponse CreateProfile(CreateProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateProfileResponseUnmarshaller.Instance;
+
+            return Invoke<CreateProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Create a profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateProfile service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ServiceQuotaExceededException">
+        /// The user has reached their resource quota.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/CreateProfile">REST API Reference for CreateProfile Operation</seealso>
+        public virtual Task<CreateProfileResponse> CreateProfileAsync(CreateProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateProfileResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateProfileShare
+
+        internal virtual CreateProfileShareResponse CreateProfileShare(CreateProfileShareRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateProfileShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateProfileShareResponseUnmarshaller.Instance;
+
+            return Invoke<CreateProfileShareResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Create a profile share.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateProfileShare service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateProfileShare service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ServiceQuotaExceededException">
+        /// The user has reached their resource quota.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/CreateProfileShare">REST API Reference for CreateProfileShare Operation</seealso>
+        public virtual Task<CreateProfileShareResponse> CreateProfileShareAsync(CreateProfileShareRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateProfileShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateProfileShareResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateProfileShareResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateWorkload
 
         internal virtual CreateWorkloadResponse CreateWorkload(CreateWorkloadRequest request)
@@ -560,14 +735,25 @@ namespace Amazon.WellArchitected
         ///  
         /// <para>
         /// The owner of a workload can share the workload with other Amazon Web Services accounts,
-        /// IAM users, an organization, and organizational units (OUs) in the same Amazon Web
-        /// Services Region. Only the owner of a workload can delete it.
+        /// users, an organization, and organizational units (OUs) in the same Amazon Web Services
+        /// Region. Only the owner of a workload can delete it.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining
         /// a Workload</a> in the <i>Well-Architected Tool User Guide</i>.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified
+        /// when creating a workload.
+        /// </para>
+        ///  
+        /// <para>
+        /// You also must specify <code>ReviewOwner</code>, even though the parameter is listed
+        /// as not being required in the following section. 
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateWorkload service method.</param>
         /// <param name="cancellationToken">
@@ -579,10 +765,13 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ServiceQuotaExceededException">
         /// The user has reached their resource quota.
@@ -623,14 +812,19 @@ namespace Amazon.WellArchitected
         /// 
         ///  
         /// <para>
-        /// The owner of a workload can share it with other Amazon Web Services accounts and IAM
-        /// users in the same Amazon Web Services Region. Shared access to a workload is not removed
+        /// The owner of a workload can share it with other Amazon Web Services accounts and users
+        /// in the same Amazon Web Services Region. Shared access to a workload is not removed
         /// until the workload invitation is deleted.
         /// </para>
         ///  
         /// <para>
+        /// If you share a workload with an organization or OU, all accounts in the organization
+        /// or OU are granted access to the workload.
+        /// </para>
+        ///  
+        /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing
-        /// a Workload</a> in the <i>Well-Architected Tool User Guide</i>.
+        /// a workload</a> in the <i>Well-Architected Tool User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateWorkloadShare service method.</param>
@@ -643,7 +837,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -691,7 +885,7 @@ namespace Amazon.WellArchitected
         ///  
         /// <para>
         /// Only the owner of a lens can delete it. After the lens is deleted, Amazon Web Services
-        /// accounts and IAM users that you shared the lens with can continue to use it, but they
+        /// accounts and users that you shared the lens with can continue to use it, but they
         /// will no longer be able to apply it to new workloads. 
         /// </para>
         ///  <note> 
@@ -718,7 +912,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -762,7 +956,7 @@ namespace Amazon.WellArchitected
         /// 
         ///  
         /// <para>
-        /// After the lens share is deleted, Amazon Web Services accounts, IAM users, organizations,
+        /// After the lens share is deleted, Amazon Web Services accounts, users, organizations,
         /// and organizational units (OUs) that you shared the lens with can continue to use it,
         /// but they will no longer be able to apply it to new workloads.
         /// </para>
@@ -790,7 +984,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -812,6 +1006,124 @@ namespace Amazon.WellArchitected
             options.ResponseUnmarshaller = DeleteLensShareResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteLensShareResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteProfile
+
+        internal virtual DeleteProfileResponse DeleteProfile(DeleteProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteProfileResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete a profile.
+        /// 
+        ///  <note> 
+        /// <para>
+        ///  <b>Disclaimer</b> 
+        /// </para>
+        ///  
+        /// <para>
+        /// By sharing your profile with other Amazon Web Services accounts, you acknowledge that
+        /// Amazon Web Services will make your profile available to those other accounts. Those
+        /// other accounts may continue to access and use your shared profile even if you delete
+        /// the profile from your own Amazon Web Services account or terminate your Amazon Web
+        /// Services account.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteProfile service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/DeleteProfile">REST API Reference for DeleteProfile Operation</seealso>
+        public virtual Task<DeleteProfileResponse> DeleteProfileAsync(DeleteProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteProfileResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteProfileShare
+
+        internal virtual DeleteProfileShareResponse DeleteProfileShare(DeleteProfileShareRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteProfileShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteProfileShareResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteProfileShareResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete a profile share.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteProfileShare service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteProfileShare service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/DeleteProfileShare">REST API Reference for DeleteProfileShare Operation</seealso>
+        public virtual Task<DeleteProfileShareResponse> DeleteProfileShareAsync(DeleteProfileShareRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteProfileShareRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteProfileShareResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteProfileShareResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -842,7 +1154,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -894,7 +1206,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -957,7 +1269,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -983,6 +1295,58 @@ namespace Amazon.WellArchitected
 
         #endregion
         
+        #region  DisassociateProfiles
+
+        internal virtual DisassociateProfilesResponse DisassociateProfiles(DisassociateProfilesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateProfilesResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateProfilesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disassociate a profile from a workload.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateProfiles service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateProfiles service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/DisassociateProfiles">REST API Reference for DisassociateProfiles Operation</seealso>
+        public virtual Task<DisassociateProfilesResponse> DisassociateProfilesAsync(DisassociateProfilesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateProfilesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateProfilesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ExportLens
 
         internal virtual ExportLensResponse ExportLens(ExportLensRequest request)
@@ -1001,9 +1365,13 @@ namespace Amazon.WellArchitected
         /// 
         ///  
         /// <para>
+        /// Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon
+        /// Web Services Official Content) cannot be exported.
+        /// </para>
+        ///  
+        /// <para>
         /// Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON
-        /// format specification</a> in the <i>Well-Architected Tool User Guide</i>. Only the
-        /// owner of a lens can export it. 
+        /// format specification</a> in the <i>Well-Architected Tool User Guide</i>.
         /// </para>
         ///  <note> 
         /// <para>
@@ -1098,6 +1466,60 @@ namespace Amazon.WellArchitected
             options.ResponseUnmarshaller = GetAnswerResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetAnswerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetConsolidatedReport
+
+        internal virtual GetConsolidatedReportResponse GetConsolidatedReport(GetConsolidatedReportRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetConsolidatedReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetConsolidatedReportResponseUnmarshaller.Instance;
+
+            return Invoke<GetConsolidatedReportResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get a consolidated report of your workloads.
+        /// 
+        ///  
+        /// <para>
+        /// You can optionally choose to include workloads that have been shared with you.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetConsolidatedReport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetConsolidatedReport service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/GetConsolidatedReport">REST API Reference for GetConsolidatedReport Operation</seealso>
+        public virtual Task<GetConsolidatedReportResponse> GetConsolidatedReportAsync(GetConsolidatedReportRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetConsolidatedReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetConsolidatedReportResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetConsolidatedReportResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1347,6 +1769,104 @@ namespace Amazon.WellArchitected
 
         #endregion
         
+        #region  GetProfile
+
+        internal virtual GetProfileResponse GetProfile(GetProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetProfileResponseUnmarshaller.Instance;
+
+            return Invoke<GetProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get profile information.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetProfile service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/GetProfile">REST API Reference for GetProfile Operation</seealso>
+        public virtual Task<GetProfileResponse> GetProfileAsync(GetProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetProfileResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetProfileTemplate
+
+        internal virtual GetProfileTemplateResponse GetProfileTemplate(GetProfileTemplateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetProfileTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetProfileTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<GetProfileTemplateResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get profile template.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetProfileTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetProfileTemplate service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/GetProfileTemplate">REST API Reference for GetProfileTemplate Operation</seealso>
+        public virtual Task<GetProfileTemplateResponse> GetProfileTemplateAsync(GetProfileTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetProfileTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetProfileTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetProfileTemplateResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetWorkload
 
         internal virtual GetWorkloadResponse GetWorkload(GetWorkloadRequest request)
@@ -1410,12 +1930,18 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// Import a new lens.
+        /// Import a new custom lens or update an existing custom lens.
         /// 
         ///  
         /// <para>
-        /// The lens cannot be applied to workloads or shared with other Amazon Web Services accounts
-        /// until it's published with <a>CreateLensVersion</a> 
+        /// To update an existing custom lens, specify its ARN as the <code>LensAlias</code>.
+        /// If no ARN is specified, a new custom lens is created.
+        /// </para>
+        ///  
+        /// <para>
+        /// The new or updated lens will have a status of <code>DRAFT</code>. The lens cannot
+        /// be applied to workloads or shared with other Amazon Web Services accounts until it's
+        /// published with <a>CreateLensVersion</a>.
         /// </para>
         ///  
         /// <para>
@@ -1451,7 +1977,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -1494,7 +2020,7 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// List of answers.
+        /// List of answers for a particular workload and lens.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAnswers service method.</param>
         /// <param name="cancellationToken">
@@ -1736,7 +2262,7 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// List lens reviews.
+        /// List lens reviews for a particular workload.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListLensReviews service method.</param>
         /// <param name="cancellationToken">
@@ -1915,6 +2441,147 @@ namespace Amazon.WellArchitected
 
         #endregion
         
+        #region  ListProfileNotifications
+
+        internal virtual ListProfileNotificationsResponse ListProfileNotifications(ListProfileNotificationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfileNotificationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfileNotificationsResponseUnmarshaller.Instance;
+
+            return Invoke<ListProfileNotificationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// List profile notifications.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListProfileNotifications service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListProfileNotifications service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/ListProfileNotifications">REST API Reference for ListProfileNotifications Operation</seealso>
+        public virtual Task<ListProfileNotificationsResponse> ListProfileNotificationsAsync(ListProfileNotificationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfileNotificationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfileNotificationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListProfileNotificationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListProfiles
+
+        internal virtual ListProfilesResponse ListProfiles(ListProfilesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfilesResponseUnmarshaller.Instance;
+
+            return Invoke<ListProfilesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// List profiles.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListProfiles service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListProfiles service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/ListProfiles">REST API Reference for ListProfiles Operation</seealso>
+        public virtual Task<ListProfilesResponse> ListProfilesAsync(ListProfilesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfilesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfilesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListProfilesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListProfileShares
+
+        internal virtual ListProfileSharesResponse ListProfileShares(ListProfileSharesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfileSharesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfileSharesResponseUnmarshaller.Instance;
+
+            return Invoke<ListProfileSharesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// List profile shares.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListProfileShares service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListProfileShares service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/ListProfileShares">REST API Reference for ListProfileShares Operation</seealso>
+        public virtual Task<ListProfileSharesResponse> ListProfileSharesAsync(ListProfileSharesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListProfileSharesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListProfileSharesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListProfileSharesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListShareInvitations
 
         internal virtual ListShareInvitationsResponse ListShareInvitations(ListShareInvitationsRequest request)
@@ -1979,7 +2646,7 @@ namespace Amazon.WellArchitected
         /// 
         ///  <note> 
         /// <para>
-        /// The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+        /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.
         /// </para>
         ///  </note>
         /// </summary>
@@ -2021,7 +2688,7 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// List workloads. Paginated.
+        /// Paginated list of workloads.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListWorkloads service method.</param>
         /// <param name="cancellationToken">
@@ -2120,7 +2787,7 @@ namespace Amazon.WellArchitected
         /// 
         ///  <note> 
         /// <para>
-        /// The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+        /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.
         /// </para>
         ///  </note>
         /// </summary>
@@ -2166,7 +2833,7 @@ namespace Amazon.WellArchitected
         /// 
         ///  <note> 
         /// <para>
-        /// The WorkloadArn parameter can be either a workload ARN or a custom lens ARN.
+        /// The WorkloadArn parameter can be a workload ARN, a custom lens ARN, or a profile ARN.
         /// </para>
         ///  </note> 
         /// <para>
@@ -2227,7 +2894,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2268,7 +2935,7 @@ namespace Amazon.WellArchitected
 
         /// <summary>
         /// Updates whether the Amazon Web Services account is opted into organization sharing
-        /// features.
+        /// and discovery integration features.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateGlobalSettings service method.</param>
         /// <param name="cancellationToken">
@@ -2280,7 +2947,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2317,7 +2984,7 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// Update lens review.
+        /// Update lens review for a particular workload.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateLensReview service method.</param>
         /// <param name="cancellationToken">
@@ -2329,7 +2996,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2351,6 +3018,58 @@ namespace Amazon.WellArchitected
             options.ResponseUnmarshaller = UpdateLensReviewResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateLensReviewResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateProfile
+
+        internal virtual UpdateProfileResponse UpdateProfile(UpdateProfileRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateProfileResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateProfileResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Update a profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProfile service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateProfile service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/UpdateProfile">REST API Reference for UpdateProfile Operation</seealso>
+        public virtual Task<UpdateProfileResponse> UpdateProfileAsync(UpdateProfileRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateProfileRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateProfileResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateProfileResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2388,7 +3107,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2440,7 +3159,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2492,7 +3211,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2532,7 +3251,7 @@ namespace Amazon.WellArchitected
 
 
         /// <summary>
-        /// Upgrade lens review.
+        /// Upgrade lens review for a particular workload.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpgradeLensReview service method.</param>
         /// <param name="cancellationToken">
@@ -2544,7 +3263,7 @@ namespace Amazon.WellArchitected
         /// User does not have sufficient access to perform this action.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
-        /// The resource already exists.
+        /// The resource has already been processed, was deleted, or is too large.
         /// </exception>
         /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
         /// There is a problem with the Well-Architected Tool API service.
@@ -2566,6 +3285,58 @@ namespace Amazon.WellArchitected
             options.ResponseUnmarshaller = UpgradeLensReviewResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpgradeLensReviewResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpgradeProfileVersion
+
+        internal virtual UpgradeProfileVersionResponse UpgradeProfileVersion(UpgradeProfileVersionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpgradeProfileVersionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpgradeProfileVersionResponseUnmarshaller.Instance;
+
+            return Invoke<UpgradeProfileVersionResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Upgrade a profile.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpgradeProfileVersion service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpgradeProfileVersion service method, as returned by WellArchitected.</returns>
+        /// <exception cref="Amazon.WellArchitected.Model.AccessDeniedException">
+        /// User does not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ConflictException">
+        /// The resource has already been processed, was deleted, or is too large.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.InternalServerException">
+        /// There is a problem with the Well-Architected Tool API service.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ResourceNotFoundException">
+        /// The requested resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ThrottlingException">
+        /// Request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.WellArchitected.Model.ValidationException">
+        /// The user input is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/wellarchitected-2020-03-31/UpgradeProfileVersion">REST API Reference for UpgradeProfileVersion Operation</seealso>
+        public virtual Task<UpgradeProfileVersionResponse> UpgradeProfileVersionAsync(UpgradeProfileVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpgradeProfileVersionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpgradeProfileVersionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpgradeProfileVersionResponse>(request, options, cancellationToken);
         }
 
         #endregion

@@ -49,6 +49,7 @@ namespace Amazon.Transfer.Model
         private string _securityPolicyName;
         private string _serverId;
         private State _state;
+        private List<string> _structuredLogDestinations = new List<string>();
         private List<Tag> _tags = new List<Tag>();
         private int? _userCount;
         private WorkflowDetails _workflowDetails;
@@ -216,7 +217,7 @@ namespace Amazon.Transfer.Model
         /// <para>
         /// Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity
         /// provider. If you choose this value, you must specify the ARN for the Lambda function
-        /// in the <code>Function</code> parameter or the <code>IdentityProviderDetails</code>
+        /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
         /// data type.
         /// </para>
         /// </summary>
@@ -385,7 +386,7 @@ namespace Amazon.Transfer.Model
         /// <para>
         /// If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.
+        /// must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -396,7 +397,8 @@ namespace Amazon.Transfer.Model
         /// <para>
         /// If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
-        /// set to <code>SERVICE_MANAGED</code>.
+        /// set any of the supported identity types: <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>,
+        /// <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -484,6 +486,51 @@ namespace Amazon.Transfer.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StructuredLogDestinations. 
+        /// <para>
+        /// Specifies the log groups to which your server logs are sent.
+        /// </para>
+        ///  
+        /// <para>
+        /// To specify a log group, you must provide the ARN for an existing log group. In this
+        /// case, the format of the log group is as follows:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// If you have previously specified a log group for a server, you can clear it, and in
+        /// effect turn off structured logging, by providing an empty value for this parameter
+        /// in an <code>update-server</code> call. For example:
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>
+        /// 
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=1)]
+        public List<string> StructuredLogDestinations
+        {
+            get { return this._structuredLogDestinations; }
+            set { this._structuredLogDestinations = value; }
+        }
+
+        // Check to see if StructuredLogDestinations property is set
+        internal bool IsSetStructuredLogDestinations()
+        {
+            return this._structuredLogDestinations != null && this._structuredLogDestinations.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Tags. 
         /// <para>
         /// Specifies the key-value pairs that you can use to search for and group servers that
@@ -530,9 +577,10 @@ namespace Amazon.Transfer.Model
         /// </para>
         ///  
         /// <para>
-        /// In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code>
+        /// In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code>
         /// can also contain a workflow ID (and execution role) for a workflow to execute on partial
-        /// upload. A partial upload occurs when a file is open when the session disconnects.
+        /// upload. A partial upload occurs when the server session disconnects while the file
+        /// is still being uploaded.
         /// </para>
         /// </summary>
         public WorkflowDetails WorkflowDetails

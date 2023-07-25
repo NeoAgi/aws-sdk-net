@@ -45,6 +45,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(KafkaStreamingSourceOptions requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetAddRecordTimestamp())
+            {
+                context.Writer.WritePropertyName("AddRecordTimestamp");
+                context.Writer.Write(requestObject.AddRecordTimestamp);
+            }
+
             if(requestObject.IsSetAssign())
             {
                 context.Writer.WritePropertyName("Assign");
@@ -75,10 +81,22 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.Delimiter);
             }
 
+            if(requestObject.IsSetEmitConsumerLagMetrics())
+            {
+                context.Writer.WritePropertyName("EmitConsumerLagMetrics");
+                context.Writer.Write(requestObject.EmitConsumerLagMetrics);
+            }
+
             if(requestObject.IsSetEndingOffsets())
             {
                 context.Writer.WritePropertyName("EndingOffsets");
                 context.Writer.Write(requestObject.EndingOffsets);
+            }
+
+            if(requestObject.IsSetIncludeHeaders())
+            {
+                context.Writer.WritePropertyName("IncludeHeaders");
+                context.Writer.Write(requestObject.IncludeHeaders);
             }
 
             if(requestObject.IsSetMaxOffsetsPerTrigger())
@@ -121,6 +139,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("StartingOffsets");
                 context.Writer.Write(requestObject.StartingOffsets);
+            }
+
+            if(requestObject.IsSetStartingTimestamp())
+            {
+                context.Writer.WritePropertyName("StartingTimestamp");
+                context.Writer.Write(StringUtils.FromDateTimeToISO8601(requestObject.StartingTimestamp));
             }
 
             if(requestObject.IsSetSubscribePattern())

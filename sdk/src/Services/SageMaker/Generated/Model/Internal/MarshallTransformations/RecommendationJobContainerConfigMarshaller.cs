@@ -45,6 +45,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(RecommendationJobContainerConfig requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetDataInputConfig())
+            {
+                context.Writer.WritePropertyName("DataInputConfig");
+                context.Writer.Write(requestObject.DataInputConfig);
+            }
+
             if(requestObject.IsSetDomain())
             {
                 context.Writer.WritePropertyName("Domain");
@@ -78,6 +84,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 marshaller.Marshall(requestObject.PayloadConfig, context);
 
                 context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetSupportedEndpointType())
+            {
+                context.Writer.WritePropertyName("SupportedEndpointType");
+                context.Writer.Write(requestObject.SupportedEndpointType);
             }
 
             if(requestObject.IsSetSupportedInstanceTypes())

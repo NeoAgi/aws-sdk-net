@@ -136,7 +136,7 @@ namespace Amazon.EC2
         /// </summary>
         /// <param name="config">The AmazonEC2Client Configuration Object</param>
         public AmazonEC2Client(AmazonEC2Config config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>
@@ -665,17 +665,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
-        /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic.
-        /// To attempt to recover an Elastic IP address that you released, specify it in this
-        /// operation.
-        /// </para>
-        ///  
-        /// <para>
-        /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
-        /// Elastic IP addresses for EC2-VPC per Region.
+        /// If you release an Elastic IP address, you might be able to recover it. You cannot
+        /// recover an Elastic IP address that you released after it is allocated to another Amazon
+        /// Web Services account. To attempt to recover an Elastic IP address that you released,
+        /// specify it in this operation.
         /// </para>
         ///  
         /// <para>
@@ -686,15 +679,8 @@ namespace Amazon.EC2
         /// <para>
         /// You can allocate a carrier IP address which is a public IP address from a telecommunication
         /// carrier, to a network interface which resides in a subnet in a Wavelength Zone (for
-        /// example an EC2 instance). 
+        /// example an EC2 instance).
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -725,17 +711,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
-        /// cannot recover an Elastic IP address that you released after it is allocated to another
-        /// Amazon Web Services account. You cannot recover an Elastic IP address for EC2-Classic.
-        /// To attempt to recover an Elastic IP address that you released, specify it in this
-        /// operation.
-        /// </para>
-        ///  
-        /// <para>
-        /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
-        /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5
-        /// Elastic IP addresses for EC2-VPC per Region.
+        /// If you release an Elastic IP address, you might be able to recover it. You cannot
+        /// recover an Elastic IP address that you released after it is allocated to another Amazon
+        /// Web Services account. To attempt to recover an Elastic IP address that you released,
+        /// specify it in this operation.
         /// </para>
         ///  
         /// <para>
@@ -746,15 +725,8 @@ namespace Amazon.EC2
         /// <para>
         /// You can allocate a carrier IP address which is a public IP address from a telecommunication
         /// carrier, to a network interface which resides in a subnet in a Wavelength Zone (for
-        /// example an EC2 instance). 
+        /// example an EC2 instance).
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AllocateAddress service method.</param>
         /// <param name="cancellationToken">
@@ -824,9 +796,22 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR assignment from
-        /// an IPAM pool to another resource or IPAM pool. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate
+        /// Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM pool locale.
+        /// The locale is the Amazon Web Services Region where this IPAM pool is available for
+        /// allocations.
+        /// 
+        ///  
+        /// <para>
+        /// In IPAM, an allocation is a CIDR assignment from an IPAM pool to another IPAM pool
+        /// or to a resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html">Allocate
         /// CIDRs</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This action creates an allocation with strong consistency. The returned CIDR will
+        /// not overlap with any other allocations from the same pool.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AllocateIpamPoolCidr service method.</param>
         /// <param name="cancellationToken">
@@ -1004,6 +989,42 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AssignPrivateNatGatewayAddress
+
+        internal virtual AssignPrivateNatGatewayAddressResponse AssignPrivateNatGatewayAddress(AssignPrivateNatGatewayAddressRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssignPrivateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssignPrivateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return Invoke<AssignPrivateNatGatewayAddressResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Assigns one or more private IPv4 addresses to a private NAT gateway. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
+        /// with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssignPrivateNatGatewayAddress service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssignPrivateNatGatewayAddress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignPrivateNatGatewayAddress">REST API Reference for AssignPrivateNatGatewayAddress Operation</seealso>
+        public virtual Task<AssignPrivateNatGatewayAddressResponse> AssignPrivateNatGatewayAddressAsync(AssignPrivateNatGatewayAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssignPrivateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssignPrivateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssignPrivateNatGatewayAddressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AssociateAddress
 
         internal virtual AssociateAddressResponse AssociateAddress(AssociateAddressRequest request)
@@ -1024,25 +1045,10 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  
-        /// <para>
-        /// [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already
-        /// associated with a different instance, it is disassociated from that instance and associated
-        /// with the specified instance. If you associate an Elastic IP address with an instance
-        /// that has an existing Elastic IP address, the existing address is disassociated from
-        /// the instance, but remains allocated to your account.
-        /// </para>
-        ///  
-        /// <para>
-        /// [VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic
-        /// IP address is associated with the primary IP address. If the Elastic IP address is
-        /// already associated with a different instance or a network interface, you get an error
-        /// unless you allow reassociation. You cannot associate an Elastic IP address with an
-        /// instance or network interface that has an existing Elastic IP address.
+        /// If the Elastic IP address is already associated with a different instance, it is disassociated
+        /// from that instance and associated with the specified instance. If you associate an
+        /// Elastic IP address with an instance that has an existing Elastic IP address, the existing
+        /// address is disassociated from the instance, but remains allocated to your account.
         /// </para>
         ///  
         /// <para>
@@ -1061,13 +1067,7 @@ namespace Amazon.EC2
         /// is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i>
         /// section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2 Pricing</a>.
         /// </para>
-        ///  </important> <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateAddress service method.</param>
         /// <param name="cancellationToken">
@@ -1160,7 +1160,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateDhcpOptions service method.</param>
@@ -1312,6 +1312,86 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AssociateIpamResourceDiscovery
+
+        internal virtual AssociateIpamResourceDiscoveryResponse AssociateIpamResourceDiscovery(AssociateIpamResourceDiscoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateIpamResourceDiscoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery
+        /// is an IPAM component that enables IPAM to manage and monitor resources that belong
+        /// to the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateIpamResourceDiscovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateIpamResourceDiscovery service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateIpamResourceDiscovery">REST API Reference for AssociateIpamResourceDiscovery Operation</seealso>
+        public virtual Task<AssociateIpamResourceDiscoveryResponse> AssociateIpamResourceDiscoveryAsync(AssociateIpamResourceDiscoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateIpamResourceDiscoveryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  AssociateNatGatewayAddress
+
+        internal virtual AssociateNatGatewayAddressResponse AssociateNatGatewayAddress(AssociateNatGatewayAddressRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateNatGatewayAddressResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associates Elastic IP addresses (EIPs) and private IPv4 addresses with a public NAT
+        /// gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
+        /// with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// By default, you can associate up to 2 Elastic IP addresses per public NAT gateway.
+        /// You can increase the limit by requesting a quota adjustment. For more information,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-eips">Elastic
+        /// IP address quotas</a> in the <i>Amazon VPC User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateNatGatewayAddress service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateNatGatewayAddress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateNatGatewayAddress">REST API Reference for AssociateNatGatewayAddress Operation</seealso>
+        public virtual Task<AssociateNatGatewayAddressResponse> AssociateNatGatewayAddressAsync(AssociateNatGatewayAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateNatGatewayAddressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AssociateRouteTable
 
         internal virtual AssociateRouteTableResponse AssociateRouteTable(AssociateRouteTableRequest request)
@@ -1335,7 +1415,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateRouteTable service method.</param>
@@ -1579,8 +1659,8 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about associating CIDR blocks with your VPC and applicable restrictions,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC
-        /// and subnet sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP
+        /// addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateVpcCidrBlock service method.</param>
@@ -1617,14 +1697,12 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
         ///  </note> 
         /// <para>
         /// Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of
-        /// the VPC's security groups. You cannot link an EC2-Classic instance to more than one
+        /// the VPC security groups. You cannot link an EC2-Classic instance to more than one
         /// VPC at a time. You can only link an instance that's in the <code>running</code> state.
         /// An instance is automatically unlinked from a VPC when it's stopped - you can link
         /// it to the VPC again when you restart it.
@@ -1673,9 +1751,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity
-        /// between the internet and the VPC. For more information about your VPC and internet
-        /// gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon
-        /// Virtual Private Cloud User Guide</a>.
+        /// between the internet and the VPC. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet
+        /// gateways</a> in the <i>Amazon VPC User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachInternetGateway service method.</param>
         /// <param name="cancellationToken">
@@ -1743,9 +1820,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// A trust provider is a third-party entity that creates, maintains, and manages identity
-        /// information for users and devices. One or more trust providers can be attached to
-        /// an Amazon Web Services Verified Access instance.
+        /// Attaches the specified Amazon Web Services Verified Access trust provider to the specified
+        /// Amazon Web Services Verified Access instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVerifiedAccessTrustProvider service method.</param>
         /// <param name="cancellationToken">
@@ -1934,8 +2010,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Adds the specified outbound (egress) rules to a security group for use
-        /// with a VPC.
+        /// Adds the specified outbound (egress) rules to a security group for use with a VPC.
         /// 
         ///  
         /// <para>
@@ -2019,13 +2094,6 @@ namespace Amazon.EC2
         /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
         /// VPC quotas</a>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.</param>
         /// <param name="cancellationToken">
@@ -2314,9 +2382,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Removes your Amazon Web Services account from the launch permissions for the specified
-        /// AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having
-        /// an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User
-        /// Guide</i>.
+        /// AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
+        /// Cancel having an AMI shared with your Amazon Web Services account</a> in the <i>Amazon
+        /// EC2 User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CancelImageLaunchPermission service method.</param>
         /// <param name="cancellationToken">
@@ -2428,9 +2496,12 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
-        /// You must specify whether the Spot Fleet should also terminate its Spot Instances.
-        /// If you terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code>
+        /// After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.
+        /// </para>
+        ///  
+        /// <para>
+        /// You must also specify whether a canceled Spot Fleet request should terminate its instances.
+        /// If you choose to terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code>
         /// state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code>
         /// state and the instances continue to run until they are interrupted or you terminate
         /// them manually.
@@ -3039,8 +3110,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified
         /// Availability Zone in your default VPC. You can have only one default subnet per Availability
-        /// Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating
-        /// a default subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Create
+        /// a default subnet</a> in the <i>Amazon VPC User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDefaultSubnet service method.</param>
         /// <param name="cancellationToken">
@@ -3077,29 +3148,14 @@ namespace Amazon.EC2
         /// Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
         /// in each Availability Zone. For more information about the components of a default
         /// VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default
-        /// VPC and default subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-        /// You cannot specify the components of the default VPC yourself.
+        /// VPCs</a> in the <i>Amazon VPC User Guide</i>. You cannot specify the components of
+        /// the default VPC yourself.
         /// 
         ///  
         /// <para>
         /// If you deleted your previous default VPC, you can create a default VPC. You cannot
         /// have more than one default VPC per Region.
         /// </para>
-        ///  
-        /// <para>
-        /// If your account supports EC2-Classic, you cannot use this action to create a default
-        /// VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that
-        /// supports EC2-Classic, see "I really want a default VPC for my existing EC2 account.
-        /// Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default
-        /// VPCs FAQ</a>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDefaultVpc service method.</param>
         /// <param name="cancellationToken">
@@ -3183,7 +3239,7 @@ namespace Amazon.EC2
         /// if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
         /// option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
         /// choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDhcpOptions service method.</param>
@@ -3255,12 +3311,13 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Launches an EC2 Fleet.
+        /// Creates an EC2 Fleet that contains the configuration information for On-Demand Instances
+        /// and Spot Instances. Instances are launched immediately if there is available capacity.
         /// 
         ///  
         /// <para>
-        /// You can create a single EC2 Fleet that includes multiple launch specifications that
-        /// vary by instance type, AMI, Availability Zone, or subnet.
+        /// A single EC2 Fleet can include multiple launch specifications that vary by instance
+        /// type, AMI, Availability Zone, or subnet.
         /// </para>
         ///  
         /// <para>
@@ -3407,20 +3464,6 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// By default, when Amazon EC2 creates the new AMI, it reboots the instance so that it
-        /// can take snapshots of the attached volumes while data is at rest, in order to ensure
-        /// a consistent state. You can set the <code>NoReboot</code> parameter to <code>true</code>
-        /// in the API request, or use the <code>--no-reboot</code> option in the CLI to prevent
-        /// Amazon EC2 from shutting down and rebooting the instance.
-        /// </para>
-        ///  <important> 
-        /// <para>
-        /// If you choose to bypass the shutdown and reboot process by setting the <code>NoReboot</code>
-        /// parameter to <code>true</code> in the API request, or by using the <code>--no-reboot</code>
-        /// option in the CLI, we can't guarantee the file system integrity of the created image.
-        /// </para>
-        ///  </important> 
-        /// <para>
         /// If you customized your instance with instance store volumes or Amazon EBS volumes
         /// in addition to the root device volume, the new AMI contains block device mapping information
         /// for those volumes. When you launch an instance from this new AMI, the instance automatically
@@ -3446,6 +3489,48 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = CreateImageResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateImageResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateInstanceConnectEndpoint
+
+        internal virtual CreateInstanceConnectEndpointResponse CreateInstanceConnectEndpoint(CreateInstanceConnectEndpointRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateInstanceConnectEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateInstanceConnectEndpointResponseUnmarshaller.Instance;
+
+            return Invoke<CreateInstanceConnectEndpointResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates an EC2 Instance Connect Endpoint.
+        /// 
+        ///  
+        /// <para>
+        /// An EC2 Instance Connect Endpoint allows you to connect to an instance, without requiring
+        /// the instance to have a public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect-Endpoint.html">Connect
+        /// to your instances without requiring a public IPv4 address using EC2 Instance Connect
+        /// Endpoint</a> in the <i>Amazon EC2 User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateInstanceConnectEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateInstanceConnectEndpoint service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceConnectEndpoint">REST API Reference for CreateInstanceConnectEndpoint Operation</seealso>
+        public virtual Task<CreateInstanceConnectEndpointResponse> CreateInstanceConnectEndpointAsync(CreateInstanceConnectEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateInstanceConnectEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateInstanceConnectEndpointResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateInstanceConnectEndpointResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -3542,8 +3627,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For information about the supported operating systems, image formats, and known limitations
-        /// for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting
+        /// For information about the prerequisites for your Amazon S3 bucket, supported operating
+        /// systems, image formats, and known limitations for the types of instances you can export,
+        /// see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting
         /// an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
         /// </para>
         /// </summary>
@@ -3587,8 +3673,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon
-        /// Virtual Private Cloud User Guide</a>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet
+        /// gateways</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -3610,8 +3696,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon
-        /// Virtual Private Cloud User Guide</a>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">Internet
+        /// gateways</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateInternetGateway service method.</param>
@@ -3715,6 +3801,41 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = CreateIpamPoolResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateIpamPoolResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateIpamResourceDiscovery
+
+        internal virtual CreateIpamResourceDiscoveryResponse CreateIpamResourceDiscovery(CreateIpamResourceDiscoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return Invoke<CreateIpamResourceDiscoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates an IPAM resource discovery. A resource discovery is an IPAM component that
+        /// enables IPAM to manage and monitor resources that belong to the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateIpamResourceDiscovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateIpamResourceDiscovery service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateIpamResourceDiscovery">REST API Reference for CreateIpamResourceDiscovery Operation</seealso>
+        public virtual Task<CreateIpamResourceDiscoveryResponse> CreateIpamResourceDiscoveryAsync(CreateIpamResourceDiscoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateIpamResourceDiscoveryResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4136,7 +4257,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT
-        /// gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// gateways</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNatGateway service method.</param>
@@ -4176,8 +4297,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkAcl service method.</param>
@@ -4233,8 +4354,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkAclEntry service method.</param>
@@ -4316,8 +4437,9 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Reachability Analyzer enables you to analyze and debug network reachability between
-        /// two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What
-        /// is Reachability Analyzer</a>.
+        /// two resources in your virtual private cloud (VPC). For more information, see the <a
+        /// href="https://docs.aws.amazon.com/vpc/latest/reachability/">Reachability Analyzer
+        /// Guide</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateNetworkInsightsPath service method.</param>
@@ -4711,7 +4833,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRoute service method.</param>
@@ -4752,7 +4874,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRouteTable service method.</param>
@@ -4800,17 +4922,14 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// When you create a security group, you specify a friendly name of your choice. You
-        /// can have a security group for use in EC2-Classic with the same name as a security
-        /// group for use in a VPC. However, you can't have two security groups for use in EC2-Classic
-        /// with the same name or two security groups for use in a VPC with the same name.
+        /// can't have two security groups for the same VPC with the same name.
         /// </para>
         ///  
         /// <para>
-        /// You have a default security group for use in EC2-Classic and a default security group
-        /// for use in your VPC. If you don't specify a security group when you launch an instance,
-        /// the instance is launched into the appropriate default security group. A default security
-        /// group includes a default rule that grants instances unrestricted network access to
-        /// each other.
+        /// You have a default security group for use in your VPC. If you don't specify a security
+        /// group when you launch an instance, the instance is launched into the appropriate default
+        /// security group. A default security group includes a default rule that grants instances
+        /// unrestricted network access to each other.
         /// </para>
         ///  
         /// <para>
@@ -4822,13 +4941,6 @@ namespace Amazon.EC2
         /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
         /// VPC Limits</a>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSecurityGroup service method.</param>
         /// <param name="cancellationToken">
@@ -4892,8 +5004,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// To create a snapshot for Amazon EBS volumes that serve as root devices, you should
-        /// stop the instance before taking the snapshot.
+        /// When you create a snapshot for an EBS volume that serves as a root device, we recommend
+        /// that you stop the instance before taking the snapshot.
         /// </para>
         ///  
         /// <para>
@@ -5116,7 +5228,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a>
-        /// in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSubnet service method.</param>
@@ -5912,10 +6024,9 @@ namespace Amazon.EC2
         /// <summary>
         /// An Amazon Web Services Verified Access group is a collection of Amazon Web Services
         /// Verified Access endpoints who's associated applications have similar security requirements.
-        /// Each instance within an Amazon Web Services Verified Access group shares an Amazon
-        /// Web Services Verified Access policy. For example, you can group all Amazon Web Services
-        /// Verified Access instances associated with “sales” applications together and use one
-        /// common Amazon Web Services Verified Access policy.
+        /// Each instance within a Verified Access group shares an Verified Access policy. For
+        /// example, you can group all Verified Access instances associated with "sales" applications
+        /// together and use one common Verified Access policy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessGroup service method.</param>
         /// <param name="cancellationToken">
@@ -5986,8 +6097,8 @@ namespace Amazon.EC2
         /// <summary>
         /// A trust provider is a third-party entity that creates, maintains, and manages identity
         /// information for users and devices. When an application request is made, the identity
-        /// information sent by the trust provider will be evaluated by Amazon Web Services Verified
-        /// Access, before allowing or denying the application request.
+        /// information sent by the trust provider is evaluated by Verified Access before allowing
+        /// or denying the application request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVerifiedAccessTrustProvider service method.</param>
         /// <param name="cancellationToken">
@@ -6079,8 +6190,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html#vpc-cidr-blocks">VPC
-        /// CIDR blocks</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// Creates a VPC with the specified CIDR blocks. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP
+        /// addressing for your VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -6093,13 +6204,13 @@ namespace Amazon.EC2
         /// By default, each instance that you launch in the VPC has the default DHCP options,
         /// which include only a default DNS server that we provide (AmazonProvidedDNS). For more
         /// information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// option sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// option sets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// You can specify the instance tenancy value for the VPC when you create it. You can't
         /// change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpc service method.</param>
@@ -6134,11 +6245,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
-        /// a private connection between your VPC and the service. The service may be provided
-        /// by Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
+        /// Creates a VPC endpoint. A VPC endpoint provides a private connection between the specified
+        /// VPC and the specified endpoint service. You can use an endpoint service provided by
+        /// Amazon Web Services, an Amazon Web Services Marketplace Partner, or another Amazon
         /// Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/">Amazon
-        /// Web Services PrivateLink Guide</a>.
+        /// Web Services PrivateLink User Guide</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -6767,7 +6878,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the specified EC2 Fleet.
+        /// Deletes the specified EC2 Fleets.
         /// 
         ///  
         /// <para>
@@ -6775,7 +6886,7 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// You must specify whether a deleted EC2 Fleet should also terminate its instances.
+        /// You must also specify whether a deleted EC2 Fleet should terminate its instances.
         /// If you choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
         /// state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and
         /// the instances continue to run until they are interrupted or you terminate them manually.
@@ -6887,6 +6998,40 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DeleteFpgaImageResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteFpgaImageResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteInstanceConnectEndpoint
+
+        internal virtual DeleteInstanceConnectEndpointResponse DeleteInstanceConnectEndpoint(DeleteInstanceConnectEndpointRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteInstanceConnectEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteInstanceConnectEndpointResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteInstanceConnectEndpointResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes the specified EC2 Instance Connect Endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteInstanceConnectEndpoint service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteInstanceConnectEndpoint service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInstanceConnectEndpoint">REST API Reference for DeleteInstanceConnectEndpoint Operation</seealso>
+        public virtual Task<DeleteInstanceConnectEndpointResponse> DeleteInstanceConnectEndpointAsync(DeleteInstanceConnectEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteInstanceConnectEndpointRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteInstanceConnectEndpointResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteInstanceConnectEndpointResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -7049,6 +7194,41 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = DeleteIpamPoolResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteIpamPoolResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteIpamResourceDiscovery
+
+        internal virtual DeleteIpamResourceDiscoveryResponse DeleteIpamResourceDiscovery(DeleteIpamResourceDiscoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteIpamResourceDiscoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes an IPAM resource discovery. A resource discovery is an IPAM component that
+        /// enables IPAM to manage and monitor resources that belong to the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteIpamResourceDiscovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteIpamResourceDiscovery service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteIpamResourceDiscovery">REST API Reference for DeleteIpamResourceDiscovery Operation</seealso>
+        public virtual Task<DeleteIpamResourceDiscoveryResponse> DeleteIpamResourceDiscoveryAsync(DeleteIpamResourceDiscoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteIpamResourceDiscoveryResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -7874,17 +8054,9 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// If you attempt to delete a security group that is associated with an instance, or
-        /// is referenced by another security group, the operation fails with <code>InvalidGroup.InUse</code>
-        /// in EC2-Classic or <code>DependencyViolation</code> in EC2-VPC.
+        /// If you attempt to delete a security group that is associated with an instance or network
+        /// interface or is referenced by another security group, the operation fails with <code>DependencyViolation</code>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSecurityGroup service method.</param>
         /// <param name="cancellationToken">
@@ -9439,11 +9611,6 @@ namespace Amazon.EC2
         /// 
         ///  <ul> <li> 
         /// <para>
-        ///  <code>supported-platforms</code>: Indicates whether your account can launch instances
-        /// into EC2-Classic and EC2-VPC, or only into EC2-VPC.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
         ///  <code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.
         /// </para>
         ///  </li> <li> 
@@ -9455,26 +9622,24 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security
-        /// groups that you can assign to a network interface.
+        ///  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you
+        /// can allocate.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you
-        /// can allocate for use with EC2-Classic. 
+        ///  <code>supported-platforms</code>: This attribute is deprecated.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that
-        /// you can allocate for use with EC2-VPC.
+        /// you can allocate.
         /// </para>
-        ///  </li> </ul> <note> 
+        ///  </li> <li> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
+        ///  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security
+        /// groups that you can assign to a network interface.
         /// </para>
-        ///  </note>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -9495,11 +9660,6 @@ namespace Amazon.EC2
         /// 
         ///  <ul> <li> 
         /// <para>
-        ///  <code>supported-platforms</code>: Indicates whether your account can launch instances
-        /// into EC2-Classic and EC2-VPC, or only into EC2-VPC.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
         ///  <code>default-vpc</code>: The ID of the default VPC for your account, or <code>none</code>.
         /// </para>
         ///  </li> <li> 
@@ -9511,26 +9671,24 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security
-        /// groups that you can assign to a network interface.
+        ///  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you
+        /// can allocate.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-elastic-ips</code>: The maximum number of Elastic IP addresses that you
-        /// can allocate for use with EC2-Classic. 
+        ///  <code>supported-platforms</code>: This attribute is deprecated.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>vpc-max-elastic-ips</code>: The maximum number of Elastic IP addresses that
-        /// you can allocate for use with EC2-VPC.
+        /// you can allocate.
         /// </para>
-        ///  </li> </ul> <note> 
+        ///  </li> <li> 
         /// <para>
-        /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-        /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
+        ///  <code>vpc-max-security-groups-per-interface</code>: The maximum number of security
+        /// groups that you can assign to a network interface.
         /// </para>
-        ///  </note>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccountAttributes service method.</param>
         /// <param name="cancellationToken">
@@ -9568,20 +9726,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
-        /// 
-        ///  
-        /// <para>
-        /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -9598,20 +9742,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
-        /// 
-        ///  
-        /// <para>
-        /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAddresses service method.</param>
         /// <param name="cancellationToken">
@@ -9683,6 +9813,17 @@ namespace Amazon.EC2
         /// <summary>
         /// Describes an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
         /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// When you transfer an Elastic IP address, there is a two-step handshake between the
+        /// source and transfer Amazon Web Services accounts. When the source account starts the
+        /// transfer, the transfer account has seven days to accept the Elastic IP address transfer.
+        /// During those seven days, the source account can view the pending transfer by using
+        /// this action. After seven days, the transfer expires and ownership of the Elastic IP
+        /// address returns to the source account. Accepted transfers are visible to the source
+        /// account for three days after the transfers have been accepted.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAddressTransfers service method.</param>
         /// <param name="cancellationToken">
@@ -10090,17 +10231,16 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Describes one or more of your linked EC2-Classic instances. This request only returns
         /// information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
         /// use this request to return information about other instances.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeClassicLinkInstances service method.</param>
         /// <param name="cancellationToken">
@@ -10484,7 +10624,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -10506,7 +10646,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-        /// options sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// options sets</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDhcpOptions service method.</param>
@@ -11488,6 +11628,41 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeInstanceConnectEndpoints
+
+        internal virtual DescribeInstanceConnectEndpointsResponse DescribeInstanceConnectEndpoints(DescribeInstanceConnectEndpointsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeInstanceConnectEndpointsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeInstanceConnectEndpointsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeInstanceConnectEndpointsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes the specified EC2 Instance Connect Endpoints or all EC2 Instance Connect
+        /// Endpoints.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceConnectEndpoints service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeInstanceConnectEndpoints service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceConnectEndpoints">REST API Reference for DescribeInstanceConnectEndpoints Operation</seealso>
+        public virtual Task<DescribeInstanceConnectEndpointsResponse> DescribeInstanceConnectEndpointsAsync(DescribeInstanceConnectEndpointsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeInstanceConnectEndpointsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeInstanceConnectEndpointsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeInstanceConnectEndpointsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeInstanceCreditSpecifications
 
         internal virtual DescribeInstanceCreditSpecificationsResponse DescribeInstanceCreditSpecifications(DescribeInstanceCreditSpecificationsRequest request)
@@ -12013,6 +12188,76 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeIpamResourceDiscoveries
+
+        internal virtual DescribeIpamResourceDiscoveriesResponse DescribeIpamResourceDiscoveries(DescribeIpamResourceDiscoveriesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpamResourceDiscoveriesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpamResourceDiscoveriesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeIpamResourceDiscoveriesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes IPAM resource discoveries. A resource discovery is an IPAM component that
+        /// enables IPAM to manage and monitor resources that belong to the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpamResourceDiscoveries service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpamResourceDiscoveries service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpamResourceDiscoveries">REST API Reference for DescribeIpamResourceDiscoveries Operation</seealso>
+        public virtual Task<DescribeIpamResourceDiscoveriesResponse> DescribeIpamResourceDiscoveriesAsync(DescribeIpamResourceDiscoveriesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpamResourceDiscoveriesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpamResourceDiscoveriesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeIpamResourceDiscoveriesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeIpamResourceDiscoveryAssociations
+
+        internal virtual DescribeIpamResourceDiscoveryAssociationsResponse DescribeIpamResourceDiscoveryAssociations(DescribeIpamResourceDiscoveryAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpamResourceDiscoveryAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpamResourceDiscoveryAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeIpamResourceDiscoveryAssociationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Describes resource discovery association with an Amazon VPC IPAM. An associated resource
+        /// discovery is a resource discovery that has been associated with an IPAM..
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeIpamResourceDiscoveryAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeIpamResourceDiscoveryAssociations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIpamResourceDiscoveryAssociations">REST API Reference for DescribeIpamResourceDiscoveryAssociations Operation</seealso>
+        public virtual Task<DescribeIpamResourceDiscoveryAssociationsResponse> DescribeIpamResourceDiscoveryAssociationsAsync(DescribeIpamResourceDiscoveryAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeIpamResourceDiscoveryAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeIpamResourceDiscoveryAssociationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeIpamResourceDiscoveryAssociationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeIpams
 
         internal virtual DescribeIpamsResponse DescribeIpams(DescribeIpamsRequest request)
@@ -12516,9 +12761,16 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes your Elastic IP addresses that are being moved to the EC2-VPC platform,
-        /// or that are being restored to the EC2-Classic platform. This request does not return
-        /// information about any other Elastic IP addresses in your account.
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Describes your Elastic IP addresses that are being moved from or being restored to
+        /// the EC2-Classic platform. This request does not return information about any other
+        /// Elastic IP addresses in your account.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMovingAddresses service method.</param>
         /// <param name="cancellationToken">
@@ -12593,8 +12845,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -12615,8 +12867,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeNetworkAcls service method.</param>
@@ -13546,7 +13798,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -13574,7 +13826,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeRouteTables service method.</param>
@@ -13690,8 +13942,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Describes the VPCs on the other side of a VPC peering connection that are
-        /// referencing the security groups you've specified in this request.
+        /// Describes the VPCs on the other side of a VPC peering connection that are referencing
+        /// the security groups you've specified in this request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.</param>
         /// <param name="cancellationToken">
@@ -13763,22 +14015,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the specified security groups or all of your security groups.
-        /// 
-        ///  
-        /// <para>
-        /// A security group is for use with instances either in the EC2-Classic platform or in
-        /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
-        /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -13795,22 +14031,6 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the specified security groups or all of your security groups.
-        /// 
-        ///  
-        /// <para>
-        /// A security group is for use with instances either in the EC2-Classic platform or in
-        /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 security groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
-        /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
-        /// groups for your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSecurityGroups service method.</param>
         /// <param name="cancellationToken">
@@ -13948,11 +14168,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// If you are describing a long list of snapshots, we recommend that you paginate the
-        /// output to make the list more manageable. The <code>MaxResults</code> parameter sets
-        /// the maximum number of results returned in a single page. If the list of results exceeds
-        /// your <code>MaxResults</code> value, then that number of results is returned along
-        /// with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSnapshots</code>
-        /// request to retrieve the remaining results.
+        /// output to make the list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
         /// </para>
         ///  
         /// <para>
@@ -14038,11 +14254,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// If you are describing a long list of snapshots, we recommend that you paginate the
-        /// output to make the list more manageable. The <code>MaxResults</code> parameter sets
-        /// the maximum number of results returned in a single page. If the list of results exceeds
-        /// your <code>MaxResults</code> value, then that number of results is returned along
-        /// with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSnapshots</code>
-        /// request to retrieve the remaining results.
+        /// output to make the list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
         /// </para>
         ///  
         /// <para>
@@ -14311,11 +14523,11 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
-        /// limit the number of results returned. This paginates the output, which makes the list
-        /// more manageable and returns the results faster. If the list of results exceeds your
-        /// <code>MaxResults</code> value, then that number of results is returned along with
-        /// a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code>
-        /// request to retrieve the remaining results.
+        /// limit the number of items returned. This paginates the output, which makes the list
+        /// more manageable and returns the items faster. If the list of items exceeds your <code>MaxResults</code>
+        /// value, then that number of items is returned along with a <code>NextToken</code> value
+        /// that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request
+        /// to retrieve the remaining items.
         /// </para>
         ///  
         /// <para>
@@ -14350,11 +14562,11 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
-        /// limit the number of results returned. This paginates the output, which makes the list
-        /// more manageable and returns the results faster. If the list of results exceeds your
-        /// <code>MaxResults</code> value, then that number of results is returned along with
-        /// a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code>
-        /// request to retrieve the remaining results.
+        /// limit the number of items returned. This paginates the output, which makes the list
+        /// more manageable and returns the items faster. If the list of items exceeds your <code>MaxResults</code>
+        /// value, then that number of items is returned along with a <code>NextToken</code> value
+        /// that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request
+        /// to retrieve the remaining items.
         /// </para>
         ///  
         /// <para>
@@ -14463,10 +14675,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Describes the stale security group rules for security groups in a specified
-        /// VPC. Rules are stale when they reference a deleted security group in the same VPC
-        /// or in a peer VPC, or if they reference a security group in a peer VPC for which the
-        /// VPC peering connection has been deleted.
+        /// Describes the stale security group rules for security groups in a specified VPC. Rules
+        /// are stale when they reference a deleted security group in the same VPC or in a peer
+        /// VPC, or if they reference a security group in a peer VPC for which the VPC peering
+        /// connection has been deleted.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.</param>
         /// <param name="cancellationToken">
@@ -14566,8 +14778,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a>
+        /// in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -14588,8 +14800,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
-        /// VPC and subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a>
+        /// in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSubnets service method.</param>
@@ -15179,7 +15391,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describe Amazon Web Services Verified Access endpoints.
+        /// Describes the specified Amazon Web Services Verified Access endpoints.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessEndpoints service method.</param>
         /// <param name="cancellationToken">
@@ -15213,7 +15425,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describe details of existing Verified Access groups.
+        /// Describes the specified Verified Access groups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessGroups service method.</param>
         /// <param name="cancellationToken">
@@ -15247,8 +15459,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the current logging configuration for the Amazon Web Services Verified Access
-        /// instances.
+        /// Describes the specified Amazon Web Services Verified Access instances.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessInstanceLoggingConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -15282,7 +15493,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describe Verified Access instances.
+        /// Describes the specified Amazon Web Services Verified Access instances.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessInstances service method.</param>
         /// <param name="cancellationToken">
@@ -15316,7 +15527,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describe details of existing Verified Access trust providers.
+        /// Describes the specified Amazon Web Services Verified Access trust providers.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVerifiedAccessTrustProviders service method.</param>
         /// <param name="cancellationToken">
@@ -15399,11 +15610,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// If you are describing a long list of volumes, we recommend that you paginate the output
-        /// to make the list more manageable. The <code>MaxResults</code> parameter sets the maximum
-        /// number of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
-        /// value, then that number of results is returned along with a <code>NextToken</code>
-        /// value that can be passed to a subsequent <code>DescribeVolumes</code> request to retrieve
-        /// the remaining results.
+        /// to make the list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
         /// </para>
         ///  
         /// <para>
@@ -15430,11 +15637,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// If you are describing a long list of volumes, we recommend that you paginate the output
-        /// to make the list more manageable. The <code>MaxResults</code> parameter sets the maximum
-        /// number of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
-        /// value, then that number of results is returned along with a <code>NextToken</code>
-        /// value that can be passed to a subsequent <code>DescribeVolumes</code> request to retrieve
-        /// the remaining results.
+        /// to make the list more manageable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
         /// </para>
         ///  
         /// <para>
@@ -15699,15 +15902,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the ClassicLink status of one or more VPCs.
-        /// 
-        ///  <note> 
+        /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
-        ///  </note>
+        ///  </note> 
+        /// <para>
+        /// Describes the ClassicLink status of the specified VPCs.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcClassicLink service method.</param>
         /// <param name="cancellationToken">
@@ -15743,9 +15945,7 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
         ///  </note> 
         /// <para>
@@ -15753,8 +15953,7 @@ namespace Amazon.EC2
         /// DNS hostname of a linked EC2-Classic instance resolves to its private IP address when
         /// addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
         /// of an instance in a VPC resolves to its private IP address when addressed from a linked
-        /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EC2-Classic instance.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcClassicLinkDnsSupport service method.</param>
@@ -16247,9 +16446,7 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
         ///  </note> 
         /// <para>
@@ -16360,7 +16557,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Detach a trust provider from an Amazon Web Services Verified Access instance.
+        /// Detaches the specified Amazon Web Services Verified Access trust provider from the
+        /// specified Amazon Web Services Verified Access instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetachVerifiedAccessTrustProvider service method.</param>
         /// <param name="cancellationToken">
@@ -16867,16 +17065,15 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has
         /// EC2-Classic instances linked to it.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableVpcClassicLink service method.</param>
         /// <param name="cancellationToken">
@@ -16910,22 +17107,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to
         /// public IP addresses when addressed between a linked EC2-Classic instance and instances
-        /// in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// 
+        /// in the VPC to which it's linked.
+        /// </para>
         ///  
         /// <para>
         /// You must specify a VPC ID in the request.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisableVpcClassicLinkDnsSupport service method.</param>
         /// <param name="cancellationToken">
@@ -16963,18 +17158,6 @@ namespace Amazon.EC2
         /// with.
         /// 
         ///  
-        /// <para>
-        /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note> 
         /// <para>
         /// This is an idempotent operation. If you perform the operation more than once, Amazon
         /// EC2 doesn't return an error.
@@ -17168,6 +17351,93 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DisassociateIpamResourceDiscovery
+
+        internal virtual DisassociateIpamResourceDiscoveryResponse DisassociateIpamResourceDiscovery(DisassociateIpamResourceDiscoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateIpamResourceDiscoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is
+        /// an IPAM component that enables IPAM to manage and monitor resources that belong to
+        /// the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateIpamResourceDiscovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateIpamResourceDiscovery service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateIpamResourceDiscovery">REST API Reference for DisassociateIpamResourceDiscovery Operation</seealso>
+        public virtual Task<DisassociateIpamResourceDiscoveryResponse> DisassociateIpamResourceDiscoveryAsync(DisassociateIpamResourceDiscoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateIpamResourceDiscoveryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DisassociateNatGatewayAddress
+
+        internal virtual DisassociateNatGatewayAddressResponse DisassociateNatGatewayAddress(DisassociateNatGatewayAddressRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return Invoke<DisassociateNatGatewayAddressResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway. You
+        /// cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
+        /// secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// While disassociating is in progress, you cannot associate/disassociate additional
+        /// EIPs while the connections are being drained. You are, however, allowed to delete
+        /// the NAT gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// An EIP is released only at the end of MaxDrainDurationSeconds. It stays associated
+        /// and supports the existing connections but does not support any new connections (new
+        /// connections are distributed across the remaining associated EIPs). As the existing
+        /// connections drain out, the EIPs (and the corresponding private IP addresses mapped
+        /// to them) are released.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DisassociateNatGatewayAddress service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DisassociateNatGatewayAddress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateNatGatewayAddress">REST API Reference for DisassociateNatGatewayAddress Operation</seealso>
+        public virtual Task<DisassociateNatGatewayAddressResponse> DisassociateNatGatewayAddressAsync(DisassociateNatGatewayAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DisassociateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DisassociateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DisassociateNatGatewayAddressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DisassociateRouteTable
 
         internal virtual DisassociateRouteTableResponse DisassociateRouteTable(DisassociateRouteTableRequest request)
@@ -17189,7 +17459,7 @@ namespace Amazon.EC2
         /// After you perform this action, the subnet no longer uses the routes in the route table.
         /// Instead, it uses the routes in the VPC's main route table. For more information about
         /// route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateRouteTable service method.</param>
@@ -17929,9 +18199,7 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
         ///  </note> 
         /// <para>
@@ -17939,9 +18207,7 @@ namespace Amazon.EC2
         /// VPC to allow communication over private IP addresses. You cannot enable your VPC for
         /// ClassicLink if any of your VPC route tables have existing routes for address ranges
         /// within the <code>10.0.0.0/8</code> IP address range, excluding local routes for VPCs
-        /// in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address ranges.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the EnableVpcClassicLink service method.</param>
@@ -17978,9 +18244,7 @@ namespace Amazon.EC2
         /// <summary>
         /// <note> 
         /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// This action is deprecated.
         /// </para>
         ///  </note> 
         /// <para>
@@ -17988,8 +18252,7 @@ namespace Amazon.EC2
         /// DNS hostname of a linked EC2-Classic instance resolves to its private IP address when
         /// addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
         /// of an instance in a VPC resolves to its private IP address when addressed from a linked
-        /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// EC2-Classic instance.
         /// </para>
         ///  
         /// <para>
@@ -18596,7 +18859,12 @@ namespace Amazon.EC2
         /// <para>
         /// Create a set of named queries in Athena that you can use to get started quickly
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        ///  <code>GetFlowLogsIntegrationTemplate</code> does not support integration between
+        /// Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetFlowLogsIntegrationTemplate service method.</param>
         /// <param name="cancellationToken">
@@ -18832,6 +19100,79 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetIpamDiscoveredAccounts
+
+        internal virtual GetIpamDiscoveredAccountsResponse GetIpamDiscoveredAccounts(GetIpamDiscoveredAccountsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetIpamDiscoveredAccountsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetIpamDiscoveredAccountsResponseUnmarshaller.Instance;
+
+            return Invoke<GetIpamDiscoveredAccountsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account
+        /// that is monitored under a resource discovery. If you have integrated IPAM with Amazon
+        /// Web Services Organizations, all accounts in the organization are discovered accounts.
+        /// Only the IPAM account can get all discovered accounts in the organization.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamDiscoveredAccounts service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamDiscoveredAccounts service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamDiscoveredAccounts">REST API Reference for GetIpamDiscoveredAccounts Operation</seealso>
+        public virtual Task<GetIpamDiscoveredAccountsResponse> GetIpamDiscoveredAccountsAsync(GetIpamDiscoveredAccountsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetIpamDiscoveredAccountsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetIpamDiscoveredAccountsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetIpamDiscoveredAccountsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetIpamDiscoveredResourceCidrs
+
+        internal virtual GetIpamDiscoveredResourceCidrsResponse GetIpamDiscoveredResourceCidrs(GetIpamDiscoveredResourceCidrsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetIpamDiscoveredResourceCidrsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetIpamDiscoveredResourceCidrsResponseUnmarshaller.Instance;
+
+            return Invoke<GetIpamDiscoveredResourceCidrsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns the resource CIDRs that are monitored as part of a resource discovery. A discovered
+        /// resource is a resource CIDR monitored under a resource discovery. The following resources
+        /// can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetIpamDiscoveredResourceCidrs service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetIpamDiscoveredResourceCidrs service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetIpamDiscoveredResourceCidrs">REST API Reference for GetIpamDiscoveredResourceCidrs Operation</seealso>
+        public virtual Task<GetIpamDiscoveredResourceCidrsResponse> GetIpamDiscoveredResourceCidrsAsync(GetIpamDiscoveredResourceCidrsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetIpamDiscoveredResourceCidrsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetIpamDiscoveredResourceCidrsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetIpamDiscoveredResourceCidrsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetIpamPoolAllocations
 
         internal virtual GetIpamPoolAllocationsResponse GetIpamPoolAllocations(GetIpamPoolAllocationsRequest request)
@@ -18846,7 +19187,18 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Get a list of all the CIDR allocations in an IPAM pool.
+        /// Get a list of all the CIDR allocations in an IPAM pool. The Region you use should
+        /// be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM
+        /// pool is available for allocations.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>,
+        /// note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual
+        /// consistency</a> model.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIpamPoolAllocations service method.</param>
         /// <param name="cancellationToken">
@@ -18914,7 +19266,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Get information about the resources in a scope.
+        /// Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated
+        /// with more than one resource discovery, the resource CIDRs across all of the resource
+        /// discoveries is returned. A resource discovery is an IPAM component that enables IPAM
+        /// to manage and monitor resources that belong to the owning account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIpamResourceCidrs service method.</param>
         /// <param name="cancellationToken">
@@ -19710,6 +20065,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetVpnTunnelReplacementStatus
+
+        internal virtual GetVpnTunnelReplacementStatusResponse GetVpnTunnelReplacementStatus(GetVpnTunnelReplacementStatusRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnTunnelReplacementStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnTunnelReplacementStatusResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpnTunnelReplacementStatusResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Get details of available tunnel endpoint maintenance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpnTunnelReplacementStatus service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetVpnTunnelReplacementStatus service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetVpnTunnelReplacementStatus">REST API Reference for GetVpnTunnelReplacementStatus Operation</seealso>
+        public virtual Task<GetVpnTunnelReplacementStatusResponse> GetVpnTunnelReplacementStatusAsync(GetVpnTunnelReplacementStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetVpnTunnelReplacementStatusRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetVpnTunnelReplacementStatusResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVpnTunnelReplacementStatusResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ImportClientVpnClientCertificateRevocationList
 
         internal virtual ImportClientVpnClientCertificateRevocationListResponse ImportClientVpnClientCertificateRevocationList(ImportClientVpnClientCertificateRevocationListRequest request)
@@ -19765,9 +20154,19 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// To import your virtual machines (VMs) with a console-based experience, you can use
+        /// the <i>Import virtual machine images to Amazon Web Services</i> template in the <a
+        /// href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator
+        /// console</a>. For more information, see the <a href="https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html">
+        /// <i>Migration Hub Orchestrator User Guide</i> </a>.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
         /// Image (AMI).
-        /// 
+        /// </para>
         ///  <important> 
         /// <para>
         /// Amazon Web Services VM Import/Export strongly recommends specifying a value for either
@@ -19813,18 +20212,26 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates an import instance task using metadata from the specified disk image.
-        /// 
-        ///  
+        /// <note> 
         /// <para>
-        /// This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
-        /// instead.
+        /// We recommend that you use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html">
+        /// <code>ImportImage</code> </a> API. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
+        /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Creates an import instance task using metadata from the specified disk image.
         /// </para>
         ///  
         /// <para>
         /// This API action is not supported by the Command Line Interface (CLI). For information
         /// about using the Amazon EC2 CLI, which is deprecated, see <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing
         /// a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.
+        /// </para>
+        ///  
+        /// <para>
+        /// This API action supports only single-volume VMs. To import multi-volume VMs, use <a>ImportImage</a>
+        /// instead.
         /// </para>
         ///  
         /// <para>
@@ -20653,9 +21060,14 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
-        /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
-        /// or one of the following parameters: <code>Description</code> or <code>LaunchPermission</code>.
+        /// at a time.
         /// 
+        ///  
+        /// <para>
+        /// To specify the attribute, you can use the <code>Attribute</code> parameter, or one
+        /// of the following parameters: <code>Description</code>, <code>ImdsSupport</code>, or
+        /// <code>LaunchPermission</code>.
+        /// </para>
         ///  
         /// <para>
         /// Images with an Amazon Web Services Marketplace product code cannot be made public.
@@ -20704,10 +21116,10 @@ namespace Amazon.EC2
         ///  
         /// <para>
         ///  <b>Note: </b>Using this action to change the security groups associated with an elastic
-        /// network interface (ENI) attached to an instance in a VPC can result in an error if
-        /// the instance has more than one ENI. To change the security groups associated with
-        /// an ENI attached to an instance that has multiple ENIs, we recommend that you use the
-        /// <a>ModifyNetworkInterfaceAttribute</a> action.
+        /// network interface (ENI) attached to an instance can result in an error if the instance
+        /// has more than one ENI. To change the security groups associated with an ENI attached
+        /// to an instance that has multiple ENIs, we recommend that you use the <a>ModifyNetworkInterfaceAttribute</a>
+        /// action.
         /// </para>
         ///  
         /// <para>
@@ -21162,6 +21574,41 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyIpamResourceDiscovery
+
+        internal virtual ModifyIpamResourceDiscoveryResponse ModifyIpamResourceDiscovery(ModifyIpamResourceDiscoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyIpamResourceDiscoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Modifies a resource discovery. A resource discovery is an IPAM component that enables
+        /// IPAM to manage and monitor resources that belong to the owning account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyIpamResourceDiscovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ModifyIpamResourceDiscovery service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIpamResourceDiscovery">REST API Reference for ModifyIpamResourceDiscovery Operation</seealso>
+        public virtual Task<ModifyIpamResourceDiscoveryResponse> ModifyIpamResourceDiscoveryAsync(ModifyIpamResourceDiscoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ModifyIpamResourceDiscoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ModifyIpamResourceDiscoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ModifyIpamResourceDiscoveryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ModifyIpamScope
 
         internal virtual ModifyIpamScopeResponse ModifyIpamScope(ModifyIpamScopeRequest request)
@@ -21404,13 +21851,6 @@ namespace Amazon.EC2
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
         /// Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyReservedInstances service method.</param>
         /// <param name="cancellationToken">
@@ -21927,7 +22367,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the configuration of an Amazon Web Services Verified Access endpoint.
+        /// Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -21961,7 +22401,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Verified Access endpoint policy.
+        /// Modifies the specified Amazon Web Services Verified Access endpoint policy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessEndpointPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -21995,7 +22435,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Verified Access group configuration.
+        /// Modifies the specified Amazon Web Services Verified Access group configuration.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessGroup service method.</param>
         /// <param name="cancellationToken">
@@ -22029,7 +22469,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Verified Access group policy.
+        /// Modifies the specified Amazon Web Services Verified Access group policy.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessGroupPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -22063,7 +22503,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the configuration of the specified Verified Access instance.
+        /// Modifies the configuration of the specified Amazon Web Services Verified Access instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVerifiedAccessInstance service method.</param>
         /// <param name="cancellationToken">
@@ -22509,44 +22949,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note> 
-        /// <para>
         /// Modifies the VPC peering connection options on one side of a VPC peering connection.
-        /// You can do the following:
-        /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Enable/disable communication over the peering connection between an EC2-Classic instance
-        /// that's linked to your VPC (using ClassicLink) and instances in the peer VPC.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Enable/disable communication over the peering connection between instances in your
-        /// VPC and an EC2-Classic instance that's linked to the peer VPC.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Enable/disable the ability to resolve public DNS hostnames to private IP addresses
-        /// when queried from instances in the peer VPC.
-        /// </para>
-        ///  </li> </ul> 
+        /// 
+        ///  
         /// <para>
         /// If the peered VPCs are in the same Amazon Web Services account, you can enable DNS
         /// resolution for queries from the local VPC. This ensures that queries from the local
         /// VPC resolve to private IP addresses in the peer VPC. This option is not available
-        /// if the peered VPCs are in different different Amazon Web Services accounts or different
-        /// Regions. For peered VPCs in different Amazon Web Services accounts, each Amazon Web
-        /// Services account owner must initiate a separate request to modify the peering connection
-        /// options. For inter-region peering connections, you must use the Region for the requester
-        /// VPC to modify the requester VPC peering options and the Region for the accepter VPC
-        /// to modify the accepter VPC peering options. To verify which VPCs are the accepter
-        /// and the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
+        /// if the peered VPCs are in different Amazon Web Services accounts or different Regions.
+        /// For peered VPCs in different Amazon Web Services accounts, each Amazon Web Services
+        /// account owner must initiate a separate request to modify the peering connection options.
+        /// For inter-region peering connections, you must use the Region for the requester VPC
+        /// to modify the requester VPC peering options and the Region for the accepter VPC to
+        /// modify the accepter VPC peering options. To verify which VPCs are the accepter and
+        /// the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a>
         /// command.
         /// </para>
         /// </summary>
@@ -22595,7 +23011,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcTenancy service method.</param>
@@ -22882,6 +23298,12 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform.
         /// The Elastic IP address must be allocated to your account for more than 24 hours, and
         /// it must not be associated with an instance. After the Elastic IP address is moved,
@@ -22889,14 +23311,7 @@ namespace Amazon.EC2
         /// back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic
         /// IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic
         /// platform.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the MoveAddressToVpc service method.</param>
         /// <param name="cancellationToken">
@@ -22930,14 +23345,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.
+        /// Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
         /// 
         ///  
         /// <para>
-        /// If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can move the
-        /// CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you
-        /// are bringing a new IP address to Amazon Web Services for the first time, complete
-        /// the steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial:
+        /// If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR
+        /// to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are
+        /// bringing a new IP address to Amazon Web Services for the first time, complete the
+        /// steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial:
         /// BYOIP address CIDRs to IPAM</a>.
         /// </para>
         /// </summary>
@@ -23164,13 +23579,6 @@ namespace Amazon.EC2
         /// Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
         /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PurchaseReservedInstancesOffering service method.</param>
         /// <param name="cancellationToken">
@@ -23730,17 +24138,11 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates
-        /// it from any instance that it's associated with. To disassociate an Elastic IP address
-        /// without releasing it, use <a>DisassociateAddress</a>.
+        /// [Default VPC] Releasing an Elastic IP address automatically disassociates it from
+        /// any instance that it's associated with. To disassociate an Elastic IP address without
+        /// releasing it, use <a>DisassociateAddress</a>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
         /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).
@@ -23755,13 +24157,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able
-        /// to recover it. For more information, see <a>AllocateAddress</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// After you release an Elastic IP address, you might be able to recover it. For more
+        /// information, see <a>AllocateAddress</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReleaseAddress service method.</param>
@@ -23845,11 +24242,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Release an allocation within an IPAM pool. You can only use this action to release
-        /// manual allocations. To remove an allocation for a resource without deleting the resource,
-        /// set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release
-        /// an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
+        /// Release an allocation within an IPAM pool. The Region you use should be the IPAM pool
+        /// locale. The locale is the Amazon Web Services Region where this IPAM pool is available
+        /// for allocations. You can only use this action to release manual allocations. To remove
+        /// an allocation for a resource without deleting the resource, set its monitored state
+        /// to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html">Release
+        /// an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+        /// 
+        ///  <note> 
+        /// <para>
+        /// All EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual
+        /// consistency</a> model.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReleaseIpamPoolAllocation service method.</param>
         /// <param name="cancellationToken">
@@ -23926,8 +24332,8 @@ namespace Amazon.EC2
         /// <summary>
         /// Changes which network ACL a subnet is associated with. By default when you create
         /// a subnet, it's automatically associated with the default network ACL. For more information,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -23966,8 +24372,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
-        /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html">Network
+        /// ACLs</a> in the <i>Amazon VPC User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReplaceNetworkAclEntry service method.</param>
         /// <param name="cancellationToken">
@@ -24012,7 +24418,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReplaceRoute service method.</param>
@@ -24051,7 +24457,7 @@ namespace Amazon.EC2
         /// private gateway in a VPC. After the operation completes, the subnet or gateway uses
         /// the routes in the new route table. For more information about route tables, see <a
         /// href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
-        /// tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// tables</a> in the <i>Amazon VPC User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -24108,6 +24514,40 @@ namespace Amazon.EC2
             options.ResponseUnmarshaller = ReplaceTransitGatewayRouteResponseUnmarshaller.Instance;
 
             return InvokeAsync<ReplaceTransitGatewayRouteResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ReplaceVpnTunnel
+
+        internal virtual ReplaceVpnTunnelResponse ReplaceVpnTunnel(ReplaceVpnTunnelRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ReplaceVpnTunnelRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ReplaceVpnTunnelResponseUnmarshaller.Instance;
+
+            return Invoke<ReplaceVpnTunnelResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Trigger replacement of specified VPN tunnel.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ReplaceVpnTunnel service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ReplaceVpnTunnel service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceVpnTunnel">REST API Reference for ReplaceVpnTunnel Operation</seealso>
+        public virtual Task<ReplaceVpnTunnelResponse> ReplaceVpnTunnelAsync(ReplaceVpnTunnelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ReplaceVpnTunnelRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ReplaceVpnTunnelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ReplaceVpnTunnelResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -24260,13 +24700,7 @@ namespace Amazon.EC2
         /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
         /// Instances</i>.
         /// </para>
-        ///  </important> <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
-        /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RequestSpotInstances service method.</param>
         /// <param name="cancellationToken">
@@ -24566,18 +25000,17 @@ namespace Amazon.EC2
 
 
         /// <summary>
+        /// <note> 
+        /// <para>
+        /// This action is deprecated.
+        /// </para>
+        ///  </note> 
+        /// <para>
         /// Restores an Elastic IP address that was previously moved to the EC2-VPC platform back
         /// to the EC2-Classic platform. You cannot move an Elastic IP address that was originally
         /// allocated for use in EC2-VPC. The Elastic IP address must not be associated with an
         /// instance or network interface.
-        /// 
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RestoreAddressToClassic service method.</param>
         /// <param name="cancellationToken">
@@ -24794,8 +25227,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Removes the specified outbound (egress) rules from a security group for
-        /// EC2-VPC. This action does not apply to security groups for use in EC2-Classic.
+        /// Removes the specified outbound (egress) rules from the specified security group.
         /// 
         ///  
         /// <para>
@@ -24809,9 +25241,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [Default VPC] If the values you specify do not match the existing rule's values, no
-        /// error is returned, and the output describes the security group rules that were not
-        /// revoked.
+        /// For a default VPC, if the values you specify do not match the existing rule's values,
+        /// no error is returned, and the output describes the security group rules that were
+        /// not revoked.
         /// </para>
         ///  
         /// <para>
@@ -24870,9 +25302,9 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// [EC2-Classic, default VPC] If the values you specify do not match the existing rule's
-        /// values, no error is returned, and the output describes the security group rules that
-        /// were not revoked.
+        /// For a default VPC, if the values you specify do not match the existing rule's values,
+        /// no error is returned, and the output describes the security group rules that were
+        /// not revoked.
         /// </para>
         ///  
         /// <para>
@@ -24884,13 +25316,6 @@ namespace Amazon.EC2
         /// Rule changes are propagated to instances within the security group as quickly as possible.
         /// However, a small delay might occur.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.</param>
         /// <param name="cancellationToken">
@@ -24933,25 +25358,13 @@ namespace Amazon.EC2
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default
-        /// VPC for you. If you don't have a default VPC, you must specify a subnet ID in the
-        /// request.
+        /// If you don't specify a subnet ID, we choose a default subnet from your default VPC
+        /// for you. If you don't have a default VPC, you must specify a subnet ID in the request.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// [EC2-Classic] If don't specify an Availability Zone, we choose one for you.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Some instance types must be launched into a VPC. If you do not have a default VPC,
-        /// or if you do not specify a subnet ID, the request fails. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance
-        /// types available only in a VPC</a>.
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// [EC2-VPC] All instances have a network interface with a primary private IPv4 address.
-        /// If you don't specify this address, we choose one from the IPv4 range of your subnet.
+        /// All instances have a network interface with a primary private IPv4 address. If you
+        /// don't specify this address, we choose one from the IPv4 range of your subnet.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -25003,13 +25416,6 @@ namespace Amazon.EC2
         /// to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting
         /// connecting to your instance</a>.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-        /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
-        /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RunInstances service method.</param>
         /// <param name="cancellationToken">
@@ -25438,8 +25844,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled
-        /// for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+        /// You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
+        /// for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
         /// prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
         /// your instance</a> in the <i>Amazon EC2 User Guide</i>.
         /// </para>
@@ -25725,6 +26131,57 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  UnassignPrivateNatGatewayAddress
+
+        internal virtual UnassignPrivateNatGatewayAddressResponse UnassignPrivateNatGatewayAddress(UnassignPrivateNatGatewayAddressRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UnassignPrivateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UnassignPrivateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return Invoke<UnassignPrivateNatGatewayAddressResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot
+        /// unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
+        /// secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// While unassigning is in progress, you cannot assign/unassign additional IP addresses
+        /// while the connections are being drained. You are, however, allowed to delete the NAT
+        /// gateway.
+        /// </para>
+        ///  
+        /// <para>
+        /// A private IP address will only be released at the end of MaxDrainDurationSeconds.
+        /// The private IP addresses stay associated and support the existing connections, but
+        /// do not support any new connections (new connections are distributed across the remaining
+        /// assigned private IP address). After the existing connections drain out, the private
+        /// IP addresses are released.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UnassignPrivateNatGatewayAddress service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UnassignPrivateNatGatewayAddress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateNatGatewayAddress">REST API Reference for UnassignPrivateNatGatewayAddress Operation</seealso>
+        public virtual Task<UnassignPrivateNatGatewayAddressResponse> UnassignPrivateNatGatewayAddressAsync(UnassignPrivateNatGatewayAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UnassignPrivateNatGatewayAddressRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UnassignPrivateNatGatewayAddressResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UnassignPrivateNatGatewayAddressResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UnmonitorInstances
 
         internal virtual UnmonitorInstancesResponse UnmonitorInstances(UnmonitorInstancesRequest request)
@@ -25775,10 +26232,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// [VPC only] Updates the description of an egress (outbound) security group rule. You
-        /// can replace an existing description, or add a description to a rule that did not have
-        /// one previously. You can remove a description for a security group rule by omitting
-        /// the description parameter in the request.
+        /// Updates the description of an egress (outbound) security group rule. You can replace
+        /// an existing description, or add a description to a rule that did not have one previously.
+        /// You can remove a description for a security group rule by omitting the description
+        /// parameter in the request.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.</param>
         /// <param name="cancellationToken">

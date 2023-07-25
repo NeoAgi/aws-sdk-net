@@ -32,16 +32,26 @@ namespace Amazon.IotData
     public partial class AmazonIotDataConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.35");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "IoT Data Plane";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonIotDataConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIotDataDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "IoT Data Plane";
             this.AuthenticationServiceName = "iotdata";
             this.EndpointProvider = new AmazonIotDataEndpointProvider();
         }

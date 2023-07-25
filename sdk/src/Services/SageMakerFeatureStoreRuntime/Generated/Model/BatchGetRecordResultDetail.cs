@@ -29,13 +29,32 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SageMakerFeatureStoreRuntime.Model
 {
     /// <summary>
-    /// The output of Records that have been retrieved in a batch.
+    /// The output of records that have been retrieved in a batch.
     /// </summary>
     public partial class BatchGetRecordResultDetail
     {
+        private string _expiresAt;
         private string _featureGroupName;
         private List<FeatureValue> _record = new List<FeatureValue>();
         private string _recordIdentifierValueAsString;
+
+        /// <summary>
+        /// Gets and sets the property ExpiresAt. 
+        /// <para>
+        /// The <code>ExpiresAt</code> ISO string of the requested record.
+        /// </para>
+        /// </summary>
+        public string ExpiresAt
+        {
+            get { return this._expiresAt; }
+            set { this._expiresAt = value; }
+        }
+
+        // Check to see if ExpiresAt property is set
+        internal bool IsSetExpiresAt()
+        {
+            return this._expiresAt != null;
+        }
 
         /// <summary>
         /// Gets and sets the property FeatureGroupName. 
@@ -78,7 +97,7 @@ namespace Amazon.SageMakerFeatureStoreRuntime.Model
         /// <summary>
         /// Gets and sets the property RecordIdentifierValueAsString. 
         /// <para>
-        /// The value of the record identifer in string format.
+        /// The value of the record identifier in string format.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=358400)]

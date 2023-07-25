@@ -92,6 +92,96 @@ namespace Amazon.Appflow
 
 
         
+        #region  CancelFlowExecutions
+
+
+        /// <summary>
+        /// Cancels active runs for a flow.
+        /// 
+        ///  
+        /// <para>
+        /// You can cancel all of the active runs for a flow, or you can cancel specific runs
+        /// by providing their IDs.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can cancel a flow run only when the run is in progress. You can't cancel a run
+        /// that has already completed or failed. You also can't cancel a run that's scheduled
+        /// to occur but hasn't started yet. To prevent a scheduled run, you can deactivate the
+        /// flow with the <code>StopFlow</code> action.
+        /// </para>
+        ///  
+        /// <para>
+        /// You cannot resume a run after you cancel it.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you send your request, the status for each run becomes <code>CancelStarted</code>.
+        /// When the cancellation completes, the status becomes <code>Canceled</code>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// When you cancel a run, you still incur charges for any data that the run already processed
+        /// before the cancellation. If the run had already written some data to the flow destination,
+        /// then that data remains in the destination. If you configured the flow to use a batch
+        /// API (such as the Salesforce Bulk API 2.0), then the run will finish reading or writing
+        /// its entire batch of data after the cancellation. For these operations, the data processing
+        /// charges for Amazon AppFlow apply. For the pricing information, see <a href="http://aws.amazon.com/appflow/pricing/">Amazon
+        /// AppFlow pricing</a>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CancelFlowExecutions service method.</param>
+        /// 
+        /// <returns>The response from the CancelFlowExecutions service method, as returned by Appflow.</returns>
+        /// <exception cref="Amazon.Appflow.Model.AccessDeniedException">
+        /// AppFlow/Requester has invalid or missing permissions.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.InternalServerException">
+        /// An internal service error occurred during the processing of your request. Try again
+        /// later.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.ResourceNotFoundException">
+        /// The resource specified in the request (such as the source or destination connector
+        /// profile) is not found.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.ThrottlingException">
+        /// API calls have exceeded the maximum allowed API request rate per account and per Region.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.ValidationException">
+        /// The request has invalid or missing parameters.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/CancelFlowExecutions">REST API Reference for CancelFlowExecutions Operation</seealso>
+        CancelFlowExecutionsResponse CancelFlowExecutions(CancelFlowExecutionsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CancelFlowExecutions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CancelFlowExecutions operation on AmazonAppflowClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelFlowExecutions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/CancelFlowExecutions">REST API Reference for CancelFlowExecutions Operation</seealso>
+        IAsyncResult BeginCancelFlowExecutions(CancelFlowExecutionsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CancelFlowExecutions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCancelFlowExecutions.</param>
+        /// 
+        /// <returns>Returns a  CancelFlowExecutionsResult from Appflow.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/CancelFlowExecutions">REST API Reference for CancelFlowExecutions Operation</seealso>
+        CancelFlowExecutionsResponse EndCancelFlowExecutions(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateConnectorProfile
 
 
@@ -925,6 +1015,73 @@ namespace Amazon.Appflow
         /// <returns>Returns a  RegisterConnectorResult from Appflow.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/RegisterConnector">REST API Reference for RegisterConnector Operation</seealso>
         RegisterConnectorResponse EndRegisterConnector(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ResetConnectorMetadataCache
+
+
+        /// <summary>
+        /// Resets metadata about your connector entities that Amazon AppFlow stored in its cache.
+        /// Use this action when you want Amazon AppFlow to return the latest information about
+        /// the data that you have in a source application.
+        /// 
+        ///  
+        /// <para>
+        /// Amazon AppFlow returns metadata about your entities when you use the ListConnectorEntities
+        /// or DescribeConnectorEntities actions. Following these actions, Amazon AppFlow caches
+        /// the metadata to reduce the number of API requests that it must send to the source
+        /// application. Amazon AppFlow automatically resets the cache once every hour, but you
+        /// can use this action when you want to get the latest metadata right away.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResetConnectorMetadataCache service method.</param>
+        /// 
+        /// <returns>The response from the ResetConnectorMetadataCache service method, as returned by Appflow.</returns>
+        /// <exception cref="Amazon.Appflow.Model.ConflictException">
+        /// There was a conflict when processing the request (for example, a flow with the given
+        /// name already exists within the account. Check for conflicting resource names and try
+        /// again.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.InternalServerException">
+        /// An internal service error occurred during the processing of your request. Try again
+        /// later.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.ResourceNotFoundException">
+        /// The resource specified in the request (such as the source or destination connector
+        /// profile) is not found.
+        /// </exception>
+        /// <exception cref="Amazon.Appflow.Model.ValidationException">
+        /// The request has invalid or missing parameters.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/ResetConnectorMetadataCache">REST API Reference for ResetConnectorMetadataCache Operation</seealso>
+        ResetConnectorMetadataCacheResponse ResetConnectorMetadataCache(ResetConnectorMetadataCacheRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetConnectorMetadataCache operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetConnectorMetadataCache operation on AmazonAppflowClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetConnectorMetadataCache
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/ResetConnectorMetadataCache">REST API Reference for ResetConnectorMetadataCache Operation</seealso>
+        IAsyncResult BeginResetConnectorMetadataCache(ResetConnectorMetadataCacheRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ResetConnectorMetadataCache operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginResetConnectorMetadataCache.</param>
+        /// 
+        /// <returns>Returns a  ResetConnectorMetadataCacheResult from Appflow.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/appflow-2020-08-23/ResetConnectorMetadataCache">REST API Reference for ResetConnectorMetadataCache Operation</seealso>
+        ResetConnectorMetadataCacheResponse EndResetConnectorMetadataCache(IAsyncResult asyncResult);
 
         #endregion
         

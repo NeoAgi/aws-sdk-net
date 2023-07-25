@@ -62,6 +62,7 @@ namespace Amazon.DynamoDBv2.Model
         private ReturnConsumedCapacity _returnConsumedCapacity;
         private ReturnItemCollectionMetrics _returnItemCollectionMetrics;
         private ReturnValue _returnValues;
+        private ReturnValuesOnConditionCheckFailure _returnValuesOnConditionCheckFailure;
         private string _tableName;
 
         /// <summary>
@@ -73,7 +74,7 @@ namespace Amazon.DynamoDBv2.Model
         /// Instantiates DeleteItemRequest with the parameterized properties
         /// </summary>
         /// <param name="tableName">The name of the table from which to delete the item.</param>
-        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
+        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         public DeleteItemRequest(string tableName, Dictionary<string, AttributeValue> key)
         {
             _tableName = tableName;
@@ -84,7 +85,7 @@ namespace Amazon.DynamoDBv2.Model
         /// Instantiates DeleteItemRequest with the parameterized properties
         /// </summary>
         /// <param name="tableName">The name of the table from which to delete the item.</param>
-        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
+        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - The content of the old item is returned. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
         public DeleteItemRequest(string tableName, Dictionary<string, AttributeValue> key, ReturnValue returnValues)
         {
@@ -307,9 +308,10 @@ namespace Amazon.DynamoDBv2.Model
         /// </para>
         ///  
         /// <para>
-        /// For the primary key, you must provide all of the attributes. For example, with a simple
-        /// primary key, you only need to provide a value for the partition key. For a composite
-        /// primary key, you must provide values for both the partition key and the sort key.
+        /// For the primary key, you must provide all of the key attributes. For example, with
+        /// a simple primary key, you only need to provide a value for the partition key. For
+        /// a composite primary key, you must provide values for both the partition key and the
+        /// sort key.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
@@ -400,6 +402,31 @@ namespace Amazon.DynamoDBv2.Model
         internal bool IsSetReturnValues()
         {
             return this._returnValues != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReturnValuesOnConditionCheckFailure. 
+        /// <para>
+        /// An optional parameter that returns the item attributes for a <code>DeleteItem</code>
+        /// operation that failed a condition check.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is no additional cost associated with requesting a return value aside from the
+        /// small network and processing overhead of receiving a larger response. No read capacity
+        /// units are consumed.
+        /// </para>
+        /// </summary>
+        public ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure
+        {
+            get { return this._returnValuesOnConditionCheckFailure; }
+            set { this._returnValuesOnConditionCheckFailure = value; }
+        }
+
+        // Check to see if ReturnValuesOnConditionCheckFailure property is set
+        internal bool IsSetReturnValuesOnConditionCheckFailure()
+        {
+            return this._returnValuesOnConditionCheckFailure != null;
         }
 
         /// <summary>

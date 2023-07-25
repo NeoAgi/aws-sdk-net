@@ -32,16 +32,26 @@ namespace Amazon.CloudFront
     public partial class AmazonCloudFrontConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.103.12");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "CloudFront";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonCloudFrontConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonCloudFrontDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "CloudFront";
             this.AuthenticationServiceName = "cloudfront";
             this.EndpointProvider = new AmazonCloudFrontEndpointProvider();
         }

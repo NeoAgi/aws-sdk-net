@@ -6,6 +6,11 @@
     <max>100</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateAccessTokenResponse.AccessTokenId</property>
+    <min>1</min>
+    <max>36</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.CreateAccessTokenResponse.Name</property>
     <min>1</min>
     <max>100</max>
@@ -90,6 +95,52 @@
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest.Description</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse.Description</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.CreateSourceRepositoryBranchRequest.Name</property>
     <min>1</min>
     <max>100</max>
@@ -160,6 +211,78 @@
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteProjectRequest.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteProjectRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteProjectResponse.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteProjectResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryRequest.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryRequest.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSourceRepositoryResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSpaceRequest.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DeleteSpaceResponse.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.GetDevEnvironmentRequest.Id</property>
     <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
   </property-value-rule>
@@ -225,6 +348,47 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.GetProjectResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryRequest.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryRequest.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse.Description</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse.Name</property>
+    <min>1</min>
+    <max>100</max>
+    <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.GetSourceRepositoryResponse.SpaceName</property>
     <min>3</min>
     <max>63</max>
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
@@ -315,6 +479,32 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentsRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentSessionsRequest.DevEnvironmentId</property>
+    <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentSessionsRequest.MaxResults</property>
+    <min>1</min>
+    <max>200</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentSessionsRequest.NextToken</property>
+    <min>1</min>
+    <max>10000</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentSessionsRequest.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.ListDevEnvironmentSessionsRequest.SpaceName</property>
     <min>3</min>
     <max>63</max>
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
@@ -513,10 +703,52 @@
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.CodeCatalyst.Model.UpdateDevEnvironmentRequest.Alias</property>
-    <min>1</min>
-    <max>128</max>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionRequest.Id</property>
+    <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionRequest.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionRequest.SessionId</property>
+    <min>1</min>
+    <max>96</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse.Id</property>
+    <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse.SessionId</property>
+    <min>1</min>
+    <max>96</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.StopDevEnvironmentSessionResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateDevEnvironmentRequest.Alias</property>
+    <min>0</min>
+    <max>128</max>
+    <pattern>$|^[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.UpdateDevEnvironmentRequest.ClientToken</property>
@@ -577,6 +809,54 @@
     <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateProjectRequest.Description</property>
+    <min>0</min>
+    <max>200</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_a-zA-Z0-9.,;:/\+=?&amp;$%    ])*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateProjectRequest.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateProjectRequest.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateProjectResponse.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateProjectResponse.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateSpaceRequest.Description</property>
+    <min>0</min>
+    <max>200</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_a-zA-Z0-9.,;:/\+=?&amp;$%    ])*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateSpaceRequest.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.UpdateSpaceResponse.Name</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.VerifySessionResponse.Identity</property>
     <min>1</min>
     <max>256</max>
@@ -601,6 +881,27 @@
     <min>1</min>
     <max>100</max>
     <pattern>(?!.*[.]git$)[\w\-.]*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DevEnvironmentSessionSummary.DevEnvironmentId</property>
+    <pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DevEnvironmentSessionSummary.Id</property>
+    <min>1</min>
+    <max>96</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DevEnvironmentSessionSummary.ProjectName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.CodeCatalyst.Model.DevEnvironmentSessionSummary.SpaceName</property>
+    <min>3</min>
+    <max>63</max>
+    <pattern>[a-zA-Z0-9]+(?:[-_\.][a-zA-Z0-9]+)*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.CodeCatalyst.Model.DevEnvironmentSummary.Alias</property>

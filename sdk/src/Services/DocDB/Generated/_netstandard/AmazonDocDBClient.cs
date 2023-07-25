@@ -38,7 +38,10 @@ namespace Amazon.DocDB
     /// <summary>
     /// Implementation for accessing DocDB
     ///
-    /// Amazon DocumentDB API documentation
+    /// Amazon DocumentDB is a fast, reliable, and fully managed database service. Amazon
+    /// DocumentDB makes it easy to set up, operate, and scale MongoDB-compatible databases
+    /// in the cloud. With Amazon DocumentDB, you can run the same application code and use
+    /// the same drivers and tools that you use with MongoDB.
     /// </summary>
     public partial class AmazonDocDBClient : AmazonServiceClient, IAmazonDocDB
     {
@@ -100,7 +103,7 @@ namespace Amazon.DocDB
         /// </summary>
         /// <param name="config">The AmazonDocDBClient Configuration Object</param>
         public AmazonDocDBClient(AmazonDocDBConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>

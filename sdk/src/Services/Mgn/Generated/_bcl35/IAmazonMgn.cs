@@ -1552,6 +1552,233 @@ namespace Amazon.Mgn
 
         #endregion
         
+        #region  ListExportErrors
+
+
+        /// <summary>
+        /// List export errors.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListExportErrors service method.</param>
+        /// 
+        /// <returns>The response from the ListExportErrors service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExportErrors">REST API Reference for ListExportErrors Operation</seealso>
+        ListExportErrorsResponse ListExportErrors(ListExportErrorsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListExportErrors operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListExportErrors operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListExportErrors
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExportErrors">REST API Reference for ListExportErrors Operation</seealso>
+        IAsyncResult BeginListExportErrors(ListExportErrorsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListExportErrors operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListExportErrors.</param>
+        /// 
+        /// <returns>Returns a  ListExportErrorsResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExportErrors">REST API Reference for ListExportErrors Operation</seealso>
+        ListExportErrorsResponse EndListExportErrors(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListExports
+
+
+        /// <summary>
+        /// List exports.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListExports service method.</param>
+        /// 
+        /// <returns>The response from the ListExports service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExports">REST API Reference for ListExports Operation</seealso>
+        ListExportsResponse ListExports(ListExportsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListExports operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListExports operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListExports
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExports">REST API Reference for ListExports Operation</seealso>
+        IAsyncResult BeginListExports(ListExportsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListExports operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListExports.</param>
+        /// 
+        /// <returns>Returns a  ListExportsResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListExports">REST API Reference for ListExports Operation</seealso>
+        ListExportsResponse EndListExports(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListImportErrors
+
+
+        /// <summary>
+        /// List import errors.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImportErrors service method.</param>
+        /// 
+        /// <returns>The response from the ListImportErrors service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImportErrors">REST API Reference for ListImportErrors Operation</seealso>
+        ListImportErrorsResponse ListImportErrors(ListImportErrorsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListImportErrors operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListImportErrors operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListImportErrors
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImportErrors">REST API Reference for ListImportErrors Operation</seealso>
+        IAsyncResult BeginListImportErrors(ListImportErrorsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListImportErrors operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListImportErrors.</param>
+        /// 
+        /// <returns>Returns a  ListImportErrorsResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImportErrors">REST API Reference for ListImportErrors Operation</seealso>
+        ListImportErrorsResponse EndListImportErrors(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListImports
+
+
+        /// <summary>
+        /// List imports.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListImports service method.</param>
+        /// 
+        /// <returns>The response from the ListImports service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImports">REST API Reference for ListImports Operation</seealso>
+        ListImportsResponse ListImports(ListImportsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListImports operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListImports operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListImports
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImports">REST API Reference for ListImports Operation</seealso>
+        IAsyncResult BeginListImports(ListImportsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListImports operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListImports.</param>
+        /// 
+        /// <returns>Returns a  ListImportsResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListImports">REST API Reference for ListImports Operation</seealso>
+        ListImportsResponse EndListImports(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListManagedAccounts
+
+
+        /// <summary>
+        /// List Managed Accounts.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListManagedAccounts service method.</param>
+        /// 
+        /// <returns>The response from the ListManagedAccounts service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListManagedAccounts">REST API Reference for ListManagedAccounts Operation</seealso>
+        ListManagedAccountsResponse ListManagedAccounts(ListManagedAccountsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListManagedAccounts operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListManagedAccounts operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListManagedAccounts
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListManagedAccounts">REST API Reference for ListManagedAccounts Operation</seealso>
+        IAsyncResult BeginListManagedAccounts(ListManagedAccountsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListManagedAccounts operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListManagedAccounts.</param>
+        /// 
+        /// <returns>Returns a  ListManagedAccountsResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ListManagedAccounts">REST API Reference for ListManagedAccounts Operation</seealso>
+        ListManagedAccountsResponse EndListManagedAccounts(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ListSourceServerActions
 
 
@@ -1795,6 +2022,62 @@ namespace Amazon.Mgn
 
         #endregion
         
+        #region  PauseReplication
+
+
+        /// <summary>
+        /// Pause Replication.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PauseReplication service method.</param>
+        /// 
+        /// <returns>The response from the PauseReplication service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ResourceNotFoundException">
+        /// Resource not found exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/PauseReplication">REST API Reference for PauseReplication Operation</seealso>
+        PauseReplicationResponse PauseReplication(PauseReplicationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PauseReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PauseReplication operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPauseReplication
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/PauseReplication">REST API Reference for PauseReplication Operation</seealso>
+        IAsyncResult BeginPauseReplication(PauseReplicationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PauseReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPauseReplication.</param>
+        /// 
+        /// <returns>Returns a  PauseReplicationResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/PauseReplication">REST API Reference for PauseReplication Operation</seealso>
+        PauseReplicationResponse EndPauseReplication(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  PutSourceServerAction
 
 
@@ -1999,6 +2282,62 @@ namespace Amazon.Mgn
 
         #endregion
         
+        #region  ResumeReplication
+
+
+        /// <summary>
+        /// Resume Replication.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResumeReplication service method.</param>
+        /// 
+        /// <returns>The response from the ResumeReplication service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ResourceNotFoundException">
+        /// Resource not found exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ResumeReplication">REST API Reference for ResumeReplication Operation</seealso>
+        ResumeReplicationResponse ResumeReplication(ResumeReplicationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResumeReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResumeReplication operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResumeReplication
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ResumeReplication">REST API Reference for ResumeReplication Operation</seealso>
+        IAsyncResult BeginResumeReplication(ResumeReplicationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ResumeReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginResumeReplication.</param>
+        /// 
+        /// <returns>Returns a  ResumeReplicationResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/ResumeReplication">REST API Reference for ResumeReplication Operation</seealso>
+        ResumeReplicationResponse EndResumeReplication(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  RetryDataReplication
 
 
@@ -2100,6 +2439,111 @@ namespace Amazon.Mgn
         /// <returns>Returns a  StartCutoverResult from Mgn.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartCutover">REST API Reference for StartCutover Operation</seealso>
         StartCutoverResponse EndStartCutover(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StartExport
+
+
+        /// <summary>
+        /// Start export.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartExport service method.</param>
+        /// 
+        /// <returns>The response from the StartExport service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartExport">REST API Reference for StartExport Operation</seealso>
+        StartExportResponse StartExport(StartExportRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartExport operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartExport operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartExport
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartExport">REST API Reference for StartExport Operation</seealso>
+        IAsyncResult BeginStartExport(StartExportRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartExport operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartExport.</param>
+        /// 
+        /// <returns>Returns a  StartExportResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartExport">REST API Reference for StartExport Operation</seealso>
+        StartExportResponse EndStartExport(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StartImport
+
+
+        /// <summary>
+        /// Start import.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ResourceNotFoundException">
+        /// Resource not found exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartImport">REST API Reference for StartImport Operation</seealso>
+        StartImportResponse StartImport(StartImportRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartImport operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartImport operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartImport
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartImport">REST API Reference for StartImport Operation</seealso>
+        IAsyncResult BeginStartImport(StartImportRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartImport operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartImport.</param>
+        /// 
+        /// <returns>Returns a  StartImportResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartImport">REST API Reference for StartImport Operation</seealso>
+        StartImportResponse EndStartImport(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2208,6 +2652,62 @@ namespace Amazon.Mgn
         /// <returns>Returns a  StartTestResult from Mgn.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StartTest">REST API Reference for StartTest Operation</seealso>
         StartTestResponse EndStartTest(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StopReplication
+
+
+        /// <summary>
+        /// Stop Replication.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopReplication service method.</param>
+        /// 
+        /// <returns>The response from the StopReplication service method, as returned by Mgn.</returns>
+        /// <exception cref="Amazon.Mgn.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ResourceNotFoundException">
+        /// Resource not found exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.UninitializedAccountException">
+        /// Uninitialized account exception.
+        /// </exception>
+        /// <exception cref="Amazon.Mgn.Model.ValidationException">
+        /// Validate exception.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StopReplication">REST API Reference for StopReplication Operation</seealso>
+        StopReplicationResponse StopReplication(StopReplicationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StopReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StopReplication operation on AmazonMgnClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopReplication
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StopReplication">REST API Reference for StopReplication Operation</seealso>
+        IAsyncResult BeginStopReplication(StopReplicationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StopReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStopReplication.</param>
+        /// 
+        /// <returns>Returns a  StopReplicationResult from Mgn.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/mgn-2020-02-26/StopReplication">REST API Reference for StopReplication Operation</seealso>
+        StopReplicationResponse EndStopReplication(IAsyncResult asyncResult);
 
         #endregion
         

@@ -101,6 +101,21 @@ namespace Amazon.DatabaseMigrationService.Model
         IDescribePendingMaintenanceActionsPaginator DescribePendingMaintenanceActions(DescribePendingMaintenanceActionsRequest request);
 
         /// <summary>
+        /// Paginator for DescribeRecommendationLimitations operation
+        ///</summary>
+        IDescribeRecommendationLimitationsPaginator DescribeRecommendationLimitations(DescribeRecommendationLimitationsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeRecommendations operation
+        ///</summary>
+        IDescribeRecommendationsPaginator DescribeRecommendations(DescribeRecommendationsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeReplicationConfigs operation
+        ///</summary>
+        IDescribeReplicationConfigsPaginator DescribeReplicationConfigs(DescribeReplicationConfigsRequest request);
+
+        /// <summary>
         /// Paginator for DescribeReplicationInstances operation
         ///</summary>
         IDescribeReplicationInstancesPaginator DescribeReplicationInstances(DescribeReplicationInstancesRequest request);
@@ -111,9 +126,19 @@ namespace Amazon.DatabaseMigrationService.Model
         IDescribeReplicationInstanceTaskLogsPaginator DescribeReplicationInstanceTaskLogs(DescribeReplicationInstanceTaskLogsRequest request);
 
         /// <summary>
+        /// Paginator for DescribeReplications operation
+        ///</summary>
+        IDescribeReplicationsPaginator DescribeReplications(DescribeReplicationsRequest request);
+
+        /// <summary>
         /// Paginator for DescribeReplicationSubnetGroups operation
         ///</summary>
         IDescribeReplicationSubnetGroupsPaginator DescribeReplicationSubnetGroups(DescribeReplicationSubnetGroupsRequest request);
+
+        /// <summary>
+        /// Paginator for DescribeReplicationTableStatistics operation
+        ///</summary>
+        IDescribeReplicationTableStatisticsPaginator DescribeReplicationTableStatistics(DescribeReplicationTableStatisticsRequest request);
 
         /// <summary>
         /// Paginator for DescribeReplicationTaskAssessmentResults operation

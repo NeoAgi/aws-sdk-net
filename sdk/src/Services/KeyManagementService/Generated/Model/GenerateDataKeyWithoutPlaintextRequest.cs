@@ -77,7 +77,7 @@ namespace Amazon.KeyManagementService.Model
     ///  
     /// <para>
     /// To generate an SM4 data key (China Regions only), specify a <code>KeySpec</code> value
-    /// of <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>128</code>. The
+    /// of <code>AES_128</code> or <code>NumberOfBytes</code> value of <code>16</code>. The
     /// symmetric encryption key used in China Regions to encrypt your data key is an SM4
     /// encryption key.
     /// </para>
@@ -140,6 +140,7 @@ namespace Amazon.KeyManagementService.Model
     /// </summary>
     public partial class GenerateDataKeyWithoutPlaintextRequest : AmazonKeyManagementServiceRequest
     {
+        private bool? _dryRun;
         private Dictionary<string, string> _encryptionContext = new Dictionary<string, string>();
         private List<string> _grantTokens = new List<string>();
         private string _keyId;
@@ -147,11 +148,40 @@ namespace Amazon.KeyManagementService.Model
         private int? _numberOfBytes;
 
         /// <summary>
+        /// Gets and sets the property DryRun. 
+        /// <para>
+        /// Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool DryRun
+        {
+            get { return this._dryRun.GetValueOrDefault(); }
+            set { this._dryRun = value; }
+        }
+
+        // Check to see if DryRun property is set
+        internal bool IsSetDryRun()
+        {
+            return this._dryRun.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EncryptionContext. 
         /// <para>
         /// Specifies the encryption context that will be used when encrypting the data key.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,

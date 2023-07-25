@@ -32,16 +32,26 @@ namespace Amazon.Organizations
     public partial class AmazonOrganizationsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.35");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Organizations";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonOrganizationsConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonOrganizationsDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Organizations";
             this.AuthenticationServiceName = "organizations";
             this.EndpointProvider = new AmazonOrganizationsEndpointProvider();
         }

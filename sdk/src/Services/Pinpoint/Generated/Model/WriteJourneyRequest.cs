@@ -50,6 +50,7 @@ namespace Amazon.Pinpoint.Model
         private string _startActivity;
         private StartCondition _startCondition;
         private State _state;
+        private List<string> _timezoneEstimationMethods = new List<string>();
         private bool? _waitForQuietTime;
 
         /// <summary>
@@ -286,7 +287,7 @@ namespace Amazon.Pinpoint.Model
         /// <summary>
         /// Gets and sets the property RefreshOnSegmentUpdate. 
         /// <para>
-        /// Specifies whether a journey should be refreshed on segment update.
+        /// Indicates whether the journey participants should be refreshed when a segment is updated.
         /// </para>
         /// </summary>
         public bool RefreshOnSegmentUpdate
@@ -322,8 +323,8 @@ namespace Amazon.Pinpoint.Model
         /// <summary>
         /// Gets and sets the property SendingSchedule. 
         /// <para>
-        /// Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag
-        /// should be set to true in order to allow (OpenHours and ClosedDays)
+        /// Indicates if journey has Advance Quiet Time enabled. This flag should be set to true
+        /// in order to allow using OpenHours and ClosedDays.
         /// </para>
         /// </summary>
         public bool SendingSchedule
@@ -408,6 +409,41 @@ namespace Amazon.Pinpoint.Model
         internal bool IsSetState()
         {
             return this._state != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property TimezoneEstimationMethods. 
+        /// <para>
+        /// An array of time zone estimation methods, if any, to use for determining an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html">Endpoints</a>
+        /// time zone if the Endpoint does not have a value for the Demographic.Timezone attribute.
+        /// </para>
+        ///  <ul> <li>
+        /// <para>
+        /// PHONE_NUMBER - A time zone is determined based on the Endpoint.Address and Endpoint.Location.Country.
+        /// </para>
+        /// </li> <li>
+        /// <para>
+        /// POSTAL_CODE - A time zone is determined based on the Endpoint.Location.PostalCode
+        /// and Endpoint.Location.Country.
+        /// </para>
+        ///  <note>
+        /// <para>
+        /// POSTAL_CODE detection is only supported in the United States, United Kingdom, Australia,
+        /// New Zealand, Canada, France, Italy, Spain, Germany and in regions where Amazon Pinpoint
+        /// is available.
+        /// </para>
+        /// </note></li> </ul>
+        /// </summary>
+        public List<string> TimezoneEstimationMethods
+        {
+            get { return this._timezoneEstimationMethods; }
+            set { this._timezoneEstimationMethods = value; }
+        }
+
+        // Check to see if TimezoneEstimationMethods property is set
+        internal bool IsSetTimezoneEstimationMethods()
+        {
+            return this._timezoneEstimationMethods != null && this._timezoneEstimationMethods.Count > 0; 
         }
 
         /// <summary>

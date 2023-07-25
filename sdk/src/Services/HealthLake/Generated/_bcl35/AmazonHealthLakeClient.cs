@@ -116,8 +116,7 @@ namespace Amazon.HealthLake
         /// </summary>
         /// <param name="config">The AmazonHealthLakeClient Configuration Object</param>
         public AmazonHealthLakeClient(AmazonHealthLakeConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonHealthLakeClient with AWS Credentials
         /// </summary>
@@ -1008,7 +1007,7 @@ namespace Amazon.HealthLake
         #region  TagResource
 
         /// <summary>
-        /// Adds a user specifed key and value tag to a Data Store.
+        /// Adds a user specified key and value tag to a Data Store.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 

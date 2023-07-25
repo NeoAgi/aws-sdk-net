@@ -45,6 +45,7 @@ namespace Amazon.CloudFormation.Model
         private List<string> _organizationalUnitIds = new List<string>();
         private List<Parameter> _parameters = new List<Parameter>();
         private PermissionModels _permissionModel;
+        private List<string> _regions = new List<string>();
         private string _stackSetARN;
         private StackSetDriftDetectionDetails _stackSetDriftDetectionDetails;
         private string _stackSetId;
@@ -62,7 +63,7 @@ namespace Amazon.CloudFormation.Model
         ///  
         /// <para>
         /// Use customized administrator roles to control which users or groups can manage specific
-        /// stack sets within the same administrator account. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
+        /// stack sets within the same administrator account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/stacksets-prereqs.html">Prerequisites:
         /// Granting Permissions for Stack Set Operations</a> in the <i>CloudFormation User Guide</i>.
         /// </para>
         /// </summary>
@@ -251,6 +252,25 @@ namespace Amazon.CloudFormation.Model
         internal bool IsSetPermissionModel()
         {
             return this._permissionModel != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Regions. 
+        /// <para>
+        /// Returns a list of all Amazon Web Services Regions the given StackSet has stack instances
+        /// deployed in. The Amazon Web Services Regions list output is in no particular order.
+        /// </para>
+        /// </summary>
+        public List<string> Regions
+        {
+            get { return this._regions; }
+            set { this._regions = value; }
+        }
+
+        // Check to see if Regions property is set
+        internal bool IsSetRegions()
+        {
+            return this._regions != null && this._regions.Count > 0; 
         }
 
         /// <summary>

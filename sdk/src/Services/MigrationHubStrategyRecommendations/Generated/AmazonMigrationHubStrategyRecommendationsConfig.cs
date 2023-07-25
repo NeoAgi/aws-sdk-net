@@ -32,16 +32,26 @@ namespace Amazon.MigrationHubStrategyRecommendations
     public partial class AmazonMigrationHubStrategyRecommendationsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.25");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "MigrationHubStrategy";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonMigrationHubStrategyRecommendationsConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonMigrationHubStrategyRecommendationsDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "MigrationHubStrategy";
             this.AuthenticationServiceName = "migrationhub-strategy";
             this.EndpointProvider = new AmazonMigrationHubStrategyRecommendationsEndpointProvider();
         }

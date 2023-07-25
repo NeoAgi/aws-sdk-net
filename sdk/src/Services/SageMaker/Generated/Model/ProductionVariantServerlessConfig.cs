@@ -35,6 +35,7 @@ namespace Amazon.SageMaker.Model
     {
         private int? _maxConcurrency;
         private int? _memorySizeInMB;
+        private int? _provisionedConcurrency;
 
         /// <summary>
         /// Gets and sets the property MaxConcurrency. 
@@ -73,6 +74,33 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetMemorySizeInMB()
         {
             return this._memorySizeInMB.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property ProvisionedConcurrency. 
+        /// <para>
+        /// The amount of provisioned concurrency to allocate for the serverless endpoint. Should
+        /// be less than or equal to <code>MaxConcurrency</code>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This field is not supported for serverless endpoint recommendations for Inference
+        /// Recommender jobs. For more information about creating an Inference Recommender job,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceRecommendationsJob.html">CreateInferenceRecommendationsJobs</a>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        [AWSProperty(Min=1, Max=200)]
+        public int ProvisionedConcurrency
+        {
+            get { return this._provisionedConcurrency.GetValueOrDefault(); }
+            set { this._provisionedConcurrency = value; }
+        }
+
+        // Check to see if ProvisionedConcurrency property is set
+        internal bool IsSetProvisionedConcurrency()
+        {
+            return this._provisionedConcurrency.HasValue; 
         }
 
     }

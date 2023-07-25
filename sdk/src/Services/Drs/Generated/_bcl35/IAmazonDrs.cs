@@ -44,6 +44,70 @@ namespace Amazon.Drs
 
 
         
+        #region  AssociateSourceNetworkStack
+
+
+        /// <summary>
+        /// Associate a Source Network to an existing CloudFormation Stack and modify launch templates
+        /// to use this network. Can be used for reverting to previously deployed CloudFormation
+        /// stacks.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateSourceNetworkStack service method.</param>
+        /// 
+        /// <returns>The response from the AssociateSourceNetworkStack service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack">REST API Reference for AssociateSourceNetworkStack Operation</seealso>
+        AssociateSourceNetworkStackResponse AssociateSourceNetworkStack(AssociateSourceNetworkStackRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AssociateSourceNetworkStack operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AssociateSourceNetworkStack operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateSourceNetworkStack
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack">REST API Reference for AssociateSourceNetworkStack Operation</seealso>
+        IAsyncResult BeginAssociateSourceNetworkStack(AssociateSourceNetworkStackRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  AssociateSourceNetworkStack operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginAssociateSourceNetworkStack.</param>
+        /// 
+        /// <returns>Returns a  AssociateSourceNetworkStackResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack">REST API Reference for AssociateSourceNetworkStack Operation</seealso>
+        AssociateSourceNetworkStackResponse EndAssociateSourceNetworkStack(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateExtendedSourceServer
 
 
@@ -106,6 +170,64 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  CreateLaunchConfigurationTemplate
+
+
+        /// <summary>
+        /// Creates a new Launch Configuration Template.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchConfigurationTemplate service method.</param>
+        /// 
+        /// <returns>The response from the CreateLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate">REST API Reference for CreateLaunchConfigurationTemplate Operation</seealso>
+        CreateLaunchConfigurationTemplateResponse CreateLaunchConfigurationTemplate(CreateLaunchConfigurationTemplateRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchConfigurationTemplate operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateLaunchConfigurationTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate">REST API Reference for CreateLaunchConfigurationTemplate Operation</seealso>
+        IAsyncResult BeginCreateLaunchConfigurationTemplate(CreateLaunchConfigurationTemplateRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateLaunchConfigurationTemplate.</param>
+        /// 
+        /// <returns>Returns a  CreateLaunchConfigurationTemplateResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate">REST API Reference for CreateLaunchConfigurationTemplate Operation</seealso>
+        CreateLaunchConfigurationTemplateResponse EndCreateLaunchConfigurationTemplate(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateReplicationConfigurationTemplate
 
 
@@ -164,6 +286,68 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  CreateSourceNetwork
+
+
+        /// <summary>
+        /// Create a new Source Network resource for a provided VPC ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateSourceNetwork service method.</param>
+        /// 
+        /// <returns>The response from the CreateSourceNetwork service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork">REST API Reference for CreateSourceNetwork Operation</seealso>
+        CreateSourceNetworkResponse CreateSourceNetwork(CreateSourceNetworkRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateSourceNetwork operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateSourceNetwork operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSourceNetwork
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork">REST API Reference for CreateSourceNetwork Operation</seealso>
+        IAsyncResult BeginCreateSourceNetwork(CreateSourceNetworkRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateSourceNetwork operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateSourceNetwork.</param>
+        /// 
+        /// <returns>Returns a  CreateSourceNetworkResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork">REST API Reference for CreateSourceNetwork Operation</seealso>
+        CreateSourceNetworkResponse EndCreateSourceNetwork(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DeleteJob
 
 
@@ -217,6 +401,62 @@ namespace Amazon.Drs
         /// <returns>Returns a  DeleteJobResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteJob">REST API Reference for DeleteJob Operation</seealso>
         DeleteJobResponse EndDeleteJob(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteLaunchConfigurationTemplate
+
+
+        /// <summary>
+        /// Deletes a single Launch Configuration Template by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchConfigurationTemplate service method.</param>
+        /// 
+        /// <returns>The response from the DeleteLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate">REST API Reference for DeleteLaunchConfigurationTemplate Operation</seealso>
+        DeleteLaunchConfigurationTemplateResponse DeleteLaunchConfigurationTemplate(DeleteLaunchConfigurationTemplateRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchConfigurationTemplate operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteLaunchConfigurationTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate">REST API Reference for DeleteLaunchConfigurationTemplate Operation</seealso>
+        IAsyncResult BeginDeleteLaunchConfigurationTemplate(DeleteLaunchConfigurationTemplateRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteLaunchConfigurationTemplate.</param>
+        /// 
+        /// <returns>Returns a  DeleteLaunchConfigurationTemplateResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate">REST API Reference for DeleteLaunchConfigurationTemplate Operation</seealso>
+        DeleteLaunchConfigurationTemplateResponse EndDeleteLaunchConfigurationTemplate(IAsyncResult asyncResult);
 
         #endregion
         
@@ -331,6 +571,62 @@ namespace Amazon.Drs
         /// <returns>Returns a  DeleteReplicationConfigurationTemplateResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteReplicationConfigurationTemplate">REST API Reference for DeleteReplicationConfigurationTemplate Operation</seealso>
         DeleteReplicationConfigurationTemplateResponse EndDeleteReplicationConfigurationTemplate(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteSourceNetwork
+
+
+        /// <summary>
+        /// Delete Source Network resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSourceNetwork service method.</param>
+        /// 
+        /// <returns>The response from the DeleteSourceNetwork service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork">REST API Reference for DeleteSourceNetwork Operation</seealso>
+        DeleteSourceNetworkResponse DeleteSourceNetwork(DeleteSourceNetworkRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSourceNetwork operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSourceNetwork operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSourceNetwork
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork">REST API Reference for DeleteSourceNetwork Operation</seealso>
+        IAsyncResult BeginDeleteSourceNetwork(DeleteSourceNetworkRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteSourceNetwork operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteSourceNetwork.</param>
+        /// 
+        /// <returns>Returns a  DeleteSourceNetworkResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork">REST API Reference for DeleteSourceNetwork Operation</seealso>
+        DeleteSourceNetworkResponse EndDeleteSourceNetwork(IAsyncResult asyncResult);
 
         #endregion
         
@@ -499,6 +795,62 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  DescribeLaunchConfigurationTemplates
+
+
+        /// <summary>
+        /// Lists all Launch Configuration Templates, filtered by Launch Configuration Template
+        /// IDs
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchConfigurationTemplates service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLaunchConfigurationTemplates service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates">REST API Reference for DescribeLaunchConfigurationTemplates Operation</seealso>
+        DescribeLaunchConfigurationTemplatesResponse DescribeLaunchConfigurationTemplates(DescribeLaunchConfigurationTemplatesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeLaunchConfigurationTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchConfigurationTemplates operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeLaunchConfigurationTemplates
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates">REST API Reference for DescribeLaunchConfigurationTemplates Operation</seealso>
+        IAsyncResult BeginDescribeLaunchConfigurationTemplates(DescribeLaunchConfigurationTemplatesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeLaunchConfigurationTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeLaunchConfigurationTemplates.</param>
+        /// 
+        /// <returns>Returns a  DescribeLaunchConfigurationTemplatesResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates">REST API Reference for DescribeLaunchConfigurationTemplates Operation</seealso>
+        DescribeLaunchConfigurationTemplatesResponse EndDescribeLaunchConfigurationTemplates(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DescribeRecoveryInstances
 
 
@@ -658,6 +1010,58 @@ namespace Amazon.Drs
         /// <returns>Returns a  DescribeReplicationConfigurationTemplatesResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeReplicationConfigurationTemplates">REST API Reference for DescribeReplicationConfigurationTemplates Operation</seealso>
         DescribeReplicationConfigurationTemplatesResponse EndDescribeReplicationConfigurationTemplates(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DescribeSourceNetworks
+
+
+        /// <summary>
+        /// Lists all Source Networks or multiple Source Networks filtered by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSourceNetworks service method.</param>
+        /// 
+        /// <returns>The response from the DescribeSourceNetworks service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks">REST API Reference for DescribeSourceNetworks Operation</seealso>
+        DescribeSourceNetworksResponse DescribeSourceNetworks(DescribeSourceNetworksRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeSourceNetworks operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSourceNetworks operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSourceNetworks
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks">REST API Reference for DescribeSourceNetworks Operation</seealso>
+        IAsyncResult BeginDescribeSourceNetworks(DescribeSourceNetworksRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeSourceNetworks operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeSourceNetworks.</param>
+        /// 
+        /// <returns>Returns a  DescribeSourceNetworksResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks">REST API Reference for DescribeSourceNetworks Operation</seealso>
+        DescribeSourceNetworksResponse EndDescribeSourceNetworks(IAsyncResult asyncResult);
 
         #endregion
         
@@ -844,6 +1248,65 @@ namespace Amazon.Drs
         /// <returns>Returns a  DisconnectSourceServerResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DisconnectSourceServer">REST API Reference for DisconnectSourceServer Operation</seealso>
         DisconnectSourceServerResponse EndDisconnectSourceServer(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ExportSourceNetworkCfnTemplate
+
+
+        /// <summary>
+        /// Export the Source Network CloudFormation template to an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ExportSourceNetworkCfnTemplate service method.</param>
+        /// 
+        /// <returns>The response from the ExportSourceNetworkCfnTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate">REST API Reference for ExportSourceNetworkCfnTemplate Operation</seealso>
+        ExportSourceNetworkCfnTemplateResponse ExportSourceNetworkCfnTemplate(ExportSourceNetworkCfnTemplateRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ExportSourceNetworkCfnTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ExportSourceNetworkCfnTemplate operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndExportSourceNetworkCfnTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate">REST API Reference for ExportSourceNetworkCfnTemplate Operation</seealso>
+        IAsyncResult BeginExportSourceNetworkCfnTemplate(ExportSourceNetworkCfnTemplateRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ExportSourceNetworkCfnTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginExportSourceNetworkCfnTemplate.</param>
+        /// 
+        /// <returns>Returns a  ExportSourceNetworkCfnTemplateResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate">REST API Reference for ExportSourceNetworkCfnTemplate Operation</seealso>
+        ExportSourceNetworkCfnTemplateResponse EndExportSourceNetworkCfnTemplate(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1229,10 +1692,10 @@ namespace Amazon.Drs
 
 
         /// <summary>
-        /// Causes the data replication initiation sequence to begin immediately upon next Handshake
-        /// for the specified Source Server ID, regardless of when the previous initiation started.
-        /// This command will work only if the Source Server is stalled or is in a DISCONNECTED
-        /// or STOPPED state.
+        /// WARNING: RetryDataReplication is deprecated. Causes the data replication initiation
+        /// sequence to begin immediately upon next Handshake for the specified Source Server
+        /// ID, regardless of when the previous initiation started. This command will work only
+        /// if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RetryDataReplication service method.</param>
         /// 
@@ -1253,6 +1716,7 @@ namespace Amazon.Drs
         /// The input fails to satisfy the constraints specified by the AWS service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication">REST API Reference for RetryDataReplication Operation</seealso>
+        [Obsolete("WARNING: RetryDataReplication is deprecated")]
         RetryDataReplicationResponse RetryDataReplication(RetryDataReplicationRequest request);
 
         /// <summary>
@@ -1267,6 +1731,7 @@ namespace Amazon.Drs
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRetryDataReplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication">REST API Reference for RetryDataReplication Operation</seealso>
+        [Obsolete("WARNING: RetryDataReplication is deprecated")]
         IAsyncResult BeginRetryDataReplication(RetryDataReplicationRequest request, AsyncCallback callback, object state);
 
 
@@ -1279,6 +1744,7 @@ namespace Amazon.Drs
         /// 
         /// <returns>Returns a  RetryDataReplicationResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication">REST API Reference for RetryDataReplication Operation</seealso>
+        [Obsolete("WARNING: RetryDataReplication is deprecated")]
         RetryDataReplicationResponse EndRetryDataReplication(IAsyncResult asyncResult);
 
         #endregion
@@ -1523,6 +1989,123 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  StartSourceNetworkRecovery
+
+
+        /// <summary>
+        /// Deploy VPC for the specified Source Network and modify launch templates to use this
+        /// network. The VPC will be deployed using a dedicated CloudFormation stack.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkRecovery service method.</param>
+        /// 
+        /// <returns>The response from the StartSourceNetworkRecovery service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery">REST API Reference for StartSourceNetworkRecovery Operation</seealso>
+        StartSourceNetworkRecoveryResponse StartSourceNetworkRecovery(StartSourceNetworkRecoveryRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartSourceNetworkRecovery operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkRecovery operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartSourceNetworkRecovery
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery">REST API Reference for StartSourceNetworkRecovery Operation</seealso>
+        IAsyncResult BeginStartSourceNetworkRecovery(StartSourceNetworkRecoveryRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartSourceNetworkRecovery operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartSourceNetworkRecovery.</param>
+        /// 
+        /// <returns>Returns a  StartSourceNetworkRecoveryResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery">REST API Reference for StartSourceNetworkRecovery Operation</seealso>
+        StartSourceNetworkRecoveryResponse EndStartSourceNetworkRecovery(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StartSourceNetworkReplication
+
+
+        /// <summary>
+        /// Starts replication for a Source Network. This action would make the Source Network
+        /// protected.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkReplication service method.</param>
+        /// 
+        /// <returns>The response from the StartSourceNetworkReplication service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication">REST API Reference for StartSourceNetworkReplication Operation</seealso>
+        StartSourceNetworkReplicationResponse StartSourceNetworkReplication(StartSourceNetworkReplicationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartSourceNetworkReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkReplication operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartSourceNetworkReplication
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication">REST API Reference for StartSourceNetworkReplication Operation</seealso>
+        IAsyncResult BeginStartSourceNetworkReplication(StartSourceNetworkReplicationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartSourceNetworkReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartSourceNetworkReplication.</param>
+        /// 
+        /// <returns>Returns a  StartSourceNetworkReplicationResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication">REST API Reference for StartSourceNetworkReplication Operation</seealso>
+        StartSourceNetworkReplicationResponse EndStartSourceNetworkReplication(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  StopFailback
 
 
@@ -1630,6 +2213,66 @@ namespace Amazon.Drs
         /// <returns>Returns a  StopReplicationResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopReplication">REST API Reference for StopReplication Operation</seealso>
         StopReplicationResponse EndStopReplication(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  StopSourceNetworkReplication
+
+
+        /// <summary>
+        /// Stops replication for a Source Network. This action would make the Source Network
+        /// unprotected.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopSourceNetworkReplication service method.</param>
+        /// 
+        /// <returns>The response from the StopSourceNetworkReplication service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication">REST API Reference for StopSourceNetworkReplication Operation</seealso>
+        StopSourceNetworkReplicationResponse StopSourceNetworkReplication(StopSourceNetworkReplicationRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StopSourceNetworkReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StopSourceNetworkReplication operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopSourceNetworkReplication
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication">REST API Reference for StopSourceNetworkReplication Operation</seealso>
+        IAsyncResult BeginStopSourceNetworkReplication(StopSourceNetworkReplicationRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StopSourceNetworkReplication operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStopSourceNetworkReplication.</param>
+        /// 
+        /// <returns>Returns a  StopSourceNetworkReplicationResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication">REST API Reference for StopSourceNetworkReplication Operation</seealso>
+        StopSourceNetworkReplicationResponse EndStopSourceNetworkReplication(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1917,6 +2560,64 @@ namespace Amazon.Drs
         /// <returns>Returns a  UpdateLaunchConfigurationResult from Drs.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfiguration">REST API Reference for UpdateLaunchConfiguration Operation</seealso>
         UpdateLaunchConfigurationResponse EndUpdateLaunchConfiguration(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateLaunchConfigurationTemplate
+
+
+        /// <summary>
+        /// Updates an existing Launch Configuration Template by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLaunchConfigurationTemplate service method.</param>
+        /// 
+        /// <returns>The response from the UpdateLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate">REST API Reference for UpdateLaunchConfigurationTemplate Operation</seealso>
+        UpdateLaunchConfigurationTemplateResponse UpdateLaunchConfigurationTemplate(UpdateLaunchConfigurationTemplateRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLaunchConfigurationTemplate operation on AmazonDrsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateLaunchConfigurationTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate">REST API Reference for UpdateLaunchConfigurationTemplate Operation</seealso>
+        IAsyncResult BeginUpdateLaunchConfigurationTemplate(UpdateLaunchConfigurationTemplateRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateLaunchConfigurationTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateLaunchConfigurationTemplate.</param>
+        /// 
+        /// <returns>Returns a  UpdateLaunchConfigurationTemplateResult from Drs.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate">REST API Reference for UpdateLaunchConfigurationTemplate Operation</seealso>
+        UpdateLaunchConfigurationTemplateResponse EndUpdateLaunchConfigurationTemplate(IAsyncResult asyncResult);
 
         #endregion
         

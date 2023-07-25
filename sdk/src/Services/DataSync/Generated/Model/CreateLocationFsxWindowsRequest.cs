@@ -89,7 +89,7 @@ namespace Amazon.DataSync.Model
         /// in the file system.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Max=104)]
+        [AWSProperty(Required=true, Sensitive=true, Max=104)]
         public string Password
         {
             get { return this._password; }
@@ -180,13 +180,13 @@ namespace Amazon.DataSync.Model
         /// <summary>
         /// Gets and sets the property User. 
         /// <para>
-        /// Specifies the user who has the permissions to access files and folders in the file
-        /// system.
+        /// Specifies the user who has the permissions to access files, folders, and metadata
+        /// in your file system.
         /// </para>
         ///  
         /// <para>
-        /// For information about choosing a user name that ensures sufficient permissions to
-        /// files, folders, and metadata, see <a href="create-fsx-location.html#FSxWuser">user</a>.
+        /// For information about choosing a user with sufficient permissions, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">Required
+        /// permissions</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=104)]

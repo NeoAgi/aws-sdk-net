@@ -105,6 +105,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.CharLengthSemantics);
             }
 
+            if(requestObject.IsSetConvertTimestampWithZoneToUTC())
+            {
+                context.Writer.WritePropertyName("ConvertTimestampWithZoneToUTC");
+                context.Writer.Write(requestObject.ConvertTimestampWithZoneToUTC);
+            }
+
             if(requestObject.IsSetDatabaseName())
             {
                 context.Writer.WritePropertyName("DatabaseName");
@@ -150,6 +156,12 @@ namespace Amazon.DatabaseMigrationService.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("NumberDatatypeScale");
                 context.Writer.Write(requestObject.NumberDatatypeScale);
+            }
+
+            if(requestObject.IsSetOpenTransactionWindow())
+            {
+                context.Writer.WritePropertyName("OpenTransactionWindow");
+                context.Writer.Write(requestObject.OpenTransactionWindow);
             }
 
             if(requestObject.IsSetOraclePathPrefix())

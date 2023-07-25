@@ -32,16 +32,26 @@ namespace Amazon.Appflow
     public partial class AmazonAppflowConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.105.1");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Appflow";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonAppflowConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAppflowDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Appflow";
             this.AuthenticationServiceName = "appflow";
             this.EndpointProvider = new AmazonAppflowEndpointProvider();
         }

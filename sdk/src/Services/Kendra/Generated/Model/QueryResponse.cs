@@ -34,6 +34,7 @@ namespace Amazon.Kendra.Model
     public partial class QueryResponse : AmazonWebServiceResponse
     {
         private List<FacetResult> _facetResults = new List<FacetResult>();
+        private List<FeaturedResultsItem> _featuredResultsItems = new List<FeaturedResultsItem>();
         private string _queryId;
         private List<QueryResultItem> _resultItems = new List<QueryResultItem>();
         private List<SpellCorrectedQuery> _spellCorrectedQueries = new List<SpellCorrectedQuery>();
@@ -44,7 +45,7 @@ namespace Amazon.Kendra.Model
         /// Gets and sets the property FacetResults. 
         /// <para>
         /// Contains the facet results. A <code>FacetResult</code> contains the counts for each
-        /// attribute key that was specified in the <code>Facets</code> input parameter.
+        /// field/attribute key that was specified in the <code>Facets</code> input parameter.
         /// </para>
         /// </summary>
         public List<FacetResult> FacetResults
@@ -60,10 +61,31 @@ namespace Amazon.Kendra.Model
         }
 
         /// <summary>
+        /// Gets and sets the property FeaturedResultsItems. 
+        /// <para>
+        /// The list of featured result items. Featured results are displayed at the top of the
+        /// search results page, placed above all other results for certain queries. If there's
+        /// an exact match of a query, then certain documents are featured in the search results.
+        /// </para>
+        /// </summary>
+        public List<FeaturedResultsItem> FeaturedResultsItems
+        {
+            get { return this._featuredResultsItems; }
+            set { this._featuredResultsItems = value; }
+        }
+
+        // Check to see if FeaturedResultsItems property is set
+        internal bool IsSetFeaturedResultsItems()
+        {
+            return this._featuredResultsItems != null && this._featuredResultsItems.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property QueryId. 
         /// <para>
-        /// The identifier for the search. You use <code>QueryId</code> to identify the search
-        /// when using the feedback API.
+        /// The identifier for the search. You also use <code>QueryId</code> to identify the search
+        /// when using the <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html">SubmitFeedback</a>
+        /// API.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=36)]
@@ -118,7 +140,7 @@ namespace Amazon.Kendra.Model
         /// <summary>
         /// Gets and sets the property TotalNumberOfResults. 
         /// <para>
-        /// The total number of items found by the search; however, you can only retrieve up to
+        /// The total number of items found by the search. However, you can only retrieve up to
         /// 100 items. For example, if the search found 192 items, you can only retrieve the first
         /// 100 of the items.
         /// </para>

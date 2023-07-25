@@ -118,8 +118,7 @@ namespace Amazon.AppRegistry
         /// </summary>
         /// <param name="config">The AmazonAppRegistryClient Configuration Object</param>
         public AmazonAppRegistryClient(AmazonAppRegistryConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonAppRegistryClient with AWS Credentials
         /// </summary>
@@ -342,8 +341,8 @@ namespace Amazon.AppRegistry
         #region  AssociateResource
 
         /// <summary>
-        /// Associates a resource with an application. Both the resource and the application can
-        /// be specified either by ID or name.
+        /// Associates a resource with an application. The resource can be specified by its ARN
+        /// or name. The application can be specified by ARN, ID, or name.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociateResource service method.</param>
         /// 
@@ -360,6 +359,9 @@ namespace Amazon.AppRegistry
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ServiceQuotaExceededException">
         /// The maximum number of resources per account has been reached.
+        /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ThrottlingException">
+        /// The maximum number of API requests has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ValidationException">
         /// The request has invalid or missing parameters.
@@ -428,6 +430,9 @@ namespace Amazon.AppRegistry
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ServiceQuotaExceededException">
         /// The maximum number of resources per account has been reached.
+        /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ThrottlingException">
+        /// The maximum number of API requests has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ValidationException">
         /// The request has invalid or missing parameters.
@@ -551,9 +556,9 @@ namespace Amazon.AppRegistry
         #region  DeleteApplication
 
         /// <summary>
-        /// Deletes an application that is specified either by its application ID or name. All
-        /// associated attribute groups and resources must be disassociated from it before deleting
-        /// an application.
+        /// Deletes an application that is specified either by its application ID, name, or ARN.
+        /// All associated attribute groups and resources must be disassociated from it before
+        /// deleting an application.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteApplication service method.</param>
         /// 
@@ -616,7 +621,7 @@ namespace Amazon.AppRegistry
         #region  DeleteAttributeGroup
 
         /// <summary>
-        /// Deletes an attribute group, specified either by its attribute group ID or name.
+        /// Deletes an attribute group, specified either by its attribute group ID, name, or ARN.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAttributeGroup service method.</param>
         /// 
@@ -756,6 +761,9 @@ namespace Amazon.AppRegistry
         /// <exception cref="Amazon.AppRegistry.Model.ResourceNotFoundException">
         /// The specified resource does not exist.
         /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ThrottlingException">
+        /// The maximum number of API requests has been exceeded.
+        /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ValidationException">
         /// The request has invalid or missing parameters.
         /// </exception>
@@ -809,9 +817,9 @@ namespace Amazon.AppRegistry
 
         /// <summary>
         /// Retrieves metadata information about one of your applications. The application can
-        /// be specified either by its unique ID or by its name (which is unique within one account
-        /// in one region at a given point in time). Specify by ID in automated workflows if you
-        /// want to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code>
+        /// be specified by its ARN, ID, or name (which is unique within one account in one region
+        /// at a given point in time). Specify by ARN or ID in automated workflows if you want
+        /// to make sure that the exact same application is returned or a <code>ResourceNotFoundException</code>
         /// is thrown, avoiding the ABA addressing problem.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetApplication service method.</param>
@@ -942,8 +950,8 @@ namespace Amazon.AppRegistry
         #region  GetAttributeGroup
 
         /// <summary>
-        /// Retrieves an attribute group, either by its name or its ID. The attribute group can
-        /// be specified either by its unique ID or by its name.
+        /// Retrieves an attribute group by its ARN, ID, or name. The attribute group can be
+        /// specified by its ARN, ID, or name.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAttributeGroup service method.</param>
         /// 
@@ -1536,6 +1544,12 @@ namespace Amazon.AppRegistry
         /// <exception cref="Amazon.AppRegistry.Model.ResourceNotFoundException">
         /// The specified resource does not exist.
         /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ThrottlingException">
+        /// The maximum number of API requests has been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ValidationException">
+        /// The request has invalid or missing parameters.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/AWS242AppRegistry-2020-06-24/SyncResource">REST API Reference for SyncResource Operation</seealso>
         public virtual SyncResourceResponse SyncResource(SyncResourceRequest request)
         {
@@ -1740,6 +1754,9 @@ namespace Amazon.AppRegistry
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ResourceNotFoundException">
         /// The specified resource does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.AppRegistry.Model.ThrottlingException">
+        /// The maximum number of API requests has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.AppRegistry.Model.ValidationException">
         /// The request has invalid or missing parameters.

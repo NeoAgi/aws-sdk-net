@@ -40,6 +40,11 @@ namespace Amazon.Chime.Model
     /// To play welcome audio or implement an interactive voice response (IVR), use the <code>CreateSipMediaApplicationCall</code>
     /// action with the corresponding SIP media application ID.
     /// </para>
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is not available in a dedicated namespace.</b> 
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateMeetingDialOutRequest : AmazonChimeRequest
     {
@@ -54,7 +59,7 @@ namespace Amazon.Chime.Model
         /// Phone number used as the caller ID when the remote party receives a call.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string FromPhoneNumber
         {
             get { return this._fromPhoneNumber; }
@@ -74,7 +79,7 @@ namespace Amazon.Chime.Model
         /// action to get a join token.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=2, Max=2048)]
+        [AWSProperty(Required=true, Sensitive=true, Min=2, Max=2048)]
         public string JoinToken
         {
             get { return this._joinToken; }
@@ -112,7 +117,7 @@ namespace Amazon.Chime.Model
         /// Phone number called when inviting someone to a meeting.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string ToPhoneNumber
         {
             get { return this._toPhoneNumber; }

@@ -38,6 +38,7 @@ namespace Amazon.FSx.Model
         private InputOntapVolumeType _ontapVolumeType;
         private SecurityStyle _securityStyle;
         private int? _sizeInMegabytes;
+        private CreateSnaplockConfiguration _snaplockConfiguration;
         private string _snapshotPolicy;
         private bool? _storageEfficiencyEnabled;
         private string _storageVirtualMachineId;
@@ -69,8 +70,9 @@ namespace Amazon.FSx.Model
         /// <summary>
         /// Gets and sets the property JunctionPath. 
         /// <para>
-        /// Specifies the location in the SVM's namespace where the volume is mounted. The <code>JunctionPath</code>
-        /// must have a leading forward slash, such as <code>/vol3</code>.
+        /// Specifies the location in the SVM's namespace where the volume is mounted. This parameter
+        /// is required. The <code>JunctionPath</code> must have a leading forward slash, such
+        /// as <code>/vol3</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=255)]
@@ -165,7 +167,7 @@ namespace Amazon.FSx.Model
         /// Specifies the size of the volume, in megabytes (MB), that you are creating.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=0, Max=2147483647)]
+        [AWSProperty(Required=true, Min=0, Max=314572800)]
         public int SizeInMegabytes
         {
             get { return this._sizeInMegabytes.GetValueOrDefault(); }
@@ -176,6 +178,24 @@ namespace Amazon.FSx.Model
         internal bool IsSetSizeInMegabytes()
         {
             return this._sizeInMegabytes.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property SnaplockConfiguration. 
+        /// <para>
+        /// Specifies the SnapLock configuration for an FSx for ONTAP volume. 
+        /// </para>
+        /// </summary>
+        public CreateSnaplockConfiguration SnaplockConfiguration
+        {
+            get { return this._snaplockConfiguration; }
+            set { this._snaplockConfiguration = value; }
+        }
+
+        // Check to see if SnaplockConfiguration property is set
+        internal bool IsSetSnaplockConfiguration()
+        {
+            return this._snaplockConfiguration != null;
         }
 
         /// <summary>
@@ -228,7 +248,7 @@ namespace Amazon.FSx.Model
         /// Gets and sets the property StorageEfficiencyEnabled. 
         /// <para>
         /// Set to true to enable deduplication, compression, and compaction storage efficiency
-        /// features on the volume.
+        /// features on the volume, or set to false to disable them. This parameter is required.
         /// </para>
         /// </summary>
         public bool StorageEfficiencyEnabled

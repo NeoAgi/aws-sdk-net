@@ -32,16 +32,26 @@ namespace Amazon.ECRPublic
     public partial class AmazonECRPublicConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.7");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "ECR PUBLIC";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonECRPublicConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonECRPublicDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "ECR PUBLIC";
             this.AuthenticationServiceName = "ecr-public";
             this.EndpointProvider = new AmazonECRPublicEndpointProvider();
         }

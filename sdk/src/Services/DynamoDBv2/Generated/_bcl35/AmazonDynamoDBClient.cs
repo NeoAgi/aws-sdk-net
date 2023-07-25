@@ -138,8 +138,7 @@ namespace Amazon.DynamoDBv2
         /// </summary>
         /// <param name="config">The AmazonDynamoDBClient Configuration Object</param>
         public AmazonDynamoDBClient(AmazonDynamoDBConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonDynamoDBClient with AWS Credentials
         /// </summary>
@@ -406,10 +405,10 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// A single operation can retrieve up to 16 MB of data, which can contain as many as
         /// 100 items. <code>BatchGetItem</code> returns a partial result if the response size
-        /// limit is exceeded, the table's provisioned throughput is exceeded, or an internal
-        /// processing failure occurs. If a partial result is returned, the operation returns
-        /// a value for <code>UnprocessedKeys</code>. You can use this value to retry the operation
-        /// starting with the next item to get.
+        /// limit is exceeded, the table's provisioned throughput is exceeded, more than 1MB per
+        /// partition is requested, or an internal processing failure occurs. If a partial result
+        /// is returned, the operation returns a value for <code>UnprocessedKeys</code>. You can
+        /// use this value to retry the operation starting with the next item to get.
         /// </para>
         ///  <important> 
         /// <para>
@@ -453,8 +452,8 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
-        /// parallel.
+        /// In order to minimize response latency, <code>BatchGetItem</code> may retrieve items
+        /// in parallel.
         /// </para>
         ///  
         /// <para>
@@ -511,10 +510,10 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// A single operation can retrieve up to 16 MB of data, which can contain as many as
         /// 100 items. <code>BatchGetItem</code> returns a partial result if the response size
-        /// limit is exceeded, the table's provisioned throughput is exceeded, or an internal
-        /// processing failure occurs. If a partial result is returned, the operation returns
-        /// a value for <code>UnprocessedKeys</code>. You can use this value to retry the operation
-        /// starting with the next item to get.
+        /// limit is exceeded, the table's provisioned throughput is exceeded, more than 1MB per
+        /// partition is requested, or an internal processing failure occurs. If a partial result
+        /// is returned, the operation returns a value for <code>UnprocessedKeys</code>. You can
+        /// use this value to retry the operation starting with the next item to get.
         /// </para>
         ///  <important> 
         /// <para>
@@ -558,8 +557,8 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
-        /// parallel.
+        /// In order to minimize response latency, <code>BatchGetItem</code> may retrieve items
+        /// in parallel.
         /// </para>
         ///  
         /// <para>
@@ -614,10 +613,10 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// A single operation can retrieve up to 16 MB of data, which can contain as many as
         /// 100 items. <code>BatchGetItem</code> returns a partial result if the response size
-        /// limit is exceeded, the table's provisioned throughput is exceeded, or an internal
-        /// processing failure occurs. If a partial result is returned, the operation returns
-        /// a value for <code>UnprocessedKeys</code>. You can use this value to retry the operation
-        /// starting with the next item to get.
+        /// limit is exceeded, the table's provisioned throughput is exceeded, more than 1MB per
+        /// partition is requested, or an internal processing failure occurs. If a partial result
+        /// is returned, the operation returns a value for <code>UnprocessedKeys</code>. You can
+        /// use this value to retry the operation starting with the next item to get.
         /// </para>
         ///  <important> 
         /// <para>
@@ -661,8 +660,8 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  
         /// <para>
-        /// In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
-        /// parallel.
+        /// In order to minimize response latency, <code>BatchGetItem</code> may retrieve items
+        /// in parallel.
         /// </para>
         ///  
         /// <para>
@@ -1170,6 +1169,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.TableInUseException">
         /// A target table with the specified name is either being created or deleted.
@@ -1236,12 +1244,18 @@ namespace Amazon.DynamoDBv2
         /// relationship between two or more DynamoDB tables with the same table name in the provided
         /// Regions. 
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
-        /// 2017.11.29</a> of global tables.
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
         /// </para>
-        ///  </note> 
+        ///  </important> 
         /// <para>
         /// If you want to add a new replica table to a global table, each of the following conditions
         /// must be true:
@@ -1338,6 +1352,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.TableNotFoundException">
@@ -1455,6 +1478,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -1527,6 +1559,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
@@ -1631,6 +1672,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DeleteBackup">REST API Reference for DeleteBackup Operation</seealso>
         public virtual DeleteBackupResponse DeleteBackup(DeleteBackupRequest request)
@@ -1707,7 +1757,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         /// </summary>
         /// <param name="tableName">The name of the table from which to delete the item.</param>
-        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
+        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         /// 
         /// <returns>The response from the DeleteItem service method, as returned by DynamoDB.</returns>
         /// <exception cref="Amazon.DynamoDBv2.Model.ConditionalCheckFailedException">
@@ -1772,7 +1822,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         /// </summary>
         /// <param name="tableName">The name of the table from which to delete the item.</param>
-        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
+        /// <param name="key">A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete. For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appeared before they were deleted. For <code>DeleteItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - The content of the old item is returned. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. <note> The <code>ReturnValues</code> parameter is used by several DynamoDB operations; however, <code>DeleteItem</code> does not recognize any values other than <code>NONE</code> or <code>ALL_OLD</code>. </note></param>
         /// 
         /// <returns>The response from the DeleteItem service method, as returned by DynamoDB.</returns>
@@ -1931,7 +1981,12 @@ namespace Amazon.DynamoDBv2
         /// table does not exist, DynamoDB returns a <code>ResourceNotFoundException</code>. If
         /// table is already in the <code>DELETING</code> state, no error is returned. 
         /// 
-        ///  <note> 
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> <note> 
         /// <para>
         /// DynamoDB might continue to accept data read and write operations, such as <code>GetItem</code>
         /// and <code>PutItem</code>, on a table in the <code>DELETING</code> state until the
@@ -1982,6 +2037,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -2010,7 +2074,12 @@ namespace Amazon.DynamoDBv2
         /// table does not exist, DynamoDB returns a <code>ResourceNotFoundException</code>. If
         /// table is already in the <code>DELETING</code> state, no error is returned. 
         /// 
-        ///  <note> 
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> <note> 
         /// <para>
         /// DynamoDB might continue to accept data read and write operations, such as <code>GetItem</code>
         /// and <code>PutItem</code>, on a table in the <code>DELETING</code> state until the
@@ -2060,6 +2129,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
@@ -2279,7 +2357,7 @@ namespace Amazon.DynamoDBv2
         #region  DescribeContributorInsights
 
         /// <summary>
-        /// Returns information about contributor insights, for a given table or global secondary
+        /// Returns information about contributor insights for a given table or global secondary
         /// index.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeContributorInsights service method.</param>
@@ -2341,7 +2419,9 @@ namespace Amazon.DynamoDBv2
         #region  DescribeEndpoints
 
         /// <summary>
-        /// Returns the regional endpoint information.
+        /// Returns the regional endpoint information. For more information on policy permissions,
+        /// please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork
+        /// traffic privacy</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeEndpoints service method.</param>
         /// 
@@ -2430,6 +2510,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeExport">REST API Reference for DescribeExport Operation</seealso>
         public virtual DescribeExportResponse DescribeExport(DescribeExportRequest request)
@@ -2482,14 +2571,18 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// Returns information about the specified global table.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
-        /// 2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-        /// 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a>
-        /// instead.
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
         /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeGlobalTable service method.</param>
         /// 
@@ -2555,12 +2648,18 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// Describes Region-specific settings for a global table.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
-        /// 2017.11.29</a> of global tables.
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
         /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeGlobalTableSettings service method.</param>
         /// 
@@ -2897,7 +2996,12 @@ namespace Amazon.DynamoDBv2
         /// Returns information about the table, including the current status of the table, when
         /// it was created, the primary key schema, and any indexes on the table.
         /// 
-        ///  <note> 
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> <note> 
         /// <para>
         /// If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code>
         /// request, DynamoDB might return a <code>ResourceNotFoundException</code>. This is because
@@ -2930,7 +3034,12 @@ namespace Amazon.DynamoDBv2
         /// Returns information about the table, including the current status of the table, when
         /// it was created, the primary key schema, and any indexes on the table.
         /// 
-        ///  <note> 
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> <note> 
         /// <para>
         /// If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code>
         /// request, DynamoDB might return a <code>ResourceNotFoundException</code>. This is because
@@ -3005,12 +3114,12 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// Describes auto scaling settings across replicas of the global table at once.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-        /// 2019.11.21</a> of global tables.
+        /// 2019.11.21 (Current)</a> of global tables.
         /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTableReplicaAutoScaling service method.</param>
         /// 
@@ -3191,6 +3300,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -3289,6 +3407,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -3368,7 +3495,8 @@ namespace Amazon.DynamoDBv2
         /// A single <code>SELECT</code> statement response can return up to the maximum number
         /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
         /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
-        /// is present in the response, you need to paginate the result set.
+        /// is present in the response, you need to paginate the result set. If <code>NextToken</code>
+        /// is present, you need to paginate the result set and include <code>NextToken</code>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ExecuteStatement service method.</param>
@@ -3676,7 +3804,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  <note> 
         /// <para>
-        /// This message is returned when when writes get throttled on an On-Demand GSI as DynamoDB
+        /// This message is returned when writes get throttled on an On-Demand GSI as DynamoDB
         /// is automatically scaling the GSI.
         /// </para>
         ///  </note> </li> </ul> </li> </ul> </li> <li> 
@@ -3737,6 +3865,80 @@ namespace Amazon.DynamoDBv2
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.TransactionInProgressException">
         /// The transaction with the given request token is already in progress.
+        /// 
+        ///  
+        /// <para>
+        ///  Recommended Settings 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        ///  This is a general recommendation for handling the <code>TransactionInProgressException</code>.
+        /// These settings help ensure that the client retries will trigger completion of the
+        /// ongoing <code>TransactWriteItems</code> request. 
+        /// </para>
+        ///  </note> <ul> <li> 
+        /// <para>
+        ///  Set <code>clientExecutionTimeout</code> to a value that allows at least one retry
+        /// to be processed after 5 seconds have elapsed since the first attempt for the <code>TransactWriteItems</code>
+        /// operation. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Set <code>socketTimeout</code> to a value a little lower than the <code>requestTimeout</code>
+        /// setting. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>requestTimeout</code> should be set based on the time taken for the individual
+        /// retries of a single HTTP request for your use case, but setting it to 1 second or
+        /// higher should work well to reduce chances of retries and <code>TransactionInProgressException</code>
+        /// errors. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Use exponential backoff when retrying and tune backoff if needed. 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default
+        /// retry policy</a>, example timeout settings based on the guidelines above are as follows:
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// Example timeline:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// 0-1000 first attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay for 4xx
+        /// errors)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 1500-2500 second attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 2500-3500 second sleep/delay (500 * 2, exponential backoff)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 3500-4500 third attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 4500-6500 third sleep/delay (500 * 2^2)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds have elapsed
+        /// since the first attempt reached TC)
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ExecuteTransaction">REST API Reference for ExecuteTransaction Operation</seealso>
         public virtual ExecuteTransactionResponse ExecuteTransaction(ExecuteTransactionRequest request)
@@ -3825,6 +4027,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.PointInTimeRecoveryUnavailableException">
@@ -4099,6 +4310,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -4322,6 +4542,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListExports">REST API Reference for ListExports Operation</seealso>
         public virtual ListExportsResponse ListExports(ListExportsRequest request)
@@ -4374,12 +4603,18 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// Lists all global tables that have a replica in the specified Region.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
-        /// 2017.11.29</a> of global tables.
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
         /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListGlobalTables service method.</param>
         /// 
@@ -4468,6 +4703,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListImports">REST API Reference for ListImports Operation</seealso>
@@ -5161,7 +5405,7 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// Creates a new table from an existing backup. Any number of users can execute up to
-        /// 4 concurrent restores (any type of restore) in a given account. 
+        /// 50 concurrent restores (any type of restore) in a given account. 
         /// 
         ///  
         /// <para>
@@ -5234,6 +5478,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.TableAlreadyExistsException">
@@ -5399,6 +5652,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.PointInTimeRecoveryUnavailableException">
@@ -5840,6 +6102,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -5930,7 +6201,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The aggregate size of the items in the transaction cannot exceed 4 MB.
+        /// The aggregate size of the items in the transaction exceeded 4 MB.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -6137,7 +6408,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  <note> 
         /// <para>
-        /// This message is returned when when writes get throttled on an On-Demand GSI as DynamoDB
+        /// This message is returned when writes get throttled on an On-Demand GSI as DynamoDB
         /// is automatically scaling the GSI.
         /// </para>
         ///  </note> </li> </ul> </li> </ul> </li> <li> 
@@ -6534,7 +6805,7 @@ namespace Amazon.DynamoDBv2
         /// </para>
         ///  <note> 
         /// <para>
-        /// This message is returned when when writes get throttled on an On-Demand GSI as DynamoDB
+        /// This message is returned when writes get throttled on an On-Demand GSI as DynamoDB
         /// is automatically scaling the GSI.
         /// </para>
         ///  </note> </li> </ul> </li> </ul> </li> <li> 
@@ -6595,6 +6866,80 @@ namespace Amazon.DynamoDBv2
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.TransactionInProgressException">
         /// The transaction with the given request token is already in progress.
+        /// 
+        ///  
+        /// <para>
+        ///  Recommended Settings 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        ///  This is a general recommendation for handling the <code>TransactionInProgressException</code>.
+        /// These settings help ensure that the client retries will trigger completion of the
+        /// ongoing <code>TransactWriteItems</code> request. 
+        /// </para>
+        ///  </note> <ul> <li> 
+        /// <para>
+        ///  Set <code>clientExecutionTimeout</code> to a value that allows at least one retry
+        /// to be processed after 5 seconds have elapsed since the first attempt for the <code>TransactWriteItems</code>
+        /// operation. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Set <code>socketTimeout</code> to a value a little lower than the <code>requestTimeout</code>
+        /// setting. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>requestTimeout</code> should be set based on the time taken for the individual
+        /// retries of a single HTTP request for your use case, but setting it to 1 second or
+        /// higher should work well to reduce chances of retries and <code>TransactionInProgressException</code>
+        /// errors. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  Use exponential backoff when retrying and tune backoff if needed. 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  Assuming <a href="https://github.com/aws/aws-sdk-java/blob/fd409dee8ae23fb8953e0bb4dbde65536a7e0514/aws-java-sdk-core/src/main/java/com/amazonaws/retry/PredefinedRetryPolicies.java#L97">default
+        /// retry policy</a>, example timeout settings based on the guidelines above are as follows:
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// Example timeline:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// 0-1000 first attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 1000-1500 first sleep/delay (default retry policy uses 500 ms as base delay for 4xx
+        /// errors)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 1500-2500 second attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 2500-3500 second sleep/delay (500 * 2, exponential backoff)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 3500-4500 third attempt
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 4500-6500 third sleep/delay (500 * 2^2)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 6500-7500 fourth attempt (this can trigger inline recovery since 5 seconds have elapsed
+        /// since the first attempt reached TC)
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/TransactWriteItems">REST API Reference for TransactWriteItems Operation</seealso>
         public virtual TransactWriteItemsResponse TransactWriteItems(TransactWriteItemsRequest request)
@@ -6687,6 +7032,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
@@ -6908,11 +7262,29 @@ namespace Amazon.DynamoDBv2
         /// the same name as the global table, have the same key schema, have DynamoDB Streams
         /// enabled, and have the same provisioned and maximum write capacity units.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
-        /// Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
+        /// </para>
+        ///  </important> <note> 
+        /// <para>
+        ///  This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+        /// 2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a>
+        /// instead. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
         /// in a single request, for simplicity we recommend that you issue separate requests
-        /// for adding or removing replicas.
+        /// for adding or removing replicas. 
         /// </para>
         ///  </note> 
         /// <para>
@@ -7009,6 +7381,19 @@ namespace Amazon.DynamoDBv2
 
         /// <summary>
         /// Updates settings for a global table.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+        /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+        /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+        /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+        /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+        /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+        /// Updating global tables</a>. 
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateGlobalTableSettings service method.</param>
         /// 
@@ -7045,6 +7430,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ReplicaNotFoundException">
@@ -7181,7 +7575,7 @@ namespace Amazon.DynamoDBv2
         /// <param name="tableName">The name of the table containing the item to update.</param>
         /// <param name="key">The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         /// <param name="attributeUpdates">This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</param>
-        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are updated. For <code>UpdateItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation. </li> <li>  <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation. </li> <li>  <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation. </li> <li>  <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. The values returned are strongly consistent.</param>
+        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are successfully updated. For <code>UpdateItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation. </li> <li>  <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation. </li> <li>  <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation. </li> <li>  <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. The values returned are strongly consistent.</param>
         /// 
         /// <returns>The response from the UpdateItem service method, as returned by DynamoDB.</returns>
         /// <exception cref="Amazon.DynamoDBv2.Model.ConditionalCheckFailedException">
@@ -7326,7 +7720,12 @@ namespace Amazon.DynamoDBv2
         /// Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
         /// Streams settings for a given table.
         /// 
-        ///  
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> 
         /// <para>
         /// You can only perform one of the following operations at once:
         /// </para>
@@ -7383,6 +7782,15 @@ namespace Amazon.DynamoDBv2
         /// <para>
         /// There is a soft account quota of 2,500 tables.
         /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
         /// The operation conflicts with the resource's availability. For example, you attempted
@@ -7407,7 +7815,12 @@ namespace Amazon.DynamoDBv2
         /// Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
         /// Streams settings for a given table.
         /// 
-        ///  
+        ///  <important> 
+        /// <para>
+        /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21 (Current)</a> of global tables. 
+        /// </para>
+        ///  </important> 
         /// <para>
         /// You can only perform one of the following operations at once:
         /// </para>
@@ -7462,6 +7875,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
@@ -7528,12 +7950,12 @@ namespace Amazon.DynamoDBv2
         /// <summary>
         /// Updates auto scaling settings on your global tables at once.
         /// 
-        ///  <note> 
+        ///  <important> 
         /// <para>
         /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-        /// 2019.11.21</a> of global tables.
+        /// 2019.11.21 (Current)</a> of global tables. 
         /// </para>
-        ///  </note>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateTableReplicaAutoScaling service method.</param>
         /// 
@@ -7564,6 +7986,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">
@@ -7693,6 +8124,15 @@ namespace Amazon.DynamoDBv2
         ///  
         /// <para>
         /// There is a soft account quota of 2,500 tables.
+        /// </para>
+        ///  
+        /// <para>
+        /// GetRecords was called with a value of more than 1000 for the limit request parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// More than 2 processes are reading from the same streams shard at the same time. Exceeding
+        /// this limit may result in request throttling.
         /// </para>
         /// </exception>
         /// <exception cref="Amazon.DynamoDBv2.Model.ResourceInUseException">

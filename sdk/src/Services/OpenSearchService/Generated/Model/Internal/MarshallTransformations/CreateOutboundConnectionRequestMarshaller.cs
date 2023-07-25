@@ -71,6 +71,23 @@ namespace Amazon.OpenSearchService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.ConnectionAlias);
                 }
 
+                if(publicRequest.IsSetConnectionMode())
+                {
+                    context.Writer.WritePropertyName("ConnectionMode");
+                    context.Writer.Write(publicRequest.ConnectionMode);
+                }
+
+                if(publicRequest.IsSetConnectionProperties())
+                {
+                    context.Writer.WritePropertyName("ConnectionProperties");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = ConnectionPropertiesMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.ConnectionProperties, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetLocalDomainInfo())
                 {
                     context.Writer.WritePropertyName("LocalDomainInfo");

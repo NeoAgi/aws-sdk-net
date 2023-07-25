@@ -100,7 +100,7 @@ namespace Amazon.Drs
         /// </summary>
         /// <param name="config">The AmazonDrsClient Configuration Object</param>
         public AmazonDrsClient(AmazonDrsConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>
@@ -267,6 +267,64 @@ namespace Amazon.Drs
         #endregion
 
 
+        #region  AssociateSourceNetworkStack
+
+        internal virtual AssociateSourceNetworkStackResponse AssociateSourceNetworkStack(AssociateSourceNetworkStackRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateSourceNetworkStackRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateSourceNetworkStackResponseUnmarshaller.Instance;
+
+            return Invoke<AssociateSourceNetworkStackResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Associate a Source Network to an existing CloudFormation Stack and modify launch templates
+        /// to use this network. Can be used for reverting to previously deployed CloudFormation
+        /// stacks.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AssociateSourceNetworkStack service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the AssociateSourceNetworkStack service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/AssociateSourceNetworkStack">REST API Reference for AssociateSourceNetworkStack Operation</seealso>
+        public virtual Task<AssociateSourceNetworkStackResponse> AssociateSourceNetworkStackAsync(AssociateSourceNetworkStackRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = AssociateSourceNetworkStackRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = AssociateSourceNetworkStackResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AssociateSourceNetworkStackResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateExtendedSourceServer
 
         internal virtual CreateExtendedSourceServerResponse CreateExtendedSourceServer(CreateExtendedSourceServerRequest request)
@@ -323,6 +381,58 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  CreateLaunchConfigurationTemplate
+
+        internal virtual CreateLaunchConfigurationTemplateResponse CreateLaunchConfigurationTemplate(CreateLaunchConfigurationTemplateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<CreateLaunchConfigurationTemplateResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates a new Launch Configuration Template.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchConfigurationTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateLaunchConfigurationTemplate">REST API Reference for CreateLaunchConfigurationTemplate Operation</seealso>
+        public virtual Task<CreateLaunchConfigurationTemplateResponse> CreateLaunchConfigurationTemplateAsync(CreateLaunchConfigurationTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateLaunchConfigurationTemplateResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateReplicationConfigurationTemplate
 
         internal virtual CreateReplicationConfigurationTemplateResponse CreateReplicationConfigurationTemplate(CreateReplicationConfigurationTemplateRequest request)
@@ -375,6 +485,62 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  CreateSourceNetwork
+
+        internal virtual CreateSourceNetworkResponse CreateSourceNetwork(CreateSourceNetworkRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateSourceNetworkRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateSourceNetworkResponseUnmarshaller.Instance;
+
+            return Invoke<CreateSourceNetworkResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Create a new Source Network resource for a provided VPC ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateSourceNetwork service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateSourceNetwork service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/CreateSourceNetwork">REST API Reference for CreateSourceNetwork Operation</seealso>
+        public virtual Task<CreateSourceNetworkResponse> CreateSourceNetworkAsync(CreateSourceNetworkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateSourceNetworkRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateSourceNetworkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateSourceNetworkResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteJob
 
         internal virtual DeleteJobResponse DeleteJob(DeleteJobRequest request)
@@ -421,6 +587,56 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = DeleteJobResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteJobResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteLaunchConfigurationTemplate
+
+        internal virtual DeleteLaunchConfigurationTemplateResponse DeleteLaunchConfigurationTemplate(DeleteLaunchConfigurationTemplateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteLaunchConfigurationTemplateResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes a single Launch Configuration Template by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchConfigurationTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteLaunchConfigurationTemplate">REST API Reference for DeleteLaunchConfigurationTemplate Operation</seealso>
+        public virtual Task<DeleteLaunchConfigurationTemplateResponse> DeleteLaunchConfigurationTemplateAsync(DeleteLaunchConfigurationTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteLaunchConfigurationTemplateResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -523,6 +739,56 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = DeleteReplicationConfigurationTemplateResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteReplicationConfigurationTemplateResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteSourceNetwork
+
+        internal virtual DeleteSourceNetworkResponse DeleteSourceNetwork(DeleteSourceNetworkRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteSourceNetworkRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteSourceNetworkResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteSourceNetworkResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Delete Source Network resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSourceNetwork service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteSourceNetwork service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DeleteSourceNetwork">REST API Reference for DeleteSourceNetwork Operation</seealso>
+        public virtual Task<DeleteSourceNetworkResponse> DeleteSourceNetworkAsync(DeleteSourceNetworkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteSourceNetworkRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteSourceNetworkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteSourceNetworkResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -674,6 +940,56 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  DescribeLaunchConfigurationTemplates
+
+        internal virtual DescribeLaunchConfigurationTemplatesResponse DescribeLaunchConfigurationTemplates(DescribeLaunchConfigurationTemplatesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeLaunchConfigurationTemplatesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeLaunchConfigurationTemplatesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeLaunchConfigurationTemplatesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists all Launch Configuration Templates, filtered by Launch Configuration Template
+        /// IDs
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchConfigurationTemplates service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeLaunchConfigurationTemplates service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeLaunchConfigurationTemplates">REST API Reference for DescribeLaunchConfigurationTemplates Operation</seealso>
+        public virtual Task<DescribeLaunchConfigurationTemplatesResponse> DescribeLaunchConfigurationTemplatesAsync(DescribeLaunchConfigurationTemplatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeLaunchConfigurationTemplatesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeLaunchConfigurationTemplatesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeLaunchConfigurationTemplatesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeRecoveryInstances
 
         internal virtual DescribeRecoveryInstancesResponse DescribeRecoveryInstances(DescribeRecoveryInstancesRequest request)
@@ -814,6 +1130,52 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = DescribeReplicationConfigurationTemplatesResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeReplicationConfigurationTemplatesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeSourceNetworks
+
+        internal virtual DescribeSourceNetworksResponse DescribeSourceNetworks(DescribeSourceNetworksRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeSourceNetworksRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeSourceNetworksResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeSourceNetworksResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists all Source Networks or multiple Source Networks filtered by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeSourceNetworks service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeSourceNetworks service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/DescribeSourceNetworks">REST API Reference for DescribeSourceNetworks Operation</seealso>
+        public virtual Task<DescribeSourceNetworksResponse> DescribeSourceNetworksAsync(DescribeSourceNetworksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeSourceNetworksRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeSourceNetworksResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeSourceNetworksResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -982,6 +1344,59 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = DisconnectSourceServerResponseUnmarshaller.Instance;
 
             return InvokeAsync<DisconnectSourceServerResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ExportSourceNetworkCfnTemplate
+
+        internal virtual ExportSourceNetworkCfnTemplateResponse ExportSourceNetworkCfnTemplate(ExportSourceNetworkCfnTemplateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ExportSourceNetworkCfnTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ExportSourceNetworkCfnTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<ExportSourceNetworkCfnTemplateResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Export the Source Network CloudFormation template to an S3 bucket.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ExportSourceNetworkCfnTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ExportSourceNetworkCfnTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/ExportSourceNetworkCfnTemplate">REST API Reference for ExportSourceNetworkCfnTemplate Operation</seealso>
+        public virtual Task<ExportSourceNetworkCfnTemplateResponse> ExportSourceNetworkCfnTemplateAsync(ExportSourceNetworkCfnTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ExportSourceNetworkCfnTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ExportSourceNetworkCfnTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ExportSourceNetworkCfnTemplateResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1324,6 +1739,7 @@ namespace Amazon.Drs
         
         #region  RetryDataReplication
 
+        [Obsolete("WARNING: RetryDataReplication is deprecated")]
         internal virtual RetryDataReplicationResponse RetryDataReplication(RetryDataReplicationRequest request)
         {
             var options = new InvokeOptions();
@@ -1336,10 +1752,10 @@ namespace Amazon.Drs
 
 
         /// <summary>
-        /// Causes the data replication initiation sequence to begin immediately upon next Handshake
-        /// for the specified Source Server ID, regardless of when the previous initiation started.
-        /// This command will work only if the Source Server is stalled or is in a DISCONNECTED
-        /// or STOPPED state.
+        /// WARNING: RetryDataReplication is deprecated. Causes the data replication initiation
+        /// sequence to begin immediately upon next Handshake for the specified Source Server
+        /// ID, regardless of when the previous initiation started. This command will work only
+        /// if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RetryDataReplication service method.</param>
         /// <param name="cancellationToken">
@@ -1363,6 +1779,7 @@ namespace Amazon.Drs
         /// The input fails to satisfy the constraints specified by the AWS service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/RetryDataReplication">REST API Reference for RetryDataReplication Operation</seealso>
+        [Obsolete("WARNING: RetryDataReplication is deprecated")]
         public virtual Task<RetryDataReplicationResponse> RetryDataReplicationAsync(RetryDataReplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var options = new InvokeOptions();
@@ -1590,6 +2007,111 @@ namespace Amazon.Drs
 
         #endregion
         
+        #region  StartSourceNetworkRecovery
+
+        internal virtual StartSourceNetworkRecoveryResponse StartSourceNetworkRecovery(StartSourceNetworkRecoveryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSourceNetworkRecoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSourceNetworkRecoveryResponseUnmarshaller.Instance;
+
+            return Invoke<StartSourceNetworkRecoveryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deploy VPC for the specified Source Network and modify launch templates to use this
+        /// network. The VPC will be deployed using a dedicated CloudFormation stack.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkRecovery service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartSourceNetworkRecovery service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ServiceQuotaExceededException">
+        /// The request could not be completed because its exceeded the service quota.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkRecovery">REST API Reference for StartSourceNetworkRecovery Operation</seealso>
+        public virtual Task<StartSourceNetworkRecoveryResponse> StartSourceNetworkRecoveryAsync(StartSourceNetworkRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSourceNetworkRecoveryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSourceNetworkRecoveryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartSourceNetworkRecoveryResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartSourceNetworkReplication
+
+        internal virtual StartSourceNetworkReplicationResponse StartSourceNetworkReplication(StartSourceNetworkReplicationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSourceNetworkReplicationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSourceNetworkReplicationResponseUnmarshaller.Instance;
+
+            return Invoke<StartSourceNetworkReplicationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Starts replication for a Source Network. This action would make the Source Network
+        /// protected.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartSourceNetworkReplication service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartSourceNetworkReplication service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StartSourceNetworkReplication">REST API Reference for StartSourceNetworkReplication Operation</seealso>
+        public virtual Task<StartSourceNetworkReplicationResponse> StartSourceNetworkReplicationAsync(StartSourceNetworkReplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartSourceNetworkReplicationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartSourceNetworkReplicationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StartSourceNetworkReplicationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  StopFailback
 
         internal virtual StopFailbackResponse StopFailback(StopFailbackRequest request)
@@ -1684,6 +2206,60 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = StopReplicationResponseUnmarshaller.Instance;
 
             return InvokeAsync<StopReplicationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StopSourceNetworkReplication
+
+        internal virtual StopSourceNetworkReplicationResponse StopSourceNetworkReplication(StopSourceNetworkReplicationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSourceNetworkReplicationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSourceNetworkReplicationResponseUnmarshaller.Instance;
+
+            return Invoke<StopSourceNetworkReplicationResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Stops replication for a Source Network. This action would make the Source Network
+        /// unprotected.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopSourceNetworkReplication service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StopSourceNetworkReplication service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.ConflictException">
+        /// The request could not be completed due to a conflict with the current state of the
+        /// target resource.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/StopSourceNetworkReplication">REST API Reference for StopSourceNetworkReplication Operation</seealso>
+        public virtual Task<StopSourceNetworkReplicationResponse> StopSourceNetworkReplicationAsync(StopSourceNetworkReplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StopSourceNetworkReplicationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StopSourceNetworkReplicationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<StopSourceNetworkReplicationResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1941,6 +2517,58 @@ namespace Amazon.Drs
             options.ResponseUnmarshaller = UpdateLaunchConfigurationResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateLaunchConfigurationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateLaunchConfigurationTemplate
+
+        internal virtual UpdateLaunchConfigurationTemplateResponse UpdateLaunchConfigurationTemplate(UpdateLaunchConfigurationTemplateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateLaunchConfigurationTemplateResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates an existing Launch Configuration Template by ID.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateLaunchConfigurationTemplate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateLaunchConfigurationTemplate service method, as returned by Drs.</returns>
+        /// <exception cref="Amazon.Drs.Model.AccessDeniedException">
+        /// You do not have sufficient access to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.InternalServerException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ResourceNotFoundException">
+        /// The resource for this operation was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.UninitializedAccountException">
+        /// The account performing the request has not been initialized.
+        /// </exception>
+        /// <exception cref="Amazon.Drs.Model.ValidationException">
+        /// The input fails to satisfy the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/drs-2020-02-26/UpdateLaunchConfigurationTemplate">REST API Reference for UpdateLaunchConfigurationTemplate Operation</seealso>
+        public virtual Task<UpdateLaunchConfigurationTemplateResponse> UpdateLaunchConfigurationTemplateAsync(UpdateLaunchConfigurationTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateLaunchConfigurationTemplateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateLaunchConfigurationTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateLaunchConfigurationTemplateResponse>(request, options, cancellationToken);
         }
 
         #endregion

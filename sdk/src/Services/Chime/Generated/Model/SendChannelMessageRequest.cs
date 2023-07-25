@@ -42,7 +42,19 @@ namespace Amazon.Chime.Model
     /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
     /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
     /// </para>
-    ///  </note>
+    ///  </note> <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html">SendChannelMessage</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class SendChannelMessageRequest : AmazonChimeRequest
     {
@@ -98,7 +110,7 @@ namespace Amazon.Chime.Model
         /// The <code>Idempotency</code> token for each client request.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -117,7 +129,7 @@ namespace Amazon.Chime.Model
         /// The content of the message.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1)]
         public string Content
         {
             get { return this._content; }
@@ -136,7 +148,7 @@ namespace Amazon.Chime.Model
         /// The optional metadata for each message.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=0, Max=1024)]
         public string Metadata
         {
             get { return this._metadata; }

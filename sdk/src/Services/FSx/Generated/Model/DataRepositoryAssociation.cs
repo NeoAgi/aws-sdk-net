@@ -48,9 +48,9 @@ namespace Amazon.FSx.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    /// Data repository associations are supported only for an Amazon FSx for Lustre file
-    /// system with the <code>Persistent_2</code> deployment type and for an Amazon File Cache
-    /// resource.
+    /// Data repository associations are supported on Amazon File Cache resources and all
+    /// FSx for Lustre 2.12 and newer file systems, excluding <code>scratch_1</code> deployment
+    /// type.
     /// </para>
     /// </summary>
     public partial class DataRepositoryAssociation

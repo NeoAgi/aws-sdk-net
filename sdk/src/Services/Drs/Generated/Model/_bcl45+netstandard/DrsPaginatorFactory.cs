@@ -52,6 +52,14 @@ namespace Amazon.Drs.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeLaunchConfigurationTemplates operation
+        ///</summary>
+        public IDescribeLaunchConfigurationTemplatesPaginator DescribeLaunchConfigurationTemplates(DescribeLaunchConfigurationTemplatesRequest request) 
+        {
+            return new DescribeLaunchConfigurationTemplatesPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeRecoveryInstances operation
         ///</summary>
         public IDescribeRecoveryInstancesPaginator DescribeRecoveryInstances(DescribeRecoveryInstancesRequest request) 
@@ -73,6 +81,14 @@ namespace Amazon.Drs.Model
         public IDescribeReplicationConfigurationTemplatesPaginator DescribeReplicationConfigurationTemplates(DescribeReplicationConfigurationTemplatesRequest request) 
         {
             return new DescribeReplicationConfigurationTemplatesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeSourceNetworks operation
+        ///</summary>
+        public IDescribeSourceNetworksPaginator DescribeSourceNetworks(DescribeSourceNetworksRequest request) 
+        {
+            return new DescribeSourceNetworksPaginator(this.client, request);
         }
 
         /// <summary>

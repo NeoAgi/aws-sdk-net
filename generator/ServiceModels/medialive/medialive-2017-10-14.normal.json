@@ -1508,6 +1508,98 @@
       ],
       "documentation": "Get a channel schedule"
     },
+    "DescribeAccountConfiguration": {
+      "name": "DescribeAccountConfiguration",
+      "http": {
+        "method": "GET",
+        "requestUri": "/prod/accountConfiguration",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "DescribeAccountConfigurationRequest"
+      },
+      "output": {
+        "shape": "DescribeAccountConfigurationResponse",
+        "documentation": "An array of account configuration options."
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid."
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Unexpected internal service error."
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to describe the account configuration."
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad Gateway Error"
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway Timeout Error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded on describe account configuration calls."
+        }
+      ],
+      "documentation": "Get account configuration"
+    },
+    "DescribeThumbnails": {
+      "name": "DescribeThumbnails",
+      "http": {
+        "method": "GET",
+        "requestUri": "/prod/channels/{channelId}/thumbnails",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "DescribeThumbnailsRequest"
+      },
+      "output": {
+        "shape": "DescribeThumbnailsResponse",
+        "documentation": "An array of thumbnails for the channel. Each member contains the thumbnail data for one pipeline."
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid."
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Unexpected internal service error.."
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to get thumbnails."
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad Gateway error."
+        },
+        {
+          "shape": "NotFoundException",
+          "documentation": "There are no thumbnails for this channel."
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway Timeout Error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded on describe thumbnails calls to channel service."
+        },
+        {
+          "shape": "ConflictException",
+          "documentation": "Service do not have permission to customer's KMS key."
+        }
+      ],
+      "documentation": "Describe the latest thumbnails data."
+    },
     "ListChannels": {
       "name": "ListChannels",
       "http": {
@@ -2081,6 +2173,52 @@
         }
       ],
       "documentation": "Reject the transfer of the specified input device to your AWS account."
+    },
+    "UpdateAccountConfiguration": {
+      "name": "UpdateAccountConfiguration",
+      "http": {
+        "method": "PUT",
+        "requestUri": "/prod/accountConfiguration",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "UpdateAccountConfigurationRequest"
+      },
+      "output": {
+        "shape": "UpdateAccountConfigurationResponse",
+        "documentation": "Successful update of the account configuration."
+      },
+      "errors": [
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid."
+        },
+        {
+          "shape": "UnprocessableEntityException",
+          "documentation": "The update account configuration request failed validation."
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Unexpected internal service error."
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "You do not have permission to update the account's configuration."
+        },
+        {
+          "shape": "BadGatewayException",
+          "documentation": "Bad Gateway Error"
+        },
+        {
+          "shape": "GatewayTimeoutException",
+          "documentation": "Gateway Timeout Error"
+        },
+        {
+          "shape": "TooManyRequestsException",
+          "documentation": "Request limit exceeded on update account configuration calls."
+        }
+      ],
+      "documentation": "Update account configuration"
     },
     "StartChannel": {
       "name": "StartChannel",
@@ -3021,6 +3159,17 @@
         "IMPLEMENTS_ACCESSIBILITY_FEATURES"
       ]
     },
+    "AccountConfiguration": {
+      "type": "structure",
+      "members": {
+        "KmsKeyId": {
+          "shape": "__string",
+          "locationName": "kmsKeyId",
+          "documentation": "Specifies the KMS key to use for all features that use key encryption. Specify the ARN of a KMS key that you have created. Or leave blank to use the key that MediaLive creates and manages for you."
+        }
+      },
+      "documentation": "Placeholder documentation for AccountConfiguration"
+    },
     "AfdSignaling": {
       "type": "string",
       "documentation": "Afd Signaling",
@@ -3615,7 +3764,7 @@
         "AvailSettings": {
           "shape": "AvailSettings",
           "locationName": "availSettings",
-          "documentation": "Ad avail settings."
+          "documentation": "Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update."
         }
       },
       "documentation": "Avail Configuration"
@@ -4431,7 +4580,7 @@
           "documentation": "Caption selector settings."
         }
       },
-      "documentation": "Output groups for this Live Event. Output groups contain information about where streams should be distributed.",
+      "documentation": "Caption Selector",
       "required": [
         "Name"
       ]
@@ -5987,6 +6136,11 @@
           "shape": "InputDeviceUhdSettings",
           "locationName": "uhdDeviceSettings",
           "documentation": "Settings that describe an input device that is type UHD."
+        },
+	 "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for DescribeInputDeviceResponse"
@@ -7313,6 +7467,11 @@
         "VideoDescriptions": {
           "shape": "__listOfVideoDescription",
           "locationName": "videoDescriptions"
+        },
+        "ThumbnailConfiguration": {
+          "shape": "ThumbnailConfiguration",
+          "locationName": "thumbnailConfiguration",
+          "documentation": "Thumbnail configuration settings."
         }
       },
       "documentation": "Encoder Settings",
@@ -7660,6 +7819,81 @@
         "httpStatusCode": 504
       },
       "documentation": "Placeholder documentation for GatewayTimeoutException"
+    },
+    "DescribeAccountConfigurationRequest": {
+      "type": "structure",
+      "members": {
+      },
+      "documentation": "Placeholder documentation for DescribeAccountConfigurationRequest"
+    },
+    "DescribeAccountConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "Placeholder documentation for DescribeAccountConfigurationResponse"
+    },
+    "DescribeAccountConfigurationResultModel": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "The account's configuration."
+    },
+    "DescribeThumbnailsRequest": {
+      "type": "structure",
+      "members": {
+        "ChannelId": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "channelId",
+          "documentation": "Unique ID of the channel"
+        },
+        "PipelineId": {
+          "shape": "__string",
+          "location": "querystring",
+          "locationName": "pipelineId",
+          "documentation": "Pipeline ID (\"0\" or \"1\")"
+        },
+        "ThumbnailType": {
+          "shape": "__string",
+          "location": "querystring",
+          "locationName": "thumbnailType",
+          "documentation": "thumbnail type"
+        }
+      },
+      "required": [
+        "ThumbnailType",
+        "PipelineId",
+        "ChannelId"
+      ],
+      "documentation": "Placeholder documentation for DescribeThumbnailsRequest"
+    },
+    "DescribeThumbnailsResponse": {
+      "type": "structure",
+      "members": {
+        "ThumbnailDetails": {
+          "shape": "__listOfThumbnailDetail",
+          "locationName": "thumbnailDetails"
+        }
+      },
+      "documentation": "Placeholder documentation for DescribeThumbnailsResponse"
+    },
+    "DescribeThumbnailsResultModel": {
+      "type": "structure",
+      "members": {
+        "ThumbnailDetails": {
+          "shape": "__listOfThumbnailDetail",
+          "locationName": "thumbnailDetails"
+        }
+      },
+      "documentation": "Thumbnail details for all the pipelines of a running channel."
     },
     "GlobalConfiguration": {
       "type": "structure",
@@ -8541,7 +8775,7 @@
         "NumRetries": {
           "shape": "__integerMin0",
           "locationName": "numRetries",
-          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state."
+          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."
         },
         "RestartDelay": {
           "shape": "__integerMin0Max15",
@@ -8577,7 +8811,7 @@
         "NumRetries": {
           "shape": "__integerMin0",
           "locationName": "numRetries",
-          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state."
+          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."
         },
         "RestartDelay": {
           "shape": "__integerMin0Max15",
@@ -8901,12 +9135,14 @@
           "shape": "__string",
           "locationName": "tag",
           "documentation": "ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html"
+        },
+        "Id3": {
+          "shape": "__string",
+          "locationName": "id3",
+          "documentation": "Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure"
         }
       },
-      "documentation": "Settings for the action to insert a user-defined ID3 tag in each HLS segment",
-      "required": [
-        "Tag"
-      ]
+      "documentation": "Settings for the action to insert a user-defined ID3 tag in each HLS segment"
     },
     "HlsId3SegmentTaggingState": {
       "type": "string",
@@ -9008,7 +9244,7 @@
         "NumRetries": {
           "shape": "__integerMin0",
           "locationName": "numRetries",
-          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state."
+          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."
         },
         "RestartDelay": {
           "shape": "__integerMin0Max15",
@@ -9220,7 +9456,7 @@
         "NumRetries": {
           "shape": "__integerMin0",
           "locationName": "numRetries",
-          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state."
+          "documentation": "Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with \"s3\" or \"mediastore\". For other URIs, the value is always 3."
         },
         "RestartDelay": {
           "shape": "__integerMin0Max15",
@@ -9551,6 +9787,11 @@
           "shape": "InputDeviceUhdSettings",
           "locationName": "uhdDeviceSettings",
           "documentation": "Settings that describe an input device that is type UHD."
+        },
+	"Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "An input device."
@@ -9807,6 +10048,11 @@
           "shape": "InputDeviceUhdSettings",
           "locationName": "uhdDeviceSettings",
           "documentation": "Settings that describe an input device that is type UHD."
+        },
+	"Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Details of the input device."
@@ -12570,6 +12816,11 @@
           "shape": "__doubleMin1Max65535",
           "locationName": "sid",
           "documentation": "Enter the Nielsen Source ID (SID) to include in the watermark"
+        },
+        "Timezone": {
+          "shape": "NielsenWatermarkTimezones",
+          "locationName": "timezone",
+          "documentation": "Choose the timezone for the time stamps in the watermark. If not provided,\nthe timestamps will be in Coordinated Universal Time (UTC)"
         }
       },
       "documentation": "Nielsen Naes Ii Nw",
@@ -12584,6 +12835,22 @@
       "enum": [
         "DISABLED",
         "ENABLED"
+      ]
+    },
+    "NielsenWatermarkTimezones": {
+      "type": "string",
+      "documentation": "Nielsen Watermark Timezones",
+      "enum": [
+        "AMERICA_PUERTO_RICO",
+        "US_ALASKA",
+        "US_ARIZONA",
+        "US_CENTRAL",
+        "US_EASTERN",
+        "US_HAWAII",
+        "US_MOUNTAIN",
+        "US_PACIFIC",
+        "US_SAMOA",
+        "UTC"
       ]
     },
     "NielsenWatermarksCbetStepaside": {
@@ -14030,7 +14297,7 @@
           "documentation": "When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates"
         }
       },
-      "documentation": "Scte35 Splice Insert"
+      "documentation": "Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements."
     },
     "Scte35SpliceInsertNoRegionalBlackoutBehavior": {
       "type": "string",
@@ -14086,7 +14353,7 @@
           "documentation": "When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates"
         }
       },
-      "documentation": "Scte35 Time Signal Apos"
+      "documentation": "Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks."
     },
     "Scte35TimeSignalScheduleActionSettings": {
       "type": "structure",
@@ -14109,6 +14376,46 @@
         "WEB_DELIVERY_NOT_ALLOWED",
         "WEB_DELIVERY_ALLOWED"
       ]
+    },
+    "UpdateAccountConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "List of account configuration parameters to update."
+    },
+    "UpdateAccountConfigurationRequestModel": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "The desired new account configuration."
+    },
+    "UpdateAccountConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "Placeholder documentation for UpdateAccountConfigurationResponse"
+    },
+    "UpdateAccountConfigurationResultModel": {
+      "type": "structure",
+      "members": {
+        "AccountConfiguration": {
+          "shape": "AccountConfiguration",
+          "locationName": "accountConfiguration"
+        }
+      },
+      "documentation": "The account's updated configuration."
     },
     "SmoothGroupAudioOnlyTimecodeControl": {
       "type": "string",
@@ -14800,6 +15107,46 @@
         "STRENGTH_16"
       ]
     },
+    "Thumbnail": {
+      "type": "structure",
+      "members": {
+        "Body": {
+          "shape": "__string",
+          "locationName": "body",
+          "documentation": "The binary data for the latest thumbnail."
+        },
+        "ContentType": {
+          "shape": "__string",
+          "locationName": "contentType",
+          "documentation": "The content type for the latest thumbnail."
+        },
+        "ThumbnailType": {
+          "shape": "ThumbnailType",
+          "locationName": "thumbnailType",
+          "documentation": "Thumbnail Type"
+        },
+        "TimeStamp": {
+          "shape": "__timestampIso8601",
+          "locationName": "timeStamp",
+          "documentation": "Time stamp for the latest thumbnail."
+        }
+      },
+      "documentation": "Details of a single thumbnail"
+    },
+    "ThumbnailConfiguration": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "shape": "ThumbnailState",
+          "locationName": "state",
+          "documentation": "Whether Thumbnail is enabled."
+        }
+      },
+      "documentation": "Thumbnail Configuration",
+      "required": [
+        "State"
+      ]
+    },
     "ThumbnailData": {
       "type": "structure",
       "members": {
@@ -14810,6 +15157,44 @@
         }
       },
       "documentation": "The binary data for the thumbnail that the Link device has most recently sent to MediaLive."
+    },
+    "ThumbnailDetail": {
+      "type": "structure",
+      "members": {
+        "PipelineId": {
+          "shape": "__string",
+          "locationName": "pipelineId",
+          "documentation": "Pipeline ID"
+        },
+        "Thumbnails": {
+          "shape": "__listOfThumbnail",
+          "locationName": "thumbnails",
+          "documentation": "thumbnails of a single pipeline"
+        }
+      },
+      "documentation": "Thumbnail details for one pipeline of a running channel."
+    },
+    "ThumbnailNoData": {
+      "type": "structure",
+      "members": {
+      },
+      "documentation": "Response when thumbnail has no data. It should have no message."
+    },
+    "ThumbnailState": {
+      "type": "string",
+      "documentation": "Thumbnail State",
+      "enum": [
+        "AUTO",
+        "DISABLED"
+      ]
+    },
+    "ThumbnailType": {
+      "type": "string",
+      "documentation": "Thumbnail type.",
+      "enum": [
+        "UNSPECIFIED",
+        "CURRENT_ACTIVE"
+      ]
     },
     "TimecodeBurninFontSize": {
       "type": "string",
@@ -15432,6 +15817,11 @@
           "shape": "InputDeviceUhdSettings",
           "locationName": "uhdDeviceSettings",
           "documentation": "Settings that describe an input device that is type UHD."
+        },
+	  "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for UpdateInputDeviceResponse"
@@ -16688,6 +17078,20 @@
         "shape": "Scte35Descriptor"
       },
       "documentation": "Placeholder documentation for __listOfScte35Descriptor"
+    },
+    "__listOfThumbnail": {
+      "type": "list",
+      "member": {
+        "shape": "Thumbnail"
+      },
+      "documentation": "Placeholder documentation for __listOfThumbnail"
+    },
+    "__listOfThumbnailDetail": {
+      "type": "list",
+      "member": {
+        "shape": "ThumbnailDetail"
+      },
+      "documentation": "Placeholder documentation for __listOfThumbnailDetail"
     },
     "__listOfTransferringInputDeviceSummary": {
       "type": "list",

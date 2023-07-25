@@ -81,29 +81,29 @@ namespace Amazon.IVS
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    /// Channel — Stores configuration data related to your live stream. You first create
-    /// a channel and then use the channel’s stream key to start your live stream. See the
-    /// Channel endpoints for more information. 
+    ///  <b>Channel</b> — Stores configuration data related to your live stream. You first
+    /// create a channel and then use the channel’s stream key to start your live stream.
+    /// See the Channel endpoints for more information. 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Stream key — An identifier assigned by Amazon IVS when you create a channel, which
-    /// is then used to authorize streaming. See the StreamKey endpoints for more information.
+    ///  <b>Stream key</b> — An identifier assigned by Amazon IVS when you create a channel,
+    /// which is then used to authorize streaming. See the StreamKey endpoints for more information.
     /// <i> <b>Treat the stream key like a secret, since it allows anyone to stream to the
     /// channel.</b> </i> 
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Playback key pair — Video playback may be restricted using playback-authorization
+    ///  <b>Playback key pair</b> — Video playback may be restricted using playback-authorization
     /// tokens, which use public-key encryption. A playback key pair is the public-private
     /// pair of keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair
     /// endpoints for more information.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    /// Recording configuration — Stores configuration related to recording a live stream
-    /// and where to store the recorded content. Multiple channels can reference the same
-    /// recording configuration. See the Recording Configuration endpoints for more information.
+    ///  <b>Recording configuration</b> — Stores configuration related to recording a live
+    /// stream and where to store the recorded content. Multiple channels can reference the
+    /// same recording configuration. See the Recording Configuration endpoints for more information.
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -171,7 +171,7 @@ namespace Amazon.IVS
     /// <para>
     /// You generate a signature using valid Amazon Web Services credentials that have permission
     /// to perform the requested action. For example, you must sign PutMetadata requests with
-    /// a signature generated from an IAM user account that has the <code>ivs:PutMetadata</code>
+    /// a signature generated from a user account that has the <code>ivs:PutMetadata</code>
     /// permission.
     /// </para>
     ///  
@@ -300,7 +300,7 @@ namespace Amazon.IVS
     /// </para>
     ///  </li> </ul> 
     /// <para>
-    ///  <b>PlaybackKeyPair Endpoints</b> 
+    ///  <b>Private Channel Endpoints</b> 
     /// </para>
     ///  
     /// <para>
@@ -329,6 +329,17 @@ namespace Amazon.IVS
     /// <para>
     ///  <a>DeletePlaybackKeyPair</a> — Deletes a specified authorization key pair. This invalidates
     /// future viewer tokens generated using the key pair’s <code>privateKey</code>.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>StartViewerSessionRevocation</a> — Starts the process of revoking the viewer session
+    /// associated with a specified channel ARN and viewer ID. Optionally, you can provide
+    /// a version to revoke viewer sessions less than and including that version.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>BatchStartViewerSessionRevocation</a> — Performs <a>StartViewerSessionRevocation</a>
+    /// on multiple channel ARN and viewer ID pairs simultaneously.
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -417,6 +428,37 @@ namespace Amazon.IVS
         /// <returns>The response from the BatchGetStreamKey service method, as returned by IVS.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ivs-2020-07-14/BatchGetStreamKey">REST API Reference for BatchGetStreamKey Operation</seealso>
         Task<BatchGetStreamKeyResponse> BatchGetStreamKeyAsync(BatchGetStreamKeyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  BatchStartViewerSessionRevocation
+
+
+
+        /// <summary>
+        /// Performs <a>StartViewerSessionRevocation</a> on multiple channel ARN and viewer ID
+        /// pairs simultaneously.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchStartViewerSessionRevocation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchStartViewerSessionRevocation service method, as returned by IVS.</returns>
+        /// <exception cref="Amazon.IVS.Model.AccessDeniedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.PendingVerificationException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ivs-2020-07-14/BatchStartViewerSessionRevocation">REST API Reference for BatchStartViewerSessionRevocation Operation</seealso>
+        Task<BatchStartViewerSessionRevocationResponse> BatchStartViewerSessionRevocationAsync(BatchStartViewerSessionRevocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -557,8 +599,8 @@ namespace Amazon.IVS
         /// <para>
         /// If you try to delete a live channel, you will get an error (409 ConflictException).
         /// To delete a channel that is live, call <a>StopStream</a>, wait for the Amazon EventBridge
-        /// "Stream End" event (to verify that the stream's state was changed from Live to Offline),
-        /// then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">
+        /// "Stream End" event (to verify that the stream's state is no longer Live), then call
+        /// DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html">
         /// Using EventBridge with Amazon IVS</a>.) 
         /// </para>
         /// </summary>
@@ -1128,6 +1170,46 @@ namespace Amazon.IVS
 
         #endregion
                 
+        #region  StartViewerSessionRevocation
+
+
+
+        /// <summary>
+        /// Starts the process of revoking the viewer session associated with a specified channel
+        /// ARN and viewer ID. Optionally, you can provide a version to revoke viewer sessions
+        /// less than and including that version. For instructions on associating a viewer ID
+        /// with a viewer session, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting
+        /// Up Private Channels</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartViewerSessionRevocation service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartViewerSessionRevocation service method, as returned by IVS.</returns>
+        /// <exception cref="Amazon.IVS.Model.AccessDeniedException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.InternalServerException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.PendingVerificationException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.ResourceNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.ThrottlingException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.IVS.Model.ValidationException">
+        /// 
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ivs-2020-07-14/StartViewerSessionRevocation">REST API Reference for StartViewerSessionRevocation Operation</seealso>
+        Task<StartViewerSessionRevocationResponse> StartViewerSessionRevocationAsync(StartViewerSessionRevocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  StopStream
 
 
@@ -1229,8 +1311,9 @@ namespace Amazon.IVS
 
 
         /// <summary>
-        /// Updates a channel's configuration. This does not affect an ongoing stream of this
-        /// channel. You must stop and restart the stream for the changes to take effect.
+        /// Updates a channel's configuration. Live channels cannot be updated. You must stop
+        /// the ongoing stream, update the channel, and restart the stream for the changes to
+        /// take effect.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannel service method.</param>
         /// <param name="cancellationToken">

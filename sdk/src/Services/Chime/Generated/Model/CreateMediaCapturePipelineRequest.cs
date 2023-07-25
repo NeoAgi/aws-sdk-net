@@ -31,6 +31,20 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// Container for the parameters to the CreateMediaCapturePipeline operation.
     /// Creates a media capture pipeline.
+    /// 
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline">CreateMediaCapturePipeline</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateMediaCapturePipelineRequest : AmazonChimeRequest
     {
@@ -63,10 +77,11 @@ namespace Amazon.Chime.Model
         /// <summary>
         /// Gets and sets the property ClientRequestToken. 
         /// <para>
-        /// The token assigned to the client making the pipeline request.
+        /// The unique identifier for the client request. The token makes the API request idempotent.
+        /// Use a different token for different media pipeline requests.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -85,7 +100,7 @@ namespace Amazon.Chime.Model
         /// The ARN of the sink type.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string SinkArn
         {
             get { return this._sinkArn; }
@@ -124,7 +139,7 @@ namespace Amazon.Chime.Model
         /// ARN of the source from which the media artifacts are captured.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string SourceArn
         {
             get { return this._sourceArn; }

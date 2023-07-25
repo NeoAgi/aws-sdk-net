@@ -32,16 +32,26 @@ namespace Amazon.AccessAnalyzer
     public partial class AmazonAccessAnalyzerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.102.32");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "AccessAnalyzer";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonAccessAnalyzerConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAccessAnalyzerDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "AccessAnalyzer";
             this.AuthenticationServiceName = "access-analyzer";
             this.EndpointProvider = new AmazonAccessAnalyzerEndpointProvider();
         }

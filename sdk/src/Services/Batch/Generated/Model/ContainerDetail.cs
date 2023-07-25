@@ -36,6 +36,7 @@ namespace Amazon.Batch.Model
         private List<string> _command = new List<string>();
         private string _containerInstanceArn;
         private List<KeyValuePair> _environment = new List<KeyValuePair>();
+        private EphemeralStorage _ephemeralStorage;
         private string _executionRoleArn;
         private int? _exitCode;
         private FargatePlatformConfiguration _fargatePlatformConfiguration;
@@ -53,6 +54,7 @@ namespace Amazon.Batch.Model
         private bool? _readonlyRootFilesystem;
         private string _reason;
         private List<ResourceRequirement> _resourceRequirements = new List<ResourceRequirement>();
+        private RuntimePlatform _runtimePlatform;
         private List<Secret> _secrets = new List<Secret>();
         private string _taskArn;
         private List<Ulimit> _ulimits = new List<Ulimit>();
@@ -119,6 +121,26 @@ namespace Amazon.Batch.Model
         internal bool IsSetEnvironment()
         {
             return this._environment != null && this._environment.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property EphemeralStorage. 
+        /// <para>
+        /// The amount of ephemeral storage allocated for the task. This parameter is used to
+        /// expand the total amount of ephemeral storage available, beyond the default amount,
+        /// for tasks hosted on Fargate.
+        /// </para>
+        /// </summary>
+        public EphemeralStorage EphemeralStorage
+        {
+            get { return this._ephemeralStorage; }
+            set { this._ephemeralStorage = value; }
+        }
+
+        // Check to see if EphemeralStorage property is set
+        internal bool IsSetEphemeralStorage()
+        {
+            return this._ephemeralStorage != null;
         }
 
         /// <summary>
@@ -489,6 +511,21 @@ namespace Amazon.Batch.Model
         internal bool IsSetResourceRequirements()
         {
             return this._resourceRequirements != null && this._resourceRequirements.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property RuntimePlatform.
+        /// </summary>
+        public RuntimePlatform RuntimePlatform
+        {
+            get { return this._runtimePlatform; }
+            set { this._runtimePlatform = value; }
+        }
+
+        // Check to see if RuntimePlatform property is set
+        internal bool IsSetRuntimePlatform()
+        {
+            return this._runtimePlatform != null;
         }
 
         /// <summary>

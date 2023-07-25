@@ -43,7 +43,9 @@ namespace Amazon.StepFunctions.Model
         private string _output;
         private CloudWatchEventsExecutionDataDetails _outputDetails;
         private DateTime? _startDate;
+        private string _stateMachineAliasArn;
         private string _stateMachineArn;
+        private string _stateMachineVersionArn;
         private ExecutionStatus _status;
         private DateTime? _stopDate;
         private string _traceHeader;
@@ -54,7 +56,7 @@ namespace Amazon.StepFunctions.Model
         /// The cause string if the state machine execution failed.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=32768)]
+        [AWSProperty(Sensitive=true, Min=0, Max=32768)]
         public string Cause
         {
             get { return this._cause; }
@@ -73,7 +75,7 @@ namespace Amazon.StepFunctions.Model
         /// The error string if the state machine execution failed.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=256)]
+        [AWSProperty(Sensitive=true, Min=0, Max=256)]
         public string Error
         {
             get { return this._error; }
@@ -112,7 +114,7 @@ namespace Amazon.StepFunctions.Model
         /// apply to the payload size, and are expressed as bytes in UTF-8 encoding.
         /// </para>
         /// </summary>
-        [AWSProperty(Max=262144)]
+        [AWSProperty(Sensitive=true, Max=262144)]
         public string Input
         {
             get { return this._input; }
@@ -220,7 +222,7 @@ namespace Amazon.StepFunctions.Model
         /// </para>
         ///  </note>
         /// </summary>
-        [AWSProperty(Max=262144)]
+        [AWSProperty(Sensitive=true, Max=262144)]
         public string Output
         {
             get { return this._output; }
@@ -268,6 +270,32 @@ namespace Amazon.StepFunctions.Model
         }
 
         /// <summary>
+        /// Gets and sets the property StateMachineAliasArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the state machine alias associated with the execution.
+        /// The alias ARN is a combination of state machine ARN and the alias name separated by
+        /// a colon (:). For example, <code>stateMachineARN:PROD</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you start an execution from a <code>StartExecution</code> request with a state
+        /// machine version ARN, this field will be null.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string StateMachineAliasArn
+        {
+            get { return this._stateMachineAliasArn; }
+            set { this._stateMachineAliasArn = value; }
+        }
+
+        // Check to see if StateMachineAliasArn property is set
+        internal bool IsSetStateMachineAliasArn()
+        {
+            return this._stateMachineAliasArn != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property StateMachineArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) of the executed stated machine.
@@ -284,6 +312,32 @@ namespace Amazon.StepFunctions.Model
         internal bool IsSetStateMachineArn()
         {
             return this._stateMachineArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property StateMachineVersionArn. 
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the state machine version associated with the execution.
+        /// The version ARN is a combination of state machine ARN and the version number separated
+        /// by a colon (:). For example, <code>stateMachineARN:1</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you start an execution from a <code>StartExecution</code> request without specifying
+        /// a state machine version or alias ARN, Step Functions returns a null value.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=256)]
+        public string StateMachineVersionArn
+        {
+            get { return this._stateMachineVersionArn; }
+            set { this._stateMachineVersionArn = value; }
+        }
+
+        // Check to see if StateMachineVersionArn property is set
+        internal bool IsSetStateMachineVersionArn()
+        {
+            return this._stateMachineVersionArn != null;
         }
 
         /// <summary>
@@ -308,7 +362,7 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property StopDate. 
         /// <para>
-        /// If the execution has already ended, the date the execution stopped.
+        /// If the execution ended, the date the execution stopped.
         /// </para>
         /// </summary>
         public DateTime StopDate

@@ -35,6 +35,7 @@ namespace Amazon.LocationService.Model
     {
         private DateTime? _createTime;
         private string _description;
+        private bool? _eventBridgeEnabled;
         private string _kmsKeyId;
         private PositionFiltering _positionFiltering;
         private PricingPlan _pricingPlan;
@@ -84,10 +85,29 @@ namespace Amazon.LocationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EventBridgeEnabled. 
+        /// <para>
+        /// Whether <code>UPDATE</code> events from this tracker in EventBridge are enabled. If
+        /// set to <code>true</code> these events will be sent to EventBridge.
+        /// </para>
+        /// </summary>
+        public bool EventBridgeEnabled
+        {
+            get { return this._eventBridgeEnabled.GetValueOrDefault(); }
+            set { this._eventBridgeEnabled = value; }
+        }
+
+        // Check to see if EventBridgeEnabled property is set
+        internal bool IsSetEventBridgeEnabled()
+        {
+            return this._eventBridgeEnabled.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS
-        /// KMS customer managed key</a> assigned to the Amazon Location resource.
+        /// A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// Web Services KMS customer managed key</a> assigned to the Amazon Location resource.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=2048)]
@@ -182,7 +202,7 @@ namespace Amazon.LocationService.Model
         /// Gets and sets the property TrackerArn. 
         /// <para>
         /// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify
-        /// a resource across all AWS.
+        /// a resource across all Amazon Web Services.
         /// </para>
         ///  <ul> <li> 
         /// <para>

@@ -53,15 +53,11 @@ namespace Amazon.MediaConvert.Model
         /// and ProRes 4444 XQ outputs that you create from inputs that use 4:4:4 chroma sampling.
         /// Set Preserve 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use 4:4:4
         /// chroma sampling. You must specify a value for this setting when your output codec
-        /// profile supports 4:4:4 chroma sampling. Related Settings: When you set Chroma sampling
-        /// to Preserve 4:4:4 sampling (PRESERVE_444_SAMPLING), you must choose an output codec
-        /// profile that supports 4:4:4 chroma sampling. These values for Profile (CodecProfile)
-        /// support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or Apple ProRes
-        /// 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma sampling to Preserve 4:4:4 sampling,
-        /// you must disable all video preprocessors except for Nexguard file marker (PartnerWatermarking).
-        /// When you set Chroma sampling to Preserve 4:4:4 sampling and use framerate conversion,
-        /// you must set Frame rate conversion algorithm (FramerateConversionAlgorithm) to Drop
-        /// duplicate (DUPLICATE_DROP).
+        /// profile supports 4:4:4 chroma sampling. Related Settings: For Apple ProRes outputs
+        /// with 4:4:4 chroma sampling: Choose Preserve 4:4:4 sampling. Use when your input has
+        /// 4:4:4 chroma sampling and your output codec Profile is Apple ProRes 4444 or 4444 XQ.
+        /// Note that when you choose Preserve 4:4:4 sampling, you cannot include any of the following
+        /// Preprocessors: Dolby Vision, HDR10+, or Noise reducer.
         /// </summary>
         public ProresChromaSampling ChromaSampling
         {
@@ -118,15 +114,15 @@ namespace Amazon.MediaConvert.Model
 
         /// <summary>
         /// Gets and sets the property FramerateConversionAlgorithm. Choose the method that you
-        /// want MediaConvert to use when increasing or decreasing the frame rate. We recommend
-        /// using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as
-        /// 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE)
-        /// to avoid stutter. This results in a smooth picture, but might introduce undesirable
-        /// video artifacts. For complex frame rate conversions, especially if your source video
-        /// has already been converted from its original cadence, use FrameFormer (FRAMEFORMER)
-        /// to do motion-compensated interpolation. FrameFormer chooses the best conversion method
-        /// frame by frame. Note that using FrameFormer increases the transcoding time and incurs
-        /// a significant add-on cost.
+        /// want MediaConvert to use when increasing or decreasing the frame rate. For numerically
+        /// simple conversions, such as 60 fps to 30 fps: We recommend that you keep the default
+        /// value, Drop duplicate. For numerically complex conversions, to avoid stutter: Choose
+        /// Interpolate. This results in a smooth picture, but might introduce undesirable video
+        /// artifacts. For complex frame rate conversions, especially if your source video has
+        /// already been converted from its original cadence: Choose FrameFormer to do motion-compensated
+        /// interpolation. FrameFormer uses the best conversion method frame by frame. Note that
+        /// using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+        /// When you choose FrameFormer, your input video resolution must be at least 128x96.
         /// </summary>
         public ProresFramerateConversionAlgorithm FramerateConversionAlgorithm
         {
@@ -143,7 +139,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property FramerateDenominator. When you use the API for transcode
         /// jobs that use frame rate conversion, specify the frame rate as a fraction. For example,
-        ///  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of
+        /// 24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of
         /// this fraction. In this example, use 1001 for the value of FramerateDenominator. When
         /// you use the console for transcode jobs that use frame rate conversion, provide the
         /// value as a decimal number for Framerate. In this example, specify 23.976.
@@ -164,7 +160,7 @@ namespace Amazon.MediaConvert.Model
         /// <summary>
         /// Gets and sets the property FramerateNumerator. When you use the API for transcode
         /// jobs that use frame rate conversion, specify the frame rate as a fraction. For example,
-        ///  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this
+        /// 24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this
         /// fraction. In this example, use 24000 for the value of FramerateNumerator. When you
         /// use the console for transcode jobs that use frame rate conversion, provide the value
         /// as a decimal number for Framerate. In this example, specify 23.976.

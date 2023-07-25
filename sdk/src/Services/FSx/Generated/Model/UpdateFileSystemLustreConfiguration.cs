@@ -78,9 +78,7 @@ namespace Amazon.FSx.Model
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The <code>AutoImportPolicy</code> parameter is not supported for Lustre file systems
-        /// with the <code>Persistent_2</code> deployment type. Instead, use to update a data
-        /// repository association on your <code>Persistent_2</code> file system.
+        /// This parameter is not supported for file systems with a data repository association.
         /// </para>
         /// </summary>
         public AutoImportPolicyType AutoImportPolicy
@@ -96,7 +94,12 @@ namespace Amazon.FSx.Model
         }
 
         /// <summary>
-        /// Gets and sets the property AutomaticBackupRetentionDays.
+        /// Gets and sets the property AutomaticBackupRetentionDays. 
+        /// <para>
+        /// The number of days to retain automatic backups. Setting this property to <code>0</code>
+        /// disables automatic backups. You can retain automatic backups for a maximum of 90 days.
+        /// The default is <code>0</code>.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=0, Max=90)]
         public int AutomaticBackupRetentionDays

@@ -31,21 +31,32 @@ namespace Amazon.Chime
     /// <summary>
     /// Interface for accessing Chime
     ///
-    /// The Amazon Chime API (application programming interface) is designed for developers
-    /// to perform key tasks, such as creating and managing Amazon Chime accounts, users,
+    /// <important> 
+    /// <para>
+    ///  <b>Most of these APIs are no longer supported and will not be updated.</b> We recommend
+    /// using the latest versions in the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.html">Amazon
+    /// Chime SDK API reference</a>, in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest versions requires migrating to dedicated namespaces. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important> 
+    /// <para>
+    /// The Amazon Chime application programming interface (API) is designed so administrators
+    /// can perform key tasks, such as creating and managing Amazon Chime accounts, users,
     /// and Voice Connectors. This guide provides detailed information about the Amazon Chime
-    /// API, including operations, types, inputs and outputs, and error codes. It also includes
-    /// API actions for use with the Amazon Chime SDK, which developers use to build their
-    /// own communication applications. For more information about the Amazon Chime SDK, see
-    /// <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html"> Using the
-    /// Amazon Chime SDK </a> in the <i>Amazon Chime Developer Guide</i>.
-    /// 
+    /// API, including operations, types, inputs and outputs, and error codes.
+    /// </para>
     ///  
     /// <para>
     /// You can use an AWS SDK, the AWS Command Line Interface (AWS CLI), or the REST API
-    /// to make API calls. We recommend using an AWS SDK or the AWS CLI. Each API operation
-    /// includes links to information about using it with a language-specific AWS SDK or the
-    /// AWS CLI.
+    /// to make API calls for Amazon Chime. We recommend using an AWS SDK or the AWS CLI.
+    /// The page for each API action contains a <i>See Also</i> section that includes links
+    /// to information about using the action with a language-specific AWS SDK or the AWS
+    /// CLI.
     /// </para>
     ///  <dl> <dt>Using an AWS SDK</dt> <dd> 
     /// <para>
@@ -65,7 +76,7 @@ namespace Amazon.Chime
     ///  </dd> <dt>Using REST APIs</dt> <dd> 
     /// <para>
     /// If you use REST to make API calls, you must authenticate your request by providing
-    /// a signature. Amazon Chime supports signature version 4. For more information, see
+    /// a signature. Amazon Chime supports Signature Version 4. For more information, see
     /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 Signing Process</a> in the <i>Amazon Web Services General Reference</i>.
     /// </para>
@@ -95,6 +106,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Associates phone numbers with the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnector.html">AssociatePhoneNumbersWithVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociatePhoneNumbersWithVoiceConnector service method.</param>
         /// 
@@ -124,12 +149,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/AssociatePhoneNumbersWithVoiceConnector">REST API Reference for AssociatePhoneNumbersWithVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by AssociatePhoneNumbersWithVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         AssociatePhoneNumbersWithVoiceConnectorResponse AssociatePhoneNumbersWithVoiceConnector(AssociatePhoneNumbersWithVoiceConnectorRequest request);
 
 
 
         /// <summary>
         /// Associates phone numbers with the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnector.html">AssociatePhoneNumbersWithVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociatePhoneNumbersWithVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -162,6 +202,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/AssociatePhoneNumbersWithVoiceConnector">REST API Reference for AssociatePhoneNumbersWithVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by AssociatePhoneNumbersWithVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<AssociatePhoneNumbersWithVoiceConnectorResponse> AssociatePhoneNumbersWithVoiceConnectorAsync(AssociatePhoneNumbersWithVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -171,6 +212,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Associates phone numbers with the specified Amazon Chime Voice Connector group.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnectorGroup.html">AssociatePhoneNumbersWithVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociatePhoneNumbersWithVoiceConnectorGroup service method.</param>
         /// 
@@ -200,12 +255,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/AssociatePhoneNumbersWithVoiceConnectorGroup">REST API Reference for AssociatePhoneNumbersWithVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         AssociatePhoneNumbersWithVoiceConnectorGroupResponse AssociatePhoneNumbersWithVoiceConnectorGroup(AssociatePhoneNumbersWithVoiceConnectorGroupRequest request);
 
 
 
         /// <summary>
         /// Associates phone numbers with the specified Amazon Chime Voice Connector group.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_AssociatePhoneNumbersWithVoiceConnectorGroup.html">AssociatePhoneNumbersWithVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AssociatePhoneNumbersWithVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -238,6 +308,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/AssociatePhoneNumbersWithVoiceConnectorGroup">REST API Reference for AssociatePhoneNumbersWithVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by AssociatePhoneNumbersWithVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<AssociatePhoneNumbersWithVoiceConnectorGroupResponse> AssociatePhoneNumbersWithVoiceConnectorGroupAsync(AssociatePhoneNumbersWithVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -392,9 +463,25 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_BatchCreateAttendee.html">BatchCreateAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateAttendee service method.</param>
         /// 
@@ -424,14 +511,31 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateAttendee">REST API Reference for BatchCreateAttendee Operation</seealso>
+        [Obsolete("Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace")]
         BatchCreateAttendeeResponse BatchCreateAttendee(BatchCreateAttendeeRequest request);
 
 
 
         /// <summary>
-        /// Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// Creates up to 100 new attendees for an active Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_BatchCreateAttendee.html">BatchCreateAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -464,6 +568,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateAttendee">REST API Reference for BatchCreateAttendee Operation</seealso>
+        [Obsolete("Replaced by BatchCreateAttendee in the Amazon Chime SDK Meetings Namespace")]
         Task<BatchCreateAttendeeResponse> BatchCreateAttendeeAsync(BatchCreateAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -473,6 +578,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Adds a specified number of users to a channel.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html">BatchCreateChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateChannelMembership service method.</param>
         /// 
@@ -496,12 +615,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateChannelMembership">REST API Reference for BatchCreateChannelMembership Operation</seealso>
+        [Obsolete("Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         BatchCreateChannelMembershipResponse BatchCreateChannelMembership(BatchCreateChannelMembershipRequest request);
 
 
 
         /// <summary>
         /// Adds a specified number of users to a channel.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html">BatchCreateChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateChannelMembership service method.</param>
         /// <param name="cancellationToken">
@@ -528,6 +662,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/BatchCreateChannelMembership">REST API Reference for BatchCreateChannelMembership Operation</seealso>
+        [Obsolete("Replaced by BatchCreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         Task<BatchCreateChannelMembershipResponse> BatchCreateChannelMembershipAsync(BatchCreateChannelMembershipRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -713,7 +848,7 @@ namespace Amazon.Chime
         /// </para>
         ///  
         /// <para>
-        ///  To sign out users without suspending them, use the <a>LogoutUser</a> action. 
+        ///  To sign out users without suspending them, use the <a>LogoutUser</a> action.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchSuspendUser service method.</param>
@@ -765,7 +900,7 @@ namespace Amazon.Chime
         /// </para>
         ///  
         /// <para>
-        ///  To sign out users without suspending them, use the <a>LogoutUser</a> action. 
+        ///  To sign out users without suspending them, use the <a>LogoutUser</a> action.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchSuspendUser service method.</param>
@@ -813,9 +948,8 @@ namespace Amazon.Chime
         /// 
         ///  
         /// <para>
-        ///  Previously suspended users who are unsuspended using this action are returned to
-        /// <code>Registered</code> status. Users who are not previously suspended are ignored.
-        /// 
+        /// Previously suspended users who are unsuspended using this action are returned to <code>Registered</code>
+        /// status. Users who are not previously suspended are ignored.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUnsuspendUser service method.</param>
@@ -857,9 +991,8 @@ namespace Amazon.Chime
         /// 
         ///  
         /// <para>
-        ///  Previously suspended users who are unsuspended using this action are returned to
-        /// <code>Registered</code> status. Users who are not previously suspended are ignored.
-        /// 
+        /// Previously suspended users who are unsuspended using this action are returned to <code>Registered</code>
+        /// status. Users who are not previously suspended are ignored.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUnsuspendUser service method.</param>
@@ -1149,6 +1282,20 @@ namespace Amazon.Chime
         /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
         /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
         /// idempotency behavior as described in the AWS API Standard.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAppInstance service method.</param>
         /// 
@@ -1179,6 +1326,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstance">REST API Reference for CreateAppInstance Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstance in the Amazon Chime SDK Identity Namespace")]
         CreateAppInstanceResponse CreateAppInstance(CreateAppInstanceRequest request);
 
 
@@ -1187,6 +1335,20 @@ namespace Amazon.Chime
         /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
         /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
         /// idempotency behavior as described in the AWS API Standard.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAppInstance service method.</param>
         /// <param name="cancellationToken">
@@ -1220,6 +1382,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstance">REST API Reference for CreateAppInstance Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstance in the Amazon Chime SDK Identity Namespace")]
         Task<CreateAppInstanceResponse> CreateAppInstanceAsync(CreateAppInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1231,7 +1394,19 @@ namespace Amazon.Chime
         /// Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
         /// promoted user can perform the following actions. 
         /// 
-        ///  <ul> <li> 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html">CreateAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> <ul> <li> 
         /// <para>
         ///  <code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
         /// </para>
@@ -1274,6 +1449,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstanceAdmin">REST API Reference for CreateAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         CreateAppInstanceAdminResponse CreateAppInstanceAdmin(CreateAppInstanceAdminRequest request);
 
 
@@ -1282,7 +1458,19 @@ namespace Amazon.Chime
         /// Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The
         /// promoted user can perform the following actions. 
         /// 
-        ///  <ul> <li> 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html">CreateAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> <ul> <li> 
         /// <para>
         ///  <code>ChannelModerator</code> actions across all channels in the <code>AppInstance</code>.
         /// </para>
@@ -1328,6 +1516,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstanceAdmin">REST API Reference for CreateAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         Task<CreateAppInstanceAdminResponse> CreateAppInstanceAdminAsync(CreateAppInstanceAdminRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1338,6 +1527,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists
         /// of a unique <code>appInstanceUserId</code> and <code>Name</code> for that user.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html">CreateAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAppInstanceUser service method.</param>
         /// 
@@ -1368,6 +1571,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstanceUser">REST API Reference for CreateAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         CreateAppInstanceUserResponse CreateAppInstanceUser(CreateAppInstanceUserRequest request);
 
 
@@ -1375,6 +1579,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists
         /// of a unique <code>appInstanceUserId</code> and <code>Name</code> for that user.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceUser.html">CreateAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -1408,6 +1626,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAppInstanceUser">REST API Reference for CreateAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by CreateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         Task<CreateAppInstanceUserResponse> CreateAppInstanceUserAsync(CreateAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1417,8 +1636,22 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Creates a new attendee for an active Amazon Chime SDK meeting. For more information
-        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateAttendee.html">CreateAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAttendee service method.</param>
         /// 
@@ -1448,14 +1681,29 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAttendee">REST API Reference for CreateAttendee Operation</seealso>
+        [Obsolete("Replaced by CreateAttendee in the Amazon Chime SDK Meetings Namespace")]
         CreateAttendeeResponse CreateAttendee(CreateAttendeeRequest request);
 
 
 
         /// <summary>
         /// Creates a new attendee for an active Amazon Chime SDK meeting. For more information
-        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateAttendee.html">CreateAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -1488,6 +1736,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateAttendee">REST API Reference for CreateAttendee Operation</seealso>
+        [Obsolete("Replaced by CreateAttendee in the Amazon Chime SDK Meetings Namespace")]
         Task<CreateAttendeeResponse> CreateAttendeeAsync(CreateAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1583,7 +1832,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html">CreateChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannel service method.</param>
         /// 
@@ -1614,6 +1875,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannel">REST API Reference for CreateChannel Operation</seealso>
+        [Obsolete("Replaced by CreateChannel in the Amazon Chime SDK Messaging Namespace")]
         CreateChannelResponse CreateChannel(CreateChannelRequest request);
 
 
@@ -1630,7 +1892,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannel.html">CreateChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannel service method.</param>
         /// <param name="cancellationToken">
@@ -1664,6 +1938,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannel">REST API Reference for CreateChannel Operation</seealso>
+        [Obsolete("Replaced by CreateChannel in the Amazon Chime SDK Messaging Namespace")]
         Task<CreateChannelResponse> CreateChannelAsync(CreateChannelRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1687,7 +1962,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html">CreateChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelBan service method.</param>
         /// 
@@ -1718,6 +2005,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelBan">REST API Reference for CreateChannelBan Operation</seealso>
+        [Obsolete("Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace")]
         CreateChannelBanResponse CreateChannelBan(CreateChannelBanRequest request);
 
 
@@ -1738,7 +2026,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html">CreateChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelBan service method.</param>
         /// <param name="cancellationToken">
@@ -1772,6 +2072,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelBan">REST API Reference for CreateChannelBan Operation</seealso>
+        [Obsolete("Replaced by CreateChannelBan in the Amazon Chime SDK Messaging Namespace")]
         Task<CreateChannelBanResponse> CreateChannelBanAsync(CreateChannelBanRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1821,7 +2122,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html">CreateChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelMembership service method.</param>
         /// 
@@ -1852,6 +2165,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelMembership">REST API Reference for CreateChannelMembership Operation</seealso>
+        [Obsolete("Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         CreateChannelMembershipResponse CreateChannelMembership(CreateChannelMembershipRequest request);
 
 
@@ -1898,7 +2212,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html">CreateChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelMembership service method.</param>
         /// <param name="cancellationToken">
@@ -1932,6 +2258,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelMembership">REST API Reference for CreateChannelMembership Operation</seealso>
+        [Obsolete("Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         Task<CreateChannelMembershipResponse> CreateChannelMembershipAsync(CreateChannelMembershipRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -1967,7 +2294,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html">CreateChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelModerator service method.</param>
         /// 
@@ -1998,6 +2337,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelModerator">REST API Reference for CreateChannelModerator Operation</seealso>
+        [Obsolete("Replaced by CreateChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         CreateChannelModeratorResponse CreateChannelModerator(CreateChannelModeratorRequest request);
 
 
@@ -2030,7 +2370,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelModerator.html">CreateChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateChannelModerator service method.</param>
         /// <param name="cancellationToken">
@@ -2064,6 +2416,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateChannelModerator">REST API Reference for CreateChannelModerator Operation</seealso>
+        [Obsolete("Replaced by CreateChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         Task<CreateChannelModeratorResponse> CreateChannelModeratorAsync(CreateChannelModeratorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2073,6 +2426,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Creates a media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline">CreateMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMediaCapturePipeline service method.</param>
         /// 
@@ -2099,12 +2466,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMediaCapturePipeline">REST API Reference for CreateMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by CreateMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         CreateMediaCapturePipelineResponse CreateMediaCapturePipeline(CreateMediaCapturePipelineRequest request);
 
 
 
         /// <summary>
         /// Creates a media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline">CreateMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMediaCapturePipeline service method.</param>
         /// <param name="cancellationToken">
@@ -2134,6 +2516,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMediaCapturePipeline">REST API Reference for CreateMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by CreateMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         Task<CreateMediaCapturePipelineResponse> CreateMediaCapturePipelineAsync(CreateMediaCapturePipelineRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2143,10 +2526,24 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Creates a new Amazon Chime SDK meeting in the specified media Region with no initial
-        /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-        /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+        /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">CreateMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeeting service method.</param>
         /// 
@@ -2173,16 +2570,31 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMeeting">REST API Reference for CreateMeeting Operation</seealso>
+        [Obsolete("Replaced by CreateMeeting in the Amazon Chime SDK Meetings Namespace")]
         CreateMeetingResponse CreateMeeting(CreateMeetingRequest request);
 
 
 
         /// <summary>
         /// Creates a new Amazon Chime SDK meeting in the specified media Region with no initial
-        /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-        /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+        /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html">CreateMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeeting service method.</param>
         /// <param name="cancellationToken">
@@ -2212,6 +2624,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMeeting">REST API Reference for CreateMeeting Operation</seealso>
+        [Obsolete("Replaced by CreateMeeting in the Amazon Chime SDK Meetings Namespace")]
         Task<CreateMeetingResponse> CreateMeetingAsync(CreateMeetingRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2230,6 +2643,11 @@ namespace Amazon.Chime
         /// To play welcome audio or implement an interactive voice response (IVR), use the <code>CreateSipMediaApplicationCall</code>
         /// action with the corresponding SIP media application ID.
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is not available in a dedicated namespace.</b> 
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeetingDialOut service method.</param>
         /// 
@@ -2274,6 +2692,11 @@ namespace Amazon.Chime
         /// To play welcome audio or implement an interactive voice response (IVR), use the <code>CreateSipMediaApplicationCall</code>
         /// action with the corresponding SIP media application ID.
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is not available in a dedicated namespace.</b> 
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeetingDialOut service method.</param>
         /// <param name="cancellationToken">
@@ -2315,10 +2738,24 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees.
-        /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-        /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+        /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html">CreateMeetingWithAttendees</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeetingWithAttendees service method.</param>
         /// 
@@ -2345,16 +2782,31 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMeetingWithAttendees">REST API Reference for CreateMeetingWithAttendees Operation</seealso>
+        [Obsolete("Replaced by CreateMeetingWithAttendees in the Amazon Chime SDK Meetings Namespace")]
         CreateMeetingWithAttendeesResponse CreateMeetingWithAttendees(CreateMeetingWithAttendeesRequest request);
 
 
 
         /// <summary>
         /// Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees.
-        /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-        /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+        /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html">CreateMeetingWithAttendees</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMeetingWithAttendees service method.</param>
         /// <param name="cancellationToken">
@@ -2384,6 +2836,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateMeetingWithAttendees">REST API Reference for CreateMeetingWithAttendees Operation</seealso>
+        [Obsolete("Replaced by CreateMeetingWithAttendees in the Amazon Chime SDK Meetings Namespace")]
         Task<CreateMeetingWithAttendeesResponse> CreateMeetingWithAttendeesAsync(CreateMeetingWithAttendeesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2474,6 +2927,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a proxy session on the specified Amazon Chime Voice Connector for the specified
         /// participant phone numbers.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateProxySession.html">CreateProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProxySession service method.</param>
         /// 
@@ -2500,6 +2967,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateProxySession">REST API Reference for CreateProxySession Operation</seealso>
+        [Obsolete("Replaced by CreateProxySession in the Amazon Chime SDK Voice Namespace")]
         CreateProxySessionResponse CreateProxySession(CreateProxySessionRequest request);
 
 
@@ -2507,6 +2975,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a proxy session on the specified Amazon Chime Voice Connector for the specified
         /// participant phone numbers.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateProxySession.html">CreateProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateProxySession service method.</param>
         /// <param name="cancellationToken">
@@ -2536,6 +3018,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateProxySession">REST API Reference for CreateProxySession Operation</seealso>
+        [Obsolete("Replaced by CreateProxySession in the Amazon Chime SDK Voice Namespace")]
         Task<CreateProxySessionResponse> CreateProxySessionAsync(CreateProxySessionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2709,6 +3192,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Creates a SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplication.html">CreateSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipMediaApplication service method.</param>
         /// 
@@ -2742,12 +3239,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipMediaApplication">REST API Reference for CreateSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         CreateSipMediaApplicationResponse CreateSipMediaApplication(CreateSipMediaApplicationRequest request);
 
 
 
         /// <summary>
         /// Creates a SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplication.html">CreateSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipMediaApplication service method.</param>
         /// <param name="cancellationToken">
@@ -2784,6 +3296,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipMediaApplication">REST API Reference for CreateSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         Task<CreateSipMediaApplicationResponse> CreateSipMediaApplicationAsync(CreateSipMediaApplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2794,6 +3307,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates an outbound call to a phone number from the phone number specified in the
         /// request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplicationCall.html">CreateSipMediaApplicationCall</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipMediaApplicationCall service method.</param>
         /// 
@@ -2823,6 +3350,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipMediaApplicationCall">REST API Reference for CreateSipMediaApplicationCall Operation</seealso>
+        [Obsolete("Replaced by CreateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace")]
         CreateSipMediaApplicationCallResponse CreateSipMediaApplicationCall(CreateSipMediaApplicationCallRequest request);
 
 
@@ -2830,6 +3358,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates an outbound call to a phone number from the phone number specified in the
         /// request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipMediaApplicationCall.html">CreateSipMediaApplicationCall</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipMediaApplicationCall service method.</param>
         /// <param name="cancellationToken">
@@ -2862,6 +3404,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipMediaApplicationCall">REST API Reference for CreateSipMediaApplicationCall Operation</seealso>
+        [Obsolete("Replaced by CreateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace")]
         Task<CreateSipMediaApplicationCallResponse> CreateSipMediaApplicationCallAsync(CreateSipMediaApplicationCallRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -2872,6 +3415,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a SIP rule which can be used to run a SIP media application as a target for
         /// a specific trigger type.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipRule.html">CreateSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipRule service method.</param>
         /// 
@@ -2905,6 +3462,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipRule">REST API Reference for CreateSipRule Operation</seealso>
+        [Obsolete("Replaced by CreateSipRule in the Amazon Chime SDK Voice Namespace")]
         CreateSipRuleResponse CreateSipRule(CreateSipRuleRequest request);
 
 
@@ -2912,6 +3470,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Creates a SIP rule which can be used to run a SIP media application as a target for
         /// a specific trigger type.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateSipRule.html">CreateSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSipRule service method.</param>
         /// <param name="cancellationToken">
@@ -2948,6 +3520,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateSipRule">REST API Reference for CreateSipRule Operation</seealso>
+        [Obsolete("Replaced by CreateSipRule in the Amazon Chime SDK Voice Namespace")]
         Task<CreateSipRuleResponse> CreateSipRuleAsync(CreateSipRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3039,11 +3612,24 @@ namespace Amazon.Chime
         /// 
         ///  
         /// <para>
-        ///  Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
+        /// Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
         /// Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP)
         /// for media. Inbound calls use TLS transport, and unencrypted outbound calls are blocked.
         /// 
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html">CreateVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVoiceConnector service method.</param>
         /// 
@@ -3073,6 +3659,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateVoiceConnector">REST API Reference for CreateVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by CreateVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         CreateVoiceConnectorResponse CreateVoiceConnector(CreateVoiceConnectorRequest request);
 
 
@@ -3083,11 +3670,24 @@ namespace Amazon.Chime
         /// 
         ///  
         /// <para>
-        ///  Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
+        /// Enabling <a>CreateVoiceConnectorRequest$RequireEncryption</a> configures your Amazon
         /// Chime Voice Connector to use TLS transport for SIP signaling and Secure RTP (SRTP)
         /// for media. Inbound calls use TLS transport, and unencrypted outbound calls are blocked.
         /// 
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html">CreateVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -3120,6 +3720,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateVoiceConnector">REST API Reference for CreateVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by CreateVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<CreateVoiceConnectorResponse> CreateVoiceConnectorAsync(CreateVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3137,6 +3738,19 @@ namespace Amazon.Chime
         /// You can include Amazon Chime Voice Connectors from different AWS Regions in your group.
         /// This creates a fault tolerant mechanism for fallback in case of availability events.
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnectorGroup.html">CreateVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVoiceConnectorGroup service method.</param>
         /// 
@@ -3166,6 +3780,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateVoiceConnectorGroup">REST API Reference for CreateVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by CreateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         CreateVoiceConnectorGroupResponse CreateVoiceConnectorGroup(CreateVoiceConnectorGroupRequest request);
 
 
@@ -3180,6 +3795,19 @@ namespace Amazon.Chime
         /// You can include Amazon Chime Voice Connectors from different AWS Regions in your group.
         /// This creates a fault tolerant mechanism for fallback in case of availability events.
         /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnectorGroup.html">CreateVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -3212,6 +3840,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/CreateVoiceConnectorGroup">REST API Reference for CreateVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by CreateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<CreateVoiceConnectorGroupResponse> CreateVoiceConnectorGroupAsync(CreateVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3335,6 +3964,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes an <code>AppInstance</code> and all associated data asynchronously.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.html">DeleteAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstance service method.</param>
         /// 
@@ -3358,12 +4001,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstance">REST API Reference for DeleteAppInstance Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstance in the Amazon Chime SDK Identity Namespace")]
         DeleteAppInstanceResponse DeleteAppInstance(DeleteAppInstanceRequest request);
 
 
 
         /// <summary>
         /// Deletes an <code>AppInstance</code> and all associated data asynchronously.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstance.html">DeleteAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstance service method.</param>
         /// <param name="cancellationToken">
@@ -3390,6 +4048,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstance">REST API Reference for DeleteAppInstance Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstance in the Amazon Chime SDK Identity Namespace")]
         Task<DeleteAppInstanceResponse> DeleteAppInstanceAsync(DeleteAppInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3400,6 +4059,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This
         /// action does not delete the user.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html">DeleteAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceAdmin service method.</param>
         /// 
@@ -3427,6 +4100,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceAdmin">REST API Reference for DeleteAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         DeleteAppInstanceAdminResponse DeleteAppInstanceAdmin(DeleteAppInstanceAdminRequest request);
 
 
@@ -3434,6 +4108,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This
         /// action does not delete the user.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html">DeleteAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceAdmin service method.</param>
         /// <param name="cancellationToken">
@@ -3464,6 +4152,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceAdmin">REST API Reference for DeleteAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         Task<DeleteAppInstanceAdminResponse> DeleteAppInstanceAdminAsync(DeleteAppInstanceAdminRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3473,6 +4162,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes the streaming configurations of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceStreamingConfigurations.html">DeleteAppInstanceStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceStreamingConfigurations service method.</param>
         /// 
@@ -3499,12 +4202,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceStreamingConfigurations">REST API Reference for DeleteAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         DeleteAppInstanceStreamingConfigurationsResponse DeleteAppInstanceStreamingConfigurations(DeleteAppInstanceStreamingConfigurationsRequest request);
 
 
 
         /// <summary>
         /// Deletes the streaming configurations of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceStreamingConfigurations.html">DeleteAppInstanceStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceStreamingConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -3534,6 +4252,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceStreamingConfigurations">REST API Reference for DeleteAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteAppInstanceStreamingConfigurationsResponse> DeleteAppInstanceStreamingConfigurationsAsync(DeleteAppInstanceStreamingConfigurationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3543,6 +4262,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes an <code>AppInstanceUser</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.html">DeleteAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceUser service method.</param>
         /// 
@@ -3566,12 +4299,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceUser">REST API Reference for DeleteAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         DeleteAppInstanceUserResponse DeleteAppInstanceUser(DeleteAppInstanceUserRequest request);
 
 
 
         /// <summary>
         /// Deletes an <code>AppInstanceUser</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceUser.html">DeleteAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -3598,6 +4346,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAppInstanceUser">REST API Reference for DeleteAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DeleteAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         Task<DeleteAppInstanceUserResponse> DeleteAppInstanceUserAsync(DeleteAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3608,8 +4357,22 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
         /// <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK
-        /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteAttendee.html">DeleteAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAttendee service method.</param>
         /// 
@@ -3636,6 +4399,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAttendee">REST API Reference for DeleteAttendee Operation</seealso>
+        [Obsolete("Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace")]
         DeleteAttendeeResponse DeleteAttendee(DeleteAttendeeRequest request);
 
 
@@ -3643,8 +4407,22 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes an attendee from the specified Amazon Chime SDK meeting and deletes their
         /// <code>JoinToken</code>. Attendees are automatically deleted when a Amazon Chime SDK
-        /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// meeting is deleted. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteAttendee.html">DeleteAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -3674,6 +4452,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteAttendee">REST API Reference for DeleteAttendee Operation</seealso>
+        [Obsolete("Replaced by DeleteAttendee in the Amazon Chime SDK Meetings Namespace")]
         Task<DeleteAttendeeResponse> DeleteAttendeeAsync(DeleteAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3690,7 +4469,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html">DeleteChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannel service method.</param>
         /// 
@@ -3714,6 +4505,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannel">REST API Reference for DeleteChannel Operation</seealso>
+        [Obsolete("Replaced by DeleteChannel in the Amazon Chime SDK Messaging Namespace")]
         DeleteChannelResponse DeleteChannel(DeleteChannelRequest request);
 
 
@@ -3727,7 +4519,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannel.html">DeleteChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannel service method.</param>
         /// <param name="cancellationToken">
@@ -3754,6 +4558,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannel">REST API Reference for DeleteChannel Operation</seealso>
+        [Obsolete("Replaced by DeleteChannel in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteChannelResponse> DeleteChannelAsync(DeleteChannelRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3769,7 +4574,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html">DeleteChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelBan service method.</param>
         /// 
@@ -3793,6 +4610,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelBan">REST API Reference for DeleteChannelBan Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace")]
         DeleteChannelBanResponse DeleteChannelBan(DeleteChannelBanRequest request);
 
 
@@ -3805,7 +4623,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html">DeleteChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelBan service method.</param>
         /// <param name="cancellationToken">
@@ -3832,6 +4662,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelBan">REST API Reference for DeleteChannelBan Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelBan in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteChannelBanResponse> DeleteChannelBanAsync(DeleteChannelBanRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3847,7 +4678,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.html">DeleteChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelMembership service method.</param>
         /// 
@@ -3875,6 +4718,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelMembership">REST API Reference for DeleteChannelMembership Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         DeleteChannelMembershipResponse DeleteChannelMembership(DeleteChannelMembershipRequest request);
 
 
@@ -3887,7 +4731,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMembership.html">DeleteChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelMembership service method.</param>
         /// <param name="cancellationToken">
@@ -3918,6 +4774,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelMembership">REST API Reference for DeleteChannelMembership Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteChannelMembershipResponse> DeleteChannelMembershipAsync(DeleteChannelMembershipRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -3934,7 +4791,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html">DeleteChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelMessage service method.</param>
         /// 
@@ -3958,6 +4827,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelMessage">REST API Reference for DeleteChannelMessage Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         DeleteChannelMessageResponse DeleteChannelMessage(DeleteChannelMessageRequest request);
 
 
@@ -3971,7 +4841,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelMessage.html">DeleteChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelMessage service method.</param>
         /// <param name="cancellationToken">
@@ -3998,6 +4880,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelMessage">REST API Reference for DeleteChannelMessage Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteChannelMessageResponse> DeleteChannelMessageAsync(DeleteChannelMessageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4013,7 +4896,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.html">DeleteChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelModerator service method.</param>
         /// 
@@ -4037,6 +4932,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelModerator">REST API Reference for DeleteChannelModerator Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         DeleteChannelModeratorResponse DeleteChannelModerator(DeleteChannelModeratorRequest request);
 
 
@@ -4049,7 +4945,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelModerator.html">DeleteChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteChannelModerator service method.</param>
         /// <param name="cancellationToken">
@@ -4076,6 +4984,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteChannelModerator">REST API Reference for DeleteChannelModerator Operation</seealso>
+        [Obsolete("Replaced by DeleteChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         Task<DeleteChannelModeratorResponse> DeleteChannelModeratorAsync(DeleteChannelModeratorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4149,6 +5058,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes the media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html">DeleteMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMediaCapturePipeline service method.</param>
         /// 
@@ -4175,12 +5098,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteMediaCapturePipeline">REST API Reference for DeleteMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by DeleteMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         DeleteMediaCapturePipelineResponse DeleteMediaCapturePipeline(DeleteMediaCapturePipelineRequest request);
 
 
 
         /// <summary>
         /// Deletes the media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html">DeleteMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMediaCapturePipeline service method.</param>
         /// <param name="cancellationToken">
@@ -4210,6 +5148,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteMediaCapturePipeline">REST API Reference for DeleteMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by DeleteMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         Task<DeleteMediaCapturePipelineResponse> DeleteMediaCapturePipelineAsync(DeleteMediaCapturePipelineRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4220,8 +5159,22 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees,
         /// disconnects all clients, and prevents new clients from joining the meeting. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html">DeleteMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMeeting service method.</param>
         /// 
@@ -4248,6 +5201,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteMeeting">REST API Reference for DeleteMeeting Operation</seealso>
+        [Obsolete("Replaced by DeleteMeeting in the Amazon Chime SDK Meetings Namespace")]
         DeleteMeetingResponse DeleteMeeting(DeleteMeetingRequest request);
 
 
@@ -4255,8 +5209,22 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime SDK meeting. The operation deletes all attendees,
         /// disconnects all clients, and prevents new clients from joining the meeting. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_DeleteMeeting.html">DeleteMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMeeting service method.</param>
         /// <param name="cancellationToken">
@@ -4286,6 +5254,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteMeeting">REST API Reference for DeleteMeeting Operation</seealso>
+        [Obsolete("Replaced by DeleteMeeting in the Amazon Chime SDK Meetings Namespace")]
         Task<DeleteMeetingResponse> DeleteMeetingAsync(DeleteMeetingRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4381,6 +5350,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes the specified proxy session from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteProxySession.html">DeleteProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteProxySession service method.</param>
         /// 
@@ -4407,12 +5390,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteProxySession">REST API Reference for DeleteProxySession Operation</seealso>
+        [Obsolete("Replaced by DeleteProxySession in the Amazon Chime SDK Voice Namespace")]
         DeleteProxySessionResponse DeleteProxySession(DeleteProxySessionRequest request);
 
 
 
         /// <summary>
         /// Deletes the specified proxy session from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteProxySession.html">DeleteProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteProxySession service method.</param>
         /// <param name="cancellationToken">
@@ -4442,6 +5440,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteProxySession">REST API Reference for DeleteProxySession Operation</seealso>
+        [Obsolete("Replaced by DeleteProxySession in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteProxySessionResponse> DeleteProxySessionAsync(DeleteProxySessionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4591,6 +5590,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes a SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipMediaApplication.html">DeleteSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSipMediaApplication service method.</param>
         /// 
@@ -4621,12 +5634,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteSipMediaApplication">REST API Reference for DeleteSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by DeleteSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         DeleteSipMediaApplicationResponse DeleteSipMediaApplication(DeleteSipMediaApplicationRequest request);
 
 
 
         /// <summary>
         /// Deletes a SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipMediaApplication.html">DeleteSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSipMediaApplication service method.</param>
         /// <param name="cancellationToken">
@@ -4660,6 +5688,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteSipMediaApplication">REST API Reference for DeleteSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by DeleteSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteSipMediaApplicationResponse> DeleteSipMediaApplicationAsync(DeleteSipMediaApplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4669,6 +5698,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes a SIP rule. You must disable a SIP rule before you can delete it.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipRule.html">DeleteSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSipRule service method.</param>
         /// 
@@ -4699,12 +5742,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteSipRule">REST API Reference for DeleteSipRule Operation</seealso>
+        [Obsolete("Replaced by DeleteSipRule in the Amazon Chime SDK Voice Namespace")]
         DeleteSipRuleResponse DeleteSipRule(DeleteSipRuleRequest request);
 
 
 
         /// <summary>
         /// Deletes a SIP rule. You must disable a SIP rule before you can delete it.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteSipRule.html">DeleteSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSipRule service method.</param>
         /// <param name="cancellationToken">
@@ -4738,6 +5796,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteSipRule">REST API Reference for DeleteSipRule Operation</seealso>
+        [Obsolete("Replaced by DeleteSipRule in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteSipRuleResponse> DeleteSipRuleAsync(DeleteSipRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4748,6 +5807,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with
         /// the Amazon Chime Voice Connector must be disassociated from it before it can be deleted.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnector.html">DeleteVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnector service method.</param>
         /// 
@@ -4778,6 +5851,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnector">REST API Reference for DeleteVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorResponse DeleteVoiceConnector(DeleteVoiceConnectorRequest request);
 
 
@@ -4785,6 +5859,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with
         /// the Amazon Chime Voice Connector must be disassociated from it before it can be deleted.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnector.html">DeleteVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -4818,6 +5906,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnector">REST API Reference for DeleteVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorResponse> DeleteVoiceConnectorAsync(DeleteVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4828,6 +5917,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the emergency calling configuration details from the specified Amazon Chime
         /// Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorEmergencyCallingConfiguration.html">DeleteVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// 
@@ -4854,6 +5957,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorEmergencyCallingConfiguration">REST API Reference for DeleteVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorEmergencyCallingConfigurationResponse DeleteVoiceConnectorEmergencyCallingConfiguration(DeleteVoiceConnectorEmergencyCallingConfigurationRequest request);
 
 
@@ -4861,6 +5965,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the emergency calling configuration details from the specified Amazon Chime
         /// Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorEmergencyCallingConfiguration.html">DeleteVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -4890,6 +6008,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorEmergencyCallingConfiguration">REST API Reference for DeleteVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorEmergencyCallingConfigurationResponse> DeleteVoiceConnectorEmergencyCallingConfigurationAsync(DeleteVoiceConnectorEmergencyCallingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4900,6 +6019,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code>
         /// and phone numbers associated with the group must be removed before it can be deleted.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorGroup.html">DeleteVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorGroup service method.</param>
         /// 
@@ -4930,6 +6063,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorGroup">REST API Reference for DeleteVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorGroupResponse DeleteVoiceConnectorGroup(DeleteVoiceConnectorGroupRequest request);
 
 
@@ -4937,6 +6071,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified Amazon Chime Voice Connector group. Any <code>VoiceConnectorItems</code>
         /// and phone numbers associated with the group must be removed before it can be deleted.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorGroup.html">DeleteVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -4970,6 +6118,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorGroup">REST API Reference for DeleteVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorGroupResponse> DeleteVoiceConnectorGroupAsync(DeleteVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -4985,7 +6134,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to deleting the origination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorOrigination.html">DeleteVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorOrigination service method.</param>
         /// 
@@ -5012,6 +6173,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorOrigination">REST API Reference for DeleteVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorOriginationResponse DeleteVoiceConnectorOrigination(DeleteVoiceConnectorOriginationRequest request);
 
 
@@ -5024,7 +6186,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to deleting the origination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorOrigination.html">DeleteVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorOrigination service method.</param>
         /// <param name="cancellationToken">
@@ -5054,6 +6228,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorOrigination">REST API Reference for DeleteVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorOriginationResponse> DeleteVoiceConnectorOriginationAsync(DeleteVoiceConnectorOriginationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5063,6 +6238,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorProxy.html">DeleteVoiceProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorProxy service method.</param>
         /// 
@@ -5089,12 +6278,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorProxy">REST API Reference for DeleteVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorProxyResponse DeleteVoiceConnectorProxy(DeleteVoiceConnectorProxyRequest request);
 
 
 
         /// <summary>
         /// Deletes the proxy configuration from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorProxy.html">DeleteVoiceProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorProxy service method.</param>
         /// <param name="cancellationToken">
@@ -5124,6 +6328,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorProxy">REST API Reference for DeleteVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorProxyResponse> DeleteVoiceConnectorProxyAsync(DeleteVoiceConnectorProxyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5133,6 +6338,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Deletes the streaming configuration for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorStreamingConfiguration.html">DeleteVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorStreamingConfiguration service method.</param>
         /// 
@@ -5159,12 +6378,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorStreamingConfiguration">REST API Reference for DeleteVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorStreamingConfigurationResponse DeleteVoiceConnectorStreamingConfiguration(DeleteVoiceConnectorStreamingConfigurationRequest request);
 
 
 
         /// <summary>
         /// Deletes the streaming configuration for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorStreamingConfiguration.html">DeleteVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorStreamingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -5194,6 +6428,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorStreamingConfiguration">REST API Reference for DeleteVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorStreamingConfigurationResponse> DeleteVoiceConnectorStreamingConfigurationAsync(DeleteVoiceConnectorStreamingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5209,7 +6444,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to deleting the termination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTermination.html">DeleteVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorTermination service method.</param>
         /// 
@@ -5236,6 +6483,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorTermination">REST API Reference for DeleteVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorTerminationResponse DeleteVoiceConnectorTermination(DeleteVoiceConnectorTerminationRequest request);
 
 
@@ -5248,7 +6496,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to deleting the termination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTermination.html">DeleteVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorTermination service method.</param>
         /// <param name="cancellationToken">
@@ -5278,6 +6538,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorTermination">REST API Reference for DeleteVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorTerminationResponse> DeleteVoiceConnectorTerminationAsync(DeleteVoiceConnectorTerminationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5288,6 +6549,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified SIP credentials used by your equipment to authenticate during
         /// call termination.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTerminationCredentials.html">DeleteVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorTerminationCredentials service method.</param>
         /// 
@@ -5314,6 +6589,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorTerminationCredentials">REST API Reference for DeleteVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         DeleteVoiceConnectorTerminationCredentialsResponse DeleteVoiceConnectorTerminationCredentials(DeleteVoiceConnectorTerminationCredentialsRequest request);
 
 
@@ -5321,6 +6597,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Deletes the specified SIP credentials used by your equipment to authenticate during
         /// call termination.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorTerminationCredentials.html">DeleteVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVoiceConnectorTerminationCredentials service method.</param>
         /// <param name="cancellationToken">
@@ -5350,6 +6640,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DeleteVoiceConnectorTerminationCredentials">REST API Reference for DeleteVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by DeleteVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         Task<DeleteVoiceConnectorTerminationCredentialsResponse> DeleteVoiceConnectorTerminationCredentialsAsync(DeleteVoiceConnectorTerminationCredentialsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5359,6 +6650,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns the full details of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html">DescribeAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstance service method.</param>
         /// 
@@ -5382,12 +6687,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstance">REST API Reference for DescribeAppInstance Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstance in the Amazon Chime SDK Identity Namespace")]
         DescribeAppInstanceResponse DescribeAppInstance(DescribeAppInstanceRequest request);
 
 
 
         /// <summary>
         /// Returns the full details of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstance.html">DescribeAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstance service method.</param>
         /// <param name="cancellationToken">
@@ -5414,6 +6734,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstance">REST API Reference for DescribeAppInstance Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstance in the Amazon Chime SDK Identity Namespace")]
         Task<DescribeAppInstanceResponse> DescribeAppInstanceAsync(DescribeAppInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5423,6 +6744,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns the full details of an <code>AppInstanceAdmin</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html">DescribeAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstanceAdmin service method.</param>
         /// 
@@ -5446,12 +6781,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstanceAdmin">REST API Reference for DescribeAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         DescribeAppInstanceAdminResponse DescribeAppInstanceAdmin(DescribeAppInstanceAdminRequest request);
 
 
 
         /// <summary>
         /// Returns the full details of an <code>AppInstanceAdmin</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceAdmin.html">DescribeAppInstanceAdmin</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstanceAdmin service method.</param>
         /// <param name="cancellationToken">
@@ -5478,6 +6828,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstanceAdmin">REST API Reference for DescribeAppInstanceAdmin Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstanceAdmin in the Amazon Chime SDK Identity Namespace")]
         Task<DescribeAppInstanceAdminResponse> DescribeAppInstanceAdminAsync(DescribeAppInstanceAdminRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5487,6 +6838,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns the full details of an <code>AppInstanceUser</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html">DescribeAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstanceUser service method.</param>
         /// 
@@ -5510,12 +6875,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstanceUser">REST API Reference for DescribeAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         DescribeAppInstanceUserResponse DescribeAppInstanceUser(DescribeAppInstanceUserRequest request);
 
 
 
         /// <summary>
         /// Returns the full details of an <code>AppInstanceUser</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceUser.html">DescribeAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -5542,6 +6922,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeAppInstanceUser">REST API Reference for DescribeAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         Task<DescribeAppInstanceUserResponse> DescribeAppInstanceUserAsync(DescribeAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5557,7 +6938,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.html">DescribeChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannel service method.</param>
         /// 
@@ -5581,6 +6974,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannel">REST API Reference for DescribeChannel Operation</seealso>
+        [Obsolete("Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelResponse DescribeChannel(DescribeChannelRequest request);
 
 
@@ -5593,7 +6987,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannel.html">DescribeChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannel service method.</param>
         /// <param name="cancellationToken">
@@ -5620,6 +7026,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannel">REST API Reference for DescribeChannel Operation</seealso>
+        [Obsolete("Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelResponse> DescribeChannelAsync(DescribeChannelRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5635,7 +7042,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.html">DescribeChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelBan service method.</param>
         /// 
@@ -5662,6 +7081,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelBan">REST API Reference for DescribeChannelBan Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelBan in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelBanResponse DescribeChannelBan(DescribeChannelBanRequest request);
 
 
@@ -5674,7 +7094,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelBan.html">DescribeChannelBan</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelBan service method.</param>
         /// <param name="cancellationToken">
@@ -5704,6 +7136,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelBan">REST API Reference for DescribeChannelBan Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelBan in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelBanResponse> DescribeChannelBanAsync(DescribeChannelBanRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5719,7 +7152,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.html">DescribeChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelMembership service method.</param>
         /// 
@@ -5746,6 +7191,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelMembership">REST API Reference for DescribeChannelMembership Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelMembershipResponse DescribeChannelMembership(DescribeChannelMembershipRequest request);
 
 
@@ -5758,7 +7204,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembership.html">DescribeChannelMembership</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelMembership service method.</param>
         /// <param name="cancellationToken">
@@ -5788,6 +7246,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelMembership">REST API Reference for DescribeChannelMembership Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelMembership in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelMembershipResponse> DescribeChannelMembershipAsync(DescribeChannelMembershipRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5803,7 +7262,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html">DescribeChannelMembershipForAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelMembershipForAppInstanceUser service method.</param>
         /// 
@@ -5827,6 +7298,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelMembershipForAppInstanceUser">REST API Reference for DescribeChannelMembershipForAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelMembershipForAppInstanceUserResponse DescribeChannelMembershipForAppInstanceUser(DescribeChannelMembershipForAppInstanceUserRequest request);
 
 
@@ -5839,7 +7311,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html">DescribeChannelMembershipForAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelMembershipForAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -5866,6 +7350,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelMembershipForAppInstanceUser">REST API Reference for DescribeChannelMembershipForAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelMembershipForAppInstanceUserResponse> DescribeChannelMembershipForAppInstanceUserAsync(DescribeChannelMembershipForAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5881,7 +7366,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html">DescribeChannelModeratedByAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelModeratedByAppInstanceUser service method.</param>
         /// 
@@ -5905,6 +7402,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelModeratedByAppInstanceUser">REST API Reference for DescribeChannelModeratedByAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelModeratedByAppInstanceUserResponse DescribeChannelModeratedByAppInstanceUser(DescribeChannelModeratedByAppInstanceUserRequest request);
 
 
@@ -5917,7 +7415,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html">DescribeChannelModeratedByAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelModeratedByAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -5944,6 +7454,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelModeratedByAppInstanceUser">REST API Reference for DescribeChannelModeratedByAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelModeratedByAppInstanceUserResponse> DescribeChannelModeratedByAppInstanceUserAsync(DescribeChannelModeratedByAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -5959,7 +7470,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.html">DescribeChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelModerator service method.</param>
         /// 
@@ -5986,6 +7509,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelModerator">REST API Reference for DescribeChannelModerator Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         DescribeChannelModeratorResponse DescribeChannelModerator(DescribeChannelModeratorRequest request);
 
 
@@ -5998,7 +7522,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModerator.html">DescribeChannelModerator</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeChannelModerator service method.</param>
         /// <param name="cancellationToken">
@@ -6028,6 +7564,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DescribeChannelModerator">REST API Reference for DescribeChannelModerator Operation</seealso>
+        [Obsolete("Replaced by DescribeChannelModerator in the Amazon Chime SDK Messaging Namespace")]
         Task<DescribeChannelModeratorResponse> DescribeChannelModeratorAsync(DescribeChannelModeratorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6109,6 +7646,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnector.html">DisassociatePhoneNumbersFromVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociatePhoneNumbersFromVoiceConnector service method.</param>
         /// 
@@ -6135,12 +7686,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DisassociatePhoneNumbersFromVoiceConnector">REST API Reference for DisassociatePhoneNumbersFromVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by DisassociatePhoneNumbersFromVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         DisassociatePhoneNumbersFromVoiceConnectorResponse DisassociatePhoneNumbersFromVoiceConnector(DisassociatePhoneNumbersFromVoiceConnectorRequest request);
 
 
 
         /// <summary>
         /// Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnector.html">DisassociatePhoneNumbersFromVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociatePhoneNumbersFromVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -6170,6 +7736,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DisassociatePhoneNumbersFromVoiceConnector">REST API Reference for DisassociatePhoneNumbersFromVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by DisassociatePhoneNumbersFromVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<DisassociatePhoneNumbersFromVoiceConnectorResponse> DisassociatePhoneNumbersFromVoiceConnectorAsync(DisassociatePhoneNumbersFromVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6180,6 +7747,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector
         /// group.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnectorGroup.html">DisassociatePhoneNumbersFromVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociatePhoneNumbersFromVoiceConnectorGroup service method.</param>
         /// 
@@ -6206,6 +7787,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DisassociatePhoneNumbersFromVoiceConnectorGroup">REST API Reference for DisassociatePhoneNumbersFromVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by DisassociatePhoneNumbersFromVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         DisassociatePhoneNumbersFromVoiceConnectorGroupResponse DisassociatePhoneNumbersFromVoiceConnectorGroup(DisassociatePhoneNumbersFromVoiceConnectorGroupRequest request);
 
 
@@ -6213,6 +7795,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector
         /// group.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DisassociatePhoneNumbersFromVoiceConnectorGroup.html">DisassociatePhoneNumbersFromVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociatePhoneNumbersFromVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -6242,6 +7838,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/DisassociatePhoneNumbersFromVoiceConnectorGroup">REST API Reference for DisassociatePhoneNumbersFromVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by DisassociatePhoneNumbersFromVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<DisassociatePhoneNumbersFromVoiceConnectorGroupResponse> DisassociatePhoneNumbersFromVoiceConnectorGroupAsync(DisassociatePhoneNumbersFromVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6469,6 +8066,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets the retention settings for an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html">GetMessagingRetentionSettings</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAppInstanceRetentionSettings service method.</param>
         /// 
@@ -6495,12 +8106,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAppInstanceRetentionSettings">REST API Reference for GetAppInstanceRetentionSettings Operation</seealso>
+        [Obsolete("Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace")]
         GetAppInstanceRetentionSettingsResponse GetAppInstanceRetentionSettings(GetAppInstanceRetentionSettingsRequest request);
 
 
 
         /// <summary>
         /// Gets the retention settings for an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_GetAppInstanceRetentionSettings.html">GetMessagingRetentionSettings</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAppInstanceRetentionSettings service method.</param>
         /// <param name="cancellationToken">
@@ -6530,6 +8156,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAppInstanceRetentionSettings">REST API Reference for GetAppInstanceRetentionSettings Operation</seealso>
+        [Obsolete("Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace")]
         Task<GetAppInstanceRetentionSettingsResponse> GetAppInstanceRetentionSettingsAsync(GetAppInstanceRetentionSettingsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6539,6 +8166,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets the streaming settings for an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html">GetMessagingStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAppInstanceStreamingConfigurations service method.</param>
         /// 
@@ -6565,12 +8206,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAppInstanceStreamingConfigurations">REST API Reference for GetAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by GetAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         GetAppInstanceStreamingConfigurationsResponse GetAppInstanceStreamingConfigurations(GetAppInstanceStreamingConfigurationsRequest request);
 
 
 
         /// <summary>
         /// Gets the streaming settings for an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html">GetMessagingStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAppInstanceStreamingConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -6600,6 +8256,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAppInstanceStreamingConfigurations">REST API Reference for GetAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by GetAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         Task<GetAppInstanceStreamingConfigurationsResponse> GetAppInstanceStreamingConfigurationsAsync(GetAppInstanceStreamingConfigurationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6609,8 +8266,22 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee
-        /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetAttendee.html">GetAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAttendee service method.</param>
         /// 
@@ -6637,14 +8308,29 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAttendee">REST API Reference for GetAttendee Operation</seealso>
+        [Obsolete("Replaced by GetAttendee in the Amazon Chime SDK Meetings Namespace")]
         GetAttendeeResponse GetAttendee(GetAttendeeRequest request);
 
 
 
         /// <summary>
         /// Gets the Amazon Chime SDK attendee details for a specified meeting ID and attendee
-        /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// ID. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetAttendee.html">GetAttendee</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -6674,6 +8360,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetAttendee">REST API Reference for GetAttendee Operation</seealso>
+        [Obsolete("Replaced by GetAttendee in the Amazon Chime SDK Meetings Namespace")]
         Task<GetAttendeeResponse> GetAttendeeAsync(GetAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6761,7 +8448,19 @@ namespace Amazon.Chime
         /// The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html">GetChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetChannelMessage service method.</param>
         /// 
@@ -6788,6 +8487,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetChannelMessage">REST API Reference for GetChannelMessage Operation</seealso>
+        [Obsolete("Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         GetChannelMessageResponse GetChannelMessage(GetChannelMessageRequest request);
 
 
@@ -6800,7 +8500,19 @@ namespace Amazon.Chime
         /// The x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetChannelMessage.html">GetChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetChannelMessage service method.</param>
         /// <param name="cancellationToken">
@@ -6830,6 +8542,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetChannelMessage">REST API Reference for GetChannelMessage Operation</seealso>
+        [Obsolete("Replaced by GetChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         Task<GetChannelMessageResponse> GetChannelMessageAsync(GetChannelMessageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -6977,6 +8690,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets an existing media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.html">GetMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMediaCapturePipeline service method.</param>
         /// 
@@ -7003,12 +8730,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMediaCapturePipeline">REST API Reference for GetMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by GetMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         GetMediaCapturePipelineResponse GetMediaCapturePipeline(GetMediaCapturePipelineRequest request);
 
 
 
         /// <summary>
         /// Gets an existing media capture pipeline.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaCapturePipeline.html">GetMediaCapturePipeline</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMediaCapturePipeline service method.</param>
         /// <param name="cancellationToken">
@@ -7038,6 +8780,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMediaCapturePipeline">REST API Reference for GetMediaCapturePipeline Operation</seealso>
+        [Obsolete("Replaced by GetMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace")]
         Task<GetMediaCapturePipelineResponse> GetMediaCapturePipelineAsync(GetMediaCapturePipelineRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7046,9 +8789,24 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        ///  Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMeeting service method.</param>
         /// 
@@ -7075,14 +8833,30 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMeeting">REST API Reference for GetMeeting Operation</seealso>
+        [Obsolete("Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace")]
         GetMeetingResponse GetMeeting(GetMeetingRequest request);
 
 
 
         /// <summary>
-        /// Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
-        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+        /// <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        ///  Gets the Amazon Chime SDK meeting details for the specified meeting ID. For more
+        /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMeeting service method.</param>
         /// <param name="cancellationToken">
@@ -7112,6 +8886,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMeeting">REST API Reference for GetMeeting Operation</seealso>
+        [Obsolete("Replaced by GetMeeting in the Amazon Chime SDK Meetings Namespace")]
         Task<GetMeetingResponse> GetMeetingAsync(GetMeetingRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7121,6 +8896,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// The details of the endpoint for the messaging session.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.html">GetMessagingSessionEndpoint</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMessagingSessionEndpoint service method.</param>
         /// 
@@ -7141,12 +8930,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMessagingSessionEndpoint">REST API Reference for GetMessagingSessionEndpoint Operation</seealso>
+        [Obsolete("Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace")]
         GetMessagingSessionEndpointResponse GetMessagingSessionEndpoint(GetMessagingSessionEndpointRequest request);
 
 
 
         /// <summary>
         /// The details of the endpoint for the messaging session.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingSessionEndpoint.html">GetMessagingSessionEndpoint</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMessagingSessionEndpoint service method.</param>
         /// <param name="cancellationToken">
@@ -7170,6 +8974,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetMessagingSessionEndpoint">REST API Reference for GetMessagingSessionEndpoint Operation</seealso>
+        [Obsolete("Replaced by GetMessagingSessionEndpoint in the Amazon Chime SDK Messaging Namespace")]
         Task<GetMessagingSessionEndpointResponse> GetMessagingSessionEndpointAsync(GetMessagingSessionEndpointRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7389,6 +9194,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets the specified proxy session details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetProxySession.html">GetProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetProxySession service method.</param>
         /// 
@@ -7415,12 +9234,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetProxySession">REST API Reference for GetProxySession Operation</seealso>
+        [Obsolete("Replaced by GetProxySession in the Amazon Chime SDK Voice Namespace")]
         GetProxySessionResponse GetProxySession(GetProxySessionRequest request);
 
 
 
         /// <summary>
         /// Gets the specified proxy session details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetProxySession.html">GetProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetProxySession service method.</param>
         /// <param name="cancellationToken">
@@ -7450,6 +9284,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetProxySession">REST API Reference for GetProxySession Operation</seealso>
+        [Obsolete("Replaced by GetProxySession in the Amazon Chime SDK Voice Namespace")]
         Task<GetProxySessionResponse> GetProxySessionAsync(GetProxySessionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7606,6 +9441,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the information for a SIP media application, including name, AWS Region,
         /// and endpoints.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplication.html">GetSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipMediaApplication service method.</param>
         /// 
@@ -7632,6 +9481,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipMediaApplication">REST API Reference for GetSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by GetSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         GetSipMediaApplicationResponse GetSipMediaApplication(GetSipMediaApplicationRequest request);
 
 
@@ -7639,6 +9489,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the information for a SIP media application, including name, AWS Region,
         /// and endpoints.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplication.html">GetSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipMediaApplication service method.</param>
         /// <param name="cancellationToken">
@@ -7668,6 +9532,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipMediaApplication">REST API Reference for GetSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by GetSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         Task<GetSipMediaApplicationResponse> GetSipMediaApplicationAsync(GetSipMediaApplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7677,6 +9542,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns the logging configuration for the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationLoggingConfiguration.html">GetSipMediaApplicationLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipMediaApplicationLoggingConfiguration service method.</param>
         /// 
@@ -7703,12 +9582,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipMediaApplicationLoggingConfiguration">REST API Reference for GetSipMediaApplicationLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         GetSipMediaApplicationLoggingConfigurationResponse GetSipMediaApplicationLoggingConfiguration(GetSipMediaApplicationLoggingConfigurationRequest request);
 
 
 
         /// <summary>
         /// Returns the logging configuration for the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipMediaApplicationLoggingConfiguration.html">GetSipMediaApplicationLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipMediaApplicationLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -7738,6 +9632,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipMediaApplicationLoggingConfiguration">REST API Reference for GetSipMediaApplicationLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<GetSipMediaApplicationLoggingConfigurationResponse> GetSipMediaApplicationLoggingConfigurationAsync(GetSipMediaApplicationLoggingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7748,6 +9643,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target
         /// endpoints.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipRule.html">GetSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipRule service method.</param>
         /// 
@@ -7774,6 +9683,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipRule">REST API Reference for GetSipRule Operation</seealso>
+        [Obsolete("Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace")]
         GetSipRuleResponse GetSipRule(GetSipRuleRequest request);
 
 
@@ -7781,6 +9691,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target
         /// endpoints.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSipRule.html">GetSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSipRule service method.</param>
         /// <param name="cancellationToken">
@@ -7810,6 +9734,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetSipRule">REST API Reference for GetSipRule Operation</seealso>
+        [Obsolete("Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace")]
         Task<GetSipRuleResponse> GetSipRuleAsync(GetSipRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -7976,6 +9901,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name,
         /// outbound host, and encryption requirements.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnector.html">GetVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnector service method.</param>
         /// 
@@ -8002,6 +9941,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnector">REST API Reference for GetVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorResponse GetVoiceConnector(GetVoiceConnectorRequest request);
 
 
@@ -8009,6 +9949,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name,
         /// outbound host, and encryption requirements.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnector.html">GetVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -8038,6 +9992,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnector">REST API Reference for GetVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorResponse> GetVoiceConnectorAsync(GetVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8048,6 +10003,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Gets the emergency calling configuration details for the specified Amazon Chime Voice
         /// Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorEmergencyCallingConfiguration.html">GetVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// 
@@ -8074,6 +10043,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorEmergencyCallingConfiguration">REST API Reference for GetVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorEmergencyCallingConfigurationResponse GetVoiceConnectorEmergencyCallingConfiguration(GetVoiceConnectorEmergencyCallingConfigurationRequest request);
 
 
@@ -8081,6 +10051,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Gets the emergency calling configuration details for the specified Amazon Chime Voice
         /// Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorEmergencyCallingConfiguration.html">GetVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -8110,6 +10094,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorEmergencyCallingConfiguration">REST API Reference for GetVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorEmergencyCallingConfigurationResponse> GetVoiceConnectorEmergencyCallingConfigurationAsync(GetVoiceConnectorEmergencyCallingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8120,6 +10105,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name,
         /// and associated <code>VoiceConnectorItems</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorGroup.html">GetVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorGroup service method.</param>
         /// 
@@ -8146,6 +10145,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorGroup">REST API Reference for GetVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorGroupResponse GetVoiceConnectorGroup(GetVoiceConnectorGroupRequest request);
 
 
@@ -8153,6 +10153,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves details for the specified Amazon Chime Voice Connector group, such as timestamps,name,
         /// and associated <code>VoiceConnectorItems</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorGroup.html">GetVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -8182,6 +10196,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorGroup">REST API Reference for GetVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorGroupResponse> GetVoiceConnectorGroupAsync(GetVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8192,6 +10207,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the logging configuration details for the specified Amazon Chime Voice Connector.
         /// Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorLoggingConfiguration.html">GetVoiceConnectorLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorLoggingConfiguration service method.</param>
         /// 
@@ -8218,6 +10247,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorLoggingConfiguration">REST API Reference for GetVoiceConnectorLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorLoggingConfigurationResponse GetVoiceConnectorLoggingConfiguration(GetVoiceConnectorLoggingConfigurationRequest request);
 
 
@@ -8225,6 +10255,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Retrieves the logging configuration details for the specified Amazon Chime Voice Connector.
         /// Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorLoggingConfiguration.html">GetVoiceConnectorLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -8254,6 +10298,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorLoggingConfiguration">REST API Reference for GetVoiceConnectorLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorLoggingConfigurationResponse> GetVoiceConnectorLoggingConfigurationAsync(GetVoiceConnectorLoggingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8263,6 +10308,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Retrieves origination setting details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorOrigination.html">GetVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorOrigination service method.</param>
         /// 
@@ -8289,12 +10348,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorOrigination">REST API Reference for GetVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorOriginationResponse GetVoiceConnectorOrigination(GetVoiceConnectorOriginationRequest request);
 
 
 
         /// <summary>
         /// Retrieves origination setting details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorOrigination.html">GetVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorOrigination service method.</param>
         /// <param name="cancellationToken">
@@ -8324,6 +10398,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorOrigination">REST API Reference for GetVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorOriginationResponse> GetVoiceConnectorOriginationAsync(GetVoiceConnectorOriginationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8333,6 +10408,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Gets the proxy configuration details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorProxy.html">GetVoiceConnectorProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorProxy service method.</param>
         /// 
@@ -8359,12 +10448,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorProxy">REST API Reference for GetVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorProxyResponse GetVoiceConnectorProxy(GetVoiceConnectorProxyRequest request);
 
 
 
         /// <summary>
         /// Gets the proxy configuration details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorProxy.html">GetVoiceConnectorProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorProxy service method.</param>
         /// <param name="cancellationToken">
@@ -8394,6 +10498,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorProxy">REST API Reference for GetVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorProxyResponse> GetVoiceConnectorProxyAsync(GetVoiceConnectorProxyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8405,6 +10510,20 @@ namespace Amazon.Chime
         /// Retrieves the streaming configuration details for the specified Amazon Chime Voice
         /// Connector. Shows whether media streaming is enabled for sending to Amazon Kinesis.
         /// It also shows the retention period, in hours, for the Amazon Kinesis data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorStreamingConfiguration.html">GetVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorStreamingConfiguration service method.</param>
         /// 
@@ -8431,6 +10550,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorStreamingConfiguration">REST API Reference for GetVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorStreamingConfigurationResponse GetVoiceConnectorStreamingConfiguration(GetVoiceConnectorStreamingConfigurationRequest request);
 
 
@@ -8439,6 +10559,20 @@ namespace Amazon.Chime
         /// Retrieves the streaming configuration details for the specified Amazon Chime Voice
         /// Connector. Shows whether media streaming is enabled for sending to Amazon Kinesis.
         /// It also shows the retention period, in hours, for the Amazon Kinesis data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorStreamingConfiguration.html">GetVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorStreamingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -8468,6 +10602,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorStreamingConfiguration">REST API Reference for GetVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorStreamingConfigurationResponse> GetVoiceConnectorStreamingConfigurationAsync(GetVoiceConnectorStreamingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8477,6 +10612,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Retrieves termination setting details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTermination.html">GetVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorTermination service method.</param>
         /// 
@@ -8503,12 +10652,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorTermination">REST API Reference for GetVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorTerminationResponse GetVoiceConnectorTermination(GetVoiceConnectorTerminationRequest request);
 
 
 
         /// <summary>
         /// Retrieves termination setting details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTermination.html">GetVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorTermination service method.</param>
         /// <param name="cancellationToken">
@@ -8538,6 +10702,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorTermination">REST API Reference for GetVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorTerminationResponse> GetVoiceConnectorTerminationAsync(GetVoiceConnectorTerminationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8546,8 +10711,23 @@ namespace Amazon.Chime
 
 
         /// <summary>
+        /// <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html">GetVoiceConnectorTerminationHealth</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
         /// Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
         /// from your SIP infrastructure for the specified Amazon Chime Voice Connector.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorTerminationHealth service method.</param>
         /// 
@@ -8574,13 +10754,29 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorTerminationHealth">REST API Reference for GetVoiceConnectorTerminationHealth Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace")]
         GetVoiceConnectorTerminationHealthResponse GetVoiceConnectorTerminationHealth(GetVoiceConnectorTerminationHealthRequest request);
 
 
 
         /// <summary>
+        /// <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorTerminationHealth.html">GetVoiceConnectorTerminationHealth</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important> 
+        /// <para>
         /// Retrieves information about the last time a SIP <code>OPTIONS</code> ping was received
         /// from your SIP infrastructure for the specified Amazon Chime Voice Connector.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetVoiceConnectorTerminationHealth service method.</param>
         /// <param name="cancellationToken">
@@ -8610,6 +10806,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/GetVoiceConnectorTerminationHealth">REST API Reference for GetVoiceConnectorTerminationHealth Operation</seealso>
+        [Obsolete("Replaced by GetVoiceConnectorTerminationHealth in the Amazon Chime SDK Voice Namespace")]
         Task<GetVoiceConnectorTerminationHealthResponse> GetVoiceConnectorTerminationHealthAsync(GetVoiceConnectorTerminationHealthRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8767,6 +10964,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns a list of the administrators in the <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html">ListAppInstanceAdmins</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstanceAdmins service method.</param>
         /// 
@@ -8790,12 +11001,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstanceAdmins">REST API Reference for ListAppInstanceAdmins Operation</seealso>
+        [Obsolete("Replaced by ListAppInstanceAdmins in the Amazon Chime SDK Identity Namespace")]
         ListAppInstanceAdminsResponse ListAppInstanceAdmins(ListAppInstanceAdminsRequest request);
 
 
 
         /// <summary>
         /// Returns a list of the administrators in the <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceAdmins.html">ListAppInstanceAdmins</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstanceAdmins service method.</param>
         /// <param name="cancellationToken">
@@ -8822,6 +11048,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstanceAdmins">REST API Reference for ListAppInstanceAdmins Operation</seealso>
+        [Obsolete("Replaced by ListAppInstanceAdmins in the Amazon Chime SDK Identity Namespace")]
         Task<ListAppInstanceAdminsResponse> ListAppInstanceAdminsAsync(ListAppInstanceAdminsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8831,6 +11058,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html">ListAppInstances</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstances service method.</param>
         /// 
@@ -8854,12 +11095,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstances">REST API Reference for ListAppInstances Operation</seealso>
+        [Obsolete("Replaced by ListAppInstances in the Amazon Chime SDK Identity Namespace")]
         ListAppInstancesResponse ListAppInstances(ListAppInstancesRequest request);
 
 
 
         /// <summary>
         /// Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstances.html">ListAppInstances</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstances service method.</param>
         /// <param name="cancellationToken">
@@ -8886,6 +11142,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstances">REST API Reference for ListAppInstances Operation</seealso>
+        [Obsolete("Replaced by ListAppInstances in the Amazon Chime SDK Identity Namespace")]
         Task<ListAppInstancesResponse> ListAppInstancesAsync(ListAppInstancesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8895,6 +11152,21 @@ namespace Amazon.Chime
 
         /// <summary>
         /// List all <code>AppInstanceUsers</code> created under a single <code>AppInstance</code>.
+        /// 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html">ListAppInstanceUsers</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstanceUsers service method.</param>
         /// 
@@ -8918,12 +11190,28 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstanceUsers">REST API Reference for ListAppInstanceUsers Operation</seealso>
+        [Obsolete("Replaced by ListAppInstanceUsers in the Amazon Chime SDK Identity Namespace")]
         ListAppInstanceUsersResponse ListAppInstanceUsers(ListAppInstanceUsersRequest request);
 
 
 
         /// <summary>
         /// List all <code>AppInstanceUsers</code> created under a single <code>AppInstance</code>.
+        /// 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceUsers.html">ListAppInstanceUsers</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAppInstanceUsers service method.</param>
         /// <param name="cancellationToken">
@@ -8950,6 +11238,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAppInstanceUsers">REST API Reference for ListAppInstanceUsers Operation</seealso>
+        [Obsolete("Replaced by ListAppInstanceUsers in the Amazon Chime SDK Identity Namespace")]
         Task<ListAppInstanceUsersResponse> ListAppInstanceUsersAsync(ListAppInstanceUsersRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -8959,8 +11248,22 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the attendees for the specified Amazon Chime SDK meeting. For more information
-        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListAttendees.html">ListAttendees</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAttendees service method.</param>
         /// 
@@ -8987,14 +11290,29 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAttendees">REST API Reference for ListAttendees Operation</seealso>
+        [Obsolete("Replaced by ListAttendees in the Amazon Chime SDK Meetings Namespace")]
         ListAttendeesResponse ListAttendees(ListAttendeesRequest request);
 
 
 
         /// <summary>
         /// Lists the attendees for the specified Amazon Chime SDK meeting. For more information
-        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>. 
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListAttendees.html">ListAttendees</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAttendees service method.</param>
         /// <param name="cancellationToken">
@@ -9024,6 +11342,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAttendees">REST API Reference for ListAttendees Operation</seealso>
+        [Obsolete("Replaced by ListAttendees in the Amazon Chime SDK Meetings Namespace")]
         Task<ListAttendeesResponse> ListAttendeesAsync(ListAttendeesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9033,6 +11352,13 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the tags applied to an Amazon Chime SDK attendee resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace. Update
+        /// your application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAttendeeTags service method.</param>
         /// 
@@ -9059,12 +11385,20 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAttendeeTags">REST API Reference for ListAttendeeTags Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         ListAttendeeTagsResponse ListAttendeeTags(ListAttendeeTagsRequest request);
 
 
 
         /// <summary>
         /// Lists the tags applied to an Amazon Chime SDK attendee resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// ListAttendeeTags is not supported in the Amazon Chime SDK Meetings Namespace. Update
+        /// your application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAttendeeTags service method.</param>
         /// <param name="cancellationToken">
@@ -9094,6 +11428,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListAttendeeTags">REST API Reference for ListAttendeeTags Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         Task<ListAttendeeTagsResponse> ListAttendeeTagsAsync(ListAttendeeTagsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9181,7 +11516,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html">ListChannelBans</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelBans service method.</param>
         /// 
@@ -9205,6 +11552,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelBans">REST API Reference for ListChannelBans Operation</seealso>
+        [Obsolete("Replaced by ListChannelBans in the Amazon Chime SDK Messaging Namespace")]
         ListChannelBansResponse ListChannelBans(ListChannelBansRequest request);
 
 
@@ -9217,7 +11565,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html">ListChannelBans</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelBans service method.</param>
         /// <param name="cancellationToken">
@@ -9244,6 +11604,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelBans">REST API Reference for ListChannelBans Operation</seealso>
+        [Obsolete("Replaced by ListChannelBans in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelBansResponse> ListChannelBansAsync(ListChannelBansRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9259,7 +11620,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.html">ListChannelMemberships</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMemberships service method.</param>
         /// 
@@ -9283,6 +11656,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMemberships">REST API Reference for ListChannelMemberships Operation</seealso>
+        [Obsolete("Replaced by ListChannelMemberships in the Amazon Chime SDK Messaging Namespace")]
         ListChannelMembershipsResponse ListChannelMemberships(ListChannelMembershipsRequest request);
 
 
@@ -9295,7 +11669,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMemberships.html">ListChannelMemberships</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMemberships service method.</param>
         /// <param name="cancellationToken">
@@ -9322,6 +11708,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMemberships">REST API Reference for ListChannelMemberships Operation</seealso>
+        [Obsolete("Replaced by ListChannelMemberships in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelMembershipsResponse> ListChannelMembershipsAsync(ListChannelMembershipsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9339,7 +11726,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.</param>
         /// 
@@ -9363,6 +11762,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMembershipsForAppInstanceUser">REST API Reference for ListChannelMembershipsForAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by ListChannelMembershipsForAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         ListChannelMembershipsForAppInstanceUserResponse ListChannelMembershipsForAppInstanceUser(ListChannelMembershipsForAppInstanceUserRequest request);
 
 
@@ -9377,7 +11777,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMembershipsForAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -9404,6 +11816,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMembershipsForAppInstanceUser">REST API Reference for ListChannelMembershipsForAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by ListChannelMembershipsForAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelMembershipsForAppInstanceUserResponse> ListChannelMembershipsForAppInstanceUserAsync(ListChannelMembershipsForAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9426,7 +11839,19 @@ namespace Amazon.Chime
         /// Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html">ListChannelMessages</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMessages service method.</param>
         /// 
@@ -9450,6 +11875,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMessages">REST API Reference for ListChannelMessages Operation</seealso>
+        [Obsolete("Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace")]
         ListChannelMessagesResponse ListChannelMessages(ListChannelMessagesRequest request);
 
 
@@ -9469,7 +11895,19 @@ namespace Amazon.Chime
         /// Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMessages.html">ListChannelMessages</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelMessages service method.</param>
         /// <param name="cancellationToken">
@@ -9496,6 +11934,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelMessages">REST API Reference for ListChannelMessages Operation</seealso>
+        [Obsolete("Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelMessagesResponse> ListChannelMessagesAsync(ListChannelMessagesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9511,7 +11950,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html">ListChannelModerators</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelModerators service method.</param>
         /// 
@@ -9535,6 +11986,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelModerators">REST API Reference for ListChannelModerators Operation</seealso>
+        [Obsolete("Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace")]
         ListChannelModeratorsResponse ListChannelModerators(ListChannelModeratorsRequest request);
 
 
@@ -9547,7 +11999,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelModerators.html">ListChannelModerators</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelModerators service method.</param>
         /// <param name="cancellationToken">
@@ -9574,6 +12038,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelModerators">REST API Reference for ListChannelModerators Operation</seealso>
+        [Obsolete("Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelModeratorsResponse> ListChannelModeratorsAsync(ListChannelModeratorsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9601,7 +12066,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html">ListChannels</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannels service method.</param>
         /// 
@@ -9625,6 +12102,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannels">REST API Reference for ListChannels Operation</seealso>
+        [Obsolete("Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace")]
         ListChannelsResponse ListChannels(ListChannelsRequest request);
 
 
@@ -9649,7 +12127,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannels.html">ListChannels</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannels service method.</param>
         /// <param name="cancellationToken">
@@ -9676,6 +12166,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannels">REST API Reference for ListChannels Operation</seealso>
+        [Obsolete("Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelsResponse> ListChannelsAsync(ListChannelsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9691,7 +12182,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html">ListChannelsModeratedByAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelsModeratedByAppInstanceUser service method.</param>
         /// 
@@ -9715,6 +12218,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelsModeratedByAppInstanceUser">REST API Reference for ListChannelsModeratedByAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by ListChannelsModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         ListChannelsModeratedByAppInstanceUserResponse ListChannelsModeratedByAppInstanceUser(ListChannelsModeratedByAppInstanceUserRequest request);
 
 
@@ -9727,7 +12231,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html">ListChannelsModeratedByAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListChannelsModeratedByAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -9754,6 +12270,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListChannelsModeratedByAppInstanceUser">REST API Reference for ListChannelsModeratedByAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by ListChannelsModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace")]
         Task<ListChannelsModeratedByAppInstanceUserResponse> ListChannelsModeratedByAppInstanceUserAsync(ListChannelsModeratedByAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9763,6 +12280,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Returns a list of media capture pipelines.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html">ListMediaCapturePipelines</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMediaCapturePipelines service method.</param>
         /// 
@@ -9786,12 +12317,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMediaCapturePipelines">REST API Reference for ListMediaCapturePipelines Operation</seealso>
+        [Obsolete("Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace")]
         ListMediaCapturePipelinesResponse ListMediaCapturePipelines(ListMediaCapturePipelinesRequest request);
 
 
 
         /// <summary>
         /// Returns a list of media capture pipelines.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html">ListMediaCapturePipelines</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMediaCapturePipelines service method.</param>
         /// <param name="cancellationToken">
@@ -9818,6 +12364,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMediaCapturePipelines">REST API Reference for ListMediaCapturePipelines Operation</seealso>
+        [Obsolete("Replaced by ListMediaCapturePipelines in the Amazon Chime SDK Media Pipelines Namespace")]
         Task<ListMediaCapturePipelinesResponse> ListMediaCapturePipelinesAsync(ListMediaCapturePipelinesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9826,9 +12373,18 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Lists up to 100 active Amazon Chime SDK meetings. For more information about the
-        /// Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// Lists up to 100 active Amazon Chime SDK meetings.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your
+        /// application to remove calls to this API.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMeetings service method.</param>
         /// 
@@ -9852,14 +12408,24 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMeetings">REST API Reference for ListMeetings Operation</seealso>
+        [Obsolete("ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         ListMeetingsResponse ListMeetings(ListMeetingsRequest request);
 
 
 
         /// <summary>
-        /// Lists up to 100 active Amazon Chime SDK meetings. For more information about the
-        /// Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-        /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+        /// Lists up to 100 active Amazon Chime SDK meetings.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your
+        /// application to remove calls to this API.
+        /// </para>
+        ///  </important> 
+        /// <para>
+        /// For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+        /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMeetings service method.</param>
         /// <param name="cancellationToken">
@@ -9886,6 +12452,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMeetings">REST API Reference for ListMeetings Operation</seealso>
+        [Obsolete("ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         Task<ListMeetingsResponse> ListMeetingsAsync(ListMeetingsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -9895,6 +12462,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the tags applied to an Amazon Chime SDK meeting resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html">ListTagsForResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMeetingTags service method.</param>
         /// 
@@ -9921,12 +12502,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMeetingTags">REST API Reference for ListMeetingTags Operation</seealso>
+        [Obsolete("Use ListTagsForResource in the Amazon Chime SDK Meetings Namespace.")]
         ListMeetingTagsResponse ListMeetingTags(ListMeetingTagsRequest request);
 
 
 
         /// <summary>
         /// Lists the tags applied to an Amazon Chime SDK meeting resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html">ListTagsForResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMeetingTags service method.</param>
         /// <param name="cancellationToken">
@@ -9956,6 +12552,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListMeetingTags">REST API Reference for ListMeetingTags Operation</seealso>
+        [Obsolete("Use ListTagsForResource in the Amazon Chime SDK Meetings Namespace.")]
         Task<ListMeetingTagsResponse> ListMeetingTagsAsync(ListMeetingTagsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10101,6 +12698,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the proxy sessions for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListProxySessions.html">ListProxySessions</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListProxySessions service method.</param>
         /// 
@@ -10127,12 +12738,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListProxySessions">REST API Reference for ListProxySessions Operation</seealso>
+        [Obsolete("Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace")]
         ListProxySessionsResponse ListProxySessions(ListProxySessionsRequest request);
 
 
 
         /// <summary>
         /// Lists the proxy sessions for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListProxySessions.html">ListProxySessions</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListProxySessions service method.</param>
         /// <param name="cancellationToken">
@@ -10162,6 +12788,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListProxySessions">REST API Reference for ListProxySessions Operation</seealso>
+        [Obsolete("Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace")]
         Task<ListProxySessionsResponse> ListProxySessionsAsync(ListProxySessionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10317,6 +12944,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the SIP media applications under the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipMediaApplications.html">ListSipMediaApplications</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSipMediaApplications service method.</param>
         /// 
@@ -10340,12 +12981,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSipMediaApplications">REST API Reference for ListSipMediaApplications Operation</seealso>
+        [Obsolete("Replaced by ListSipMediaApplications in the Amazon Chime SDK Voice Namespace")]
         ListSipMediaApplicationsResponse ListSipMediaApplications(ListSipMediaApplicationsRequest request);
 
 
 
         /// <summary>
         /// Lists the SIP media applications under the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipMediaApplications.html">ListSipMediaApplications</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSipMediaApplications service method.</param>
         /// <param name="cancellationToken">
@@ -10372,6 +13028,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSipMediaApplications">REST API Reference for ListSipMediaApplications Operation</seealso>
+        [Obsolete("Replaced by ListSipMediaApplications in the Amazon Chime SDK Voice Namespace")]
         Task<ListSipMediaApplicationsResponse> ListSipMediaApplicationsAsync(ListSipMediaApplicationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10381,6 +13038,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the SIP rules under the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipRules.html">ListSipRules</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSipRules service method.</param>
         /// 
@@ -10404,12 +13075,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSipRules">REST API Reference for ListSipRules Operation</seealso>
+        [Obsolete("Replaced by ListSipRules in the Amazon Chime SDK Voice Namespace")]
         ListSipRulesResponse ListSipRules(ListSipRulesRequest request);
 
 
 
         /// <summary>
         /// Lists the SIP rules under the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListSipRules.html">ListSipRules</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListSipRules service method.</param>
         /// <param name="cancellationToken">
@@ -10436,6 +13122,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListSipRules">REST API Reference for ListSipRules Operation</seealso>
+        [Obsolete("Replaced by ListSipRules in the Amazon Chime SDK Voice Namespace")]
         Task<ListSipRulesResponse> ListSipRulesAsync(ListSipRulesRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10514,7 +13201,28 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Lists the tags applied to an Amazon Chime SDK meeting resource.
+        /// Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the applicable latest version in the Amazon Chime SDK.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// For meetings: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html">ListTagsForResource</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// For messaging: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListTagsForResource.html">ListTagsForResource</a>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// 
@@ -10538,12 +13246,34 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        [Obsolete("Replaced by ListTagsForResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request);
 
 
 
         /// <summary>
-        /// Lists the tags applied to an Amazon Chime SDK meeting resource.
+        /// Lists the tags applied to an Amazon Chime SDK meeting and messaging resources.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the applicable latest version in the Amazon Chime SDK.
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// For meetings: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_ListTagsForResource.html">ListTagsForResource</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// For messaging: <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListTagsForResource.html">ListTagsForResource</a>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// <param name="cancellationToken">
@@ -10570,6 +13300,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
+        [Obsolete("Replaced by ListTagsForResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10651,6 +13382,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorGroups.html">ListVoiceConnectorGroups</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectorGroups service method.</param>
         /// 
@@ -10674,12 +13419,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectorGroups">REST API Reference for ListVoiceConnectorGroups Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectorGroups in the Amazon Chime SDK Voice Namespace")]
         ListVoiceConnectorGroupsResponse ListVoiceConnectorGroups(ListVoiceConnectorGroupsRequest request);
 
 
 
         /// <summary>
         /// Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorGroups.html">ListVoiceConnectorGroups</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectorGroups service method.</param>
         /// <param name="cancellationToken">
@@ -10706,6 +13466,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectorGroups">REST API Reference for ListVoiceConnectorGroups Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectorGroups in the Amazon Chime SDK Voice Namespace")]
         Task<ListVoiceConnectorGroupsResponse> ListVoiceConnectorGroupsAsync(ListVoiceConnectorGroupsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10715,6 +13476,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectors.html">ListVoiceConnectors</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectors service method.</param>
         /// 
@@ -10738,12 +13513,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectors">REST API Reference for ListVoiceConnectors Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectors in the Amazon Chime SDK Voice Namespace")]
         ListVoiceConnectorsResponse ListVoiceConnectors(ListVoiceConnectorsRequest request);
 
 
 
         /// <summary>
         /// Lists the Amazon Chime Voice Connectors for the administrator's AWS account.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectors.html">ListVoiceConnectors</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectors service method.</param>
         /// <param name="cancellationToken">
@@ -10770,6 +13560,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectors">REST API Reference for ListVoiceConnectors Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectors in the Amazon Chime SDK Voice Namespace")]
         Task<ListVoiceConnectorsResponse> ListVoiceConnectorsAsync(ListVoiceConnectorsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10779,6 +13570,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Lists the SIP credentials for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorTerminationCredentials.html">ListVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectorTerminationCredentials service method.</param>
         /// 
@@ -10805,12 +13610,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectorTerminationCredentials">REST API Reference for ListVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         ListVoiceConnectorTerminationCredentialsResponse ListVoiceConnectorTerminationCredentials(ListVoiceConnectorTerminationCredentialsRequest request);
 
 
 
         /// <summary>
         /// Lists the SIP credentials for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceConnectorTerminationCredentials.html">ListVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVoiceConnectorTerminationCredentials service method.</param>
         /// <param name="cancellationToken">
@@ -10840,6 +13660,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ListVoiceConnectorTerminationCredentials">REST API Reference for ListVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by ListVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         Task<ListVoiceConnectorTerminationCredentialsResponse> ListVoiceConnectorTerminationCredentialsAsync(ListVoiceConnectorTerminationCredentialsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10919,6 +13740,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Sets the amount of time in days that a given <code>AppInstance</code> retains data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.html">PutAppInstanceRetentionSettings</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutAppInstanceRetentionSettings service method.</param>
         /// 
@@ -10949,12 +13784,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutAppInstanceRetentionSettings">REST API Reference for PutAppInstanceRetentionSettings Operation</seealso>
+        [Obsolete("Replaced by PutAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace")]
         PutAppInstanceRetentionSettingsResponse PutAppInstanceRetentionSettings(PutAppInstanceRetentionSettingsRequest request);
 
 
 
         /// <summary>
         /// Sets the amount of time in days that a given <code>AppInstance</code> retains data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceRetentionSettings.html">PutAppInstanceRetentionSettings</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutAppInstanceRetentionSettings service method.</param>
         /// <param name="cancellationToken">
@@ -10988,6 +13838,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutAppInstanceRetentionSettings">REST API Reference for PutAppInstanceRetentionSettings Operation</seealso>
+        [Obsolete("Replaced by PutAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace")]
         Task<PutAppInstanceRetentionSettingsResponse> PutAppInstanceRetentionSettingsAsync(PutAppInstanceRetentionSettingsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -10997,6 +13848,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// The data streaming configurations of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html">PutMessagingStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutAppInstanceStreamingConfigurations service method.</param>
         /// 
@@ -11023,12 +13888,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutAppInstanceStreamingConfigurations">REST API Reference for PutAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         PutAppInstanceStreamingConfigurationsResponse PutAppInstanceStreamingConfigurations(PutAppInstanceStreamingConfigurationsRequest request);
 
 
 
         /// <summary>
         /// The data streaming configurations of an <code>AppInstance</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html">PutMessagingStreamingConfigurations</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutAppInstanceStreamingConfigurations service method.</param>
         /// <param name="cancellationToken">
@@ -11058,6 +13938,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutAppInstanceStreamingConfigurations">REST API Reference for PutAppInstanceStreamingConfigurations Operation</seealso>
+        [Obsolete("Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace")]
         Task<PutAppInstanceStreamingConfigurationsResponse> PutAppInstanceStreamingConfigurationsAsync(PutAppInstanceStreamingConfigurationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11243,6 +14124,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates the logging configuration for the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationLoggingConfiguration.html">PutSipMediaApplicationLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutSipMediaApplicationLoggingConfiguration service method.</param>
         /// 
@@ -11269,12 +14164,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutSipMediaApplicationLoggingConfiguration">REST API Reference for PutSipMediaApplicationLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         PutSipMediaApplicationLoggingConfigurationResponse PutSipMediaApplicationLoggingConfiguration(PutSipMediaApplicationLoggingConfigurationRequest request);
 
 
 
         /// <summary>
         /// Updates the logging configuration for the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutSipMediaApplicationLoggingConfiguration.html">PutSipMediaApplicationLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutSipMediaApplicationLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -11304,6 +14214,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutSipMediaApplicationLoggingConfiguration">REST API Reference for PutSipMediaApplicationLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutSipMediaApplicationLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<PutSipMediaApplicationLoggingConfigurationResponse> PutSipMediaApplicationLoggingConfigurationAsync(PutSipMediaApplicationLoggingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11316,6 +14227,20 @@ namespace Amazon.Chime
         /// such as emergency phone numbers and calling countries. Origination and termination
         /// settings must be enabled for the Amazon Chime Voice Connector before emergency calling
         /// can be configured.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorEmergencyCallingConfiguration.html">PutVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// 
@@ -11342,6 +14267,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorEmergencyCallingConfiguration">REST API Reference for PutVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorEmergencyCallingConfigurationResponse PutVoiceConnectorEmergencyCallingConfiguration(PutVoiceConnectorEmergencyCallingConfigurationRequest request);
 
 
@@ -11351,6 +14277,20 @@ namespace Amazon.Chime
         /// such as emergency phone numbers and calling countries. Origination and termination
         /// settings must be enabled for the Amazon Chime Voice Connector before emergency calling
         /// can be configured.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorEmergencyCallingConfiguration.html">PutVoiceConnectorEmergencyCallingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorEmergencyCallingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -11380,6 +14320,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorEmergencyCallingConfiguration">REST API Reference for PutVoiceConnectorEmergencyCallingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorEmergencyCallingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorEmergencyCallingConfigurationResponse> PutVoiceConnectorEmergencyCallingConfigurationAsync(PutVoiceConnectorEmergencyCallingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11391,6 +14332,20 @@ namespace Amazon.Chime
         /// Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging
         /// configuration specifies whether SIP message logs are enabled for sending to Amazon
         /// CloudWatch Logs.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorLoggingConfiguration.html">PutVoiceConnectorLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorLoggingConfiguration service method.</param>
         /// 
@@ -11417,6 +14372,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorLoggingConfiguration">REST API Reference for PutVoiceConnectorLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorLoggingConfigurationResponse PutVoiceConnectorLoggingConfiguration(PutVoiceConnectorLoggingConfigurationRequest request);
 
 
@@ -11425,6 +14381,20 @@ namespace Amazon.Chime
         /// Adds a logging configuration for the specified Amazon Chime Voice Connector. The logging
         /// configuration specifies whether SIP message logs are enabled for sending to Amazon
         /// CloudWatch Logs.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorLoggingConfiguration.html">PutVoiceConnectorLoggingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorLoggingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -11454,6 +14424,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorLoggingConfiguration">REST API Reference for PutVoiceConnectorLoggingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorLoggingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorLoggingConfigurationResponse> PutVoiceConnectorLoggingConfigurationAsync(PutVoiceConnectorLoggingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11469,7 +14440,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to turning off origination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorOrigination.html">PutVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorOrigination service method.</param>
         /// 
@@ -11496,6 +14479,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorOrigination">REST API Reference for PutVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorOriginationResponse PutVoiceConnectorOrigination(PutVoiceConnectorOriginationRequest request);
 
 
@@ -11508,7 +14492,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to turning off origination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorOrigination.html">PutVoiceConnectorOrigination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorOrigination service method.</param>
         /// <param name="cancellationToken">
@@ -11538,6 +14534,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorOrigination">REST API Reference for PutVoiceConnectorOrigination Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorOriginationResponse> PutVoiceConnectorOriginationAsync(PutVoiceConnectorOriginationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11547,6 +14544,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html">PutVoiceConnectorProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorProxy service method.</param>
         /// 
@@ -11576,12 +14587,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorProxy">REST API Reference for PutVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorProxyResponse PutVoiceConnectorProxy(PutVoiceConnectorProxyRequest request);
 
 
 
         /// <summary>
         /// Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorProxy.html">PutVoiceConnectorProxy</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorProxy service method.</param>
         /// <param name="cancellationToken">
@@ -11614,6 +14640,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorProxy">REST API Reference for PutVoiceConnectorProxy Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorProxyResponse> PutVoiceConnectorProxyAsync(PutVoiceConnectorProxyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11625,6 +14652,20 @@ namespace Amazon.Chime
         /// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
         /// streaming configuration specifies whether media streaming is enabled for sending to
         /// Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorStreamingConfiguration.html">PutVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorStreamingConfiguration service method.</param>
         /// 
@@ -11651,6 +14692,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorStreamingConfiguration">REST API Reference for PutVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorStreamingConfigurationResponse PutVoiceConnectorStreamingConfiguration(PutVoiceConnectorStreamingConfigurationRequest request);
 
 
@@ -11659,6 +14701,20 @@ namespace Amazon.Chime
         /// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
         /// streaming configuration specifies whether media streaming is enabled for sending to
         /// Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis data.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorStreamingConfiguration.html">PutVoiceConnectorStreamingConfiguration</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorStreamingConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -11688,6 +14744,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorStreamingConfiguration">REST API Reference for PutVoiceConnectorStreamingConfiguration Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorStreamingConfigurationResponse> PutVoiceConnectorStreamingConfigurationAsync(PutVoiceConnectorStreamingConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11703,7 +14760,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to turning off termination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTermination.html">PutVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorTermination service method.</param>
         /// 
@@ -11733,6 +14802,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorTermination">REST API Reference for PutVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorTerminationResponse PutVoiceConnectorTermination(PutVoiceConnectorTerminationRequest request);
 
 
@@ -11745,7 +14815,19 @@ namespace Amazon.Chime
         /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
         /// deleted prior to turning off termination settings.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTermination.html">PutVoiceConnectorTermination</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorTermination service method.</param>
         /// <param name="cancellationToken">
@@ -11778,6 +14860,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorTermination">REST API Reference for PutVoiceConnectorTermination Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorTerminationResponse> PutVoiceConnectorTerminationAsync(PutVoiceConnectorTerminationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11787,6 +14870,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTerminationCredentials.html">PutVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorTerminationCredentials service method.</param>
         /// 
@@ -11813,12 +14910,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorTerminationCredentials">REST API Reference for PutVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         PutVoiceConnectorTerminationCredentialsResponse PutVoiceConnectorTerminationCredentials(PutVoiceConnectorTerminationCredentialsRequest request);
 
 
 
         /// <summary>
         /// Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorTerminationCredentials.html">PutVoiceConnectorTerminationCredentials</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutVoiceConnectorTerminationCredentials service method.</param>
         /// <param name="cancellationToken">
@@ -11848,6 +14960,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/PutVoiceConnectorTerminationCredentials">REST API Reference for PutVoiceConnectorTerminationCredentials Operation</seealso>
+        [Obsolete("Replaced by PutVoiceConnectorTerminationCredentials in the Amazon Chime SDK Voice Namespace")]
         Task<PutVoiceConnectorTerminationCredentialsResponse> PutVoiceConnectorTerminationCredentialsAsync(PutVoiceConnectorTerminationCredentialsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -11864,7 +14977,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.html">RedactChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RedactChannelMessage service method.</param>
         /// 
@@ -11888,6 +15013,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/RedactChannelMessage">REST API Reference for RedactChannelMessage Operation</seealso>
+        [Obsolete("Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         RedactChannelMessageResponse RedactChannelMessage(RedactChannelMessageRequest request);
 
 
@@ -11901,7 +15027,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_RedactChannelMessage.html">RedactChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RedactChannelMessage service method.</param>
         /// <param name="cancellationToken">
@@ -11928,6 +15066,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/RedactChannelMessage">REST API Reference for RedactChannelMessage Operation</seealso>
+        [Obsolete("Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         Task<RedactChannelMessageResponse> RedactChannelMessageAsync(RedactChannelMessageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12384,7 +15523,19 @@ namespace Amazon.Chime
         /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
         /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html">SendChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendChannelMessage service method.</param>
         /// 
@@ -12412,6 +15563,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/SendChannelMessage">REST API Reference for SendChannelMessage Operation</seealso>
+        [Obsolete("Replaced by SendChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         SendChannelMessageResponse SendChannelMessage(SendChannelMessageRequest request);
 
 
@@ -12429,7 +15581,19 @@ namespace Amazon.Chime
         /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
         /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_SendChannelMessage.html">SendChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendChannelMessage service method.</param>
         /// <param name="cancellationToken">
@@ -12460,6 +15624,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/SendChannelMessage">REST API Reference for SendChannelMessage Operation</seealso>
+        [Obsolete("Replaced by SendChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         Task<SendChannelMessageResponse> SendChannelMessageAsync(SendChannelMessageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12468,7 +15633,39 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Starts transcription for the specified <code>meetingId</code>.
+        /// Starts transcription for the specified <code>meetingId</code>. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+        /// Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer
+        /// Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// If you specify an invalid configuration, a <code>TranscriptFailed</code> event will
+        /// be sent with the contents of the <code>BadRequestException</code> generated by Amazon
+        /// Transcribe. For more information on each parameter and which combinations are valid,
+        /// refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a>
+        /// API in the <i>Amazon Transcribe Developer Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon
+        /// Transcribe is subject to the <a href="https://aws.amazon.com/service-terms/">AWS Service
+        /// Terms</a>, including the terms specific to the AWS Machine Learning and Artificial
+        /// Intelligence Services.
+        /// </para>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html">StartMeetingTranscription</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartMeetingTranscription service method.</param>
         /// 
@@ -12501,12 +15698,45 @@ namespace Amazon.Chime
         /// The request was well-formed but was unable to be followed due to semantic errors.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StartMeetingTranscription">REST API Reference for StartMeetingTranscription Operation</seealso>
+        [Obsolete("Replaced by StartMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
         StartMeetingTranscriptionResponse StartMeetingTranscription(StartMeetingTranscriptionRequest request);
 
 
 
         /// <summary>
-        /// Starts transcription for the specified <code>meetingId</code>.
+        /// Starts transcription for the specified <code>meetingId</code>. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html">
+        /// Using Amazon Chime SDK live transcription </a> in the <i>Amazon Chime SDK Developer
+        /// Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// If you specify an invalid configuration, a <code>TranscriptFailed</code> event will
+        /// be sent with the contents of the <code>BadRequestException</code> generated by Amazon
+        /// Transcribe. For more information on each parameter and which combinations are valid,
+        /// refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartStreamTranscription.html">StartStreamTranscription</a>
+        /// API in the <i>Amazon Transcribe Developer Guide</i>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon
+        /// Transcribe is subject to the <a href="https://aws.amazon.com/service-terms/">AWS Service
+        /// Terms</a>, including the terms specific to the AWS Machine Learning and Artificial
+        /// Intelligence Services.
+        /// </para>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html">StartMeetingTranscription</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartMeetingTranscription service method.</param>
         /// <param name="cancellationToken">
@@ -12542,6 +15772,7 @@ namespace Amazon.Chime
         /// The request was well-formed but was unable to be followed due to semantic errors.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StartMeetingTranscription">REST API Reference for StartMeetingTranscription Operation</seealso>
+        [Obsolete("Replaced by StartMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
         Task<StartMeetingTranscriptionResponse> StartMeetingTranscriptionAsync(StartMeetingTranscriptionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12551,6 +15782,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Stops transcription for the specified <code>meetingId</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StopMeetingTranscription.html">StopMeetingTranscription</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopMeetingTranscription service method.</param>
         /// 
@@ -12580,12 +15825,27 @@ namespace Amazon.Chime
         /// The request was well-formed but was unable to be followed due to semantic errors.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StopMeetingTranscription">REST API Reference for StopMeetingTranscription Operation</seealso>
+        [Obsolete("Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
         StopMeetingTranscriptionResponse StopMeetingTranscription(StopMeetingTranscriptionRequest request);
 
 
 
         /// <summary>
         /// Stops transcription for the specified <code>meetingId</code>.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StopMeetingTranscription.html">StopMeetingTranscription</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopMeetingTranscription service method.</param>
         /// <param name="cancellationToken">
@@ -12618,6 +15878,7 @@ namespace Amazon.Chime
         /// The request was well-formed but was unable to be followed due to semantic errors.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/StopMeetingTranscription">REST API Reference for StopMeetingTranscription Operation</seealso>
+        [Obsolete("Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace")]
         Task<StopMeetingTranscriptionResponse> StopMeetingTranscriptionAsync(StopMeetingTranscriptionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12626,7 +15887,14 @@ namespace Amazon.Chime
 
 
         /// <summary>
-        /// Applies the specified tags to the specified Amazon Chime SDK attendee.
+        /// Applies the specified tags to the specified Amazon Chime attendee.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your
+        /// application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagAttendee service method.</param>
         /// 
@@ -12656,12 +15924,20 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagAttendee">REST API Reference for TagAttendee Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         TagAttendeeResponse TagAttendee(TagAttendeeRequest request);
 
 
 
         /// <summary>
-        /// Applies the specified tags to the specified Amazon Chime SDK attendee.
+        /// Applies the specified tags to the specified Amazon Chime attendee.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// TagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update your
+        /// application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -12694,6 +15970,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagAttendee">REST API Reference for TagAttendee Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         Task<TagAttendeeResponse> TagAttendeeAsync(TagAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12703,6 +15980,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Applies the specified tags to the specified Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html">TagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagMeeting service method.</param>
         /// 
@@ -12732,12 +16023,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagMeeting">REST API Reference for TagMeeting Operation</seealso>
+        [Obsolete("Use TagResource in the Amazon Chime SDK Meetings Namespace.")]
         TagMeetingResponse TagMeeting(TagMeetingRequest request);
 
 
 
         /// <summary>
         /// Applies the specified tags to the specified Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html">TagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagMeeting service method.</param>
         /// <param name="cancellationToken">
@@ -12770,6 +16076,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagMeeting">REST API Reference for TagMeeting Operation</seealso>
+        [Obsolete("Use TagResource in the Amazon Chime SDK Meetings Namespace.")]
         Task<TagMeetingResponse> TagMeetingAsync(TagMeetingRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12779,6 +16086,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html">TagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// 
@@ -12802,12 +16123,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagResource">REST API Reference for TagResource Operation</seealso>
+        [Obsolete("Replaced by TagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         TagResourceResponse TagResource(TagResourceRequest request);
 
 
 
         /// <summary>
         /// Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_TagResource.html">TagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
         /// <param name="cancellationToken">
@@ -12834,6 +16170,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/TagResource">REST API Reference for TagResource Operation</seealso>
+        [Obsolete("Replaced by TagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12843,6 +16180,13 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK attendee.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
+        /// your application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagAttendee service method.</param>
         /// 
@@ -12869,12 +16213,20 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagAttendee">REST API Reference for UntagAttendee Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         UntagAttendeeResponse UntagAttendee(UntagAttendeeRequest request);
 
 
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK attendee.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// UntagAttendee is not supported in the Amazon Chime SDK Meetings Namespace. Update
+        /// your application to remove calls to this API.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagAttendee service method.</param>
         /// <param name="cancellationToken">
@@ -12904,6 +16256,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagAttendee">REST API Reference for UntagAttendee Operation</seealso>
+        [Obsolete("Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.")]
         Task<UntagAttendeeResponse> UntagAttendeeAsync(UntagAttendeeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12913,6 +16266,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html">UntagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagMeeting service method.</param>
         /// 
@@ -12939,12 +16306,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagMeeting">REST API Reference for UntagMeeting Operation</seealso>
+        [Obsolete("Use UntagResource in the Amazon Chime SDK Meetings Namespace.")]
         UntagMeetingResponse UntagMeeting(UntagMeetingRequest request);
 
 
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK meeting.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html">UntagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagMeeting service method.</param>
         /// <param name="cancellationToken">
@@ -12974,6 +16356,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagMeeting">REST API Reference for UntagMeeting Operation</seealso>
+        [Obsolete("Use UntagResource in the Amazon Chime SDK Meetings Namespace.")]
         Task<UntagMeetingResponse> UntagMeetingAsync(UntagMeetingRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -12983,6 +16366,24 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK meeting resource.
+        /// 
+        ///  
+        /// <para>
+        /// Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html">UntagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// 
@@ -13006,12 +16407,31 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        [Obsolete("Replaced by UntagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         UntagResourceResponse UntagResource(UntagResourceRequest request);
 
 
 
         /// <summary>
         /// Untags the specified tags from the specified Amazon Chime SDK meeting resource.
+        /// 
+        ///  
+        /// <para>
+        /// Applies the specified tags to the specified Amazon Chime SDK meeting resource.
+        /// </para>
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_UntagResource.html">UntagResource</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
         /// <param name="cancellationToken">
@@ -13038,6 +16458,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UntagResource">REST API Reference for UntagResource Operation</seealso>
+        [Obsolete("Replaced by UntagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces")]
         Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13203,6 +16624,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates <code>AppInstance</code> metadata.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.html">UpdateAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAppInstance service method.</param>
         /// 
@@ -13230,12 +16665,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateAppInstance">REST API Reference for UpdateAppInstance Operation</seealso>
+        [Obsolete("Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace")]
         UpdateAppInstanceResponse UpdateAppInstance(UpdateAppInstanceRequest request);
 
 
 
         /// <summary>
         /// Updates <code>AppInstance</code> metadata.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstance.html">UpdateAppInstance</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAppInstance service method.</param>
         /// <param name="cancellationToken">
@@ -13266,6 +16716,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateAppInstance">REST API Reference for UpdateAppInstance Operation</seealso>
+        [Obsolete("Replaced by UpdateAppInstance in the Amazon Chime SDK Identity Namespace")]
         Task<UpdateAppInstanceResponse> UpdateAppInstanceAsync(UpdateAppInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13275,6 +16726,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html">UpdateAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAppInstanceUser service method.</param>
         /// 
@@ -13302,12 +16767,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateAppInstanceUser">REST API Reference for UpdateAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         UpdateAppInstanceUserResponse UpdateAppInstanceUser(UpdateAppInstanceUserRequest request);
 
 
 
         /// <summary>
         /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html">UpdateAppInstanceUser</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateAppInstanceUser service method.</param>
         /// <param name="cancellationToken">
@@ -13338,6 +16818,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateAppInstanceUser">REST API Reference for UpdateAppInstanceUser Operation</seealso>
+        [Obsolete("Replaced by UpdateAppInstanceUser in the Amazon Chime SDK Identity Namespace")]
         Task<UpdateAppInstanceUserResponse> UpdateAppInstanceUserAsync(UpdateAppInstanceUserRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13429,7 +16910,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.html">UpdateChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannel service method.</param>
         /// 
@@ -13457,6 +16950,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannel">REST API Reference for UpdateChannel Operation</seealso>
+        [Obsolete("Replaced by UpdateChannel in the Amazon Chime SDK Messaging Namespace")]
         UpdateChannelResponse UpdateChannel(UpdateChannelRequest request);
 
 
@@ -13473,7 +16967,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannel.html">UpdateChannel</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannel service method.</param>
         /// <param name="cancellationToken">
@@ -13504,6 +17010,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannel">REST API Reference for UpdateChannel Operation</seealso>
+        [Obsolete("Replaced by UpdateChannel in the Amazon Chime SDK Messaging Namespace")]
         Task<UpdateChannelResponse> UpdateChannelAsync(UpdateChannelRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13519,7 +17026,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.html">UpdateChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannelMessage service method.</param>
         /// 
@@ -13547,6 +17066,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannelMessage">REST API Reference for UpdateChannelMessage Operation</seealso>
+        [Obsolete("Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         UpdateChannelMessageResponse UpdateChannelMessage(UpdateChannelMessageRequest request);
 
 
@@ -13559,7 +17079,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelMessage.html">UpdateChannelMessage</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannelMessage service method.</param>
         /// <param name="cancellationToken">
@@ -13590,6 +17122,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannelMessage">REST API Reference for UpdateChannelMessage Operation</seealso>
+        [Obsolete("Replaced by UpdateChannelMessage in the Amazon Chime SDK Messaging Namespace")]
         Task<UpdateChannelMessageResponse> UpdateChannelMessageAsync(UpdateChannelMessageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13605,7 +17138,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.html">UpdateChannelReadMarker</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannelReadMarker service method.</param>
         /// 
@@ -13633,6 +17178,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannelReadMarker">REST API Reference for UpdateChannelReadMarker Operation</seealso>
+        [Obsolete("Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace")]
         UpdateChannelReadMarkerResponse UpdateChannelReadMarker(UpdateChannelReadMarkerRequest request);
 
 
@@ -13645,7 +17191,19 @@ namespace Amazon.Chime
         /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
         /// of the user that makes the API call as the value in the header.
         /// </para>
-        ///  </note>
+        ///  </note> <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_UpdateChannelReadMarker.html">UpdateChannelReadMarker</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateChannelReadMarker service method.</param>
         /// <param name="cancellationToken">
@@ -13676,6 +17234,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateChannelReadMarker">REST API Reference for UpdateChannelReadMarker Operation</seealso>
+        [Obsolete("Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace")]
         Task<UpdateChannelReadMarkerResponse> UpdateChannelReadMarkerAsync(UpdateChannelReadMarkerRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -13925,6 +17484,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates the specified proxy session details, such as voice or SMS capabilities.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateProxySession.html">UpdateProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateProxySession service method.</param>
         /// 
@@ -13951,12 +17524,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateProxySession">REST API Reference for UpdateProxySession Operation</seealso>
+        [Obsolete("Replaced by UpdateProxySession in the Amazon Chime SDK Voice Namespace")]
         UpdateProxySessionResponse UpdateProxySession(UpdateProxySessionRequest request);
 
 
 
         /// <summary>
         /// Updates the specified proxy session details, such as voice or SMS capabilities.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateProxySession.html">UpdateProxySession</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateProxySession service method.</param>
         /// <param name="cancellationToken">
@@ -13986,6 +17574,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateProxySession">REST API Reference for UpdateProxySession Operation</seealso>
+        [Obsolete("Replaced by UpdateProxySession in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateProxySessionResponse> UpdateProxySessionAsync(UpdateProxySessionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14143,6 +17732,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates the details of the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplication.html">UpdateSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplication service method.</param>
         /// 
@@ -14173,12 +17776,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplication">REST API Reference for UpdateSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by UpdateSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         UpdateSipMediaApplicationResponse UpdateSipMediaApplication(UpdateSipMediaApplicationRequest request);
 
 
 
         /// <summary>
         /// Updates the details of the specified SIP media application.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplication.html">UpdateSipMediaApplication</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplication service method.</param>
         /// <param name="cancellationToken">
@@ -14212,6 +17830,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplication">REST API Reference for UpdateSipMediaApplication Operation</seealso>
+        [Obsolete("Replaced by UpdateSipMediaApplication in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateSipMediaApplicationResponse> UpdateSipMediaApplicationAsync(UpdateSipMediaApplicationRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14222,6 +17841,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Invokes the AWS Lambda function associated with the SIP media application and transaction
         /// ID in an update request. The Lambda function can then return a new set of actions.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplicationCall.html">UpdateSipMediaApplicationCall</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplicationCall service method.</param>
         /// 
@@ -14251,6 +17884,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplicationCall">REST API Reference for UpdateSipMediaApplicationCall Operation</seealso>
+        [Obsolete("Replaced by UpdateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace")]
         UpdateSipMediaApplicationCallResponse UpdateSipMediaApplicationCall(UpdateSipMediaApplicationCallRequest request);
 
 
@@ -14258,6 +17892,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Invokes the AWS Lambda function associated with the SIP media application and transaction
         /// ID in an update request. The Lambda function can then return a new set of actions.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipMediaApplicationCall.html">UpdateSipMediaApplicationCall</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipMediaApplicationCall service method.</param>
         /// <param name="cancellationToken">
@@ -14290,6 +17938,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipMediaApplicationCall">REST API Reference for UpdateSipMediaApplicationCall Operation</seealso>
+        [Obsolete("Replaced by UpdateSipMediaApplicationCall in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateSipMediaApplicationCallResponse> UpdateSipMediaApplicationCallAsync(UpdateSipMediaApplicationCallRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14299,6 +17948,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates the details of the specified SIP rule.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipRule.html">UpdateSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipRule service method.</param>
         /// 
@@ -14332,12 +17995,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipRule">REST API Reference for UpdateSipRule Operation</seealso>
+        [Obsolete("Replaced by UpdateSipRule in the Amazon Chime SDK Voice Namespace")]
         UpdateSipRuleResponse UpdateSipRule(UpdateSipRuleRequest request);
 
 
 
         /// <summary>
         /// Updates the details of the specified SIP rule.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateSipRule.html">UpdateSipRule</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateSipRule service method.</param>
         /// <param name="cancellationToken">
@@ -14374,6 +18052,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateSipRule">REST API Reference for UpdateSipRule Operation</seealso>
+        [Obsolete("Replaced by UpdateSipRule in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateSipRuleResponse> UpdateSipRuleAsync(UpdateSipRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14525,6 +18204,20 @@ namespace Amazon.Chime
 
         /// <summary>
         /// Updates details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnector.html">UpdateVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateVoiceConnector service method.</param>
         /// 
@@ -14551,12 +18244,27 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateVoiceConnector">REST API Reference for UpdateVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by UpdateVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         UpdateVoiceConnectorResponse UpdateVoiceConnector(UpdateVoiceConnectorRequest request);
 
 
 
         /// <summary>
         /// Updates details for the specified Amazon Chime Voice Connector.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnector.html">UpdateVoiceConnector</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateVoiceConnector service method.</param>
         /// <param name="cancellationToken">
@@ -14586,6 +18294,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateVoiceConnector">REST API Reference for UpdateVoiceConnector Operation</seealso>
+        [Obsolete("Replaced by UpdateVoiceConnector in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateVoiceConnectorResponse> UpdateVoiceConnectorAsync(UpdateVoiceConnectorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14596,6 +18305,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Updates details of the specified Amazon Chime Voice Connector group, such as the name
         /// and Amazon Chime Voice Connector priority ranking.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnectorGroup.html">UpdateVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateVoiceConnectorGroup service method.</param>
         /// 
@@ -14626,6 +18349,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateVoiceConnectorGroup">REST API Reference for UpdateVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by UpdateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         UpdateVoiceConnectorGroupResponse UpdateVoiceConnectorGroup(UpdateVoiceConnectorGroupRequest request);
 
 
@@ -14633,6 +18357,20 @@ namespace Amazon.Chime
         /// <summary>
         /// Updates details of the specified Amazon Chime Voice Connector group, such as the name
         /// and Amazon Chime Voice Connector priority ranking.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceConnectorGroup.html">UpdateVoiceConnectorGroup</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateVoiceConnectorGroup service method.</param>
         /// <param name="cancellationToken">
@@ -14666,6 +18404,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/UpdateVoiceConnectorGroup">REST API Reference for UpdateVoiceConnectorGroup Operation</seealso>
+        [Obsolete("Replaced by UpdateVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace")]
         Task<UpdateVoiceConnectorGroupResponse> UpdateVoiceConnectorGroupAsync(UpdateVoiceConnectorGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
@@ -14678,6 +18417,20 @@ namespace Amazon.Chime
         /// You can use validated addresses in a Presence Information Data Format Location Object
         /// file that you include in SIP requests. That helps ensure that addresses are routed
         /// to the appropriate Public Safety Answering Point.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html">ValidateE911Address</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ValidateE911Address service method.</param>
         /// 
@@ -14704,6 +18457,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ValidateE911Address">REST API Reference for ValidateE911Address Operation</seealso>
+        [Obsolete("Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace")]
         ValidateE911AddressResponse ValidateE911Address(ValidateE911AddressRequest request);
 
 
@@ -14713,6 +18467,20 @@ namespace Amazon.Chime
         /// You can use validated addresses in a Presence Information Data Format Location Object
         /// file that you include in SIP requests. That helps ensure that addresses are routed
         /// to the appropriate Public Safety Answering Point.
+        /// 
+        ///  <important> 
+        /// <para>
+        ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+        /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ValidateE911Address.html">ValidateE911Address</a>,
+        /// in the Amazon Chime SDK.
+        /// </para>
+        ///  
+        /// <para>
+        /// Using the latest version requires migrating to a dedicated namespace. For more information,
+        /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+        /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ValidateE911Address service method.</param>
         /// <param name="cancellationToken">
@@ -14742,6 +18510,7 @@ namespace Amazon.Chime
         /// The client is not currently authorized to make the request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/chime-2018-05-01/ValidateE911Address">REST API Reference for ValidateE911Address Operation</seealso>
+        [Obsolete("Replaced by ValidateE911Address in the Amazon Chime SDK Voice Namespace")]
         Task<ValidateE911AddressResponse> ValidateE911AddressAsync(ValidateE911AddressRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion

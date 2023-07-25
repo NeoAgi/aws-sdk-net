@@ -29,17 +29,40 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SsmSap.Model
 {
     /// <summary>
-    /// 
+    /// Describes the properties of the Dedicated Host.
     /// </summary>
     public partial class Host
     {
+        private string _ec2InstanceId;
         private string _hostIp;
         private string _hostName;
         private HostRole _hostRole;
         private string _instanceId;
+        private string _osVersion;
 
         /// <summary>
-        /// Gets and sets the property HostIp.
+        /// Gets and sets the property EC2InstanceId. 
+        /// <para>
+        /// The ID of Amazon EC2 instance.
+        /// </para>
+        /// </summary>
+        public string EC2InstanceId
+        {
+            get { return this._ec2InstanceId; }
+            set { this._ec2InstanceId = value; }
+        }
+
+        // Check to see if EC2InstanceId property is set
+        internal bool IsSetEC2InstanceId()
+        {
+            return this._ec2InstanceId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property HostIp. 
+        /// <para>
+        /// The IP address of the Dedicated Host. 
+        /// </para>
         /// </summary>
         public string HostIp
         {
@@ -54,7 +77,10 @@ namespace Amazon.SsmSap.Model
         }
 
         /// <summary>
-        /// Gets and sets the property HostName.
+        /// Gets and sets the property HostName. 
+        /// <para>
+        /// The name of the Dedicated Host.
+        /// </para>
         /// </summary>
         public string HostName
         {
@@ -69,7 +95,10 @@ namespace Amazon.SsmSap.Model
         }
 
         /// <summary>
-        /// Gets and sets the property HostRole.
+        /// Gets and sets the property HostRole. 
+        /// <para>
+        /// The role of the Dedicated Host.
+        /// </para>
         /// </summary>
         public HostRole HostRole
         {
@@ -84,7 +113,10 @@ namespace Amazon.SsmSap.Model
         }
 
         /// <summary>
-        /// Gets and sets the property InstanceId.
+        /// Gets and sets the property InstanceId. 
+        /// <para>
+        /// The instance ID of the instance on the Dedicated Host.
+        /// </para>
         /// </summary>
         public string InstanceId
         {
@@ -96,6 +128,24 @@ namespace Amazon.SsmSap.Model
         internal bool IsSetInstanceId()
         {
             return this._instanceId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property OsVersion. 
+        /// <para>
+        /// The version of the operating system.
+        /// </para>
+        /// </summary>
+        public string OsVersion
+        {
+            get { return this._osVersion; }
+            set { this._osVersion = value; }
+        }
+
+        // Check to see if OsVersion property is set
+        internal bool IsSetOsVersion()
+        {
+            return this._osVersion != null;
         }
 
     }

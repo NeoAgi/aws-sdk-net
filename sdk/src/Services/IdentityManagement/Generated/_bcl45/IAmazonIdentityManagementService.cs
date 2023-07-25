@@ -142,9 +142,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </note> 
         /// <para>
-        /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>. For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddRoleToInstanceProfile service method.</param>
@@ -165,10 +166,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddRoleToInstanceProfile">REST API Reference for AddRoleToInstanceProfile Operation</seealso>
         AddRoleToInstanceProfileResponse AddRoleToInstanceProfile(AddRoleToInstanceProfileRequest request);
@@ -191,9 +193,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </note> 
         /// <para>
-        /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>. For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AddRoleToInstanceProfile service method.</param>
@@ -217,10 +220,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AddRoleToInstanceProfile">REST API Reference for AddRoleToInstanceProfile Operation</seealso>
         Task<AddRoleToInstanceProfileResponse> AddRoleToInstanceProfileAsync(AddRoleToInstanceProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -286,7 +290,8 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You use this operation to attach a managed policy to a group. To embed an inline policy
-        /// in a group, use <a>PutGroupPolicy</a>.
+        /// in a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html">
+        /// <code>PutGroupPolicy</code> </a>.
         /// </para>
         ///  
         /// <para>
@@ -332,7 +337,8 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You use this operation to attach a managed policy to a group. To embed an inline policy
-        /// in a group, use <a>PutGroupPolicy</a>.
+        /// in a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutGroupPolicy.html">
+        /// <code>PutGroupPolicy</code> </a>.
         /// </para>
         ///  
         /// <para>
@@ -386,14 +392,15 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// You cannot use a managed policy as the role's trust policy. The role's trust policy
-        /// is created at the same time as the role, using <a>CreateRole</a>. You can update a
-        /// role's trust policy using <a>UpdateAssumeRolePolicy</a>.
+        /// is created at the same time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">
+        /// <code>CreateRole</code> </a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html">
+        /// <code>UpdateAssumerolePolicy</code> </a>.
         /// </para>
         ///  </note> 
         /// <para>
         /// Use this operation to attach a <i>managed</i> policy to a role. To embed an inline
-        /// policy in a role, use <a>PutRolePolicy</a>. For more information about policies, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// policy in a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html">
+        /// <code>PutRolePolicy</code> </a>. For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -425,10 +432,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachRolePolicy">REST API Reference for AttachRolePolicy Operation</seealso>
         AttachRolePolicyResponse AttachRolePolicy(AttachRolePolicyRequest request);
@@ -443,14 +451,15 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// You cannot use a managed policy as the role's trust policy. The role's trust policy
-        /// is created at the same time as the role, using <a>CreateRole</a>. You can update a
-        /// role's trust policy using <a>UpdateAssumeRolePolicy</a>.
+        /// is created at the same time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">
+        /// <code>CreateRole</code> </a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html">
+        /// <code>UpdateAssumerolePolicy</code> </a>.
         /// </para>
         ///  </note> 
         /// <para>
         /// Use this operation to attach a <i>managed</i> policy to a role. To embed an inline
-        /// policy in a role, use <a>PutRolePolicy</a>. For more information about policies, see
-        /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// policy in a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html">
+        /// <code>PutRolePolicy</code> </a>. For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -485,10 +494,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachRolePolicy">REST API Reference for AttachRolePolicy Operation</seealso>
         Task<AttachRolePolicyResponse> AttachRolePolicyAsync(AttachRolePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -504,7 +514,8 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You use this operation to attach a <i>managed</i> policy to a user. To embed an inline
-        /// policy in a user, use <a>PutUserPolicy</a>.
+        /// policy in a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html">
+        /// <code>PutUserPolicy</code> </a>.
         /// </para>
         ///  
         /// <para>
@@ -550,7 +561,8 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You use this operation to attach a <i>managed</i> policy to a user. To embed an inline
-        /// policy in a user, use <a>PutUserPolicy</a>.
+        /// policy in a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html">
+        /// <code>PutUserPolicy</code> </a>.
         /// </para>
         ///  
         /// <para>
@@ -885,12 +897,17 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Creates an alias for your Amazon Web Services account. For information about using
-        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAccountAlias service method.</param>
         /// 
         /// <returns>The response from the CreateAccountAlias service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityAlreadyExistsException">
         /// The request was rejected because it attempted to create a resource that already exists.
         /// </exception>
@@ -908,8 +925,9 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Creates an alias for your Amazon Web Services account. For information about using
-        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAccountAlias service method.</param>
         /// <param name="cancellationToken">
@@ -917,6 +935,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the CreateAccountAlias service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityAlreadyExistsException">
         /// The request was rejected because it attempted to create a resource that already exists.
         /// </exception>
@@ -1209,6 +1231,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// A list of tags that are attached to the specified IAM OIDC provider
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// A list of thumbprints of one or more server certificates that the IdP uses
         /// </para>
         ///  </li> </ul> 
@@ -1219,11 +1245,11 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
-        /// through our library of trusted certificate authorities (CAs) instead of using a certificate
-        /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
-        /// and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
-        /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
-        /// used for validation.
+        /// through our library of trusted root certificate authorities (CAs) instead of using
+        /// a certificate thumbprint to verify your IdP server certificate. These OIDC IdPs include
+        /// Auth0, GitHub, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
+        /// Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your configuration,
+        /// but is no longer used for validation.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -1293,6 +1319,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
+        /// A list of tags that are attached to the specified IAM OIDC provider
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// A list of thumbprints of one or more server certificates that the IdP uses
         /// </para>
         ///  </li> </ul> 
@@ -1303,11 +1333,11 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
-        /// through our library of trusted certificate authorities (CAs) instead of using a certificate
-        /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
-        /// and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
-        /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
-        /// used for validation.
+        /// through our library of trusted root certificate authorities (CAs) instead of using
+        /// a certificate thumbprint to verify your IdP server certificate. These OIDC IdPs include
+        /// Auth0, GitHub, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
+        /// Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your configuration,
+        /// but is no longer used for validation.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -1554,11 +1584,15 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Creates a new role for your Amazon Web Services account. For more information about
-        /// roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-        /// roles</a>. For information about quotas for role names and the number of roles you
-        /// can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+        /// Creates a new role for your Amazon Web Services account.
+        /// 
+        ///  
+        /// <para>
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For information about quotas for role names
+        /// and the number of roles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
         /// and STS quotas</a> in the <i>IAM User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRole service method.</param>
         /// 
@@ -1591,11 +1625,15 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Creates a new role for your Amazon Web Services account. For more information about
-        /// roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-        /// roles</a>. For information about quotas for role names and the number of roles you
-        /// can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+        /// Creates a new role for your Amazon Web Services account.
+        /// 
+        ///  
+        /// <para>
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For information about quotas for role names
+        /// and the number of roles you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
         /// and STS quotas</a> in the <i>IAM User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateRole service method.</param>
         /// <param name="cancellationToken">
@@ -2132,6 +2170,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the DeactivateMFADevice service method.</param>
         /// 
         /// <returns>The response from the DeactivateMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityTemporarilyUnmodifiableException">
         /// The request was rejected because it referenced an entity that is temporarily unmodifiable,
         /// such as a user name that was deleted and then recreated. The error indicates that
@@ -2170,6 +2212,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the DeactivateMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityTemporarilyUnmodifiableException">
         /// The request was rejected because it referenced an entity that is temporarily unmodifiable,
         /// such as a user name that was deleted and then recreated. The error indicates that
@@ -2265,12 +2311,17 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Deletes the specified Amazon Web Services account alias. For information about using
-        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAccountAlias service method.</param>
         /// 
         /// <returns>The response from the DeleteAccountAlias service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.LimitExceededException">
         /// The request was rejected because it attempted to create resources beyond the current
         /// Amazon Web Services account limits. The error message describes the limit exceeded.
@@ -2289,8 +2340,9 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Deletes the specified Amazon Web Services account alias. For information about using
-        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// an Amazon Web Services account alias, see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteAccountAlias service method.</param>
         /// <param name="cancellationToken">
@@ -2298,6 +2350,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the DeleteAccountAlias service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.LimitExceededException">
         /// The request was rejected because it attempted to create resources beyond the current
         /// Amazon Web Services account limits. The error message describes the limit exceeded.
@@ -2548,8 +2604,8 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </important> 
         /// <para>
-        /// For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteInstanceProfile service method.</param>
@@ -2587,8 +2643,8 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </important> 
         /// <para>
-        /// For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteInstanceProfile service method.</param>
@@ -3009,11 +3065,30 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Deletes the specified role. The role must not have any policies attached. For more
-        /// information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// Deletes the specified role. Unlike the Amazon Web Services Management Console, when
+        /// you delete a role programmatically, you must delete the items attached to the role
+        /// manually, or the deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting
+        /// an IAM role</a>. Before attempting to delete a role, remove the following attached
+        /// items: 
         /// 
-        ///  <important> 
+        ///  <ul> <li> 
+        /// <para>
+        /// Inline policies (<a>DeleteRolePolicy</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Attached managed policies (<a>DetachRolePolicy</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance profile (<a>RemoveRoleFromInstanceProfile</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Optional – Delete instance profile after detaching from role for resource clean up
+        /// (<a>DeleteInstanceProfile</a>)
+        /// </para>
+        ///  </li> </ul> <important> 
         /// <para>
         /// Make sure that you do not have any Amazon EC2 instances running with the role you
         /// are about to delete. Deleting a role or instance profile that is associated with a
@@ -3044,10 +3119,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRole">REST API Reference for DeleteRole Operation</seealso>
         DeleteRoleResponse DeleteRole(DeleteRoleRequest request);
@@ -3055,11 +3131,30 @@ namespace Amazon.IdentityManagement
 
 
         /// <summary>
-        /// Deletes the specified role. The role must not have any policies attached. For more
-        /// information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// Deletes the specified role. Unlike the Amazon Web Services Management Console, when
+        /// you delete a role programmatically, you must delete the items attached to the role
+        /// manually, or the deletion fails. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html#roles-managingrole-deleting-cli">Deleting
+        /// an IAM role</a>. Before attempting to delete a role, remove the following attached
+        /// items: 
         /// 
-        ///  <important> 
+        ///  <ul> <li> 
+        /// <para>
+        /// Inline policies (<a>DeleteRolePolicy</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Attached managed policies (<a>DetachRolePolicy</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Instance profile (<a>RemoveRoleFromInstanceProfile</a>)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Optional – Delete instance profile after detaching from role for resource clean up
+        /// (<a>DeleteInstanceProfile</a>)
+        /// </para>
+        ///  </li> </ul> <important> 
         /// <para>
         /// Make sure that you do not have any Amazon EC2 instances running with the role you
         /// are about to delete. Deleting a role or instance profile that is associated with a
@@ -3093,10 +3188,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRole">REST API Reference for DeleteRole Operation</seealso>
         Task<DeleteRoleResponse> DeleteRoleAsync(DeleteRoleRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3109,11 +3205,15 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Deletes the permissions boundary for the specified IAM role. 
         /// 
+        ///  
+        /// <para>
+        /// You cannot set the boundary for a service-linked role.
+        /// </para>
         ///  <important> 
         /// <para>
         /// Deleting the permissions boundary for a role might increase its permissions. For example,
         /// it might allow anyone who assumes the role to perform all the actions granted in its
-        /// permissions policies. 
+        /// permissions policies.
         /// </para>
         ///  </important>
         /// </summary>
@@ -3128,10 +3228,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary">REST API Reference for DeleteRolePermissionsBoundary Operation</seealso>
         DeleteRolePermissionsBoundaryResponse DeleteRolePermissionsBoundary(DeleteRolePermissionsBoundaryRequest request);
@@ -3141,11 +3242,15 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Deletes the permissions boundary for the specified IAM role. 
         /// 
+        ///  
+        /// <para>
+        /// You cannot set the boundary for a service-linked role.
+        /// </para>
         ///  <important> 
         /// <para>
         /// Deleting the permissions boundary for a role might increase its permissions. For example,
         /// it might allow anyone who assumes the role to perform all the actions granted in its
-        /// permissions policies. 
+        /// permissions policies.
         /// </para>
         ///  </important>
         /// </summary>
@@ -3163,10 +3268,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePermissionsBoundary">REST API Reference for DeleteRolePermissionsBoundary Operation</seealso>
         Task<DeleteRolePermissionsBoundaryResponse> DeleteRolePermissionsBoundaryAsync(DeleteRolePermissionsBoundaryRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3202,10 +3308,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePolicy">REST API Reference for DeleteRolePolicy Operation</seealso>
         DeleteRolePolicyResponse DeleteRolePolicy(DeleteRolePolicyRequest request);
@@ -3241,10 +3348,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DeleteRolePolicy">REST API Reference for DeleteRolePolicy Operation</seealso>
         Task<DeleteRolePolicyResponse> DeleteRolePolicyAsync(DeleteRolePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3581,6 +3689,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the DeleteSigningCertificate service method.</param>
         /// 
         /// <returns>The response from the DeleteSigningCertificate service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.LimitExceededException">
         /// The request was rejected because it attempted to create resources beyond the current
         /// Amazon Web Services account limits. The error message describes the limit exceeded.
@@ -3615,6 +3727,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the DeleteSigningCertificate service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.LimitExceededException">
         /// The request was rejected because it attempted to create resources beyond the current
         /// Amazon Web Services account limits. The error message describes the limit exceeded.
@@ -3969,6 +4085,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the DeleteVirtualMFADevice service method.</param>
         /// 
         /// <returns>The response from the DeleteVirtualMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.DeleteConflictException">
         /// The request was rejected because it attempted to delete a resource that has attached
         /// subordinate entities. The error message describes these entities.
@@ -4005,6 +4125,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the DeleteVirtualMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.DeleteConflictException">
         /// The request was rejected because it attempted to delete a resource that has attached
         /// subordinate entities. The error message describes these entities.
@@ -4129,10 +4253,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachRolePolicy">REST API Reference for DetachRolePolicy Operation</seealso>
         DetachRolePolicyResponse DetachRolePolicy(DetachRolePolicyRequest request);
@@ -4171,10 +4296,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/DetachRolePolicy">REST API Reference for DetachRolePolicy Operation</seealso>
         Task<DetachRolePolicyResponse> DetachRolePolicyAsync(DetachRolePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4264,6 +4390,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the EnableMFADevice service method.</param>
         /// 
         /// <returns>The response from the EnableMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityAlreadyExistsException">
         /// The request was rejected because it attempted to create a resource that already exists.
         /// </exception>
@@ -4304,6 +4434,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the EnableMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.EntityAlreadyExistsException">
         /// The request was rejected because it attempted to create a resource that already exists.
         /// </exception>
@@ -5832,7 +5966,7 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Retrieves information about the specified instance profile, including the instance
         /// profile's path, GUID, ARN, and role. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
         /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetInstanceProfile service method.</param>
@@ -5853,7 +5987,7 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Retrieves information about the specified instance profile, including the instance
         /// profile's path, GUID, ARN, and role. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
         /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetInstanceProfile service method.</param>
@@ -5950,6 +6084,48 @@ namespace Amazon.IdentityManagement
 
         #endregion
         
+        #region  GetMFADevice
+
+
+        /// <summary>
+        /// Retrieves information about an MFA device for a specified user.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetMFADevice service method.</param>
+        /// 
+        /// <returns>The response from the GetMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.NoSuchEntityException">
+        /// The request was rejected because it referenced a resource entity that does not exist.
+        /// The error message describes the resource.
+        /// </exception>
+        /// <exception cref="Amazon.IdentityManagement.Model.ServiceFailureException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetMFADevice">REST API Reference for GetMFADevice Operation</seealso>
+        GetMFADeviceResponse GetMFADevice(GetMFADeviceRequest request);
+
+
+
+        /// <summary>
+        /// Retrieves information about an MFA device for a specified user.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetMFADevice service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.NoSuchEntityException">
+        /// The request was rejected because it referenced a resource entity that does not exist.
+        /// The error message describes the resource.
+        /// </exception>
+        /// <exception cref="Amazon.IdentityManagement.Model.ServiceFailureException">
+        /// The request processing has failed because of an unknown error, exception or failure.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/GetMFADevice">REST API Reference for GetMFADevice Operation</seealso>
+        Task<GetMFADeviceResponse> GetMFADeviceAsync(GetMFADeviceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  GetOpenIDConnectProvider
 
 
@@ -6024,7 +6200,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// For each service that principals in an account (root users, IAM users, or IAM roles)
+        /// For each service that principals in an account (root user, IAM users, or IAM roles)
         /// could access using SCPs, the operation returns details about the most recent access
         /// attempt. If there was no attempt, the service is listed without details about the
         /// most recent attempt to access the service. If the operation fails, it returns the
@@ -6066,7 +6242,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// For each service that principals in an account (root users, IAM users, or IAM roles)
+        /// For each service that principals in an account (root user, IAM users, or IAM roles)
         /// could access using SCPs, the operation returns details about the most recent access
         /// attempt. If there was no attempt, the service is listed without details about the
         /// most recent attempt to access the service. If the operation fails, it returns the
@@ -6292,8 +6468,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Retrieves information about the specified role, including the role's path, GUID, ARN,
         /// and the role's trust policy that grants permission to assume the role. For more information
-        /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -6323,8 +6499,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Retrieves information about the specified role, including the role's path, GUID, ARN,
         /// and the role's trust policy that grants permission to assume the role. For more information
-        /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -6382,8 +6558,8 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-        /// roles to delegate permissions and federate identities</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRolePolicy service method.</param>
@@ -6426,8 +6602,8 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  
         /// <para>
-        /// For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-        /// roles to delegate permissions and federate identities</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetRolePolicy service method.</param>
@@ -7326,8 +7502,9 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the account alias associated with the Amazon Web Services account (Note: you
         /// can have only one). For information about using an Amazon Web Services account alias,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// 
         /// <returns>The response from the ListAccountAliases service method, as returned by IdentityManagementService.</returns>
@@ -7341,8 +7518,9 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the account alias associated with the Amazon Web Services account (Note: you
         /// can have only one). For information about using an Amazon Web Services account alias,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccountAliases service method.</param>
         /// 
@@ -7357,8 +7535,9 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the account alias associated with the Amazon Web Services account (Note: you
         /// can have only one). For information about using an Amazon Web Services account alias,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -7376,8 +7555,9 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the account alias associated with the Amazon Web Services account (Note: you
         /// can have only one). For information about using an Amazon Web Services account alias,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
-        /// an alias for your Amazon Web Services account ID</a> in the <i>IAM User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html">Creating,
+        /// deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web
+        /// Services Sign-In User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccountAliases service method.</param>
         /// <param name="cancellationToken">
@@ -7928,8 +8108,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified path prefix. If there are none,
         /// the operation returns an empty list. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -7956,8 +8136,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified path prefix. If there are none,
         /// the operation returns an empty list. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -7985,8 +8165,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified path prefix. If there are none,
         /// the operation returns an empty list. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -8017,8 +8197,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified path prefix. If there are none,
         /// the operation returns an empty list. For more information about instance profiles,
-        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
@@ -8053,8 +8233,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified associated IAM role. If there
         /// are none, the operation returns an empty list. For more information about instance
-        /// profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -8080,8 +8260,8 @@ namespace Amazon.IdentityManagement
         /// <summary>
         /// Lists the instance profiles that have the specified associated IAM role. If there
         /// are none, the operation returns an empty list. For more information about instance
-        /// profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        /// profiles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -8954,14 +9134,30 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Lists the IAM roles that have the specified path prefix. If there are none, the operation
-        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// RoleLastUsed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a role, see <a>GetRole</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -8980,14 +9176,30 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Lists the IAM roles that have the specified path prefix. If there are none, the operation
-        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// RoleLastUsed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a role, see <a>GetRole</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9007,14 +9219,30 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Lists the IAM roles that have the specified path prefix. If there are none, the operation
-        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// RoleLastUsed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a role, see <a>GetRole</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9037,14 +9265,30 @@ namespace Amazon.IdentityManagement
 
         /// <summary>
         /// Lists the IAM roles that have the specified path prefix. If there are none, the operation
-        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>.
+        /// returns an empty list. For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>.
         /// 
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a role, see <a>GetRole</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// RoleLastUsed
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a role, see <a>GetRole</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9830,8 +10074,20 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a user, see <a>GetUser</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9856,8 +10112,20 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a user, see <a>GetUser</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9883,8 +10151,20 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a user, see <a>GetUser</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -9913,8 +10193,20 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// IAM resource-listing operations return a subset of the available attributes for the
-        /// resource. For example, this operation does not return tags, even though they are an
-        /// attribute of the returned object. To view all of the information for a user, see <a>GetUser</a>.
+        /// resource. This operation does not return the following attributes, even though they
+        /// are an attribute of the returned object:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// PermissionsBoundary
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Tags
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To view all of the information for a user, see <a>GetUser</a>.
         /// </para>
         ///  </note> 
         /// <para>
@@ -10104,8 +10396,9 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// A user can also have managed policies attached to it. To attach a managed policy to
-        /// a group, use <a>AttachGroupPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html">
+        /// <code>AttachGroupPolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10152,8 +10445,9 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// A user can also have managed policies attached to it. To attach a managed policy to
-        /// a group, use <a>AttachGroupPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// a group, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachGroupPolicy.html">
+        /// <code>AttachGroupPolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10209,7 +10503,7 @@ namespace Amazon.IdentityManagement
         /// 
         ///  
         /// <para>
-        /// You cannot set the boundary for a service-linked role. 
+        /// You cannot set the boundary for a service-linked role.
         /// </para>
         ///  <important> 
         /// <para>
@@ -10239,10 +10533,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePermissionsBoundary">REST API Reference for PutRolePermissionsBoundary Operation</seealso>
         PutRolePermissionsBoundaryResponse PutRolePermissionsBoundary(PutRolePermissionsBoundaryRequest request);
@@ -10258,7 +10553,7 @@ namespace Amazon.IdentityManagement
         /// 
         ///  
         /// <para>
-        /// You cannot set the boundary for a service-linked role. 
+        /// You cannot set the boundary for a service-linked role.
         /// </para>
         ///  <important> 
         /// <para>
@@ -10291,10 +10586,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePermissionsBoundary">REST API Reference for PutRolePermissionsBoundary Operation</seealso>
         Task<PutRolePermissionsBoundaryResponse> PutRolePermissionsBoundaryAsync(PutRolePermissionsBoundaryRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -10311,15 +10607,18 @@ namespace Amazon.IdentityManagement
         /// <para>
         /// When you embed an inline policy in a role, the inline policy is used as part of the
         /// role's access (permissions) policy. The role's trust policy is created at the same
-        /// time as the role, using <a>CreateRole</a>. You can update a role's trust policy using
-        /// <a>UpdateAssumeRolePolicy</a>. For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-        /// roles to delegate permissions and federate identities</a>.
+        /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">
+        /// <code>CreateRole</code> </a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html">
+        /// <code>UpdateAssumeRolePolicy</code> </a>. For more information about roles, see <a
+        /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM roles</a>
+        /// in the <i>IAM User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// A role can also have a managed policy attached to it. To attach a managed policy to
-        /// a role, use <a>AttachRolePolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html">
+        /// <code>AttachRolePolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10356,10 +10655,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePolicy">REST API Reference for PutRolePolicy Operation</seealso>
         PutRolePolicyResponse PutRolePolicy(PutRolePolicyRequest request);
@@ -10373,15 +10673,18 @@ namespace Amazon.IdentityManagement
         /// <para>
         /// When you embed an inline policy in a role, the inline policy is used as part of the
         /// role's access (permissions) policy. The role's trust policy is created at the same
-        /// time as the role, using <a>CreateRole</a>. You can update a role's trust policy using
-        /// <a>UpdateAssumeRolePolicy</a>. For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
-        /// roles to delegate permissions and federate identities</a>.
+        /// time as the role, using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">
+        /// <code>CreateRole</code> </a>. You can update a role's trust policy using <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html">
+        /// <code>UpdateAssumeRolePolicy</code> </a>. For more information about roles, see <a
+        /// href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM roles</a>
+        /// in the <i>IAM User Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// A role can also have a managed policy attached to it. To attach a managed policy to
-        /// a role, use <a>AttachRolePolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// a role, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html">
+        /// <code>AttachRolePolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10421,10 +10724,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/PutRolePolicy">REST API Reference for PutRolePolicy Operation</seealso>
         Task<PutRolePolicyResponse> PutRolePolicyAsync(PutRolePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -10524,8 +10828,9 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// An IAM user can also have a managed policy attached to it. To attach a managed policy
-        /// to a user, use <a>AttachUserPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// to a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html">
+        /// <code>AttachUserPolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10572,8 +10877,9 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// An IAM user can also have a managed policy attached to it. To attach a managed policy
-        /// to a user, use <a>AttachUserPolicy</a>. To create a new managed policy, use <a>CreatePolicy</a>.
-        /// For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+        /// to a user, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachUserPolicy.html">
+        /// <code>AttachUserPolicy</code> </a>. To create a new managed policy, use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">
+        /// <code>CreatePolicy</code> </a>. For information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
         /// policies and inline policies</a> in the <i>IAM User Guide</i>.
         /// </para>
         ///  
@@ -10696,9 +11002,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </important> 
         /// <para>
-        ///  For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>. For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemoveRoleFromInstanceProfile service method.</param>
@@ -10716,10 +11023,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveRoleFromInstanceProfile">REST API Reference for RemoveRoleFromInstanceProfile Operation</seealso>
         RemoveRoleFromInstanceProfileResponse RemoveRoleFromInstanceProfile(RemoveRoleFromInstanceProfileRequest request);
@@ -10738,9 +11046,10 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </important> 
         /// <para>
-        ///  For more information about IAM roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
-        /// with roles</a>. For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
-        /// instance profiles</a>.
+        ///  For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
+        /// roles</a> in the <i>IAM User Guide</i>. For more information about instance profiles,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html">Using
+        /// instance profiles</a> in the <i>IAM User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RemoveRoleFromInstanceProfile service method.</param>
@@ -10761,10 +11070,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/RemoveRoleFromInstanceProfile">REST API Reference for RemoveRoleFromInstanceProfile Operation</seealso>
         Task<RemoveRoleFromInstanceProfileResponse> RemoveRoleFromInstanceProfileAsync(RemoveRoleFromInstanceProfileRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -10879,6 +11189,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the ResyncMFADevice service method.</param>
         /// 
         /// <returns>The response from the ResyncMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.InvalidAuthenticationCodeException">
         /// The request was rejected because the authentication code was not recognized. The error
         /// message describes the specific error.
@@ -10915,6 +11229,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the ResyncMFADevice service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.InvalidAuthenticationCodeException">
         /// The request was rejected because the authentication code was not recognized. The error
         /// message describes the specific error.
@@ -11136,11 +11454,17 @@ namespace Amazon.IdentityManagement
         /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
         /// to paginate the results.
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+        /// The IAM policy simulator evaluates statements in the identity-based policy and the
+        /// inputs that you provide during simulation. The policy simulator results can differ
+        /// from your live Amazon Web Services environment. We recommend that you check your policies
+        /// against your live Amazon Web Services environment after testing using the policy simulator
+        /// to confirm that you have the desired results. For more information about using the
+        /// policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
         /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
         /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SimulateCustomPolicy service method.</param>
         /// 
@@ -11186,11 +11510,17 @@ namespace Amazon.IdentityManagement
         /// If the output is long, you can use <code>MaxItems</code> and <code>Marker</code> parameters
         /// to paginate the results.
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+        /// The IAM policy simulator evaluates statements in the identity-based policy and the
+        /// inputs that you provide during simulation. The policy simulator results can differ
+        /// from your live Amazon Web Services environment. We recommend that you check your policies
+        /// against your live Amazon Web Services environment after testing using the policy simulator
+        /// to confirm that you have the desired results. For more information about using the
+        /// policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
         /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
         /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SimulateCustomPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -11230,7 +11560,7 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You can also optionally include one resource-based policy to be evaluated with each
-        /// of the resources included in the simulation.
+        /// of the resources included in the simulation for IAM users only.
         /// </para>
         ///  
         /// <para>
@@ -11255,11 +11585,17 @@ namespace Amazon.IdentityManagement
         /// If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
         /// parameters to paginate the results.
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+        /// The IAM policy simulator evaluates statements in the identity-based policy and the
+        /// inputs that you provide during simulation. The policy simulator results can differ
+        /// from your live Amazon Web Services environment. We recommend that you check your policies
+        /// against your live Amazon Web Services environment after testing using the policy simulator
+        /// to confirm that you have the desired results. For more information about using the
+        /// policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
         /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
         /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SimulatePrincipalPolicy service method.</param>
         /// 
@@ -11297,7 +11633,7 @@ namespace Amazon.IdentityManagement
         ///  
         /// <para>
         /// You can also optionally include one resource-based policy to be evaluated with each
-        /// of the resources included in the simulation.
+        /// of the resources included in the simulation for IAM users only.
         /// </para>
         ///  
         /// <para>
@@ -11322,11 +11658,17 @@ namespace Amazon.IdentityManagement
         /// If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
         /// parameters to paginate the results.
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+        /// The IAM policy simulator evaluates statements in the identity-based policy and the
+        /// inputs that you provide during simulation. The policy simulator results can differ
+        /// from your live Amazon Web Services environment. We recommend that you check your policies
+        /// against your live Amazon Web Services environment after testing using the policy simulator
+        /// to confirm that you have the desired results. For more information about using the
+        /// policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
         /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
         /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SimulatePrincipalPolicy service method.</param>
         /// <param name="cancellationToken">
@@ -11652,7 +11994,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+        ///  <b>Access control</b> - Include tags in IAM identity-based and resource-based policies.
         /// You can use tags to restrict access to only an OIDC provider that has a specified
         /// tag attached. For examples of policies that show how to use tags to control access,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
@@ -11720,7 +12062,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+        ///  <b>Access control</b> - Include tags in IAM identity-based and resource-based policies.
         /// You can use tags to restrict access to only an OIDC provider that has a specified
         /// tag attached. For examples of policies that show how to use tags to control access,
         /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
@@ -12394,7 +12736,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+        ///  <b>Access control</b> - Include tags in IAM identity-based and resource-based policies.
         /// You can use tags to restrict access to only an IAM requesting user that has a specified
         /// tag attached. You can also restrict access to only those resources that have a certain
         /// tag attached. For examples of policies that show how to use tags to control access,
@@ -12470,7 +12812,7 @@ namespace Amazon.IdentityManagement
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+        ///  <b>Access control</b> - Include tags in IAM identity-based and resource-based policies.
         /// You can use tags to restrict access to only an IAM requesting user that has a specified
         /// tag attached. You can also restrict access to only those resources that have a certain
         /// tag attached. For examples of policies that show how to use tags to control access,
@@ -13316,10 +13658,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy">REST API Reference for UpdateAssumeRolePolicy Operation</seealso>
         UpdateAssumeRolePolicyResponse UpdateAssumeRolePolicy(UpdateAssumeRolePolicyRequest request);
@@ -13354,10 +13697,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateAssumeRolePolicy">REST API Reference for UpdateAssumeRolePolicy Operation</seealso>
         Task<UpdateAssumeRolePolicyResponse> UpdateAssumeRolePolicyAsync(UpdateAssumeRolePolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -13566,11 +13910,11 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
-        /// through our library of trusted certificate authorities (CAs) instead of using a certificate
-        /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
-        /// and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
-        /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
-        /// used for validation.
+        /// through our library of trusted root certificate authorities (CAs) instead of using
+        /// a certificate thumbprint to verify your IdP server certificate. These OIDC IdPs include
+        /// Auth0, GitHub, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
+        /// Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your configuration,
+        /// but is no longer used for validation.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -13618,11 +13962,11 @@ namespace Amazon.IdentityManagement
         ///  <note> 
         /// <para>
         /// Amazon Web Services secures communication with some OIDC identity providers (IdPs)
-        /// through our library of trusted certificate authorities (CAs) instead of using a certificate
-        /// thumbprint to verify your IdP server certificate. These OIDC IdPs include Google,
-        /// and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS) endpoint.
-        /// In these cases, your legacy thumbprint remains in your configuration, but is no longer
-        /// used for validation.
+        /// through our library of trusted root certificate authorities (CAs) instead of using
+        /// a certificate thumbprint to verify your IdP server certificate. These OIDC IdPs include
+        /// Auth0, GitHub, Google, and those that use an Amazon S3 bucket to host a JSON Web Key
+        /// Set (JWKS) endpoint. In these cases, your legacy thumbprint remains in your configuration,
+        /// but is no longer used for validation.
         /// </para>
         ///  </note> <note> 
         /// <para>
@@ -13671,10 +14015,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateRole">REST API Reference for UpdateRole Operation</seealso>
         UpdateRoleResponse UpdateRole(UpdateRoleRequest request);
@@ -13698,10 +14043,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateRole">REST API Reference for UpdateRole Operation</seealso>
         Task<UpdateRoleResponse> UpdateRoleAsync(UpdateRoleRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -13731,10 +14077,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateRoleDescription">REST API Reference for UpdateRoleDescription Operation</seealso>
         UpdateRoleDescriptionResponse UpdateRoleDescription(UpdateRoleDescriptionRequest request);
@@ -13764,10 +14111,11 @@ namespace Amazon.IdentityManagement
         /// The request processing has failed because of an unknown error, exception or failure.
         /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.UnmodifiableEntityException">
-        /// The request was rejected because only the service that depends on the service-linked
-        /// role can modify or delete the role on your behalf. The error message includes the
-        /// name of the service that depends on this service-linked role. You must request the
-        /// change through that service.
+        /// The request was rejected because service-linked roles are protected Amazon Web Services
+        /// resources. Only the service that depends on the service-linked role can modify or
+        /// delete the role on your behalf. The error message includes the name of the service
+        /// that depends on this service-linked role. You must request the change through that
+        /// service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/UpdateRoleDescription">REST API Reference for UpdateRoleDescription Operation</seealso>
         Task<UpdateRoleDescriptionResponse> UpdateRoleDescriptionAsync(UpdateRoleDescriptionRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -14420,6 +14768,10 @@ namespace Amazon.IdentityManagement
         /// <param name="request">Container for the necessary parameters to execute the UploadSigningCertificate service method.</param>
         /// 
         /// <returns>The response from the UploadSigningCertificate service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.DuplicateCertificateException">
         /// The request was rejected because the same certificate is associated with an IAM user
         /// in the account.
@@ -14486,6 +14838,10 @@ namespace Amazon.IdentityManagement
         /// </param>
         /// 
         /// <returns>The response from the UploadSigningCertificate service method, as returned by IdentityManagementService.</returns>
+        /// <exception cref="Amazon.IdentityManagement.Model.ConcurrentModificationException">
+        /// The request was rejected because multiple requests to change this object were submitted
+        /// simultaneously. Wait a few minutes and submit your request again.
+        /// </exception>
         /// <exception cref="Amazon.IdentityManagement.Model.DuplicateCertificateException">
         /// The request was rejected because the same certificate is associated with an IAM user
         /// in the account.

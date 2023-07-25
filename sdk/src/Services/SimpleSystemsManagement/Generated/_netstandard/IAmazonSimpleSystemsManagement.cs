@@ -46,7 +46,7 @@ namespace Amazon.SimpleSystemsManagement
     ///  <ul> <li> 
     /// <para>
     /// For information about each of the capabilities that comprise Systems Manager, see
-    /// <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems
+    /// <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/systems-manager-capabilities.html">Systems
     /// Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
     /// </para>
     ///  </li> <li> 
@@ -186,9 +186,7 @@ namespace Amazon.SimpleSystemsManagement
         /// again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
-        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
-        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
-        /// are the resource limits for OpsCenter?</a>.
+        /// The request caused OpsItems to exceed one or more quotas.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
         /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
@@ -438,7 +436,7 @@ namespace Amazon.SimpleSystemsManagement
         /// isn't running, then the association might instruct State Manager to start the service.
         /// </summary>
         /// <param name="instanceId">The managed node ID. <note>  <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association, use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version 2.0 or later will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code> parameter. </note></param>
-        /// <param name="name">The name of the SSM Command document or Automation runbook that contains the configuration information for the managed node. You can specify Amazon Web Services-predefined documents, documents you created, or a document that is shared with you from another account. For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For Amazon Web Services-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
+        /// <param name="name">The name of the SSM Command document or Automation runbook that contains the configuration information for the managed node. You can specify Amazon Web Services-predefined documents, documents you created, or a document that is shared with you from another Amazon Web Services account. For Systems Manager documents (SSM documents) that are shared with you from other Amazon Web Services accounts, you must specify the complete SSM document ARN, in the following format:  <code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code>  For example:  <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>  For Amazon Web Services-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -703,7 +701,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Web Services Systems Manager Documents</a> in the <i>Amazon Web Services Systems Manager
         /// User Guide</i>.
         /// </summary>
-        /// <param name="content">The content for the new SSM document in JSON or YAML format. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command. For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>. <ul> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (Amazon Web Services API)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document (Amazon Web Services CLI)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (API)</a>  </li> </ul></param>
+        /// <param name="content">The content for the new SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command. For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>. <ul> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (Amazon Web Services API)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document (Amazon Web Services CLI)</a>  </li> <li>  <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (API)</a>  </li> </ul></param>
         /// <param name="name">A name for the SSM document. <important> You can't use the following strings as document name prefixes. These are reserved by Amazon Web Services for use as document name prefixes: <ul> <li>  <code>aws</code>  </li> <li>  <code>amazon</code>  </li> <li>  <code>amzn</code>  </li> </ul> </important></param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -821,8 +819,8 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Creates a new OpsItem. You must have permission in Identity and Access Management
-        /// (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+        /// (IAM) to create a new OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+        /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -855,9 +853,7 @@ namespace Amazon.SimpleSystemsManagement
         /// again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
-        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
-        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
-        /// are the resource limits for OpsCenter?</a>.
+        /// The request caused OpsItems to exceed one or more quotas.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateOpsItem">REST API Reference for CreateOpsItem Operation</seealso>
         Task<CreateOpsItemResponse> CreateOpsItemAsync(CreateOpsItemRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
@@ -2105,22 +2101,22 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes one or more of your managed nodes, including information about the operating
-        /// system platform, the version of SSM Agent installed on the managed node, node status,
-        /// and so on.
+        /// Provides information about one or more of your managed nodes, including the operating
+        /// system platform, SSM Agent version, association status, and IP address. This operation
+        /// does not return information for nodes that are either Stopped or Terminated.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more managed node IDs, it returns information for those managed
+        /// If you specify one or more node IDs, the operation returns information for those managed
         /// nodes. If you don't specify node IDs, it returns information for all your managed
         /// nodes. If you specify a node ID that isn't valid or a node that you don't own, you
         /// receive an error.
         /// </para>
         ///  <note> 
         /// <para>
-        /// The <code>IamRole</code> field for this API operation is the Identity and Access Management
-        /// (IAM) role assigned to on-premises managed nodes. This call doesn't return the IAM
-        /// role for EC2 instances.
+        /// The <code>IamRole</code> field returned for this API operation is the Identity and
+        /// Access Management (IAM) role assigned to on-premises managed nodes. This operation
+        /// does not return the IAM role for EC2 instances.
         /// </para>
         ///  </note>
         /// </summary>
@@ -2171,22 +2167,22 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes one or more of your managed nodes, including information about the operating
-        /// system platform, the version of SSM Agent installed on the managed node, node status,
-        /// and so on.
+        /// Provides information about one or more of your managed nodes, including the operating
+        /// system platform, SSM Agent version, association status, and IP address. This operation
+        /// does not return information for nodes that are either Stopped or Terminated.
         /// 
         ///  
         /// <para>
-        /// If you specify one or more managed node IDs, it returns information for those managed
+        /// If you specify one or more node IDs, the operation returns information for those managed
         /// nodes. If you don't specify node IDs, it returns information for all your managed
         /// nodes. If you specify a node ID that isn't valid or a node that you don't own, you
         /// receive an error.
         /// </para>
         ///  <note> 
         /// <para>
-        /// The <code>IamRole</code> field for this API operation is the Identity and Access Management
-        /// (IAM) role assigned to on-premises managed nodes. This call doesn't return the IAM
-        /// role for EC2 instances.
+        /// The <code>IamRole</code> field returned for this API operation is the Identity and
+        /// Access Management (IAM) role assigned to on-premises managed nodes. This operation
+        /// does not return the IAM role for EC2 instances.
         /// </para>
         ///  </note>
         /// </summary>
@@ -2611,8 +2607,8 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Query a set of OpsItems. You must have permission in Identity and Access Management
-        /// (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+        /// (IAM) to query a list of OpsItems. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+        /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -3428,8 +3424,8 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// Get information about an OpsItem by using the ID. You must have permission in Identity
         /// and Access Management (IAM) to view information about an OpsItem. For more information,
-        /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+        /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+        /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -4510,9 +4506,7 @@ namespace Amazon.SimpleSystemsManagement
         /// again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
-        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
-        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
-        /// are the resource limits for OpsCenter?</a>.
+        /// The request caused OpsItems to exceed one or more quotas.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
         /// The specified OpsItem ID doesn't exist. Verify the ID and try again.
@@ -4681,9 +4675,9 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Shares a Amazon Web Services Systems Manager document (SSM document)publicly or privately.
-        /// If you share a document privately, you must specify the Amazon Web Services user account
-        /// IDs for those people who can use the document. If you share a document publicly, you
-        /// must specify <i>All</i> as the account ID.
+        /// If you share a document privately, you must specify the Amazon Web Services user IDs
+        /// for those people who can use the document. If you share a document publicly, you must
+        /// specify <i>All</i> as the account ID.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDocumentPermission service method.</param>
         /// <param name="cancellationToken">
@@ -4695,8 +4689,8 @@ namespace Amazon.SimpleSystemsManagement
         /// You can have at most 500 active SSM documents.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentPermissionLimitException">
-        /// The document can't be shared with more Amazon Web Services user accounts. You can
-        /// specify a maximum of 20 accounts per API operation to share a private document.
+        /// The document can't be shared with more Amazon Web Services accounts. You can specify
+        /// a maximum of 20 accounts per API operation to share a private document.
         /// 
         ///  
         /// <para>
@@ -5809,12 +5803,12 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         ///  
         /// <para>
-        /// In order to call this API operation, your Identity and Access Management (IAM) user
-        /// account, group, or role must be configured with permission to call the <a>DescribeAssociation</a>
-        /// API operation. If you don't have permission to call <code>DescribeAssociation</code>,
-        /// then you receive the following error: <code>An error occurred (AccessDeniedException)
-        /// when calling the UpdateAssociation operation: User: &lt;user_arn&gt; isn't authorized
-        /// to perform: ssm:DescribeAssociation on resource: &lt;resource_arn&gt;</code> 
+        /// In order to call this API operation, a user, group, or role must be granted permission
+        /// to call the <a>DescribeAssociation</a> API operation. If you don't have permission
+        /// to call <code>DescribeAssociation</code>, then you receive the following error: <code>An
+        /// error occurred (AccessDeniedException) when calling the UpdateAssociation operation:
+        /// User: &lt;user_arn&gt; isn't authorized to perform: ssm:DescribeAssociation on resource:
+        /// &lt;resource_arn&gt;</code> 
         /// </para>
         ///  <important> 
         /// <para>
@@ -6313,8 +6307,8 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Edit or change an OpsItem. You must have permission in Identity and Access Management
-        /// (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html">Getting
-        /// started with OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
+        /// (IAM) to update an OpsItem. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-setup.html">Set
+        /// up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.
         /// 
         ///  
         /// <para>
@@ -6346,9 +6340,7 @@ namespace Amazon.SimpleSystemsManagement
         /// again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemLimitExceededException">
-        /// The request caused OpsItems to exceed one or more quotas. For information about OpsItem
-        /// quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What
-        /// are the resource limits for OpsCenter?</a>.
+        /// The request caused OpsItems to exceed one or more quotas.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.OpsItemNotFoundException">
         /// The specified OpsItem ID doesn't exist. Verify the ID and try again.

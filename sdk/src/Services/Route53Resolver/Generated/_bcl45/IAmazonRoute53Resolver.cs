@@ -103,7 +103,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -118,7 +120,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/AssociateFirewallRuleGroup">REST API Reference for AssociateFirewallRuleGroup Operation</seealso>
         AssociateFirewallRuleGroupResponse AssociateFirewallRuleGroup(AssociateFirewallRuleGroupRequest request);
@@ -140,7 +143,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -155,7 +160,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/AssociateFirewallRuleGroup">REST API Reference for AssociateFirewallRuleGroup Operation</seealso>
         Task<AssociateFirewallRuleGroupResponse> AssociateFirewallRuleGroupAsync(AssociateFirewallRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -461,7 +467,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallDomainList">REST API Reference for CreateFirewallDomainList Operation</seealso>
         CreateFirewallDomainListResponse CreateFirewallDomainList(CreateFirewallDomainListRequest request);
@@ -493,7 +500,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallDomainList">REST API Reference for CreateFirewallDomainList Operation</seealso>
         Task<CreateFirewallDomainListResponse> CreateFirewallDomainListAsync(CreateFirewallDomainListRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -527,7 +535,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallRule">REST API Reference for CreateFirewallRule Operation</seealso>
         CreateFirewallRuleResponse CreateFirewallRule(CreateFirewallRuleRequest request);
@@ -561,7 +570,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallRule">REST API Reference for CreateFirewallRule Operation</seealso>
         Task<CreateFirewallRuleResponse> CreateFirewallRuleAsync(CreateFirewallRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -592,7 +602,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallRuleGroup">REST API Reference for CreateFirewallRuleGroup Operation</seealso>
         CreateFirewallRuleGroupResponse CreateFirewallRuleGroup(CreateFirewallRuleGroupRequest request);
@@ -623,10 +634,79 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateFirewallRuleGroup">REST API Reference for CreateFirewallRuleGroup Operation</seealso>
         Task<CreateFirewallRuleGroupResponse> CreateFirewallRuleGroupAsync(CreateFirewallRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateOutpostResolver
+
+
+        /// <summary>
+        /// Creates an Route 53 Resolver on an Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateOutpostResolver service method.</param>
+        /// 
+        /// <returns>The response from the CreateOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ServiceQuotaExceededException">
+        /// Fulfilling the request would cause one or more quotas to be exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateOutpostResolver">REST API Reference for CreateOutpostResolver Operation</seealso>
+        CreateOutpostResolverResponse CreateOutpostResolver(CreateOutpostResolverRequest request);
+
+
+
+        /// <summary>
+        /// Creates an Route 53 Resolver on an Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateOutpostResolver service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ServiceQuotaExceededException">
+        /// Fulfilling the request would cause one or more quotas to be exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/CreateOutpostResolver">REST API Reference for CreateOutpostResolver Operation</seealso>
+        Task<CreateOutpostResolverResponse> CreateOutpostResolverAsync(CreateOutpostResolverRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -930,7 +1010,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -960,7 +1042,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -1044,7 +1128,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -1056,7 +1142,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DeleteFirewallRuleGroup">REST API Reference for DeleteFirewallRuleGroup Operation</seealso>
         DeleteFirewallRuleGroupResponse DeleteFirewallRuleGroup(DeleteFirewallRuleGroupRequest request);
@@ -1077,7 +1164,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -1089,10 +1178,83 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DeleteFirewallRuleGroup">REST API Reference for DeleteFirewallRuleGroup Operation</seealso>
         Task<DeleteFirewallRuleGroupResponse> DeleteFirewallRuleGroupAsync(DeleteFirewallRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteOutpostResolver
+
+
+        /// <summary>
+        /// Deletes a Resolver on the Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteOutpostResolver service method.</param>
+        /// 
+        /// <returns>The response from the DeleteOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DeleteOutpostResolver">REST API Reference for DeleteOutpostResolver Operation</seealso>
+        DeleteOutpostResolverResponse DeleteOutpostResolver(DeleteOutpostResolverRequest request);
+
+
+
+        /// <summary>
+        /// Deletes a Resolver on the Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteOutpostResolver service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DeleteOutpostResolver">REST API Reference for DeleteOutpostResolver Operation</seealso>
+        Task<DeleteOutpostResolverResponse> DeleteOutpostResolverAsync(DeleteOutpostResolverRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1355,7 +1517,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -1367,7 +1531,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DisassociateFirewallRuleGroup">REST API Reference for DisassociateFirewallRuleGroup Operation</seealso>
         DisassociateFirewallRuleGroupResponse DisassociateFirewallRuleGroup(DisassociateFirewallRuleGroupRequest request);
@@ -1389,7 +1554,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -1401,7 +1568,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/DisassociateFirewallRuleGroup">REST API Reference for DisassociateFirewallRuleGroup Operation</seealso>
         Task<DisassociateFirewallRuleGroupResponse> DisassociateFirewallRuleGroupAsync(DisassociateFirewallRuleGroupRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -1680,7 +1848,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetFirewallConfig">REST API Reference for GetFirewallConfig Operation</seealso>
         GetFirewallConfigResponse GetFirewallConfig(GetFirewallConfigRequest request);
@@ -1711,7 +1880,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetFirewallConfig">REST API Reference for GetFirewallConfig Operation</seealso>
         Task<GetFirewallConfigResponse> GetFirewallConfigAsync(GetFirewallConfigRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -1909,7 +2079,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetFirewallRuleGroupPolicy">REST API Reference for GetFirewallRuleGroupPolicy Operation</seealso>
         GetFirewallRuleGroupPolicyResponse GetFirewallRuleGroupPolicy(GetFirewallRuleGroupPolicyRequest request);
@@ -1941,10 +2112,75 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetFirewallRuleGroupPolicy">REST API Reference for GetFirewallRuleGroupPolicy Operation</seealso>
         Task<GetFirewallRuleGroupPolicyResponse> GetFirewallRuleGroupPolicyAsync(GetFirewallRuleGroupPolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetOutpostResolver
+
+
+        /// <summary>
+        /// Gets information about a specified Resolver on the Outpost, such as its instance count
+        /// and type, name, and the current status of the Resolver.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOutpostResolver service method.</param>
+        /// 
+        /// <returns>The response from the GetOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetOutpostResolver">REST API Reference for GetOutpostResolver Operation</seealso>
+        GetOutpostResolverResponse GetOutpostResolver(GetOutpostResolverRequest request);
+
+
+
+        /// <summary>
+        /// Gets information about a specified Resolver on the Outpost, such as its instance count
+        /// and type, name, and the current status of the Resolver.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetOutpostResolver service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetOutpostResolver">REST API Reference for GetOutpostResolver Operation</seealso>
+        Task<GetOutpostResolverResponse> GetOutpostResolverAsync(GetOutpostResolverRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1952,7 +2188,7 @@ namespace Amazon.Route53Resolver
 
 
         /// <summary>
-        /// Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC
+        /// Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC
         /// from Amazon Virtual Private Cloud.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResolverConfig service method.</param>
@@ -1974,13 +2210,17 @@ namespace Amazon.Route53Resolver
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetResolverConfig">REST API Reference for GetResolverConfig Operation</seealso>
         GetResolverConfigResponse GetResolverConfig(GetResolverConfigRequest request);
 
 
 
         /// <summary>
-        /// Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC
+        /// Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC
         /// from Amazon Virtual Private Cloud.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetResolverConfig service method.</param>
@@ -2004,6 +2244,10 @@ namespace Amazon.Route53Resolver
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/GetResolverConfig">REST API Reference for GetResolverConfig Operation</seealso>
         Task<GetResolverConfigResponse> GetResolverConfigAsync(GetResolverConfigRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2456,6 +2700,10 @@ namespace Amazon.Route53Resolver
         /// <param name="request">Container for the necessary parameters to execute the GetResolverRulePolicy service method.</param>
         /// 
         /// <returns>The response from the GetResolverRulePolicy service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
         /// </exception>
@@ -2482,6 +2730,10 @@ namespace Amazon.Route53Resolver
         /// </param>
         /// 
         /// <returns>The response from the GetResolverRulePolicy service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
         /// </exception>
@@ -2531,7 +2783,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -2546,7 +2800,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ImportFirewallDomains">REST API Reference for ImportFirewallDomains Operation</seealso>
         ImportFirewallDomainsResponse ImportFirewallDomains(ImportFirewallDomainsRequest request);
@@ -2588,7 +2843,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -2603,7 +2860,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ImportFirewallDomains">REST API Reference for ImportFirewallDomains Operation</seealso>
         Task<ImportFirewallDomainsResponse> ImportFirewallDomainsAsync(ImportFirewallDomainsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2637,7 +2895,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallConfigs">REST API Reference for ListFirewallConfigs Operation</seealso>
         ListFirewallConfigsResponse ListFirewallConfigs(ListFirewallConfigsRequest request);
@@ -2671,7 +2930,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallConfigs">REST API Reference for ListFirewallConfigs Operation</seealso>
         Task<ListFirewallConfigsResponse> ListFirewallConfigsAsync(ListFirewallConfigsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2706,7 +2966,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallDomainLists">REST API Reference for ListFirewallDomainLists Operation</seealso>
         ListFirewallDomainListsResponse ListFirewallDomainLists(ListFirewallDomainListsRequest request);
@@ -2741,7 +3002,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallDomainLists">REST API Reference for ListFirewallDomainLists Operation</seealso>
         Task<ListFirewallDomainListsResponse> ListFirewallDomainListsAsync(ListFirewallDomainListsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2778,7 +3040,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallDomains">REST API Reference for ListFirewallDomains Operation</seealso>
         ListFirewallDomainsResponse ListFirewallDomains(ListFirewallDomainsRequest request);
@@ -2815,7 +3078,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallDomains">REST API Reference for ListFirewallDomains Operation</seealso>
         Task<ListFirewallDomainsResponse> ListFirewallDomainsAsync(ListFirewallDomainsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2849,7 +3113,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRuleGroupAssociations">REST API Reference for ListFirewallRuleGroupAssociations Operation</seealso>
         ListFirewallRuleGroupAssociationsResponse ListFirewallRuleGroupAssociations(ListFirewallRuleGroupAssociationsRequest request);
@@ -2883,7 +3148,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRuleGroupAssociations">REST API Reference for ListFirewallRuleGroupAssociations Operation</seealso>
         Task<ListFirewallRuleGroupAssociationsResponse> ListFirewallRuleGroupAssociationsAsync(ListFirewallRuleGroupAssociationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2917,7 +3183,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRuleGroups">REST API Reference for ListFirewallRuleGroups Operation</seealso>
         ListFirewallRuleGroupsResponse ListFirewallRuleGroups(ListFirewallRuleGroupsRequest request);
@@ -2951,7 +3218,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRuleGroups">REST API Reference for ListFirewallRuleGroups Operation</seealso>
         Task<ListFirewallRuleGroupsResponse> ListFirewallRuleGroupsAsync(ListFirewallRuleGroupsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -2989,7 +3257,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRules">REST API Reference for ListFirewallRules Operation</seealso>
         ListFirewallRulesResponse ListFirewallRules(ListFirewallRulesRequest request);
@@ -3027,10 +3296,75 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListFirewallRules">REST API Reference for ListFirewallRules Operation</seealso>
         Task<ListFirewallRulesResponse> ListFirewallRulesAsync(ListFirewallRulesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ListOutpostResolvers
+
+
+        /// <summary>
+        /// Lists all the Resolvers on Outposts that were created using the current Amazon Web
+        /// Services account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOutpostResolvers service method.</param>
+        /// 
+        /// <returns>The response from the ListOutpostResolvers service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListOutpostResolvers">REST API Reference for ListOutpostResolvers Operation</seealso>
+        ListOutpostResolversResponse ListOutpostResolvers(ListOutpostResolversRequest request);
+
+
+
+        /// <summary>
+        /// Lists all the Resolvers on Outposts that were created using the current Amazon Web
+        /// Services account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListOutpostResolvers service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListOutpostResolvers service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListOutpostResolvers">REST API Reference for ListOutpostResolvers Operation</seealso>
+        Task<ListOutpostResolversResponse> ListOutpostResolversAsync(ListOutpostResolversRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -3038,7 +3372,7 @@ namespace Amazon.Route53Resolver
 
 
         /// <summary>
-        /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
+        /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
         /// the configurations to manage DNS resolution behavior for your VPCs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListResolverConfigs service method.</param>
@@ -3064,13 +3398,17 @@ namespace Amazon.Route53Resolver
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListResolverConfigs">REST API Reference for ListResolverConfigs Operation</seealso>
         ListResolverConfigsResponse ListResolverConfigs(ListResolverConfigsRequest request);
 
 
 
         /// <summary>
-        /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
+        /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
         /// the configurations to manage DNS resolution behavior for your VPCs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListResolverConfigs service method.</param>
@@ -3098,6 +3436,10 @@ namespace Amazon.Route53Resolver
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/ListResolverConfigs">REST API Reference for ListResolverConfigs Operation</seealso>
         Task<ListResolverConfigsResponse> ListResolverConfigsAsync(ListResolverConfigsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3647,7 +3989,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/PutFirewallRuleGroupPolicy">REST API Reference for PutFirewallRuleGroupPolicy Operation</seealso>
         PutFirewallRuleGroupPolicyResponse PutFirewallRuleGroupPolicy(PutFirewallRuleGroupPolicyRequest request);
@@ -3679,7 +4022,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/PutFirewallRuleGroupPolicy">REST API Reference for PutFirewallRuleGroupPolicy Operation</seealso>
         Task<PutFirewallRuleGroupPolicyResponse> PutFirewallRuleGroupPolicyAsync(PutFirewallRuleGroupPolicyRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -3767,6 +4111,10 @@ namespace Amazon.Route53Resolver
         /// <param name="request">Container for the necessary parameters to execute the PutResolverRulePolicy service method.</param>
         /// 
         /// <returns>The response from the PutResolverRulePolicy service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
         /// </exception>
@@ -3795,6 +4143,10 @@ namespace Amazon.Route53Resolver
         /// </param>
         /// 
         /// <returns>The response from the PutResolverRulePolicy service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
         /// </exception>
@@ -3964,7 +4316,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallConfig">REST API Reference for UpdateFirewallConfig Operation</seealso>
         UpdateFirewallConfigResponse UpdateFirewallConfig(UpdateFirewallConfigRequest request);
@@ -3995,7 +4348,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallConfig">REST API Reference for UpdateFirewallConfig Operation</seealso>
         Task<UpdateFirewallConfigResponse> UpdateFirewallConfigAsync(UpdateFirewallConfigRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4016,7 +4370,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4031,7 +4387,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallDomains">REST API Reference for UpdateFirewallDomains Operation</seealso>
         UpdateFirewallDomainsResponse UpdateFirewallDomains(UpdateFirewallDomainsRequest request);
@@ -4052,7 +4409,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4067,7 +4426,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallDomains">REST API Reference for UpdateFirewallDomains Operation</seealso>
         Task<UpdateFirewallDomainsResponse> UpdateFirewallDomainsAsync(UpdateFirewallDomainsRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4088,7 +4448,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4100,7 +4462,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallRule">REST API Reference for UpdateFirewallRule Operation</seealso>
         UpdateFirewallRuleResponse UpdateFirewallRule(UpdateFirewallRuleRequest request);
@@ -4121,7 +4484,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4133,7 +4498,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallRule">REST API Reference for UpdateFirewallRule Operation</seealso>
         Task<UpdateFirewallRuleResponse> UpdateFirewallRuleAsync(UpdateFirewallRuleRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4155,7 +4521,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4167,7 +4535,8 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallRuleGroupAssociation">REST API Reference for UpdateFirewallRuleGroupAssociation Operation</seealso>
         UpdateFirewallRuleGroupAssociationResponse UpdateFirewallRuleGroupAssociation(UpdateFirewallRuleGroupAssociationRequest request);
@@ -4189,7 +4558,9 @@ namespace Amazon.Route53Resolver
         /// Resolver operation.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
-        /// 
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
         /// We encountered an unknown error. Try again in a few minutes.
@@ -4201,10 +4572,91 @@ namespace Amazon.Route53Resolver
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
-        /// 
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateFirewallRuleGroupAssociation">REST API Reference for UpdateFirewallRuleGroupAssociation Operation</seealso>
         Task<UpdateFirewallRuleGroupAssociationResponse> UpdateFirewallRuleGroupAssociationAsync(UpdateFirewallRuleGroupAssociationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateOutpostResolver
+
+
+        /// <summary>
+        /// You can use <code>UpdateOutpostResolver</code> to update the instance count, type,
+        /// or name of a Resolver on an Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOutpostResolver service method.</param>
+        /// 
+        /// <returns>The response from the UpdateOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ServiceQuotaExceededException">
+        /// Fulfilling the request would cause one or more quotas to be exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateOutpostResolver">REST API Reference for UpdateOutpostResolver Operation</seealso>
+        UpdateOutpostResolverResponse UpdateOutpostResolver(UpdateOutpostResolverRequest request);
+
+
+
+        /// <summary>
+        /// You can use <code>UpdateOutpostResolver</code> to update the instance count, type,
+        /// or name of a Resolver on an Outpost.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateOutpostResolver service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateOutpostResolver service method, as returned by Route53Resolver.</returns>
+        /// <exception cref="Amazon.Route53Resolver.Model.AccessDeniedException">
+        /// The current account doesn't have the IAM permissions required to perform the specified
+        /// Resolver operation.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ConflictException">
+        /// The requested state transition isn't valid. For example, you can't delete a firewall
+        /// domain list if it is in the process of being deleted, or you can't import domains
+        /// into a domain list that is in the process of being deleted.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.InternalServiceErrorException">
+        /// We encountered an unknown error. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ResourceNotFoundException">
+        /// The specified resource doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ServiceQuotaExceededException">
+        /// Fulfilling the request would cause one or more quotas to be exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
+        /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateOutpostResolver">REST API Reference for UpdateOutpostResolver Operation</seealso>
+        Task<UpdateOutpostResolverResponse> UpdateOutpostResolverAsync(UpdateOutpostResolverRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -4212,7 +4664,7 @@ namespace Amazon.Route53Resolver
 
 
         /// <summary>
-        /// Updates the behavior configuration of Route 53 Resolver behavior for a single VPC
+        /// Updates the behavior configuration of Route 53 Resolver behavior for a single VPC
         /// from Amazon Virtual Private Cloud.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateResolverConfig service method.</param>
@@ -4243,13 +4695,17 @@ namespace Amazon.Route53Resolver
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
         /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateResolverConfig">REST API Reference for UpdateResolverConfig Operation</seealso>
         UpdateResolverConfigResponse UpdateResolverConfig(UpdateResolverConfigRequest request);
 
 
 
         /// <summary>
-        /// Updates the behavior configuration of Route 53 Resolver behavior for a single VPC
+        /// Updates the behavior configuration of Route 53 Resolver behavior for a single VPC
         /// from Amazon Virtual Private Cloud.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateResolverConfig service method.</param>
@@ -4282,6 +4738,10 @@ namespace Amazon.Route53Resolver
         /// </exception>
         /// <exception cref="Amazon.Route53Resolver.Model.ThrottlingException">
         /// The request was throttled. Try again in a few minutes.
+        /// </exception>
+        /// <exception cref="Amazon.Route53Resolver.Model.ValidationException">
+        /// You have provided an invalid command. Supported values are <code>ADD</code>, <code>REMOVE</code>,
+        /// or <code>REPLACE</code> a domain.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/route53resolver-2018-04-01/UpdateResolverConfig">REST API Reference for UpdateResolverConfig Operation</seealso>
         Task<UpdateResolverConfigResponse> UpdateResolverConfigAsync(UpdateResolverConfigRequest request, CancellationToken cancellationToken = default(CancellationToken));
@@ -4360,7 +4820,9 @@ namespace Amazon.Route53Resolver
 
 
         /// <summary>
-        /// Updates the name of an inbound or an outbound Resolver endpoint.
+        /// Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+        /// You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated
+        /// to other type.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateResolverEndpoint service method.</param>
         /// 
@@ -4386,7 +4848,9 @@ namespace Amazon.Route53Resolver
 
 
         /// <summary>
-        /// Updates the name of an inbound or an outbound Resolver endpoint.
+        /// Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+        /// You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated
+        /// to other type.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateResolverEndpoint service method.</param>
         /// <param name="cancellationToken">

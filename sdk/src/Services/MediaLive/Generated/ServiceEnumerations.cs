@@ -11473,6 +11473,88 @@ namespace Amazon.MediaLive
 
 
     /// <summary>
+    /// Constants used for properties of type NielsenWatermarkTimezones.
+    /// </summary>
+    public class NielsenWatermarkTimezones : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AMERICA_PUERTO_RICO for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones AMERICA_PUERTO_RICO = new NielsenWatermarkTimezones("AMERICA_PUERTO_RICO");
+        /// <summary>
+        /// Constant US_ALASKA for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_ALASKA = new NielsenWatermarkTimezones("US_ALASKA");
+        /// <summary>
+        /// Constant US_ARIZONA for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_ARIZONA = new NielsenWatermarkTimezones("US_ARIZONA");
+        /// <summary>
+        /// Constant US_CENTRAL for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_CENTRAL = new NielsenWatermarkTimezones("US_CENTRAL");
+        /// <summary>
+        /// Constant US_EASTERN for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_EASTERN = new NielsenWatermarkTimezones("US_EASTERN");
+        /// <summary>
+        /// Constant US_HAWAII for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_HAWAII = new NielsenWatermarkTimezones("US_HAWAII");
+        /// <summary>
+        /// Constant US_MOUNTAIN for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_MOUNTAIN = new NielsenWatermarkTimezones("US_MOUNTAIN");
+        /// <summary>
+        /// Constant US_PACIFIC for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_PACIFIC = new NielsenWatermarkTimezones("US_PACIFIC");
+        /// <summary>
+        /// Constant US_SAMOA for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones US_SAMOA = new NielsenWatermarkTimezones("US_SAMOA");
+        /// <summary>
+        /// Constant UTC for NielsenWatermarkTimezones
+        /// </summary>
+        public static readonly NielsenWatermarkTimezones UTC = new NielsenWatermarkTimezones("UTC");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public NielsenWatermarkTimezones(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static NielsenWatermarkTimezones FindValue(string value)
+        {
+            return FindValue<NielsenWatermarkTimezones>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator NielsenWatermarkTimezones(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type OfferingDurationUnits.
     /// </summary>
     public class OfferingDurationUnits : ConstantClass
@@ -13722,6 +13804,106 @@ namespace Amazon.MediaLive
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator TemporalFilterStrength(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ThumbnailState.
+    /// </summary>
+    public class ThumbnailState : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AUTO for ThumbnailState
+        /// </summary>
+        public static readonly ThumbnailState AUTO = new ThumbnailState("AUTO");
+        /// <summary>
+        /// Constant DISABLED for ThumbnailState
+        /// </summary>
+        public static readonly ThumbnailState DISABLED = new ThumbnailState("DISABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ThumbnailState(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ThumbnailState FindValue(string value)
+        {
+            return FindValue<ThumbnailState>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ThumbnailState(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type ThumbnailType.
+    /// </summary>
+    public class ThumbnailType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant CURRENT_ACTIVE for ThumbnailType
+        /// </summary>
+        public static readonly ThumbnailType CURRENT_ACTIVE = new ThumbnailType("CURRENT_ACTIVE");
+        /// <summary>
+        /// Constant UNSPECIFIED for ThumbnailType
+        /// </summary>
+        public static readonly ThumbnailType UNSPECIFIED = new ThumbnailType("UNSPECIFIED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ThumbnailType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ThumbnailType FindValue(string value)
+        {
+            return FindValue<ThumbnailType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ThumbnailType(string value)
         {
             return FindValue(value);
         }

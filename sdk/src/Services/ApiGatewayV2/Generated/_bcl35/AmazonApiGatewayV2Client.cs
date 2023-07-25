@@ -97,8 +97,7 @@ namespace Amazon.ApiGatewayV2
         /// </summary>
         /// <param name="config">The AmazonApiGatewayV2Client Configuration Object</param>
         public AmazonApiGatewayV2Client(AmazonApiGatewayV2Config config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonApiGatewayV2Client with AWS Credentials
         /// </summary>
@@ -1759,7 +1758,7 @@ namespace Amazon.ApiGatewayV2
         #region  DeleteRouteRequestParameter
 
         /// <summary>
-        /// Deletes a route request parameter.
+        /// Deletes a route request parameter. Supported only for WebSocket APIs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteRouteRequestParameter service method.</param>
         /// 

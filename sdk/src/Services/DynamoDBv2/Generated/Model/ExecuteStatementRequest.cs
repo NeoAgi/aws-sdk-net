@@ -46,7 +46,8 @@ namespace Amazon.DynamoDBv2.Model
     /// A single <code>SELECT</code> statement response can return up to the maximum number
     /// of items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply
     /// any filtering to the results using <code>WHERE</code> clause). If <code>LastEvaluatedKey</code>
-    /// is present in the response, you need to paginate the result set.
+    /// is present in the response, you need to paginate the result set. If <code>NextToken</code>
+    /// is present, you need to paginate the result set and include <code>NextToken</code>.
     /// </para>
     /// </summary>
     public partial class ExecuteStatementRequest : AmazonDynamoDBRequest
@@ -56,6 +57,7 @@ namespace Amazon.DynamoDBv2.Model
         private string _nextToken;
         private List<AttributeValue> _parameters = new List<AttributeValue>();
         private ReturnConsumedCapacity _returnConsumedCapacity;
+        private ReturnValuesOnConditionCheckFailure _returnValuesOnConditionCheckFailure;
         private string _statement;
 
         /// <summary>
@@ -155,6 +157,31 @@ namespace Amazon.DynamoDBv2.Model
         internal bool IsSetReturnConsumedCapacity()
         {
             return this._returnConsumedCapacity != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReturnValuesOnConditionCheckFailure. 
+        /// <para>
+        /// An optional parameter that returns the item attributes for an <code>ExecuteStatement</code>
+        /// operation that failed a condition check.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is no additional cost associated with requesting a return value aside from the
+        /// small network and processing overhead of receiving a larger response. No read capacity
+        /// units are consumed.
+        /// </para>
+        /// </summary>
+        public ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure
+        {
+            get { return this._returnValuesOnConditionCheckFailure; }
+            set { this._returnValuesOnConditionCheckFailure = value; }
+        }
+
+        // Check to see if ReturnValuesOnConditionCheckFailure property is set
+        internal bool IsSetReturnValuesOnConditionCheckFailure()
+        {
+            return this._returnValuesOnConditionCheckFailure != null;
         }
 
         /// <summary>

@@ -45,6 +45,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(CanvasAppSettings requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetModelRegisterSettings())
+            {
+                context.Writer.WritePropertyName("ModelRegisterSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = ModelRegisterSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.ModelRegisterSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetTimeSeriesForecastingSettings())
             {
                 context.Writer.WritePropertyName("TimeSeriesForecastingSettings");
@@ -52,6 +63,17 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
 
                 var marshaller = TimeSeriesForecastingSettingsMarshaller.Instance;
                 marshaller.Marshall(requestObject.TimeSeriesForecastingSettings, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
+            if(requestObject.IsSetWorkspaceSettings())
+            {
+                context.Writer.WritePropertyName("WorkspaceSettings");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = WorkspaceSettingsMarshaller.Instance;
+                marshaller.Marshall(requestObject.WorkspaceSettings, context);
 
                 context.Writer.WriteObjectEnd();
             }

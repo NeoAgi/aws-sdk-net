@@ -38,7 +38,7 @@ namespace Amazon.LexRuntimeV2
     /// <summary>
     /// Implementation for accessing LexRuntimeV2
     ///
-    /// 
+    /// This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.
     /// </summary>
     public partial class AmazonLexRuntimeV2Client : AmazonServiceClient, IAmazonLexRuntimeV2
     {
@@ -99,7 +99,7 @@ namespace Amazon.LexRuntimeV2
         /// </summary>
         /// <param name="config">The AmazonLexRuntimeV2Client Configuration Object</param>
         public AmazonLexRuntimeV2Client(AmazonLexRuntimeV2Config config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
         /// <summary>
         /// Constructs AmazonLexRuntimeV2Client with AWS Credentials

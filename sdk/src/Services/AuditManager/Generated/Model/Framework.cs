@@ -71,8 +71,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property ComplianceType. 
         /// <para>
-        ///  The compliance type that the new custom framework supports, such as CIS or HIPAA.
-        /// 
+        ///  The compliance type that the framework supports, such as CIS or HIPAA. 
         /// </para>
         /// </summary>
         [AWSProperty(Max=100)]
@@ -110,7 +109,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property ControlSources. 
         /// <para>
-        ///  The sources that Audit Manager collects evidence from for the control. 
+        ///  The control data sources where Audit Manager collects evidence from.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -147,7 +146,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property CreatedBy. 
         /// <para>
-        ///  The IAM user or role that created the framework. 
+        ///  The user or role that created the framework. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -222,7 +221,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property LastUpdatedBy. 
         /// <para>
-        ///  The IAM user or role that most recently updated the framework. 
+        ///  The user or role that most recently updated the framework. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -298,7 +297,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
-        ///  The framework type, such as a custom framework or a standard framework. 
+        ///  Specifies whether the framework is a standard framework or a custom framework.
         /// </para>
         /// </summary>
         public FrameworkType Type

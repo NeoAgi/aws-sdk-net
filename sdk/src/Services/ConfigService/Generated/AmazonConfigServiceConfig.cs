@@ -32,16 +32,26 @@ namespace Amazon.ConfigService
     public partial class AmazonConfigServiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.34");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Config Service";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonConfigServiceConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonConfigServiceDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Config Service";
             this.AuthenticationServiceName = "config";
             this.EndpointProvider = new AmazonConfigServiceEndpointProvider();
         }

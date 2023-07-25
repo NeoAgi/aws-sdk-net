@@ -124,6 +124,14 @@ namespace Amazon.LexModelsV2.Model
         }
 
         /// <summary>
+        /// Paginator for ListIntentMetrics operation
+        ///</summary>
+        public IListIntentMetricsPaginator ListIntentMetrics(ListIntentMetricsRequest request) 
+        {
+            return new ListIntentMetricsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListIntents operation
         ///</summary>
         public IListIntentsPaginator ListIntents(ListIntentsRequest request) 
@@ -132,11 +140,35 @@ namespace Amazon.LexModelsV2.Model
         }
 
         /// <summary>
+        /// Paginator for ListIntentStageMetrics operation
+        ///</summary>
+        public IListIntentStageMetricsPaginator ListIntentStageMetrics(ListIntentStageMetricsRequest request) 
+        {
+            return new ListIntentStageMetricsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for ListRecommendedIntents operation
         ///</summary>
         public IListRecommendedIntentsPaginator ListRecommendedIntents(ListRecommendedIntentsRequest request) 
         {
             return new ListRecommendedIntentsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListSessionAnalyticsData operation
+        ///</summary>
+        public IListSessionAnalyticsDataPaginator ListSessionAnalyticsData(ListSessionAnalyticsDataRequest request) 
+        {
+            return new ListSessionAnalyticsDataPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListSessionMetrics operation
+        ///</summary>
+        public IListSessionMetricsPaginator ListSessionMetrics(ListSessionMetricsRequest request) 
+        {
+            return new ListSessionMetricsPaginator(this.client, request);
         }
 
         /// <summary>
@@ -153,6 +185,54 @@ namespace Amazon.LexModelsV2.Model
         public IListSlotTypesPaginator ListSlotTypes(ListSlotTypesRequest request) 
         {
             return new ListSlotTypesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListTestExecutionResultItems operation
+        ///</summary>
+        public IListTestExecutionResultItemsPaginator ListTestExecutionResultItems(ListTestExecutionResultItemsRequest request) 
+        {
+            return new ListTestExecutionResultItemsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListTestExecutions operation
+        ///</summary>
+        public IListTestExecutionsPaginator ListTestExecutions(ListTestExecutionsRequest request) 
+        {
+            return new ListTestExecutionsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListTestSetRecords operation
+        ///</summary>
+        public IListTestSetRecordsPaginator ListTestSetRecords(ListTestSetRecordsRequest request) 
+        {
+            return new ListTestSetRecordsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListTestSets operation
+        ///</summary>
+        public IListTestSetsPaginator ListTestSets(ListTestSetsRequest request) 
+        {
+            return new ListTestSetsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListUtteranceAnalyticsData operation
+        ///</summary>
+        public IListUtteranceAnalyticsDataPaginator ListUtteranceAnalyticsData(ListUtteranceAnalyticsDataRequest request) 
+        {
+            return new ListUtteranceAnalyticsDataPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for ListUtteranceMetrics operation
+        ///</summary>
+        public IListUtteranceMetricsPaginator ListUtteranceMetrics(ListUtteranceMetricsRequest request) 
+        {
+            return new ListUtteranceMetricsPaginator(this.client, request);
         }
     }
 }

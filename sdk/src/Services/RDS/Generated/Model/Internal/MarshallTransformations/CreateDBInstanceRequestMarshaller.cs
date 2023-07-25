@@ -127,6 +127,10 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("DBSubnetGroupName", StringUtils.FromString(publicRequest.DBSubnetGroupName));
                 }
+                if(publicRequest.IsSetDBSystemId())
+                {
+                    request.Parameters.Add("DBSystemId", StringUtils.FromString(publicRequest.DBSystemId));
+                }
                 if(publicRequest.IsSetDeletionProtection())
                 {
                     request.Parameters.Add("DeletionProtection", StringUtils.FromBool(publicRequest.DeletionProtection));
@@ -135,9 +139,30 @@ namespace Amazon.RDS.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("Domain", StringUtils.FromString(publicRequest.Domain));
                 }
+                if(publicRequest.IsSetDomainAuthSecretArn())
+                {
+                    request.Parameters.Add("DomainAuthSecretArn", StringUtils.FromString(publicRequest.DomainAuthSecretArn));
+                }
+                if(publicRequest.IsSetDomainDnsIps())
+                {
+                    int publicRequestlistValueIndex = 1;
+                    foreach(var publicRequestlistValue in publicRequest.DomainDnsIps)
+                    {
+                        request.Parameters.Add("DomainDnsIps" + "." + "member" + "." + publicRequestlistValueIndex, StringUtils.FromString(publicRequestlistValue));
+                        publicRequestlistValueIndex++;
+                    }
+                }
+                if(publicRequest.IsSetDomainFqdn())
+                {
+                    request.Parameters.Add("DomainFqdn", StringUtils.FromString(publicRequest.DomainFqdn));
+                }
                 if(publicRequest.IsSetDomainIAMRoleName())
                 {
                     request.Parameters.Add("DomainIAMRoleName", StringUtils.FromString(publicRequest.DomainIAMRoleName));
+                }
+                if(publicRequest.IsSetDomainOu())
+                {
+                    request.Parameters.Add("DomainOu", StringUtils.FromString(publicRequest.DomainOu));
                 }
                 if(publicRequest.IsSetEnableCloudwatchLogsExports())
                 {

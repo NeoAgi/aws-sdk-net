@@ -42,9 +42,10 @@ namespace Amazon.WAFV2.Model
     ///  <note> 
     /// <para>
     /// You are charged additional fees when you use the WAF Bot Control managed rule group
-    /// <code>AWSManagedRulesBotControlRuleSet</code> or the WAF Fraud Control account takeover
-    /// prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>. For more
-    /// information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.
+    /// <code>AWSManagedRulesBotControlRuleSet</code>, the WAF Fraud Control account takeover
+    /// prevention (ATP) managed rule group <code>AWSManagedRulesATPRuleSet</code>, or the
+    /// WAF Fraud Control account creation fraud prevention (ACFP) managed rule group <code>AWSManagedRulesACFPRuleSet</code>.
+    /// For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF Pricing</a>.
     /// </para>
     ///  </note>
     /// </summary>
@@ -91,11 +92,31 @@ namespace Amazon.WAFV2.Model
         /// </para>
         ///  
         /// <para>
+        /// The rule groups used for intelligent threat mitigation require additional configuration:
+        /// 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>AWSManagedRulesACFPRuleSet</code> configuration object to configure
+        /// the account creation fraud prevention managed rule group. The configuration includes
+        /// the registration and sign-up pages of your application and the locations in the account
+        /// creation request payload of data, such as the user email and phone number fields.
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>AWSManagedRulesATPRuleSet</code> configuration object to configure the
+        /// account takeover prevention managed rule group. The configuration includes the sign-in
+        /// page of your application and the locations in the login request payload of data such
+        /// as the username and password. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         /// Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure
         /// the protection level that you want the Bot Control rule group to use. 
         /// </para>
+        ///  </li> </ul>
         /// </summary>
-        [AWSProperty(Min=1)]
         public List<ManagedRuleGroupConfig> ManagedRuleGroupConfigs
         {
             get { return this._managedRuleGroupConfigs; }
@@ -182,7 +203,7 @@ namespace Amazon.WAFV2.Model
         /// Gets and sets the property VendorName. 
         /// <para>
         /// The name of the managed rule group vendor. You use this, along with the rule group
-        /// name, to identify the rule group.
+        /// name, to identify a rule group.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=1, Max=128)]

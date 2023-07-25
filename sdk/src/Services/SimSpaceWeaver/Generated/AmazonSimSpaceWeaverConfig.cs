@@ -32,16 +32,26 @@ namespace Amazon.SimSpaceWeaver
     public partial class AmazonSimSpaceWeaverConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.100.33");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "SimSpaceWeaver";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonSimSpaceWeaverConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSimSpaceWeaverDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "SimSpaceWeaver";
             this.AuthenticationServiceName = "simspaceweaver";
             this.EndpointProvider = new AmazonSimSpaceWeaverEndpointProvider();
         }

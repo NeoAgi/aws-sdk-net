@@ -50,6 +50,7 @@ namespace Amazon.RAM.Model
         private List<string> _permissionArns = new List<string>();
         private List<string> _principals = new List<string>();
         private List<string> _resourceArns = new List<string>();
+        private List<string> _sources = new List<string>();
         private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
@@ -88,6 +89,11 @@ namespace Amazon.RAM.Model
         /// <para>
         /// If you don't provide this value, then Amazon Web Services generates a random one for
         /// you.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you retry the operation with the same <code>ClientToken</code>, but with different
+        /// parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.
         /// </para>
         /// </summary>
         public string ClientToken
@@ -159,7 +165,7 @@ namespace Amazon.RAM.Model
         ///  </li> <li> 
         /// <para>
         /// An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resoure Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code>
+        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code>
         /// 
         /// </para>
         ///  </li> <li> 
@@ -212,6 +218,25 @@ namespace Amazon.RAM.Model
         internal bool IsSetResourceArns()
         {
             return this._resourceArns != null && this._resourceArns.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property Sources. 
+        /// <para>
+        /// Specifies from which source accounts the service principal has access to the resources
+        /// in this resource share.
+        /// </para>
+        /// </summary>
+        public List<string> Sources
+        {
+            get { return this._sources; }
+            set { this._sources = value; }
+        }
+
+        // Check to see if Sources property is set
+        internal bool IsSetSources()
+        {
+            return this._sources != null && this._sources.Count > 0; 
         }
 
         /// <summary>

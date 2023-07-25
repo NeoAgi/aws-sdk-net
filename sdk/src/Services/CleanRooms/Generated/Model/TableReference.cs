@@ -29,8 +29,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CleanRooms.Model
 {
     /// <summary>
-    /// A pointer to the data set that underlies this table. Currently, this can only be an
-    /// AWS Glue table.
+    /// A pointer to the dataset that underlies this table. Currently, this can only be an
+    /// Glue table.
     /// </summary>
     public partial class TableReference
     {
@@ -39,7 +39,7 @@ namespace Amazon.CleanRooms.Model
         /// <summary>
         /// Gets and sets the property Glue. 
         /// <para>
-        /// If present, a reference to the AWS Glue table referred to by this table reference.
+        /// If present, a reference to the Glue table referred to by this table reference.
         /// </para>
         /// </summary>
         public GlueTableReference Glue

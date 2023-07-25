@@ -451,9 +451,10 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Uploads position update data for one or more devices to a tracker resource. Amazon
-        /// Location uses the data when it reports the last known device position and position
-        /// history. Amazon Location retains location data for 30 days.
+        /// Uploads position update data for one or more devices to a tracker resource (up to
+        /// 10 devices per batch). Amazon Location uses the data when it reports the last known
+        /// device position and position history. Amazon Location retains location data for 30
+        /// days.
         /// 
         ///  <note> 
         /// <para>
@@ -793,19 +794,88 @@ namespace Amazon.LocationService
 
         #endregion
         
+        #region  CreateKey
+
+
+        /// <summary>
+        /// Creates an API key resource in your Amazon Web Services account, which lets you grant
+        /// actions for Amazon Location resources to the API key bearer.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using
+        /// API keys</a>.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateKey service method.</param>
+        /// 
+        /// <returns>The response from the CreateKey service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ConflictException">
+        /// The request was unsuccessful because of a conflict.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/CreateKey">REST API Reference for CreateKey Operation</seealso>
+        CreateKeyResponse CreateKey(CreateKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateKey operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/CreateKey">REST API Reference for CreateKey Operation</seealso>
+        IAsyncResult BeginCreateKey(CreateKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateKey.</param>
+        /// 
+        /// <returns>Returns a  CreateKeyResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/CreateKey">REST API Reference for CreateKey Operation</seealso>
+        CreateKeyResponse EndCreateKey(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  CreateMap
 
 
         /// <summary>
-        /// Creates a map resource in your AWS account, which provides map tiles of different
-        /// styles sourced from global location data providers.
+        /// Creates a map resource in your Amazon Web Services account, which provides map tiles
+        /// of different styles sourced from global location data providers.
         /// 
         ///  <note> 
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
         /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
-        /// for more details.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+        /// service terms</a> for more details.
         /// </para>
         ///  </note>
         /// </summary>
@@ -868,8 +938,8 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Creates a place index resource in your AWS account. Use a place index resource to
-        /// geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
+        /// Creates a place index resource in your Amazon Web Services account. Use a place index
+        /// resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
         /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
         /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
         /// operation.
@@ -878,8 +948,8 @@ namespace Amazon.LocationService
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
         /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
-        /// for more details.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+        /// service terms</a> for more details.
         /// </para>
         ///  </note>
         /// </summary>
@@ -942,7 +1012,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Creates a route calculator resource in your AWS account.
+        /// Creates a route calculator resource in your Amazon Web Services account.
         /// 
         ///  
         /// <para>
@@ -954,8 +1024,8 @@ namespace Amazon.LocationService
         /// <para>
         /// If your application is tracking or routing assets you use in your business, such as
         /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
-        /// for more details.
+        /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+        /// service terms</a> for more details.
         /// </para>
         ///  </note>
         /// </summary>
@@ -1018,8 +1088,8 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Creates a tracker resource in your AWS account, which lets you retrieve current and
-        /// historical location of devices.
+        /// Creates a tracker resource in your Amazon Web Services account, which lets you retrieve
+        /// current and historical location of devices.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTracker service method.</param>
         /// 
@@ -1034,6 +1104,10 @@ namespace Amazon.LocationService
         /// <exception cref="Amazon.LocationService.Model.InternalServerException">
         /// The request has failed to process because of an unknown server error, exception, or
         /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ServiceQuotaExceededException">
+        /// The operation was denied because the request would exceed the maximum <a href="https://docs.aws.amazon.com/location/latest/developerguide/location-quotas.html">quota</a>
+        /// set for Amazon Location Service.
         /// </exception>
         /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
         /// The request was denied because of request throttling.
@@ -1076,7 +1150,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Deletes a geofence collection from your AWS account.
+        /// Deletes a geofence collection from your Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -1136,11 +1210,69 @@ namespace Amazon.LocationService
 
         #endregion
         
+        #region  DeleteKey
+
+
+        /// <summary>
+        /// Deletes the specified API key. The API key must have been deactivated more than 90
+        /// days previously.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteKey service method.</param>
+        /// 
+        /// <returns>The response from the DeleteKey service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DeleteKey">REST API Reference for DeleteKey Operation</seealso>
+        DeleteKeyResponse DeleteKey(DeleteKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteKey operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DeleteKey">REST API Reference for DeleteKey Operation</seealso>
+        IAsyncResult BeginDeleteKey(DeleteKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteKey.</param>
+        /// 
+        /// <returns>Returns a  DeleteKeyResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DeleteKey">REST API Reference for DeleteKey Operation</seealso>
+        DeleteKeyResponse EndDeleteKey(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DeleteMap
 
 
         /// <summary>
-        /// Deletes a map resource from your AWS account.
+        /// Deletes a map resource from your Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -1204,7 +1336,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Deletes a place index resource from your AWS account.
+        /// Deletes a place index resource from your Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -1267,7 +1399,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Deletes a route calculator resource from your AWS account.
+        /// Deletes a route calculator resource from your Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -1330,7 +1462,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Deletes a tracker resource from your AWS account.
+        /// Deletes a tracker resource from your Amazon Web Services account.
         /// 
         ///  <note> 
         /// <para>
@@ -1445,6 +1577,63 @@ namespace Amazon.LocationService
         /// <returns>Returns a  DescribeGeofenceCollectionResult from LocationService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DescribeGeofenceCollection">REST API Reference for DescribeGeofenceCollection Operation</seealso>
         DescribeGeofenceCollectionResponse EndDescribeGeofenceCollection(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DescribeKey
+
+
+        /// <summary>
+        /// Retrieves the API key resource details.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeKey service method.</param>
+        /// 
+        /// <returns>The response from the DescribeKey service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DescribeKey">REST API Reference for DescribeKey Operation</seealso>
+        DescribeKeyResponse DescribeKey(DescribeKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeKey operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DescribeKey">REST API Reference for DescribeKey Operation</seealso>
+        IAsyncResult BeginDescribeKey(DescribeKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeKey.</param>
+        /// 
+        /// <returns>Returns a  DescribeKeyResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/DescribeKey">REST API Reference for DescribeKey Operation</seealso>
+        DescribeKeyResponse EndDescribeKey(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2184,11 +2373,11 @@ namespace Amazon.LocationService
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Customer AWS account
+        /// Customer Amazon Web Services account
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// AWS Region
+        /// Amazon Web Services Region
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2305,7 +2494,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Lists geofence collections in your AWS account.
+        /// Lists geofence collections in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListGeofenceCollections service method.</param>
         /// 
@@ -2412,11 +2601,65 @@ namespace Amazon.LocationService
 
         #endregion
         
+        #region  ListKeys
+
+
+        /// <summary>
+        /// Lists API key resources in your Amazon Web Services account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListKeys service method.</param>
+        /// 
+        /// <returns>The response from the ListKeys service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/ListKeys">REST API Reference for ListKeys Operation</seealso>
+        ListKeysResponse ListKeys(ListKeysRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListKeys operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListKeys operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListKeys
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/ListKeys">REST API Reference for ListKeys Operation</seealso>
+        IAsyncResult BeginListKeys(ListKeysRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListKeys operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListKeys.</param>
+        /// 
+        /// <returns>Returns a  ListKeysResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/ListKeys">REST API Reference for ListKeys Operation</seealso>
+        ListKeysResponse EndListKeys(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  ListMaps
 
 
         /// <summary>
-        /// Lists map resources in your AWS account.
+        /// Lists map resources in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListMaps service method.</param>
         /// 
@@ -2470,7 +2713,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Lists place index resources in your AWS account.
+        /// Lists place index resources in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListPlaceIndexes service method.</param>
         /// 
@@ -2524,7 +2767,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Lists route calculator resources in your AWS account.
+        /// Lists route calculator resources in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListRouteCalculators service method.</param>
         /// 
@@ -2692,7 +2935,7 @@ namespace Amazon.LocationService
 
 
         /// <summary>
-        /// Lists tracker resources in your AWS account.
+        /// Lists tracker resources in your Amazon Web Services account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTrackers service method.</param>
         /// 
@@ -3196,6 +3439,63 @@ namespace Amazon.LocationService
         /// <returns>Returns a  UpdateGeofenceCollectionResult from LocationService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/UpdateGeofenceCollection">REST API Reference for UpdateGeofenceCollection Operation</seealso>
         UpdateGeofenceCollectionResponse EndUpdateGeofenceCollection(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateKey
+
+
+        /// <summary>
+        /// Updates the specified properties of a given API key resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateKey service method.</param>
+        /// 
+        /// <returns>The response from the UpdateKey service method, as returned by LocationService.</returns>
+        /// <exception cref="Amazon.LocationService.Model.AccessDeniedException">
+        /// The request was denied because of insufficient access or permissions. Check with an
+        /// administrator to verify your permissions.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.InternalServerException">
+        /// The request has failed to process because of an unknown server error, exception, or
+        /// failure.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ResourceNotFoundException">
+        /// The resource that you've entered was not found in your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ThrottlingException">
+        /// The request was denied because of request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.LocationService.Model.ValidationException">
+        /// The input failed to meet the constraints specified by the AWS service.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/UpdateKey">REST API Reference for UpdateKey Operation</seealso>
+        UpdateKeyResponse UpdateKey(UpdateKeyRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateKey operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateKey operation on AmazonLocationServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateKey
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/UpdateKey">REST API Reference for UpdateKey Operation</seealso>
+        IAsyncResult BeginUpdateKey(UpdateKeyRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateKey operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateKey.</param>
+        /// 
+        /// <returns>Returns a  UpdateKeyResult from LocationService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/location-2020-11-19/UpdateKey">REST API Reference for UpdateKey Operation</seealso>
+        UpdateKeyResponse EndUpdateKey(IAsyncResult asyncResult);
 
         #endregion
         

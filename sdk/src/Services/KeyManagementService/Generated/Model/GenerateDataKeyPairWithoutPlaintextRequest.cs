@@ -120,10 +120,35 @@ namespace Amazon.KeyManagementService.Model
     /// </summary>
     public partial class GenerateDataKeyPairWithoutPlaintextRequest : AmazonKeyManagementServiceRequest
     {
+        private bool? _dryRun;
         private Dictionary<string, string> _encryptionContext = new Dictionary<string, string>();
         private List<string> _grantTokens = new List<string>();
         private string _keyId;
         private DataKeyPairSpec _keyPairSpec;
+
+        /// <summary>
+        /// Gets and sets the property DryRun. 
+        /// <para>
+        /// Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool DryRun
+        {
+            get { return this._dryRun.GetValueOrDefault(); }
+            set { this._dryRun = value; }
+        }
+
+        // Check to see if DryRun property is set
+        internal bool IsSetDryRun()
+        {
+            return this._dryRun.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property EncryptionContext. 
@@ -131,7 +156,12 @@ namespace Amazon.KeyManagementService.Model
         /// Specifies the encryption context that will be used when encrypting the private key
         /// in the data key pair.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,

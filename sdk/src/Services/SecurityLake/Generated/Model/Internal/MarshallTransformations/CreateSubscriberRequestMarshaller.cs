@@ -76,28 +76,16 @@ namespace Amazon.SecurityLake.Model.Internal.MarshallTransformations
                     context.Writer.WriteArrayEnd();
                 }
 
-                if(publicRequest.IsSetAccountId())
+                if(publicRequest.IsSetSources())
                 {
-                    context.Writer.WritePropertyName("accountId");
-                    context.Writer.Write(publicRequest.AccountId);
-                }
-
-                if(publicRequest.IsSetExternalId())
-                {
-                    context.Writer.WritePropertyName("externalId");
-                    context.Writer.Write(publicRequest.ExternalId);
-                }
-
-                if(publicRequest.IsSetSourceTypes())
-                {
-                    context.Writer.WritePropertyName("sourceTypes");
+                    context.Writer.WritePropertyName("sources");
                     context.Writer.WriteArrayStart();
-                    foreach(var publicRequestSourceTypesListValue in publicRequest.SourceTypes)
+                    foreach(var publicRequestSourcesListValue in publicRequest.Sources)
                     {
                         context.Writer.WriteObjectStart();
 
-                        var marshaller = SourceTypeMarshaller.Instance;
-                        marshaller.Marshall(publicRequestSourceTypesListValue, context);
+                        var marshaller = LogSourceResourceMarshaller.Instance;
+                        marshaller.Marshall(publicRequestSourcesListValue, context);
 
                         context.Writer.WriteObjectEnd();
                     }
@@ -110,10 +98,37 @@ namespace Amazon.SecurityLake.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.SubscriberDescription);
                 }
 
+                if(publicRequest.IsSetSubscriberIdentity())
+                {
+                    context.Writer.WritePropertyName("subscriberIdentity");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = AwsIdentityMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.SubscriberIdentity, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetSubscriberName())
                 {
                     context.Writer.WritePropertyName("subscriberName");
                     context.Writer.Write(publicRequest.SubscriberName);
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteArrayStart();
+                    foreach(var publicRequestTagsListValue in publicRequest.Tags)
+                    {
+                        context.Writer.WriteObjectStart();
+
+                        var marshaller = TagMarshaller.Instance;
+                        marshaller.Marshall(publicRequestTagsListValue, context);
+
+                        context.Writer.WriteObjectEnd();
+                    }
+                    context.Writer.WriteArrayEnd();
                 }
 
                 writer.WriteObjectEnd();

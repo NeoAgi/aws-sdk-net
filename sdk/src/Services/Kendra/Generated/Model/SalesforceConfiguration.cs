@@ -93,7 +93,7 @@ namespace Amazon.Kendra.Model
         /// The pattern is applied to the name of the attached file.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=100)]
+        [AWSProperty(Min=0, Max=250)]
         public List<string> ExcludeAttachmentFilePatterns
         {
             get { return this._excludeAttachmentFilePatterns; }
@@ -120,7 +120,7 @@ namespace Amazon.Kendra.Model
         /// The pattern is applied to the name of the attached file.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=100)]
+        [AWSProperty(Min=0, Max=250)]
         public List<string> IncludeAttachmentFilePatterns
         {
             get { return this._includeAttachmentFilePatterns; }
@@ -181,8 +181,7 @@ namespace Amazon.Kendra.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// securityToken - The token associated with the user account logging in to the Salesforce
-        /// instance.
+        /// securityToken - The token associated with the user logging in to the Salesforce instance.
         /// </para>
         ///  </li> <li> 
         /// <para>

@@ -36,6 +36,7 @@ namespace Amazon.LocationService.Model
         private List<double> _biasPosition = new List<double>();
         private string _dataSource;
         private List<double> _filterBBox = new List<double>();
+        private List<string> _filterCategories = new List<string>();
         private List<string> _filterCountries = new List<string>();
         private string _language;
         private int? _maxResults;
@@ -58,7 +59,7 @@ namespace Amazon.LocationService.Model
         /// <code>-123.1174</code> and latitude <code>49.2847</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=2)]
+        [AWSProperty(Sensitive=true, Min=2, Max=2)]
         public List<double> BiasPosition
         {
             get { return this._biasPosition; }
@@ -114,7 +115,7 @@ namespace Amazon.LocationService.Model
         /// Contains the coordinates for the optional bounding box specified in the request.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=4, Max=4)]
+        [AWSProperty(Sensitive=true, Min=4, Max=4)]
         public List<double> FilterBBox
         {
             get { return this._filterBBox; }
@@ -125,6 +126,25 @@ namespace Amazon.LocationService.Model
         internal bool IsSetFilterBBox()
         {
             return this._filterBBox != null && this._filterBBox.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property FilterCategories. 
+        /// <para>
+        /// The optional category filter specified in the request.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=5)]
+        public List<string> FilterCategories
+        {
+            get { return this._filterCategories; }
+            set { this._filterCategories = value; }
+        }
+
+        // Check to see if FilterCategories property is set
+        internal bool IsSetFilterCategories()
+        {
+            return this._filterCategories != null && this._filterCategories.Count > 0; 
         }
 
         /// <summary>
@@ -198,7 +218,7 @@ namespace Amazon.LocationService.Model
         /// </para>
         ///  </note>
         /// </summary>
-        [AWSProperty(Min=4, Max=4)]
+        [AWSProperty(Sensitive=true, Min=4, Max=4)]
         public List<double> ResultBBox
         {
             get { return this._resultBBox; }
@@ -217,7 +237,7 @@ namespace Amazon.LocationService.Model
         /// The search text specified in the request.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true)]
+        [AWSProperty(Required=true, Sensitive=true)]
         public string Text
         {
             get { return this._text; }

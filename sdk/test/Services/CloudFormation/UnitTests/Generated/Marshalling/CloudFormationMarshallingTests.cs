@@ -44,6 +44,74 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("CloudFormation")]
+        public void ActivateOrganizationsAccessMarshallTest()
+        {
+            var operation = service_model.FindOperation("ActivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<ActivateOrganizationsAccessRequest>();
+            var marshaller = new ActivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = ActivateOrganizationsAccessResponseUnmarshaller.Instance.Unmarshall(context)
+                as ActivateOrganizationsAccessResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ActivateOrganizationsAccess_InvalidOperationExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ActivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<ActivateOrganizationsAccessRequest>();
+            var marshaller = new ActivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("InvalidOperationException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ActivateOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ActivateOrganizationsAccess_OperationNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ActivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<ActivateOrganizationsAccessRequest>();
+            var marshaller = new ActivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("OperationNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ActivateOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
         public void ActivateTypeMarshallTest()
         {
             var operation = service_model.FindOperation("ActivateType");
@@ -721,6 +789,74 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("CloudFormation")]
+        public void DeactivateOrganizationsAccessMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeactivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DeactivateOrganizationsAccessRequest>();
+            var marshaller = new DeactivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DeactivateOrganizationsAccessResponseUnmarshaller.Instance.Unmarshall(context)
+                as DeactivateOrganizationsAccessResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void DeactivateOrganizationsAccess_InvalidOperationExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeactivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DeactivateOrganizationsAccessRequest>();
+            var marshaller = new DeactivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("InvalidOperationException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = DeactivateOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void DeactivateOrganizationsAccess_OperationNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeactivateOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DeactivateOrganizationsAccessRequest>();
+            var marshaller = new DeactivateOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("OperationNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = DeactivateOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
         public void DeactivateTypeMarshallTest()
         {
             var operation = service_model.FindOperation("DeactivateType");
@@ -1251,6 +1387,74 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
             var response = DescribeChangeSetHooksResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void DescribeOrganizationsAccessMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DescribeOrganizationsAccessRequest>();
+            var marshaller = new DescribeOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = DescribeOrganizationsAccessResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeOrganizationsAccessResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void DescribeOrganizationsAccess_InvalidOperationExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DescribeOrganizationsAccessRequest>();
+            var marshaller = new DescribeOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("InvalidOperationException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = DescribeOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void DescribeOrganizationsAccess_OperationNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("DescribeOrganizationsAccess");
+
+            var request = InstantiateClassGenerator.Execute<DescribeOrganizationsAccessRequest>();
+            var marshaller = new DescribeOrganizationsAccessRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("OperationNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = DescribeOrganizationsAccessResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
 
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
         }
@@ -2356,6 +2560,97 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var response = ListImportsResponseUnmarshaller.Instance.Unmarshall(context)
                 as ListImportsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ListStackInstanceResourceDriftsMarshallTest()
+        {
+            var operation = service_model.FindOperation("ListStackInstanceResourceDrifts");
+
+            var request = InstantiateClassGenerator.Execute<ListStackInstanceResourceDriftsRequest>();
+            var marshaller = new ListStackInstanceResourceDriftsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = ListStackInstanceResourceDriftsResponseUnmarshaller.Instance.Unmarshall(context)
+                as ListStackInstanceResourceDriftsResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ListStackInstanceResourceDrifts_OperationNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ListStackInstanceResourceDrifts");
+
+            var request = InstantiateClassGenerator.Execute<ListStackInstanceResourceDriftsRequest>();
+            var marshaller = new ListStackInstanceResourceDriftsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("OperationNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ListStackInstanceResourceDriftsResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ListStackInstanceResourceDrifts_StackInstanceNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ListStackInstanceResourceDrifts");
+
+            var request = InstantiateClassGenerator.Execute<ListStackInstanceResourceDriftsRequest>();
+            var marshaller = new ListStackInstanceResourceDriftsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("StackInstanceNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ListStackInstanceResourceDriftsResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("CloudFormation")]
+        public void ListStackInstanceResourceDrifts_StackSetNotFoundExceptionMarshallTest()
+        {
+            var operation = service_model.FindOperation("ListStackInstanceResourceDrifts");
+
+            var request = InstantiateClassGenerator.Execute<ListStackInstanceResourceDriftsRequest>();
+            var marshaller = new ListStackInstanceResourceDriftsRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+            var exception = operation.Exceptions.First(e => e.Name.Equals("StackSetNotFoundException"));
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute(exception);
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), true, null, true);
+            var response = ListStackInstanceResourceDriftsResponseUnmarshaller.Instance.UnmarshallException(context, null, System.Net.HttpStatusCode.OK);
+
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
         }
 
         [TestMethod]

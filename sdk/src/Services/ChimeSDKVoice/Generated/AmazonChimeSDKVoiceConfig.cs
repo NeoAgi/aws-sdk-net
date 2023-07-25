@@ -32,16 +32,26 @@ namespace Amazon.ChimeSDKVoice
     public partial class AmazonChimeSDKVoiceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.100.37");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "Chime SDK Voice";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonChimeSDKVoiceConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonChimeSDKVoiceDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "Chime SDK Voice";
             this.AuthenticationServiceName = "chime";
             this.EndpointProvider = new AmazonChimeSDKVoiceEndpointProvider();
         }

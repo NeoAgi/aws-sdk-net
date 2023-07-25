@@ -30,8 +30,13 @@ namespace Amazon.SageMaker.Model
 {
     /// <summary>
     /// This structure specifies how to split the data into train and validation datasets.
-    /// The validation and training datasets must contain the same headers. The validation
-    /// dataset must be less than 2 GB in size.
+    /// 
+    ///  
+    /// <para>
+    /// The validation and training datasets must contain the same headers. For jobs created
+    /// by calling <code>CreateAutoMLJob</code>, the validation dataset must be less than
+    /// 2 GB in size.
+    /// </para>
     /// </summary>
     public partial class AutoMLDataSplitConfig
     {

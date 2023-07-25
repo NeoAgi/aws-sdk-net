@@ -32,16 +32,26 @@ namespace Amazon.ElasticMapReduce
     public partial class AmazonElasticMapReduceConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.101.13");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "EMR";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonElasticMapReduceConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonElasticMapReduceDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "EMR";
             this.AuthenticationServiceName = "elasticmapreduce";
             this.EndpointProvider = new AmazonElasticMapReduceEndpointProvider();
         }

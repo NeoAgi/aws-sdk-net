@@ -115,7 +115,7 @@ namespace Amazon.LexModelsV2
         /// </summary>
         /// <param name="config">The AmazonLexModelsV2Client Configuration Object</param>
         public AmazonLexModelsV2Client(AmazonLexModelsV2Config config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
         /// <summary>
         /// Constructs AmazonLexModelsV2Client with AWS Credentials
@@ -267,7 +267,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch create custom vocabulary item for the specified locale in the specified bot.
+        /// Create a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateCustomVocabularyItem service method.</param>
         /// 
@@ -301,7 +301,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch create custom vocabulary item for the specified locale in the specified bot.
+        /// Create a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchCreateCustomVocabularyItem service method.</param>
         /// <param name="cancellationToken">
@@ -342,7 +342,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch delete custom vocabulary item for the specified locale in the specified bot.
+        /// Delete a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchDeleteCustomVocabularyItem service method.</param>
         /// 
@@ -376,7 +376,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch delete custom vocabulary item for the specified locale in the specified bot.
+        /// Delete a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchDeleteCustomVocabularyItem service method.</param>
         /// <param name="cancellationToken">
@@ -417,7 +417,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch update custom vocabulary item for the specified locale in the specified bot.
+        /// Update a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUpdateCustomVocabularyItem service method.</param>
         /// 
@@ -451,7 +451,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Batch update custom vocabulary item for the specified locale in the specified bot.
+        /// Update a batch of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the BatchUpdateCustomVocabularyItem service method.</param>
         /// <param name="cancellationToken">
@@ -1615,6 +1615,91 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  CreateTestSetDiscrepancyReport
+
+
+        /// <summary>
+        /// Create a report that describes the differences between the bot and the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTestSetDiscrepancyReport service method.</param>
+        /// 
+        /// <returns>The response from the CreateTestSetDiscrepancyReport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateTestSetDiscrepancyReport">REST API Reference for CreateTestSetDiscrepancyReport Operation</seealso>
+        public virtual CreateTestSetDiscrepancyReportResponse CreateTestSetDiscrepancyReport(CreateTestSetDiscrepancyReportRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTestSetDiscrepancyReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTestSetDiscrepancyReportResponseUnmarshaller.Instance;
+
+            return Invoke<CreateTestSetDiscrepancyReportResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Create a report that describes the differences between the bot and the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTestSetDiscrepancyReport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateTestSetDiscrepancyReport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/CreateTestSetDiscrepancyReport">REST API Reference for CreateTestSetDiscrepancyReport Operation</seealso>
+        public virtual Task<CreateTestSetDiscrepancyReportResponse> CreateTestSetDiscrepancyReportAsync(CreateTestSetDiscrepancyReportRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateTestSetDiscrepancyReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateTestSetDiscrepancyReportResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<CreateTestSetDiscrepancyReportResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateUploadUrl
 
 
@@ -1995,7 +2080,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Deletes a specific version of a bot. To delete all version of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a>
+        /// Deletes a specific version of a bot. To delete all versions of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a>
         /// operation.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteBotVersion service method.</param>
@@ -2035,7 +2120,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// Deletes a specific version of a bot. To delete all version of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DeleteBot.html">DeleteBot</a>
+        /// Deletes a specific version of a bot. To delete all versions of a bot, use the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBot.html">DeleteBot</a>
         /// operation.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteBotVersion service method.</param>
@@ -2738,6 +2823,91 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  DeleteTestSet
+
+
+        /// <summary>
+        /// The action to delete the selected test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTestSet service method.</param>
+        /// 
+        /// <returns>The response from the DeleteTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteTestSet">REST API Reference for DeleteTestSet Operation</seealso>
+        public virtual DeleteTestSetResponse DeleteTestSet(DeleteTestSetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTestSetResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTestSetResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The action to delete the selected test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTestSet service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DeleteTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DeleteTestSet">REST API Reference for DeleteTestSet Operation</seealso>
+        public virtual Task<DeleteTestSetResponse> DeleteTestSetAsync(DeleteTestSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteTestSetResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DeleteTestSetResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteUtterances
 
 
@@ -2747,7 +2917,7 @@ namespace Amazon.LexModelsV2
         ///  
         /// <para>
         /// Amazon Lex stores the utterances that users send to your bot. Utterances are stored
-        /// for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
         /// operation, and then stored indefinitely for use in improving the ability of your bot
         /// to respond to user input..
         /// </para>
@@ -2790,7 +2960,7 @@ namespace Amazon.LexModelsV2
         ///  
         /// <para>
         /// Amazon Lex stores the utterances that users send to your bot. Utterances are stored
-        /// for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// for 15 days for use with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
         /// operation, and then stored indefinitely for use in improving the ability of your bot
         /// to respond to user input..
         /// </para>
@@ -3705,6 +3875,381 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  DescribeTestExecution
+
+
+        /// <summary>
+        /// Gets metadata information about the test execution.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestExecution service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTestExecution service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestExecution">REST API Reference for DescribeTestExecution Operation</seealso>
+        public virtual DescribeTestExecutionResponse DescribeTestExecution(DescribeTestExecutionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestExecutionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestExecutionResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTestExecutionResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets metadata information about the test execution.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestExecution service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTestExecution service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestExecution">REST API Reference for DescribeTestExecution Operation</seealso>
+        public virtual Task<DescribeTestExecutionResponse> DescribeTestExecutionAsync(DescribeTestExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestExecutionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestExecutionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTestExecutionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeTestSet
+
+
+        /// <summary>
+        /// Gets metadata information about the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSet service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSet">REST API Reference for DescribeTestSet Operation</seealso>
+        public virtual DescribeTestSetResponse DescribeTestSet(DescribeTestSetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTestSetResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets metadata information about the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSet service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSet">REST API Reference for DescribeTestSet Operation</seealso>
+        public virtual Task<DescribeTestSetResponse> DescribeTestSetAsync(DescribeTestSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTestSetResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeTestSetDiscrepancyReport
+
+
+        /// <summary>
+        /// Gets metadata information about the test set discrepancy report.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSetDiscrepancyReport service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTestSetDiscrepancyReport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSetDiscrepancyReport">REST API Reference for DescribeTestSetDiscrepancyReport Operation</seealso>
+        public virtual DescribeTestSetDiscrepancyReportResponse DescribeTestSetDiscrepancyReport(DescribeTestSetDiscrepancyReportRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetDiscrepancyReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetDiscrepancyReportResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTestSetDiscrepancyReportResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets metadata information about the test set discrepancy report.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSetDiscrepancyReport service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTestSetDiscrepancyReport service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSetDiscrepancyReport">REST API Reference for DescribeTestSetDiscrepancyReport Operation</seealso>
+        public virtual Task<DescribeTestSetDiscrepancyReportResponse> DescribeTestSetDiscrepancyReportAsync(DescribeTestSetDiscrepancyReportRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetDiscrepancyReportRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetDiscrepancyReportResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTestSetDiscrepancyReportResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeTestSetGeneration
+
+
+        /// <summary>
+        /// Gets metadata information about the test set generation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSetGeneration service method.</param>
+        /// 
+        /// <returns>The response from the DescribeTestSetGeneration service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSetGeneration">REST API Reference for DescribeTestSetGeneration Operation</seealso>
+        public virtual DescribeTestSetGenerationResponse DescribeTestSetGeneration(DescribeTestSetGenerationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetGenerationResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeTestSetGenerationResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets metadata information about the test set generation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeTestSetGeneration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the DescribeTestSetGeneration service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/DescribeTestSetGeneration">REST API Reference for DescribeTestSetGeneration Operation</seealso>
+        public virtual Task<DescribeTestSetGenerationResponse> DescribeTestSetGenerationAsync(DescribeTestSetGenerationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DescribeTestSetGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DescribeTestSetGenerationResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<DescribeTestSetGenerationResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetTestExecutionArtifactsUrl
+
+
+        /// <summary>
+        /// The pre-signed Amazon S3 URL to download the test execution result artifacts.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetTestExecutionArtifactsUrl service method.</param>
+        /// 
+        /// <returns>The response from the GetTestExecutionArtifactsUrl service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/GetTestExecutionArtifactsUrl">REST API Reference for GetTestExecutionArtifactsUrl Operation</seealso>
+        public virtual GetTestExecutionArtifactsUrlResponse GetTestExecutionArtifactsUrl(GetTestExecutionArtifactsUrlRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetTestExecutionArtifactsUrlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetTestExecutionArtifactsUrlResponseUnmarshaller.Instance;
+
+            return Invoke<GetTestExecutionArtifactsUrlResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The pre-signed Amazon S3 URL to download the test execution result artifacts.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetTestExecutionArtifactsUrl service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetTestExecutionArtifactsUrl service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/GetTestExecutionArtifactsUrl">REST API Reference for GetTestExecutionArtifactsUrl Operation</seealso>
+        public virtual Task<GetTestExecutionArtifactsUrlResponse> GetTestExecutionArtifactsUrlAsync(GetTestExecutionArtifactsUrlRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetTestExecutionArtifactsUrlRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetTestExecutionArtifactsUrlResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<GetTestExecutionArtifactsUrlResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListAggregatedUtterances
 
 
@@ -4218,7 +4763,7 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// To use a built-in intent as a the base for your own intent, include the built-in intent
         /// signature in the <code>parentIntentSignature</code> parameter when you call the <code>CreateIntent</code>
-        /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">CreateIntent</a>.
+        /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html">CreateIntent</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBuiltInIntents service method.</param>
@@ -4256,7 +4801,7 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// To use a built-in intent as a the base for your own intent, include the built-in intent
         /// signature in the <code>parentIntentSignature</code> parameter when you call the <code>CreateIntent</code>
-        /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateIntent.html">CreateIntent</a>.
+        /// operation. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateIntent.html">CreateIntent</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListBuiltInIntents service method.</param>
@@ -4361,7 +4906,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// List custom vocabulary items for the specified locale in the specified bot.
+        /// Paginated list of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCustomVocabularyItems service method.</param>
         /// 
@@ -4395,7 +4940,7 @@ namespace Amazon.LexModelsV2
 
 
         /// <summary>
-        /// List custom vocabulary items for the specified locale in the specified bot.
+        /// Paginated list of custom vocabulary items for a given bot locale's custom vocabulary.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCustomVocabularyItems service method.</param>
         /// <param name="cancellationToken">
@@ -4558,6 +5103,266 @@ namespace Amazon.LexModelsV2
 
         #endregion
         
+        #region  ListIntentMetrics
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the intents in your bot. The following fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentMetric.html">AnalyticsIntentMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// You can specify only one <code>order</code> in a given request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentMetrics service method.</param>
+        /// 
+        /// <returns>The response from the ListIntentMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentMetrics">REST API Reference for ListIntentMetrics Operation</seealso>
+        public virtual ListIntentMetricsResponse ListIntentMetrics(ListIntentMetricsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentMetricsResponseUnmarshaller.Instance;
+
+            return Invoke<ListIntentMetricsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the intents in your bot. The following fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentMetric.html">AnalyticsIntentMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// You can specify only one <code>order</code> in a given request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentMetrics service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListIntentMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentMetrics">REST API Reference for ListIntentMetrics Operation</seealso>
+        public virtual Task<ListIntentMetricsResponse> ListIntentMetricsAsync(ListIntentMetricsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentMetricsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListIntentMetricsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListIntentPaths
+
+
+        /// <summary>
+        /// Retrieves summary statistics for a path of intents that users take over sessions with
+        /// your bot. The following fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>intentPath</code> – Define an order of intents for which you want to retrieve
+        /// metrics. Separate intents in the path with a forward slash. For example, populate
+        /// the <code>intentPath</code> field with <code>/BookCar/BookHotel</code> to see details
+        /// about how many times users invoked the <code>BookCar</code> and <code>BookHotel</code>
+        /// intents in that order.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Use the optional <code>filters</code> field to filter the results.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentPaths service method.</param>
+        /// 
+        /// <returns>The response from the ListIntentPaths service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentPaths">REST API Reference for ListIntentPaths Operation</seealso>
+        public virtual ListIntentPathsResponse ListIntentPaths(ListIntentPathsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentPathsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentPathsResponseUnmarshaller.Instance;
+
+            return Invoke<ListIntentPathsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves summary statistics for a path of intents that users take over sessions with
+        /// your bot. The following fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>intentPath</code> – Define an order of intents for which you want to retrieve
+        /// metrics. Separate intents in the path with a forward slash. For example, populate
+        /// the <code>intentPath</code> field with <code>/BookCar/BookHotel</code> to see details
+        /// about how many times users invoked the <code>BookCar</code> and <code>BookHotel</code>
+        /// intents in that order.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Use the optional <code>filters</code> field to filter the results.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentPaths service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListIntentPaths service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentPaths">REST API Reference for ListIntentPaths Operation</seealso>
+        public virtual Task<ListIntentPathsResponse> ListIntentPathsAsync(ListIntentPathsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentPathsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentPathsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListIntentPathsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListIntents
 
 
@@ -4621,6 +5426,155 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = ListIntentsResponseUnmarshaller.Instance;
             
             return InvokeAsync<ListIntentsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListIntentStageMetrics
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the stages within intents in your bot. The following
+        /// fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html">AnalyticsIntentStageMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// You can only specify one <code>order</code> in a given request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentStageMetrics service method.</param>
+        /// 
+        /// <returns>The response from the ListIntentStageMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentStageMetrics">REST API Reference for ListIntentStageMetrics Operation</seealso>
+        public virtual ListIntentStageMetricsResponse ListIntentStageMetrics(ListIntentStageMetricsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentStageMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentStageMetricsResponseUnmarshaller.Instance;
+
+            return Invoke<ListIntentStageMetricsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the stages within intents in your bot. The following
+        /// fields are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsIntentStageMetric.html">AnalyticsIntentStageMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// You can only specify one <code>order</code> in a given request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListIntentStageMetrics service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListIntentStageMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListIntentStageMetrics">REST API Reference for ListIntentStageMetrics Operation</seealso>
+        public virtual Task<ListIntentStageMetricsResponse> ListIntentStageMetricsAsync(ListIntentStageMetricsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListIntentStageMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListIntentStageMetricsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListIntentStageMetricsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4698,6 +5652,262 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = ListRecommendedIntentsResponseUnmarshaller.Instance;
             
             return InvokeAsync<ListRecommendedIntentsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListSessionAnalyticsData
+
+
+        /// <summary>
+        /// Retrieves a list of metadata for individual user sessions with your bot. The <code>startDateTime</code>
+        /// and <code>endDateTime</code> fields are required. These fields define a time range
+        /// for which you want to retrieve results. Of the optional fields, you can organize the
+        /// results in the following ways:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
+        /// field to specify the values by which to sort the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSessionAnalyticsData service method.</param>
+        /// 
+        /// <returns>The response from the ListSessionAnalyticsData service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListSessionAnalyticsData">REST API Reference for ListSessionAnalyticsData Operation</seealso>
+        public virtual ListSessionAnalyticsDataResponse ListSessionAnalyticsData(ListSessionAnalyticsDataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionAnalyticsDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionAnalyticsDataResponseUnmarshaller.Instance;
+
+            return Invoke<ListSessionAnalyticsDataResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves a list of metadata for individual user sessions with your bot. The <code>startDateTime</code>
+        /// and <code>endDateTime</code> fields are required. These fields define a time range
+        /// for which you want to retrieve results. Of the optional fields, you can organize the
+        /// results in the following ways:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
+        /// field to specify the values by which to sort the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSessionAnalyticsData service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListSessionAnalyticsData service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListSessionAnalyticsData">REST API Reference for ListSessionAnalyticsData Operation</seealso>
+        public virtual Task<ListSessionAnalyticsDataResponse> ListSessionAnalyticsDataAsync(ListSessionAnalyticsDataRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionAnalyticsDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionAnalyticsDataResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListSessionAnalyticsDataResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListSessionMetrics
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the user sessions with your bot. The following fields
+        /// are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsSessionMetric.html">AnalyticsSessionMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// Currently, you can specify it in either field, but not in both.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSessionMetrics service method.</param>
+        /// 
+        /// <returns>The response from the ListSessionMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListSessionMetrics">REST API Reference for ListSessionMetrics Operation</seealso>
+        public virtual ListSessionMetricsResponse ListSessionMetrics(ListSessionMetricsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionMetricsResponseUnmarshaller.Instance;
+
+            return Invoke<ListSessionMetricsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Retrieves summary metrics for the user sessions with your bot. The following fields
+        /// are required:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsSessionMetric.html">AnalyticsSessionMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// Currently, you can specify it in either field, but not in both.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSessionMetrics service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListSessionMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListSessionMetrics">REST API Reference for ListSessionMetrics Operation</seealso>
+        public virtual Task<ListSessionMetricsResponse> ListSessionMetricsAsync(ListSessionMetricsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSessionMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSessionMetricsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListSessionMetricsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -4903,6 +6113,592 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
             
             return InvokeAsync<ListTagsForResourceResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListTestExecutionResultItems
+
+
+        /// <summary>
+        /// Gets a list of test execution result items.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestExecutionResultItems service method.</param>
+        /// 
+        /// <returns>The response from the ListTestExecutionResultItems service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestExecutionResultItems">REST API Reference for ListTestExecutionResultItems Operation</seealso>
+        public virtual ListTestExecutionResultItemsResponse ListTestExecutionResultItems(ListTestExecutionResultItemsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestExecutionResultItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestExecutionResultItemsResponseUnmarshaller.Instance;
+
+            return Invoke<ListTestExecutionResultItemsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Gets a list of test execution result items.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestExecutionResultItems service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTestExecutionResultItems service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestExecutionResultItems">REST API Reference for ListTestExecutionResultItems Operation</seealso>
+        public virtual Task<ListTestExecutionResultItemsResponse> ListTestExecutionResultItemsAsync(ListTestExecutionResultItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestExecutionResultItemsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestExecutionResultItemsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListTestExecutionResultItemsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListTestExecutions
+
+
+        /// <summary>
+        /// The list of test set executions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestExecutions service method.</param>
+        /// 
+        /// <returns>The response from the ListTestExecutions service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestExecutions">REST API Reference for ListTestExecutions Operation</seealso>
+        public virtual ListTestExecutionsResponse ListTestExecutions(ListTestExecutionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestExecutionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestExecutionsResponseUnmarshaller.Instance;
+
+            return Invoke<ListTestExecutionsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The list of test set executions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestExecutions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTestExecutions service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestExecutions">REST API Reference for ListTestExecutions Operation</seealso>
+        public virtual Task<ListTestExecutionsResponse> ListTestExecutionsAsync(ListTestExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestExecutionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestExecutionsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListTestExecutionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListTestSetRecords
+
+
+        /// <summary>
+        /// The list of test set records.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestSetRecords service method.</param>
+        /// 
+        /// <returns>The response from the ListTestSetRecords service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestSetRecords">REST API Reference for ListTestSetRecords Operation</seealso>
+        public virtual ListTestSetRecordsResponse ListTestSetRecords(ListTestSetRecordsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestSetRecordsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestSetRecordsResponseUnmarshaller.Instance;
+
+            return Invoke<ListTestSetRecordsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The list of test set records.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestSetRecords service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTestSetRecords service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestSetRecords">REST API Reference for ListTestSetRecords Operation</seealso>
+        public virtual Task<ListTestSetRecordsResponse> ListTestSetRecordsAsync(ListTestSetRecordsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestSetRecordsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestSetRecordsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListTestSetRecordsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListTestSets
+
+
+        /// <summary>
+        /// The list of the test sets
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestSets service method.</param>
+        /// 
+        /// <returns>The response from the ListTestSets service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestSets">REST API Reference for ListTestSets Operation</seealso>
+        public virtual ListTestSetsResponse ListTestSets(ListTestSetsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestSetsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestSetsResponseUnmarshaller.Instance;
+
+            return Invoke<ListTestSetsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The list of the test sets
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTestSets service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListTestSets service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListTestSets">REST API Reference for ListTestSets Operation</seealso>
+        public virtual Task<ListTestSetsResponse> ListTestSetsAsync(ListTestSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListTestSetsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListTestSetsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListTestSetsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListUtteranceAnalyticsData
+
+
+        /// <summary>
+        /// <note> 
+        /// <para>
+        /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+        /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Retrieves a list of metadata for individual user utterances to your bot. The following
+        /// fields are required:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
+        /// field to specify the values by which to sort the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListUtteranceAnalyticsData service method.</param>
+        /// 
+        /// <returns>The response from the ListUtteranceAnalyticsData service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListUtteranceAnalyticsData">REST API Reference for ListUtteranceAnalyticsData Operation</seealso>
+        public virtual ListUtteranceAnalyticsDataResponse ListUtteranceAnalyticsData(ListUtteranceAnalyticsDataRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListUtteranceAnalyticsDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListUtteranceAnalyticsDataResponseUnmarshaller.Instance;
+
+            return Invoke<ListUtteranceAnalyticsDataResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// <note> 
+        /// <para>
+        /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+        /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Retrieves a list of metadata for individual user utterances to your bot. The following
+        /// fields are required:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results and the <code>sortBy</code>
+        /// field to specify the values by which to sort the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListUtteranceAnalyticsData service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListUtteranceAnalyticsData service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListUtteranceAnalyticsData">REST API Reference for ListUtteranceAnalyticsData Operation</seealso>
+        public virtual Task<ListUtteranceAnalyticsDataResponse> ListUtteranceAnalyticsDataAsync(ListUtteranceAnalyticsDataRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListUtteranceAnalyticsDataRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListUtteranceAnalyticsDataResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListUtteranceAnalyticsDataResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListUtteranceMetrics
+
+
+        /// <summary>
+        /// <note> 
+        /// <para>
+        /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+        /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Retrieves summary metrics for the utterances in your bot. The following fields are
+        /// required:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// Currently, you can specify it in either field, but not in both.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListUtteranceMetrics service method.</param>
+        /// 
+        /// <returns>The response from the ListUtteranceMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListUtteranceMetrics">REST API Reference for ListUtteranceMetrics Operation</seealso>
+        public virtual ListUtteranceMetricsResponse ListUtteranceMetrics(ListUtteranceMetricsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListUtteranceMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListUtteranceMetricsResponseUnmarshaller.Instance;
+
+            return Invoke<ListUtteranceMetricsResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// <note> 
+        /// <para>
+        /// To use this API operation, your IAM role must have permissions to perform the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html">ListAggregatedUtterances</a>
+        /// operation, which provides access to utterance-related analytics. See <a href="https://docs.aws.amazon.com/lexv2/latest/dg/monitoring-utterances.html">Viewing
+        /// utterance statistics</a> for the IAM policy to apply to the IAM role.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Retrieves summary metrics for the utterances in your bot. The following fields are
+        /// required:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        ///  <code>metrics</code> – A list of <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_AnalyticsUtteranceMetric.html">AnalyticsUtteranceMetric</a>
+        /// objects. In each object, use the <code>name</code> field to specify the metric to
+        /// calculate, the <code>statistic</code> field to specify whether to calculate the <code>Sum</code>,
+        /// <code>Average</code>, or <code>Max</code> number, and the <code>order</code> field
+        /// to specify whether to sort the results in <code>Ascending</code> or <code>Descending</code>
+        /// order.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>startDateTime</code> and <code>endDateTime</code> – Define a time range for
+        /// which you want to retrieve results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Of the optional fields, you can organize the results in the following ways:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Use the <code>filters</code> field to filter the results, the <code>groupBy</code>
+        /// field to specify categories by which to group the results, and the <code>binBy</code>
+        /// field to specify time intervals by which to group the results.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use the <code>maxResults</code> field to limit the number of results to return in
+        /// a single response and the <code>nextToken</code> field to return the next batch of
+        /// results if the response does not return the full set of results.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// Note that an <code>order</code> field exists in both <code>binBy</code> and <code>metrics</code>.
+        /// Currently, you can specify it in either field, but not in both.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListUtteranceMetrics service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListUtteranceMetrics service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/ListUtteranceMetrics">REST API Reference for ListUtteranceMetrics Operation</seealso>
+        public virtual Task<ListUtteranceMetricsResponse> ListUtteranceMetricsAsync(ListUtteranceMetricsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListUtteranceMetricsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListUtteranceMetricsResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<ListUtteranceMetricsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -5158,6 +6954,176 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = StartImportResponseUnmarshaller.Instance;
             
             return InvokeAsync<StartImportResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartTestExecution
+
+
+        /// <summary>
+        /// The action to start test set execution.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartTestExecution service method.</param>
+        /// 
+        /// <returns>The response from the StartTestExecution service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartTestExecution">REST API Reference for StartTestExecution Operation</seealso>
+        public virtual StartTestExecutionResponse StartTestExecution(StartTestExecutionRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTestExecutionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTestExecutionResponseUnmarshaller.Instance;
+
+            return Invoke<StartTestExecutionResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The action to start test set execution.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartTestExecution service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartTestExecution service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartTestExecution">REST API Reference for StartTestExecution Operation</seealso>
+        public virtual Task<StartTestExecutionResponse> StartTestExecutionAsync(StartTestExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTestExecutionRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTestExecutionResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartTestExecutionResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartTestSetGeneration
+
+
+        /// <summary>
+        /// The action to start the generation of test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartTestSetGeneration service method.</param>
+        /// 
+        /// <returns>The response from the StartTestSetGeneration service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartTestSetGeneration">REST API Reference for StartTestSetGeneration Operation</seealso>
+        public virtual StartTestSetGenerationResponse StartTestSetGeneration(StartTestSetGenerationRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTestSetGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTestSetGenerationResponseUnmarshaller.Instance;
+
+            return Invoke<StartTestSetGenerationResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The action to start the generation of test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartTestSetGeneration service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartTestSetGeneration service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ResourceNotFoundException">
+        /// You asked to describe a resource that doesn't exist. Check the resource that you are
+        /// requesting and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/StartTestSetGeneration">REST API Reference for StartTestSetGeneration Operation</seealso>
+        public virtual Task<StartTestSetGenerationResponse> StartTestSetGenerationAsync(StartTestSetGenerationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartTestSetGenerationRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartTestSetGenerationResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartTestSetGenerationResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -5753,7 +7719,7 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// The password is not required. If you don't supply a password, Amazon Lex generates
         /// a zip file that is not protected by a password. This is the archive that is available
-        /// at the pre-signed S3 URL provided by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a>
+        /// at the pre-signed S3 URL provided by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a>
         /// operation.
         /// </para>
         /// </summary>
@@ -5800,7 +7766,7 @@ namespace Amazon.LexModelsV2
         /// <para>
         /// The password is not required. If you don't supply a password, Amazon Lex generates
         /// a zip file that is not protected by a password. This is the archive that is available
-        /// at the pre-signed S3 URL provided by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_DescribeExport.html">DescribeExport</a>
+        /// at the pre-signed S3 URL provided by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeExport.html">DescribeExport</a>
         /// operation.
         /// </para>
         /// </summary>
@@ -6180,6 +8146,91 @@ namespace Amazon.LexModelsV2
             options.ResponseUnmarshaller = UpdateSlotTypeResponseUnmarshaller.Instance;
             
             return InvokeAsync<UpdateSlotTypeResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateTestSet
+
+
+        /// <summary>
+        /// The action to update the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTestSet service method.</param>
+        /// 
+        /// <returns>The response from the UpdateTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateTestSet">REST API Reference for UpdateTestSet Operation</seealso>
+        public virtual UpdateTestSetResponse UpdateTestSet(UpdateTestSetRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateTestSetResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateTestSetResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// The action to update the test set.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTestSet service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the UpdateTestSet service method, as returned by LexModelsV2.</returns>
+        /// <exception cref="Amazon.LexModelsV2.Model.ConflictException">
+        /// The action that you tried to perform couldn't be completed because the resource is
+        /// in a conflicting state. For example, deleting a bot that is in the CREATING state.
+        /// Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.InternalServerException">
+        /// The service encountered an unexpected condition. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.PreconditionFailedException">
+        /// Your request couldn't be completed because one or more request fields aren't valid.
+        /// Check the fields in your request and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ServiceQuotaExceededException">
+        /// You have reached a quota for your bot.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ThrottlingException">
+        /// Your request rate is too high. Reduce the frequency of requests.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelsV2.Model.ValidationException">
+        /// One of the input parameters in your request isn't valid. Check the parameters and
+        /// try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/models.lex.v2-2020-08-07/UpdateTestSet">REST API Reference for UpdateTestSet Operation</seealso>
+        public virtual Task<UpdateTestSetResponse> UpdateTestSetAsync(UpdateTestSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = UpdateTestSetRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = UpdateTestSetResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<UpdateTestSetResponse>(request, options, cancellationToken);
         }
 
         #endregion

@@ -21,6 +21,19 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>bin\$(Configuration)\net35</OutputPath>
   </PropertyGroup>
+  <Choose>
+    <When Condition=" '$(AWSKeyFile)' == '' ">
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>../../awssdk.dll.snk</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <AssemblyOriginatorKeyFile>$(AWSKeyFile)</AssemblyOriginatorKeyFile>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
   <ItemGroup>
     <Compile Include="../Services/*/UnitTests/**/*.cs"/>
   </ItemGroup>
@@ -32,12 +45,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Core\AWSSDK.Core.Net35.csproj"/>
-    <ProjectReference Include="..\Common\AWSSDK.CommonTest.csproj"/>
-    <ProjectReference Include="..\..\..\generator\ServiceClientGeneratorLib\ServiceClientGeneratorLib.csproj"/>
-    <ProjectReference Include="..\..\..\extensions\src\AWSSDK.Extensions.CrtIntegration\AWSSDK.Extensions.CrtIntegration.Net35.csproj"/>
-    <ProjectReference Include="..\..\src\Services\*\*.Net35.csproj"/>
-    <ProjectReference Include="..\..\test\Services\*\*.Net35.csproj"/>
+    <ProjectReference Include="../../src/Core/AWSSDK.Core.Net35.csproj"/>
+    <ProjectReference Include="../Common/AWSSDK.CommonTest.csproj"/>
+    <ProjectReference Include="../../../generator/ServiceClientGeneratorLib/ServiceClientGeneratorLib.csproj"/>
+    <ProjectReference Include="../../../extensions/src/AWSSDK.Extensions.CrtIntegration/AWSSDK.Extensions.CrtIntegration.Net35.csproj"/>
+    <ProjectReference Include="../../src/Services/*/*.Net35.csproj"/>
+    <ProjectReference Include="../../test/Services/*/*.Net35.csproj"/>
   </ItemGroup>
 
   <ItemGroup Condition="$(RunAnalyzersDuringBuild)">

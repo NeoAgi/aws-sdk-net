@@ -42,7 +42,7 @@ namespace Amazon.MWAA
     /// <para>
     /// This section contains the Amazon Managed Workflows for Apache Airflow (MWAA) API reference
     /// documentation. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html">What
-    /// Is Amazon MWAA?</a>.
+    /// is Amazon MWAA?</a>.
     /// 
     ///  
     /// <para>
@@ -190,7 +190,7 @@ namespace Amazon.MWAA
         /// </summary>
         /// <param name="config">The AmazonMWAAClient Configuration Object</param>
         public AmazonMWAAClient(AmazonMWAAConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>

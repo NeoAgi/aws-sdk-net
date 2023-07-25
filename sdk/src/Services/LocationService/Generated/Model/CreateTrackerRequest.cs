@@ -30,12 +30,13 @@ namespace Amazon.LocationService.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateTracker operation.
-    /// Creates a tracker resource in your AWS account, which lets you retrieve current and
-    /// historical location of devices.
+    /// Creates a tracker resource in your Amazon Web Services account, which lets you retrieve
+    /// current and historical location of devices.
     /// </summary>
     public partial class CreateTrackerRequest : AmazonLocationServiceRequest
     {
         private string _description;
+        private bool? _eventBridgeEnabled;
         private string _kmsKeyId;
         private PositionFiltering _positionFiltering;
         private PricingPlan _pricingPlan;
@@ -63,10 +64,36 @@ namespace Amazon.LocationService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EventBridgeEnabled. 
+        /// <para>
+        /// Whether to enable position <code>UPDATE</code> events from this tracker to be sent
+        /// to EventBridge.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// You do not need enable this feature to get <code>ENTER</code> and <code>EXIT</code>
+        /// events for geofences with this tracker. Those events are always sent to EventBridge.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        public bool EventBridgeEnabled
+        {
+            get { return this._eventBridgeEnabled.GetValueOrDefault(); }
+            set { this._eventBridgeEnabled = value; }
+        }
+
+        // Check to see if EventBridgeEnabled property is set
+        internal bool IsSetEventBridgeEnabled()
+        {
+            return this._eventBridgeEnabled.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS
-        /// KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.
+        /// A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or
+        /// alias ARN.
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=2048)]

@@ -32,17 +32,27 @@ namespace Amazon.IoT
     public partial class AmazonIoTConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.103.35");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "IoT";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonIoTConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonIoTDefaultConfiguration.GetAllConfigurations()))
         {
-            this.AuthenticationServiceName = "execute-api";
+            base.ServiceId = "IoT";
+            this.AuthenticationServiceName = "iot";
             this.EndpointProvider = new AmazonIoTEndpointProvider();
         }
 

@@ -32,16 +32,26 @@ namespace Amazon.SSMIncidents
     public partial class AmazonSSMIncidentsConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.103.39");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "SSM Incidents";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonSSMIncidentsConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonSSMIncidentsDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "SSM Incidents";
             this.AuthenticationServiceName = "ssm-incidents";
             this.EndpointProvider = new AmazonSSMIncidentsEndpointProvider();
         }

@@ -156,6 +156,14 @@ namespace Amazon.GuardDuty
         /// the GuardDuty service. To start using GuardDuty, you must create a detector in each
         /// Region where you enable the service. You can have only one detector per account per
         /// Region. All data sources are enabled in a new detector by default.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDetector service method.</param>
         /// <param name="cancellationToken">
@@ -179,7 +187,10 @@ namespace Amazon.GuardDuty
 
 
         /// <summary>
-        /// Creates a filter using the specified finding criteria.
+        /// Creates a filter using the specified finding criteria. The maximum number of saved
+        /// filters per Amazon Web Services account per Region is 100. For more information, see
+        /// <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas
+        /// for GuardDuty</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateFilter service method.</param>
         /// <param name="cancellationToken">
@@ -237,16 +248,26 @@ namespace Amazon.GuardDuty
         /// 
         ///  
         /// <para>
-        /// When using <code>Create Members</code> as an organizations delegated administrator
-        /// this action will enable GuardDuty in the added member accounts, with the exception
-        /// of the organization delegated administrator account, which must enable GuardDuty prior
-        /// to being added as a member.
+        /// As a delegated administrator, using <code>CreateMembers</code> will enable GuardDuty
+        /// in the added member accounts, with the exception of the organization delegated administrator
+        /// account. A delegated administrator must enable GuardDuty prior to being added as a
+        /// member.
         /// </para>
         ///  
         /// <para>
-        /// If you are adding accounts by invitation use this action after GuardDuty has been
-        /// enabled in potential member accounts and before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">
-        /// <code>Invite Members</code> </a>.
+        /// If you are adding accounts by invitation, before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>,
+        /// use <code>CreateMembers</code> after GuardDuty has been enabled in potential member
+        /// accounts.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you disassociate a member from a GuardDuty delegated administrator, the member
+        /// account details obtained from this API, including the associated email addresses,
+        /// will be retained. This is done so that the delegated administrator can invoke the
+        /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+        /// API without the need to invoke the CreateMembers API again. To remove the details
+        /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+        /// API. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateMembers service method.</param>
@@ -296,9 +317,9 @@ namespace Amazon.GuardDuty
 
 
         /// <summary>
-        /// Generates example findings of types specified by the list of finding types. If 'NULL'
-        /// is specified for <code>findingTypes</code>, the API generates example findings of
-        /// all supported finding types.
+        /// Generates sample findings of types specified by the list of finding types. If 'NULL'
+        /// is specified for <code>findingTypes</code>, the API generates sample findings of all
+        /// supported finding types.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateSampleFindings service method.</param>
         /// <param name="cancellationToken">
@@ -473,6 +494,13 @@ namespace Amazon.GuardDuty
         /// <summary>
         /// Deletes GuardDuty member accounts (to the current GuardDuty administrator account)
         /// specified by the account IDs.
+        /// 
+        ///  
+        /// <para>
+        /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+        /// set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty
+        /// for a member account in your organization.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteMembers service method.</param>
         /// <param name="cancellationToken">
@@ -547,6 +575,14 @@ namespace Amazon.GuardDuty
         /// Returns a list of malware scans. Each member account can view the malware scans for
         /// their own accounts. An administrator can view the malware scans for all the member
         /// accounts.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeMalwareScans service method.</param>
         /// <param name="cancellationToken">
@@ -572,6 +608,14 @@ namespace Amazon.GuardDuty
         /// <summary>
         /// Returns information about the account selected as the delegated administrator for
         /// GuardDuty.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeOrganizationConfiguration service method.</param>
         /// <param name="cancellationToken">
@@ -645,6 +689,23 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Disassociates the current GuardDuty member account from its administrator account.
+        /// 
+        ///  
+        /// <para>
+        /// When you disassociate an invited member from a GuardDuty delegated administrator,
+        /// the member account details obtained from the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a>
+        /// API, including the associated email addresses, are retained. This is done so that
+        /// the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+        /// API without the need to invoke the CreateMembers API again. To remove the details
+        /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+        /// API. 
+        /// </para>
+        ///  
+        /// <para>
+        /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+        /// set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty
+        /// in a member account.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateFromAdministratorAccount service method.</param>
         /// <param name="cancellationToken">
@@ -669,6 +730,17 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Disassociates the current GuardDuty member account from its administrator account.
+        /// 
+        ///  
+        /// <para>
+        /// When you disassociate an invited member from a GuardDuty delegated administrator,
+        /// the member account details obtained from the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a>
+        /// API, including the associated email addresses, are retained. This is done so that
+        /// the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+        /// API without the need to invoke the CreateMembers API again. To remove the details
+        /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+        /// API.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateFromMasterAccount service method.</param>
         /// <param name="cancellationToken">
@@ -693,8 +765,25 @@ namespace Amazon.GuardDuty
 
 
         /// <summary>
-        /// Disassociates GuardDuty member accounts (to the current administrator account) specified
+        /// Disassociates GuardDuty member accounts (from the current administrator account) specified
         /// by the account IDs.
+        /// 
+        ///  
+        /// <para>
+        /// When you disassociate an invited member from a GuardDuty delegated administrator,
+        /// the member account details obtained from the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a>
+        /// API, including the associated email addresses, are retained. This is done so that
+        /// the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+        /// API without the need to invoke the CreateMembers API again. To remove the details
+        /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+        /// API. 
+        /// </para>
+        ///  
+        /// <para>
+        /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+        /// set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a
+        /// member account before removing them from your Amazon Web Services organization.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DisassociateMembers service method.</param>
         /// <param name="cancellationToken">
@@ -763,12 +852,47 @@ namespace Amazon.GuardDuty
 
         #endregion
                 
+        #region  GetCoverageStatistics
+
+
+
+        /// <summary>
+        /// Retrieves aggregated statistics for your account. If you are a GuardDuty administrator,
+        /// you can retrieve the statistics for all the resources associated with the active member
+        /// accounts in your organization who have enabled EKS Runtime Monitoring and have the
+        /// GuardDuty agent running on their EKS nodes.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetCoverageStatistics service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetCoverageStatistics service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
+        /// A bad request exception object.
+        /// </exception>
+        /// <exception cref="Amazon.GuardDuty.Model.InternalServerErrorException">
+        /// An internal server error exception object.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/GetCoverageStatistics">REST API Reference for GetCoverageStatistics Operation</seealso>
+        Task<GetCoverageStatisticsResponse> GetCoverageStatisticsAsync(GetCoverageStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  GetDetector
 
 
 
         /// <summary>
         /// Retrieves an Amazon GuardDuty detector specified by the detectorId.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetDetector service method.</param>
         /// <param name="cancellationToken">
@@ -914,6 +1038,14 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Returns the details of the malware scan settings.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMalwareScanSettings service method.</param>
         /// <param name="cancellationToken">
@@ -964,6 +1096,14 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Describes which data sources are enabled for the member account's detector.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetMemberDetectors service method.</param>
         /// <param name="cancellationToken">
@@ -1089,10 +1229,33 @@ namespace Amazon.GuardDuty
 
 
         /// <summary>
-        /// Invites other Amazon Web Services accounts (created as members of the current Amazon
-        /// Web Services account by CreateMembers) to enable GuardDuty, and allow the current
-        /// Amazon Web Services account to view and manage these accounts' findings on their behalf
-        /// as the GuardDuty administrator account.
+        /// Invites Amazon Web Services accounts to become members of an organization administered
+        /// by the Amazon Web Services account that invokes this API. If you are using Amazon
+        /// Web Services Organizations to manager your GuardDuty environment, this step is not
+        /// needed. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html">Managing
+        /// accounts with Amazon Web Services Organizations</a>.
+        /// 
+        ///  
+        /// <para>
+        /// To invite Amazon Web Services accounts, the first step is to ensure that GuardDuty
+        /// has been enabled in the potential member accounts. You can now invoke this API to
+        /// add accounts by invitation. The invited accounts can either accept or decline the
+        /// invitation from their GuardDuty accounts. Each invited Amazon Web Services account
+        /// can choose to accept the invitation from only one Amazon Web Services account. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_invitations.html">Managing
+        /// GuardDuty accounts by invitation</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// After the invite has been accepted and you choose to disassociate a member account
+        /// (by using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html">DisassociateMembers</a>)
+        /// from your account, the details of the member account obtained by invoking <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a>,
+        /// including the associated email addresses, will be retained. This is done so that you
+        /// can invoke InviteMembers without the need to invoke <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">CreateMembers</a>
+        /// again. To remove the details associated with a member account, you must also invoke
+        /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>.
+        /// 
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the InviteMembers service method.</param>
         /// <param name="cancellationToken">
@@ -1108,6 +1271,38 @@ namespace Amazon.GuardDuty
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/InviteMembers">REST API Reference for InviteMembers Operation</seealso>
         Task<InviteMembersResponse> InviteMembersAsync(InviteMembersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  ListCoverage
+
+
+
+        /// <summary>
+        /// Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator,
+        /// you can retrieve all resources associated with the active member accounts in your
+        /// organization.
+        /// 
+        ///  
+        /// <para>
+        /// Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent running
+        /// on their EKS nodes.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListCoverage service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListCoverage service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
+        /// A bad request exception object.
+        /// </exception>
+        /// <exception cref="Amazon.GuardDuty.Model.InternalServerErrorException">
+        /// An internal server error exception object.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/ListCoverage">REST API Reference for ListCoverage Operation</seealso>
+        Task<ListCoverageResponse> ListCoverageAsync(ListCoverageRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -1312,8 +1507,8 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
-        /// IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked,
-        /// this operation returns all assigned tags for a given resource.
+        /// IP sets, threat intel sets, publishing destination, with a limit of 50 tags per resource.
+        /// When invoked, this operation returns all assigned tags for a given resource.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// <param name="cancellationToken">
@@ -1321,6 +1516,9 @@ namespace Amazon.GuardDuty
         /// </param>
         /// 
         /// <returns>The response from the ListTagsForResource service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.AccessDeniedException">
+        /// An access denied exception object.
+        /// </exception>
         /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
         /// A bad request exception object.
         /// </exception>
@@ -1358,13 +1556,41 @@ namespace Amazon.GuardDuty
 
         #endregion
                 
+        #region  StartMalwareScan
+
+
+
+        /// <summary>
+        /// Initiates the malware scan. Invoking this API will automatically create the <a href="https://docs.aws.amazon.com/guardduty/latest/ug/slr-permissions-malware-protection.html">Service-linked
+        /// role </a> in the corresponding account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartMalwareScan service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartMalwareScan service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
+        /// A bad request exception object.
+        /// </exception>
+        /// <exception cref="Amazon.GuardDuty.Model.ConflictException">
+        /// A request conflict exception object.
+        /// </exception>
+        /// <exception cref="Amazon.GuardDuty.Model.InternalServerErrorException">
+        /// An internal server error exception object.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/StartMalwareScan">REST API Reference for StartMalwareScan Operation</seealso>
+        Task<StartMalwareScanResponse> StartMalwareScanAsync(StartMalwareScanRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  StartMonitoringMembers
 
 
 
         /// <summary>
         /// Turns on GuardDuty monitoring of the specified member accounts. Use this operation
-        /// to restart monitoring of accounts that you stopped monitoring with the <code>StopMonitoringMembers</code>
+        /// to restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a>
         /// operation.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartMonitoringMembers service method.</param>
@@ -1391,6 +1617,13 @@ namespace Amazon.GuardDuty
         /// <summary>
         /// Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code>
         /// operation to restart monitoring for those accounts.
+        /// 
+        ///  
+        /// <para>
+        /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+        /// set to <code>ALL</code>, you'll receive an error if you attempt to stop monitoring
+        /// the member accounts in your organization.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopMonitoringMembers service method.</param>
         /// <param name="cancellationToken">
@@ -1422,6 +1655,9 @@ namespace Amazon.GuardDuty
         /// </param>
         /// 
         /// <returns>The response from the TagResource service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.AccessDeniedException">
+        /// An access denied exception object.
+        /// </exception>
         /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
         /// A bad request exception object.
         /// </exception>
@@ -1470,6 +1706,9 @@ namespace Amazon.GuardDuty
         /// </param>
         /// 
         /// <returns>The response from the UntagResource service method, as returned by GuardDuty.</returns>
+        /// <exception cref="Amazon.GuardDuty.Model.AccessDeniedException">
+        /// An access denied exception object.
+        /// </exception>
         /// <exception cref="Amazon.GuardDuty.Model.BadRequestException">
         /// A bad request exception object.
         /// </exception>
@@ -1487,6 +1726,14 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Updates the Amazon GuardDuty detector specified by the detectorId.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateDetector service method.</param>
         /// <param name="cancellationToken">
@@ -1583,6 +1830,14 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Updates the malware scan settings.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateMalwareScanSettings service method.</param>
         /// <param name="cancellationToken">
@@ -1607,6 +1862,14 @@ namespace Amazon.GuardDuty
 
         /// <summary>
         /// Contains information on member accounts to be updated.
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateMemberDetectors service method.</param>
         /// <param name="cancellationToken">
@@ -1630,7 +1893,17 @@ namespace Amazon.GuardDuty
 
 
         /// <summary>
-        /// Updates the delegated administrator account with the values provided.
+        /// Configures the delegated administrator account with the provided values. You must
+        /// provide the value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.
+        /// 
+        /// 
+        ///  
+        /// <para>
+        /// There might be regional differences because some data sources might not be available
+        /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+        /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+        /// and endpoints</a>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateOrganizationConfiguration service method.</param>
         /// <param name="cancellationToken">

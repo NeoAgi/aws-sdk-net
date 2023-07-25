@@ -67,6 +67,14 @@ namespace Amazon.Transfer.Model
         /// read and write access to the parent directory of the files that you intend to send
         /// with <code>StartFileTransfer</code>.
         /// </para>
+        ///  
+        /// <para>
+        /// If you are using Basic authentication for your AS2 connector, the access role requires
+        /// the <code>secretsmanager:GetSecretValue</code> permission for the secret. If the secret
+        /// is encrypted using a customer-managed key instead of the Amazon Web Services managed
+        /// key in Secrets Manager, then the role also needs the <code>kms:Decrypt</code> permission
+        /// for that key.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=20, Max=2048)]
         public string AccessRole
@@ -88,7 +96,7 @@ namespace Amazon.Transfer.Model
         /// </para>
         ///  
         /// <para>
-        /// A <code>BaseDirectory</code> example is <i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>.
+        /// A <code>BaseDirectory</code> example is <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Max=1024)]

@@ -158,6 +158,7 @@ namespace Amazon.KeyManagementService.Model
         private EncryptionAlgorithmSpec _destinationEncryptionAlgorithm;
         private Dictionary<string, string> _destinationEncryptionContext = new Dictionary<string, string>();
         private string _destinationKeyId;
+        private bool? _dryRun;
         private List<string> _grantTokens = new List<string>();
         private EncryptionAlgorithmSpec _sourceEncryptionAlgorithm;
         private Dictionary<string, string> _sourceEncryptionContext = new Dictionary<string, string>();
@@ -212,7 +213,12 @@ namespace Amazon.KeyManagementService.Model
         /// <para>
         /// Specifies that encryption context to use when the reencrypting the data.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// A destination encryption context is valid only when the destination KMS key is a symmetric
         /// encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not
@@ -297,6 +303,30 @@ namespace Amazon.KeyManagementService.Model
         internal bool IsSetDestinationKeyId()
         {
             return this._destinationKeyId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property DryRun. 
+        /// <para>
+        /// Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool DryRun
+        {
+            get { return this._dryRun.GetValueOrDefault(); }
+            set { this._dryRun = value; }
+        }
+
+        // Check to see if DryRun property is set
+        internal bool IsSetDryRun()
+        {
+            return this._dryRun.HasValue; 
         }
 
         /// <summary>

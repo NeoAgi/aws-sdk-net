@@ -236,6 +236,12 @@
     <pattern>[A-Za-z0-9._-]+</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.EMRServerless.Model.UpdateApplicationRequest.ReleaseLabel</property>
+    <min>1</min>
+    <max>64</max>
+    <pattern>[A-Za-z0-9._/-]+</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.EMRServerless.Model.Application.ApplicationId</property>
     <min>1</min>
     <max>64</max>
@@ -378,6 +384,11 @@
     <min>20</min>
     <max>2048</max>
     <pattern>arn:(aws[a-zA-Z0-9-]*):iam::(\d{12})?:(role((\u002F)|(\u002F[\u0021-\u007F]+\u002F))[\w+=,.@-]+)</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.EMRServerless.Model.JobRun.ExecutionTimeoutMinutes</property>
+    <min>0</min>
+    <max>1000000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.EMRServerless.Model.JobRun.JobRunId</property>

@@ -163,7 +163,7 @@ namespace Amazon.CleanRooms.Model
         /// <summary>
         /// Gets and sets the property CreatorAccountId. 
         /// <para>
-        /// The unique account ID for the AWS account that owns the schema.
+        /// The unique account ID for the Amazon Web Services account that owns the schema.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true, Min=12, Max=12)]
@@ -221,7 +221,7 @@ namespace Amazon.CleanRooms.Model
         /// <summary>
         /// Gets and sets the property PartitionKeys. 
         /// <para>
-        /// The partition keys for the data set underlying this schema.
+        /// The partition keys for the dataset underlying this schema.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

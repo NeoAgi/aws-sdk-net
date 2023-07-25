@@ -30,16 +30,20 @@ namespace Amazon.SsmSap.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateApplicationSettings operation.
-    /// 
+    /// Updates the settings of an application registered with AWS Systems Manager for SAP.
     /// </summary>
     public partial class UpdateApplicationSettingsRequest : AmazonSsmSapRequest
     {
         private string _applicationId;
+        private BackintConfig _backint;
         private List<ApplicationCredential> _credentialsToAddOrUpdate = new List<ApplicationCredential>();
         private List<ApplicationCredential> _credentialsToRemove = new List<ApplicationCredential>();
 
         /// <summary>
-        /// Gets and sets the property ApplicationId.
+        /// Gets and sets the property ApplicationId. 
+        /// <para>
+        /// The ID of the application.
+        /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
         public string ApplicationId
@@ -55,7 +59,28 @@ namespace Amazon.SsmSap.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CredentialsToAddOrUpdate.
+        /// Gets and sets the property Backint. 
+        /// <para>
+        /// Installation of AWS Backint Agent for SAP HANA.
+        /// </para>
+        /// </summary>
+        public BackintConfig Backint
+        {
+            get { return this._backint; }
+            set { this._backint = value; }
+        }
+
+        // Check to see if Backint property is set
+        internal bool IsSetBackint()
+        {
+            return this._backint != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CredentialsToAddOrUpdate. 
+        /// <para>
+        /// The credentials to be added or updated.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=20)]
         public List<ApplicationCredential> CredentialsToAddOrUpdate
@@ -71,7 +96,10 @@ namespace Amazon.SsmSap.Model
         }
 
         /// <summary>
-        /// Gets and sets the property CredentialsToRemove.
+        /// Gets and sets the property CredentialsToRemove. 
+        /// <para>
+        /// The credentials to be removed.
+        /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=20)]
         public List<ApplicationCredential> CredentialsToRemove

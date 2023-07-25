@@ -43,6 +43,7 @@ namespace Amazon.SageMaker.Model
         private ModelCardStatus _modelCardStatus;
         private int? _modelCardVersion;
         private string _modelId;
+        private string _modelPackageGroupName;
         private string _riskRating;
         private ModelCardSecurityConfig _securityConfig;
         private List<Tag> _tags = new List<Tag>();
@@ -50,11 +51,11 @@ namespace Amazon.SageMaker.Model
         /// <summary>
         /// Gets and sets the property Content. 
         /// <para>
-        /// The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html">model
+        /// The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model
         /// card JSON schema</a> and provided as a string.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=100000)]
+        [AWSProperty(Sensitive=true, Min=0, Max=100000)]
         public string Content
         {
             get { return this._content; }
@@ -242,6 +243,25 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetModelId()
         {
             return this._modelId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ModelPackageGroupName. 
+        /// <para>
+        /// The model package group that contains the model package. Only relevant for model cards
+        /// created for model packages in the Amazon SageMaker Model Registry. 
+        /// </para>
+        /// </summary>
+        public string ModelPackageGroupName
+        {
+            get { return this._modelPackageGroupName; }
+            set { this._modelPackageGroupName = value; }
+        }
+
+        // Check to see if ModelPackageGroupName property is set
+        internal bool IsSetModelPackageGroupName()
+        {
+            return this._modelPackageGroupName != null;
         }
 
         /// <summary>

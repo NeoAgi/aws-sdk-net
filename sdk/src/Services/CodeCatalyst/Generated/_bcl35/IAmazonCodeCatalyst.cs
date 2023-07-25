@@ -29,55 +29,21 @@ namespace Amazon.CodeCatalyst
     /// <summary>
     /// Interface for accessing CodeCatalyst
     ///
-    /// <note> 
-    /// <para>
-    ///  <b>Amazon CodeCatalyst is in preview release and subject to change.</b> 
-    /// </para>
-    ///  </note> 
-    /// <para>
     /// Welcome to the Amazon CodeCatalyst API reference. This reference provides descriptions
     /// of operations and data types for Amazon CodeCatalyst. You can use the Amazon CodeCatalyst
     /// API to work with the following objects. 
-    /// </para>
+    /// 
     ///  
     /// <para>
-    /// Dev Environments and the Amazon Web Services Toolkits, by calling the following:
+    /// Spaces, by calling the following:
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    ///  <a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current
-    /// user.
+    ///  <a>DeleteSpace</a>, which deletes a space.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>CreateDevEnvironment</a>, which creates a Dev Environment, where you can quickly
-    /// work on the code stored in the source repositories of your project.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>CreateProject</a> which creates a project in a specified space.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>CreateSourceRepositoryBranch</a>, which creates a branch in a specified repository
-    /// where you can work on code.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>DeleteDevEnvironment</a>, which deletes a Dev Environment.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>GetDevEnvironment</a>, which returns information about a Dev Environment.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>GetProject</a>, which returns information about a project.
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that
-    /// can be used with a Git client to clone a source repository.
+    ///  <a>GetSpace</a>, which returns information about a space.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -86,15 +52,62 @@ namespace Amazon.CodeCatalyst
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.
+    ///  <a>ListSpaces</a>, which retrieves a list of spaces.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>ListDevEnvironments</a>, which retrives a list of Dev Environments in a project.
+    ///  <a>UpdateSpace</a>, which hanges one or more values for a space.
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Projects, by calling the following:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <a>CreateProject</a> which creates a project in a specified space.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetProject</a>, which returns information about a project.
     /// </para>
     ///  </li> <li> 
     /// <para>
     ///  <a>ListProjects</a>, which retrieves a list of projects in a space.
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Users, by calling the following:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <a>GetUserDetails</a>, which returns information about a user in Amazon CodeCatalyst.
+    /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Source repositories, by calling the following:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <a>CreateSourceRepository</a>, which creates an empty Git-based source repository
+    /// in a specified project.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>CreateSourceRepositoryBranch</a>, which creates a branch in a specified repository
+    /// where you can work on code.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>DeleteSourceRepository</a>, which deletes a source repository.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetSourceRepository</a>, which returns information about a source repository.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetSourceRepositoryCloneUrls</a>, which returns information about the URLs that
+    /// can be used with a Git client to clone a source repository.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -106,9 +119,31 @@ namespace Amazon.CodeCatalyst
     ///  <a>ListSourceRepositoryBranches</a>, which retrieves a list of branches in a source
     /// repository.
     /// </para>
+    ///  </li> </ul> 
+    /// <para>
+    /// Dev Environments and the Amazon Web Services Toolkits, by calling the following:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    ///  <a>CreateDevEnvironment</a>, which creates a Dev Environment, where you can quickly
+    /// work on the code stored in the source repositories of your project.
+    /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>ListSpaces</a>, which retrieves a list of spaces.
+    ///  <a>DeleteDevEnvironment</a>, which deletes a Dev Environment.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>GetDevEnvironment</a>, which returns information about a Dev Environment.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>ListDevEnvironments</a>, which retrieves a list of Dev Environments in a project.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>ListDevEnvironmentSessions</a>, which retrieves a list of active Dev Environment
+    /// sessions in a project.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -126,12 +161,11 @@ namespace Amazon.CodeCatalyst
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.
+    ///  <a>StopDevEnvironmentSession</a>, which stops a session for a specified Dev Environment.
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <a>VerifySession</a>, which verifies whether the calling user has a valid Amazon
-    /// CodeCatalyst login and session.
+    ///  <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -139,6 +173,11 @@ namespace Amazon.CodeCatalyst
     /// following:
     /// </para>
     ///  <ul> <li> 
+    /// <para>
+    ///  <a>CreateAccessToken</a>, which creates a personal access token (PAT) for the current
+    /// user.
+    /// </para>
+    ///  </li> <li> 
     /// <para>
     ///  <a>DeleteAccessToken</a>, which deletes a specified personal access token (PAT).
     /// </para>
@@ -152,7 +191,20 @@ namespace Amazon.CodeCatalyst
     ///  <a>ListEventLogs</a>, which retrieves a list of events that occurred during a specified
     /// time period in a space.
     /// </para>
-    ///  </li> </ul>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>VerifySession</a>, which verifies whether the calling user has a valid Amazon
+    /// CodeCatalyst login and session.
+    /// </para>
+    ///  </li> </ul> <note> 
+    /// <para>
+    /// If you are using the Amazon CodeCatalyst APIs with an SDK or the CLI, you must configure
+    /// your computer to work with Amazon CodeCatalyst and single sign-on (SSO). For more
+    /// information, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/set-up-cli.html">Setting
+    /// up to use the CLI with Amazon CodeCatalyst</a> and the SSO documentation for your
+    /// SDK.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial interface IAmazonCodeCatalyst : IAmazonService, IDisposable
     {
@@ -172,10 +224,11 @@ namespace Amazon.CodeCatalyst
 
         /// <summary>
         /// Creates a personal access token (PAT) for the current user. A personal access token
-        /// (PAT) is similar to a password. It is associated with your user account. You use PATs
-        /// to access Amazon CodeCatalyst resources such as source repositories from third-party
-        /// applications like Git and integrated development environments (IDEs). For more information,
-        /// see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html">Managing
+        /// (PAT) is similar to a password. It is associated with your user identity for use across
+        /// all spaces and projects in Amazon CodeCatalyst. You use PATs to access CodeCatalyst
+        /// from resources that include integrated development environments (IDEs) and Git-based
+        /// source repositories. PATs represent you in Amazon CodeCatalyst and you can manage
+        /// them in your user settings.For more information, see <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/ipa-tokens-keys.html">Managing
         /// personal access tokens in Amazon CodeCatalyst</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateAccessToken service method.</param>
@@ -242,10 +295,17 @@ namespace Amazon.CodeCatalyst
 
 
         /// <summary>
-        /// Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development Dev Environment
+        /// Creates a Dev Environment in Amazon CodeCatalyst, a cloud-based development environment
         /// that you can use to quickly work on the code stored in the source repositories of
-        /// your project. By default, a Dev Environment is configured to have a 2 core processor,
-        /// 4GB of RAM, and 16GB of persistent storage.
+        /// your project. 
+        /// 
+        ///  <note> 
+        /// <para>
+        /// When created in the Amazon CodeCatalyst console, by default a Dev Environment is configured
+        /// to have a 2 core processor, 4GB of RAM, and 16GB of persistent storage. None of these
+        /// defaults apply to a Dev Environment created programmatically.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateDevEnvironment service method.</param>
         /// 
@@ -370,6 +430,73 @@ namespace Amazon.CodeCatalyst
         /// <returns>Returns a  CreateProjectResult from CodeCatalyst.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/CreateProject">REST API Reference for CreateProject Operation</seealso>
         CreateProjectResponse EndCreateProject(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  CreateSourceRepository
+
+
+        /// <summary>
+        /// Creates an empty Git-based source repository in a specified project. The repository
+        /// is created with an initial empty commit with a default branch named <code>main</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateSourceRepository service method.</param>
+        /// 
+        /// <returns>The response from the CreateSourceRepository service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/CreateSourceRepository">REST API Reference for CreateSourceRepository Operation</seealso>
+        CreateSourceRepositoryResponse CreateSourceRepository(CreateSourceRepositoryRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateSourceRepository operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSourceRepository
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/CreateSourceRepository">REST API Reference for CreateSourceRepository Operation</seealso>
+        IAsyncResult BeginCreateSourceRepository(CreateSourceRepositoryRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateSourceRepository.</param>
+        /// 
+        /// <returns>Returns a  CreateSourceRepositoryResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/CreateSourceRepository">REST API Reference for CreateSourceRepository Operation</seealso>
+        CreateSourceRepositoryResponse EndCreateSourceRepository(IAsyncResult asyncResult);
 
         #endregion
         
@@ -579,6 +706,212 @@ namespace Amazon.CodeCatalyst
 
         #endregion
         
+        #region  DeleteProject
+
+
+        /// <summary>
+        /// Deletes a project in a space.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteProject service method.</param>
+        /// 
+        /// <returns>The response from the DeleteProject service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteProject">REST API Reference for DeleteProject Operation</seealso>
+        DeleteProjectResponse DeleteProject(DeleteProjectRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteProject operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteProject operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteProject
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteProject">REST API Reference for DeleteProject Operation</seealso>
+        IAsyncResult BeginDeleteProject(DeleteProjectRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteProject operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteProject.</param>
+        /// 
+        /// <returns>Returns a  DeleteProjectResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteProject">REST API Reference for DeleteProject Operation</seealso>
+        DeleteProjectResponse EndDeleteProject(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteSourceRepository
+
+
+        /// <summary>
+        /// Deletes a source repository in Amazon CodeCatalyst. You cannot use this API to delete
+        /// a linked repository. It can only be used to delete a Amazon CodeCatalyst source repository.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSourceRepository service method.</param>
+        /// 
+        /// <returns>The response from the DeleteSourceRepository service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSourceRepository">REST API Reference for DeleteSourceRepository Operation</seealso>
+        DeleteSourceRepositoryResponse DeleteSourceRepository(DeleteSourceRepositoryRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSourceRepository operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSourceRepository
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSourceRepository">REST API Reference for DeleteSourceRepository Operation</seealso>
+        IAsyncResult BeginDeleteSourceRepository(DeleteSourceRepositoryRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteSourceRepository.</param>
+        /// 
+        /// <returns>Returns a  DeleteSourceRepositoryResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSourceRepository">REST API Reference for DeleteSourceRepository Operation</seealso>
+        DeleteSourceRepositoryResponse EndDeleteSourceRepository(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DeleteSpace
+
+
+        /// <summary>
+        /// Deletes a space.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// Deleting a space cannot be undone. Additionally, since space names must be unique
+        /// across Amazon CodeCatalyst, you cannot reuse names of deleted spaces.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSpace service method.</param>
+        /// 
+        /// <returns>The response from the DeleteSpace service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSpace">REST API Reference for DeleteSpace Operation</seealso>
+        DeleteSpaceResponse DeleteSpace(DeleteSpaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteSpace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteSpace operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSpace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSpace">REST API Reference for DeleteSpace Operation</seealso>
+        IAsyncResult BeginDeleteSpace(DeleteSpaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteSpace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteSpace.</param>
+        /// 
+        /// <returns>Returns a  DeleteSpaceResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/DeleteSpace">REST API Reference for DeleteSpace Operation</seealso>
+        DeleteSpaceResponse EndDeleteSpace(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  GetDevEnvironment
 
 
@@ -709,6 +1042,72 @@ namespace Amazon.CodeCatalyst
         /// <returns>Returns a  GetProjectResult from CodeCatalyst.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/GetProject">REST API Reference for GetProject Operation</seealso>
         GetProjectResponse EndGetProject(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  GetSourceRepository
+
+
+        /// <summary>
+        /// Returns information about a source repository.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetSourceRepository service method.</param>
+        /// 
+        /// <returns>The response from the GetSourceRepository service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/GetSourceRepository">REST API Reference for GetSourceRepository Operation</seealso>
+        GetSourceRepositoryResponse GetSourceRepository(GetSourceRepositoryRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetSourceRepository operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetSourceRepository
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/GetSourceRepository">REST API Reference for GetSourceRepository Operation</seealso>
+        IAsyncResult BeginGetSourceRepository(GetSourceRepositoryRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetSourceRepository operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetSourceRepository.</param>
+        /// 
+        /// <returns>Returns a  GetSourceRepositoryResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/GetSourceRepository">REST API Reference for GetSourceRepository Operation</seealso>
+        GetSourceRepositoryResponse EndGetSourceRepository(IAsyncResult asyncResult);
 
         #endregion
         
@@ -983,7 +1382,7 @@ namespace Amazon.CodeCatalyst
 
         /// <summary>
         /// Lists all personal access tokens (PATs) associated with the user who calls the API.
-        /// You can only list PATs associated with your user account.
+        /// You can only list PATs associated with your Amazon Web Services Builder ID.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAccessTokens service method.</param>
         /// 
@@ -1049,7 +1448,7 @@ namespace Amazon.CodeCatalyst
 
 
         /// <summary>
-        /// Retrives a list of Dev Environments in a project.
+        /// Retrieves a list of Dev Environments in a project.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDevEnvironments service method.</param>
         /// 
@@ -1108,6 +1507,72 @@ namespace Amazon.CodeCatalyst
         /// <returns>Returns a  ListDevEnvironmentsResult from CodeCatalyst.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/ListDevEnvironments">REST API Reference for ListDevEnvironments Operation</seealso>
         ListDevEnvironmentsResponse EndListDevEnvironments(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  ListDevEnvironmentSessions
+
+
+        /// <summary>
+        /// Retrieves a list of active sessions for a Dev Environment in a project.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListDevEnvironmentSessions service method.</param>
+        /// 
+        /// <returns>The response from the ListDevEnvironmentSessions service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/ListDevEnvironmentSessions">REST API Reference for ListDevEnvironmentSessions Operation</seealso>
+        ListDevEnvironmentSessionsResponse ListDevEnvironmentSessions(ListDevEnvironmentSessionsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListDevEnvironmentSessions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListDevEnvironmentSessions operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListDevEnvironmentSessions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/ListDevEnvironmentSessions">REST API Reference for ListDevEnvironmentSessions Operation</seealso>
+        IAsyncResult BeginListDevEnvironmentSessions(ListDevEnvironmentSessionsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListDevEnvironmentSessions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListDevEnvironmentSessions.</param>
+        /// 
+        /// <returns>Returns a  ListDevEnvironmentSessionsResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/ListDevEnvironmentSessions">REST API Reference for ListDevEnvironmentSessions Operation</seealso>
+        ListDevEnvironmentSessionsResponse EndListDevEnvironmentSessions(IAsyncResult asyncResult);
 
         #endregion
         
@@ -1641,6 +2106,72 @@ namespace Amazon.CodeCatalyst
 
         #endregion
         
+        #region  StopDevEnvironmentSession
+
+
+        /// <summary>
+        /// Stops a session for a specified Dev Environment.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopDevEnvironmentSession service method.</param>
+        /// 
+        /// <returns>The response from the StopDevEnvironmentSession service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/StopDevEnvironmentSession">REST API Reference for StopDevEnvironmentSession Operation</seealso>
+        StopDevEnvironmentSessionResponse StopDevEnvironmentSession(StopDevEnvironmentSessionRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StopDevEnvironmentSession operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StopDevEnvironmentSession operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopDevEnvironmentSession
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/StopDevEnvironmentSession">REST API Reference for StopDevEnvironmentSession Operation</seealso>
+        IAsyncResult BeginStopDevEnvironmentSession(StopDevEnvironmentSessionRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StopDevEnvironmentSession operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStopDevEnvironmentSession.</param>
+        /// 
+        /// <returns>Returns a  StopDevEnvironmentSessionResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/StopDevEnvironmentSession">REST API Reference for StopDevEnvironmentSession Operation</seealso>
+        StopDevEnvironmentSessionResponse EndStopDevEnvironmentSession(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateDevEnvironment
 
 
@@ -1705,6 +2236,138 @@ namespace Amazon.CodeCatalyst
         /// <returns>Returns a  UpdateDevEnvironmentResult from CodeCatalyst.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateDevEnvironment">REST API Reference for UpdateDevEnvironment Operation</seealso>
         UpdateDevEnvironmentResponse EndUpdateDevEnvironment(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateProject
+
+
+        /// <summary>
+        /// Changes one or more values for a project.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProject service method.</param>
+        /// 
+        /// <returns>The response from the UpdateProject service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
+        UpdateProjectResponse UpdateProject(UpdateProjectRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateProject operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateProject operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateProject
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
+        IAsyncResult BeginUpdateProject(UpdateProjectRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateProject operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateProject.</param>
+        /// 
+        /// <returns>Returns a  UpdateProjectResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
+        UpdateProjectResponse EndUpdateProject(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  UpdateSpace
+
+
+        /// <summary>
+        /// Changes one or more values for a space.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSpace service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSpace service method, as returned by CodeCatalyst.</returns>
+        /// <exception cref="Amazon.CodeCatalyst.Model.AccessDeniedException">
+        /// The request was denied because you don't have sufficient access to perform this action.
+        /// Verify that you are a member of a role that allows this action.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ConflictException">
+        /// The request was denied because the requested operation would cause a conflict with
+        /// the current state of a service resource associated with the request. Another user
+        /// might have updated the resource. Reload, make sure you have the latest data, and then
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ResourceNotFoundException">
+        /// The request was denied because the specified resource was not found. Verify that the
+        /// spelling is correct and that you have access to the resource.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ServiceQuotaExceededException">
+        /// The request was denied because one or more resources has reached its limits for the
+        /// tier the space belongs to. Either reduce the number of resources, or change the tier
+        /// if applicable.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ThrottlingException">
+        /// The request was denied due to request throttling.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCatalyst.Model.ValidationException">
+        /// The request was denied because an input failed to satisfy the constraints specified
+        /// by the service. Check the spelling and input requirements, and then try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateSpace">REST API Reference for UpdateSpace Operation</seealso>
+        UpdateSpaceResponse UpdateSpace(UpdateSpaceRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSpace operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSpace operation on AmazonCodeCatalystClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateSpace
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateSpace">REST API Reference for UpdateSpace Operation</seealso>
+        IAsyncResult BeginUpdateSpace(UpdateSpaceRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateSpace operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateSpace.</param>
+        /// 
+        /// <returns>Returns a  UpdateSpaceResult from CodeCatalyst.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecatalyst-2022-09-28/UpdateSpace">REST API Reference for UpdateSpace Operation</seealso>
+        UpdateSpaceResponse EndUpdateSpace(IAsyncResult asyncResult);
 
         #endregion
         

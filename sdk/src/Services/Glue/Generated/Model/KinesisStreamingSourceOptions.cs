@@ -34,10 +34,12 @@ namespace Amazon.Glue.Model
     public partial class KinesisStreamingSourceOptions
     {
         private bool? _addIdleTimeBetweenReads;
+        private string _addRecordTimestamp;
         private bool? _avoidEmptyBatches;
         private string _classification;
         private string _delimiter;
         private long? _describeShardInterval;
+        private string _emitConsumerLagMetrics;
         private string _endpointUrl;
         private long? _idleTimeBetweenReadsInMs;
         private long? _maxFetchRecordsPerShard;
@@ -49,6 +51,7 @@ namespace Amazon.Glue.Model
         private string _roleArn;
         private string _roleSessionName;
         private StartingPosition _startingPosition;
+        private DateTime? _startingTimestamp;
         private string _streamArn;
         private string _streamName;
 
@@ -70,6 +73,27 @@ namespace Amazon.Glue.Model
         internal bool IsSetAddIdleTimeBetweenReads()
         {
             return this._addIdleTimeBetweenReads.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property AddRecordTimestamp. 
+        /// <para>
+        /// When this option is set to 'true', the data output will contain an additional column
+        /// named "__src_timestamp" that indicates the time when the corresponding record received
+        /// by the stream. The default value is 'false'. This option is supported in Glue version
+        /// 4.0 or later.
+        /// </para>
+        /// </summary>
+        public string AddRecordTimestamp
+        {
+            get { return this._addRecordTimestamp; }
+            set { this._addRecordTimestamp = value; }
+        }
+
+        // Check to see if AddRecordTimestamp property is set
+        internal bool IsSetAddRecordTimestamp()
+        {
+            return this._addRecordTimestamp != null;
         }
 
         /// <summary>
@@ -145,6 +169,27 @@ namespace Amazon.Glue.Model
         internal bool IsSetDescribeShardInterval()
         {
             return this._describeShardInterval.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property EmitConsumerLagMetrics. 
+        /// <para>
+        /// When this option is set to 'true', for each batch, it will emit the metrics for the
+        /// duration between the oldest record received by the stream and the time it arrives
+        /// in Glue to CloudWatch. The metric's name is "glue.driver.streaming.maxConsumerLagInMs".
+        /// The default value is 'false'. This option is supported in Glue version 4.0 or later.
+        /// </para>
+        /// </summary>
+        public string EmitConsumerLagMetrics
+        {
+            get { return this._emitConsumerLagMetrics; }
+            set { this._emitConsumerLagMetrics = value; }
+        }
+
+        // Check to see if EmitConsumerLagMetrics property is set
+        internal bool IsSetEmitConsumerLagMetrics()
+        {
+            return this._emitConsumerLagMetrics != null;
         }
 
         /// <summary>
@@ -350,8 +395,15 @@ namespace Amazon.Glue.Model
         /// Gets and sets the property StartingPosition. 
         /// <para>
         /// The starting position in the Kinesis data stream to read data from. The possible values
-        /// are <code>"latest"</code>, <code>"trim_horizon"</code>, or <code>"earliest"</code>.
+        /// are <code>"latest"</code>, <code>"trim_horizon"</code>, <code>"earliest"</code>, or
+        /// a timestamp string in UTC format in the pattern <code>yyyy-mm-ddTHH:MM:SSZ</code>
+        /// (where <code>Z</code> represents a UTC timezone offset with a +/-. For example: "2023-04-04T08:00:00-04:00").
         /// The default value is <code>"latest"</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Note: Using a value that is a timestamp string in UTC format for "startingPosition"
+        /// is supported only for Glue version 4.0 or later.
         /// </para>
         /// </summary>
         public StartingPosition StartingPosition
@@ -364,6 +416,27 @@ namespace Amazon.Glue.Model
         internal bool IsSetStartingPosition()
         {
             return this._startingPosition != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property StartingTimestamp. 
+        /// <para>
+        /// The timestamp of the record in the Kinesis data stream to start reading data from.
+        /// The possible values are a timestamp string in UTC format of the pattern <code>yyyy-mm-ddTHH:MM:SSZ</code>
+        /// (where Z represents a UTC timezone offset with a +/-. For example: "2023-04-04T08:00:00+08:00").
+        /// 
+        /// </para>
+        /// </summary>
+        public DateTime StartingTimestamp
+        {
+            get { return this._startingTimestamp.GetValueOrDefault(); }
+            set { this._startingTimestamp = value; }
+        }
+
+        // Check to see if StartingTimestamp property is set
+        internal bool IsSetStartingTimestamp()
+        {
+            return this._startingTimestamp.HasValue; 
         }
 
         /// <summary>

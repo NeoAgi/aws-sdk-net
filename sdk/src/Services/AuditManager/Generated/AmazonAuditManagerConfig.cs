@@ -32,16 +32,26 @@ namespace Amazon.AuditManager
     public partial class AmazonAuditManagerConfig : ClientConfig
     {
         private static readonly string UserAgentString =
-            InternalSDKUtils.BuildUserAgentString("3.7.102.8");
+            InternalSDKUtils.BuildUserAgentString("3.7.200.4");
 
         private string _userAgent = UserAgentString;
-
+        ///<summary>
+        /// The ServiceId, which is the unique identifier for a service.
+        ///</summary>
+        public static new string ServiceId
+        {
+            get
+            {
+                return "AuditManager";
+            }
+        }
         /// <summary>
         /// Default constructor
         /// </summary>
         public AmazonAuditManagerConfig()
             : base(new Amazon.Runtime.Internal.DefaultConfigurationProvider(AmazonAuditManagerDefaultConfiguration.GetAllConfigurations()))
         {
+            base.ServiceId = "AuditManager";
             this.AuthenticationServiceName = "auditmanager";
             this.EndpointProvider = new AmazonAuditManagerEndpointProvider();
         }

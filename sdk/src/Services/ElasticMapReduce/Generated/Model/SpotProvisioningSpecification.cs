@@ -34,9 +34,9 @@ namespace Amazon.ElasticMapReduce.Model
     /// 
     ///  <note> 
     /// <para>
-    /// The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+    /// The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
     /// later, excluding 5.0.x versions. Spot Instance allocation strategy is available in
-    /// Amazon EMR version 5.12.1 and later.
+    /// Amazon EMR releases 5.12.1 and later.
     /// </para>
     ///  </note> <note> 
     /// <para>
@@ -134,7 +134,7 @@ namespace Amazon.ElasticMapReduce.Model
         /// <summary>
         /// Gets and sets the property TimeoutDurationMinutes. 
         /// <para>
-        /// The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+        /// The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
         /// within this time period, the <code>TimeOutAction</code> is taken. Minimum value is
         /// 5 and maximum value is 1440. The timeout applies only during initial provisioning,
         /// when the cluster is first created.

@@ -66,6 +66,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                         unmarshalledObject.AllowsMultipleInstanceTypes = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("assetId", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.AssetId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                     if (context.TestExpression("autoPlacement", targetDepth))
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
@@ -100,6 +106,12 @@ namespace Amazon.EC2.Model.Internal.MarshallTransformations
                     {
                         var unmarshaller = StringUnmarshaller.Instance;
                         unmarshalledObject.HostId = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
+                    if (context.TestExpression("hostMaintenance", targetDepth))
+                    {
+                        var unmarshaller = StringUnmarshaller.Instance;
+                        unmarshalledObject.HostMaintenance = unmarshaller.Unmarshall(context);
                         continue;
                     }
                     if (context.TestExpression("hostProperties", targetDepth))

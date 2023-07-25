@@ -47,8 +47,8 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported
-        /// (<code>true</code> | <code>false</code>).
+        ///  <code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action
+        /// based recovery is supported (<code>true</code> | <code>false</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -57,8 +57,8 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>burstable-performance-supported</code> - Indicates whether it is a burstable
-        /// performance instance type (<code>true</code> | <code>false</code>).
+        ///  <code>burstable-performance-supported</code> - Indicates whether the instance type
+        /// is a burstable performance T instance type (<code>true</code> | <code>false</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -222,6 +222,20 @@ namespace Amazon.EC2.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <code>nitro-enclaves-support</code> - Indicates whether Nitro Enclaves is supported
+        /// (<code>supported</code> | <code>unsupported</code>).
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>nitro-tpm-support</code> - Indicates whether NitroTPM is supported (<code>supported</code>
+        /// | <code>unsupported</code>).
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>nitro-tpm-info.supported-versions</code> - The supported NitroTPM version (<code>2.0</code>).
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>processor-info.supported-architecture</code> - The CPU architecture (<code>arm64</code>
         /// | <code>i386</code> | <code>x86_64</code>).
         /// </para>
@@ -229,6 +243,10 @@ namespace Amazon.EC2.Model
         /// <para>
         ///  <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
         /// GHz.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>processor-info.supported-features</code> - The supported CPU features (<code>amd-sev-snp</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -310,8 +328,9 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// The maximum number of results to return for the request in a single page. The remaining
-        /// results can be seen by sending another request with the next token value.
+        /// The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.
         /// </para>
         /// </summary>
         [AWSProperty(Min=5, Max=100)]
@@ -330,7 +349,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property NextToken. 
         /// <para>
-        /// The token to retrieve the next page of results.
+        /// The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.
         /// </para>
         /// </summary>
         public string NextToken

@@ -38,8 +38,11 @@ namespace Amazon.Proton.Model
         private DeploymentStatus _deploymentStatus;
         private string _deploymentStatusMessage;
         private string _environmentName;
+        private string _lastAttemptedDeploymentId;
+        private string _lastClientRequestToken;
         private DateTime? _lastDeploymentAttemptedAt;
         private DateTime? _lastDeploymentSucceededAt;
+        private string _lastSucceededDeploymentId;
         private string _name;
         private string _serviceName;
         private string _spec;
@@ -110,6 +113,7 @@ namespace Amazon.Proton.Model
         /// The message associated with the service instance deployment status.
         /// </para>
         /// </summary>
+        [AWSProperty(Sensitive=true)]
         public string DeploymentStatusMessage
         {
             get { return this._deploymentStatusMessage; }
@@ -139,6 +143,42 @@ namespace Amazon.Proton.Model
         internal bool IsSetEnvironmentName()
         {
             return this._environmentName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LastAttemptedDeploymentId. 
+        /// <para>
+        /// The ID of the last attempted deployment of this service instance.
+        /// </para>
+        /// </summary>
+        public string LastAttemptedDeploymentId
+        {
+            get { return this._lastAttemptedDeploymentId; }
+            set { this._lastAttemptedDeploymentId = value; }
+        }
+
+        // Check to see if LastAttemptedDeploymentId property is set
+        internal bool IsSetLastAttemptedDeploymentId()
+        {
+            return this._lastAttemptedDeploymentId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LastClientRequestToken. 
+        /// <para>
+        /// The last client request token received.
+        /// </para>
+        /// </summary>
+        public string LastClientRequestToken
+        {
+            get { return this._lastClientRequestToken; }
+            set { this._lastClientRequestToken = value; }
+        }
+
+        // Check to see if LastClientRequestToken property is set
+        internal bool IsSetLastClientRequestToken()
+        {
+            return this._lastClientRequestToken != null;
         }
 
         /// <summary>
@@ -177,6 +217,24 @@ namespace Amazon.Proton.Model
         internal bool IsSetLastDeploymentSucceededAt()
         {
             return this._lastDeploymentSucceededAt.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property LastSucceededDeploymentId. 
+        /// <para>
+        /// The ID of the last successful deployment of this service instance.
+        /// </para>
+        /// </summary>
+        public string LastSucceededDeploymentId
+        {
+            get { return this._lastSucceededDeploymentId; }
+            set { this._lastSucceededDeploymentId = value; }
+        }
+
+        // Check to see if LastSucceededDeploymentId property is set
+        internal bool IsSetLastSucceededDeploymentId()
+        {
+            return this._lastSucceededDeploymentId != null;
         }
 
         /// <summary>
@@ -223,7 +281,7 @@ namespace Amazon.Proton.Model
         /// The service spec that was used to create the service instance.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=51200)]
+        [AWSProperty(Sensitive=true, Min=1, Max=51200)]
         public string Spec
         {
             get { return this._spec; }

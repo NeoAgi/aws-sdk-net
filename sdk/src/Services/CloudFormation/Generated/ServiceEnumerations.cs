@@ -1297,6 +1297,60 @@ namespace Amazon.CloudFormation
 
 
     /// <summary>
+    /// Constants used for properties of type OnStackFailure.
+    /// </summary>
+    public class OnStackFailure : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DELETE for OnStackFailure
+        /// </summary>
+        public static readonly OnStackFailure DELETE = new OnStackFailure("DELETE");
+        /// <summary>
+        /// Constant DO_NOTHING for OnStackFailure
+        /// </summary>
+        public static readonly OnStackFailure DO_NOTHING = new OnStackFailure("DO_NOTHING");
+        /// <summary>
+        /// Constant ROLLBACK for OnStackFailure
+        /// </summary>
+        public static readonly OnStackFailure ROLLBACK = new OnStackFailure("ROLLBACK");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OnStackFailure(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OnStackFailure FindValue(string value)
+        {
+            return FindValue<OnStackFailure>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OnStackFailure(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type OperationResultFilterName.
     /// </summary>
     public class OperationResultFilterName : ConstantClass
@@ -1394,6 +1448,60 @@ namespace Amazon.CloudFormation
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator OperationStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type OrganizationStatus.
+    /// </summary>
+    public class OrganizationStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DISABLED for OrganizationStatus
+        /// </summary>
+        public static readonly OrganizationStatus DISABLED = new OrganizationStatus("DISABLED");
+        /// <summary>
+        /// Constant DISABLED_PERMANENTLY for OrganizationStatus
+        /// </summary>
+        public static readonly OrganizationStatus DISABLED_PERMANENTLY = new OrganizationStatus("DISABLED_PERMANENTLY");
+        /// <summary>
+        /// Constant ENABLED for OrganizationStatus
+        /// </summary>
+        public static readonly OrganizationStatus ENABLED = new OrganizationStatus("ENABLED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public OrganizationStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static OrganizationStatus FindValue(string value)
+        {
+            return FindValue<OrganizationStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator OrganizationStatus(string value)
         {
             return FindValue(value);
         }
@@ -2205,6 +2313,10 @@ namespace Amazon.CloudFormation
         /// </summary>
         public static readonly StackInstanceDetailedStatus RUNNING = new StackInstanceDetailedStatus("RUNNING");
         /// <summary>
+        /// Constant SKIPPED_SUSPENDED_ACCOUNT for StackInstanceDetailedStatus
+        /// </summary>
+        public static readonly StackInstanceDetailedStatus SKIPPED_SUSPENDED_ACCOUNT = new StackInstanceDetailedStatus("SKIPPED_SUSPENDED_ACCOUNT");
+        /// <summary>
         /// Constant SUCCEEDED for StackInstanceDetailedStatus
         /// </summary>
         public static readonly StackInstanceDetailedStatus SUCCEEDED = new StackInstanceDetailedStatus("SUCCEEDED");
@@ -2254,6 +2366,10 @@ namespace Amazon.CloudFormation
         /// Constant DETAILED_STATUS for StackInstanceFilterName
         /// </summary>
         public static readonly StackInstanceFilterName DETAILED_STATUS = new StackInstanceFilterName("DETAILED_STATUS");
+        /// <summary>
+        /// Constant DRIFT_STATUS for StackInstanceFilterName
+        /// </summary>
+        public static readonly StackInstanceFilterName DRIFT_STATUS = new StackInstanceFilterName("DRIFT_STATUS");
         /// <summary>
         /// Constant LAST_OPERATION_ID for StackInstanceFilterName
         /// </summary>

@@ -85,6 +85,10 @@ namespace Amazon.Outposts
         /// </summary>
         public static readonly AssetState ACTIVE = new AssetState("ACTIVE");
         /// <summary>
+        /// Constant ISOLATED for AssetState
+        /// </summary>
+        public static readonly AssetState ISOLATED = new AssetState("ISOLATED");
+        /// <summary>
         /// Constant RETIRING for AssetState
         /// </summary>
         public static readonly AssetState RETIRING = new AssetState("RETIRING");
@@ -408,6 +412,10 @@ namespace Amazon.Outposts
         /// Constant PREPARING for LineItemStatus
         /// </summary>
         public static readonly LineItemStatus PREPARING = new LineItemStatus("PREPARING");
+        /// <summary>
+        /// Constant REPLACED for LineItemStatus
+        /// </summary>
+        public static readonly LineItemStatus REPLACED = new LineItemStatus("REPLACED");
         /// <summary>
         /// Constant SHIPPED for LineItemStatus
         /// </summary>

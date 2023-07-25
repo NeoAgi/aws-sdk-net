@@ -73,6 +73,12 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                     context.Writer.Write(StringUtils.FromMemoryStream(publicRequest.CiphertextBlob));
                 }
 
+                if(publicRequest.IsSetDryRun())
+                {
+                    context.Writer.WritePropertyName("DryRun");
+                    context.Writer.Write(publicRequest.DryRun);
+                }
+
                 if(publicRequest.IsSetEncryptionAlgorithm())
                 {
                     context.Writer.WritePropertyName("EncryptionAlgorithm");
@@ -108,6 +114,17 @@ namespace Amazon.KeyManagementService.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("KeyId");
                     context.Writer.Write(publicRequest.KeyId);
+                }
+
+                if(publicRequest.IsSetRecipient())
+                {
+                    context.Writer.WritePropertyName("Recipient");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = RecipientInfoMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Recipient, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 writer.WriteObjectEnd();

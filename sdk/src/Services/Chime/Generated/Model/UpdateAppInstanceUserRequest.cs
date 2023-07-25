@@ -31,6 +31,20 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// Container for the parameters to the UpdateAppInstanceUser operation.
     /// Updates the details of an <code>AppInstanceUser</code>. You can update names and metadata.
+    /// 
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceUser.html">UpdateAppInstanceUser</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class UpdateAppInstanceUserRequest : AmazonChimeRequest
     {
@@ -63,7 +77,7 @@ namespace Amazon.Chime.Model
         /// The metadata of the <code>AppInstanceUser</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=0, Max=1024)]
         public string Metadata
         {
             get { return this._metadata; }
@@ -82,7 +96,7 @@ namespace Amazon.Chime.Model
         /// The name of the <code>AppInstanceUser</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=100)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=100)]
         public string Name
         {
             get { return this._name; }

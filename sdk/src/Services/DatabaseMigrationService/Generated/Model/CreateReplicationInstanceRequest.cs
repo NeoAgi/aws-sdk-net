@@ -91,6 +91,18 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// Default: <code>true</code> 
         /// </para>
+        ///  
+        /// <para>
+        /// When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
+        /// engine version when you create a replication instance. For example, if you set <code>EngineVersion</code>
+        /// to a lower version number than the current default version, DMS uses the default version.
+        /// </para>
+        ///  
+        /// <para>
+        /// If <code>AutoMinorVersionUpgrade</code> <i>isn’t</i> enabled when you create a replication
+        /// instance, DMS uses the engine version specified by the <code>EngineVersion</code>
+        /// parameter. 
+        /// </para>
         /// </summary>
         public bool AutoMinorVersionUpgrade
         {
@@ -109,7 +121,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <para>
         /// The Availability Zone where the replication instance will be created. The default
         /// value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services
-        /// Region, for example: <code>us-east-1d</code> 
+        /// Region, for example: <code>us-east-1d</code>.
         /// </para>
         /// </summary>
         public string AvailabilityZone
@@ -303,8 +315,9 @@ namespace Amazon.DatabaseMigrationService.Model
         ///  
         /// <para>
         /// For more information on the settings and capacities for the available replication
-        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
-        /// Selecting the right DMS replication instance for your migration</a>. 
+        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html
+        /// "> Choosing the right DMS replication instance</a>; and, <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html">Selecting
+        /// the best size for a replication instance</a>. 
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]

@@ -41,6 +41,7 @@ namespace Amazon.Mgn.Model
         /// List tags for resource response.
         /// </para>
         /// </summary>
+        [AWSProperty(Sensitive=true, Min=0, Max=50)]
         public Dictionary<string, string> Tags
         {
             get { return this._tags; }

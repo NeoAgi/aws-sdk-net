@@ -124,8 +124,7 @@ namespace Amazon.MarketplaceCatalog
         /// </summary>
         /// <param name="config">The AmazonMarketplaceCatalogClient Configuration Object</param>
         public AmazonMarketplaceCatalogClient(AmazonMarketplaceCatalogConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonMarketplaceCatalogClient with AWS Credentials
         /// </summary>
@@ -286,21 +285,46 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the CancelChangeSet service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceInUseException">
         /// The resource is currently in use.
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/CancelChangeSet">REST API Reference for CancelChangeSet Operation</seealso>
         public virtual CancelChangeSetResponse CancelChangeSet(CancelChangeSetRequest request)
@@ -348,6 +372,100 @@ namespace Amazon.MarketplaceCatalog
 
         #endregion
         
+        #region  DeleteResourcePolicy
+
+        /// <summary>
+        /// Deletes a resource-based policy on an Entity that is identified by its resource ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the DeleteResourcePolicy service method, as returned by MarketplaceCatalog.</returns>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
+        /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
+        /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
+        /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
+        /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        public virtual DeleteResourcePolicyResponse DeleteResourcePolicy(DeleteResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteResourcePolicyResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteResourcePolicy operation on AmazonMarketplaceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteResourcePolicy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        public virtual IAsyncResult BeginDeleteResourcePolicy(DeleteResourcePolicyRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = DeleteResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = DeleteResourcePolicyResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteResourcePolicy.</param>
+        /// 
+        /// <returns>Returns a  DeleteResourcePolicyResult from MarketplaceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/DeleteResourcePolicy">REST API Reference for DeleteResourcePolicy Operation</seealso>
+        public virtual DeleteResourcePolicyResponse EndDeleteResourcePolicy(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteResourcePolicyResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  DescribeChangeSet
 
         /// <summary>
@@ -358,18 +476,43 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the DescribeChangeSet service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/DescribeChangeSet">REST API Reference for DescribeChangeSet Operation</seealso>
         public virtual DescribeChangeSetResponse DescribeChangeSet(DescribeChangeSetRequest request)
@@ -427,21 +570,46 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the DescribeEntity service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotSupportedException">
         /// Currently, the specified resource is not supported.
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/DescribeEntity">REST API Reference for DescribeEntity Operation</seealso>
         public virtual DescribeEntityResponse DescribeEntity(DescribeEntityRequest request)
@@ -489,6 +657,100 @@ namespace Amazon.MarketplaceCatalog
 
         #endregion
         
+        #region  GetResourcePolicy
+
+        /// <summary>
+        /// Gets a resource-based policy of an Entity that is identified by its resource ARN.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the GetResourcePolicy service method, as returned by MarketplaceCatalog.</returns>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
+        /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
+        /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
+        /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
+        /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/GetResourcePolicy">REST API Reference for GetResourcePolicy Operation</seealso>
+        public virtual GetResourcePolicyResponse GetResourcePolicy(GetResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<GetResourcePolicyResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetResourcePolicy operation on AmazonMarketplaceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetResourcePolicy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/GetResourcePolicy">REST API Reference for GetResourcePolicy Operation</seealso>
+        public virtual IAsyncResult BeginGetResourcePolicy(GetResourcePolicyRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetResourcePolicyResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetResourcePolicy.</param>
+        /// 
+        /// <returns>Returns a  GetResourcePolicyResult from MarketplaceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/GetResourcePolicy">REST API Reference for GetResourcePolicy Operation</seealso>
+        public virtual GetResourcePolicyResponse EndGetResourcePolicy(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetResourcePolicyResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  ListChangeSets
 
         /// <summary>
@@ -508,15 +770,35 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the ListChangeSets service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/ListChangeSets">REST API Reference for ListChangeSets Operation</seealso>
         public virtual ListChangeSetsResponse ListChangeSets(ListChangeSetsRequest request)
@@ -574,18 +856,43 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the ListEntities service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/ListEntities">REST API Reference for ListEntities Operation</seealso>
         public virtual ListEntitiesResponse ListEntities(ListEntitiesRequest request)
@@ -645,18 +952,43 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the ListTagsForResource service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
         public virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
@@ -704,6 +1036,101 @@ namespace Amazon.MarketplaceCatalog
 
         #endregion
         
+        #region  PutResourcePolicy
+
+        /// <summary>
+        /// Attaches a resource-based policy to an Entity. Examples of an entity include: <code>AmiProduct</code>
+        /// and <code>ContainerProduct</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy service method.</param>
+        /// 
+        /// <returns>The response from the PutResourcePolicy service method, as returned by MarketplaceCatalog.</returns>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
+        /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
+        /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
+        /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
+        /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
+        /// </exception>
+        /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
+        /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/PutResourcePolicy">REST API Reference for PutResourcePolicy Operation</seealso>
+        public virtual PutResourcePolicyResponse PutResourcePolicy(PutResourcePolicyRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return Invoke<PutResourcePolicyResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutResourcePolicy operation on AmazonMarketplaceCatalogClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutResourcePolicy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/PutResourcePolicy">REST API Reference for PutResourcePolicy Operation</seealso>
+        public virtual IAsyncResult BeginPutResourcePolicy(PutResourcePolicyRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = PutResourcePolicyRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = PutResourcePolicyResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  PutResourcePolicy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginPutResourcePolicy.</param>
+        /// 
+        /// <returns>Returns a  PutResourcePolicyResult from MarketplaceCatalog.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/PutResourcePolicy">REST API Reference for PutResourcePolicy Operation</seealso>
+        public virtual PutResourcePolicyResponse EndPutResourcePolicy(IAsyncResult asyncResult)
+        {
+            return EndInvoke<PutResourcePolicyResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  StartChangeSet
 
         /// <summary>
@@ -723,7 +1150,11 @@ namespace Amazon.MarketplaceCatalog
         ///  
         /// <para>
         /// For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
-        /// Working with change sets</a>.
+        /// Working with change sets</a>. For information on change types for single-AMI products,
+        /// see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working
+        /// with single-AMI products</a>. Als, for more information on change types available
+        /// for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working
+        /// with container products</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartChangeSet service method.</param>
@@ -731,24 +1162,49 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the StartChangeSet service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceInUseException">
         /// The resource is currently in use.
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ServiceQuotaExceededException">
         /// The maximum number of open requests per account has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/StartChangeSet">REST API Reference for StartChangeSet Operation</seealso>
         public virtual StartChangeSetResponse StartChangeSet(StartChangeSetRequest request)
@@ -808,18 +1264,43 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the TagResource service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/TagResource">REST API Reference for TagResource Operation</seealso>
         public virtual TagResourceResponse TagResource(TagResourceRequest request)
@@ -879,18 +1360,43 @@ namespace Amazon.MarketplaceCatalog
         /// <returns>The response from the UntagResource service method, as returned by MarketplaceCatalog.</returns>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.AccessDeniedException">
         /// Access is denied.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 403
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.InternalServiceException">
         /// There was an internal service exception.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 500
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ResourceNotFoundException">
         /// The specified resource wasn't found.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 404
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ThrottlingException">
         /// Too many requests.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 429
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.MarketplaceCatalog.Model.ValidationException">
         /// An error occurred during validation.
+        /// 
+        ///  
+        /// <para>
+        /// HTTP status code: 422
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/marketplace-catalog-2018-09-17/UntagResource">REST API Reference for UntagResource Operation</seealso>
         public virtual UntagResourceResponse UntagResource(UntagResourceRequest request)

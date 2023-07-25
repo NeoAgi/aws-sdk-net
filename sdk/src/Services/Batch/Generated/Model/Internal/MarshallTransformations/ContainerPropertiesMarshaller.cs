@@ -72,6 +72,17 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 context.Writer.WriteArrayEnd();
             }
 
+            if(requestObject.IsSetEphemeralStorage())
+            {
+                context.Writer.WritePropertyName("ephemeralStorage");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = EphemeralStorageMarshaller.Instance;
+                marshaller.Marshall(requestObject.EphemeralStorage, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetExecutionRoleArn())
             {
                 context.Writer.WritePropertyName("executionRoleArn");
@@ -188,6 +199,17 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
                 context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetRuntimePlatform())
+            {
+                context.Writer.WritePropertyName("runtimePlatform");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RuntimePlatformMarshaller.Instance;
+                marshaller.Marshall(requestObject.RuntimePlatform, context);
+
+                context.Writer.WriteObjectEnd();
             }
 
             if(requestObject.IsSetSecrets())

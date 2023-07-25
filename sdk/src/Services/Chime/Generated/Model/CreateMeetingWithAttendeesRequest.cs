@@ -31,10 +31,24 @@ namespace Amazon.Chime.Model
     /// <summary>
     /// Container for the parameters to the CreateMeetingWithAttendees operation.
     /// Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees.
-    /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-    /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+    /// For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+    /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> . 
+    /// 
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeetingWithAttendees.html">CreateMeetingWithAttendees</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateMeetingWithAttendeesRequest : AmazonChimeRequest
     {
@@ -72,7 +86,7 @@ namespace Amazon.Chime.Model
         /// meetings.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -91,7 +105,7 @@ namespace Amazon.Chime.Model
         /// The external meeting ID.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ExternalMeetingId
         {
             get { return this._externalMeetingId; }
@@ -137,7 +151,7 @@ namespace Amazon.Chime.Model
         /// Reserved.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string MeetingHostId
         {
             get { return this._meetingHostId; }
@@ -151,7 +165,12 @@ namespace Amazon.Chime.Model
         }
 
         /// <summary>
-        /// Gets and sets the property NotificationsConfiguration.
+        /// Gets and sets the property NotificationsConfiguration. 
+        /// <para>
+        /// The resource target configurations for receiving Amazon Chime SDK meeting and attendee
+        /// event notifications. The Amazon Chime SDK supports resource targets located in the
+        /// US East (N. Virginia) AWS Region (us-east-1).
+        /// </para>
         /// </summary>
         public MeetingNotificationConfiguration NotificationsConfiguration
         {

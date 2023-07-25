@@ -37,6 +37,8 @@ namespace Amazon.OpenSearchService.Model
     public partial class CreateOutboundConnectionRequest : AmazonOpenSearchServiceRequest
     {
         private string _connectionAlias;
+        private ConnectionMode _connectionMode;
+        private ConnectionProperties _connectionProperties;
         private DomainInformationContainer _localDomainInfo;
         private DomainInformationContainer _remoteDomainInfo;
 
@@ -57,6 +59,42 @@ namespace Amazon.OpenSearchService.Model
         internal bool IsSetConnectionAlias()
         {
             return this._connectionAlias != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ConnectionMode. 
+        /// <para>
+        /// The connection mode.
+        /// </para>
+        /// </summary>
+        public ConnectionMode ConnectionMode
+        {
+            get { return this._connectionMode; }
+            set { this._connectionMode = value; }
+        }
+
+        // Check to see if ConnectionMode property is set
+        internal bool IsSetConnectionMode()
+        {
+            return this._connectionMode != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ConnectionProperties. 
+        /// <para>
+        /// The <code>ConnectionProperties</code> for the outbound connection.
+        /// </para>
+        /// </summary>
+        public ConnectionProperties ConnectionProperties
+        {
+            get { return this._connectionProperties; }
+            set { this._connectionProperties = value; }
+        }
+
+        // Check to see if ConnectionProperties property is set
+        internal bool IsSetConnectionProperties()
+        {
+            return this._connectionProperties != null;
         }
 
         /// <summary>

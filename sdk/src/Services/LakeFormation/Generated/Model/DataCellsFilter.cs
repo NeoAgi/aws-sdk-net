@@ -40,11 +40,14 @@ namespace Amazon.LakeFormation.Model
         private RowFilter _rowFilter;
         private string _tableCatalogId;
         private string _tableName;
+        private string _versionId;
 
         /// <summary>
         /// Gets and sets the property ColumnNames. 
         /// <para>
-        /// A list of column names.
+        /// A list of column names and/or nested column attributes. When specifying nested attributes,
+        /// use a qualified dot (.) delimited format such as "address"."zip". Nested attributes
+        /// within this list may not exceed a depth of 5.
         /// </para>
         /// </summary>
         public List<string> ColumnNames
@@ -174,6 +177,25 @@ namespace Amazon.LakeFormation.Model
         internal bool IsSetTableName()
         {
             return this._tableName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VersionId. 
+        /// <para>
+        /// The ID of the data cells filter version.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=255)]
+        public string VersionId
+        {
+            get { return this._versionId; }
+            set { this._versionId = value; }
+        }
+
+        // Check to see if VersionId property is set
+        internal bool IsSetVersionId()
+        {
+            return this._versionId != null;
         }
 
     }

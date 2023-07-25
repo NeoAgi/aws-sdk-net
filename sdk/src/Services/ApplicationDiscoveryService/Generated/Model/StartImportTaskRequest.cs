@@ -31,11 +31,12 @@ namespace Amazon.ApplicationDiscoveryService.Model
     /// <summary>
     /// Container for the parameters to the StartImportTask operation.
     /// Starts an import task, which allows you to import details of your on-premises environment
-    /// directly into Amazon Web Services Migration Hub without having to use the Application
-    /// Discovery Service (ADS) tools such as the Discovery Connector or Discovery Agent.
-    /// This gives you the option to perform migration assessment and planning directly from
-    /// your imported data, including the ability to group your devices as applications and
-    /// track their migration status.
+    /// directly into Amazon Web Services Migration Hub without having to use the Amazon Web
+    /// Services Application Discovery Service (Application Discovery Service) tools such
+    /// as the Amazon Web Services Application Discovery Service Agentless Collector or Application
+    /// Discovery Agent. This gives you the option to perform migration assessment and planning
+    /// directly from your imported data, including the ability to group your devices as applications
+    /// and track their migration status.
     /// 
     ///  
     /// <para>
@@ -140,7 +141,7 @@ namespace Amazon.ApplicationDiscoveryService.Model
         /// import task.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=100)]
+        [AWSProperty(Required=true, Min=1, Max=255)]
         public string Name
         {
             get { return this._name; }

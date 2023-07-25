@@ -23,7 +23,7 @@
       "errors":[
         {"shape":"ResourceNotFoundFault"}
       ],
-      "documentation":"<p>Adds metadata tags to an DMS resource, including replication instance, endpoint, security group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
+      "documentation":"<p>Adds metadata tags to an DMS resource, including replication instance, endpoint, subnet group, and migration task. These tags can also be used with cost allocation reporting to track cost associated with DMS resources, or used in a Condition statement in an IAM policy for DMS. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
     },
     "ApplyPendingMaintenanceAction":{
       "name":"ApplyPendingMaintenanceAction",
@@ -37,6 +37,21 @@
         {"shape":"ResourceNotFoundFault"}
       ],
       "documentation":"<p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>"
+    },
+    "BatchStartRecommendations":{
+      "name":"BatchStartRecommendations",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"BatchStartRecommendationsRequest"},
+      "output":{"shape":"BatchStartRecommendationsResponse"},
+      "errors":[
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"},
+        {"shape":"ResourceNotFoundFault"}
+      ],
+      "documentation":"<p>Starts the analysis of up to 20 source databases to recommend target engines for each source database. This is a batch version of <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html\">StartRecommendations</a>.</p> <p>The result of analysis of each source database is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>"
     },
     "CancelReplicationTaskAssessmentRun":{
       "name":"CancelReplicationTaskAssessmentRun",
@@ -111,6 +126,26 @@
       ],
       "documentation":"<p>Creates a Fleet Advisor collector using the specified parameters.</p>"
     },
+    "CreateReplicationConfig":{
+      "name":"CreateReplicationConfig",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"CreateReplicationConfigMessage"},
+      "output":{"shape":"CreateReplicationConfigResponse"},
+      "errors":[
+        {"shape":"AccessDeniedFault"},
+        {"shape":"ResourceAlreadyExistsFault"},
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"ReplicationSubnetGroupDoesNotCoverEnoughAZs"},
+        {"shape":"InvalidSubnet"},
+        {"shape":"KMSKeyNotAccessibleFault"},
+        {"shape":"ResourceQuotaExceededFault"}
+      ],
+      "documentation":"<p>Creates a configuration that you can later provide to configure and start an DMS Serverless replication. You can also provide options to validate the configuration inputs before you start the replication.</p>"
+    },
     "CreateReplicationInstance":{
       "name":"CreateReplicationInstance",
       "http":{
@@ -149,7 +184,7 @@
         {"shape":"ReplicationSubnetGroupDoesNotCoverEnoughAZs"},
         {"shape":"InvalidSubnet"}
       ],
-      "documentation":"<p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p> <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p>"
+      "documentation":"<p>Creates a replication subnet group given a list of the subnet IDs in a VPC.</p> <p>The VPC needs to have at least one subnet in at least two availability zones in the Amazon Web Services Region, otherwise the service will throw a <code>ReplicationSubnetGroupDoesNotCoverEnoughAZs</code> exception.</p> <p>If a replication subnet group exists in your Amazon Web Services account, the CreateReplicationSubnetGroup action returns the following error message: The Replication Subnet Group already exists. In this case, delete the existing replication subnet group. To do so, use the <a href=\"https://docs.aws.amazon.com/en_us/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html\">DeleteReplicationSubnetGroup</a> action. Optionally, choose Subnet groups in the DMS console, then choose your subnet group. Next, choose Delete from Actions.</p>"
     },
     "CreateReplicationTask":{
       "name":"CreateReplicationTask",
@@ -252,6 +287,21 @@
         {"shape":"InvalidOperationFault"}
       ],
       "documentation":"<p>Deletes the specified Fleet Advisor collector databases.</p>"
+    },
+    "DeleteReplicationConfig":{
+      "name":"DeleteReplicationConfig",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DeleteReplicationConfigMessage"},
+      "output":{"shape":"DeleteReplicationConfigResponse"},
+      "errors":[
+        {"shape":"AccessDeniedFault"},
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"}
+      ],
+      "documentation":"<p>Deletes an DMS Serverless replication configuration. This effectively deprovisions any and all replications that use this configuration. You can't delete the configuration for an DMS Serverless replication that is ongoing. You can delete the configuration when the replication is in a non-RUNNING and non-STARTING state.</p>"
     },
     "DeleteReplicationInstance":{
       "name":"DeleteReplicationInstance",
@@ -515,6 +565,34 @@
       ],
       "documentation":"<p>For internal use only</p>"
     },
+    "DescribeRecommendationLimitations":{
+      "name":"DescribeRecommendationLimitations",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeRecommendationLimitationsRequest"},
+      "output":{"shape":"DescribeRecommendationLimitationsResponse"},
+      "errors":[
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"}
+      ],
+      "documentation":"<p>Returns a paginated list of limitations for recommendations of target Amazon Web Services engines.</p>"
+    },
+    "DescribeRecommendations":{
+      "name":"DescribeRecommendations",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeRecommendationsRequest"},
+      "output":{"shape":"DescribeRecommendationsResponse"},
+      "errors":[
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"}
+      ],
+      "documentation":"<p>Returns a paginated list of target engine recommendations for your source databases.</p>"
+    },
     "DescribeRefreshSchemasStatus":{
       "name":"DescribeRefreshSchemasStatus",
       "http":{
@@ -528,6 +606,19 @@
         {"shape":"ResourceNotFoundFault"}
       ],
       "documentation":"<p>Returns the status of the RefreshSchemas operation.</p>"
+    },
+    "DescribeReplicationConfigs":{
+      "name":"DescribeReplicationConfigs",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeReplicationConfigsMessage"},
+      "output":{"shape":"DescribeReplicationConfigsResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"}
+      ],
+      "documentation":"<p>Returns one or more existing DMS Serverless replication configurations as a list of structures.</p>"
     },
     "DescribeReplicationInstanceTaskLogs":{
       "name":"DescribeReplicationInstanceTaskLogs",
@@ -568,6 +659,20 @@
         {"shape":"ResourceNotFoundFault"}
       ],
       "documentation":"<p>Returns information about the replication subnet groups.</p>"
+    },
+    "DescribeReplicationTableStatistics":{
+      "name":"DescribeReplicationTableStatistics",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeReplicationTableStatisticsMessage"},
+      "output":{"shape":"DescribeReplicationTableStatisticsResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"}
+      ],
+      "documentation":"<p>Returns table and schema statistics for one or more provisioned replications that use a given DMS Serverless replication configuration.</p>"
     },
     "DescribeReplicationTaskAssessmentResults":{
       "name":"DescribeReplicationTaskAssessmentResults",
@@ -620,6 +725,19 @@
         {"shape":"ResourceNotFoundFault"}
       ],
       "documentation":"<p>Returns information about replication tasks for your account in the current region.</p>"
+    },
+    "DescribeReplications":{
+      "name":"DescribeReplications",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"DescribeReplicationsMessage"},
+      "output":{"shape":"DescribeReplicationsResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"}
+      ],
+      "documentation":"<p>Provides details on replication progress by returning status information for one or more provisioned DMS Serverless replications.</p>"
     },
     "DescribeSchemas":{
       "name":"DescribeSchemas",
@@ -675,7 +793,7 @@
       "errors":[
         {"shape":"ResourceNotFoundFault"}
       ],
-      "documentation":"<p>Lists all metadata tags attached to an DMS resource, including replication instance, endpoint, security group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
+      "documentation":"<p>Lists all metadata tags attached to an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
     },
     "ModifyEndpoint":{
       "name":"ModifyEndpoint",
@@ -714,6 +832,24 @@
         {"shape":"KMSThrottlingFault"}
       ],
       "documentation":"<p>Modifies an existing DMS event notification subscription. </p>"
+    },
+    "ModifyReplicationConfig":{
+      "name":"ModifyReplicationConfig",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ModifyReplicationConfigMessage"},
+      "output":{"shape":"ModifyReplicationConfigResponse"},
+      "errors":[
+        {"shape":"AccessDeniedFault"},
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"ReplicationSubnetGroupDoesNotCoverEnoughAZs"},
+        {"shape":"InvalidSubnet"},
+        {"shape":"KMSKeyNotAccessibleFault"},
+        {"shape":"InvalidResourceStateFault"}
+      ],
+      "documentation":"<p>Modifies an existing DMS Serverless replication configuration that you can use to start a replication. This command includes input validation and logic to check the state of any replication that uses this configuration. You can only modify a replication configuration before any replication that uses it has started. As soon as you have initially started a replication with a given configuiration, you can't modify that configuration, even if you stop it.</p> <p>Other run statuses that allow you to run this command include FAILED and CREATED. A provisioning state that allows you to run this command is FAILED_PROVISION.</p>"
     },
     "ModifyReplicationInstance":{
       "name":"ModifyReplicationInstance",
@@ -815,6 +951,20 @@
       ],
       "documentation":"<p>Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the DescribeRefreshSchemasStatus operation.</p>"
     },
+    "ReloadReplicationTables":{
+      "name":"ReloadReplicationTables",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"ReloadReplicationTablesMessage"},
+      "output":{"shape":"ReloadReplicationTablesResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"}
+      ],
+      "documentation":"<p>Reloads the target database table with the source data for a given DMS Serverless replication configuration.</p> <p>You can only use this operation with a task in the RUNNING state, otherwise the service will throw an <code>InvalidResourceStateFault</code> exception.</p>"
+    },
     "ReloadTables":{
       "name":"ReloadTables",
       "http":{
@@ -840,7 +990,7 @@
       "errors":[
         {"shape":"ResourceNotFoundFault"}
       ],
-      "documentation":"<p>Removes metadata tags from an DMS resource, including replication instance, endpoint, security group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
+      "documentation":"<p>Removes metadata tags from an DMS resource, including replication instance, endpoint, subnet group, and migration task. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html\"> <code>Tag</code> </a> data type description.</p>"
     },
     "RunFleetAdvisorLsaAnalysis":{
       "name":"RunFleetAdvisorLsaAnalysis",
@@ -854,6 +1004,35 @@
         {"shape":"ResourceNotFoundFault"}
       ],
       "documentation":"<p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>"
+    },
+    "StartRecommendations":{
+      "name":"StartRecommendations",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StartRecommendationsRequest"},
+      "errors":[
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"},
+        {"shape":"ResourceNotFoundFault"}
+      ],
+      "documentation":"<p>Starts the analysis of your source database to provide recommendations of target engines.</p> <p>You can create recommendations for multiple source databases using <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_BatchStartRecommendations.html\">BatchStartRecommendations</a>.</p>"
+    },
+    "StartReplication":{
+      "name":"StartReplication",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StartReplicationMessage"},
+      "output":{"shape":"StartReplicationResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"}
+      ],
+      "documentation":"<p>For a given DMS Serverless replication configuration, DMS connects to the source endpoint and collects the metadata to analyze the replication workload. Using this metadata, DMS then computes and provisions the required capacity and starts replicating to the target endpoint using the server resources that DMS has provisioned for the DMS Serverless replication.</p>"
     },
     "StartReplicationTask":{
       "name":"StartReplicationTask",
@@ -907,6 +1086,21 @@
         {"shape":"ResourceAlreadyExistsFault"}
       ],
       "documentation":"<p>Starts a new premigration assessment run for one or more individual assessments of a migration task.</p> <p>The assessments that you can specify depend on the source and target database engine and the migration type defined for the given task. To run this operation, your migration task must already be created. After you run this operation, you can review the status of each individual assessment. You can also run the migration task manually after the assessment run and its individual assessments complete.</p>"
+    },
+    "StopReplication":{
+      "name":"StopReplication",
+      "http":{
+        "method":"POST",
+        "requestUri":"/"
+      },
+      "input":{"shape":"StopReplicationMessage"},
+      "output":{"shape":"StopReplicationResponse"},
+      "errors":[
+        {"shape":"ResourceNotFoundFault"},
+        {"shape":"InvalidResourceStateFault"},
+        {"shape":"AccessDeniedFault"}
+      ],
+      "documentation":"<p>For a given DMS Serverless replication configuration, DMS stops any and all ongoing DMS Serverless replications. This command doesn't deprovision the stopped replications.</p>"
     },
     "StopReplicationTask":{
       "name":"StopReplicationTask",
@@ -1077,6 +1271,46 @@
     "AvailabilityZonesList":{
       "type":"list",
       "member":{"shape":"String"}
+    },
+    "BatchStartRecommendationsErrorEntry":{
+      "type":"structure",
+      "members":{
+        "DatabaseId":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the source database.</p>"
+        },
+        "Message":{
+          "shape":"String",
+          "documentation":"<p>The information about the error.</p>"
+        },
+        "Code":{
+          "shape":"String",
+          "documentation":"<p>The code of an error that occurred during the analysis of the source database.</p>"
+        }
+      },
+      "documentation":"<p>Provides information about the errors that occurred during the analysis of the source database.</p>"
+    },
+    "BatchStartRecommendationsErrorEntryList":{
+      "type":"list",
+      "member":{"shape":"BatchStartRecommendationsErrorEntry"}
+    },
+    "BatchStartRecommendationsRequest":{
+      "type":"structure",
+      "members":{
+        "Data":{
+          "shape":"StartRecommendationsRequestEntryList",
+          "documentation":"<p>Provides information about source databases to analyze. After this analysis, Fleet Advisor recommends target engines for each source database.</p>"
+        }
+      }
+    },
+    "BatchStartRecommendationsResponse":{
+      "type":"structure",
+      "members":{
+        "ErrorEntries":{
+          "shape":"BatchStartRecommendationsErrorEntryList",
+          "documentation":"<p>A list with error details about the analysis of each source database.</p>"
+        }
+      }
     },
     "Boolean":{"type":"boolean"},
     "BooleanOptional":{"type":"boolean"},
@@ -1291,6 +1525,48 @@
         "gzip"
       ]
     },
+    "ComputeConfig":{
+      "type":"structure",
+      "members":{
+        "AvailabilityZone":{
+          "shape":"String",
+          "documentation":"<p>The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random, system-chosen Availability Zone in the configuration's Amazon Web Services Region, for example, <code>\"us-west-2\"</code>. You can't set this parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>"
+        },
+        "DnsNameServers":{
+          "shape":"String",
+          "documentation":"<p>A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database. This list overrides the default name servers supported by the DMS Serverless replication. You can specify a comma-separated list of internet addresses for up to four DNS name servers. For example: <code>\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"</code> </p>"
+        },
+        "KmsKeyId":{
+          "shape":"String",
+          "documentation":"<p>An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication.</p> <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, DMS uses your default encryption key.</p> <p>KMS creates the default encryption key for your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>"
+        },
+        "MaxCapacityUnits":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value that you can specify for DMS Serverless is 384. The <code>MaxCapacityUnits</code> parameter is the only DCU parameter you are required to specify.</p>"
+        },
+        "MinCapacityUnits":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for DMS Serverless is 2. You don't have to specify a value for the <code>MinCapacityUnits</code> parameter. If you don't set this value, DMS scans the current activity of available source tables to identify an optimum setting for this parameter. If there is no current source activity or DMS can't otherwise identify a more appropriate value, it sets this parameter to the minimum DCU value allowed, 2.</p>"
+        },
+        "MultiAZ":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Specifies whether the DMS Serverless replication is a Multi-AZ deployment. You can't set the <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>"
+        },
+        "PreferredMaintenanceWindow":{
+          "shape":"String",
+          "documentation":"<p>The weekly time range during which system maintenance can occur for the DMS Serverless replication, in Universal Coordinated Time (UTC). The format is <code>ddd:hh24:mi-ddd:hh24:mi</code>.</p> <p>The default is a 30-minute window selected at random from an 8-hour block of time per Amazon Web Services Region. This maintenance occurs on a random day of the week. Valid values for days of the week include <code>Mon</code>, <code>Tue</code>, <code>Wed</code>, <code>Thu</code>, <code>Fri</code>, <code>Sat</code>, and <code>Sun</code>.</p> <p>Constraints include a minimum 30-minute window.</p>"
+        },
+        "ReplicationSubnetGroupId":{
+          "shape":"String",
+          "documentation":"<p>Specifies a subnet group identifier to associate with the DMS Serverless replication.</p>"
+        },
+        "VpcSecurityGroupIds":{
+          "shape":"StringList",
+          "documentation":"<p>Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.</p>"
+        }
+      },
+      "documentation":"<p>Configuration parameters for provisioning an DMS Serverless replication.</p>"
+    },
     "Connection":{
       "type":"structure",
       "members":{
@@ -1462,6 +1738,10 @@
         "GcpMySQLSettings":{
           "shape":"GcpMySQLSettings",
           "documentation":"<p>Settings in JSON format for the source GCP MySQL endpoint.</p>"
+        },
+        "TimestreamSettings":{
+          "shape":"TimestreamSettings",
+          "documentation":"<p>Settings in JSON format for the target Amazon Timestream endpoint.</p>"
         }
       },
       "documentation":"<p/>"
@@ -1575,6 +1855,70 @@
         }
       }
     },
+    "CreateReplicationConfigMessage":{
+      "type":"structure",
+      "required":[
+        "ReplicationConfigIdentifier",
+        "SourceEndpointArn",
+        "TargetEndpointArn",
+        "ComputeConfig",
+        "ReplicationType",
+        "TableMappings"
+      ],
+      "members":{
+        "ReplicationConfigIdentifier":{
+          "shape":"String",
+          "documentation":"<p>A unique identifier that you want to use to create a <code>ReplicationConfigArn</code> that is returned as part of the output from this action. You can then pass this output <code>ReplicationConfigArn</code> as the value of the <code>ReplicationConfigArn</code> option for other actions to identify both DMS Serverless replications and replication configurations that you want those actions to operate on. For some actions, you can also use either this unique identifier or a corresponding ARN in action filters to identify the specific replication and replication configuration to operate on.</p>"
+        },
+        "SourceEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the source endpoint for this DMS Serverless replication configuration.</p>"
+        },
+        "TargetEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless replication configuration.</p>"
+        },
+        "ComputeConfig":{
+          "shape":"ComputeConfig",
+          "documentation":"<p>Configuration parameters for provisioning an DMS Serverless replication.</p>"
+        },
+        "ReplicationType":{
+          "shape":"MigrationTypeValue",
+          "documentation":"<p>The type of DMS Serverless replication to provision using this replication configuration.</p> <p>Possible values:</p> <ul> <li> <p> <code>\"full-load\"</code> </p> </li> <li> <p> <code>\"cdc\"</code> </p> </li> <li> <p> <code>\"full-load-and-cdc\"</code> </p> </li> </ul>"
+        },
+        "TableMappings":{
+          "shape":"String",
+          "documentation":"<p>JSON table mappings for DMS Serverless replications that are provisioned using this replication configuration. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.html\"> Specifying table selection and transformations rules using JSON</a>.</p>"
+        },
+        "ReplicationSettings":{
+          "shape":"String",
+          "documentation":"<p>Optional JSON settings for DMS Serverless replications that are provisioned using this replication configuration. For example, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html\"> Change processing tuning settings</a>.</p>"
+        },
+        "SupplementalSettings":{
+          "shape":"String",
+          "documentation":"<p>Optional JSON settings for specifying supplemental data. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html\"> Specifying supplemental data for task settings</a>.</p>"
+        },
+        "ResourceIdentifier":{
+          "shape":"String",
+          "documentation":"<p>Optional unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess\"> Fine-grained access control using resource names and tags</a>.</p>"
+        },
+        "Tags":{
+          "shape":"TagList",
+          "documentation":"<p>One or more optional tags associated with resources used by the DMS Serverless replication. For more information, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tagging.html\"> Tagging resources in Database Migration Service</a>.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "CreateReplicationConfigResponse":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfig":{
+          "shape":"ReplicationConfig",
+          "documentation":"<p>Configuration parameters returned from the DMS Serverless replication after it is created.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
     "CreateReplicationInstanceMessage":{
       "type":"structure",
       "required":[
@@ -1592,7 +1936,7 @@
         },
         "ReplicationInstanceClass":{
           "shape":"String",
-          "documentation":"<p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>\"dms.c4.large\"</code>.</p> <p>For more information on the settings and capacities for the available replication instance classes, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth\"> Selecting the right DMS replication instance for your migration</a>. </p>"
+          "documentation":"<p>The compute and memory capacity of the replication instance as defined for the specified replication instance class. For example to specify the instance class dms.c4.large, set this parameter to <code>\"dms.c4.large\"</code>.</p> <p>For more information on the settings and capacities for the available replication instance classes, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html \"> Choosing the right DMS replication instance</a>; and, <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.html\">Selecting the best size for a replication instance</a>. </p>"
         },
         "VpcSecurityGroupIds":{
           "shape":"VpcSecurityGroupIdList",
@@ -1600,7 +1944,7 @@
         },
         "AvailabilityZone":{
           "shape":"String",
-          "documentation":"<p>The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, for example: <code>us-east-1d</code> </p>"
+          "documentation":"<p>The Availability Zone where the replication instance will be created. The default value is a random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region, for example: <code>us-east-1d</code>.</p>"
         },
         "ReplicationSubnetGroupIdentifier":{
           "shape":"String",
@@ -1620,7 +1964,7 @@
         },
         "AutoMinorVersionUpgrade":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p> <p>Default: <code>true</code> </p>"
+          "documentation":"<p>A value that indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance window. This parameter defaults to <code>true</code>.</p> <p>Default: <code>true</code> </p> <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default engine version when you create a replication instance. For example, if you set <code>EngineVersion</code> to a lower version number than the current default version, DMS uses the default version.</p> <p>If <code>AutoMinorVersionUpgrade</code> <i>isn’t</i> enabled when you create a replication instance, DMS uses the engine version specified by the <code>EngineVersion</code> parameter. </p>"
         },
         "Tags":{
           "shape":"TagList",
@@ -1745,7 +2089,7 @@
         },
         "CdcStopPosition":{
           "shape":"String",
-          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>"
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>"
         },
         "Tags":{
           "shape":"TagList",
@@ -1816,6 +2160,13 @@
     "DatabaseList":{
       "type":"list",
       "member":{"shape":"DatabaseResponse"}
+    },
+    "DatabaseMode":{
+      "type":"string",
+      "enum":[
+        "default",
+        "babelfish"
+      ]
     },
     "DatabaseResponse":{
       "type":"structure",
@@ -2009,6 +2360,27 @@
           "documentation":"<p>The IDs of the databases that the operation deleted.</p>"
         }
       }
+    },
+    "DeleteReplicationConfigMessage":{
+      "type":"structure",
+      "required":["ReplicationConfigArn"],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The replication config to delete.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DeleteReplicationConfigResponse":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfig":{
+          "shape":"ReplicationConfig",
+          "documentation":"<p>Configuration parameters returned for the DMS Serverless replication after it is deleted.</p>"
+        }
+      },
+      "documentation":"<p/>"
     },
     "DeleteReplicationInstanceMessage":{
       "type":"structure",
@@ -2226,7 +2598,7 @@
       "members":{
         "EngineName":{
           "shape":"String",
-          "documentation":"<p>The databse engine used for your source or target endpoint.</p>"
+          "documentation":"<p>The database engine used for your source or target endpoint.</p>"
         },
         "MaxRecords":{
           "shape":"IntegerOptional",
@@ -2641,6 +3013,66 @@
       },
       "documentation":"<p/>"
     },
+    "DescribeRecommendationLimitationsRequest":{
+      "type":"structure",
+      "members":{
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>Filters applied to the limitations described in the form of key-value pairs.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token in the response so that you can retrieve the remaining results.</p>"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>"
+        }
+      }
+    },
+    "DescribeRecommendationLimitationsResponse":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The unique pagination token returned for you to pass to a subsequent request. Fleet Advisor returns this token when the number of records in the response is greater than the <code>MaxRecords</code> value. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>"
+        },
+        "Limitations":{
+          "shape":"LimitationList",
+          "documentation":"<p>The list of limitations for recommendations of target Amazon Web Services engines.</p>"
+        }
+      }
+    },
+    "DescribeRecommendationsRequest":{
+      "type":"structure",
+      "members":{
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>Filters applied to the target engine recommendations described in the form of key-value pairs.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, Fleet Advisor includes a pagination token in the response so that you can retrieve the remaining results.</p>"
+        },
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>Specifies the unique pagination token that makes it possible to display the next page of results. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p> <p>If <code>NextToken</code> is returned by a previous response, there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>"
+        }
+      }
+    },
+    "DescribeRecommendationsResponse":{
+      "type":"structure",
+      "members":{
+        "NextToken":{
+          "shape":"String",
+          "documentation":"<p>The unique pagination token returned for you to pass to a subsequent request. Fleet Advisor returns this token when the number of records in the response is greater than the <code>MaxRecords</code> value. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>"
+        },
+        "Recommendations":{
+          "shape":"RecommendationList",
+          "documentation":"<p>The list of recommendations of target engines that Fleet Advisor created for the source database.</p>"
+        }
+      }
+    },
     "DescribeRefreshSchemasStatusMessage":{
       "type":"structure",
       "required":["EndpointArn"],
@@ -2658,6 +3090,38 @@
         "RefreshSchemasStatus":{
           "shape":"RefreshSchemasStatus",
           "documentation":"<p>The status of the schema.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationConfigsMessage":{
+      "type":"structure",
+      "members":{
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>Filters applied to the replication configs.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationConfigsResponse":{
+      "type":"structure",
+      "members":{
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        },
+        "ReplicationConfigs":{
+          "shape":"ReplicationConfigList",
+          "documentation":"<p>Returned configuration parameters that describe each provisioned DMS Serverless replication.</p>"
         }
       },
       "documentation":"<p/>"
@@ -2757,6 +3221,47 @@
         "ReplicationSubnetGroups":{
           "shape":"ReplicationSubnetGroups",
           "documentation":"<p>A description of the replication subnet groups.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationTableStatisticsMessage":{
+      "type":"structure",
+      "required":["ReplicationConfigArn"],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The replication config to describe.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        },
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>Filters applied to the replication table statistics.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationTableStatisticsResponse":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication config.</p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        },
+        "ReplicationTableStatistics":{
+          "shape":"ReplicationTableStatisticsList",
+          "documentation":"<p>Returns table statistics on the replication, including table name, rows inserted, rows updated, and rows deleted.</p>"
         }
       },
       "documentation":"<p/>"
@@ -2893,6 +3398,38 @@
         "ReplicationTasks":{
           "shape":"ReplicationTaskList",
           "documentation":"<p>A description of the replication tasks.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationsMessage":{
+      "type":"structure",
+      "members":{
+        "Filters":{
+          "shape":"FilterList",
+          "documentation":"<p>Filters applied to the replications.</p>"
+        },
+        "MaxRecords":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. </p>"
+        },
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "DescribeReplicationsResponse":{
+      "type":"structure",
+      "members":{
+        "Marker":{
+          "shape":"String",
+          "documentation":"<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"
+        },
+        "Replications":{
+          "shape":"ReplicationList",
+          "documentation":"<p>The replication descriptions.</p>"
         }
       },
       "documentation":"<p/>"
@@ -3040,6 +3577,14 @@
         "SecretsManagerSecretId":{
           "shape":"String",
           "documentation":"<p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the DocumentDB endpoint connection details.</p>"
+        },
+        "UseUpdateLookUp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>If <code>true</code>, DMS retrieves the entire document from the DocumentDB source during migration. This may cause a migration failure if the server response exceeds bandwidth limits. To fetch only updates and deletes during migration, set this parameter to <code>false</code>.</p>"
+        },
+        "ReplicateShardCollections":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if the target endpoint is a DocumentDB elastic cluster.</p> <p>When this setting is <code>true</code>, note the following:</p> <ul> <li> <p>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</p> </li> <li> <p>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</p> </li> </ul>"
         }
       },
       "documentation":"<p>Provides information that defines a DocumentDB endpoint.</p>"
@@ -3240,6 +3785,10 @@
         "GcpMySQLSettings":{
           "shape":"GcpMySQLSettings",
           "documentation":"<p>Settings in JSON format for the source GCP MySQL endpoint.</p>"
+        },
+        "TimestreamSettings":{
+          "shape":"TimestreamSettings",
+          "documentation":"<p>The settings for the Amazon Timestream target endpoint. For more information, see the <code>TimestreamSettings</code> structure.</p>"
         }
       },
       "documentation":"<p>Describes an endpoint of a database instance in response to operations such as the following:</p> <ul> <li> <p> <code>CreateEndpoint</code> </p> </li> <li> <p> <code>DescribeEndpoint</code> </p> </li> <li> <p> <code>ModifyEndpoint</code> </p> </li> </ul>"
@@ -3497,7 +4046,7 @@
         },
         "CleanSourceMetadataOnMismatch":{
           "shape":"BooleanOptional",
-          "documentation":"<p>Adjusts the behavior of DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to <code>false</code>. </p>"
+          "documentation":"<p>Cleans and recreates table metadata information on the replication instance when a mismatch occurs. For example, in a situation where running an alter DDL on the table could result in different information about the table cached in the replication instance. </p>"
         },
         "DatabaseName":{
           "shape":"String",
@@ -3525,11 +4074,11 @@
         },
         "Port":{
           "shape":"IntegerOptional",
-          "documentation":"<p/>"
+          "documentation":"<p>Endpoint TCP port.</p>"
         },
         "ServerName":{
           "shape":"String",
-          "documentation":"<p>Endpoint TCP port.</p>"
+          "documentation":"<p>The MySQL host name.</p>"
         },
         "ServerTimezone":{
           "shape":"String",
@@ -3687,7 +4236,7 @@
           "documentation":"<p/>"
         }
       },
-      "documentation":"<p>The subnet provided is invalid.</p>",
+      "documentation":"<p>The subnet provided isn't valid.</p>",
       "exception":true
     },
     "InventoryData":{
@@ -3762,6 +4311,13 @@
       },
       "documentation":"<p>This request triggered KMS request throttling.</p>",
       "exception":true
+    },
+    "KafkaSaslMechanism":{
+      "type":"string",
+      "enum":[
+        "scram-sha-512",
+        "plain"
+      ]
     },
     "KafkaSecurityProtocol":{
       "type":"string",
@@ -3846,9 +4402,24 @@
         "NoHexPrefix":{
           "shape":"BooleanOptional",
           "documentation":"<p>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the <code>NoHexPrefix</code> endpoint setting to enable migration of RAW data type columns without adding the '0x' prefix.</p>"
+        },
+        "SaslMechanism":{
+          "shape":"KafkaSaslMechanism",
+          "documentation":"<p>For SASL/SSL authentication, DMS supports the <code>SCRAM-SHA-512</code> mechanism by default. DMS versions 3.5.0 and later also support the <code>PLAIN</code> mechanism. To use the <code>PLAIN</code> mechanism, set this parameter to <code>PLAIN.</code> </p>"
+        },
+        "SslEndpointIdentificationAlgorithm":{
+          "shape":"KafkaSslEndpointIdentificationAlgorithm",
+          "documentation":"<p>Sets hostname verification for the certificate. This setting is supported in DMS version 3.5.1 and later. </p>"
         }
       },
       "documentation":"<p>Provides information that describes an Apache Kafka endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information.</p>"
+    },
+    "KafkaSslEndpointIdentificationAlgorithm":{
+      "type":"string",
+      "enum":[
+        "none",
+        "https"
+      ]
     },
     "KeyList":{
       "type":"list",
@@ -3900,6 +4471,40 @@
       },
       "documentation":"<p>Provides information that describes an Amazon Kinesis Data Stream endpoint. This information includes the output format of records applied to the endpoint and details of transaction and control table data information.</p>"
     },
+    "Limitation":{
+      "type":"structure",
+      "members":{
+        "DatabaseId":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the source database.</p>"
+        },
+        "EngineName":{
+          "shape":"String",
+          "documentation":"<p>The name of the target engine that Fleet Advisor should use in the target engine recommendation. Valid values include <code>\"rds-aurora-mysql\"</code>, <code>\"rds-aurora-postgresql\"</code>, <code>\"rds-mysql\"</code>, <code>\"rds-oracle\"</code>, <code>\"rds-sql-server\"</code>, and <code>\"rds-postgresql\"</code>.</p>"
+        },
+        "Name":{
+          "shape":"String",
+          "documentation":"<p>The name of the limitation. Describes unsupported database features, migration action items, and other limitations.</p>"
+        },
+        "Description":{
+          "shape":"String",
+          "documentation":"<p>A description of the limitation. Provides additional information about the limitation, and includes recommended actions that you can take to address or avoid this limitation.</p>"
+        },
+        "Impact":{
+          "shape":"String",
+          "documentation":"<p>The impact of the limitation. You can use this parameter to prioritize limitations that you want to address. Valid values include <code>\"Blocker\"</code>, <code>\"High\"</code>, <code>\"Medium\"</code>, and <code>\"Low\"</code>.</p>"
+        },
+        "Type":{
+          "shape":"String",
+          "documentation":"<p>The type of the limitation, such as action required, upgrade required, and limited feature.</p>"
+        }
+      },
+      "documentation":"<p>Provides information about the limitations of target Amazon Web Services engines.</p> <p>Your source database might include features that the target Amazon Web Services engine doesn't support. Fleet Advisor lists these features as limitations. You should consider these limitations during database migration. For each limitation, Fleet Advisor recommends an action that you can take to address or avoid this limitation.</p>"
+    },
+    "LimitationList":{
+      "type":"list",
+      "member":{"shape":"Limitation"}
+    },
     "ListTagsForResourceMessage":{
       "type":"structure",
       "members":{
@@ -3926,6 +4531,14 @@
     },
     "Long":{"type":"long"},
     "LongOptional":{"type":"long"},
+    "LongVarcharMappingType":{
+      "type":"string",
+      "enum":[
+        "wstring",
+        "clob",
+        "nclob"
+      ]
+    },
     "MessageFormatValue":{
       "type":"string",
       "enum":[
@@ -3970,7 +4583,7 @@
         },
         "ServerName":{
           "shape":"String",
-          "documentation":"<p>Fully qualified domain name of the endpoint.</p>"
+          "documentation":"<p>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html\">DescribeDBInstances</a>, in the <code> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html\">Endpoint</a>.Address</code> field.</p>"
         },
         "Username":{
           "shape":"String",
@@ -3995,6 +4608,14 @@
         "TrimSpaceInChar":{
           "shape":"BooleanOptional",
           "documentation":"<p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>"
+        },
+        "TlogAccessMode":{
+          "shape":"TlogAccessMode",
+          "documentation":"<p>Indicates the mode used to fetch CDC data.</p>"
+        },
+        "ForceLobLookup":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Forces LOB lookup on inline LOB.</p>"
         }
       },
       "documentation":"<p>Provides information that defines a Microsoft SQL Server endpoint.</p>"
@@ -4139,6 +4760,10 @@
         "GcpMySQLSettings":{
           "shape":"GcpMySQLSettings",
           "documentation":"<p>Settings in JSON format for the source GCP MySQL endpoint.</p>"
+        },
+        "TimestreamSettings":{
+          "shape":"TimestreamSettings",
+          "documentation":"<p>Settings in JSON format for the target Amazon Timestream endpoint.</p>"
         }
       },
       "documentation":"<p/>"
@@ -4190,6 +4815,58 @@
       },
       "documentation":"<p/>"
     },
+    "ModifyReplicationConfigMessage":{
+      "type":"structure",
+      "required":["ReplicationConfigArn"],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication to modify.</p>"
+        },
+        "ReplicationConfigIdentifier":{
+          "shape":"String",
+          "documentation":"<p>The new replication config to apply to the replication.</p>"
+        },
+        "ReplicationType":{
+          "shape":"MigrationTypeValue",
+          "documentation":"<p>The type of replication.</p>"
+        },
+        "TableMappings":{
+          "shape":"String",
+          "documentation":"<p>Table mappings specified in the replication.</p>"
+        },
+        "ReplicationSettings":{
+          "shape":"String",
+          "documentation":"<p>The settings for the replication.</p>"
+        },
+        "SupplementalSettings":{
+          "shape":"String",
+          "documentation":"<p>Additional settings for the replication.</p>"
+        },
+        "ComputeConfig":{
+          "shape":"ComputeConfig",
+          "documentation":"<p>Configuration parameters for provisioning an DMS Serverless replication.</p>"
+        },
+        "SourceEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the source endpoint for this DMS serverless replication configuration.</p>"
+        },
+        "TargetEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless replication configuration.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "ModifyReplicationConfigResponse":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfig":{
+          "shape":"ReplicationConfig",
+          "documentation":"<p>Information about the serverless replication config that was modified.</p>"
+        }
+      }
+    },
     "ModifyReplicationInstanceMessage":{
       "type":"structure",
       "required":["ReplicationInstanceArn"],
@@ -4232,7 +4909,7 @@
         },
         "AutoMinorVersionUpgrade":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A value that indicates that minor version upgrades are applied automatically to the replication instance during the maintenance window. Changing this parameter doesn't result in an outage, except in the case described following. The change is asynchronously applied as soon as possible. </p> <p>An outage does result if these factors apply: </p> <ul> <li> <p>This parameter is set to <code>true</code> during the maintenance window.</p> </li> <li> <p>A newer minor version is available. </p> </li> <li> <p>DMS has enabled automatic patching for the given engine version. </p> </li> </ul>"
+          "documentation":"<p>A value that indicates that minor version upgrades are applied automatically to the replication instance during the maintenance window. Changing this parameter doesn't result in an outage, except in the case described following. The change is asynchronously applied as soon as possible. </p> <p>An outage does result if these factors apply: </p> <ul> <li> <p>This parameter is set to <code>true</code> during the maintenance window.</p> </li> <li> <p>A newer minor version is available. </p> </li> <li> <p>DMS has enabled automatic patching for the given engine version. </p> </li> </ul> <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default engine version when you modify a replication instance. For example, if you set <code>EngineVersion</code> to a lower version number than the current default version, DMS uses the default version.</p> <p>If <code>AutoMinorVersionUpgrade</code> <i>isn’t</i> enabled when you modify a replication instance, DMS uses the engine version specified by the <code>EngineVersion</code> parameter.</p>"
         },
         "ReplicationInstanceIdentifier":{
           "shape":"String",
@@ -4321,7 +4998,7 @@
         },
         "CdcStopPosition":{
           "shape":"String",
-          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>"
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>"
         },
         "TaskData":{
           "shape":"String",
@@ -4398,6 +5075,14 @@
         "SecretsManagerSecretId":{
           "shape":"String",
           "documentation":"<p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MongoDB endpoint connection details.</p>"
+        },
+        "UseUpdateLookUp":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>If <code>true</code>, DMS retrieves the entire document from the MongoDB source during migration. This may cause a migration failure if the server response exceeds bandwidth limits. To fetch only updates and deletes during migration, set this parameter to <code>false</code>.</p>"
+        },
+        "ReplicateShardCollections":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if the target endpoint is a DocumentDB elastic cluster.</p> <p>When this setting is <code>true</code>, note the following:</p> <ul> <li> <p>You must set <code>TargetTablePrepMode</code> to <code>nothing</code>.</p> </li> <li> <p>DMS automatically sets <code>useUpdateLookup</code> to <code>false</code>.</p> </li> </ul>"
         }
       },
       "documentation":"<p>Provides information that defines a MongoDB endpoint.</p>"
@@ -4439,7 +5124,7 @@
         },
         "CleanSourceMetadataOnMismatch":{
           "shape":"BooleanOptional",
-          "documentation":"<p>Adjusts the behavior of DMS when migrating from an SQL Server source database that is hosted as part of an Always On availability group cluster. If you need DMS to poll all the nodes in the Always On cluster for transaction backups, set this attribute to <code>false</code>.</p>"
+          "documentation":"<p>Cleans and recreates table metadata information on the replication instance when a mismatch occurs. For example, in a situation where running an alter DDL on the table could result in different information about the table cached in the replication instance. </p>"
         },
         "DatabaseName":{
           "shape":"String",
@@ -4471,7 +5156,7 @@
         },
         "ServerName":{
           "shape":"String",
-          "documentation":"<p>Fully qualified domain name of the endpoint.</p>"
+          "documentation":"<p>The host name of the endpoint database. </p> <p>For an Amazon RDS MySQL instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html\">DescribeDBInstances</a>, in the <code> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html\">Endpoint</a>.Address</code> field.</p> <p>For an Aurora MySQL instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html\">DescribeDBClusters</a>, in the <code>Endpoint</code> field.</p>"
         },
         "ServerTimezone":{
           "shape":"String",
@@ -4658,7 +5343,7 @@
         },
         "ServerName":{
           "shape":"String",
-          "documentation":"<p>Fully qualified domain name of the endpoint.</p>"
+          "documentation":"<p>Fully qualified domain name of the endpoint.</p> <p>For an Amazon RDS Oracle instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html\">DescribeDBInstances</a>, in the <code> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html\">Endpoint</a>.Address</code> field.</p>"
         },
         "SpatialDataOptionToGeoJsonFunctionName":{
           "shape":"String",
@@ -4703,6 +5388,14 @@
         "TrimSpaceInChar":{
           "shape":"BooleanOptional",
           "documentation":"<p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>"
+        },
+        "ConvertTimestampWithZoneToUTC":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>When true, converts timestamps with the <code>timezone</code> datatype to their UTC value.</p>"
+        },
+        "OpenTransactionWindow":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The timeframe in minutes to check for open transactions for a CDC-only task.</p> <p>You can specify an integer value between 0 (the default) and 240 (the maximum). </p> <note> <p>This parameter is only valid in DMS version 3.5.0 and later. DMS supports a window of up to 9.5 hours including the value for <code>OpenTransactionWindow</code>.</p> </note>"
         }
       },
       "documentation":"<p>Provides information that defines an Oracle endpoint.</p>"
@@ -4859,7 +5552,7 @@
         },
         "ServerName":{
           "shape":"String",
-          "documentation":"<p>Fully qualified domain name of the endpoint.</p>"
+          "documentation":"<p>The host name of the endpoint database. </p> <p>For an Amazon RDS PostgreSQL instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html\">DescribeDBInstances</a>, in the <code> <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html\">Endpoint</a>.Address</code> field.</p> <p>For an Aurora PostgreSQL instance, this is the output of <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html\">DescribeDBClusters</a>, in the <code>Endpoint</code> field.</p>"
         },
         "Username":{
           "shape":"String",
@@ -4867,7 +5560,7 @@
         },
         "SlotName":{
           "shape":"String",
-          "documentation":"<p>Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance. </p> <p>When used with the <code>CdcStartPosition</code> request parameter for the DMS API , this attribute also makes it possible to use native CDC start points. DMS verifies that the specified logical replication slot exists before starting the CDC load task. It also verifies that the task was created with a valid setting of <code>CdcStartPosition</code>. If the specified slot doesn't exist or the task doesn't have a valid <code>CdcStartPosition</code> setting, DMS raises an error.</p> <p>For more information about setting the <code>CdcStartPosition</code> request parameter, see <a href=\"dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native\">Determining a CDC native start point</a> in the <i>Database Migration Service User Guide</i>. For more information about using <code>CdcStartPosition</code>, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html\">CreateReplicationTask</a>, <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html\">StartReplicationTask</a>, and <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html\">ModifyReplicationTask</a>.</p>"
+          "documentation":"<p>Sets the name of a previously created logical replication slot for a change data capture (CDC) load of the PostgreSQL source instance. </p> <p>When used with the <code>CdcStartPosition</code> request parameter for the DMS API , this attribute also makes it possible to use native CDC start points. DMS verifies that the specified logical replication slot exists before starting the CDC load task. It also verifies that the task was created with a valid setting of <code>CdcStartPosition</code>. If the specified slot doesn't exist or the task doesn't have a valid <code>CdcStartPosition</code> setting, DMS raises an error.</p> <p>For more information about setting the <code>CdcStartPosition</code> request parameter, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native\">Determining a CDC native start point</a> in the <i>Database Migration Service User Guide</i>. For more information about using <code>CdcStartPosition</code>, see <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html\">CreateReplicationTask</a>, <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html\">StartReplicationTask</a>, and <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html\">ModifyReplicationTask</a>.</p>"
         },
         "PluginName":{
           "shape":"PluginNameValue",
@@ -4884,9 +5577,149 @@
         "TrimSpaceInChar":{
           "shape":"BooleanOptional",
           "documentation":"<p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>"
+        },
+        "MapBooleanAsBoolean":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL migrates booleans as <code>varchar(5)</code>.</p>"
+        },
+        "MapJsonbAsClob":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>When true, DMS migrates JSONB values as CLOB.</p>"
+        },
+        "MapLongVarcharAs":{
+          "shape":"LongVarcharMappingType",
+          "documentation":"<p>When true, DMS migrates LONG values as VARCHAR.</p>"
+        },
+        "DatabaseMode":{
+          "shape":"DatabaseMode",
+          "documentation":"<p>Specifies whether to use default or custom replication behavior for PostgreSQL-compatible endpoints. You can use this setting to specify replication behavior for endpoints that require additional configuration, such as Babelfish endpoints.</p>"
+        },
+        "BabelfishDatabaseName":{
+          "shape":"String",
+          "documentation":"<p>The Babelfish for Aurora PostgreSQL database name for the endpoint.</p>"
         }
       },
       "documentation":"<p>Provides information that defines a PostgreSQL endpoint.</p>"
+    },
+    "ProvisionData":{
+      "type":"structure",
+      "members":{
+        "ProvisionState":{
+          "shape":"String",
+          "documentation":"<p>The current provisioning state </p>"
+        },
+        "ProvisionedCapacityUnits":{
+          "shape":"Integer",
+          "documentation":"<p>The number of capacity units the replication is using.</p>"
+        },
+        "DateProvisioned":{
+          "shape":"TStamp",
+          "documentation":"<p>The timestamp when DMS provisioned replication resources.</p>"
+        },
+        "IsNewProvisioningAvailable":{
+          "shape":"Boolean",
+          "documentation":"<p>Whether the new provisioning is available to the replication.</p>"
+        },
+        "DateNewProvisioningDataAvailable":{
+          "shape":"TStamp",
+          "documentation":"<p>The timestamp when provisioning became available.</p>"
+        },
+        "ReasonForNewProvisioningData":{
+          "shape":"String",
+          "documentation":"<p>A message describing the reason that DMS provisioned new resources for the serverless replication.</p>"
+        }
+      },
+      "documentation":"<p>Information about provisioning resources for an DMS serverless replication.</p>"
+    },
+    "RdsConfiguration":{
+      "type":"structure",
+      "members":{
+        "EngineEdition":{
+          "shape":"String",
+          "documentation":"<p>Describes the recommended target Amazon RDS engine edition.</p>"
+        },
+        "InstanceType":{
+          "shape":"String",
+          "documentation":"<p>Describes the recommended target Amazon RDS instance type.</p>"
+        },
+        "InstanceVcpu":{
+          "shape":"DoubleOptional",
+          "documentation":"<p>Describes the number of virtual CPUs (vCPU) on the recommended Amazon RDS DB instance that meets your requirements.</p>"
+        },
+        "InstanceMemory":{
+          "shape":"DoubleOptional",
+          "documentation":"<p>Describes the memory on the recommended Amazon RDS DB instance that meets your requirements.</p>"
+        },
+        "StorageType":{
+          "shape":"String",
+          "documentation":"<p>Describes the storage type of the recommended Amazon RDS DB instance that meets your requirements.</p> <p>Amazon RDS provides three storage types: General Purpose SSD (also known as gp2 and gp3), Provisioned IOPS SSD (also known as io1), and magnetic (also known as standard).</p>"
+        },
+        "StorageSize":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Describes the storage size of the recommended Amazon RDS DB instance that meets your requirements.</p>"
+        },
+        "StorageIops":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Describes the number of I/O operations completed each second (IOPS) on the recommended Amazon RDS DB instance that meets your requirements.</p>"
+        },
+        "DeploymentOption":{
+          "shape":"String",
+          "documentation":"<p>Describes the deployment option for the recommended Amazon RDS DB instance. The deployment options include Multi-AZ and Single-AZ deployments. Valid values include <code>\"MULTI_AZ\"</code> and <code>\"SINGLE_AZ\"</code>.</p>"
+        },
+        "EngineVersion":{
+          "shape":"String",
+          "documentation":"<p>Describes the recommended target Amazon RDS engine version.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that describes the configuration of the recommended target engine on Amazon RDS.</p>"
+    },
+    "RdsRecommendation":{
+      "type":"structure",
+      "members":{
+        "RequirementsToTarget":{
+          "shape":"RdsRequirements",
+          "documentation":"<p>Supplemental information about the requirements to the recommended target database on Amazon RDS.</p>"
+        },
+        "TargetConfiguration":{
+          "shape":"RdsConfiguration",
+          "documentation":"<p>Supplemental information about the configuration of the recommended target database on Amazon RDS.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that describes a recommendation of a target engine on Amazon RDS.</p>"
+    },
+    "RdsRequirements":{
+      "type":"structure",
+      "members":{
+        "EngineEdition":{
+          "shape":"String",
+          "documentation":"<p>The required target Amazon RDS engine edition.</p>"
+        },
+        "InstanceVcpu":{
+          "shape":"DoubleOptional",
+          "documentation":"<p>The required number of virtual CPUs (vCPU) on the Amazon RDS DB instance.</p>"
+        },
+        "InstanceMemory":{
+          "shape":"DoubleOptional",
+          "documentation":"<p>The required memory on the Amazon RDS DB instance.</p>"
+        },
+        "StorageSize":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The required Amazon RDS DB instance storage size.</p>"
+        },
+        "StorageIops":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>The required number of I/O operations completed each second (IOPS) on your Amazon RDS DB instance.</p>"
+        },
+        "DeploymentOption":{
+          "shape":"String",
+          "documentation":"<p>The required deployment option for the Amazon RDS DB instance. Valid values include <code>\"MULTI_AZ\"</code> for Multi-AZ deployments and <code>\"SINGLE_AZ\"</code> for Single-AZ deployments.</p>"
+        },
+        "EngineVersion":{
+          "shape":"String",
+          "documentation":"<p>The required target Amazon RDS engine version.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that describes the requirements to the target engine on Amazon RDS.</p>"
     },
     "RebootReplicationInstanceMessage":{
       "type":"structure",
@@ -4914,6 +5747,72 @@
           "documentation":"<p>The replication instance that is being rebooted. </p>"
         }
       }
+    },
+    "Recommendation":{
+      "type":"structure",
+      "members":{
+        "DatabaseId":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the source database for which Fleet Advisor provided this recommendation.</p>"
+        },
+        "EngineName":{
+          "shape":"String",
+          "documentation":"<p>The name of the target engine. Valid values include <code>\"rds-aurora-mysql\"</code>, <code>\"rds-aurora-postgresql\"</code>, <code>\"rds-mysql\"</code>, <code>\"rds-oracle\"</code>, <code>\"rds-sql-server\"</code>, and <code>\"rds-postgresql\"</code>.</p>"
+        },
+        "CreatedDate":{
+          "shape":"String",
+          "documentation":"<p>The date when Fleet Advisor created the target engine recommendation.</p>"
+        },
+        "Status":{
+          "shape":"String",
+          "documentation":"<p>The status of the target engine recommendation. Valid values include <code>\"alternate\"</code>, <code>\"in-progress\"</code>, <code>\"not-viable\"</code>, and <code>\"recommended\"</code>.</p>"
+        },
+        "Preferred":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Indicates that this target is the rightsized migration destination.</p>"
+        },
+        "Settings":{
+          "shape":"RecommendationSettings",
+          "documentation":"<p>The settings in JSON format for the preferred target engine parameters. These parameters include capacity, resource utilization, and the usage type (production, development, or testing).</p>"
+        },
+        "Data":{
+          "shape":"RecommendationData",
+          "documentation":"<p>The recommendation of a target engine for the specified source database.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that describes a recommendation of a target engine.</p> <p>A <i>recommendation</i> is a set of possible Amazon Web Services target engines that you can choose to migrate your source on-premises database. In this set, Fleet Advisor suggests a single target engine as the right sized migration destination. To determine this rightsized migration destination, Fleet Advisor uses the inventory metadata and metrics from data collector. You can use recommendations before the start of migration to save costs and reduce risks.</p> <p>With recommendations, you can explore different target options and compare metrics, so you can make an informed decision when you choose the migration target.</p>"
+    },
+    "RecommendationData":{
+      "type":"structure",
+      "members":{
+        "RdsEngine":{
+          "shape":"RdsRecommendation",
+          "documentation":"<p>The recommendation of a target Amazon RDS database engine.</p>"
+        }
+      },
+      "documentation":"<p>Provides information about the target engine for the specified source database.</p>"
+    },
+    "RecommendationList":{
+      "type":"list",
+      "member":{"shape":"Recommendation"}
+    },
+    "RecommendationSettings":{
+      "type":"structure",
+      "required":[
+        "InstanceSizingType",
+        "WorkloadType"
+      ],
+      "members":{
+        "InstanceSizingType":{
+          "shape":"String",
+          "documentation":"<p>The size of your target instance. Fleet Advisor calculates this value based on your data collection type, such as total capacity and resource utilization. Valid values include <code>\"total-capacity\"</code> and <code>\"utilization\"</code>.</p>"
+        },
+        "WorkloadType":{
+          "shape":"String",
+          "documentation":"<p>The deployment option for your target engine. For production databases, Fleet Advisor chooses Multi-AZ deployment. For development or test databases, Fleet Advisor chooses Single-AZ deployment. Valid values include <code>\"development\"</code> and <code>\"production\"</code>.</p>"
+        }
+      },
+      "documentation":"<p>Provides information about the required target engine settings.</p>"
     },
     "RedisAuthTypeValue":{
       "type":"string",
@@ -5083,6 +5982,10 @@
         "SecretsManagerSecretId":{
           "shape":"String",
           "documentation":"<p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Amazon Redshift endpoint connection details.</p>"
+        },
+        "MapBooleanAsBoolean":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as <code>varchar(1)</code>.</p>"
         }
       },
       "documentation":"<p>Provides information that defines an Amazon Redshift endpoint.</p>"
@@ -5151,7 +6054,10 @@
     },
     "ReleaseStatusValues":{
       "type":"string",
-      "enum":["beta"]
+      "enum":[
+        "beta",
+        "prod"
+      ]
     },
     "ReloadOptionValue":{
       "type":"string",
@@ -5159,6 +6065,38 @@
         "data-reload",
         "validate-only"
       ]
+    },
+    "ReloadReplicationTablesMessage":{
+      "type":"structure",
+      "required":[
+        "ReplicationConfigArn",
+        "TablesToReload"
+      ],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication config for which to reload tables.</p>"
+        },
+        "TablesToReload":{
+          "shape":"TableListToReload",
+          "documentation":"<p>The list of tables to reload.</p>"
+        },
+        "ReloadOption":{
+          "shape":"ReloadOptionValue",
+          "documentation":"<p>Options for reload. Specify <code>data-reload</code> to reload the data and re-validate it if validation is enabled. Specify <code>validate-only</code> to re-validate the table. This option applies only when validation is enabled for the replication. </p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "ReloadReplicationTablesResponse":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication config for which to reload tables.</p>"
+        }
+      },
+      "documentation":"<p/>"
     },
     "ReloadTablesMessage":{
       "type":"structure",
@@ -5213,6 +6151,138 @@
       "members":{
       },
       "documentation":"<p/>"
+    },
+    "Replication":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfigIdentifier":{
+          "shape":"String",
+          "documentation":"<p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>"
+        },
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name for the <code>ReplicationConfig</code> associated with the replication.</p>"
+        },
+        "SourceEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data source.</p>"
+        },
+        "TargetEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data target.</p>"
+        },
+        "ReplicationType":{
+          "shape":"MigrationTypeValue",
+          "documentation":"<p>The type of the serverless replication.</p>"
+        },
+        "Status":{
+          "shape":"String",
+          "documentation":"<p>The current status of the serverless replication.</p>"
+        },
+        "ProvisionData":{
+          "shape":"ProvisionData",
+          "documentation":"<p>Information about provisioning resources for an DMS serverless replication.</p>"
+        },
+        "StopReason":{
+          "shape":"String",
+          "documentation":"<p>The reason the replication task was stopped. This response parameter can return one of the following values:</p> <ul> <li> <p> <code>\"Stop Reason NORMAL\"</code> </p> </li> <li> <p> <code>\"Stop Reason RECOVERABLE_ERROR\"</code> </p> </li> <li> <p> <code>\"Stop Reason FATAL_ERROR\"</code> </p> </li> <li> <p> <code>\"Stop Reason FULL_LOAD_ONLY_FINISHED\"</code> </p> </li> <li> <p> <code>\"Stop Reason STOPPED_AFTER_FULL_LOAD\"</code> – Full load completed, with cached changes not applied</p> </li> <li> <p> <code>\"Stop Reason STOPPED_AFTER_CACHED_EVENTS\"</code> – Full load completed, with cached changes applied</p> </li> <li> <p> <code>\"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED\"</code> </p> </li> <li> <p> <code>\"Stop Reason STOPPED_AFTER_DDL_APPLY\"</code> – User-defined stop task after DDL applied</p> </li> <li> <p> <code>\"Stop Reason STOPPED_DUE_TO_LOW_MEMORY\"</code> </p> </li> <li> <p> <code>\"Stop Reason STOPPED_DUE_TO_LOW_DISK\"</code> </p> </li> <li> <p> <code>\"Stop Reason STOPPED_AT_SERVER_TIME\"</code> – User-defined server time for stopping task</p> </li> <li> <p> <code>\"Stop Reason STOPPED_AT_COMMIT_TIME\"</code> – User-defined commit time for stopping task</p> </li> <li> <p> <code>\"Stop Reason RECONFIGURATION_RESTART\"</code> </p> </li> <li> <p> <code>\"Stop Reason RECYCLE_TASK\"</code> </p> </li> </ul>"
+        },
+        "FailureMessages":{
+          "shape":"StringList",
+          "documentation":"<p>Error and other information about why a serverless replication failed.</p>"
+        },
+        "ReplicationStats":{
+          "shape":"ReplicationStats",
+          "documentation":"<p>This object provides a collection of statistics about a serverless replication.</p>"
+        },
+        "StartReplicationType":{
+          "shape":"String",
+          "documentation":"<p>The replication type.</p>"
+        },
+        "CdcStartTime":{
+          "shape":"TStamp",
+          "documentation":"<p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>"
+        },
+        "CdcStartPosition":{
+          "shape":"String",
+          "documentation":"<p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>"
+        },
+        "CdcStopPosition":{
+          "shape":"String",
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>"
+        },
+        "RecoveryCheckpoint":{
+          "shape":"String",
+          "documentation":"<p>Indicates the last checkpoint that occurred during a change data capture (CDC) operation. You can provide this value to the <code>CdcStartPosition</code> parameter to start a CDC operation that begins at that checkpoint.</p>"
+        },
+        "ReplicationCreateTime":{
+          "shape":"TStamp",
+          "documentation":"<p>The time the serverless replication was created.</p>"
+        },
+        "ReplicationUpdateTime":{
+          "shape":"TStamp",
+          "documentation":"<p>The time the serverless replication was updated.</p>"
+        },
+        "ReplicationLastStopTime":{
+          "shape":"TStamp",
+          "documentation":"<p>The timestamp when replication was last stopped.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that describes a serverless replication created by the <code>CreateReplication</code> operation.</p>"
+    },
+    "ReplicationConfig":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfigIdentifier":{
+          "shape":"String",
+          "documentation":"<p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>"
+        },
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of this DMS Serverless replication configuration.</p>"
+        },
+        "SourceEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the source endpoint for this DMS serverless replication configuration.</p>"
+        },
+        "TargetEndpointArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name (ARN) of the target endpoint for this DMS serverless replication configuration.</p>"
+        },
+        "ReplicationType":{
+          "shape":"MigrationTypeValue",
+          "documentation":"<p>The type of the replication.</p>"
+        },
+        "ComputeConfig":{
+          "shape":"ComputeConfig",
+          "documentation":"<p>Configuration parameters for provisioning an DMS serverless replication.</p>"
+        },
+        "ReplicationSettings":{
+          "shape":"String",
+          "documentation":"<p>Configuration parameters for an DMS serverless replication.</p>"
+        },
+        "SupplementalSettings":{
+          "shape":"String",
+          "documentation":"<p>Additional parameters for an DMS serverless replication.</p>"
+        },
+        "TableMappings":{
+          "shape":"String",
+          "documentation":"<p>Table mappings specified in the replication.</p>"
+        },
+        "ReplicationConfigCreateTime":{
+          "shape":"TStamp",
+          "documentation":"<p>The time the serverless replication config was created.</p>"
+        },
+        "ReplicationConfigUpdateTime":{
+          "shape":"TStamp",
+          "documentation":"<p>The time the serverless replication config was updated.</p>"
+        }
+      },
+      "documentation":"<p>This object provides configuration information about a serverless replication.</p>"
+    },
+    "ReplicationConfigList":{
+      "type":"list",
+      "member":{"shape":"ReplicationConfig"}
     },
     "ReplicationEndpointTypeValue":{
       "type":"string",
@@ -5367,6 +6437,10 @@
       "type":"list",
       "member":{"shape":"ReplicationInstanceTaskLog"}
     },
+    "ReplicationList":{
+      "type":"list",
+      "member":{"shape":"Replication"}
+    },
     "ReplicationPendingModifiedValues":{
       "type":"structure",
       "members":{
@@ -5392,6 +6466,56 @@
         }
       },
       "documentation":"<p>Provides information about the values of pending modifications to a replication instance. This data type is an object of the <a href=\"https://docs.aws.amazon.com/dms/latest/APIReference/API_ReplicationInstance.html\"> <code>ReplicationInstance</code> </a> user-defined data type. </p>"
+    },
+    "ReplicationStats":{
+      "type":"structure",
+      "members":{
+        "FullLoadProgressPercent":{
+          "shape":"Integer",
+          "documentation":"<p>The percent complete for the full load serverless replication.</p>"
+        },
+        "ElapsedTimeMillis":{
+          "shape":"Long",
+          "documentation":"<p>The elapsed time of the replication, in milliseconds.</p>"
+        },
+        "TablesLoaded":{
+          "shape":"Integer",
+          "documentation":"<p>The number of tables loaded for this replication.</p>"
+        },
+        "TablesLoading":{
+          "shape":"Integer",
+          "documentation":"<p>The number of tables currently loading for this replication.</p>"
+        },
+        "TablesQueued":{
+          "shape":"Integer",
+          "documentation":"<p>The number of tables queued for this replication.</p>"
+        },
+        "TablesErrored":{
+          "shape":"Integer",
+          "documentation":"<p>The number of errors that have occured for this replication.</p>"
+        },
+        "FreshStartDate":{
+          "shape":"TStamp",
+          "documentation":"<p>The date the replication was started either with a fresh start or a target reload.</p>"
+        },
+        "StartDate":{
+          "shape":"TStamp",
+          "documentation":"<p>The date the replication is scheduled to start.</p>"
+        },
+        "StopDate":{
+          "shape":"TStamp",
+          "documentation":"<p>The date the replication was stopped.</p>"
+        },
+        "FullLoadStartDate":{
+          "shape":"TStamp",
+          "documentation":"<p>The date the replication full load was started.</p>"
+        },
+        "FullLoadFinishDate":{
+          "shape":"TStamp",
+          "documentation":"<p>The date the replication full load was finished.</p>"
+        }
+      },
+      "documentation":"<p>This object provides a collection of statistics about a serverless replication.</p>"
     },
     "ReplicationSubnetGroup":{
       "type":"structure",
@@ -5437,6 +6561,10 @@
     "ReplicationSubnetGroups":{
       "type":"list",
       "member":{"shape":"ReplicationSubnetGroup"}
+    },
+    "ReplicationTableStatisticsList":{
+      "type":"list",
+      "member":{"shape":"TableStatistics"}
     },
     "ReplicationTask":{
       "type":"structure",
@@ -5495,7 +6623,7 @@
         },
         "CdcStopPosition":{
           "shape":"String",
-          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>"
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>"
         },
         "RecoveryCheckpoint":{
           "shape":"String",
@@ -5721,7 +6849,10 @@
           "shape":"ExceptionMessage",
           "documentation":"<p/>"
         },
-        "resourceArn":{"shape":"ResourceArn"}
+        "resourceArn":{
+          "shape":"ResourceArn",
+          "documentation":"<p/>"
+        }
       },
       "documentation":"<p>The resource you are attempting to create already exists.</p>",
       "exception":true
@@ -5861,7 +6992,7 @@
         },
         "IncludeOpForFullLoad":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A value that enables a full load to write INSERT operations to the comma-separated value (.csv) output files only to indicate how the rows were added to the source database.</p> <note> <p>DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p> </note> <p>For full load, records can only be inserted. By default (the <code>false</code> setting), no information is recorded in these output files for a full load to indicate that the rows were inserted at the source database. If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or <code>y</code>, the INSERT is recorded as an I annotation in the first field of the .csv file. This allows the format of your target records from a full load to be consistent with the target records from a CDC load.</p> <note> <p>This setting works together with the <code>CdcInsertsOnly</code> and the <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For more information about how these settings work together, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps\">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p> </note>"
+          "documentation":"<p>A value that enables a full load to write INSERT operations to the comma-separated value (.csv) or .parquet output files only to indicate how the rows were added to the source database.</p> <note> <p>DMS supports the <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p> <p>DMS supports the use of the .parquet files with the <code>IncludeOpForFullLoad</code> parameter in versions 3.4.7 and later.</p> </note> <p>For full load, records can only be inserted. By default (the <code>false</code> setting), no information is recorded in these output files for a full load to indicate that the rows were inserted at the source database. If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or <code>y</code>, the INSERT is recorded as an I annotation in the first field of the .csv file. This allows the format of your target records from a full load to be consistent with the target records from a CDC load.</p> <note> <p>This setting works together with the <code>CdcInsertsOnly</code> and the <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For more information about how these settings work together, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps\">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p> </note>"
         },
         "CdcInsertsOnly":{
           "shape":"BooleanOptional",
@@ -5877,7 +7008,7 @@
         },
         "CdcInsertsAndUpdates":{
           "shape":"BooleanOptional",
-          "documentation":"<p>A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is <code>false</code>, but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code> or <code>y</code>, only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file. </p> <p>For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the value of the <code>IncludeOpForFullLoad</code> parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the first field of every CDC record is set to either <code>I</code> or <code>U</code> to indicate INSERT and UPDATE operations at the source. But if <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are written without an indication of INSERT or UPDATE operations at the source. For more information about how these settings work together, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps\">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p> <note> <p>DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but not both.</p> </note>"
+          "documentation":"<p>A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations to .csv or .parquet (columnar storage) output files. The default setting is <code>false</code>, but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code> or <code>y</code>, only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet file.</p> <important> <p>DMS supports the use of the .parquet files in versions 3.4.7 and later.</p> </important> <p>How these INSERTs and UPDATEs are recorded depends on the value of the <code>IncludeOpForFullLoad</code> parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the first field of every CDC record is set to either <code>I</code> or <code>U</code> to indicate INSERT and UPDATE operations at the source. But if <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are written without an indication of INSERT or UPDATE operations at the source. For more information about how these settings work together, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps\">Indicating Source DB Operations in Migrated S3 Data</a> in the <i>Database Migration Service User Guide.</i>.</p> <note> <p>DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but not both.</p> </note>"
         },
         "DatePartitionEnabled":{
           "shape":"BooleanOptional",
@@ -5954,6 +7085,10 @@
         "ExpectedBucketOwner":{
           "shape":"String",
           "documentation":"<p>To specify a bucket owner and prevent sniping, you can use the <code>ExpectedBucketOwner</code> endpoint setting. </p> <p>Example: <code>--s3-settings='{\"ExpectedBucketOwner\": \"<i>AWS_Account_ID</i>\"}'</code> </p> <p>When you make a request to test a connection or perform a migration, S3 checks the account ID of the bucket owner against the specified parameter.</p>"
+        },
+        "GlueCatalogGeneration":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>When true, allows Glue to catalog your S3 bucket. Creating an Glue catalog lets you use Athena to query your data.</p>"
         }
       },
       "documentation":"<p>Settings for exporting data to Amazon S3. </p>"
@@ -6094,6 +7229,85 @@
         "ssl-encryption"
       ]
     },
+    "StartRecommendationsRequest":{
+      "type":"structure",
+      "required":[
+        "DatabaseId",
+        "Settings"
+      ],
+      "members":{
+        "DatabaseId":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the source database to analyze and provide recommendations for.</p>"
+        },
+        "Settings":{
+          "shape":"RecommendationSettings",
+          "documentation":"<p>The settings in JSON format that Fleet Advisor uses to determine target engine recommendations. These parameters include target instance sizing and availability and durability settings. For target instance sizing, Fleet Advisor supports the following two options: total capacity and resource utilization. For availability and durability, Fleet Advisor supports the following two options: production (Multi-AZ deployments) and Dev/Test (Single-AZ deployments).</p>"
+        }
+      }
+    },
+    "StartRecommendationsRequestEntry":{
+      "type":"structure",
+      "required":[
+        "DatabaseId",
+        "Settings"
+      ],
+      "members":{
+        "DatabaseId":{
+          "shape":"String",
+          "documentation":"<p>The identifier of the source database.</p>"
+        },
+        "Settings":{
+          "shape":"RecommendationSettings",
+          "documentation":"<p>The required target engine settings.</p>"
+        }
+      },
+      "documentation":"<p>Provides information about the source database to analyze and provide target recommendations according to the specified requirements.</p>"
+    },
+    "StartRecommendationsRequestEntryList":{
+      "type":"list",
+      "member":{"shape":"StartRecommendationsRequestEntry"}
+    },
+    "StartReplicationMessage":{
+      "type":"structure",
+      "required":[
+        "ReplicationConfigArn",
+        "StartReplicationType"
+      ],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication for which to start replication.</p>"
+        },
+        "StartReplicationType":{
+          "shape":"String",
+          "documentation":"<p>The replication type.</p>"
+        },
+        "CdcStartTime":{
+          "shape":"TStamp",
+          "documentation":"<p>Indicates the start time for a change data capture (CDC) operation. Use either <code>CdcStartTime</code> or <code>CdcStartPosition</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p>"
+        },
+        "CdcStartPosition":{
+          "shape":"String",
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to start. Use either <code>CdcStartPosition</code> or <code>CdcStartTime</code> to specify when you want a CDC operation to start. Specifying both values results in an error.</p> <p>The value can be in date, checkpoint, or LSN/SCN format.</p>"
+        },
+        "CdcStopPosition":{
+          "shape":"String",
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "StartReplicationResponse":{
+      "type":"structure",
+      "members":{
+        "Replication":{
+          "shape":"Replication",
+          "documentation":"<p>The replication that DMS started.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
     "StartReplicationTaskAssessmentMessage":{
       "type":"structure",
       "required":["ReplicationTaskArn"],
@@ -6186,7 +7400,7 @@
         },
         "StartReplicationTaskType":{
           "shape":"StartReplicationTaskTypeValue",
-          "documentation":"<p>The type of replication task to start.</p> <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value for the first run of the task is <code>start-replication</code>. You use <code>reload-target</code> to restart the task and <code>resume-processing</code> to resume the task.</p> <p>When the migration type is <code>cdc</code>, you use <code>start-replication</code> to start or restart the task, and <code>resume-processing</code> to resume the task. <code>reload-target</code> is not a valid value for a task with migration type of <code>cdc</code>.</p>"
+          "documentation":"<p>The type of replication task to start.</p> <p>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>, the only valid value for the first run of the task is <code>start-replication</code>. This option will start the migration.</p> <p>You can also use <a>ReloadTables</a> to reload specific tables that failed during migration instead of restarting the task.</p> <p>The <code>resume-processing</code> option isn't applicable for a full-load task, because you can't resume partially loaded tables during the full load phase.</p> <p>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies data changes that occur on the source. To load all the tables again, and start capturing source changes, use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the changes from the last stop position.</p>"
         },
         "CdcStartTime":{
           "shape":"TStamp",
@@ -6198,7 +7412,7 @@
         },
         "CdcStopPosition":{
           "shape":"String",
-          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</p>"
+          "documentation":"<p>Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.</p> <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p> <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>"
         }
       },
       "documentation":"<p/>"
@@ -6220,6 +7434,26 @@
         "resume-processing",
         "reload-target"
       ]
+    },
+    "StopReplicationMessage":{
+      "type":"structure",
+      "required":["ReplicationConfigArn"],
+      "members":{
+        "ReplicationConfigArn":{
+          "shape":"String",
+          "documentation":"<p>The Amazon Resource Name of the replication to stop.</p>"
+        }
+      },
+      "documentation":"<p/>"
+    },
+    "StopReplicationResponse":{
+      "type":"structure",
+      "members":{
+        "Replication":{
+          "shape":"Replication",
+          "documentation":"<p>The replication that DMS stopped.</p>"
+        }
+      }
     },
     "StopReplicationTaskMessage":{
       "type":"structure",
@@ -6540,6 +7774,46 @@
         }
       },
       "documentation":"<p/>"
+    },
+    "TimestreamSettings":{
+      "type":"structure",
+      "required":[
+        "DatabaseName",
+        "MemoryDuration",
+        "MagneticDuration"
+      ],
+      "members":{
+        "DatabaseName":{
+          "shape":"String",
+          "documentation":"<p>Database name for the endpoint.</p>"
+        },
+        "MemoryDuration":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Set this attribute to specify the length of time to store all of the tables in memory that are migrated into Amazon Timestream from the source database. Time is measured in units of hours. When Timestream data comes in, it first resides in memory for the specified duration, which allows quick access to it.</p>"
+        },
+        "MagneticDuration":{
+          "shape":"IntegerOptional",
+          "documentation":"<p>Set this attribute to specify the default magnetic duration applied to the Amazon Timestream tables in days. This is the number of days that records remain in magnetic store before being discarded. For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html\">Storage</a> in the <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/\">Amazon Timestream Developer Guide</a>.</p>"
+        },
+        "CdcInsertsAndUpdates":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Set this attribute to <code>true</code> to specify that DMS only applies inserts and updates, and not deletes. Amazon Timestream does not allow deleting records, so if this value is <code>false</code>, DMS nulls out the corresponding record in the Timestream database rather than deleting it.</p>"
+        },
+        "EnableMagneticStoreWrites":{
+          "shape":"BooleanOptional",
+          "documentation":"<p>Set this attribute to <code>true</code> to enable memory store writes. When this value is <code>false</code>, DMS does not write records that are older in days than the value specified in <code>MagneticDuration</code>, because Amazon Timestream does not allow memory writes by default. For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/storage.html\">Storage</a> in the <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/\">Amazon Timestream Developer Guide</a>.</p>"
+        }
+      },
+      "documentation":"<p>Provides information that defines an Amazon Timestream endpoint.</p>"
+    },
+    "TlogAccessMode":{
+      "type":"string",
+      "enum":[
+        "BackupOnly",
+        "PreferBackup",
+        "PreferTlog",
+        "TlogOnly"
+      ]
     },
     "UpdateSubscriptionsToEventBridgeMessage":{
       "type":"structure",

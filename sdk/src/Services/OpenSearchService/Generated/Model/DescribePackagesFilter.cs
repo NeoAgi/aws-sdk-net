@@ -57,7 +57,7 @@ namespace Amazon.OpenSearchService.Model
         /// <summary>
         /// Gets and sets the property Value. 
         /// <para>
-        /// A list of values for the specified filter field.
+        /// A non-empty list of values for the specified filter field.
         /// </para>
         /// </summary>
         public List<string> Value

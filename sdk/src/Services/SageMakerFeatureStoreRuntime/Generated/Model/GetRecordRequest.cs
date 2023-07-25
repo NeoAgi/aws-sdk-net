@@ -36,17 +36,39 @@ namespace Amazon.SageMakerFeatureStoreRuntime.Model
     /// </summary>
     public partial class GetRecordRequest : AmazonSageMakerFeatureStoreRuntimeRequest
     {
+        private ExpirationTimeResponse _expirationTimeResponse;
         private string _featureGroupName;
         private List<string> _featureNames = new List<string>();
         private string _recordIdentifierValueAsString;
 
         /// <summary>
-        /// Gets and sets the property FeatureGroupName. 
+        /// Gets and sets the property ExpirationTimeResponse. 
         /// <para>
-        /// The name of the feature group from which you want to retrieve a record.
+        /// Parameter to request <code>ExpiresAt</code> in response. If <code>Enabled</code>,
+        /// <code>GetRecord</code> will return the value of <code>ExpiresAt</code>, if it is not
+        /// null. If <code>Disabled</code> and null, <code>GetRecord</code> will return null.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=64)]
+        public ExpirationTimeResponse ExpirationTimeResponse
+        {
+            get { return this._expirationTimeResponse; }
+            set { this._expirationTimeResponse = value; }
+        }
+
+        // Check to see if ExpirationTimeResponse property is set
+        internal bool IsSetExpirationTimeResponse()
+        {
+            return this._expirationTimeResponse != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property FeatureGroupName. 
+        /// <para>
+        /// The name or Amazon Resource Name (ARN) of the feature group from which you want to
+        /// retrieve a record.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Required=true, Min=1, Max=150)]
         public string FeatureGroupName
         {
             get { return this._featureGroupName; }

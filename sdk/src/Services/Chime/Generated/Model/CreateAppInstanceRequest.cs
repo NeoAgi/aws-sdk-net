@@ -33,6 +33,20 @@ namespace Amazon.Chime.Model
     /// Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account.
     /// Only SDK messaging customers use this API. <code>CreateAppInstance</code> supports
     /// idempotency behavior as described in the AWS API Standard.
+    /// 
+    ///  <important> 
+    /// <para>
+    ///  <b>This API is is no longer supported and will not be updated.</b> We recommend using
+    /// the latest version, <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstance.html">CreateAppInstance</a>,
+    /// in the Amazon Chime SDK.
+    /// </para>
+    ///  
+    /// <para>
+    /// Using the latest version requires migrating to a dedicated namespace. For more information,
+    /// refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating
+    /// from the Amazon Chime namespace</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
+    ///  </important>
     /// </summary>
     public partial class CreateAppInstanceRequest : AmazonChimeRequest
     {
@@ -47,7 +61,7 @@ namespace Amazon.Chime.Model
         /// The <code>ClientRequestToken</code> of the <code>AppInstance</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=2, Max=64)]
+        [AWSProperty(Sensitive=true, Min=2, Max=64)]
         public string ClientRequestToken
         {
             get { return this._clientRequestToken; }
@@ -66,7 +80,7 @@ namespace Amazon.Chime.Model
         /// The metadata of the <code>AppInstance</code>. Limited to a 1KB string in UTF-8.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=0, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=0, Max=1024)]
         public string Metadata
         {
             get { return this._metadata; }
@@ -85,7 +99,7 @@ namespace Amazon.Chime.Model
         /// The name of the <code>AppInstance</code>.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=256)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=256)]
         public string Name
         {
             get { return this._name; }

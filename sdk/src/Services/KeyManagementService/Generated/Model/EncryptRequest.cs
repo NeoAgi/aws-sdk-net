@@ -160,11 +160,36 @@ namespace Amazon.KeyManagementService.Model
     /// </summary>
     public partial class EncryptRequest : AmazonKeyManagementServiceRequest
     {
+        private bool? _dryRun;
         private EncryptionAlgorithmSpec _encryptionAlgorithm;
         private Dictionary<string, string> _encryptionContext = new Dictionary<string, string>();
         private List<string> _grantTokens = new List<string>();
         private string _keyId;
         private MemoryStream _plaintext;
+
+        /// <summary>
+        /// Gets and sets the property DryRun. 
+        /// <para>
+        /// Checks if your request will succeed. <code>DryRun</code> is an optional parameter.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing
+        /// your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public bool DryRun
+        {
+            get { return this._dryRun.GetValueOrDefault(); }
+            set { this._dryRun = value; }
+        }
+
+        // Check to see if DryRun property is set
+        internal bool IsSetDryRun()
+        {
+            return this._dryRun.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property EncryptionAlgorithm. 
@@ -204,7 +229,12 @@ namespace Amazon.KeyManagementService.Model
         /// algorithms and HMAC algorithms that KMS uses do not support an encryption context.
         /// 
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
@@ -317,7 +347,7 @@ namespace Amazon.KeyManagementService.Model
         /// Data to be encrypted.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=4096)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=4096)]
         public MemoryStream Plaintext
         {
             get { return this._plaintext; }

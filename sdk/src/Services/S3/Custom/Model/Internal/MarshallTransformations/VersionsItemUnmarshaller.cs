@@ -37,7 +37,7 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             {
                 if (context.IsStartElement || context.IsAttribute)
                 {
-                    if (context.TestExpression("ChecksumAlgorithm/member", targetDepth))
+                    if (context.TestExpression("ChecksumAlgorithm", targetDepth))
                     {
                         versionsItem.ChecksumAlgorithm.Add(StringUnmarshaller.GetInstance().Unmarshall(context));
                         continue;
@@ -88,6 +88,12 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
                     {
                         versionsItem.VersionId = StringUnmarshaller.GetInstance().Unmarshall(context);
                             
+                        continue;
+                    }
+                    if(context.TestExpression("RestoreStatus", targetDepth))
+                    {
+                        versionsItem.RestoreStatus = RestoreStatusUnmarshaller.Instance.Unmarshall(context);
+
                         continue;
                     }
                 }

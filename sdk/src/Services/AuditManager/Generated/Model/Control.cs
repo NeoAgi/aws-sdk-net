@@ -166,7 +166,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property CreatedBy. 
         /// <para>
-        ///  The IAM user or role that created the control. 
+        ///  The user or role that created the control. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -241,7 +241,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property LastUpdatedBy. 
         /// <para>
-        ///  The IAM user or role that most recently updated the control. 
+        ///  The user or role that most recently updated the control. 
         /// </para>
         /// </summary>
         [AWSProperty(Min=1, Max=100)]
@@ -318,7 +318,7 @@ namespace Amazon.AuditManager.Model
         /// <summary>
         /// Gets and sets the property Type. 
         /// <para>
-        ///  The type of control, such as a custom control or a standard control. 
+        ///  Specifies whether the control is a standard control or a custom control.
         /// </para>
         /// </summary>
         public ControlType Type

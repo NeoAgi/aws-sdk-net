@@ -37,11 +37,11 @@ namespace Amazon.SecurityLake.Model
     public partial class CreateSubscriberRequest : AmazonSecurityLakeRequest
     {
         private List<string> _accessTypes = new List<string>();
-        private string _accountId;
-        private string _externalId;
-        private List<SourceType> _sourceTypes = new List<SourceType>();
+        private List<LogSourceResource> _sources = new List<LogSourceResource>();
         private string _subscriberDescription;
+        private AwsIdentity _subscriberIdentity;
         private string _subscriberName;
+        private List<Tag> _tags = new List<Tag>();
 
         /// <summary>
         /// Gets and sets the property AccessTypes. 
@@ -62,69 +62,29 @@ namespace Amazon.SecurityLake.Model
         }
 
         /// <summary>
-        /// Gets and sets the property AccountId. 
-        /// <para>
-        /// The Amazon Web Services account ID used to access your data.
-        /// </para>
-        /// </summary>
-        [AWSProperty(Required=true, Min=12, Max=12)]
-        public string AccountId
-        {
-            get { return this._accountId; }
-            set { this._accountId = value; }
-        }
-
-        // Check to see if AccountId property is set
-        internal bool IsSetAccountId()
-        {
-            return this._accountId != null;
-        }
-
-        /// <summary>
-        /// Gets and sets the property ExternalId. 
-        /// <para>
-        /// The external ID of the subscriber. This lets the user that is assuming the role assert
-        /// the circumstances in which they are operating. It also provides a way for the account
-        /// owner to permit the role to be assumed only under specific circumstances.
-        /// </para>
-        /// </summary>
-        [AWSProperty(Required=true)]
-        public string ExternalId
-        {
-            get { return this._externalId; }
-            set { this._externalId = value; }
-        }
-
-        // Check to see if ExternalId property is set
-        internal bool IsSetExternalId()
-        {
-            return this._externalId != null;
-        }
-
-        /// <summary>
-        /// Gets and sets the property SourceTypes. 
+        /// Gets and sets the property Sources. 
         /// <para>
         /// The supported Amazon Web Services from which logs and events are collected. Security
         /// Lake supports log and event collection for natively supported Amazon Web Services.
         /// </para>
         /// </summary>
         [AWSProperty(Required=true)]
-        public List<SourceType> SourceTypes
+        public List<LogSourceResource> Sources
         {
-            get { return this._sourceTypes; }
-            set { this._sourceTypes = value; }
+            get { return this._sources; }
+            set { this._sources = value; }
         }
 
-        // Check to see if SourceTypes property is set
-        internal bool IsSetSourceTypes()
+        // Check to see if Sources property is set
+        internal bool IsSetSources()
         {
-            return this._sourceTypes != null && this._sourceTypes.Count > 0; 
+            return this._sources != null && this._sources.Count > 0; 
         }
 
         /// <summary>
         /// Gets and sets the property SubscriberDescription. 
         /// <para>
-        /// The description for your subscriber account in Security Lake. 
+        /// The description for your subscriber account in Security Lake.
         /// </para>
         /// </summary>
         public string SubscriberDescription
@@ -137,6 +97,25 @@ namespace Amazon.SecurityLake.Model
         internal bool IsSetSubscriberDescription()
         {
             return this._subscriberDescription != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SubscriberIdentity. 
+        /// <para>
+        /// The AWS identity used to access your data.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Required=true)]
+        public AwsIdentity SubscriberIdentity
+        {
+            get { return this._subscriberIdentity; }
+            set { this._subscriberIdentity = value; }
+        }
+
+        // Check to see if SubscriberIdentity property is set
+        internal bool IsSetSubscriberIdentity()
+        {
+            return this._subscriberIdentity != null;
         }
 
         /// <summary>
@@ -156,6 +135,27 @@ namespace Amazon.SecurityLake.Model
         internal bool IsSetSubscriberName()
         {
             return this._subscriberName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// An array of objects, one for each tag to associate with the subscriber. For each tag,
+        /// you must specify both a tag key and a tag value. A tag value cannot be null, but it
+        /// can be an empty string.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=0, Max=50)]
+        public List<Tag> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
     }

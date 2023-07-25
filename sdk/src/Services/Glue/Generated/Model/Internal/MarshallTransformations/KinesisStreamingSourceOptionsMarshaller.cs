@@ -51,6 +51,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.AddIdleTimeBetweenReads);
             }
 
+            if(requestObject.IsSetAddRecordTimestamp())
+            {
+                context.Writer.WritePropertyName("AddRecordTimestamp");
+                context.Writer.Write(requestObject.AddRecordTimestamp);
+            }
+
             if(requestObject.IsSetAvoidEmptyBatches())
             {
                 context.Writer.WritePropertyName("AvoidEmptyBatches");
@@ -73,6 +79,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("DescribeShardInterval");
                 context.Writer.Write(requestObject.DescribeShardInterval);
+            }
+
+            if(requestObject.IsSetEmitConsumerLagMetrics())
+            {
+                context.Writer.WritePropertyName("EmitConsumerLagMetrics");
+                context.Writer.Write(requestObject.EmitConsumerLagMetrics);
             }
 
             if(requestObject.IsSetEndpointUrl())
@@ -139,6 +151,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
             {
                 context.Writer.WritePropertyName("StartingPosition");
                 context.Writer.Write(requestObject.StartingPosition);
+            }
+
+            if(requestObject.IsSetStartingTimestamp())
+            {
+                context.Writer.WritePropertyName("StartingTimestamp");
+                context.Writer.Write(StringUtils.FromDateTimeToISO8601(requestObject.StartingTimestamp));
             }
 
             if(requestObject.IsSetStreamArn())

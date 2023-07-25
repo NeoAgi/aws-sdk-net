@@ -82,6 +82,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                     unmarshalledObject.Environment = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ephemeralStorage", targetDepth))
+                {
+                    var unmarshaller = EphemeralStorageUnmarshaller.Instance;
+                    unmarshalledObject.EphemeralStorage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("executionRoleArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -182,6 +188,12 @@ namespace Amazon.Batch.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new ListUnmarshaller<ResourceRequirement, ResourceRequirementUnmarshaller>(ResourceRequirementUnmarshaller.Instance);
                     unmarshalledObject.ResourceRequirements = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("runtimePlatform", targetDepth))
+                {
+                    var unmarshaller = RuntimePlatformUnmarshaller.Instance;
+                    unmarshalledObject.RuntimePlatform = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("secrets", targetDepth))

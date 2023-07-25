@@ -34,21 +34,105 @@ namespace Amazon.WAFV2.Model
     /// 
     ///  
     /// <para>
+    /// The rule groups used for intelligent threat mitigation require additional configuration:
+    /// 
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Use the <code>AWSManagedRulesACFPRuleSet</code> configuration object to configure
+    /// the account creation fraud prevention managed rule group. The configuration includes
+    /// the registration and sign-up pages of your application and the locations in the account
+    /// creation request payload of data, such as the user email and phone number fields.
+    /// 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Use the <code>AWSManagedRulesATPRuleSet</code> configuration object to configure the
+    /// account takeover prevention managed rule group. The configuration includes the sign-in
+    /// page of your application and the locations in the login request payload of data such
+    /// as the username and password. 
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     /// Use the <code>AWSManagedRulesBotControlRuleSet</code> configuration object to configure
     /// the protection level that you want the Bot Control rule group to use. 
     /// </para>
-    ///  
+    ///  </li> </ul> 
     /// <para>
     /// For example specifications, see the examples section of <a>CreateWebACL</a>.
     /// </para>
     /// </summary>
     public partial class ManagedRuleGroupConfig
     {
+        private AWSManagedRulesACFPRuleSet _awsManagedRulesACFPRuleSet;
+        private AWSManagedRulesATPRuleSet _awsManagedRulesATPRuleSet;
         private AWSManagedRulesBotControlRuleSet _awsManagedRulesBotControlRuleSet;
         private string _loginPath;
         private PasswordField _passwordField;
         private PayloadType _payloadType;
         private UsernameField _usernameField;
+
+        /// <summary>
+        /// Gets and sets the property AWSManagedRulesACFPRuleSet. 
+        /// <para>
+        /// Additional configuration for using the account creation fraud prevention (ACFP) managed
+        /// rule group, <code>AWSManagedRulesACFPRuleSet</code>. Use this to provide account creation
+        /// request information to the rule group. For web ACLs that protect CloudFront distributions,
+        /// use this to also provide the information about how your distribution responds to account
+        /// creation requests. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about using the ACFP managed rule group, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html">WAF
+        /// Fraud Control account creation fraud prevention (ACFP) rule group</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html">WAF
+        /// Fraud Control account creation fraud prevention (ACFP)</a> in the <i>WAF Developer
+        /// Guide</i>.
+        /// </para>
+        /// </summary>
+        public AWSManagedRulesACFPRuleSet AWSManagedRulesACFPRuleSet
+        {
+            get { return this._awsManagedRulesACFPRuleSet; }
+            set { this._awsManagedRulesACFPRuleSet = value; }
+        }
+
+        // Check to see if AWSManagedRulesACFPRuleSet property is set
+        internal bool IsSetAWSManagedRulesACFPRuleSet()
+        {
+            return this._awsManagedRulesACFPRuleSet != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property AWSManagedRulesATPRuleSet. 
+        /// <para>
+        /// Additional configuration for using the account takeover prevention (ATP) managed rule
+        /// group, <code>AWSManagedRulesATPRuleSet</code>. Use this to provide login request information
+        /// to the rule group. For web ACLs that protect CloudFront distributions, use this to
+        /// also provide the information about how your distribution responds to login requests.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// This configuration replaces the individual configuration fields in <code>ManagedRuleGroupConfig</code>
+        /// and provides additional feature configuration. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about using the ATP managed rule group, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html">WAF
+        /// Fraud Control account takeover prevention (ATP) rule group</a> and <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html">WAF
+        /// Fraud Control account takeover prevention (ATP)</a> in the <i>WAF Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public AWSManagedRulesATPRuleSet AWSManagedRulesATPRuleSet
+        {
+            get { return this._awsManagedRulesATPRuleSet; }
+            set { this._awsManagedRulesATPRuleSet = value; }
+        }
+
+        // Check to see if AWSManagedRulesATPRuleSet property is set
+        internal bool IsSetAWSManagedRulesATPRuleSet()
+        {
+            return this._awsManagedRulesATPRuleSet != null;
+        }
 
         /// <summary>
         /// Gets and sets the property AWSManagedRulesBotControlRuleSet. 
@@ -73,12 +157,14 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
-        /// Gets and sets the property LoginPath. 
+        /// Gets and sets the property LoginPath. <note> 
         /// <para>
-        /// The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>,
-        /// you would provide the path <code>/web/login</code>.
+        /// Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>.
+        /// 
         /// </para>
+        ///  </note>
         /// </summary>
+        [Obsolete("Deprecated. Use AWSManagedRulesATPRuleSet LoginPath")]
         [AWSProperty(Min=1, Max=256)]
         public string LoginPath
         {
@@ -93,11 +179,15 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PasswordField. 
+        /// Gets and sets the property PasswordField. <note> 
         /// <para>
-        /// Details about your login page password field. 
+        /// Instead of this setting, provide your configuration under the request inspection configuration
+        /// for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>.
+        /// 
         /// </para>
+        ///  </note>
         /// </summary>
+        [Obsolete("Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PasswordField")]
         public PasswordField PasswordField
         {
             get { return this._passwordField; }
@@ -111,11 +201,15 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PayloadType. 
+        /// Gets and sets the property PayloadType. <note> 
         /// <para>
-        /// The payload type for your login endpoint, either JSON or form encoded.
+        /// Instead of this setting, provide your configuration under the request inspection configuration
+        /// for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>.
+        /// 
         /// </para>
+        ///  </note>
         /// </summary>
+        [Obsolete("Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PayloadType")]
         public PayloadType PayloadType
         {
             get { return this._payloadType; }
@@ -129,11 +223,15 @@ namespace Amazon.WAFV2.Model
         }
 
         /// <summary>
-        /// Gets and sets the property UsernameField. 
+        /// Gets and sets the property UsernameField. <note> 
         /// <para>
-        /// Details about your login page username field. 
+        /// Instead of this setting, provide your configuration under the request inspection configuration
+        /// for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>.
+        /// 
         /// </para>
+        ///  </note>
         /// </summary>
+        [Obsolete("Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection UsernameField")]
         public UsernameField UsernameField
         {
             get { return this._usernameField; }

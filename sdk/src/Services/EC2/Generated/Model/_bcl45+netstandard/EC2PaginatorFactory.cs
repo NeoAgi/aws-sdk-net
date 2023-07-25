@@ -268,6 +268,14 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for DescribeInstanceConnectEndpoints operation
+        ///</summary>
+        public IDescribeInstanceConnectEndpointsPaginator DescribeInstanceConnectEndpoints(DescribeInstanceConnectEndpointsRequest request) 
+        {
+            return new DescribeInstanceConnectEndpointsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for DescribeInstanceCreditSpecifications operation
         ///</summary>
         public IDescribeInstanceCreditSpecificationsPaginator DescribeInstanceCreditSpecifications(DescribeInstanceCreditSpecificationsRequest request) 
@@ -329,6 +337,22 @@ namespace Amazon.EC2.Model
         public IDescribeIpamPoolsPaginator DescribeIpamPools(DescribeIpamPoolsRequest request) 
         {
             return new DescribeIpamPoolsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeIpamResourceDiscoveries operation
+        ///</summary>
+        public IDescribeIpamResourceDiscoveriesPaginator DescribeIpamResourceDiscoveries(DescribeIpamResourceDiscoveriesRequest request) 
+        {
+            return new DescribeIpamResourceDiscoveriesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for DescribeIpamResourceDiscoveryAssociations operation
+        ///</summary>
+        public IDescribeIpamResourceDiscoveryAssociationsPaginator DescribeIpamResourceDiscoveryAssociations(DescribeIpamResourceDiscoveryAssociationsRequest request) 
+        {
+            return new DescribeIpamResourceDiscoveryAssociationsPaginator(this.client, request);
         }
 
         /// <summary>
@@ -940,6 +964,22 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
+        /// Paginator for GetIpamDiscoveredAccounts operation
+        ///</summary>
+        public IGetIpamDiscoveredAccountsPaginator GetIpamDiscoveredAccounts(GetIpamDiscoveredAccountsRequest request) 
+        {
+            return new GetIpamDiscoveredAccountsPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for GetIpamDiscoveredResourceCidrs operation
+        ///</summary>
+        public IGetIpamDiscoveredResourceCidrsPaginator GetIpamDiscoveredResourceCidrs(GetIpamDiscoveredResourceCidrsRequest request) 
+        {
+            return new GetIpamDiscoveredResourceCidrsPaginator(this.client, request);
+        }
+
+        /// <summary>
         /// Paginator for GetIpamPoolAllocations operation
         ///</summary>
         public IGetIpamPoolAllocationsPaginator GetIpamPoolAllocations(GetIpamPoolAllocationsRequest request) 
@@ -977,6 +1017,14 @@ namespace Amazon.EC2.Model
         public IGetManagedPrefixListEntriesPaginator GetManagedPrefixListEntries(GetManagedPrefixListEntriesRequest request) 
         {
             return new GetManagedPrefixListEntriesPaginator(this.client, request);
+        }
+
+        /// <summary>
+        /// Paginator for GetNetworkInsightsAccessScopeAnalysisFindings operation
+        ///</summary>
+        public IGetNetworkInsightsAccessScopeAnalysisFindingsPaginator GetNetworkInsightsAccessScopeAnalysisFindings(GetNetworkInsightsAccessScopeAnalysisFindingsRequest request) 
+        {
+            return new GetNetworkInsightsAccessScopeAnalysisFindingsPaginator(this.client, request);
         }
 
         /// <summary>

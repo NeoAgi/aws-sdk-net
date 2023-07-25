@@ -38,13 +38,36 @@ namespace Amazon.SageMaker.Model
     /// </summary>
     public partial class RecommendationJobContainerConfig
     {
+        private string _dataInputConfig;
         private string _domain;
         private string _framework;
         private string _frameworkVersion;
         private string _nearestModelName;
         private RecommendationJobPayloadConfig _payloadConfig;
+        private RecommendationJobSupportedEndpointType _supportedEndpointType;
         private List<string> _supportedInstanceTypes = new List<string>();
         private string _task;
+
+        /// <summary>
+        /// Gets and sets the property DataInputConfig. 
+        /// <para>
+        /// Specifies the name and shape of the expected data inputs for your trained model with
+        /// a JSON dictionary form. This field is used for optimizing your model using SageMaker
+        /// Neo. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Min=1, Max=1024)]
+        public string DataInputConfig
+        {
+            get { return this._dataInputConfig; }
+            set { this._dataInputConfig = value; }
+        }
+
+        // Check to see if DataInputConfig property is set
+        internal bool IsSetDataInputConfig()
+        {
+            return this._dataInputConfig != null;
+        }
 
         /// <summary>
         /// Gets and sets the property Domain. 
@@ -152,6 +175,27 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetPayloadConfig()
         {
             return this._payloadConfig != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SupportedEndpointType. 
+        /// <para>
+        /// The endpoint type to receive recommendations for. By default this is null, and the
+        /// results of the inference recommendation job return a combined list of both real-time
+        /// and serverless benchmarks. By specifying a value for this field, you can receive a
+        /// longer list of benchmarks for the desired endpoint type.
+        /// </para>
+        /// </summary>
+        public RecommendationJobSupportedEndpointType SupportedEndpointType
+        {
+            get { return this._supportedEndpointType; }
+            set { this._supportedEndpointType = value; }
+        }
+
+        // Check to see if SupportedEndpointType property is set
+        internal bool IsSetSupportedEndpointType()
+        {
+            return this._supportedEndpointType != null;
         }
 
         /// <summary>

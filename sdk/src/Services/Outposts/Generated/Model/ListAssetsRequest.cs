@@ -85,7 +85,7 @@ namespace Amazon.Outposts.Model
         /// <summary>
         /// Gets and sets the property NextToken.
         /// </summary>
-        [AWSProperty(Min=1, Max=1005)]
+        [AWSProperty(Min=1, Max=2048)]
         public string NextToken
         {
             get { return this._nextToken; }
@@ -123,7 +123,7 @@ namespace Amazon.Outposts.Model
         /// Filters the results by state.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=2)]
+        [AWSProperty(Min=1, Max=3)]
         public List<string> StatusFilter
         {
             get { return this._statusFilter; }

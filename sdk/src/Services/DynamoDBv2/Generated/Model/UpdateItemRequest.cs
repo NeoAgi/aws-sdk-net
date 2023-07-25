@@ -54,6 +54,7 @@ namespace Amazon.DynamoDBv2.Model
         private ReturnConsumedCapacity _returnConsumedCapacity;
         private ReturnItemCollectionMetrics _returnItemCollectionMetrics;
         private ReturnValue _returnValues;
+        private ReturnValuesOnConditionCheckFailure _returnValuesOnConditionCheckFailure;
         private string _tableName;
         private string _updateExpression;
 
@@ -81,7 +82,7 @@ namespace Amazon.DynamoDBv2.Model
         /// <param name="tableName">The name of the table containing the item to update.</param>
         /// <param name="key">The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</param>
         /// <param name="attributeUpdates">This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</param>
-        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are updated. For <code>UpdateItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation. </li> <li>  <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation. </li> <li>  <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation. </li> <li>  <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. The values returned are strongly consistent.</param>
+        /// <param name="returnValues">Use <code>ReturnValues</code> if you want to get the item attributes as they appear before or after they are successfully updated. For <code>UpdateItem</code>, the valid values are: <ul> <li>  <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its value is <code>NONE</code>, then nothing is returned. (This setting is the default for <code>ReturnValues</code>.) </li> <li>  <code>ALL_OLD</code> - Returns all of the attributes of the item, as they appeared before the UpdateItem operation. </li> <li>  <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared before the UpdateItem operation. </li> <li>  <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear after the UpdateItem operation. </li> <li>  <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear after the UpdateItem operation. </li> </ul> There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed. The values returned are strongly consistent.</param>
         public UpdateItemRequest(string tableName, Dictionary<string, AttributeValue> key, Dictionary<string, AttributeValueUpdate> attributeUpdates, ReturnValue returnValues)
         {
             _tableName = tableName;
@@ -381,7 +382,8 @@ namespace Amazon.DynamoDBv2.Model
         /// Gets and sets the property ReturnValues. 
         /// <para>
         /// Use <code>ReturnValues</code> if you want to get the item attributes as they appear
-        /// before or after they are updated. For <code>UpdateItem</code>, the valid values are:
+        /// before or after they are successfully updated. For <code>UpdateItem</code>, the valid
+        /// values are:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -429,6 +431,31 @@ namespace Amazon.DynamoDBv2.Model
         internal bool IsSetReturnValues()
         {
             return this._returnValues != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ReturnValuesOnConditionCheckFailure. 
+        /// <para>
+        /// An optional parameter that returns the item attributes for an <code>UpdateItem</code>
+        /// operation that failed a condition check.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is no additional cost associated with requesting a return value aside from the
+        /// small network and processing overhead of receiving a larger response. No read capacity
+        /// units are consumed.
+        /// </para>
+        /// </summary>
+        public ReturnValuesOnConditionCheckFailure ReturnValuesOnConditionCheckFailure
+        {
+            get { return this._returnValuesOnConditionCheckFailure; }
+            set { this._returnValuesOnConditionCheckFailure = value; }
+        }
+
+        // Check to see if ReturnValuesOnConditionCheckFailure property is set
+        internal bool IsSetReturnValuesOnConditionCheckFailure()
+        {
+            return this._returnValuesOnConditionCheckFailure != null;
         }
 
         /// <summary>

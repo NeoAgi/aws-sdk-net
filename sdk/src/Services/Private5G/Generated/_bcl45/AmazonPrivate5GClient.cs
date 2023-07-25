@@ -118,7 +118,7 @@ namespace Amazon.Private5G
         /// </summary>
         /// <param name="config">The AmazonPrivate5GClient Configuration Object</param>
         public AmazonPrivate5GClient(AmazonPrivate5GConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
         /// <summary>
         /// Constructs AmazonPrivate5GClient with AWS Credentials
@@ -706,6 +706,9 @@ namespace Amazon.Private5G
         /// <param name="request">Container for the necessary parameters to execute the DeleteNetwork service method.</param>
         /// 
         /// <returns>The response from the DeleteNetwork service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.AccessDeniedException">
+        /// You do not have permission to perform this operation.
+        /// </exception>
         /// <exception cref="Amazon.Private5G.Model.InternalServerException">
         /// Information about an internal error.
         /// </exception>
@@ -737,6 +740,9 @@ namespace Amazon.Private5G
         /// </param>
         /// 
         /// <returns>The response from the DeleteNetwork service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.AccessDeniedException">
+        /// You do not have permission to perform this operation.
+        /// </exception>
         /// <exception cref="Amazon.Private5G.Model.InternalServerException">
         /// Information about an internal error.
         /// </exception>
@@ -769,6 +775,9 @@ namespace Amazon.Private5G
         /// <param name="request">Container for the necessary parameters to execute the DeleteNetworkSite service method.</param>
         /// 
         /// <returns>The response from the DeleteNetworkSite service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.AccessDeniedException">
+        /// You do not have permission to perform this operation.
+        /// </exception>
         /// <exception cref="Amazon.Private5G.Model.InternalServerException">
         /// Information about an internal error.
         /// </exception>
@@ -800,6 +809,9 @@ namespace Amazon.Private5G
         /// </param>
         /// 
         /// <returns>The response from the DeleteNetworkSite service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.AccessDeniedException">
+        /// You do not have permission to perform this operation.
+        /// </exception>
         /// <exception cref="Amazon.Private5G.Model.InternalServerException">
         /// Information about an internal error.
         /// </exception>
@@ -1124,12 +1136,10 @@ namespace Amazon.Private5G
         /// of results. Use filters to match the Amazon Resource Name (ARN) of an order, the status
         /// of device identifiers, or the ARN of the traffic group.
         /// 
-        ///  <pre><code> &lt;p&gt;If you specify multiple filters, filters are joined with an
-        /// OR, and the request </code></pre> 
+        ///  
         /// <para>
-        /// returns results that match all of the specified filters.
-        /// </para>
-        /// 
+        /// If you specify multiple filters, filters are joined with an OR, and the request returns
+        /// results that match all of the specified filters.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDeviceIdentifiers service method.</param>
@@ -1160,12 +1170,10 @@ namespace Amazon.Private5G
         /// of results. Use filters to match the Amazon Resource Name (ARN) of an order, the status
         /// of device identifiers, or the ARN of the traffic group.
         /// 
-        ///  <pre><code> &lt;p&gt;If you specify multiple filters, filters are joined with an
-        /// OR, and the request </code></pre> 
+        ///  
         /// <para>
-        /// returns results that match all of the specified filters.
-        /// </para>
-        /// 
+        /// If you specify multiple filters, filters are joined with an OR, and the request returns
+        /// results that match all of the specified filters.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDeviceIdentifiers service method.</param>
@@ -1581,6 +1589,111 @@ namespace Amazon.Private5G
             options.ResponseUnmarshaller = PingResponseUnmarshaller.Instance;
             
             return InvokeAsync<PingResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  StartNetworkResourceUpdate
+
+
+        /// <summary>
+        /// Use this action to do the following tasks:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Update the duration and renewal status of the commitment period for a radio unit.
+        /// The update goes into effect immediately.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Request a replacement for a network resource.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Request that you return a network resource.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// After you submit a request to replace or return a network resource, the status of
+        /// the network resource changes to <code>CREATING_SHIPPING_LABEL</code>. The shipping
+        /// label is available when the status of the network resource is <code>PENDING_RETURN</code>.
+        /// After the network resource is successfully returned, its status changes to <code>DELETED</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return
+        /// a radio unit</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartNetworkResourceUpdate service method.</param>
+        /// 
+        /// <returns>The response from the StartNetworkResourceUpdate service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.InternalServerException">
+        /// Information about an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Private5G.Model.ResourceNotFoundException">
+        /// The resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Private5G.Model.ValidationException">
+        /// The request failed validation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/privatenetworks-2021-12-03/StartNetworkResourceUpdate">REST API Reference for StartNetworkResourceUpdate Operation</seealso>
+        public virtual StartNetworkResourceUpdateResponse StartNetworkResourceUpdate(StartNetworkResourceUpdateRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartNetworkResourceUpdateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartNetworkResourceUpdateResponseUnmarshaller.Instance;
+
+            return Invoke<StartNetworkResourceUpdateResponse>(request, options);
+        }
+
+
+        /// <summary>
+        /// Use this action to do the following tasks:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Update the duration and renewal status of the commitment period for a radio unit.
+        /// The update goes into effect immediately.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Request a replacement for a network resource.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Request that you return a network resource.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// After you submit a request to replace or return a network resource, the status of
+        /// the network resource changes to <code>CREATING_SHIPPING_LABEL</code>. The shipping
+        /// label is available when the status of the network resource is <code>PENDING_RETURN</code>.
+        /// After the network resource is successfully returned, its status changes to <code>DELETED</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/private-networks/latest/userguide/radio-units.html#return-radio-unit">Return
+        /// a radio unit</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartNetworkResourceUpdate service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the StartNetworkResourceUpdate service method, as returned by Private5G.</returns>
+        /// <exception cref="Amazon.Private5G.Model.InternalServerException">
+        /// Information about an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.Private5G.Model.ResourceNotFoundException">
+        /// The resource was not found.
+        /// </exception>
+        /// <exception cref="Amazon.Private5G.Model.ValidationException">
+        /// The request failed validation.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/privatenetworks-2021-12-03/StartNetworkResourceUpdate">REST API Reference for StartNetworkResourceUpdate Operation</seealso>
+        public virtual Task<StartNetworkResourceUpdateResponse> StartNetworkResourceUpdateAsync(StartNetworkResourceUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = StartNetworkResourceUpdateRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = StartNetworkResourceUpdateResponseUnmarshaller.Instance;
+            
+            return InvokeAsync<StartNetworkResourceUpdateResponse>(request, options, cancellationToken);
         }
 
         #endregion

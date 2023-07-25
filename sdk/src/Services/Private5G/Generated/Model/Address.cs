@@ -36,6 +36,7 @@ namespace Amazon.Private5G.Model
         private string _city;
         private string _company;
         private string _country;
+        private string _emailAddress;
         private string _name;
         private string _phoneNumber;
         private string _postalCode;
@@ -50,7 +51,7 @@ namespace Amazon.Private5G.Model
         /// The city for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string City
         {
             get { return this._city; }
@@ -69,7 +70,7 @@ namespace Amazon.Private5G.Model
         /// The company name for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=1, Max=1024)]
         public string Company
         {
             get { return this._company; }
@@ -88,7 +89,7 @@ namespace Amazon.Private5G.Model
         /// The country for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string Country
         {
             get { return this._country; }
@@ -102,12 +103,31 @@ namespace Amazon.Private5G.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EmailAddress. 
+        /// <para>
+        /// The recipient's email address.
+        /// </para>
+        /// </summary>
+        [AWSProperty(Sensitive=true, Min=1, Max=1024)]
+        public string EmailAddress
+        {
+            get { return this._emailAddress; }
+            set { this._emailAddress = value; }
+        }
+
+        // Check to see if EmailAddress property is set
+        internal bool IsSetEmailAddress()
+        {
+            return this._emailAddress != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
         /// The recipient's name for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string Name
         {
             get { return this._name; }
@@ -123,10 +143,10 @@ namespace Amazon.Private5G.Model
         /// <summary>
         /// Gets and sets the property PhoneNumber. 
         /// <para>
-        /// The phone number for this address.
+        /// The recipient's phone number.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=1, Max=1024)]
         public string PhoneNumber
         {
             get { return this._phoneNumber; }
@@ -145,7 +165,7 @@ namespace Amazon.Private5G.Model
         /// The postal code for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string PostalCode
         {
             get { return this._postalCode; }
@@ -164,7 +184,7 @@ namespace Amazon.Private5G.Model
         /// The state or province for this address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string StateOrProvince
         {
             get { return this._stateOrProvince; }
@@ -183,7 +203,7 @@ namespace Amazon.Private5G.Model
         /// The first line of the street address.
         /// </para>
         /// </summary>
-        [AWSProperty(Required=true, Min=1, Max=1024)]
+        [AWSProperty(Required=true, Sensitive=true, Min=1, Max=1024)]
         public string Street1
         {
             get { return this._street1; }
@@ -202,7 +222,7 @@ namespace Amazon.Private5G.Model
         /// The second line of the street address.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=1, Max=1024)]
         public string Street2
         {
             get { return this._street2; }
@@ -221,7 +241,7 @@ namespace Amazon.Private5G.Model
         /// The third line of the street address.
         /// </para>
         /// </summary>
-        [AWSProperty(Min=1, Max=1024)]
+        [AWSProperty(Sensitive=true, Min=1, Max=1024)]
         public string Street3
         {
             get { return this._street3; }

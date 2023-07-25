@@ -29,16 +29,36 @@ using Amazon.Runtime.Internal;
 namespace Amazon.SageMaker.Model
 {
     /// <summary>
-    /// The SageMaker Canvas app settings.
+    /// The SageMaker Canvas application settings.
     /// </summary>
     public partial class CanvasAppSettings
     {
+        private ModelRegisterSettings _modelRegisterSettings;
         private TimeSeriesForecastingSettings _timeSeriesForecastingSettings;
+        private WorkspaceSettings _workspaceSettings;
+
+        /// <summary>
+        /// Gets and sets the property ModelRegisterSettings. 
+        /// <para>
+        /// The model registry settings for the SageMaker Canvas application.
+        /// </para>
+        /// </summary>
+        public ModelRegisterSettings ModelRegisterSettings
+        {
+            get { return this._modelRegisterSettings; }
+            set { this._modelRegisterSettings = value; }
+        }
+
+        // Check to see if ModelRegisterSettings property is set
+        internal bool IsSetModelRegisterSettings()
+        {
+            return this._modelRegisterSettings != null;
+        }
 
         /// <summary>
         /// Gets and sets the property TimeSeriesForecastingSettings. 
         /// <para>
-        /// Time series forecast settings for the Canvas app.
+        /// Time series forecast settings for the Canvas application.
         /// </para>
         /// </summary>
         public TimeSeriesForecastingSettings TimeSeriesForecastingSettings
@@ -51,6 +71,24 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetTimeSeriesForecastingSettings()
         {
             return this._timeSeriesForecastingSettings != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property WorkspaceSettings. 
+        /// <para>
+        /// The workspace settings for the SageMaker Canvas application.
+        /// </para>
+        /// </summary>
+        public WorkspaceSettings WorkspaceSettings
+        {
+            get { return this._workspaceSettings; }
+            set { this._workspaceSettings = value; }
+        }
+
+        // Check to see if WorkspaceSettings property is set
+        internal bool IsSetWorkspaceSettings()
+        {
+            return this._workspaceSettings != null;
         }
 
     }

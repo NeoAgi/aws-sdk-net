@@ -123,8 +123,7 @@ namespace Amazon.Snowball
         /// </summary>
         /// <param name="config">The AmazonSnowballClient Configuration Object</param>
         public AmazonSnowballClient(AmazonSnowballConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
-
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
         /// <summary>
         /// Constructs AmazonSnowballClient with AWS Credentials
         /// </summary>
@@ -485,8 +484,7 @@ namespace Amazon.Snowball
         /// 
         /// <returns>The response from the CreateCluster service method, as returned by Snowball.</returns>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
-        /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
-        /// action.
+        /// Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.InvalidInputCombinationException">
         /// Job or cluster creation failed. One or more inputs were invalid. Confirm that the
@@ -574,7 +572,7 @@ namespace Amazon.Snowball
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Snow Family device type: <b>SNC1_SSD</b> 
+        /// Device type: <b>SNC1_SSD</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -586,7 +584,7 @@ namespace Amazon.Snowball
         /// </para>
         ///  </li> </ul>  </li> <li> 
         /// <para>
-        /// Snow Family device type: <b>SNC1_HDD</b> 
+        /// Device type: <b>SNC1_HDD</b> 
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -644,19 +642,11 @@ namespace Amazon.Snowball
         /// <para>
         /// Description: Snowball Edge Storage Optimized with EC2 Compute
         /// </para>
-        ///  </li> </ul>  </li> <li> 
+        ///  </li> </ul> <note> 
         /// <para>
-        /// Device type: <b>V3_5C</b> 
+        /// This device is replaced with T98.
         /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Capacity: T32
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Description: Snowball Edge Compute Optimized without GPU
-        /// </para>
-        ///  </li> </ul>  </li> <li> 
+        ///  </note>  </li> <li> 
         /// <para>
         /// Device type: <b>STANDARD</b> 
         /// </para>
@@ -690,7 +680,31 @@ namespace Amazon.Snowball
         /// This device is only available in the Ningxia, Beijing, and Singapore Amazon Web Services
         /// Region. 
         /// </para>
-        ///  </note> </li> </ul>  </li> </ul>
+        ///  </note> </li> </ul>  </li> <li> 
+        /// <para>
+        /// Snow Family device type: <b>RACK_5U_C</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T13 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowblade.
+        /// </para>
+        ///  </li> </ul> </li> <li> 
+        /// <para>
+        /// Device type: <b>V3_5S</b> 
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Capacity: T240
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Description: Snowball Edge Storage Optimized 210TB
+        /// </para>
+        ///  </li> </ul> </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateJob service method.</param>
         /// 
@@ -701,8 +715,7 @@ namespace Amazon.Snowball
         /// again and create jobs until your cluster has exactly five nodes.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
-        /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
-        /// action.
+        /// Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.InvalidInputCombinationException">
         /// Job or cluster creation failed. One or more inputs were invalid. Confirm that the
@@ -1633,18 +1646,19 @@ namespace Amazon.Snowball
         #region  ListCompatibleImages
 
         /// <summary>
-        /// This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
-        /// that are owned by your Amazon Web Services accountthat would be supported for use
-        /// on a Snow device. Currently, supported AMIs are based on the CentOS 7 (x86_64) - with
-        /// Updates HVM, Ubuntu Server 14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images,
-        /// available on the Amazon Web Services Marketplace.
+        /// This action returns a list of the different Amazon EC2-compatible Amazon Machine Images
+        /// (AMIs) that are owned by your Amazon Web Services accountthat would be supported for
+        /// use on a Snow device. Currently, supported AMIs are based on the Amazon Linux-2, Ubuntu
+        /// 20.04 LTS - Focal, or Ubuntu 22.04 LTS - Jammy images, available on the Amazon Web
+        /// Services Marketplace. Ubuntu 16.04 LTS - Xenial (HVM) images are no longer supported
+        /// in the Market, but still supported for use on devices through Amazon EC2 VM Import/Export
+        /// and running locally in AMIs.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListCompatibleImages service method.</param>
         /// 
         /// <returns>The response from the ListCompatibleImages service method, as returned by Snowball.</returns>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
-        /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
-        /// action.
+        /// Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.InvalidNextTokenException">
         /// The <code>NextToken</code> string was altered unexpectedly, and the operation has
@@ -1823,6 +1837,128 @@ namespace Amazon.Snowball
 
         #endregion
         
+        #region  ListPickupLocations
+
+        /// <summary>
+        /// A list of locations from which the customer can choose to pickup a device.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListPickupLocations service method.</param>
+        /// 
+        /// <returns>The response from the ListPickupLocations service method, as returned by Snowball.</returns>
+        /// <exception cref="Amazon.Snowball.Model.InvalidResourceException">
+        /// The specified resource can't be found. Check the information you provided in your
+        /// last request, and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListPickupLocations">REST API Reference for ListPickupLocations Operation</seealso>
+        public virtual ListPickupLocationsResponse ListPickupLocations(ListPickupLocationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListPickupLocationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListPickupLocationsResponseUnmarshaller.Instance;
+
+            return Invoke<ListPickupLocationsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListPickupLocations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListPickupLocations operation on AmazonSnowballClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListPickupLocations
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListPickupLocations">REST API Reference for ListPickupLocations Operation</seealso>
+        public virtual IAsyncResult BeginListPickupLocations(ListPickupLocationsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListPickupLocationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListPickupLocationsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListPickupLocations operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListPickupLocations.</param>
+        /// 
+        /// <returns>Returns a  ListPickupLocationsResult from Snowball.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListPickupLocations">REST API Reference for ListPickupLocations Operation</seealso>
+        public virtual ListPickupLocationsResponse EndListPickupLocations(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListPickupLocationsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListServiceVersions
+
+        /// <summary>
+        /// Lists all supported versions for Snow on-device services. Returns an array of <code>ServiceVersion</code>
+        /// object containing the supported versions for a particular service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListServiceVersions service method.</param>
+        /// 
+        /// <returns>The response from the ListServiceVersions service method, as returned by Snowball.</returns>
+        /// <exception cref="Amazon.Snowball.Model.InvalidNextTokenException">
+        /// The <code>NextToken</code> string was altered unexpectedly, and the operation has
+        /// stopped. Run the operation without changing the <code>NextToken</code> string, and
+        /// try again.
+        /// </exception>
+        /// <exception cref="Amazon.Snowball.Model.InvalidResourceException">
+        /// The specified resource can't be found. Check the information you provided in your
+        /// last request, and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListServiceVersions">REST API Reference for ListServiceVersions Operation</seealso>
+        public virtual ListServiceVersionsResponse ListServiceVersions(ListServiceVersionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListServiceVersionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListServiceVersionsResponseUnmarshaller.Instance;
+
+            return Invoke<ListServiceVersionsResponse>(request, options);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListServiceVersions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListServiceVersions operation on AmazonSnowballClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListServiceVersions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListServiceVersions">REST API Reference for ListServiceVersions Operation</seealso>
+        public virtual IAsyncResult BeginListServiceVersions(ListServiceVersionsRequest request, AsyncCallback callback, object state)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListServiceVersionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListServiceVersionsResponseUnmarshaller.Instance;
+
+            return BeginInvoke(request, options, callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListServiceVersions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListServiceVersions.</param>
+        /// 
+        /// <returns>Returns a  ListServiceVersionsResult from Snowball.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/snowball-2016-06-30/ListServiceVersions">REST API Reference for ListServiceVersions Operation</seealso>
+        public virtual ListServiceVersionsResponse EndListServiceVersions(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListServiceVersionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  UpdateCluster
 
         /// <summary>
@@ -1835,8 +1971,7 @@ namespace Amazon.Snowball
         /// 
         /// <returns>The response from the UpdateCluster service method, as returned by Snowball.</returns>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
-        /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
-        /// action.
+        /// Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.InvalidInputCombinationException">
         /// Job or cluster creation failed. One or more inputs were invalid. Confirm that the
@@ -1918,8 +2053,7 @@ namespace Amazon.Snowball
         /// again and create jobs until your cluster has exactly five nodes.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.Ec2RequestFailedException">
-        /// Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
-        /// action.
+        /// Your user lacks the necessary Amazon EC2 permissions to perform the attempted action.
         /// </exception>
         /// <exception cref="Amazon.Snowball.Model.InvalidInputCombinationException">
         /// Job or cluster creation failed. One or more inputs were invalid. Confirm that the

@@ -18,8 +18,12 @@
     <pattern>^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$</pattern>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.MainframeModernization.Model.CreateApplicationRequest.RoleArn</property>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.MainframeModernization.Model.CreateApplicationResponse.ApplicationArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.CreateApplicationResponse.ApplicationId</property>
@@ -100,7 +104,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetApplicationResponse.ApplicationArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetApplicationResponse.ApplicationId</property>
@@ -122,6 +126,10 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetApplicationResponse.Name</property>
     <pattern>^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MainframeModernization.Model.GetApplicationResponse.RoleArn</property>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetApplicationVersionRequest.ApplicationId</property>
@@ -234,11 +242,6 @@
     <pattern>^\S{1,80}$</pattern>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.MainframeModernization.Model.GetEnvironmentResponse.ActualCapacity</property>
-    <min>1</min>
-    <max>100</max>
-  </property-value-rule>
-  <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetEnvironmentResponse.Description</property>
     <min>0</min>
     <max>500</max>
@@ -249,7 +252,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetEnvironmentResponse.EnvironmentArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GetEnvironmentResponse.EnvironmentId</property>
@@ -278,7 +281,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListApplicationsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListApplicationsRequest.NextToken</property>
@@ -295,7 +298,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListApplicationVersionsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListApplicationVersionsRequest.NextToken</property>
@@ -312,7 +315,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListBatchJobDefinitionsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListBatchJobDefinitionsRequest.NextToken</property>
@@ -333,7 +336,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListBatchJobExecutionsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListBatchJobExecutionsRequest.NextToken</property>
@@ -350,7 +353,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDataSetImportHistoryRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDataSetImportHistoryRequest.NextToken</property>
@@ -367,7 +370,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDataSetsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDataSetsRequest.NextToken</property>
@@ -388,7 +391,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDeploymentsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListDeploymentsRequest.NextToken</property>
@@ -401,7 +404,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListEngineVersionsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListEngineVersionsRequest.NextToken</property>
@@ -414,7 +417,7 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListEnvironmentsRequest.MaxResults</property>
     <min>1</min>
-    <max>100</max>
+    <max>2000</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListEnvironmentsRequest.NextToken</property>
@@ -426,7 +429,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ListTagsForResourceRequest.ResourceArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.StartApplicationRequest.ApplicationId</property>
@@ -446,11 +449,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.TagResourceRequest.ResourceArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.UntagResourceRequest.ResourceArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.UpdateApplicationRequest.ApplicationId</property>
@@ -470,11 +473,6 @@
     <min>1</min>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.MainframeModernization.Model.UpdateEnvironmentRequest.DesiredCapacity</property>
-    <min>1</min>
-    <max>100</max>
-  </property-value-rule>
-  <property-value-rule>
     <property>Amazon.MainframeModernization.Model.UpdateEnvironmentRequest.EngineVersion</property>
     <pattern>^\S{1,10}$</pattern>
   </property-value-rule>
@@ -492,7 +490,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ApplicationSummary.ApplicationArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ApplicationSummary.ApplicationId</property>
@@ -514,6 +512,10 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ApplicationSummary.Name</property>
     <pattern>^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$</pattern>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.MainframeModernization.Model.ApplicationSummary.RoleArn</property>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.ApplicationVersionSummary.ApplicationVersion</property>
@@ -598,7 +600,7 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.EnvironmentSummary.EnvironmentArn</property>
-    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
+    <pattern>^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]|):[0-9]{12}:[A-Za-z0-9/][A-Za-z0-9:_/+=,@.-]{0,1023}$</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.EnvironmentSummary.EnvironmentId</property>
@@ -627,11 +629,6 @@
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.GdgDetailAttributes.RollDisposition</property>
     <pattern>^\S{1,50}$</pattern>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.MainframeModernization.Model.HighAvailabilityConfig.DesiredCapacity</property>
-    <min>1</min>
-    <max>100</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.MainframeModernization.Model.LogGroupSummary.LogGroupName</property>

@@ -38,7 +38,8 @@ namespace Amazon.CloudTrail.Model
     ///  <note> 
     /// <para>
     /// The total number of allowed data resources is 250. This number can be distributed
-    /// between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors.
+    /// between 1 and 5 event selectors, but the total cannot exceed 250 across all selectors
+    /// for the trail.
     /// </para>
     ///  
     /// <para>
@@ -112,7 +113,7 @@ namespace Amazon.CloudTrail.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>AWS::S3::Object</code> 
+        ///  <code>AWS::DynamoDB::Table</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -120,34 +121,26 @@ namespace Amazon.CloudTrail.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>AWS::DynamoDB::Table</code> 
+        ///  <code>AWS::S3::Object</code> 
         /// </para>
         ///  </li> </ul> 
         /// <para>
         /// The following resource types are also available through <i>advanced</i> event selectors.
         /// Basic event selector resource types are valid in advanced event selectors, but advanced
         /// event selector resource types are not valid in basic event selectors. For more information,
-        /// see <a>AdvancedFieldSelector$Field</a>.
+        /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>AWS::S3Outposts::Object</code> 
+        ///  <code>AWS::CloudTrail::Channel</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>AWS::ManagedBlockchain::Node</code> 
+        ///  <code>AWS::CodeWhisperer::Profile</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>AWS::S3ObjectLambda::AccessPoint</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>AWS::EC2::Snapshot</code> 
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        ///  <code>AWS::S3::AccessPoint</code> 
+        ///  <code>AWS::Cognito::IdentityPool</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -155,7 +148,51 @@ namespace Amazon.CloudTrail.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
+        ///  <code>AWS::EC2::Snapshot</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::EMRWAL::Workspace</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::FinSpace::Environment</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
         ///  <code>AWS::Glue::Table</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::GuardDuty::Detector</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::KendraRanking::ExecutionPlan</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::ManagedBlockchain::Node</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::SageMaker::ExperimentTrialComponent</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::SageMaker::FeatureGroup</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::S3::AccessPoint</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::S3ObjectLambda::AccessPoint</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>AWS::S3Outposts::Object</code> 
         /// </para>
         ///  </li> </ul>
         /// </summary>

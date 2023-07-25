@@ -588,7 +588,8 @@
       "type":"string",
       "enum":[
         "ACTIVE",
-        "RETIRING"
+        "RETIRING",
+        "ISOLATED"
       ]
     },
     "AssetType":{
@@ -1254,6 +1255,14 @@
         "AssetInformationList":{
           "shape":"LineItemAssetInformationList",
           "documentation":"<p> Information about assets. </p>"
+        },
+        "PreviousLineItemId":{
+          "shape":"LineItemId",
+          "documentation":"<p>The ID of the previous line item.</p>"
+        },
+        "PreviousOrderId":{
+          "shape":"OrderId",
+          "documentation":"<p>The ID of the previous order item.</p>"
         }
       },
       "documentation":"<p>Information about a line item.</p>"
@@ -1319,7 +1328,8 @@
         "INSTALLING",
         "INSTALLED",
         "ERROR",
-        "CANCELLED"
+        "CANCELLED",
+        "REPLACED"
       ]
     },
     "LineItemStatusCounts":{
@@ -1642,6 +1652,14 @@
         "OrderFulfilledDate":{
           "shape":"ISO8601Timestamp",
           "documentation":"<p>The fulfillment date of the order.</p>"
+        },
+        "PaymentTerm":{
+          "shape":"PaymentTerm",
+          "documentation":"<p>The payment term.</p>"
+        },
+        "OrderType":{
+          "shape":"OrderType",
+          "documentation":"<p>Type of order.</p>"
         }
       },
       "documentation":"<p>Information about an order.</p>"
@@ -2066,7 +2084,7 @@
     "StatusList":{
       "type":"list",
       "member":{"shape":"AssetState"},
-      "max":2,
+      "max":3,
       "min":1
     },
     "String":{
@@ -2149,7 +2167,7 @@
     "Token":{
       "type":"string",
       "documentation":"<p>The pagination token.</p>",
-      "max":1005,
+      "max":2048,
       "min":1,
       "pattern":"^(\\d+)##(\\S+)$"
     },

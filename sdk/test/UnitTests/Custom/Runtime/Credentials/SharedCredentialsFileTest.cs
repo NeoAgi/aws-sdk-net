@@ -27,6 +27,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using AWSSDK.UnitTests.TestTools;
 
 namespace AWSSDK.UnitTests
 {
@@ -127,6 +128,29 @@ namespace AWSSDK.UnitTests
             .AppendLine()
             .ToString();
 
+        private static readonly string SsoProfileCredentialsText = new StringBuilder()
+            .AppendLine("[sso]")
+            .AppendLine("aws_access_key_id=aws_access_key_id")
+            .AppendLine("aws_secret_access_key=aws_secret_access_key")
+            .ToString();
+
+        private static readonly string UpdatedCredentialsText = new StringBuilder()
+            .AppendLine("[sso]")
+            .AppendLine("aws_access_key_id=updated_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=updated_aws_secret_access_key")
+            .ToString();
+
+        private static readonly string UpdatedSsoSplitProfileText = new StringBuilder()
+            .AppendLine("[profile sso]")
+            .AppendLine($"sso_account_id=updated_{SampleValues.SsoAccountId}")
+            .AppendLine($"sso_role_name=updated_{SampleValues.SsoRoleName}")
+            .AppendLine($"sso_session = {SampleValues.SsoSession}")
+            .AppendLine()
+            .AppendLine($"[sso-session {SampleValues.SsoSession}]")
+            .AppendLine($"sso_region={SampleValues.SsoRegion}")
+            .Append($"sso_start_url={SampleValues.SsoStartUrl}")
+            .ToString();
+
         private static readonly CredentialProfileOptions SsoProfileOptions = new CredentialProfileOptions
         {
             SsoAccountId = SampleValues.SsoAccountId,
@@ -142,6 +166,17 @@ namespace AWSSDK.UnitTests
             SsoRoleName = SampleValues.SsoRoleName,
             SsoStartUrl = SampleValues.SsoStartUrl,
             SsoSession = SampleValues.SsoSession
+        };
+
+        private static readonly CredentialProfileOptions UpdatedSsoSplitProfileWithCredentialsOptions = new CredentialProfileOptions
+        {
+            AccessKey = "updated_aws_access_key_id",
+            SecretKey = "updated_aws_secret_access_key",
+            SsoAccountId = $"updated_{SampleValues.SsoAccountId}",
+            SsoRoleName = $"updated_{SampleValues.SsoRoleName}",
+            SsoSession = SampleValues.SsoSession,
+            SsoRegion = SampleValues.SsoRegion,
+            SsoStartUrl = SampleValues.SsoStartUrl,
         };
 #endif
 
@@ -176,6 +211,13 @@ namespace AWSSDK.UnitTests
         {
             AccessKey = "basic_aws_access_key_id",
             SecretKey = "basic_aws_secret_access_key"
+        };
+
+        private static readonly CredentialProfileOptions BasicProfileOptionsWithServices = new CredentialProfileOptions
+        {
+            AccessKey = "basic_aws_access_key_id",
+            SecretKey = "basic_aws_secret_access_key",
+            Services = "foo"
         };
 
         private static readonly string BasicProfileTextCredentialsPrecedence = new StringBuilder()
@@ -351,7 +393,120 @@ namespace AWSSDK.UnitTests
             .AppendLine("; other comment")
             .AppendLine("property=value")
             .ToString();
+        private static readonly string ProfileWithSubproperties = new StringBuilder()
+            .AppendLine("[profile foo]")
+            .AppendLine("aws_access_key_id=basic_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=basic_aws_secret_access_key")
+            .AppendLine("s3 = ")
+            .AppendLine("\tname = value")
+            .ToString();
+        private static readonly string ProfileWithEmptySubpropertyDefinitions = new StringBuilder()
+            .AppendLine("[profile foo]")
+            .AppendLine("aws_access_key_id=basic_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=basic_aws_secret_access_key")
+            .AppendLine("s3 =")
+            .AppendLine("\tname = ")
+            .ToString();
+        private static readonly string ProfileWithInvalidSubpropertyDefinitionName = new StringBuilder()
+            .AppendLine("[profile foo]")
+            .AppendLine("aws_access_key_id=basic_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=basic_aws_secret_access_key")
+            .AppendLine("s3 =")
+            .AppendLine("\t in valid = value")
+            .ToString();
 
+        private static readonly string ProfileSubpropertyWithBlankLines = new StringBuilder()
+            .AppendLine("[profile foo]")
+            .AppendLine("aws_access_key_id=basic_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=basic_aws_secret_access_key")
+            .AppendLine("s3 =")
+            .AppendLine("\tname = value")
+            .AppendLine("\t  ")
+            .AppendLine(" name2 = value2")
+            .ToString();
+        /// in reality a services section would not have aws_access_key and aws_secret_access_key
+        /// but for the purposes of testing we include it since the testFixture expects ProfileOptions
+        ///
+        private static readonly string ServicesConfigurationWithMultipleProperties = new StringBuilder()
+            .AppendLine("[profile bar]")
+            .AppendLine("aws_access_key_id=basic_aws_access_key_id")
+            .AppendLine("aws_secret_access_key=basic_aws_secret_access_key")
+            .AppendLine("services = foo")
+            .AppendLine("[services foo]")
+            .AppendLine("name = value")
+            .AppendLine("name2 = value2")
+            .ToString();
+
+        [TestMethod]
+        public void ReadProfileWithSubproperties()
+        {
+            using (var tester = new SharedCredentialsFileTestFixture(null, ProfileWithSubproperties))
+            {
+                Dictionary<string, Dictionary<string, string>> expectedNestedProperties = new Dictionary<string, Dictionary<string, string>>();
+                Dictionary<string, string> entry = new Dictionary<string, string>
+                {
+                    {"name","value" }
+                };
+                expectedNestedProperties.Add("s3", entry);
+                tester.ReadAndAssertProfile("foo", BasicProfileOptions,  expectedNestedProperties);
+            }
+        }
+        [TestMethod]
+        public void ProfileSubpropertyDefinitionsCanHaveEmptyValues()
+        {
+            using(var tester = new SharedCredentialsFileTestFixture(null, ProfileWithEmptySubpropertyDefinitions))
+            {
+                Dictionary<string, Dictionary<string, string>> expectedNestedProperties = new Dictionary<string, Dictionary<string, string>>();
+                Dictionary<string, string> entry = new Dictionary<string, string>
+                {
+                    { "name","" }
+                };
+                expectedNestedProperties.Add("s3", entry);
+                tester.ReadAndAssertProfile("foo", BasicProfileOptions, expectedNestedProperties);
+            }
+        }
+        [TestMethod]
+        public void ProfileSubpropertyDefinitionsCanHaveInvalidName()
+        {
+            using (var tester = new SharedCredentialsFileTestFixture(null, ProfileWithInvalidSubpropertyDefinitionName))
+            {
+                Dictionary<string, Dictionary<string, string>> expectedNestedProperties = new Dictionary<string, Dictionary<string, string>>();
+                Dictionary<string, string> entry = new Dictionary<string, string>
+                {
+                    {"in valid", "value" } //this is allowed
+                };
+                expectedNestedProperties.Add("s3", entry);
+                tester.ReadAndAssertProfile("foo", BasicProfileOptions, expectedNestedProperties);
+            }
+        }
+        [TestMethod]
+        public void ProfileSubpropertyCanHaveBlankLinesThatAreIgnored()
+        {
+            using (var tester = new SharedCredentialsFileTestFixture(null, ProfileSubpropertyWithBlankLines))
+            {
+                Dictionary<string, Dictionary<string, string>> expectedNestedProperties = new Dictionary<string, Dictionary<string, string>>();
+                Dictionary<string, string> entry = new Dictionary<string, string>
+                {
+                    {"name","value" },
+                    {"name2", "value2" }
+                };
+                expectedNestedProperties.Add("s3", entry);
+                tester.ReadAndAssertProfile("foo", BasicProfileOptions, expectedNestedProperties);
+            }
+        }
+        [TestMethod]
+        public void ServicesConfigurationCanContainMultipleProperties()
+        {
+            using(var tester = new SharedCredentialsFileTestFixture(null, ServicesConfigurationWithMultipleProperties))
+            {
+                Dictionary<string, string> expectedProperties = new Dictionary<string, string>
+                {
+                    { "name", "value" },
+                    { "name2", "value2" }
+                };
+                tester.ReadAndAssertProfile("bar", BasicProfileOptionsWithServices, expectedProperties);
+            }
+        }
         [TestMethod]
         public void ReadDefaultConfigProfile()
         {
@@ -479,6 +634,15 @@ namespace AWSSDK.UnitTests
             using (var tester = new SharedCredentialsFileTestFixture("[sso]\r\n", SsoSplitProfileText))
             {
                 tester.ReadAndAssertProfile("sso", SsoProfileWithSessionOptions);
+            }
+        }
+
+        [TestMethod]
+        public void UpdateSsoSplitProfile()
+        {
+            using (var tester = new SharedCredentialsFileTestFixture(SsoProfileCredentialsText, SsoSplitProfileText))
+            {
+                tester.AssertSsoSplitProfileWithCredentials("sso", UpdatedSsoSplitProfileWithCredentialsOptions, UpdatedCredentialsText, UpdatedSsoSplitProfileText);
             }
         }
 
@@ -869,6 +1033,102 @@ namespace AWSSDK.UnitTests
                 sharedCredentialsFile.TypeInitializer.Invoke(null, null);
             }
 
+        }
+        [TestMethod]
+        public void ReadAWSConfigFileVariableFile()
+        {
+            try
+            {
+                using (var tester = new SharedCredentialsFileTestFixture(credentialsFileContents: null, configFileContents: BasicProfileConfigText,isSharedCredentialsVarProvided:true, isSharedConfigVarProvided: true))
+                {
+                    tester.TestTryGetProfile("basic_profile", true, true);
+                }
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable("AWS_CONFIG_FILE", null);
+                //call static constructor again with reflection to reset the constructor
+                Type AWSConfigFile = typeof(SharedCredentialsFile);
+                AWSConfigFile.TypeInitializer.Invoke(null, null);
+            }
+        }
+
+        [TestMethod]
+        public void ReadAWSConfigAndCredentialFileVariable()
+        {
+            try
+            {
+                using (var tester = new SharedCredentialsFileTestFixture(credentialsFileContents: BasicProfileTextCredentialsPrecedence, configFileContents: BasicProfileTextConfigPrecedence, isSharedConfigVarProvided: true, isSharedCredentialsVarProvided: true))
+                {
+                    tester.ReadAndAssertProfile("basic_profile", BasicProfilePrecedenceOptions);
+                }
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable("AWS_CONFIG_FILE", null);
+                Environment.SetEnvironmentVariable("AWS_SHARED_CREDENTIALS_FILE", null);
+                Type AWSConfigFile = typeof(SharedCredentialsFile);
+                AWSConfigFile.TypeInitializer.Invoke(null, null);
+                Type sharedCredentialsFile = typeof(SharedCredentialsFile);
+                sharedCredentialsFile.TypeInitializer.Invoke(null, null);
+            }
+        }
+
+        [TestMethod]
+        public void ReadBasicProfileSplitForAWSConfigAndCredentialFileVariable()
+        {
+            try
+            {
+                using (var tester = new SharedCredentialsFileTestFixture(BasicProfileTextCredentialsPartial, BasicProfileTextConfigPartial, isSharedCredentialsVarProvided: true, isSharedConfigVarProvided: true))
+                {
+                    tester.ReadAndAssertProfile("basic_profile", BasicProfileOptions);
+                }
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable("AWS_CONFIG_FILE", null);
+                Environment.SetEnvironmentVariable("AWS_SHARED_CREDENTIALS_FILE", null);
+                Type AWSConfigFile = typeof(SharedCredentialsFile);
+                AWSConfigFile.TypeInitializer.Invoke(null, null);
+                Type sharedCredentialsFile = typeof(SharedCredentialsFile);
+                sharedCredentialsFile.TypeInitializer.Invoke(null, null);
+            }
+        }
+
+        [TestMethod]
+        public void ReadBasicProfileSplitForAWSConfigVariable()
+        {
+            try
+            {
+                using (var tester = new SharedCredentialsFileTestFixture(credentialsFileContents: BasicProfileTextCredentialsPartial, configFileContents: BasicProfileTextConfigPartial, isSharedConfigVarProvided: true))
+                {
+                    tester.ReadAndAssertProfile("basic_profile", BasicProfileOptions);
+                }
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable("AWS_CONFIG_FILE", null);
+                Type AWSConfigFile = typeof(SharedCredentialsFile);
+                AWSConfigFile.TypeInitializer.Invoke(null, null);
+            }
+        }
+
+        [TestMethod]
+        public void ReadBasicProfileSplitForAWSCredentialsVariable()
+        {
+            try
+            {
+                using (var tester = new SharedCredentialsFileTestFixture(credentialsFileContents: BasicProfileTextCredentialsPartial,configFileContents: BasicProfileTextConfigPartial, isSharedCredentialsVarProvided: true))
+                {
+                    tester.ReadAndAssertProfile("basic_profile", BasicProfileOptions);
+                }
+            }
+            finally
+            {
+                Environment.SetEnvironmentVariable("AWS_SHARED_CREDENTIALS_FILE", null);
+                Type sharedCredentialsFile = typeof(SharedCredentialsFile);
+                sharedCredentialsFile.TypeInitializer.Invoke(null, null);
+            }
         }
 
         [TestMethod]

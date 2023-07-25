@@ -30,8 +30,8 @@ namespace Amazon.RDS.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeDBClusters operation.
-    /// Returns information about Amazon Aurora DB clusters and Multi-AZ DB clusters. This
-    /// API supports pagination.
+    /// Describes existing Amazon Aurora DB clusters and Multi-AZ DB clusters. This API supports
+    /// pagination.
     /// 
     ///  
     /// <para>
@@ -41,8 +41,7 @@ namespace Amazon.RDS.Model
     ///  
     /// <para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide</i>.
+    /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     ///  
     /// <para>
@@ -62,7 +61,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBClusterIdentifier. 
         /// <para>
         /// The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB
-        /// cluster. If this parameter is specified, information from only the specific DB cluster
+        /// cluster. If this parameter is specified, information for only the specific DB cluster
         /// is returned. This parameter isn't case-sensitive.
         /// </para>
         ///  
@@ -71,7 +70,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// If supplied, must match an existing DBClusterIdentifier.
+        /// If supplied, must match an existing DB cluster identifier.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -94,7 +93,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Supported filters:
+        /// Supported Filters:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -106,6 +105,12 @@ namespace Amazon.RDS.Model
         ///  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
         /// Resource Names (ARNs). The results list only includes information about the DB clusters
         /// identified by these ARNs.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>db-cluster-resource-id</code> - Accepts DB cluster resource identifiers. The
+        /// results list will only include information about the DB clusters identified by these
+        /// DB cluster resource identifiers.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -134,8 +139,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property IncludeShared. 
         /// <para>
-        /// Optional Boolean parameter that specifies whether the output includes information
-        /// about clusters shared from other Amazon Web Services accounts.
+        /// Specifies whether the output includes information about clusters shared from other
+        /// Amazon Web Services accounts.
         /// </para>
         /// </summary>
         public bool IncludeShared

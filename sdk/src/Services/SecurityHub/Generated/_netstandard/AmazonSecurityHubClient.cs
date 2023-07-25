@@ -44,8 +44,8 @@ namespace Amazon.SecurityHub
     /// Hub collects security data from Amazon Web Services accounts, services, and integrated
     /// third-party products and helps you analyze security trends in your environment to
     /// identify the highest priority security issues. For more information about Security
-    /// Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
-    /// <i>Security HubUser Guide</i> </a>.
+    /// Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">Security
+    /// HubUser Guide</a>.
     /// 
     ///  
     /// <para>
@@ -53,8 +53,8 @@ namespace Amazon.SecurityHub
     /// the Amazon Web Services Region that is currently active or in the specific Amazon
     /// Web Services Region that you specify in your request. Any configuration or settings
     /// change that results from the operation is applied only to that Region. To make the
-    /// same change in other Regions, execute the same command for each Region to apply the
-    /// change to.
+    /// same change in other Regions, run the same command for each Region in which you want
+    /// to apply the change.
     /// </para>
     ///  
     /// <para>
@@ -70,7 +70,7 @@ namespace Amazon.SecurityHub
     /// </para>
     ///  <ul> <li> 
     /// <para>
-    ///  <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per second,
+    ///  <code>BatchEnableStandards</code> - <code>RateLimit</code> of 1 request per second.
     /// <code>BurstLimit</code> of 1 request per second.
     /// </para>
     ///  </li> <li> 
@@ -90,7 +90,7 @@ namespace Amazon.SecurityHub
     /// </para>
     ///  </li> <li> 
     /// <para>
-    ///  <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per second,
+    ///  <code>UpdateStandardsControl</code> - <code>RateLimit</code> of 1 request per second.
     /// <code>BurstLimit</code> of 5 requests per second.
     /// </para>
     ///  </li> <li> 
@@ -160,7 +160,7 @@ namespace Amazon.SecurityHub
         /// </summary>
         /// <param name="config">The AmazonSecurityHubClient Configuration Object</param>
         public AmazonSecurityHubClient(AmazonSecurityHubConfig config)
-            : base(FallbackCredentialsFactory.GetCredentials(), config) { }
+            : base(FallbackCredentialsFactory.GetCredentials(config), config){}
 
 
         /// <summary>
@@ -467,6 +467,58 @@ namespace Amazon.SecurityHub
 
         #endregion
         
+        #region  BatchDeleteAutomationRules
+
+        internal virtual BatchDeleteAutomationRulesResponse BatchDeleteAutomationRules(BatchDeleteAutomationRulesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchDeleteAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchDeleteAutomationRulesResponseUnmarshaller.Instance;
+
+            return Invoke<BatchDeleteAutomationRulesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Deletes one or more automation rules.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchDeleteAutomationRules service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchDeleteAutomationRules service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.ResourceNotFoundException">
+        /// The request was rejected because we can't find the specified resource.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchDeleteAutomationRules">REST API Reference for BatchDeleteAutomationRules Operation</seealso>
+        public virtual Task<BatchDeleteAutomationRulesResponse> BatchDeleteAutomationRulesAsync(BatchDeleteAutomationRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchDeleteAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchDeleteAutomationRulesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchDeleteAutomationRulesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  BatchDisableStandards
 
         internal virtual BatchDisableStandardsResponse BatchDisableStandards(BatchDisableStandardsRequest request)
@@ -574,6 +626,162 @@ namespace Amazon.SecurityHub
             options.ResponseUnmarshaller = BatchEnableStandardsResponseUnmarshaller.Instance;
 
             return InvokeAsync<BatchEnableStandardsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchGetAutomationRules
+
+        internal virtual BatchGetAutomationRulesResponse BatchGetAutomationRules(BatchGetAutomationRulesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetAutomationRulesResponseUnmarshaller.Instance;
+
+            return Invoke<BatchGetAutomationRulesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Retrieves a list of details for automation rules based on rule Amazon Resource Names
+        /// (ARNs).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetAutomationRules service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchGetAutomationRules service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.AccessDeniedException">
+        /// You don't have permission to perform the action specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.ResourceNotFoundException">
+        /// The request was rejected because we can't find the specified resource.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchGetAutomationRules">REST API Reference for BatchGetAutomationRules Operation</seealso>
+        public virtual Task<BatchGetAutomationRulesResponse> BatchGetAutomationRulesAsync(BatchGetAutomationRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetAutomationRulesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchGetAutomationRulesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchGetSecurityControls
+
+        internal virtual BatchGetSecurityControlsResponse BatchGetSecurityControls(BatchGetSecurityControlsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetSecurityControlsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetSecurityControlsResponseUnmarshaller.Instance;
+
+            return Invoke<BatchGetSecurityControlsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Provides details about a batch of security controls for the current Amazon Web Services
+        /// account and Amazon Web Services Region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetSecurityControls service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchGetSecurityControls service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchGetSecurityControls">REST API Reference for BatchGetSecurityControls Operation</seealso>
+        public virtual Task<BatchGetSecurityControlsResponse> BatchGetSecurityControlsAsync(BatchGetSecurityControlsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetSecurityControlsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetSecurityControlsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchGetSecurityControlsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  BatchGetStandardsControlAssociations
+
+        internal virtual BatchGetStandardsControlAssociationsResponse BatchGetStandardsControlAssociations(BatchGetStandardsControlAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<BatchGetStandardsControlAssociationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// For a batch of security controls and standards, identifies whether each control is
+        /// currently enabled or disabled in a standard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchGetStandardsControlAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchGetStandardsControlAssociations service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchGetStandardsControlAssociations">REST API Reference for BatchGetStandardsControlAssociations Operation</seealso>
+        public virtual Task<BatchGetStandardsControlAssociationsResponse> BatchGetStandardsControlAssociationsAsync(BatchGetStandardsControlAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchGetStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchGetStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchGetStandardsControlAssociationsResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -706,6 +914,59 @@ namespace Amazon.SecurityHub
 
         #endregion
         
+        #region  BatchUpdateAutomationRules
+
+        internal virtual BatchUpdateAutomationRulesResponse BatchUpdateAutomationRules(BatchUpdateAutomationRulesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateAutomationRulesResponseUnmarshaller.Instance;
+
+            return Invoke<BatchUpdateAutomationRulesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Updates one or more automation rules based on rule Amazon Resource Names (ARNs) and
+        /// input parameters.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdateAutomationRules service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchUpdateAutomationRules service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.ResourceNotFoundException">
+        /// The request was rejected because we can't find the specified resource.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchUpdateAutomationRules">REST API Reference for BatchUpdateAutomationRules Operation</seealso>
+        public virtual Task<BatchUpdateAutomationRulesResponse> BatchUpdateAutomationRulesAsync(BatchUpdateAutomationRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateAutomationRulesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchUpdateAutomationRulesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  BatchUpdateFindings
 
         internal virtual BatchUpdateFindingsResponse BatchUpdateFindings(BatchUpdateFindingsRequest request)
@@ -812,6 +1073,56 @@ namespace Amazon.SecurityHub
 
         #endregion
         
+        #region  BatchUpdateStandardsControlAssociations
+
+        internal virtual BatchUpdateStandardsControlAssociationsResponse BatchUpdateStandardsControlAssociations(BatchUpdateStandardsControlAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<BatchUpdateStandardsControlAssociationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// For a batch of security controls and standards, this operation updates the enablement
+        /// status of a control in a standard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchUpdateStandardsControlAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the BatchUpdateStandardsControlAssociations service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/BatchUpdateStandardsControlAssociations">REST API Reference for BatchUpdateStandardsControlAssociations Operation</seealso>
+        public virtual Task<BatchUpdateStandardsControlAssociationsResponse> BatchUpdateStandardsControlAssociationsAsync(BatchUpdateStandardsControlAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = BatchUpdateStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = BatchUpdateStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchUpdateStandardsControlAssociationsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateActionTarget
 
         internal virtual CreateActionTargetResponse CreateActionTarget(CreateActionTargetRequest request)
@@ -866,6 +1177,58 @@ namespace Amazon.SecurityHub
             options.ResponseUnmarshaller = CreateActionTargetResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateActionTargetResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateAutomationRule
+
+        internal virtual CreateAutomationRuleResponse CreateAutomationRule(CreateAutomationRuleRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateAutomationRuleRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateAutomationRuleResponseUnmarshaller.Instance;
+
+            return Invoke<CreateAutomationRuleResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Creates an automation rule based on input parameters.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateAutomationRule service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the CreateAutomationRule service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.AccessDeniedException">
+        /// You don't have permission to perform the action specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/CreateAutomationRule">REST API Reference for CreateAutomationRule Operation</seealso>
+        public virtual Task<CreateAutomationRuleResponse> CreateAutomationRuleAsync(CreateAutomationRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = CreateAutomationRuleRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = CreateAutomationRuleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateAutomationRuleResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -1119,8 +1482,13 @@ namespace Amazon.SecurityHub
         /// 
         ///  
         /// <para>
-        /// This operation is only used by accounts that are not part of an organization. Organization
-        /// accounts do not receive invitations.
+        /// A prospective member account uses this operation to decline an invitation to become
+        /// a member.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation is only called by member accounts that aren't part of an organization.
+        /// Organization accounts don't receive invitations.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeclineInvitations service method.</param>
@@ -1341,8 +1709,13 @@ namespace Amazon.SecurityHub
         /// 
         ///  
         /// <para>
-        /// This operation is only used by accounts that are not part of an organization. Organization
-        /// accounts do not receive invitations.
+        /// A Security Hub administrator account can use this operation to delete invitations
+        /// sent to one or more member accounts.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation is only used to delete invitations that are sent to member accounts
+        /// that aren't part of an organization. Organization accounts don't receive invitations.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteInvitations service method.</param>
@@ -2248,11 +2621,11 @@ namespace Amazon.SecurityHub
         ///  
         /// <para>
         /// When you use the <code>EnableSecurityHub</code> operation to enable Security Hub,
-        /// you also automatically enable the following standards.
+        /// you also automatically enable the following standards:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// CIS Amazon Web Services Foundations
+        /// Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2260,12 +2633,11 @@ namespace Amazon.SecurityHub
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard.
-        /// 
+        /// Other standards are not automatically enabled. 
         /// </para>
         ///  
         /// <para>
-        /// To not enable the automatically enabled standards, set <code>EnableDefaultStandards</code>
+        /// To opt out of automatically enabled standards, set <code>EnableDefaultStandards</code>
         /// to <code>false</code>.
         /// </para>
         ///  
@@ -2473,6 +2845,56 @@ namespace Amazon.SecurityHub
             options.ResponseUnmarshaller = GetFindingAggregatorResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetFindingAggregatorResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetFindingHistory
+
+        internal virtual GetFindingHistoryResponse GetFindingHistory(GetFindingHistoryRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetFindingHistoryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetFindingHistoryResponseUnmarshaller.Instance;
+
+            return Invoke<GetFindingHistoryResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Returns history for a Security Hub finding in the last 90 days. The history includes
+        /// changes made to any fields in the Amazon Web Services Security Finding Format (ASFF).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetFindingHistory service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the GetFindingHistory service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/GetFindingHistory">REST API Reference for GetFindingHistory Operation</seealso>
+        public virtual Task<GetFindingHistoryResponse> GetFindingHistoryAsync(GetFindingHistoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = GetFindingHistoryRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = GetFindingHistoryResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetFindingHistoryResponse>(request, options, cancellationToken);
         }
 
         #endregion
@@ -2894,6 +3316,58 @@ namespace Amazon.SecurityHub
 
         #endregion
         
+        #region  ListAutomationRules
+
+        internal virtual ListAutomationRulesResponse ListAutomationRules(ListAutomationRulesRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAutomationRulesResponseUnmarshaller.Instance;
+
+            return Invoke<ListAutomationRulesResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// A list of automation rules and their metadata for the calling account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListAutomationRules service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListAutomationRules service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.AccessDeniedException">
+        /// You don't have permission to perform the action specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/ListAutomationRules">REST API Reference for ListAutomationRules Operation</seealso>
+        public virtual Task<ListAutomationRulesResponse> ListAutomationRulesAsync(ListAutomationRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListAutomationRulesRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListAutomationRulesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListAutomationRulesResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListEnabledProductsForImport
 
         internal virtual ListEnabledProductsForImportResponse ListEnabledProductsForImport(ListEnabledProductsForImportRequest request)
@@ -3151,6 +3625,105 @@ namespace Amazon.SecurityHub
             options.ResponseUnmarshaller = ListOrganizationAdminAccountsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListOrganizationAdminAccountsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListSecurityControlDefinitions
+
+        internal virtual ListSecurityControlDefinitionsResponse ListSecurityControlDefinitions(ListSecurityControlDefinitionsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSecurityControlDefinitionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSecurityControlDefinitionsResponseUnmarshaller.Instance;
+
+            return Invoke<ListSecurityControlDefinitionsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Lists all of the security controls that apply to a specified standard.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListSecurityControlDefinitions service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListSecurityControlDefinitions service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/ListSecurityControlDefinitions">REST API Reference for ListSecurityControlDefinitions Operation</seealso>
+        public virtual Task<ListSecurityControlDefinitionsResponse> ListSecurityControlDefinitionsAsync(ListSecurityControlDefinitionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListSecurityControlDefinitionsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListSecurityControlDefinitionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListSecurityControlDefinitionsResponse>(request, options, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListStandardsControlAssociations
+
+        internal virtual ListStandardsControlAssociationsResponse ListStandardsControlAssociations(ListStandardsControlAssociationsRequest request)
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return Invoke<ListStandardsControlAssociationsResponse>(request, options);
+        }
+
+
+
+        /// <summary>
+        /// Specifies whether a control is currently enabled or disabled in each enabled standard
+        /// in the calling account.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListStandardsControlAssociations service method.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// 
+        /// <returns>The response from the ListStandardsControlAssociations service method, as returned by SecurityHub.</returns>
+        /// <exception cref="Amazon.SecurityHub.Model.InternalException">
+        /// Internal server error.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidAccessException">
+        /// The account doesn't have permission to perform this action.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.InvalidInputException">
+        /// The request was rejected because you supplied an invalid or out-of-range value for
+        /// an input parameter.
+        /// </exception>
+        /// <exception cref="Amazon.SecurityHub.Model.LimitExceededException">
+        /// The request was rejected because it attempted to create resources beyond the current
+        /// Amazon Web Services account or throttling limits. The error code describes the limit
+        /// exceeded.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/ListStandardsControlAssociations">REST API Reference for ListStandardsControlAssociations Operation</seealso>
+        public virtual Task<ListStandardsControlAssociationsResponse> ListStandardsControlAssociationsAsync(ListStandardsControlAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var options = new InvokeOptions();
+            options.RequestMarshaller = ListStandardsControlAssociationsRequestMarshaller.Instance;
+            options.ResponseUnmarshaller = ListStandardsControlAssociationsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListStandardsControlAssociationsResponse>(request, options, cancellationToken);
         }
 
         #endregion
